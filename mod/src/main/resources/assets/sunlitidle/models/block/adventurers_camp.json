@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "sunlitidle:block/adventurers_camp_top",
+    "side": "sunlitidle:block/adventurers_camp_side",
+    "bottom": "sunlitidle:block/adventurers_camp_bottom"
+  }
+}
