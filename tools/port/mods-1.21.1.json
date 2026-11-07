@@ -45,7 +45,8 @@
     "embeddium": "replaced by Sodium",
     "item-filters": "replaced by FTB Filter System",
     "radium-reforged": "incompatible with Create 6 on 1.21.1; replaced by Lithium",
-    "create-extra-gauges": "needs Create: Deployer API, which is incompatible with Create Factory Logistics"
+    "create-extra-gauges": "needs Create: Deployer API, which is incompatible with Create Factory Logistics",
+    "powerfuljs": "its Create mixin crashes Create 6.0.10; no scripts use it"
   },
   "add": [
     {
