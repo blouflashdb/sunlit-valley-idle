@@ -31,11 +31,15 @@ jobs:
           JAR=$(ls mod/build/libs/sunlitidle-*.jar | grep -v -- '-sources' | head -n1)
           VERSION="0.1.0-dev.${GITHUB_RUN_NUMBER}"
           python3 tools/export_curseforge.py --mod-jar "$JAR" --version "$VERSION" --out "build/sunlit-valley-idle-${VERSION}.zip"
+          # GitHub zips every artifact, so upload the unpacked pack: the downloaded
+          # artifact zip then has manifest.json at its root and imports directly.
+          mkdir -p build/pack && unzip -q "build/sunlit-valley-idle-${VERSION}.zip" -d build/pack
+          echo "PACK_VERSION=${VERSION}" >> "$GITHUB_ENV"
       - uses: actions/upload-artifact@v4
         with:
           name: sunlitidle-mod
           path: mod/build/libs/*.jar
       - uses: actions/upload-artifact@v4
         with:
-          name: sunlit-valley-idle-curseforge
-          path: build/*.zip
+          name: sunlit-valley-idle-${{ env.PACK_VERSION }}-curseforge
+          path: build/pack/
