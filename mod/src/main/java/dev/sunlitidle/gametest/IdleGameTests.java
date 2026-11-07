@@ -14,6 +14,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.common.util.FakePlayerFactory;
 import net.minecraftforge.gametest.GameTestHolder;
 import net.minecraftforge.gametest.PrefixGameTestTemplate;
 
@@ -24,8 +26,11 @@ public final class IdleGameTests {
     private IdleGameTests() {
     }
 
+    /** A Forge fake player: a real ServerPlayer without a network connection, which the mock player lacks. */
     private static ServerPlayer player(GameTestHelper helper) {
-        return helper.makeMockServerPlayerInLevel();
+        ServerPlayer player = FakePlayerFactory.getMinecraft(helper.getLevel());
+        player.moveTo(helper.absoluteVec(new Vec3(1.5, 1.0, 1.5)));
+        return player;
     }
 
     @GameTest(template = "empty")
