@@ -54,7 +54,7 @@
     {"slug": "ftb-filter-system", "search": "FTB Filter System", "reason": "replaces Item Filters"}
   ],
   "fallback": {
-    "botania": {"search": "Botania", "reason": "Botania Revived if the official project has no 1.21.1 NeoForge build"},
-    "create-steam-n-rails": {"search": "Steam 'n' Rails", "reason": "unofficial 1.21.1 port if the official project has none"}
+    "botania": {"search": "Botania", "names": ["Botania Revived", "Botania (NeoForge)", "Botania NeoForge", "Botania Unofficial", "Botania Reforged", "Botania Port"], "reason": "Botania Revived if the official project has no 1.21.1 NeoForge build"},
+    "create-steam-n-rails": {"slug": "steam-n-rails-neoforge", "reason": "unofficial 1.21.1 port if the official project has none"}
   }
 }

@@ -92,8 +92,9 @@ def pick_file(mod_id, kind):
     return ok[0]
 
 
-def find_mod(slug=None, search=None, exclude=()):
-    """Return (mod, file) for a slug or the most popular search hit with a 1.21.1 NeoForge build."""
+def find_mod(slug=None, search=None, exclude=(), names=None):
+    """Return (mod, file, seen) for a slug, or for the most popular search hit with a 1.21.1 NeoForge
+    build whose name contains the search text (or equals one of `names`, when given)."""
     if slug:
         hits = cf("/mods/search", gameId=GAME, classId=CLASS_MOD, slug=slug) or []
         for m in hits:
@@ -107,7 +108,11 @@ def find_mod(slug=None, search=None, exclude=()):
         norm = lambda s: re.sub(r"[^a-z0-9]", "", s.lower())
         for m in hits:
             seen.append(f"{m['name']} ({m['slug']})")
-            if str(m["id"]) in exclude or norm(search) not in norm(m["name"]):
+            if str(m["id"]) in exclude:
+                continue
+            if names is not None and norm(m["name"]) not in {norm(n) for n in names}:
+                continue
+            if names is None and norm(search) not in norm(m["name"]):
                 continue
             f = pick_file(m["id"], "MOD")
             if f:
@@ -194,12 +199,13 @@ def main():
             continue
         if slug in fallback:
             fb = fallback[slug]
-            mod, f, seen = find_mod(fb.get("slug"), fb.get("search"), exclude={old["id"]["curseforge"]})
+            mod, f, seen = find_mod(fb.get("slug"), fb.get("search"), exclude={old["id"]["curseforge"]},
+                                    names=fb.get("names"))
             if f:
                 entry = project_entry(old, mod, f, taken)
                 projects[str(f["modId"])] = entry
                 replaced.append((name, f"{mod['name']} ({mod['slug']})", fb["reason"]))
-                print(f"replace {slug:40} -> {mod['slug']} {f['fileName']}", flush=True)
+                print(f"replace {slug:40} -> {mod['slug']} {f['fileName']}; search saw {seen}", flush=True)
                 continue
             print(f"  fallback search for {slug} saw: {seen}", flush=True)
         if old["type"] != "MOD":
