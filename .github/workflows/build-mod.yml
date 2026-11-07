@@ -1,22 +1,13 @@
-name: Build mod
+name: Build mod and pack
 
 on:
   push:
-    paths:
-      - 'mod/**'
-      - '.github/workflows/build-mod.yml'
   pull_request:
-    paths:
-      - 'mod/**'
-      - '.github/workflows/build-mod.yml'
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: mod
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
@@ -24,10 +15,24 @@ jobs:
           distribution: temurin
           java-version: '17'
       - uses: gradle/actions/setup-gradle@v4
-      - run: chmod +x gradlew
-      - run: ./gradlew build --no-daemon
-      - run: ./gradlew runGameTestServer --no-daemon
+      - name: Build mod and run unit tests
+        working-directory: mod
+        run: |
+          chmod +x gradlew
+          ./gradlew build --no-daemon
+      - name: Run in-game tests
+        working-directory: mod
+        run: ./gradlew runGameTestServer --no-daemon
+      - name: Export CurseForge pack
+        run: |
+          JAR=$(ls mod/build/libs/sunlitidle-*.jar | grep -v -- '-sources' | head -n1)
+          VERSION="0.1.0-dev.${GITHUB_RUN_NUMBER}"
+          python3 tools/export_curseforge.py --mod-jar "$JAR" --version "$VERSION" --out "build/sunlit-valley-idle-${VERSION}.zip"
       - uses: actions/upload-artifact@v4
         with:
           name: sunlitidle-mod
           path: mod/build/libs/*.jar
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sunlit-valley-idle-curseforge
+          path: build/*.zip
