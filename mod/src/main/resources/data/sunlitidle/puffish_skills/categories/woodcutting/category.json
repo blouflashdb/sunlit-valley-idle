@@ -1,0 +1,14 @@
+{
+  "unlocked_by_default": true,
+  "title": {
+    "translate": "sunlitidle.skills.woodcutting.category.title"
+  },
+  "icon": {
+    "type": "item",
+    "data": {
+      "item": "minecraft:iron_axe"
+    }
+  },
+  "background": "textures/block/oak_planks.png",
+  "spent_points_limit": 12
+}

@@ -2,6 +2,9 @@ package dev.sunlitidle;
 
 import com.mojang.logging.LogUtils;
 import dev.sunlitidle.client.ClientSetup;
+import dev.sunlitidle.idle.IdleAttributes;
+import dev.sunlitidle.idle.IdleService;
+import dev.sunlitidle.network.IdleNetwork;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
@@ -19,6 +22,9 @@ public final class SunlitIdle {
     public SunlitIdle() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         ModRegistry.register(bus);
+        IdleAttributes.register(bus);
+        IdleNetwork.register();
+        IdleService.init();
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> ClientSetup.init(bus));
     }

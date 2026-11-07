@@ -10,7 +10,8 @@ All progression should be possible while AFK. Farming, animal husbandry, process
 
 - **Idle mechanics:** Automated production that keeps running without the player.
 - **Autobattler:** Virtual dungeon blocks where an upgradable companion fights on its own. The player supplies gear and food; the companion consumes them and produces loot. Several blocks can run in parallel, each on its own dungeon tier.
-- **AFK progression:** Every progression step should be reachable without constant clicking.
+- **Idle skills:** A window that opens with **I** from the first second. Woodcutting, Mining, Foraging, Farming, Fishing and Husbandry run idle actions that roll the pack's real loot, level the same skill trees as manual play, and keep going while offline (up to 24 hours). See [docs/idle-skills.md](docs/idle-skills.md).
+- **AFK progression:** Every progression step should be reachable without constant clicking. Crafting stays hands-on.
 
 ## Repository layout
 

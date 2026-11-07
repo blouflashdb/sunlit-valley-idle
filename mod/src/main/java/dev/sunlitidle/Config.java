@@ -8,6 +8,8 @@ public final class Config {
     public static final ForgeConfigSpec.IntValue MAX_LEVEL;
     public static final ForgeConfigSpec.IntValue RETREAT_SECONDS;
     public static final ForgeConfigSpec.DoubleValue SKILL_XP_FACTOR;
+    public static final ForgeConfigSpec.DoubleValue MAX_OFFLINE_HOURS;
+    public static final ForgeConfigSpec.IntValue CATCH_UP_SECONDS_PER_TICK;
 
     static {
         ForgeConfigSpec.Builder b = new ForgeConfigSpec.Builder();
@@ -17,6 +19,12 @@ public final class Config {
                 .defineInRange("retreatSeconds", 60, 0, 3600);
         SKILL_XP_FACTOR = b.comment("Adventuring skill XP per kill = enemy health * this factor (0 disables)")
                 .defineInRange("skillXpFactor", 0.5, 0.0, 10.0);
+        b.pop();
+        b.push("idle");
+        MAX_OFFLINE_HOURS = b.comment("Hours of offline time that idle skills catch up on login (0 disables)")
+                .defineInRange("maxOfflineHours", 24.0, 0.0, 168.0);
+        CATCH_UP_SECONDS_PER_TICK = b.comment("Offline seconds processed per second of play while catching up")
+                .defineInRange("catchUpSecondsPerSecond", 900, 1, 86400);
         b.pop();
         TIERS[0] = new TierConfig(b, 1, 10, 2, 1, 150, 1, 1);
         TIERS[1] = new TierConfig(b, 2, 25, 4, 2, 400, 3, 5);

@@ -3,6 +3,7 @@ package dev.sunlitidle;
 import dev.sunlitidle.camp.AdventurerCampBlock;
 import dev.sunlitidle.camp.AdventurerCampBlockEntity;
 import dev.sunlitidle.camp.CampMenu;
+import dev.sunlitidle.idle.IdleMenu;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.inventory.MenuType;
@@ -45,6 +46,9 @@ public final class ModRegistry {
 
     public static final RegistryObject<MenuType<CampMenu>> CAMP_MENU = MENUS.register("adventurers_camp",
             () -> IForgeMenuType.create(CampMenu::fromNetwork));
+
+    public static final RegistryObject<MenuType<IdleMenu>> IDLE_MENU = MENUS.register("idle_skills",
+            () -> IForgeMenuType.create(IdleMenu::fromNetwork));
 
     public static final RegistryObject<CreativeModeTab> TAB = TABS.register("main", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.sunlitidle"))

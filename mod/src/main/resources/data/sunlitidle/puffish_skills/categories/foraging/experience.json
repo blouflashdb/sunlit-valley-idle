@@ -1,0 +1,117 @@
+{
+  "experience_per_level": {
+    "type": "values",
+    "data": {
+      "values": [
+        250,
+        500,
+        1000,
+        2000,
+        5000,
+        6000,
+        8000,
+        10000,
+        13000,
+        16000,
+        20000,
+        25000
+      ]
+    }
+  },
+  "sources": [
+    {
+      "type": "puffish_skills:mine_block",
+      "data": {
+        "variables": {
+          "flower": {
+            "operations": [
+              {
+                "type": "get_mined_block_state"
+              },
+              {
+                "type": "puffish_skills:test",
+                "data": {
+                  "block": "#minecraft:flowers"
+                }
+              }
+            ]
+          },
+          "grass": {
+            "operations": [
+              {
+                "type": "get_mined_block_state"
+              },
+              {
+                "type": "puffish_skills:test",
+                "data": {
+                  "block": "minecraft:grass"
+                }
+              }
+            ]
+          },
+          "fern": {
+            "operations": [
+              {
+                "type": "get_mined_block_state"
+              },
+              {
+                "type": "puffish_skills:test",
+                "data": {
+                  "block": "minecraft:fern"
+                }
+              }
+            ]
+          },
+          "brown_mushroom": {
+            "operations": [
+              {
+                "type": "get_mined_block_state"
+              },
+              {
+                "type": "puffish_skills:test",
+                "data": {
+                  "block": "minecraft:brown_mushroom"
+                }
+              }
+            ]
+          },
+          "red_mushroom": {
+            "operations": [
+              {
+                "type": "get_mined_block_state"
+              },
+              {
+                "type": "puffish_skills:test",
+                "data": {
+                  "block": "minecraft:red_mushroom"
+                }
+              }
+            ]
+          }
+        },
+        "experience": [
+          {
+            "condition": "flower",
+            "expression": "3"
+          },
+          {
+            "condition": "grass",
+            "expression": "1"
+          },
+          {
+            "condition": "fern",
+            "expression": "1"
+          },
+          {
+            "condition": "brown_mushroom",
+            "expression": "3"
+          },
+          {
+            "condition": "red_mushroom",
+            "expression": "3"
+          }
+        ]
+      }
+    }
+  ]
+}

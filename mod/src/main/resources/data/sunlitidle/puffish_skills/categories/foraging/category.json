@@ -1,0 +1,14 @@
+{
+  "unlocked_by_default": true,
+  "title": {
+    "translate": "sunlitidle.skills.foraging.category.title"
+  },
+  "icon": {
+    "type": "item",
+    "data": {
+      "item": "minecraft:sweet_berries"
+    }
+  },
+  "background": "textures/block/moss_block.png",
+  "spent_points_limit": 12
+}
