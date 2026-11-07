@@ -4,10 +4,12 @@ import net.minecraftforge.common.ForgeConfigSpec;
 
 public final class Config {
     public static final ForgeConfigSpec SPEC;
-    private static final TierConfig[] TIERS = new TierConfig[3];
+    private static final TierConfig[] TIERS = new TierConfig[5];
     public static final ForgeConfigSpec.IntValue MAX_LEVEL;
     public static final ForgeConfigSpec.IntValue RETREAT_SECONDS;
     public static final ForgeConfigSpec.DoubleValue SKILL_XP_FACTOR;
+    public static final ForgeConfigSpec.DoubleValue MAX_OFFLINE_HOURS;
+    public static final ForgeConfigSpec.IntValue CATCH_UP_SECONDS_PER_TICK;
 
     static {
         ForgeConfigSpec.Builder b = new ForgeConfigSpec.Builder();
@@ -18,9 +20,17 @@ public final class Config {
         SKILL_XP_FACTOR = b.comment("Adventuring skill XP per kill = enemy health * this factor (0 disables)")
                 .defineInRange("skillXpFactor", 0.5, 0.0, 10.0);
         b.pop();
+        b.push("idle");
+        MAX_OFFLINE_HOURS = b.comment("Hours of offline time that idle skills catch up on login (0 disables)")
+                .defineInRange("maxOfflineHours", 24.0, 0.0, 168.0);
+        CATCH_UP_SECONDS_PER_TICK = b.comment("Offline seconds processed per second of play while catching up")
+                .defineInRange("catchUpSecondsPerSecond", 900, 1, 86400);
+        b.pop();
         TIERS[0] = new TierConfig(b, 1, 10, 2, 1, 150, 1, 1);
         TIERS[1] = new TierConfig(b, 2, 25, 4, 2, 400, 3, 5);
         TIERS[2] = new TierConfig(b, 3, 60, 7, 3, 900, 8, 10);
+        TIERS[3] = new TierConfig(b, 4, 140, 11, 4, 2500, 18, 15);
+        TIERS[4] = new TierConfig(b, 5, 300, 16, 5, 8000, 35, 22);
         SPEC = b.build();
     }
 

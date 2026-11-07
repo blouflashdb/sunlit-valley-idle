@@ -56,6 +56,8 @@ dependencies {
 
     // Jade 11.13.2, the version the pack ships; optional at runtime.
     compileOnly fg.deobf("curse.maven:jade-324717:6855440")
+    // Pufferfish's Skills 0.16.1, the version the pack ships; optional at runtime (skill levels and trees).
+    compileOnly fg.deobf("curse.maven:puffish-skills-835091:6614501")
 
     testImplementation platform('org.junit:junit-bom:5.10.2')
     testImplementation 'org.junit.jupiter:junit-jupiter'

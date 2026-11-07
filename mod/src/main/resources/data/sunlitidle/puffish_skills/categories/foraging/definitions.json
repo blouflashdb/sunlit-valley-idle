@@ -1,0 +1,172 @@
+{
+  "manual": {
+    "title": {
+      "translate": "sunlitidle.skills.foraging.manual"
+    },
+    "description": {
+      "translate": "sunlitidle.skills.foraging.manual.description"
+    },
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:sweet_berries"
+      }
+    },
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_skills:fortune",
+          "value": 1,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "speed": {
+    "title": {
+      "translate": "sunlitidle.skills.foraging.speed"
+    },
+    "description": {
+      "translate": "sunlitidle.skills.foraging.speed.description"
+    },
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:clock"
+      }
+    },
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "sunlitidle:foraging_speed",
+          "value": 0.1,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "yield": {
+    "title": {
+      "translate": "sunlitidle.skills.foraging.yield"
+    },
+    "description": {
+      "translate": "sunlitidle.skills.foraging.yield.description"
+    },
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:poppy"
+      }
+    },
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "sunlitidle:foraging_yield",
+          "value": 0.1,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "speed_cap": {
+    "title": {
+      "translate": "sunlitidle.skills.foraging.speed_cap"
+    },
+    "description": {
+      "translate": "sunlitidle.skills.foraging.speed_cap.description"
+    },
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:clock"
+      }
+    },
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "sunlitidle:foraging_speed",
+          "value": 0.25,
+          "operation": "addition"
+        }
+      }
+    ],
+    "frame": {
+      "type": "advancement",
+      "data": {
+        "frame": "challenge"
+      }
+    }
+  },
+  "yield_cap": {
+    "title": {
+      "translate": "sunlitidle.skills.foraging.yield_cap"
+    },
+    "description": {
+      "translate": "sunlitidle.skills.foraging.yield_cap.description"
+    },
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:poppy"
+      }
+    },
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "sunlitidle:foraging_yield",
+          "value": 0.25,
+          "operation": "addition"
+        }
+      }
+    ],
+    "frame": {
+      "type": "advancement",
+      "data": {
+        "frame": "challenge"
+      }
+    }
+  },
+  "master": {
+    "title": {
+      "translate": "sunlitidle.skills.foraging.master"
+    },
+    "description": {
+      "translate": "sunlitidle.skills.foraging.master.description"
+    },
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:sweet_berries"
+      }
+    },
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "sunlitidle:foraging_speed",
+          "value": 0.15,
+          "operation": "addition"
+        }
+      },
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "sunlitidle:foraging_yield",
+          "value": 0.15,
+          "operation": "addition"
+        }
+      }
+    ],
+    "frame": {
+      "type": "advancement",
+      "data": {
+        "frame": "challenge"
+      }
+    }
+  }
+}

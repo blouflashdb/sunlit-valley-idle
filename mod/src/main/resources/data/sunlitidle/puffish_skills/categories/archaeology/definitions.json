@@ -1,0 +1,172 @@
+{
+  "manual": {
+    "title": {
+      "translate": "sunlitidle.skills.archaeology.manual"
+    },
+    "description": {
+      "translate": "sunlitidle.skills.archaeology.manual.description"
+    },
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:brush"
+      }
+    },
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "minecraft:generic.luck",
+          "value": 1,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "speed": {
+    "title": {
+      "translate": "sunlitidle.skills.archaeology.speed"
+    },
+    "description": {
+      "translate": "sunlitidle.skills.archaeology.speed.description"
+    },
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:clock"
+      }
+    },
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "sunlitidle:archaeology_speed",
+          "value": 0.1,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "yield": {
+    "title": {
+      "translate": "sunlitidle.skills.archaeology.yield"
+    },
+    "description": {
+      "translate": "sunlitidle.skills.archaeology.yield.description"
+    },
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:archer_pottery_sherd"
+      }
+    },
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "sunlitidle:archaeology_yield",
+          "value": 0.1,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "speed_cap": {
+    "title": {
+      "translate": "sunlitidle.skills.archaeology.speed_cap"
+    },
+    "description": {
+      "translate": "sunlitidle.skills.archaeology.speed_cap.description"
+    },
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:clock"
+      }
+    },
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "sunlitidle:archaeology_speed",
+          "value": 0.25,
+          "operation": "addition"
+        }
+      }
+    ],
+    "frame": {
+      "type": "advancement",
+      "data": {
+        "frame": "challenge"
+      }
+    }
+  },
+  "yield_cap": {
+    "title": {
+      "translate": "sunlitidle.skills.archaeology.yield_cap"
+    },
+    "description": {
+      "translate": "sunlitidle.skills.archaeology.yield_cap.description"
+    },
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:archer_pottery_sherd"
+      }
+    },
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "sunlitidle:archaeology_yield",
+          "value": 0.25,
+          "operation": "addition"
+        }
+      }
+    ],
+    "frame": {
+      "type": "advancement",
+      "data": {
+        "frame": "challenge"
+      }
+    }
+  },
+  "master": {
+    "title": {
+      "translate": "sunlitidle.skills.archaeology.master"
+    },
+    "description": {
+      "translate": "sunlitidle.skills.archaeology.master.description"
+    },
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:brush"
+      }
+    },
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "sunlitidle:archaeology_speed",
+          "value": 0.15,
+          "operation": "addition"
+        }
+      },
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "sunlitidle:archaeology_yield",
+          "value": 0.15,
+          "operation": "addition"
+        }
+      }
+    ],
+    "frame": {
+      "type": "advancement",
+      "data": {
+        "frame": "challenge"
+      }
+    }
+  }
+}

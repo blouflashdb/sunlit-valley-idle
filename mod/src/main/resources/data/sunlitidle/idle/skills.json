@@ -1,0 +1,3140 @@
+{
+ "skills": [
+  {
+   "id": "woodcutting",
+   "category": "sunlitidle:woodcutting",
+   "icon": "minecraft:iron_axe",
+   "tool": "axe",
+   "tool_required": false,
+   "actions": [
+    {
+     "id": "oak",
+     "level": 0,
+     "seconds": 3.0,
+     "xp": 3,
+     "icon": "minecraft:oak_log",
+     "drops": [
+      {
+       "block": "minecraft:oak_log"
+      },
+      {
+       "block": "minecraft:oak_leaves",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "birch",
+     "level": 0,
+     "seconds": 3.0,
+     "xp": 3,
+     "icon": "minecraft:birch_log",
+     "drops": [
+      {
+       "block": "minecraft:birch_log"
+      },
+      {
+       "block": "minecraft:birch_leaves",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "spruce",
+     "level": 1,
+     "seconds": 3.5,
+     "xp": 4,
+     "icon": "minecraft:spruce_log",
+     "drops": [
+      {
+       "block": "minecraft:spruce_log"
+      },
+      {
+       "block": "minecraft:spruce_leaves",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "jungle",
+     "level": 2,
+     "seconds": 3.5,
+     "xp": 4,
+     "icon": "minecraft:jungle_log",
+     "drops": [
+      {
+       "block": "minecraft:jungle_log"
+      },
+      {
+       "block": "minecraft:jungle_leaves",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "acacia",
+     "level": 2,
+     "seconds": 3.5,
+     "xp": 4,
+     "icon": "minecraft:acacia_log",
+     "drops": [
+      {
+       "block": "minecraft:acacia_log"
+      },
+      {
+       "block": "minecraft:acacia_leaves",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "dark_oak",
+     "level": 3,
+     "seconds": 4.0,
+     "xp": 5,
+     "icon": "minecraft:dark_oak_log",
+     "drops": [
+      {
+       "block": "minecraft:dark_oak_log"
+      },
+      {
+       "block": "minecraft:dark_oak_leaves",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "cherry",
+     "level": 3,
+     "seconds": 4.0,
+     "xp": 5,
+     "icon": "minecraft:cherry_log",
+     "drops": [
+      {
+       "block": "minecraft:cherry_log"
+      },
+      {
+       "block": "minecraft:cherry_leaves",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "mangrove",
+     "level": 4,
+     "seconds": 4.5,
+     "xp": 6,
+     "icon": "minecraft:mangrove_log",
+     "drops": [
+      {
+       "block": "minecraft:mangrove_log"
+      },
+      {
+       "block": "minecraft:mangrove_leaves",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "maple",
+     "level": 4,
+     "seconds": 4.5,
+     "xp": 6,
+     "icon": "autumnity:maple_log",
+     "drops": [
+      {
+       "block": "autumnity:maple_log"
+      },
+      {
+       "block": "autumnity:maple_leaves",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "pine",
+     "level": 5,
+     "seconds": 5.0,
+     "xp": 7,
+     "icon": "meadow:pine_log",
+     "drops": [
+      {
+       "block": "meadow:pine_log"
+      },
+      {
+       "block": "meadow:pine_leaves",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "chestnut",
+     "level": 5,
+     "seconds": 5.0,
+     "xp": 7,
+     "icon": "windswept:chestnut_log",
+     "drops": [
+      {
+       "block": "windswept:chestnut_log"
+      },
+      {
+       "block": "windswept:chestnut_leaves",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "holly",
+     "level": 5,
+     "seconds": 5.0,
+     "xp": 7,
+     "icon": "windswept:holly_log",
+     "drops": [
+      {
+       "block": "windswept:holly_log"
+      },
+      {
+       "block": "windswept:holly_leaves",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "aspen",
+     "level": 6,
+     "seconds": 5.5,
+     "xp": 8,
+     "icon": "atmospheric:aspen_log",
+     "drops": [
+      {
+       "block": "atmospheric:aspen_log"
+      },
+      {
+       "block": "atmospheric:aspen_leaves",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "laurel",
+     "level": 6,
+     "seconds": 5.5,
+     "xp": 8,
+     "icon": "atmospheric:laurel_log",
+     "drops": [
+      {
+       "block": "atmospheric:laurel_log"
+      },
+      {
+       "block": "atmospheric:laurel_leaves",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "kousa",
+     "level": 6,
+     "seconds": 5.5,
+     "xp": 8,
+     "icon": "atmospheric:kousa_log",
+     "drops": [
+      {
+       "block": "atmospheric:kousa_log"
+      },
+      {
+       "block": "atmospheric:kousa_leaves",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "palm",
+     "level": 7,
+     "seconds": 6.0,
+     "xp": 9,
+     "icon": "beachparty:palm_log",
+     "drops": [
+      {
+       "block": "beachparty:palm_log"
+      },
+      {
+       "block": "beachparty:palm_leaves",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "rosewood",
+     "level": 7,
+     "seconds": 6.0,
+     "xp": 9,
+     "icon": "atmospheric:rosewood_log",
+     "drops": [
+      {
+       "block": "atmospheric:rosewood_log"
+      },
+      {
+       "block": "atmospheric:rosewood_leaves",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "morado",
+     "level": 7,
+     "seconds": 6.0,
+     "xp": 9,
+     "icon": "atmospheric:morado_log",
+     "drops": [
+      {
+       "block": "atmospheric:morado_log"
+      },
+      {
+       "block": "atmospheric:morado_leaves",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "yucca",
+     "level": 7,
+     "seconds": 6.0,
+     "xp": 9,
+     "icon": "atmospheric:yucca_log",
+     "drops": [
+      {
+       "block": "atmospheric:yucca_log"
+      },
+      {
+       "block": "atmospheric:yucca_leaves",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "blossom",
+     "level": 8,
+     "seconds": 6.5,
+     "xp": 11,
+     "icon": "quark:blossom_log",
+     "drops": [
+      {
+       "block": "quark:blossom_log"
+      },
+      {
+       "block": "quark:blue_blossom_leaves",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "dark_cherry",
+     "level": 8,
+     "seconds": 6.5,
+     "xp": 11,
+     "icon": "vinery:dark_cherry_log",
+     "drops": [
+      {
+       "block": "vinery:dark_cherry_log"
+      },
+      {
+       "block": "vinery:dark_cherry_leaves",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "apple",
+     "level": 8,
+     "seconds": 6.5,
+     "xp": 11,
+     "icon": "vinery:apple_log",
+     "drops": [
+      {
+       "block": "vinery:apple_log"
+      },
+      {
+       "block": "vinery:apple_leaves",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "willow",
+     "level": 9,
+     "seconds": 7.0,
+     "xp": 12,
+     "icon": "cluttered:willow_log",
+     "drops": [
+      {
+       "block": "cluttered:willow_log"
+      },
+      {
+       "block": "cluttered:willow_leaves",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "crimson",
+     "level": 9,
+     "seconds": 7.0,
+     "xp": 12,
+     "icon": "minecraft:crimson_stem",
+     "drops": [
+      {
+       "block": "minecraft:crimson_stem"
+      },
+      {
+       "block": "minecraft:nether_wart_block",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "warped",
+     "level": 9,
+     "seconds": 7.0,
+     "xp": 12,
+     "icon": "minecraft:warped_stem",
+     "drops": [
+      {
+       "block": "minecraft:warped_stem"
+      },
+      {
+       "block": "minecraft:warped_wart_block",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "grimwood",
+     "level": 10,
+     "seconds": 7.5,
+     "xp": 14,
+     "icon": "atmospheric:grimwood_log",
+     "drops": [
+      {
+       "block": "atmospheric:grimwood_log"
+      },
+      {
+       "block": "atmospheric:grimwood_leaves",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "azalea",
+     "level": 10,
+     "seconds": 7.5,
+     "xp": 14,
+     "icon": "quark:azalea_log",
+     "drops": [
+      {
+       "block": "quark:azalea_log"
+      },
+      {
+       "block": "minecraft:flowering_azalea_leaves",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "ancient",
+     "level": 11,
+     "seconds": 8.0,
+     "xp": 16,
+     "icon": "quark:ancient_log",
+     "drops": [
+      {
+       "block": "quark:ancient_log"
+      },
+      {
+       "block": "quark:ancient_leaves",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "sappy_maple",
+     "level": 12,
+     "seconds": 8.0,
+     "xp": 18,
+     "icon": "autumnity:sappy_maple_log",
+     "drops": [
+      {
+       "block": "autumnity:sappy_maple_log"
+      },
+      {
+       "block": "autumnity:maple_leaves",
+       "chance": 0.5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mining",
+   "category": "society:mining",
+   "icon": "minecraft:iron_pickaxe",
+   "tool": "pickaxe",
+   "tool_required": true,
+   "actions": [
+    {
+     "id": "stone",
+     "level": 0,
+     "tool_tier": 0,
+     "seconds": 2.5,
+     "xp": 1,
+     "icon": "minecraft:cobblestone",
+     "drops": [
+      {
+       "block": "minecraft:stone"
+      },
+      {
+       "block": "minecraft:andesite",
+       "chance": 0.2
+      },
+      {
+       "block": "minecraft:diorite",
+       "chance": 0.2
+      },
+      {
+       "block": "minecraft:granite",
+       "chance": 0.2
+      }
+     ]
+    },
+    {
+     "id": "earth",
+     "level": 0,
+     "tool_tier": 0,
+     "seconds": 2.5,
+     "xp": 1,
+     "icon": "minecraft:gravel",
+     "drops": [
+      {
+       "block": "minecraft:dirt"
+      },
+      {
+       "block": "minecraft:gravel",
+       "chance": 0.5
+      },
+      {
+       "block": "minecraft:sand",
+       "chance": 0.5
+      },
+      {
+       "block": "minecraft:clay",
+       "chance": 0.2
+      }
+     ]
+    },
+    {
+     "id": "coal",
+     "level": 0,
+     "tool_tier": 0,
+     "seconds": 4.0,
+     "xp": 4,
+     "icon": "minecraft:coal_ore",
+     "drops": [
+      {
+       "block": "minecraft:coal_ore"
+      }
+     ]
+    },
+    {
+     "id": "copper",
+     "level": 1,
+     "tool_tier": 1,
+     "seconds": 4.0,
+     "xp": 5,
+     "icon": "minecraft:copper_ore",
+     "drops": [
+      {
+       "block": "minecraft:copper_ore"
+      }
+     ]
+    },
+    {
+     "id": "sandstone",
+     "level": 1,
+     "tool_tier": 0,
+     "seconds": 3.0,
+     "xp": 2,
+     "icon": "minecraft:sandstone",
+     "drops": [
+      {
+       "block": "minecraft:sandstone"
+      }
+     ]
+    },
+    {
+     "id": "iron",
+     "level": 2,
+     "tool_tier": 1,
+     "seconds": 5.0,
+     "xp": 6,
+     "icon": "minecraft:iron_ore",
+     "drops": [
+      {
+       "block": "minecraft:iron_ore"
+      }
+     ]
+    },
+    {
+     "id": "lapis",
+     "level": 3,
+     "tool_tier": 1,
+     "seconds": 5.0,
+     "xp": 6,
+     "icon": "minecraft:lapis_ore",
+     "drops": [
+      {
+       "block": "minecraft:lapis_ore"
+      }
+     ]
+    },
+    {
+     "id": "zinc",
+     "level": 3,
+     "tool_tier": 1,
+     "seconds": 5.0,
+     "xp": 7,
+     "icon": "create:zinc_ore",
+     "drops": [
+      {
+       "block": "create:zinc_ore"
+      }
+     ]
+    },
+    {
+     "id": "terracotta",
+     "level": 3,
+     "tool_tier": 0,
+     "seconds": 3.5,
+     "xp": 3,
+     "icon": "minecraft:terracotta",
+     "drops": [
+      {
+       "block": "minecraft:terracotta"
+      }
+     ]
+    },
+    {
+     "id": "salt",
+     "level": 4,
+     "tool_tier": 1,
+     "seconds": 5.0,
+     "xp": 6,
+     "icon": "meadow:alpine_salt_ore",
+     "drops": [
+      {
+       "block": "meadow:alpine_salt_ore"
+      }
+     ]
+    },
+    {
+     "id": "gold",
+     "level": 4,
+     "tool_tier": 2,
+     "seconds": 5.5,
+     "xp": 7,
+     "icon": "minecraft:gold_ore",
+     "drops": [
+      {
+       "block": "minecraft:gold_ore"
+      }
+     ]
+    },
+    {
+     "id": "redstone",
+     "level": 4,
+     "tool_tier": 2,
+     "seconds": 5.5,
+     "xp": 7,
+     "icon": "minecraft:redstone_ore",
+     "drops": [
+      {
+       "block": "minecraft:redstone_ore"
+      }
+     ]
+    },
+    {
+     "id": "deepslate",
+     "level": 5,
+     "tool_tier": 1,
+     "seconds": 3.0,
+     "xp": 2,
+     "icon": "minecraft:cobbled_deepslate",
+     "drops": [
+      {
+       "block": "minecraft:deepslate"
+      },
+      {
+       "block": "minecraft:tuff",
+       "chance": 0.3
+      },
+      {
+       "block": "minecraft:calcite",
+       "chance": 0.1
+      }
+     ]
+    },
+    {
+     "id": "geode",
+     "level": 5,
+     "tool_tier": 1,
+     "seconds": 6.0,
+     "xp": 8,
+     "icon": "society:geode_node",
+     "drops": [
+      {
+       "block": "society:geode_node"
+      }
+     ]
+    },
+    {
+     "id": "diamond",
+     "level": 6,
+     "tool_tier": 2,
+     "seconds": 8.0,
+     "xp": 16,
+     "icon": "minecraft:diamond_ore",
+     "drops": [
+      {
+       "block": "minecraft:diamond_ore"
+      }
+     ]
+    },
+    {
+     "id": "netherrack",
+     "level": 6,
+     "tool_tier": 0,
+     "seconds": 2.5,
+     "xp": 3,
+     "icon": "minecraft:netherrack",
+     "drops": [
+      {
+       "block": "minecraft:netherrack"
+      }
+     ]
+    },
+    {
+     "id": "emerald",
+     "level": 7,
+     "tool_tier": 2,
+     "seconds": 8.0,
+     "xp": 16,
+     "icon": "minecraft:emerald_ore",
+     "drops": [
+      {
+       "block": "minecraft:emerald_ore"
+      }
+     ]
+    },
+    {
+     "id": "nether_quartz",
+     "level": 7,
+     "tool_tier": 0,
+     "seconds": 5.0,
+     "xp": 8,
+     "icon": "minecraft:nether_quartz_ore",
+     "drops": [
+      {
+       "block": "minecraft:nether_quartz_ore"
+      }
+     ]
+    },
+    {
+     "id": "nether_gold",
+     "level": 7,
+     "tool_tier": 0,
+     "seconds": 5.0,
+     "xp": 8,
+     "icon": "minecraft:nether_gold_ore",
+     "drops": [
+      {
+       "block": "minecraft:nether_gold_ore"
+      }
+     ]
+    },
+    {
+     "id": "nether_stone",
+     "level": 7,
+     "tool_tier": 0,
+     "seconds": 3.5,
+     "xp": 4,
+     "icon": "minecraft:blackstone",
+     "drops": [
+      {
+       "block": "minecraft:blackstone"
+      },
+      {
+       "block": "minecraft:basalt",
+       "chance": 0.5
+      },
+      {
+       "block": "minecraft:magma_block",
+       "chance": 0.15
+      }
+     ]
+    },
+    {
+     "id": "lead",
+     "level": 8,
+     "tool_tier": 2,
+     "seconds": 7.0,
+     "xp": 12,
+     "icon": "oreganized:lead_ore",
+     "drops": [
+      {
+       "block": "oreganized:lead_ore"
+      }
+     ]
+    },
+    {
+     "id": "silver",
+     "level": 8,
+     "tool_tier": 2,
+     "seconds": 7.0,
+     "xp": 12,
+     "icon": "oreganized:silver_ore",
+     "drops": [
+      {
+       "block": "oreganized:silver_ore"
+      }
+     ]
+    },
+    {
+     "id": "glowstone",
+     "level": 8,
+     "tool_tier": 0,
+     "seconds": 5.0,
+     "xp": 8,
+     "icon": "minecraft:glowstone_dust",
+     "drops": [
+      {
+       "block": "minecraft:glowstone"
+      }
+     ]
+    },
+    {
+     "id": "sparkstone",
+     "level": 9,
+     "tool_tier": 2,
+     "seconds": 8.0,
+     "xp": 14,
+     "icon": "society:sparkstone_ore",
+     "drops": [
+      {
+       "block": "society:sparkstone_ore"
+      }
+     ]
+    },
+    {
+     "id": "amethyst",
+     "level": 9,
+     "tool_tier": 1,
+     "seconds": 6.0,
+     "xp": 10,
+     "icon": "minecraft:amethyst_shard",
+     "drops": [
+      {
+       "block": "minecraft:amethyst_cluster"
+      }
+     ]
+    },
+    {
+     "id": "obsidian",
+     "level": 9,
+     "tool_tier": 3,
+     "seconds": 10.0,
+     "xp": 12,
+     "icon": "minecraft:obsidian",
+     "drops": [
+      {
+       "block": "minecraft:obsidian"
+      }
+     ]
+    },
+    {
+     "id": "magma_geode",
+     "level": 10,
+     "tool_tier": 2,
+     "seconds": 9.0,
+     "xp": 16,
+     "icon": "society:magma_geode_node",
+     "drops": [
+      {
+       "block": "society:magma_geode_node"
+      }
+     ]
+    },
+    {
+     "id": "bismuth",
+     "level": 10,
+     "tool_tier": 2,
+     "seconds": 8.0,
+     "xp": 15,
+     "icon": "etcetera:nether_bismuth_ore",
+     "drops": [
+      {
+       "block": "etcetera:nether_bismuth_ore"
+      }
+     ]
+    },
+    {
+     "id": "prismarine",
+     "level": 10,
+     "tool_tier": 1,
+     "seconds": 6.0,
+     "xp": 10,
+     "icon": "minecraft:prismarine",
+     "drops": [
+      {
+       "block": "minecraft:prismarine"
+      }
+     ]
+    },
+    {
+     "id": "end_stone",
+     "level": 10,
+     "tool_tier": 1,
+     "seconds": 4.0,
+     "xp": 8,
+     "icon": "minecraft:end_stone",
+     "drops": [
+      {
+       "block": "minecraft:end_stone"
+      }
+     ]
+    },
+    {
+     "id": "iridium",
+     "level": 11,
+     "tool_tier": 3,
+     "seconds": 10.0,
+     "xp": 20,
+     "icon": "society:iridium_ore",
+     "drops": [
+      {
+       "block": "society:iridium_ore"
+      }
+     ]
+    },
+    {
+     "id": "purpur",
+     "level": 11,
+     "tool_tier": 1,
+     "seconds": 6.0,
+     "xp": 12,
+     "icon": "minecraft:purpur_block",
+     "drops": [
+      {
+       "block": "minecraft:purpur_block"
+      }
+     ]
+    },
+    {
+     "id": "crying_obsidian",
+     "level": 11,
+     "tool_tier": 3,
+     "seconds": 12.0,
+     "xp": 15,
+     "icon": "minecraft:crying_obsidian",
+     "drops": [
+      {
+       "block": "minecraft:crying_obsidian"
+      }
+     ]
+    },
+    {
+     "id": "omni_geode",
+     "level": 12,
+     "tool_tier": 3,
+     "seconds": 12.0,
+     "xp": 22,
+     "icon": "society:omni_geode_node",
+     "drops": [
+      {
+       "block": "society:omni_geode_node"
+      }
+     ]
+    },
+    {
+     "id": "ancient_debris",
+     "level": 12,
+     "tool_tier": 3,
+     "seconds": 15.0,
+     "xp": 25,
+     "icon": "minecraft:ancient_debris",
+     "drops": [
+      {
+       "block": "minecraft:ancient_debris"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "digging",
+   "category": "sunlitidle:digging",
+   "icon": "minecraft:iron_shovel",
+   "tool": "shovel",
+   "tool_required": false,
+   "actions": [
+    {
+     "id": "dirt",
+     "level": 0,
+     "seconds": 2.0,
+     "xp": 1,
+     "icon": "minecraft:dirt",
+     "drops": [
+      {
+       "block": "minecraft:dirt"
+      },
+      {
+       "block": "minecraft:coarse_dirt",
+       "chance": 0.1
+      }
+     ]
+    },
+    {
+     "id": "sand",
+     "level": 0,
+     "seconds": 2.0,
+     "xp": 1,
+     "icon": "minecraft:sand",
+     "drops": [
+      {
+       "block": "minecraft:sand"
+      }
+     ]
+    },
+    {
+     "id": "gravel",
+     "level": 1,
+     "seconds": 2.5,
+     "xp": 2,
+     "icon": "minecraft:gravel",
+     "drops": [
+      {
+       "block": "minecraft:gravel"
+      }
+     ]
+    },
+    {
+     "id": "clay",
+     "level": 2,
+     "seconds": 3.0,
+     "xp": 3,
+     "icon": "minecraft:clay_ball",
+     "drops": [
+      {
+       "block": "minecraft:clay"
+      }
+     ]
+    },
+    {
+     "id": "red_sand",
+     "level": 3,
+     "seconds": 3.0,
+     "xp": 3,
+     "icon": "minecraft:red_sand",
+     "drops": [
+      {
+       "block": "minecraft:red_sand"
+      }
+     ]
+    },
+    {
+     "id": "mud",
+     "level": 3,
+     "seconds": 3.0,
+     "xp": 3,
+     "icon": "minecraft:mud",
+     "drops": [
+      {
+       "block": "minecraft:mud"
+      }
+     ]
+    },
+    {
+     "id": "snow",
+     "level": 4,
+     "seconds": 3.0,
+     "xp": 3,
+     "icon": "minecraft:snowball",
+     "drops": [
+      {
+       "block": "minecraft:snow_block"
+      }
+     ]
+    },
+    {
+     "id": "podzol",
+     "level": 4,
+     "seconds": 3.5,
+     "xp": 4,
+     "icon": "minecraft:podzol",
+     "drops": [
+      {
+       "block": "minecraft:podzol"
+      },
+      {
+       "block": "minecraft:brown_mushroom",
+       "chance": 0.1
+      }
+     ]
+    },
+    {
+     "id": "rooted_dirt",
+     "level": 5,
+     "seconds": 3.5,
+     "xp": 4,
+     "icon": "minecraft:rooted_dirt",
+     "drops": [
+      {
+       "block": "minecraft:rooted_dirt"
+      },
+      {
+       "block": "minecraft:hanging_roots",
+       "chance": 0.3
+      }
+     ]
+    },
+    {
+     "id": "mycelium",
+     "level": 6,
+     "seconds": 4.0,
+     "xp": 5,
+     "icon": "minecraft:mycelium",
+     "drops": [
+      {
+       "block": "minecraft:mycelium"
+      },
+      {
+       "block": "minecraft:red_mushroom",
+       "chance": 0.15
+      }
+     ]
+    },
+    {
+     "id": "soul_sand",
+     "level": 7,
+     "seconds": 4.0,
+     "xp": 6,
+     "icon": "minecraft:soul_sand",
+     "drops": [
+      {
+       "block": "minecraft:soul_sand"
+      }
+     ]
+    },
+    {
+     "id": "soul_soil",
+     "level": 7,
+     "seconds": 4.0,
+     "xp": 6,
+     "icon": "minecraft:soul_soil",
+     "drops": [
+      {
+       "block": "minecraft:soul_soil"
+      }
+     ]
+    },
+    {
+     "id": "beach",
+     "level": 8,
+     "seconds": 4.5,
+     "xp": 7,
+     "icon": "minecraft:sea_pickle",
+     "drops": [
+      {
+       "block": "minecraft:sand"
+      },
+      {
+       "block": "minecraft:gravel",
+       "chance": 0.5
+      },
+      {
+       "block": "minecraft:clay",
+       "chance": 0.3
+      },
+      {
+       "block": "minecraft:sea_pickle",
+       "chance": 0.1
+      }
+     ]
+    },
+    {
+     "id": "badlands",
+     "level": 9,
+     "seconds": 4.5,
+     "xp": 8,
+     "icon": "minecraft:terracotta",
+     "drops": [
+      {
+       "block": "minecraft:red_sand"
+      },
+      {
+       "block": "minecraft:terracotta",
+       "chance": 0.4
+      },
+      {
+       "block": "minecraft:dead_bush",
+       "chance": 0.2
+      }
+     ]
+    },
+    {
+     "id": "crystal_sand",
+     "level": 10,
+     "seconds": 5.0,
+     "xp": 9,
+     "icon": "minecraft:quartz",
+     "drops": [
+      {
+       "block": "minecraft:sand"
+      },
+      {
+       "block": "minecraft:quartz_block",
+       "chance": 0.05
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "foraging",
+   "category": "sunlitidle:foraging",
+   "icon": "minecraft:sweet_berries",
+   "tool": "none",
+   "tool_required": false,
+   "actions": [
+    {
+     "id": "meadow",
+     "level": 0,
+     "seconds": 3.0,
+     "xp": 2,
+     "icon": "minecraft:wheat_seeds",
+     "drops": [
+      {
+       "block": "minecraft:grass",
+       "chance": 0.333
+      },
+      {
+       "block": "minecraft:dandelion",
+       "chance": 0.333
+      },
+      {
+       "block": "minecraft:poppy",
+       "chance": 0.333
+      }
+     ]
+    },
+    {
+     "id": "ferns",
+     "level": 0,
+     "seconds": 3.0,
+     "xp": 2,
+     "icon": "minecraft:fern",
+     "drops": [
+      {
+       "block": "minecraft:fern",
+       "chance": 0.5
+      },
+      {
+       "block": "minecraft:large_fern",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "wildflowers",
+     "level": 1,
+     "seconds": 3.5,
+     "xp": 3,
+     "icon": "minecraft:cornflower",
+     "drops": [
+      {
+       "block": "minecraft:cornflower",
+       "chance": 0.2
+      },
+      {
+       "block": "minecraft:azure_bluet",
+       "chance": 0.2
+      },
+      {
+       "block": "minecraft:oxeye_daisy",
+       "chance": 0.2
+      },
+      {
+       "block": "minecraft:allium",
+       "chance": 0.2
+      },
+      {
+       "block": "minecraft:blue_orchid",
+       "chance": 0.2
+      }
+     ]
+    },
+    {
+     "id": "saplings",
+     "level": 1,
+     "seconds": 3.5,
+     "xp": 3,
+     "icon": "minecraft:oak_sapling",
+     "drops": [
+      {
+       "block": "minecraft:oak_leaves",
+       "chance": 0.333
+      },
+      {
+       "block": "minecraft:birch_leaves",
+       "chance": 0.333
+      },
+      {
+       "block": "minecraft:spruce_leaves",
+       "chance": 0.333
+      }
+     ]
+    },
+    {
+     "id": "berries",
+     "level": 2,
+     "seconds": 4.0,
+     "xp": 4,
+     "icon": "minecraft:sweet_berries",
+     "drops": [
+      {
+       "block": "minecraft:sweet_berry_bush",
+       "chance": 1.0
+      }
+     ]
+    },
+    {
+     "id": "wild_veggies",
+     "level": 2,
+     "seconds": 4.0,
+     "xp": 4,
+     "icon": "veggiesdelight:bellpepper",
+     "drops": [
+      {
+       "block": "veggiesdelight:wild_bellpeppers",
+       "chance": 0.25
+      },
+      {
+       "block": "veggiesdelight:wild_sweet_potatoes",
+       "chance": 0.25
+      },
+      {
+       "block": "veggiesdelight:wild_garlic",
+       "chance": 0.25
+      },
+      {
+       "block": "veggiesdelight:wild_cauliflowers",
+       "chance": 0.25
+      }
+     ]
+    },
+    {
+     "id": "mushrooms",
+     "level": 3,
+     "seconds": 4.0,
+     "xp": 4,
+     "icon": "minecraft:red_mushroom",
+     "drops": [
+      {
+       "block": "minecraft:brown_mushroom",
+       "chance": 0.5
+      },
+      {
+       "block": "minecraft:red_mushroom",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "wild_herbs",
+     "level": 3,
+     "seconds": 4.0,
+     "xp": 4,
+     "icon": "farm_and_charm:wild_nettle",
+     "drops": [
+      {
+       "block": "farm_and_charm:wild_nettle",
+       "chance": 0.5
+      },
+      {
+       "block": "farm_and_charm:wild_ribwort",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "salmonberries",
+     "level": 3,
+     "seconds": 4.0,
+     "xp": 4,
+     "icon": "society:salmonberry",
+     "drops": [
+      {
+       "block": "society:salmonberry",
+       "chance": 1.0
+      }
+     ]
+    },
+    {
+     "id": "riverbank",
+     "level": 4,
+     "seconds": 4.5,
+     "xp": 5,
+     "icon": "minecraft:sugar_cane",
+     "drops": [
+      {
+       "block": "minecraft:sugar_cane",
+       "chance": 0.333
+      },
+      {
+       "block": "minecraft:bamboo",
+       "chance": 0.333
+      },
+      {
+       "block": "minecraft:lily_pad",
+       "chance": 0.333
+      }
+     ]
+    },
+    {
+     "id": "jungle",
+     "level": 5,
+     "seconds": 4.5,
+     "xp": 5,
+     "icon": "minecraft:cocoa_beans",
+     "drops": [
+      {
+       "block": "minecraft:cocoa",
+       "chance": 0.333
+      },
+      {
+       "block": "minecraft:vine",
+       "chance": 0.333
+      },
+      {
+       "block": "minecraft:melon",
+       "chance": 0.333
+      }
+     ]
+    },
+    {
+     "id": "pitcher",
+     "level": 5,
+     "seconds": 5.0,
+     "xp": 6,
+     "icon": "minecraft:torchflower",
+     "drops": [
+      {
+       "block": "minecraft:pitcher_plant",
+       "chance": 0.5
+      },
+      {
+       "block": "minecraft:torchflower",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "caves",
+     "level": 6,
+     "seconds": 5.0,
+     "xp": 6,
+     "icon": "minecraft:glow_berries",
+     "drops": [
+      {
+       "block": "minecraft:cave_vines",
+       "chance": 0.333
+      },
+      {
+       "block": "minecraft:glow_lichen",
+       "chance": 0.333
+      },
+      {
+       "block": "minecraft:moss_block",
+       "chance": 0.333
+      }
+     ]
+    },
+    {
+     "id": "seaside",
+     "level": 7,
+     "seconds": 5.0,
+     "xp": 7,
+     "icon": "minecraft:kelp",
+     "drops": [
+      {
+       "block": "minecraft:kelp",
+       "chance": 0.333
+      },
+      {
+       "block": "minecraft:sea_pickle",
+       "chance": 0.333
+      },
+      {
+       "block": "minecraft:seagrass",
+       "chance": 0.333
+      }
+     ]
+    },
+    {
+     "id": "spore_blossoms",
+     "level": 7,
+     "seconds": 5.5,
+     "xp": 7,
+     "icon": "minecraft:spore_blossom",
+     "drops": [
+      {
+       "block": "minecraft:spore_blossom",
+       "chance": 0.333
+      },
+      {
+       "block": "minecraft:azalea",
+       "chance": 0.333
+      },
+      {
+       "block": "minecraft:flowering_azalea",
+       "chance": 0.333
+      }
+     ]
+    },
+    {
+     "id": "tall_flowers",
+     "level": 8,
+     "seconds": 5.5,
+     "xp": 8,
+     "icon": "minecraft:sunflower",
+     "drops": [
+      {
+       "block": "minecraft:sunflower",
+       "chance": 0.25
+      },
+      {
+       "block": "minecraft:lilac",
+       "chance": 0.25
+      },
+      {
+       "block": "minecraft:rose_bush",
+       "chance": 0.25
+      },
+      {
+       "block": "minecraft:peony",
+       "chance": 0.25
+      }
+     ]
+    },
+    {
+     "id": "aloe",
+     "level": 8,
+     "seconds": 5.5,
+     "xp": 8,
+     "icon": "atmospheric:aloe_kernels",
+     "drops": [
+      {
+       "block": "atmospheric:aloe_vera",
+       "chance": 0.5
+      },
+      {
+       "block": "atmospheric:yucca_flower",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "desert",
+     "level": 9,
+     "seconds": 6.0,
+     "xp": 9,
+     "icon": "minecraft:cactus",
+     "drops": [
+      {
+       "block": "minecraft:cactus",
+       "chance": 0.5
+      },
+      {
+       "block": "minecraft:dead_bush",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "dragon_roots",
+     "level": 9,
+     "seconds": 6.0,
+     "xp": 9,
+     "icon": "atmospheric:dragon_fruit",
+     "drops": [
+      {
+       "block": "atmospheric:dragon_roots",
+       "chance": 1.0
+      }
+     ]
+    },
+    {
+     "id": "nether_fungi",
+     "level": 10,
+     "seconds": 6.5,
+     "xp": 11,
+     "icon": "minecraft:crimson_fungus",
+     "drops": [
+      {
+       "block": "minecraft:crimson_fungus",
+       "chance": 0.333
+      },
+      {
+       "block": "minecraft:warped_fungus",
+       "chance": 0.333
+      },
+      {
+       "block": "minecraft:shroomlight",
+       "chance": 0.333
+      }
+     ]
+    },
+    {
+     "id": "twisting_vines",
+     "level": 10,
+     "seconds": 6.5,
+     "xp": 10,
+     "icon": "minecraft:twisting_vines",
+     "drops": [
+      {
+       "block": "minecraft:twisting_vines",
+       "chance": 0.25
+      },
+      {
+       "block": "minecraft:weeping_vines",
+       "chance": 0.25
+      },
+      {
+       "block": "minecraft:crimson_roots",
+       "chance": 0.25
+      },
+      {
+       "block": "minecraft:warped_roots",
+       "chance": 0.25
+      }
+     ]
+    },
+    {
+     "id": "nether_wart",
+     "level": 11,
+     "seconds": 7.0,
+     "xp": 12,
+     "icon": "minecraft:nether_wart",
+     "drops": [
+      {
+       "block": "minecraft:nether_wart",
+       "chance": 1.0
+      }
+     ]
+    },
+    {
+     "id": "end",
+     "level": 12,
+     "seconds": 8.0,
+     "xp": 14,
+     "icon": "minecraft:chorus_fruit",
+     "drops": [
+      {
+       "block": "minecraft:chorus_plant",
+       "chance": 1.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "farming",
+   "category": "society:farming",
+   "icon": "minecraft:iron_hoe",
+   "tool": "hoe",
+   "tool_required": false,
+   "seasonal": true,
+   "actions": [
+    {
+     "id": "wheat",
+     "level": 0,
+     "seconds": 6.0,
+     "xp": 3,
+     "icon": "minecraft:wheat",
+     "inputs": [
+      {
+       "item": "minecraft:wheat_seeds",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "minecraft:wheat"
+      }
+     ]
+    },
+    {
+     "id": "carrot",
+     "level": 1,
+     "seconds": 6.0,
+     "xp": 4,
+     "icon": "minecraft:carrot",
+     "inputs": [
+      {
+       "item": "society:carrot_seed",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "society:carrot"
+      },
+      {
+       "item": "society:carrot_seed"
+      },
+      {
+       "item": "society:carrot_seed",
+       "chance": 0.25
+      }
+     ]
+    },
+    {
+     "id": "potato",
+     "level": 1,
+     "seconds": 6.0,
+     "xp": 4,
+     "icon": "minecraft:potato",
+     "inputs": [
+      {
+       "item": "society:potato_seed",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "society:potato"
+      },
+      {
+       "item": "society:potato_seed"
+      },
+      {
+       "item": "society:potato_seed",
+       "chance": 0.25
+      }
+     ]
+    },
+    {
+     "id": "beetroots",
+     "level": 2,
+     "seconds": 6.5,
+     "xp": 5,
+     "icon": "minecraft:beetroot",
+     "inputs": [
+      {
+       "item": "minecraft:beetroot_seeds",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "minecraft:beetroots"
+      }
+     ]
+    },
+    {
+     "id": "cabbage",
+     "level": 2,
+     "seconds": 6.5,
+     "xp": 5,
+     "icon": "farmersdelight:cabbage",
+     "inputs": [
+      {
+       "item": "farmersdelight:cabbage_seeds",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "farmersdelight:cabbages"
+      }
+     ]
+    },
+    {
+     "id": "onion",
+     "level": 3,
+     "seconds": 7.0,
+     "xp": 6,
+     "icon": "farm_and_charm:onion",
+     "inputs": [
+      {
+       "item": "society:onion_seed",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "society:onion"
+      },
+      {
+       "item": "society:onion_seed"
+      },
+      {
+       "item": "society:onion_seed",
+       "chance": 0.25
+      }
+     ]
+    },
+    {
+     "id": "lettuce",
+     "level": 3,
+     "seconds": 7.0,
+     "xp": 6,
+     "icon": "farm_and_charm:lettuce",
+     "inputs": [
+      {
+       "item": "farm_and_charm:lettuce_seeds",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "farm_and_charm:lettuce_crop"
+      }
+     ]
+    },
+    {
+     "id": "tomato",
+     "level": 4,
+     "seconds": 7.0,
+     "xp": 7,
+     "icon": "farmersdelight:tomato",
+     "inputs": [
+      {
+       "item": "farmersdelight:tomato_seeds",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "farmersdelight:tomatoes"
+      }
+     ]
+    },
+    {
+     "id": "strawberry",
+     "level": 4,
+     "seconds": 7.0,
+     "xp": 7,
+     "icon": "farm_and_charm:strawberry",
+     "inputs": [
+      {
+       "item": "farm_and_charm:strawberry_seed",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "farm_and_charm:strawberry"
+      },
+      {
+       "item": "farm_and_charm:strawberry_seed"
+      },
+      {
+       "item": "farm_and_charm:strawberry_seed",
+       "chance": 0.25
+      }
+     ]
+    },
+    {
+     "id": "blueberry",
+     "level": 5,
+     "seconds": 7.5,
+     "xp": 8,
+     "icon": "society:blueberry",
+     "inputs": [
+      {
+       "item": "society:blueberry_seed",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "society:blueberry"
+      },
+      {
+       "item": "society:blueberry_seed"
+      },
+      {
+       "item": "society:blueberry_seed",
+       "chance": 0.25
+      }
+     ]
+    },
+    {
+     "id": "corn",
+     "level": 5,
+     "seconds": 7.5,
+     "xp": 8,
+     "icon": "farm_and_charm:corn",
+     "inputs": [
+      {
+       "item": "farm_and_charm:kernels",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "farm_and_charm:corn_crop"
+      }
+     ]
+    },
+    {
+     "id": "oat",
+     "level": 5,
+     "seconds": 7.5,
+     "xp": 8,
+     "icon": "farm_and_charm:oat",
+     "inputs": [
+      {
+       "item": "farm_and_charm:oat_seeds",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "farm_and_charm:oat_crop"
+      }
+     ]
+    },
+    {
+     "id": "pumpkin",
+     "level": 5,
+     "seconds": 8.0,
+     "xp": 8,
+     "icon": "minecraft:pumpkin",
+     "inputs": [
+      {
+       "item": "minecraft:pumpkin_seeds",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "minecraft:pumpkin"
+      },
+      {
+       "item": "minecraft:pumpkin_seeds",
+       "count": [
+        1,
+        2
+       ]
+      }
+     ]
+    },
+    {
+     "id": "melon",
+     "level": 6,
+     "seconds": 8.0,
+     "xp": 9,
+     "icon": "minecraft:melon_slice",
+     "inputs": [
+      {
+       "item": "minecraft:melon_seeds",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "minecraft:melon"
+      },
+      {
+       "item": "minecraft:melon_seeds",
+       "count": [
+        1,
+        2
+       ]
+      }
+     ]
+    },
+    {
+     "id": "bellpepper",
+     "level": 6,
+     "seconds": 8.0,
+     "xp": 9,
+     "icon": "veggiesdelight:bellpepper",
+     "inputs": [
+      {
+       "item": "veggiesdelight:bellpepper_seeds",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "veggiesdelight:bellpepper_crop"
+      }
+     ]
+    },
+    {
+     "id": "broccoli",
+     "level": 6,
+     "seconds": 8.0,
+     "xp": 9,
+     "icon": "veggiesdelight:broccoli",
+     "inputs": [
+      {
+       "item": "veggiesdelight:broccoli_seeds",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "veggiesdelight:broccoli_crop"
+      }
+     ]
+    },
+    {
+     "id": "cauliflower",
+     "level": 7,
+     "seconds": 8.0,
+     "xp": 10,
+     "icon": "veggiesdelight:cauliflower",
+     "inputs": [
+      {
+       "item": "veggiesdelight:cauliflower_seeds",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "veggiesdelight:cauliflower_crop"
+      }
+     ]
+    },
+    {
+     "id": "turnip",
+     "level": 7,
+     "seconds": 8.0,
+     "xp": 10,
+     "icon": "veggiesdelight:turnip",
+     "inputs": [
+      {
+       "item": "veggiesdelight:turnip_seeds",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "veggiesdelight:turnip_crop"
+      }
+     ]
+    },
+    {
+     "id": "sweet_potato",
+     "level": 7,
+     "seconds": 8.0,
+     "xp": 10,
+     "icon": "veggiesdelight:sweet_potato",
+     "inputs": [
+      {
+       "item": "society:sweet_potato_seed",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "society:sweet_potato"
+      },
+      {
+       "item": "society:sweet_potato_seed"
+      },
+      {
+       "item": "society:sweet_potato_seed",
+       "chance": 0.25
+      }
+     ]
+    },
+    {
+     "id": "peanut",
+     "level": 7,
+     "seconds": 8.0,
+     "xp": 10,
+     "icon": "vintagedelight:peanut",
+     "inputs": [
+      {
+       "item": "society:peanut_seed",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "society:peanut"
+      },
+      {
+       "item": "society:peanut_seed"
+      },
+      {
+       "item": "society:peanut_seed",
+       "chance": 0.25
+      }
+     ]
+    },
+    {
+     "id": "cucumber",
+     "level": 8,
+     "seconds": 8.5,
+     "xp": 11,
+     "icon": "vintagedelight:cucumber",
+     "inputs": [
+      {
+       "item": "vintagedelight:cucumber_seeds",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "vintagedelight:cucumber_crop"
+      }
+     ]
+    },
+    {
+     "id": "cranberry",
+     "level": 8,
+     "seconds": 8.5,
+     "xp": 11,
+     "icon": "society:cranberry",
+     "inputs": [
+      {
+       "item": "society:cranberry_seed",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "society:cranberry"
+      },
+      {
+       "item": "society:cranberry_seed"
+      },
+      {
+       "item": "society:cranberry_seed",
+       "chance": 0.25
+      }
+     ]
+    },
+    {
+     "id": "eggplant",
+     "level": 8,
+     "seconds": 8.5,
+     "xp": 11,
+     "icon": "society:eggplant",
+     "inputs": [
+      {
+       "item": "society:eggplant_seed",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "society:eggplant"
+      },
+      {
+       "item": "society:eggplant_seed"
+      },
+      {
+       "item": "society:eggplant_seed",
+       "chance": 0.25
+      }
+     ]
+    },
+    {
+     "id": "sugar_cane",
+     "level": 8,
+     "seconds": 6.0,
+     "xp": 9,
+     "icon": "minecraft:sugar_cane",
+     "inputs": [
+      {
+       "item": "minecraft:sugar_cane",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "minecraft:sugar_cane"
+      },
+      {
+       "item": "minecraft:sugar_cane",
+       "count": [
+        1,
+        2
+       ]
+      }
+     ]
+    },
+    {
+     "id": "sweet_berries",
+     "level": 9,
+     "seconds": 7.0,
+     "xp": 11,
+     "icon": "minecraft:sweet_berries",
+     "inputs": [
+      {
+       "item": "minecraft:sweet_berries",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "minecraft:sweet_berry_bush"
+      }
+     ]
+    },
+    {
+     "id": "hops",
+     "level": 9,
+     "seconds": 9.0,
+     "xp": 12,
+     "icon": "brewery:hops",
+     "inputs": [
+      {
+       "item": "brewery:hop_trellis_seed",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "brewery:hop_trellis"
+      },
+      {
+       "item": "brewery:hop_trellis_seed"
+      },
+      {
+       "item": "brewery:hop_trellis_seed",
+       "chance": 0.25
+      }
+     ]
+    },
+    {
+     "id": "ghost_pepper",
+     "level": 10,
+     "seconds": 9.0,
+     "xp": 13,
+     "icon": "vintagedelight:ghost_pepper",
+     "inputs": [
+      {
+       "item": "vintagedelight:ghost_pepper_seeds",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "vintagedelight:ghost_pepper_crop"
+      }
+     ]
+    },
+    {
+     "id": "cocoa",
+     "level": 10,
+     "seconds": 8.0,
+     "xp": 12,
+     "icon": "minecraft:cocoa_beans",
+     "inputs": [
+      {
+       "item": "minecraft:cocoa_beans",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "minecraft:cocoa"
+      }
+     ]
+    },
+    {
+     "id": "nether_wart",
+     "level": 10,
+     "seconds": 8.0,
+     "xp": 12,
+     "icon": "minecraft:nether_wart",
+     "inputs": [
+      {
+       "item": "minecraft:nether_wart",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "minecraft:nether_wart"
+      }
+     ]
+    },
+    {
+     "id": "tubabacco",
+     "level": 11,
+     "seconds": 10.0,
+     "xp": 15,
+     "icon": "society:tubabacco_leaf",
+     "inputs": [
+      {
+       "item": "society:tubabacco_leaf_seed",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "society:tubabacco_leaf"
+      },
+      {
+       "item": "society:tubabacco_leaf_seed"
+      },
+      {
+       "item": "society:tubabacco_leaf_seed",
+       "chance": 0.25
+      }
+     ]
+    },
+    {
+     "id": "sparkpod",
+     "level": 11,
+     "seconds": 10.0,
+     "xp": 15,
+     "icon": "society:sparkpod",
+     "inputs": [
+      {
+       "item": "society:sparkpod_seed",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "society:sparkpod"
+      },
+      {
+       "item": "society:sparkpod_seed"
+      },
+      {
+       "item": "society:sparkpod_seed",
+       "chance": 0.25
+      }
+     ]
+    },
+    {
+     "id": "glow_berries",
+     "level": 11,
+     "seconds": 8.0,
+     "xp": 14,
+     "icon": "minecraft:glow_berries",
+     "inputs": [
+      {
+       "item": "minecraft:glow_berries",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "minecraft:cave_vines"
+      },
+      {
+       "item": "minecraft:glow_berries",
+       "count": [
+        0,
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "id": "ancient_fruit",
+     "level": 12,
+     "seconds": 12.0,
+     "xp": 20,
+     "icon": "society:ancient_fruit",
+     "inputs": [
+      {
+       "item": "society:ancient_fruit_seed",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "block": "society:ancient_fruit"
+      },
+      {
+       "item": "society:ancient_fruit_seed"
+      },
+      {
+       "item": "society:ancient_fruit_seed",
+       "chance": 0.25
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fishing",
+   "category": "society:fishing",
+   "icon": "minecraft:fishing_rod",
+   "tool": "rod",
+   "tool_required": true,
+   "actions": [
+    {
+     "id": "casting",
+     "level": 0,
+     "seconds": 10.0,
+     "xp": 4,
+     "icon": "minecraft:cod",
+     "drops": [
+      {
+       "loot_table": "minecraft:gameplay/fishing"
+      }
+     ]
+    },
+    {
+     "id": "patient",
+     "level": 3,
+     "seconds": 9.0,
+     "xp": 6,
+     "icon": "minecraft:salmon",
+     "drops": [
+      {
+       "loot_table": "minecraft:gameplay/fishing",
+       "luck": 1
+      }
+     ]
+    },
+    {
+     "id": "skilled",
+     "level": 6,
+     "seconds": 8.0,
+     "xp": 9,
+     "icon": "minecraft:tropical_fish",
+     "drops": [
+      {
+       "loot_table": "minecraft:gameplay/fishing",
+       "luck": 2
+      }
+     ]
+    },
+    {
+     "id": "expert",
+     "level": 9,
+     "seconds": 7.0,
+     "xp": 13,
+     "icon": "minecraft:pufferfish",
+     "drops": [
+      {
+       "loot_table": "minecraft:gameplay/fishing",
+       "luck": 3
+      }
+     ]
+    },
+    {
+     "id": "legendary",
+     "level": 12,
+     "seconds": 6.0,
+     "xp": 18,
+     "icon": "minecraft:nautilus_shell",
+     "drops": [
+      {
+       "loot_table": "minecraft:gameplay/fishing",
+       "luck": 4
+      },
+      {
+       "loot_table": "minecraft:gameplay/fishing",
+       "luck": 4,
+       "chance": 0.25
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hunting",
+   "category": "sunlitidle:hunting",
+   "icon": "minecraft:bow",
+   "tool": "weapon",
+   "tool_required": false,
+   "actions": [
+    {
+     "id": "zombies",
+     "level": 0,
+     "seconds": 6.0,
+     "xp": 4,
+     "icon": "minecraft:rotten_flesh",
+     "drops": [
+      {
+       "entity": "minecraft:zombie"
+      }
+     ]
+    },
+    {
+     "id": "wild_game",
+     "level": 0,
+     "seconds": 6.0,
+     "xp": 4,
+     "icon": "minecraft:beef",
+     "drops": [
+      {
+       "entity": "minecraft:cow"
+      },
+      {
+       "entity": "minecraft:pig",
+       "chance": 0.5
+      },
+      {
+       "entity": "minecraft:sheep",
+       "chance": 0.5
+      },
+      {
+       "entity": "minecraft:chicken",
+       "chance": 0.5
+      }
+     ]
+    },
+    {
+     "id": "skeletons",
+     "level": 1,
+     "seconds": 6.5,
+     "xp": 5,
+     "icon": "minecraft:bone",
+     "drops": [
+      {
+       "entity": "minecraft:skeleton"
+      }
+     ]
+    },
+    {
+     "id": "spiders",
+     "level": 2,
+     "seconds": 6.5,
+     "xp": 5,
+     "icon": "minecraft:string",
+     "drops": [
+      {
+       "entity": "minecraft:spider"
+      }
+     ]
+    },
+    {
+     "id": "creepers",
+     "level": 3,
+     "seconds": 7.0,
+     "xp": 6,
+     "icon": "minecraft:gunpowder",
+     "drops": [
+      {
+       "entity": "minecraft:creeper"
+      }
+     ]
+    },
+    {
+     "id": "slimes",
+     "level": 4,
+     "seconds": 7.0,
+     "xp": 6,
+     "icon": "minecraft:slime_ball",
+     "drops": [
+      {
+       "entity": "minecraft:slime"
+      }
+     ]
+    },
+    {
+     "id": "drowned",
+     "level": 5,
+     "seconds": 8.0,
+     "xp": 7,
+     "icon": "minecraft:copper_ingot",
+     "drops": [
+      {
+       "entity": "minecraft:drowned"
+      }
+     ]
+    },
+    {
+     "id": "witches",
+     "level": 6,
+     "seconds": 9.0,
+     "xp": 8,
+     "icon": "minecraft:glowstone_dust",
+     "drops": [
+      {
+       "entity": "minecraft:witch"
+      }
+     ]
+    },
+    {
+     "id": "endermen",
+     "level": 7,
+     "seconds": 10.0,
+     "xp": 10,
+     "icon": "minecraft:ender_pearl",
+     "drops": [
+      {
+       "entity": "minecraft:enderman"
+      }
+     ]
+    },
+    {
+     "id": "blazes",
+     "level": 8,
+     "seconds": 10.0,
+     "xp": 11,
+     "icon": "minecraft:blaze_rod",
+     "drops": [
+      {
+       "entity": "minecraft:blaze"
+      }
+     ]
+    },
+    {
+     "id": "bartering",
+     "level": 8,
+     "seconds": 8.0,
+     "xp": 8,
+     "icon": "minecraft:gold_ingot",
+     "inputs": [
+      {
+       "item": "minecraft:gold_ingot",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "loot_table": "minecraft:gameplay/piglin_bartering",
+       "context": "chest"
+      }
+     ]
+    },
+    {
+     "id": "ghasts",
+     "level": 9,
+     "seconds": 11.0,
+     "xp": 12,
+     "icon": "minecraft:ghast_tear",
+     "drops": [
+      {
+       "entity": "minecraft:ghast"
+      }
+     ]
+    },
+    {
+     "id": "wither_skeletons",
+     "level": 10,
+     "seconds": 12.0,
+     "xp": 14,
+     "icon": "minecraft:wither_skeleton_skull",
+     "drops": [
+      {
+       "entity": "minecraft:wither_skeleton"
+      }
+     ]
+    },
+    {
+     "id": "guardians",
+     "level": 11,
+     "seconds": 12.0,
+     "xp": 15,
+     "icon": "minecraft:prismarine_shard",
+     "drops": [
+      {
+       "entity": "minecraft:guardian"
+      }
+     ]
+    },
+    {
+     "id": "shulkers",
+     "level": 12,
+     "seconds": 14.0,
+     "xp": 18,
+     "icon": "minecraft:shulker_shell",
+     "drops": [
+      {
+       "entity": "minecraft:shulker"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "husbandry",
+   "category": "society:husbandry",
+   "icon": "minecraft:shears",
+   "tool": "shears",
+   "tool_required": false,
+   "actions": [
+    {
+     "id": "chickens",
+     "level": 0,
+     "seconds": 8.0,
+     "xp": 3,
+     "icon": "minecraft:egg",
+     "inputs": [
+      {
+       "item": "minecraft:wheat_seeds",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "minecraft:egg"
+      },
+      {
+       "item": "minecraft:feather",
+       "count": [
+        0,
+        1
+       ]
+      },
+      {
+       "item": "society:large_egg",
+       "chance": 0.1
+      }
+     ]
+    },
+    {
+     "id": "sheep",
+     "level": 1,
+     "seconds": 10.0,
+     "xp": 4,
+     "icon": "minecraft:white_wool",
+     "inputs": [
+      {
+       "item": "minecraft:wheat",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "minecraft:white_wool",
+       "count": [
+        1,
+        2
+       ]
+      },
+      {
+       "item": "society:fine_wool",
+       "chance": 0.05
+      }
+     ]
+    },
+    {
+     "id": "cattle",
+     "level": 2,
+     "seconds": 10.0,
+     "xp": 5,
+     "icon": "minecraft:leather",
+     "inputs": [
+      {
+       "item": "minecraft:wheat",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "minecraft:leather"
+      },
+      {
+       "item": "minecraft:beef",
+       "count": [
+        1,
+        2
+       ]
+      }
+     ]
+    },
+    {
+     "id": "dairy",
+     "level": 3,
+     "seconds": 12.0,
+     "xp": 6,
+     "icon": "society:milk",
+     "inputs": [
+      {
+       "item": "minecraft:wheat",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "society:milk"
+      },
+      {
+       "item": "society:large_milk",
+       "chance": 0.1
+      }
+     ]
+    },
+    {
+     "id": "pigs",
+     "level": 4,
+     "seconds": 12.0,
+     "xp": 6,
+     "icon": "minecraft:porkchop",
+     "inputs": [
+      {
+       "item": "minecraft:carrot",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "minecraft:porkchop",
+       "count": [
+        1,
+        2
+       ]
+      },
+      {
+       "item": "society:truffle",
+       "chance": 0.15
+      }
+     ]
+    },
+    {
+     "id": "goats",
+     "level": 5,
+     "seconds": 12.0,
+     "xp": 7,
+     "icon": "society:goat_milk",
+     "inputs": [
+      {
+       "item": "minecraft:wheat",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "society:goat_milk"
+      },
+      {
+       "item": "society:large_goat_milk",
+       "chance": 0.1
+      },
+      {
+       "item": "minecraft:goat_horn",
+       "chance": 0.01
+      }
+     ]
+    },
+    {
+     "id": "rabbits",
+     "level": 6,
+     "seconds": 12.0,
+     "xp": 8,
+     "icon": "minecraft:rabbit_hide",
+     "inputs": [
+      {
+       "item": "minecraft:carrot",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "minecraft:rabbit_hide"
+      },
+      {
+       "item": "minecraft:rabbit",
+       "chance": 0.5
+      },
+      {
+       "item": "minecraft:rabbit_foot",
+       "chance": 0.05
+      }
+     ]
+    },
+    {
+     "id": "dairy_sheep",
+     "level": 7,
+     "seconds": 13.0,
+     "xp": 9,
+     "icon": "society:sheep_milk",
+     "inputs": [
+      {
+       "item": "minecraft:wheat",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "society:sheep_milk"
+      },
+      {
+       "item": "society:large_sheep_milk",
+       "chance": 0.1
+      }
+     ]
+    },
+    {
+     "id": "bees",
+     "level": 8,
+     "seconds": 14.0,
+     "xp": 11,
+     "icon": "minecraft:honey_bottle",
+     "inputs": [
+      {
+       "item": "minecraft:glass_bottle",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "minecraft:honey_bottle"
+      },
+      {
+       "item": "minecraft:honeycomb",
+       "chance": 0.3
+      }
+     ]
+    },
+    {
+     "id": "buffalo",
+     "level": 9,
+     "seconds": 14.0,
+     "xp": 12,
+     "icon": "society:buffalo_milk",
+     "inputs": [
+      {
+       "item": "minecraft:wheat",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "society:buffalo_milk"
+      },
+      {
+       "item": "society:large_buffalo_milk",
+       "chance": 0.1
+      }
+     ]
+    },
+    {
+     "id": "turtles",
+     "level": 10,
+     "seconds": 16.0,
+     "xp": 13,
+     "icon": "minecraft:scute",
+     "inputs": [
+      {
+       "item": "minecraft:seagrass",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "minecraft:scute",
+       "chance": 0.5
+      },
+      {
+       "item": "minecraft:turtle_egg",
+       "chance": 0.1
+      }
+     ]
+    },
+    {
+     "id": "merino",
+     "level": 11,
+     "seconds": 16.0,
+     "xp": 15,
+     "icon": "society:merino_wool",
+     "inputs": [
+      {
+       "item": "minecraft:wheat",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "society:merino_wool"
+      },
+      {
+       "item": "minecraft:white_wool",
+       "count": [
+        1,
+        2
+       ]
+      }
+     ]
+    },
+    {
+     "id": "truffle_hunt",
+     "level": 12,
+     "seconds": 18.0,
+     "xp": 18,
+     "icon": "society:truffle",
+     "inputs": [
+      {
+       "item": "minecraft:carrot",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "society:truffle"
+      },
+      {
+       "item": "society:truffle",
+       "chance": 0.25
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "archaeology",
+   "category": "sunlitidle:archaeology",
+   "icon": "minecraft:brush",
+   "tool": "brush",
+   "tool_required": true,
+   "actions": [
+    {
+     "id": "desert_well",
+     "level": 0,
+     "seconds": 10.0,
+     "xp": 4,
+     "icon": "minecraft:suspicious_sand",
+     "drops": [
+      {
+       "loot_table": "minecraft:archaeology/desert_well",
+       "context": "chest"
+      }
+     ]
+    },
+    {
+     "id": "desert_pyramid",
+     "level": 2,
+     "seconds": 11.0,
+     "xp": 6,
+     "icon": "minecraft:archer_pottery_sherd",
+     "drops": [
+      {
+       "loot_table": "minecraft:archaeology/desert_pyramid",
+       "context": "chest"
+      }
+     ]
+    },
+    {
+     "id": "trail_ruins",
+     "level": 4,
+     "seconds": 12.0,
+     "xp": 8,
+     "icon": "minecraft:suspicious_gravel",
+     "drops": [
+      {
+       "loot_table": "minecraft:archaeology/trail_ruins_common",
+       "context": "chest"
+      }
+     ]
+    },
+    {
+     "id": "warm_ocean_ruins",
+     "level": 6,
+     "seconds": 12.0,
+     "xp": 10,
+     "icon": "minecraft:sniffer_egg",
+     "drops": [
+      {
+       "loot_table": "minecraft:archaeology/ocean_ruin_warm",
+       "context": "chest"
+      }
+     ]
+    },
+    {
+     "id": "cold_ocean_ruins",
+     "level": 8,
+     "seconds": 13.0,
+     "xp": 12,
+     "icon": "minecraft:blade_pottery_sherd",
+     "drops": [
+      {
+       "loot_table": "minecraft:archaeology/ocean_ruin_cold",
+       "context": "chest"
+      }
+     ]
+    },
+    {
+     "id": "rare_trail_ruins",
+     "level": 10,
+     "seconds": 15.0,
+     "xp": 15,
+     "icon": "minecraft:wayfinder_armor_trim_smithing_template",
+     "drops": [
+      {
+       "loot_table": "minecraft:archaeology/trail_ruins_rare",
+       "context": "chest"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "adventuring",
+   "category": "society:adventuring",
+   "icon": "minecraft:iron_sword",
+   "tool": "weapon",
+   "tool_required": true,
+   "actions": [
+    {
+     "id": "t1",
+     "level": 0,
+     "dungeon": 1,
+     "icon": "minecraft:mossy_cobblestone"
+    },
+    {
+     "id": "t2",
+     "level": 3,
+     "dungeon": 2,
+     "icon": "minecraft:packed_ice"
+    },
+    {
+     "id": "t3",
+     "level": 6,
+     "dungeon": 3,
+     "icon": "minecraft:magma_block"
+    },
+    {
+     "id": "t4",
+     "level": 9,
+     "dungeon": 4,
+     "icon": "minecraft:skeleton_skull"
+    },
+    {
+     "id": "t5",
+     "level": 12,
+     "dungeon": 5,
+     "icon": "minecraft:netherite_scrap"
+    }
+   ]
+  },
+  {
+   "id": "smelting",
+   "category": "sunlitidle:smelting",
+   "icon": "minecraft:furnace",
+   "tool": "none",
+   "recipes": [
+    "minecraft:smelting",
+    "minecraft:blasting"
+   ],
+   "actions": []
+  },
+  {
+   "id": "cooking",
+   "category": "sunlitidle:cooking",
+   "icon": "minecraft:smoker",
+   "tool": "none",
+   "recipes": [
+    "minecraft:smoking",
+    "minecraft:campfire_cooking"
+   ],
+   "actions": []
+  }
+ ]
+}

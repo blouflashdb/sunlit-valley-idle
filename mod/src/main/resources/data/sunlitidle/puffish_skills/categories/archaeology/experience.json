@@ -1,0 +1,92 @@
+{
+  "experience_per_level": {
+    "type": "values",
+    "data": {
+      "values": [
+        250,
+        500,
+        1000,
+        2000,
+        5000,
+        6000,
+        8000,
+        10000,
+        13000,
+        16000,
+        20000,
+        25000
+      ]
+    }
+  },
+  "sources": [
+    {
+      "type": "puffish_skills:mine_block",
+      "data": {
+        "variables": {
+          "suspicious": {
+            "operations": [
+              {
+                "type": "get_mined_block_state"
+              },
+              {
+                "type": "puffish_skills:test",
+                "data": {
+                  "block": "minecraft:suspicious_sand"
+                }
+              }
+            ]
+          },
+          "suspicious_gravel": {
+            "operations": [
+              {
+                "type": "get_mined_block_state"
+              },
+              {
+                "type": "puffish_skills:test",
+                "data": {
+                  "block": "minecraft:suspicious_gravel"
+                }
+              }
+            ]
+          }
+        },
+        "experience": [
+          {
+            "condition": "suspicious",
+            "expression": "5"
+          },
+          {
+            "condition": "suspicious_gravel",
+            "expression": "5"
+          }
+        ]
+      }
+    },
+    {
+      "type": "puffish_skills:increase_stat",
+      "data": {
+        "variables": {
+          "brushing": {
+            "operations": [
+              {
+                "type": "get_stat"
+              },
+              {
+                "type": "puffish_skills:test",
+                "data": {
+                  "stat": "minecraft.used:minecraft.brush"
+                }
+              }
+            ]
+          }
+        },
+        "experience": [
+          {
+            "condition": "brushing",
+            "expression": "2"
+          }
+        ]
+      }
+    }
+  ]
+}

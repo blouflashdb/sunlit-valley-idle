@@ -407,7 +407,7 @@ public class AdventurerCampBlockEntity extends BlockEntity implements MenuProvid
         return false;
     }
 
-    private static double attributeSum(ItemStack stack, EquipmentSlot slot, Attribute attribute) {
+    public static double attributeSum(ItemStack stack, EquipmentSlot slot, Attribute attribute) {
         double sum = 0.0;
         for (AttributeModifier modifier : stack.getAttributeModifiers(slot).get(attribute)) {
             if (modifier.getOperation() == AttributeModifier.Operation.ADDITION) {

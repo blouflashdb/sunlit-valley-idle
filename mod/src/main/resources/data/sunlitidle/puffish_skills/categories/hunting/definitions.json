@@ -1,0 +1,172 @@
+{
+  "manual": {
+    "title": {
+      "translate": "sunlitidle.skills.hunting.manual"
+    },
+    "description": {
+      "translate": "sunlitidle.skills.hunting.manual.description"
+    },
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:iron_sword"
+      }
+    },
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:melee_damage",
+          "value": 1,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "speed": {
+    "title": {
+      "translate": "sunlitidle.skills.hunting.speed"
+    },
+    "description": {
+      "translate": "sunlitidle.skills.hunting.speed.description"
+    },
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:clock"
+      }
+    },
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "sunlitidle:hunting_speed",
+          "value": 0.1,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "yield": {
+    "title": {
+      "translate": "sunlitidle.skills.hunting.yield"
+    },
+    "description": {
+      "translate": "sunlitidle.skills.hunting.yield.description"
+    },
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:string"
+      }
+    },
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "sunlitidle:hunting_yield",
+          "value": 0.1,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "speed_cap": {
+    "title": {
+      "translate": "sunlitidle.skills.hunting.speed_cap"
+    },
+    "description": {
+      "translate": "sunlitidle.skills.hunting.speed_cap.description"
+    },
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:clock"
+      }
+    },
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "sunlitidle:hunting_speed",
+          "value": 0.25,
+          "operation": "addition"
+        }
+      }
+    ],
+    "frame": {
+      "type": "advancement",
+      "data": {
+        "frame": "challenge"
+      }
+    }
+  },
+  "yield_cap": {
+    "title": {
+      "translate": "sunlitidle.skills.hunting.yield_cap"
+    },
+    "description": {
+      "translate": "sunlitidle.skills.hunting.yield_cap.description"
+    },
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:string"
+      }
+    },
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "sunlitidle:hunting_yield",
+          "value": 0.25,
+          "operation": "addition"
+        }
+      }
+    ],
+    "frame": {
+      "type": "advancement",
+      "data": {
+        "frame": "challenge"
+      }
+    }
+  },
+  "master": {
+    "title": {
+      "translate": "sunlitidle.skills.hunting.master"
+    },
+    "description": {
+      "translate": "sunlitidle.skills.hunting.master.description"
+    },
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:bow"
+      }
+    },
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "sunlitidle:hunting_speed",
+          "value": 0.15,
+          "operation": "addition"
+        }
+      },
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "sunlitidle:hunting_yield",
+          "value": 0.15,
+          "operation": "addition"
+        }
+      }
+    ],
+    "frame": {
+      "type": "advancement",
+      "data": {
+        "frame": "challenge"
+      }
+    }
+  }
+}

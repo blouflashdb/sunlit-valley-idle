@@ -1,0 +1,14 @@
+{
+  "unlocked_by_default": true,
+  "title": {
+    "translate": "sunlitidle.skills.archaeology.category.title"
+  },
+  "icon": {
+    "type": "item",
+    "data": {
+      "item": "minecraft:brush"
+    }
+  },
+  "background": "textures/block/suspicious_sand_0.png",
+  "spent_points_limit": 12
+}
