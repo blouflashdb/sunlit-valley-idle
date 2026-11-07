@@ -1,0 +1,24 @@
+name: Inspect dependency API (temporary)
+on:
+  push:
+    paths: ['.github/workflows/inspect-tmp.yml']
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - run: |
+          curl -sSfL -o ps.jar https://cursemaven.com/curse/maven/puffish-skills-835091/6614501/puffish-skills-835091-6614501.jar
+          curl -sSfL -o pa.jar https://cursemaven.com/curse/maven/puffish-attributes-991341/6157071/puffish-attributes-991341-6157071.jar
+          unzip -l ps.jar | awk '{print $4}' | grep -E '\.class$' | grep -iE 'api' | head -200
+          mkdir x && cd x && unzip -q ../ps.jar
+          for c in $(find . -path '*api*' -name '*.class' | grep -v '\$' | head -80); do javap -cp . "${c#./}" 2>/dev/null; done
+          cd .. && mkdir y && cd y && unzip -q ../pa.jar
+          find . -name '*.class' | head -50
+          cat META-INF/mods.toml
+          javap -cp . $(find . -name '*.class' -path '*Attributes*' | grep -v '\$' | head -5 | sed 's|^\./||') || true
+          cd ../x && cat META-INF/mods.toml && find . -name '*.json' | head -30
+          grep -rl "experience" --include=*.class . | head -20
