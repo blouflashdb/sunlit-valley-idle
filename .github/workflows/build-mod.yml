@@ -1,45 +1,46 @@
 name: Build mod and pack
 
+# Port branch (epic #5): the sunlitidle mod is still on 1.20.1 Forge and is ported in slice 2 (#7),
+# so this workflow exports the pack without it and boots a 1.21.1 NeoForge server as a smoke test.
 on:
   push:
   pull_request:
   workflow_dispatch:
 
 jobs:
-  build:
+  pack:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-java@v6
-        with:
-          distribution: temurin
-          java-version: '17'
-      - uses: gradle/actions/setup-gradle@v6
-      - name: Build mod and run unit tests
-        working-directory: mod
-        run: |
-          chmod +x gradlew
-          ./gradlew build --no-daemon
-      - name: Run in-game tests
-        working-directory: mod
-        run: |
-          ./gradlew runGameTestServer --no-daemon 2>&1 | tee gametest.log
-          # Fail if the tests were not found or did not all pass.
-          grep -E "All [0-9]+ required tests passed" gametest.log
       - name: Export CurseForge pack
         run: |
-          JAR=$(ls mod/build/libs/sunlitidle-*.jar | grep -v -- '-sources' | head -n1)
-          VERSION="0.1.0-dev.${GITHUB_RUN_NUMBER}"
-          python3 tools/export_curseforge.py --mod-jar "$JAR" --version "$VERSION" --out "build/sunlit-valley-idle-${VERSION}.zip"
+          VERSION="0.2.0-dev.${GITHUB_RUN_NUMBER}"
+          python3 tools/export_curseforge.py --version "$VERSION" --out "build/sunlit-valley-idle-${VERSION}.zip"
           # GitHub zips every artifact, so upload the unpacked pack: the downloaded
           # artifact zip then has manifest.json at its root and imports directly.
           mkdir -p build/pack && unzip -q "build/sunlit-valley-idle-${VERSION}.zip" -d build/pack
           echo "PACK_VERSION=${VERSION}" >> "$GITHUB_ENV"
       - uses: actions/upload-artifact@v7
         with:
-          name: sunlitidle-mod
-          path: mod/build/libs/*.jar
-      - uses: actions/upload-artifact@v7
-        with:
           name: sunlit-valley-idle-${{ env.PACK_VERSION }}-curseforge
           path: build/pack/
+
+  server-boot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Boot a NeoForge server with the pack
+        run: python3 tools/port/server_boot_test.py --dir build/server
+      - name: Upload server logs
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: server-logs
+          path: |
+            build/server/logs/
+            build/server/crash-reports/
+          if-no-files-found: ignore

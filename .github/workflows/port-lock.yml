@@ -5,7 +5,7 @@ name: Resolve 1.21.1 lock
 on:
   workflow_dispatch:
   push:
-    paths: ['tools/port/**', '.github/workflows/port-lock.yml']
+    paths: ['tools/port/port_lock.py', 'tools/port/mods-1.21.1.json', '.github/workflows/port-lock.yml']
 
 permissions:
   contents: write
