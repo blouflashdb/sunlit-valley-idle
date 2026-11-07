@@ -585,7 +585,7 @@
             ]
         },
         {
-            "pakku_id": "xKFsRu7DB1iTnrUP",
+            "pakku_id": "5o68MuoeyNuXbYvj",
             "type": "MOD",
             "slug": {
                 "curseforge": "advanced-core-info"
@@ -623,7 +623,7 @@
         {
             "pakku_id": "AdRGoBjnkDCVFiKI",
             "pakku_links": [
-                "xKFsRu7DB1iTnrUP"
+                "5o68MuoeyNuXbYvj"
             ],
             "type": "MOD",
             "slug": {
@@ -1055,7 +1055,7 @@
         {
             "pakku_id": "JeRvt383P75HxgKw",
             "pakku_links": [
-                "zatiq4XjF09lSBwP",
+                "Rapttpx1SQ02O6Ca",
                 "3SKTUBNWpuvwHjOs"
             ],
             "type": "MOD",
@@ -1289,7 +1289,7 @@
             ]
         },
         {
-            "pakku_id": "tIgp48fAN3jovwfe",
+            "pakku_id": "OXbbGmuuAhGjfTxx",
             "type": "MOD",
             "slug": {
                 "curseforge": "better-advanced-tooltips"
@@ -2423,7 +2423,7 @@
         {
             "pakku_id": "eEi80WpuXV6IjtYh",
             "pakku_links": [
-                "sYhqOttm9zCdbA6a"
+                "RIlkU6YWAhVWh1r2"
             ],
             "type": "MOD",
             "side": "CLIENT",
@@ -3193,7 +3193,7 @@
         {
             "pakku_id": "nZMXRvG9MY7lcadX",
             "pakku_links": [
-                "fCJ3DSlriFSIF2Vh",
+                "F3x2hFTor2B2NBp4",
                 "ttAPeka8sDFIz5fp"
             ],
             "type": "MOD",
@@ -3237,7 +3237,7 @@
             "pakku_id": "rXJ32I5LMNJR9zL9",
             "pakku_links": [
                 "ttAPeka8sDFIz5fp",
-                "5K4jypQGqp9ojhZi"
+                "zC1e3Z212wlYWoUp"
             ],
             "type": "MOD",
             "slug": {
@@ -3427,7 +3427,7 @@
         {
             "pakku_id": "IiPlagNgZXtIFgYi",
             "pakku_links": [
-                "P07rSHAIhmdUMXSS",
+                "zlC7dVte1UxdLQ2X",
                 "ttAPeka8sDFIz5fp"
             ],
             "type": "MOD",
@@ -3509,48 +3509,7 @@
             ]
         },
         {
-            "pakku_id": "0p36tKD70WIQBNSF",
-            "pakku_links": [
-                "ttAPeka8sDFIz5fp"
-            ],
-            "type": "MOD",
-            "slug": {
-                "curseforge": "deployer"
-            },
-            "name": {
-                "curseforge": "Create: Deployer API"
-            },
-            "id": {
-                "curseforge": "1516421"
-            },
-            "files": [
-                {
-                    "type": "curseforge",
-                    "file_name": "deployer-0.1.3.jar",
-                    "mc_versions": [
-                        "1.21.1"
-                    ],
-                    "loaders": [
-                        "neoforge"
-                    ],
-                    "release_type": "release",
-                    "url": "https://edge.forgecdn.net/files/8803/341/deployer-0.1.3.jar",
-                    "id": "8803341",
-                    "parent_id": "1516421",
-                    "hashes": {
-                        "sha1": "e3a39672f10f2d141ef87e69fd1615042c4985d3",
-                        "md5": "91da50574ecf6f9cd6d9520528c53f11"
-                    },
-                    "required_dependencies": [
-                        "328085"
-                    ],
-                    "size": 2022337,
-                    "date_published": "2026-09-03T22:57:41.8Z"
-                }
-            ]
-        },
-        {
-            "pakku_id": "P07rSHAIhmdUMXSS",
+            "pakku_id": "zlC7dVte1UxdLQ2X",
             "pakku_links": [
                 "ttAPeka8sDFIz5fp"
             ],
@@ -3593,7 +3552,7 @@
         {
             "pakku_id": "PvbYubPyRmOtRix1",
             "pakku_links": [
-                "P07rSHAIhmdUMXSS",
+                "zlC7dVte1UxdLQ2X",
                 "ttAPeka8sDFIz5fp"
             ],
             "type": "MOD",
@@ -3630,49 +3589,6 @@
                     ],
                     "size": 1283517,
                     "date_published": "2026-06-13T10:31:57.45Z"
-                }
-            ]
-        },
-        {
-            "pakku_id": "b6QIOwpES6QXyA9G",
-            "pakku_links": [
-                "0p36tKD70WIQBNSF",
-                "ttAPeka8sDFIz5fp"
-            ],
-            "type": "MOD",
-            "slug": {
-                "curseforge": "create-extra-gauges"
-            },
-            "name": {
-                "curseforge": "Create: Extra Gauges"
-            },
-            "id": {
-                "curseforge": "1263228"
-            },
-            "files": [
-                {
-                    "type": "curseforge",
-                    "file_name": "extra_gauges-2.1.3.jar",
-                    "mc_versions": [
-                        "1.21.1"
-                    ],
-                    "loaders": [
-                        "neoforge"
-                    ],
-                    "release_type": "release",
-                    "url": "https://edge.forgecdn.net/files/8803/538/extra_gauges-2.1.3.jar",
-                    "id": "8803538",
-                    "parent_id": "1263228",
-                    "hashes": {
-                        "sha1": "c82761ebd4459869fd8eacf7da9ca2c3aa1e54f8",
-                        "md5": "4dc7919469343e03cbfe49d558df4375"
-                    },
-                    "required_dependencies": [
-                        "1516421",
-                        "328085"
-                    ],
-                    "size": 1064396,
-                    "date_published": "2026-09-03T23:38:09.02Z"
                 }
             ]
         },
@@ -4269,7 +4185,7 @@
             ]
         },
         {
-            "pakku_id": "5K4jypQGqp9ojhZi",
+            "pakku_id": "zC1e3Z212wlYWoUp",
             "type": "MOD",
             "slug": {
                 "curseforge": "dragonlib"
@@ -4613,7 +4529,7 @@
         {
             "pakku_id": "ospe0If4RTPFYYE2",
             "pakku_links": [
-                "zatiq4XjF09lSBwP",
+                "Rapttpx1SQ02O6Ca",
                 "3SKTUBNWpuvwHjOs"
             ],
             "type": "MOD",
@@ -5531,7 +5447,7 @@
         {
             "pakku_id": "jR55srcuFvm2AgIS",
             "pakku_links": [
-                "gtlm0JmJfdxez2tK"
+                "XKdJpAHIZCjQ6AIo"
             ],
             "type": "MOD",
             "side": "CLIENT",
@@ -5694,7 +5610,7 @@
             ]
         },
         {
-            "pakku_id": "BF0Z9vxvfEuA4B0b",
+            "pakku_id": "KmpBWxKTy4dp3pnx",
             "pakku_links": [
                 "E1izozCgXnbgewv8"
             ],
@@ -5984,7 +5900,7 @@
             ]
         },
         {
-            "pakku_id": "aALGsusG3gYffcbw",
+            "pakku_id": "PodqTLvuEx9wYK4n",
             "pakku_links": [
                 "VjY1yclSang7lBB5"
             ],
@@ -6667,7 +6583,7 @@
         {
             "pakku_id": "VqReVPiM9fUwTRzy",
             "pakku_links": [
-                "aALGsusG3gYffcbw"
+                "PodqTLvuEx9wYK4n"
             ],
             "type": "MOD",
             "slug": {
@@ -6742,9 +6658,9 @@
             ]
         },
         {
-            "pakku_id": "sYhqOttm9zCdbA6a",
+            "pakku_id": "RIlkU6YWAhVWh1r2",
             "pakku_links": [
-                "gtlm0JmJfdxez2tK"
+                "XKdJpAHIZCjQ6AIo"
             ],
             "type": "MOD",
             "side": "CLIENT",
@@ -7050,7 +6966,7 @@
         {
             "pakku_id": "Djr3B3G02XM83B3h",
             "pakku_links": [
-                "oMg1itcRh7zhA6yq"
+                "8JwQpTXkVrv5nj78"
             ],
             "type": "MOD",
             "slug": {
@@ -7284,7 +7200,7 @@
         {
             "pakku_id": "RBzJ5jZwsppstrfM",
             "pakku_links": [
-                "tIgp48fAN3jovwfe",
+                "OXbbGmuuAhGjfTxx",
                 "KQjD3BFWvknSEocI"
             ],
             "type": "MOD",
@@ -7514,6 +7430,42 @@
                     "required_dependencies": [],
                     "size": 3777053,
                     "date_published": "2026-10-02T02:56:45.827Z"
+                }
+            ]
+        },
+        {
+            "pakku_id": "hZnsW6FlmwmFNT4n",
+            "type": "MOD",
+            "slug": {
+                "curseforge": "lithium"
+            },
+            "name": {
+                "curseforge": "Lithium (Fabric/NeoForge)"
+            },
+            "id": {
+                "curseforge": "360438"
+            },
+            "files": [
+                {
+                    "type": "curseforge",
+                    "file_name": "lithium-neoforge-0.15.4+mc1.21.1.jar",
+                    "mc_versions": [
+                        "1.21.1"
+                    ],
+                    "loaders": [
+                        "neoforge"
+                    ],
+                    "release_type": "release",
+                    "url": "https://edge.forgecdn.net/files/8330/365/lithium-neoforge-0.15.4%2bmc1.21.1.jar",
+                    "id": "8330365",
+                    "parent_id": "360438",
+                    "hashes": {
+                        "sha1": "97212e45c963730bbfc7c44780df99317814c21b",
+                        "md5": "969860e6a6ebe4dc2e2154b56f05483e"
+                    },
+                    "required_dependencies": [],
+                    "size": 774220,
+                    "date_published": "2026-06-27T17:11:48.737Z"
                 }
             ]
         },
@@ -7874,7 +7826,7 @@
             ]
         },
         {
-            "pakku_id": "fCJ3DSlriFSIF2Vh",
+            "pakku_id": "F3x2hFTor2B2NBp4",
             "type": "MOD",
             "slug": {
                 "curseforge": "mechanicals-lib"
@@ -7948,7 +7900,7 @@
             ]
         },
         {
-            "pakku_id": "oMg1itcRh7zhA6yq",
+            "pakku_id": "8JwQpTXkVrv5nj78",
             "type": "MOD",
             "slug": {
                 "curseforge": "mezzconfig"
@@ -8941,7 +8893,7 @@
             ]
         },
         {
-            "pakku_id": "i2P3ljLy3u1BJm27",
+            "pakku_id": "kDJw7cii3j46BNt9",
             "type": "MOD",
             "slug": {
                 "curseforge": "owo-lib"
@@ -9700,7 +9652,7 @@
             ]
         },
         {
-            "pakku_id": "zatiq4XjF09lSBwP",
+            "pakku_id": "Rapttpx1SQ02O6Ca",
             "type": "MOD",
             "slug": {
                 "curseforge": "prickle"
@@ -9924,42 +9876,6 @@
             ]
         },
         {
-            "pakku_id": "ZxVewFJaZOxYuSg4",
-            "type": "MOD",
-            "slug": {
-                "curseforge": "radium-reforged"
-            },
-            "name": {
-                "curseforge": "Radium Reforged"
-            },
-            "id": {
-                "curseforge": "570017"
-            },
-            "files": [
-                {
-                    "type": "curseforge",
-                    "file_name": "radium-mc1.21.1-0.13.1+git.4994e83.jar",
-                    "mc_versions": [
-                        "1.21.1"
-                    ],
-                    "loaders": [
-                        "neoforge"
-                    ],
-                    "release_type": "beta",
-                    "url": "https://edge.forgecdn.net/files/5740/426/radium-mc1.21.1-0.13.1%2bgit.4994e83.jar",
-                    "id": "5740426",
-                    "parent_id": "570017",
-                    "hashes": {
-                        "sha1": "9e4d01da859e98cfba4ee18604aaa7cb1211f67d",
-                        "md5": "54b884f2519d2ac550ca4e59c2f0e526"
-                    },
-                    "required_dependencies": [],
-                    "size": 749577,
-                    "date_published": "2024-09-20T17:02:40.84Z"
-                }
-            ]
-        },
-        {
             "pakku_id": "gGX0r9Xyu3A69R6E",
             "type": "MOD",
             "side": "CLIENT",
@@ -10034,6 +9950,48 @@
                     ],
                     "size": 43983,
                     "date_published": "2026-07-19T10:44:51.487Z"
+                }
+            ]
+        },
+        {
+            "pakku_id": "IUCwZtxc3tyvWPN1",
+            "pakku_links": [
+                "XKdJpAHIZCjQ6AIo"
+            ],
+            "type": "MOD",
+            "side": "CLIENT",
+            "slug": {
+                "curseforge": "reeses-sodium-options"
+            },
+            "name": {
+                "curseforge": "Reese's Sodium Options"
+            },
+            "id": {
+                "curseforge": "511319"
+            },
+            "files": [
+                {
+                    "type": "curseforge",
+                    "file_name": "reeses-sodium-options-neoforge-2.2.4+mc1.21.1.jar",
+                    "mc_versions": [
+                        "1.21.1"
+                    ],
+                    "loaders": [
+                        "neoforge"
+                    ],
+                    "release_type": "release",
+                    "url": "https://edge.forgecdn.net/files/8891/797/reeses-sodium-options-neoforge-2.2.4%2bmc1.21.1.jar",
+                    "id": "8891797",
+                    "parent_id": "511319",
+                    "hashes": {
+                        "sha1": "e9e6d101b31acb51539141937ad5b069ff2ccc4d",
+                        "md5": "577e9ff1c3a0b480f29aec457d87fdc4"
+                    },
+                    "required_dependencies": [
+                        "394468"
+                    ],
+                    "size": 258894,
+                    "date_published": "2026-09-16T00:49:14.663Z"
                 }
             ]
         },
@@ -10351,7 +10309,7 @@
         {
             "pakku_id": "5fYRqfXoOZYSfb1R",
             "pakku_links": [
-                "XH0UklWDLagqC3mO",
+                "pqgf2E7YvPR2ZV7B",
                 "pthZzGsLRDrCMzUI"
             ],
             "type": "MOD",
@@ -10903,7 +10861,7 @@
         {
             "pakku_id": "myj1wSNMaYLnu7qY",
             "pakku_links": [
-                "i2P3ljLy3u1BJm27"
+                "kDJw7cii3j46BNt9"
             ],
             "type": "MOD",
             "slug": {
@@ -11366,7 +11324,7 @@
             ]
         },
         {
-            "pakku_id": "gtlm0JmJfdxez2tK",
+            "pakku_id": "XKdJpAHIZCjQ6AIo",
             "type": "MOD",
             "side": "CLIENT",
             "slug": {
@@ -11406,7 +11364,7 @@
             "pakku_id": "lL9TOUv9Ryu1s4iM",
             "pakku_links": [
                 "uWUTfAJJKo0YAkmR",
-                "gtlm0JmJfdxez2tK"
+                "XKdJpAHIZCjQ6AIo"
             ],
             "type": "MOD",
             "slug": {
@@ -11448,9 +11406,10 @@
         {
             "pakku_id": "uWUTfAJJKo0YAkmR",
             "pakku_links": [
-                "gtlm0JmJfdxez2tK"
+                "XKdJpAHIZCjQ6AIo"
             ],
             "type": "MOD",
+            "side": "CLIENT",
             "slug": {
                 "curseforge": "sodium-options-api"
             },
@@ -12303,7 +12262,7 @@
         {
             "pakku_id": "TbEKO6YuJDh5LCIC",
             "pakku_links": [
-                "zatiq4XjF09lSBwP",
+                "Rapttpx1SQ02O6Ca",
                 "3SKTUBNWpuvwHjOs"
             ],
             "type": "MOD",
@@ -13004,7 +12963,7 @@
             ]
         },
         {
-            "pakku_id": "0pUnt1HcewY5A0V7",
+            "pakku_id": "OniLjVD4IvBbKHbA",
             "pakku_links": [
                 "zHRbMsZ6VkdEiqa7"
             ],
@@ -13055,7 +13014,7 @@
         {
             "pakku_id": "zHRbMsZ6VkdEiqa7",
             "pakku_links": [
-                "0pUnt1HcewY5A0V7"
+                "OniLjVD4IvBbKHbA"
             ],
             "type": "MOD",
             "side": "CLIENT",
@@ -13347,7 +13306,7 @@
             ]
         },
         {
-            "pakku_id": "XH0UklWDLagqC3mO",
+            "pakku_id": "pqgf2E7YvPR2ZV7B",
             "type": "MOD",
             "slug": {
                 "curseforge": "yungs-api-neoforge"
