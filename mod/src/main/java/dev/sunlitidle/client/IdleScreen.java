@@ -1,6 +1,9 @@
 package dev.sunlitidle.client;
 
+import dev.sunlitidle.camp.Combat;
 import dev.sunlitidle.idle.IdleAction;
+import dev.sunlitidle.idle.IdleCombat;
+import dev.sunlitidle.idle.PlayerIdleState;
 import dev.sunlitidle.idle.IdleCatalog;
 import dev.sunlitidle.idle.IdleDrop;
 import dev.sunlitidle.idle.IdleInput;
@@ -23,6 +26,8 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.ArrayList;
@@ -33,18 +38,21 @@ import java.util.Set;
 
 /** Texture-free idle skills window: skill tabs, action slots, action list and storage. */
 public class IdleScreen extends AbstractContainerScreen<IdleMenu> {
-    private static final int MID_X = 56;
+    private static final int MID_X = IdleMenu.MID_X;
     private static final int MID_W = 178;
+    private static final int TAB = IdleMenu.TAB_SIZE;
     private static final int SLOT_Y = 38;
     private static final int SLOT_W = 34;
     private static final int SLOT_H = 24;
     private static final int LIST_Y = 66;
     private static final int ROW_H = 18;
     private static final int ROWS = 5;
-    private static final int STORE_X = 242;
+    private static final int COMPANION_LIST_Y = 88;
+    private static final int COMPANION_ROWS = 4;
+    private static final int STORE_X = 236;
     private static final int STORE_Y = 28;
     private static final int STORE_COLS = 5;
-    private static final int STORE_ROWS = 12;
+    private static final int STORE_ROWS = 11;
 
     private static final int BG = 0xFFC6C6C6;
     private static final int BORDER_LIGHT = 0xFFFFFFFF;
@@ -62,7 +70,7 @@ public class IdleScreen extends AbstractContainerScreen<IdleMenu> {
 
     public IdleScreen(IdleMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
-        imageWidth = 340;
+        imageWidth = STORE_X + STORE_COLS * 18 + 6;
         imageHeight = IdleMenu.HOTBAR_Y + 24;
     }
 
@@ -72,6 +80,30 @@ public class IdleScreen extends AbstractContainerScreen<IdleMenu> {
         addRenderableWidget(Button.builder(Component.translatable("sunlitidle.idle.tree"),
                         b -> IdleNetwork.sendToServer(IdleActionPacket.openTree(selectedSkill)))
                 .bounds(leftPos + MID_X + MID_W - 46, topPos + 15, 46, 13).build());
+        addRenderableWidget(Button.builder(Component.translatable("sunlitidle.idle.sell_all"),
+                        b -> IdleNetwork.sendToServer(IdleActionPacket.sell(-1)))
+                .bounds(leftPos + STORE_X - 2, topPos + STORE_Y + STORE_ROWS * 18 + 3, STORE_COLS * 18 + 2, 14)
+                .tooltip(net.minecraft.client.gui.components.Tooltip.create(Component.translatable("sunlitidle.idle.sell_all_hint")))
+                .build());
+    }
+
+    private boolean companion() {
+        IdleSkill skill = skill();
+        return skill != null && skill.actions().stream().anyMatch(IdleAction::isCombat);
+    }
+
+    private int listY() {
+        return companion() ? COMPANION_LIST_Y : LIST_Y;
+    }
+
+    private int rows() {
+        return companion() ? COMPANION_ROWS : ROWS;
+    }
+
+    @Override
+    protected void containerTick() {
+        super.containerTick();
+        menu.showCompanion = companion();
     }
 
     private IdleSkill skill() {
@@ -143,10 +175,10 @@ public class IdleScreen extends AbstractContainerScreen<IdleMenu> {
         }
         if (data == null) {
             g.drawCenteredString(font, Component.translatable("sunlitidle.idle.loading"), x + MID_X + MID_W / 2,
-                    y + LIST_Y + 30, 0xFFFFFFFF);
+                    y + LIST_Y + 40, 0xFFFFFFFF);
         } else if (data.offlineSeconds() > 0) {
             g.drawString(font, Component.translatable("sunlitidle.idle.catching_up_short",
-                    dev.sunlitidle.idle.IdleService.formatDuration(data.offlineSeconds())), x + 8, y + imageHeight - 12,
+                    dev.sunlitidle.idle.IdleService.formatDuration(data.offlineSeconds())), x + MID_X + 70, y + 6,
                     0xFF8D6E00, false);
         }
     }
@@ -156,13 +188,13 @@ public class IdleScreen extends AbstractContainerScreen<IdleMenu> {
             int tx = x + IdleMenu.TAB_X;
             int ty = y + IdleMenu.TAB_Y + s.index() * IdleMenu.TAB_STEP;
             boolean selected = s.index() == selectedSkill;
-            g.fill(tx, ty, tx + 22, ty + 22, selected ? 0xFFFFFFFF : BORDER_DARK);
-            g.fill(tx + 1, ty + 1, tx + 21, ty + 21, selected ? 0xFFE0E0E0 : SLOT_BG);
+            g.fill(tx, ty, tx + TAB, ty + TAB, selected ? 0xFFFFFFFF : BORDER_DARK);
+            g.fill(tx + 1, ty + 1, tx + TAB - 1, ty + TAB - 1, selected ? 0xFFE0E0E0 : SLOT_BG);
             ItemStack icon = stackOf(s.icon());
-            g.renderItem(icon, tx + 3, ty + 3);
-            g.renderItemDecorations(font, icon, tx + 3, ty + 3, String.valueOf(level(s)));
+            g.renderItem(icon, tx + 1, ty + 1);
+            g.renderItemDecorations(font, icon, tx + 1, ty + 1, String.valueOf(level(s)));
             if (s.tool() != ToolKind.NONE) {
-                slot(g, x + IdleMenu.TOOL_X, ty + 3);
+                slot(g, x + IdleMenu.TOOL_X, ty + 1);
             }
         }
     }
@@ -201,12 +233,22 @@ public class IdleScreen extends AbstractContainerScreen<IdleMenu> {
 
     private void drawActions(GuiGraphics g, int x, int y, IdleSkill skill, int lvl) {
         List<IdleAction> list = actions();
-        actionScroll = Math.max(0, Math.min(actionScroll, Math.max(0, list.size() - ROWS)));
+        int rows = rows();
+        int listY = listY();
+        actionScroll = Math.max(0, Math.min(actionScroll, Math.max(0, list.size() - rows)));
         int lx = x + MID_X;
-        g.fill(lx - 1, y + LIST_Y - 1, lx + MID_W + 1, y + LIST_Y + ROWS * ROW_H + 1, PANEL);
-        for (int r = 0; r < ROWS && actionScroll + r < list.size(); r++) {
+        if (companion()) {
+            for (int i = 0; i < PlayerIdleState.ARMOR_SLOTS; i++) {
+                slot(g, lx + 1 + i * 18, y + IdleMenu.GEAR_Y);
+            }
+            for (int i = 0; i < PlayerIdleState.FOOD_SLOTS; i++) {
+                slot(g, x + IdleMenu.FOOD_X + i * 18, y + IdleMenu.GEAR_Y);
+            }
+        }
+        g.fill(lx - 1, y + listY - 1, lx + MID_W + 1, y + listY + rows * ROW_H + 1, PANEL);
+        for (int r = 0; r < rows && actionScroll + r < list.size(); r++) {
             IdleAction a = list.get(actionScroll + r);
-            int ry = y + LIST_Y + r * ROW_H;
+            int ry = y + listY + r * ROW_H;
             boolean unlocked = lvl >= a.level();
             g.fill(lx, ry, lx + MID_W, ry + ROW_H - 1, unlocked ? 0xFFD6D6D6 : 0xFF9E9E9E);
             g.renderItem(stackOf(a.icon()), lx + 1, ry);
@@ -217,11 +259,15 @@ public class IdleScreen extends AbstractContainerScreen<IdleMenu> {
                     : I18n.get("sunlitidle.idle.level", a.level());
             g.drawString(font, info, lx + MID_W - 2 - font.width(info), ry + 5, unlocked ? 0xFF2E7D32 : RED, false);
         }
-        if (list.size() > ROWS) {
-            int trackH = ROWS * ROW_H;
-            int thumbH = Math.max(8, trackH * ROWS / list.size());
-            int thumbY = (trackH - thumbH) * actionScroll / Math.max(1, list.size() - ROWS);
-            g.fill(lx + MID_W + 1, y + LIST_Y + thumbY, lx + MID_W + 3, y + LIST_Y + thumbY + thumbH, BORDER_DARK);
+        if (list.isEmpty()) {
+            g.drawCenteredString(font, Component.translatable("sunlitidle.idle.no_actions"), lx + MID_W / 2,
+                    y + listY + 20, 0xFFFFFFFF);
+        }
+        if (list.size() > rows) {
+            int trackH = rows * ROW_H;
+            int thumbH = Math.max(8, trackH * rows / list.size());
+            int thumbY = (trackH - thumbH) * actionScroll / Math.max(1, list.size() - rows);
+            g.fill(lx + MID_W + 1, y + listY + thumbY, lx + MID_W + 3, y + listY + thumbY + thumbH, BORDER_DARK);
         }
     }
 
@@ -254,7 +300,7 @@ public class IdleScreen extends AbstractContainerScreen<IdleMenu> {
         int my = mouseY - topPos;
         for (IdleSkill s : IdleCatalog.skills()) {
             int ty = IdleMenu.TAB_Y + s.index() * IdleMenu.TAB_STEP;
-            if (in(mx, my, IdleMenu.TAB_X, ty, 22, 22)) {
+            if (in(mx, my, IdleMenu.TAB_X, ty, TAB, TAB)) {
                 List<Component> lines = new ArrayList<>();
                 lines.add(Component.translatable(s.translationKey()).withStyle(ChatFormatting.YELLOW));
                 if (data != null && s.index() < data.skills().size()) {
@@ -284,11 +330,15 @@ public class IdleScreen extends AbstractContainerScreen<IdleMenu> {
             }
         }
         List<IdleAction> list = actions();
-        for (int r = 0; r < ROWS && actionScroll + r < list.size(); r++) {
-            if (in(mx, my, MID_X, LIST_Y + r * ROW_H, MID_W, ROW_H)) {
+        for (int r = 0; r < rows() && actionScroll + r < list.size(); r++) {
+            if (in(mx, my, MID_X, listY() + r * ROW_H, MID_W, ROW_H)) {
                 g.renderComponentTooltip(font, actionTooltip(list.get(actionScroll + r)), mouseX, mouseY);
                 return;
             }
+        }
+        if (companion() && in(mx, my, MID_X, IdleMenu.GEAR_Y, MID_W, 18) && hoveredSlot == null) {
+            g.renderComponentTooltip(font, List.of(Component.translatable("sunlitidle.idle.companion_hint")), mouseX, mouseY);
+            return;
         }
         int index = storageIndexAt(mx, my);
         if (data != null && index >= 0 && index < data.storage().size()) {
@@ -297,6 +347,7 @@ public class IdleScreen extends AbstractContainerScreen<IdleMenu> {
             lines.add(Component.translatable("sunlitidle.idle.stored", String.format(Locale.ROOT, "%,d", e.count()))
                     .withStyle(ChatFormatting.GOLD));
             lines.add(Component.translatable("sunlitidle.idle.withdraw_hint").withStyle(ChatFormatting.DARK_GRAY));
+            lines.add(Component.translatable("sunlitidle.idle.sell_hint").withStyle(ChatFormatting.DARK_GRAY));
             g.renderComponentTooltip(font, lines, mouseX, mouseY);
         }
     }
@@ -337,8 +388,23 @@ public class IdleScreen extends AbstractContainerScreen<IdleMenu> {
             lines.add(Component.translatable("sunlitidle.idle.needs_tier",
                     Component.translatable("sunlitidle.tier_name." + a.toolTier())).withStyle(ChatFormatting.GRAY));
         }
+        if (a.isCombat()) {
+            combatLines(a, lines);
+            lines.add(Component.translatable("sunlitidle.idle.assign_hint", selectedSlot + 1).withStyle(ChatFormatting.DARK_GRAY));
+            return lines;
+        }
         lines.add(Component.translatable("sunlitidle.idle.base", String.format(Locale.ROOT, "%.1f", a.seconds()), a.xp())
                 .withStyle(ChatFormatting.GRAY));
+        if (a.isRecipe()) {
+            ItemStack[] inputs = a.recipe().input().getItems();
+            if (inputs.length > 0) {
+                lines.add(Component.translatable("sunlitidle.idle.input", 1, inputs[0].getHoverName()).withStyle(ChatFormatting.AQUA));
+            }
+            lines.add(Component.translatable("sunlitidle.idle.drops", a.recipe().output().getHoverName().getString())
+                    .withStyle(ChatFormatting.GRAY));
+            lines.add(Component.translatable("sunlitidle.idle.assign_hint", selectedSlot + 1).withStyle(ChatFormatting.DARK_GRAY));
+            return lines;
+        }
         for (IdleInput input : a.inputs()) {
             lines.add(Component.translatable("sunlitidle.idle.input", input.count(), stackOf(input.item()).getHoverName())
                     .withStyle(ChatFormatting.AQUA));
@@ -356,12 +422,46 @@ public class IdleScreen extends AbstractContainerScreen<IdleMenu> {
                     }
                 }
                 case ITEM -> names.add(stackOf(drop.id()).getHoverName().getString());
-                case LOOT_TABLE -> names.add(I18n.get("sunlitidle.idle.fishing_loot"));
+                case LOOT_TABLE -> names.add(I18n.get(drop.chest() ? "sunlitidle.idle.chest_loot" : "sunlitidle.idle.fishing_loot"));
+                case ENTITY -> {
+                    var type = ForgeRegistries.ENTITY_TYPES.getValue(drop.id());
+                    if (type != null) {
+                        names.add(I18n.get("sunlitidle.idle.mob_loot", type.getDescription().getString()));
+                    }
+                }
             }
         }
         lines.add(Component.translatable("sunlitidle.idle.drops", String.join(", ", names)).withStyle(ChatFormatting.GRAY));
         lines.add(Component.translatable("sunlitidle.idle.assign_hint", selectedSlot + 1).withStyle(ChatFormatting.DARK_GRAY));
         return lines;
+    }
+
+    private void combatLines(IdleAction a, List<Component> lines) {
+        IdleSkill skill = skill();
+        int lvl = level(skill);
+        ItemStack weapon = menu.getSlot(skill.index()).getItem();
+        IItemHandler armor = new ItemStackHandler(PlayerIdleState.ARMOR_SLOTS);
+        for (int i = 0; i < PlayerIdleState.ARMOR_SLOTS; i++) {
+            ((ItemStackHandler) armor).setStackInSlot(i, menu.getSlot(IdleCatalog.skills().size() + i).getItem());
+        }
+        Combat.Enemy enemy = IdleCombat.enemy(a);
+        if (!dev.sunlitidle.camp.AdventurerCampBlockEntity.isWeapon(weapon)) {
+            lines.add(Component.translatable("sunlitidle.slot_status.no_tool").withStyle(ChatFormatting.RED));
+            return;
+        }
+        Combat.Loadout loadout = IdleCombat.loadout(weapon, armor, lvl);
+        double power = Combat.power(loadout, enemy);
+        double damage = Combat.expectedHitsTaken(loadout, enemy) * Combat.damagePerEnemyHit(loadout, enemy);
+        boolean wins = damage < loadout.maxHealth();
+        lines.add(Component.translatable("sunlitidle.idle.power", Math.round(power), Math.round(enemy.power()))
+                .withStyle(power >= enemy.power() ? ChatFormatting.GREEN : ChatFormatting.GOLD));
+        lines.add(Component.translatable("sunlitidle.idle.kill_time",
+                String.format(Locale.ROOT, "%.1f", Combat.killSeconds(loadout, enemy)), IdleCombat.xpPerKill(enemy))
+                .withStyle(ChatFormatting.GRAY));
+        lines.add(Component.translatable("sunlitidle.idle.food_per_kill", String.format(Locale.ROOT, "%.1f",
+                Combat.foodCost(loadout, enemy, Math.min(damage, loadout.maxHealth())))).withStyle(ChatFormatting.GRAY));
+        lines.add(Component.translatable(wins ? "sunlitidle.idle.wins" : "sunlitidle.idle.loses")
+                .withStyle(wins ? ChatFormatting.GREEN : ChatFormatting.RED));
     }
 
     // ---------------------------------------------------------------- input
@@ -372,7 +472,7 @@ public class IdleScreen extends AbstractContainerScreen<IdleMenu> {
         int my = (int) mouseY - topPos;
         IdleSyncPacket data = ClientIdleData.get();
         for (IdleSkill s : IdleCatalog.skills()) {
-            if (in(mx, my, IdleMenu.TAB_X, IdleMenu.TAB_Y + s.index() * IdleMenu.TAB_STEP, 22, 22)) {
+            if (in(mx, my, IdleMenu.TAB_X, IdleMenu.TAB_Y + s.index() * IdleMenu.TAB_STEP, TAB, TAB)) {
                 selectedSkill = s.index();
                 actionScroll = 0;
                 return true;
@@ -400,8 +500,8 @@ public class IdleScreen extends AbstractContainerScreen<IdleMenu> {
             }
         }
         List<IdleAction> list = actions();
-        for (int r = 0; r < ROWS && actionScroll + r < list.size(); r++) {
-            if (in(mx, my, MID_X, LIST_Y + r * ROW_H, MID_W, ROW_H)) {
+        for (int r = 0; r < rows() && actionScroll + r < list.size(); r++) {
+            if (in(mx, my, MID_X, listY() + r * ROW_H, MID_W, ROW_H)) {
                 IdleAction a = list.get(actionScroll + r);
                 if (level(skill()) >= a.level()) {
                     IdleNetwork.sendToServer(IdleActionPacket.assign(selectedSlot, a.key()));
@@ -412,7 +512,8 @@ public class IdleScreen extends AbstractContainerScreen<IdleMenu> {
         int index = storageIndexAt(mx, my);
         if (index >= 0) {
             if (data != null && index < data.storage().size()) {
-                IdleNetwork.sendToServer(IdleActionPacket.withdraw(index, hasShiftDown()));
+                IdleNetwork.sendToServer(hasControlDown() ? IdleActionPacket.sell(index)
+                        : IdleActionPacket.withdraw(index, hasShiftDown()));
             }
             return true;
         }
@@ -424,7 +525,7 @@ public class IdleScreen extends AbstractContainerScreen<IdleMenu> {
         int mx = (int) mouseX - leftPos;
         int my = (int) mouseY - topPos;
         int step = delta > 0 ? -1 : 1;
-        if (in(mx, my, MID_X, LIST_Y, MID_W + 4, ROWS * ROW_H)) {
+        if (in(mx, my, MID_X, listY(), MID_W + 4, rows() * ROW_H)) {
             actionScroll += step;
             return true;
         }

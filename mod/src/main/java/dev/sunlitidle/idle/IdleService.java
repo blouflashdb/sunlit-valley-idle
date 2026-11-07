@@ -7,6 +7,7 @@ import dev.sunlitidle.network.IdleNetwork;
 import dev.sunlitidle.network.IdleSyncPacket;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.SimpleMenuProvider;
@@ -32,6 +33,7 @@ public final class IdleService {
         MinecraftForge.EVENT_BUS.addListener(IdleService::onServerTick);
         MinecraftForge.EVENT_BUS.addListener(IdleService::onLogin);
         MinecraftForge.EVENT_BUS.addListener(IdleService::onLogout);
+        MinecraftForge.EVENT_BUS.addListener(IdleService::onSmelted);
     }
 
     public static PlayerIdleState state(ServerPlayer player) {
@@ -101,6 +103,18 @@ public final class IdleService {
         }
     }
 
+    /** Taking items out of a furnace by hand levels Smelting, or Cooking for food. */
+    private static void onSmelted(PlayerEvent.ItemSmeltedEvent event) {
+        if (!(event.getEntity() instanceof ServerPlayer player) || event.getSmelting().isEmpty()) {
+            return;
+        }
+        ItemStack result = event.getSmelting();
+        IdleSkill skill = IdleCatalog.skill(result.isEdible() ? "cooking" : "smelting");
+        if (skill != null) {
+            SkillLevels.addXp(player, state(player), skill, Math.max(1, result.getCount() * 2));
+        }
+    }
+
     private static boolean hasRunningSlot(PlayerIdleState state) {
         for (int i = 0; i < IdleMath.maxSlots(); i++) {
             if (state.slotAction(i) != null) {
@@ -118,6 +132,7 @@ public final class IdleService {
             case OPEN -> open(player);
             case ASSIGN -> assign(player, state, packet.index(), packet.text());
             case WITHDRAW -> withdraw(player, state, packet.index(), packet.flag());
+            case SELL -> sell(player, state, packet.index());
             case OPEN_TREE -> {
                 IdleSkill skill = IdleCatalog.skill(packet.index());
                 if (skill != null && !SkillLevels.openTree(player, skill)) {
@@ -186,6 +201,95 @@ public final class IdleService {
                 return;
             }
         }
+    }
+
+    /**
+     * Sells one storage entry, or with index -1 everything except the inputs of running actions and the
+     * companion's food. Pricing is done by the pack (see {@link IdleSellEvent}); the coins go into storage.
+     */
+    private static void sell(ServerPlayer player, PlayerIdleState state, int index) {
+        List<StoredStack> chosen = new ArrayList<>();
+        if (index >= 0) {
+            if (index < state.storage().size()) {
+                chosen.add(state.storage().get(index));
+            }
+        } else {
+            java.util.Set<net.minecraft.world.item.Item> keep = keptItems(state);
+            for (StoredStack stored : state.storage()) {
+                if (!keep.contains(stored.prototype().getItem())) {
+                    chosen.add(stored);
+                }
+            }
+        }
+        if (chosen.isEmpty()) {
+            return;
+        }
+        // One handler slot per entry, capped at an int; the rest stays for the next sale.
+        net.minecraftforge.items.ItemStackHandler items = new net.minecraftforge.items.ItemStackHandler(chosen.size()) {
+            @Override
+            public int getSlotLimit(int slot) {
+                return Integer.MAX_VALUE;
+            }
+
+            @Override
+            protected int getStackLimit(int slot, ItemStack stack) {
+                return Integer.MAX_VALUE;
+            }
+        };
+        for (int i = 0; i < chosen.size(); i++) {
+            StoredStack stored = chosen.get(i);
+            items.setStackInSlot(i, stored.prototype().copyWithCount((int) Math.min(Integer.MAX_VALUE, stored.count())));
+        }
+        IdleSellEvent event = new IdleSellEvent(player, items);
+        MinecraftForge.EVENT_BUS.post(event);
+        long soldItems = 0;
+        for (int i = 0; i < chosen.size(); i++) {
+            if (items.getStackInSlot(i).isEmpty()) {
+                StoredStack stored = chosen.get(i);
+                long amount = Math.min(Integer.MAX_VALUE, stored.count());
+                soldItems += amount;
+                removeExact(state, stored, amount);
+            }
+        }
+        if (soldItems == 0) {
+            player.displayClientMessage(Component.translatable("sunlitidle.idle.nothing_sold"), true);
+            return;
+        }
+        for (ItemStack coin : event.payout()) {
+            state.store(coin);
+        }
+        player.displayClientMessage(Component.translatable("sunlitidle.idle.sold", soldItems, event.getValue()), true);
+    }
+
+    private static void removeExact(PlayerIdleState state, StoredStack stored, long amount) {
+        stored.add(-amount);
+        if (stored.count() <= 0) {
+            state.storage().remove(stored);
+        }
+        state.markDirty();
+    }
+
+    /** Items that "sell all" keeps: inputs of actions in slots and the companion's food. */
+    private static java.util.Set<net.minecraft.world.item.Item> keptItems(PlayerIdleState state) {
+        java.util.Set<net.minecraft.world.item.Item> keep = new java.util.HashSet<>();
+        for (int i = 0; i < IdleMath.maxSlots(); i++) {
+            IdleAction action = IdleCatalog.action(state.slotAction(i));
+            if (action == null) {
+                continue;
+            }
+            for (IdleInput input : action.inputs()) {
+                keep.add(net.minecraftforge.registries.ForgeRegistries.ITEMS.getValue(input.item()));
+            }
+            if (action.isRecipe()) {
+                for (ItemStack s : action.recipe().input().getItems()) {
+                    keep.add(s.getItem());
+                }
+            }
+        }
+        for (int i = 0; i < state.food().getSlots(); i++) {
+            keep.add(state.food().getStackInSlot(i).getItem());
+        }
+        return keep;
     }
 
     private static int spaceFor(ServerPlayer player, ItemStack proto) {

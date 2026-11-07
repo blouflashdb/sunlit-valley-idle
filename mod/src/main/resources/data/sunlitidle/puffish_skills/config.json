@@ -2,6 +2,11 @@
   "version": 3,
   "categories": [
     "woodcutting",
-    "foraging"
+    "foraging",
+    "digging",
+    "hunting",
+    "archaeology",
+    "smelting",
+    "cooking"
   ]
 }

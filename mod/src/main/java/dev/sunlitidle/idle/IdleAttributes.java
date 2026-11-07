@@ -20,7 +20,8 @@ import java.util.Map;
  */
 public final class IdleAttributes {
     /** Fixed list so the attributes exist before the catalog is read. Must match skills.json. */
-    public static final String[] SKILLS = {"woodcutting", "mining", "foraging", "farming", "fishing", "husbandry", "adventuring"};
+    public static final String[] SKILLS = {"woodcutting", "mining", "digging", "foraging", "farming", "fishing", "hunting",
+            "husbandry", "archaeology", "adventuring", "smelting", "cooking"};
     private static final DeferredRegister<Attribute> ATTRIBUTES = DeferredRegister.create(ForgeRegistries.ATTRIBUTES, SunlitIdle.MOD_ID);
     private static final Map<String, RegistryObject<Attribute>> SPEED = new HashMap<>();
     private static final Map<String, RegistryObject<Attribute>> YIELD = new HashMap<>();

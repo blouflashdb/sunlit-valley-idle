@@ -22,13 +22,22 @@ public class IdleMenu extends AbstractContainerMenu {
     // Layout, shared with the screen.
     public static final int TAB_X = 6;
     public static final int TAB_Y = 18;
-    public static final int TAB_STEP = 24;
-    public static final int TOOL_X = 32;
-    public static final int INV_X = 64;
-    public static final int INV_Y = 166;
-    public static final int HOTBAR_Y = 224;
+    public static final int TAB_STEP = 19;
+    public static final int TAB_SIZE = 18;
+    public static final int TOOL_X = 28;
+    public static final int MID_X = 50;
+    public static final int INV_X = 58;
+    public static final int INV_Y = 174;
+    public static final int HOTBAR_Y = 232;
+    /** Companion loadout row, shown on the Adventuring tab. */
+    public static final int GEAR_Y = 67;
+    public static final int FOOD_X = MID_X + 4 * 18 + 12;
 
     private final int toolCount;
+    private final int armorEnd;
+    private final int foodEnd;
+    /** Client only: whether the Adventuring tab is open, which shows the armor and food slots. */
+    public boolean showCompanion;
     @Nullable
     private final PlayerIdleState state;
 
@@ -43,7 +52,7 @@ public class IdleMenu extends AbstractContainerMenu {
         toolCount = tools.getSlots();
         for (int i = 0; i < toolCount; i++) {
             final IdleSkill skill = IdleCatalog.skill(i);
-            addSlot(new SlotItemHandler(tools, i, TOOL_X, TAB_Y + 3 + i * TAB_STEP) {
+            addSlot(new SlotItemHandler(tools, i, TOOL_X, TAB_Y + 1 + i * TAB_STEP) {
                 @Override
                 public boolean mayPlace(@NotNull ItemStack stack) {
                     return skill != null && skill.tool().matches(stack);
@@ -60,6 +69,42 @@ public class IdleMenu extends AbstractContainerMenu {
                 }
             });
         }
+        IItemHandler armor = state != null ? state.armor() : new ItemStackHandler(PlayerIdleState.ARMOR_SLOTS);
+        IItemHandler food = state != null ? state.food() : new ItemStackHandler(PlayerIdleState.FOOD_SLOTS);
+        for (int i = 0; i < armor.getSlots(); i++) {
+            final int gearSlot = i + 1;
+            addSlot(new SlotItemHandler(armor, i, MID_X + 1 + i * 18, GEAR_Y) {
+                @Override
+                public boolean mayPlace(@NotNull ItemStack stack) {
+                    return dev.sunlitidle.camp.AdventurerCampBlockEntity.fitsGearSlot(gearSlot, stack);
+                }
+
+                @Override
+                public int getMaxStackSize() {
+                    return 1;
+                }
+
+                @Override
+                public boolean isActive() {
+                    return showCompanion;
+                }
+            });
+        }
+        armorEnd = slots.size();
+        for (int i = 0; i < food.getSlots(); i++) {
+            addSlot(new SlotItemHandler(food, i, FOOD_X + i * 18, GEAR_Y) {
+                @Override
+                public boolean mayPlace(@NotNull ItemStack stack) {
+                    return stack.isEdible();
+                }
+
+                @Override
+                public boolean isActive() {
+                    return showCompanion;
+                }
+            });
+        }
+        foodEnd = slots.size();
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 9; col++) {
                 addSlot(new Slot(inventory, col + row * 9 + 9, INV_X + col * 18, INV_Y + row * 18));
@@ -75,7 +120,10 @@ public class IdleMenu extends AbstractContainerMenu {
         return true;
     }
 
-    /** Shift-click: tools go to their tool slot, everything else into idle storage. */
+    /**
+     * Shift-click: tools go to their tool slot, armor to the companion, food to a food slot that already holds
+     * the same item, everything else into idle storage.
+     */
     @Override
     public ItemStack quickMoveStack(Player player, int index) {
         Slot slot = slots.get(index);
@@ -84,15 +132,21 @@ public class IdleMenu extends AbstractContainerMenu {
         }
         ItemStack stack = slot.getItem();
         ItemStack original = stack.copy();
-        if (index < toolCount) {
-            if (!moveItemStackTo(stack, toolCount, slots.size(), true)) {
+        if (index < foodEnd) {
+            if (!moveItemStackTo(stack, foodEnd, slots.size(), true)) {
                 return ItemStack.EMPTY;
             }
         } else {
             boolean moved = false;
-            for (int i = 0; i < toolCount && !moved; i++) {
-                Slot toolSlot = slots.get(i);
-                if (!toolSlot.hasItem() && toolSlot.mayPlace(stack)) {
+            for (int i = 0; i < armorEnd && !moved; i++) {
+                Slot target = slots.get(i);
+                if (!target.hasItem() && target.mayPlace(stack)) {
+                    moved = moveItemStackTo(stack, i, i + 1, false);
+                }
+            }
+            for (int i = armorEnd; i < foodEnd && !moved; i++) {
+                Slot target = slots.get(i);
+                if (target.hasItem() && ItemStack.isSameItemSameTags(target.getItem(), stack)) {
                     moved = moveItemStackTo(stack, i, i + 1, false);
                 }
             }
@@ -113,6 +167,6 @@ public class IdleMenu extends AbstractContainerMenu {
         }
         slot.onTake(player, stack);
         // Deposits empty the slot fully; returning EMPTY stops the vanilla shift-click loop from repeating.
-        return stack.isEmpty() && index >= toolCount ? ItemStack.EMPTY : original;
+        return stack.isEmpty() && index >= foodEnd ? ItemStack.EMPTY : original;
     }
 }

@@ -12,11 +12,16 @@ class CombatTest {
     private static final Combat.Enemy T1 = new Combat.Enemy(10, 2, 1, 150);
     private static final Combat.Enemy T2 = new Combat.Enemy(25, 4, 2, 400);
     private static final Combat.Enemy T3 = new Combat.Enemy(60, 7, 3, 900);
+    private static final Combat.Enemy T4 = new Combat.Enemy(140, 11, 4, 2500);
+    private static final Combat.Enemy T5 = new Combat.Enemy(300, 16, 5, 8000);
 
     // Vanilla gear: damage includes the player's base 1, speed is attacks per second.
     private static final Combat.Loadout WOOD_LEATHER = new Combat.Loadout(4, 1.6, 7, 0, 0, 20);
     private static final Combat.Loadout IRON = new Combat.Loadout(6, 1.6, 15, 0, 0, 28);
     private static final Combat.Loadout DIAMOND = new Combat.Loadout(7, 1.6, 20, 8, 0, 38);
+    // Diamond with Sharpness V and Protection II, and netherite with Sharpness V and Protection IV.
+    private static final Combat.Loadout DIAMOND_ENCHANTED = new Combat.Loadout(10, 1.6, 20, 8, 8, 44);
+    private static final Combat.Loadout NETHERITE = new Combat.Loadout(12, 1.6, 20, 12, 16, 50);
 
     @Test
     void vanillaArmorFormula() {
@@ -47,6 +52,16 @@ class CombatTest {
         assertTrue(Combat.power(WOOD_LEATHER, T1) >= T1.power());
         assertTrue(Combat.power(IRON, T2) >= T2.power());
         assertTrue(Combat.power(DIAMOND, T3) >= T3.power());
+    }
+
+    @Test
+    void lateTiersNeedEnchantedGear() {
+        assertTrue(Combat.power(DIAMOND_ENCHANTED, T4) >= T4.power());
+        assertTrue(Combat.power(DIAMOND, T4) < T4.power());
+        assertTrue(Combat.power(NETHERITE, T5) >= T5.power());
+        assertFalse(Combat.overpowers(NETHERITE, T5));
+        double damage = Combat.expectedHitsTaken(DIAMOND_ENCHANTED, T5) * Combat.damagePerEnemyHit(DIAMOND_ENCHANTED, T5);
+        assertTrue(damage >= DIAMOND_ENCHANTED.maxHealth(), "enchanted diamond should lose in T5: " + damage);
     }
 
     @Test

@@ -2,6 +2,7 @@ package dev.sunlitidle.client;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import dev.sunlitidle.ModRegistry;
+import dev.sunlitidle.idle.RecipeActions;
 import dev.sunlitidle.network.IdleActionPacket;
 import dev.sunlitidle.network.IdleNetwork;
 import net.minecraft.client.KeyMapping;
@@ -31,6 +32,14 @@ public final class ClientSetup {
         event.enqueueWork(() -> {
             MenuScreens.register(ModRegistry.CAMP_MENU.get(), CampScreen::new);
             MenuScreens.register(ModRegistry.IDLE_MENU.get(), IdleScreen::new);
+            RecipeActions.clientRecipes = () -> {
+                Minecraft mc = Minecraft.getInstance();
+                return mc.level != null ? mc.level.getRecipeManager() : null;
+            };
+            RecipeActions.clientRegistries = () -> {
+                Minecraft mc = Minecraft.getInstance();
+                return mc.level != null ? mc.level.registryAccess() : null;
+            };
         });
     }
 

@@ -17,7 +17,9 @@ public record IdleActionPacket(Type type, int index, String text, boolean flag) 
         /** Take storage entry {@code index}; {@code flag} takes as much as fits. */
         WITHDRAW,
         /** Open the skill tree of skill {@code index}. */
-        OPEN_TREE
+        OPEN_TREE,
+        /** Sell storage entry {@code index}, or everything sellable when {@code index} is -1. */
+        SELL
     }
 
     public static IdleActionPacket open() {
@@ -36,15 +38,19 @@ public record IdleActionPacket(Type type, int index, String text, boolean flag) 
         return new IdleActionPacket(Type.OPEN_TREE, skill, "", false);
     }
 
+    public static IdleActionPacket sell(int index) {
+        return new IdleActionPacket(Type.SELL, index, "", false);
+    }
+
     public static void encode(IdleActionPacket p, FriendlyByteBuf buf) {
         buf.writeEnum(p.type);
-        buf.writeVarInt(p.index);
+        buf.writeInt(p.index);
         buf.writeUtf(p.text, 256);
         buf.writeBoolean(p.flag);
     }
 
     public static IdleActionPacket decode(FriendlyByteBuf buf) {
-        return new IdleActionPacket(buf.readEnum(Type.class), buf.readVarInt(), buf.readUtf(256), buf.readBoolean());
+        return new IdleActionPacket(buf.readEnum(Type.class), buf.readInt(), buf.readUtf(256), buf.readBoolean());
     }
 
     public static void handle(IdleActionPacket p, Supplier<NetworkEvent.Context> ctx) {

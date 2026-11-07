@@ -75,6 +75,13 @@ public final class IdleEngine {
             state.setSlotStatus(slot, SlotStatus.LOCKED);
             return 0;
         }
+        if (action.isCombat()) {
+            return IdleCombat.advance(player, state, slot, skill, action, level, seconds, xpBySkill, MAX_COMPLETIONS_PER_CALL);
+        }
+        if (skill.seasonal() && !inSeason(player, action)) {
+            state.setSlotStatus(slot, SlotStatus.OUT_OF_SEASON);
+            return 0;
+        }
         long items = 0;
         double progress = state.slotProgress(slot) + seconds;
         int completions = 0;
@@ -109,6 +116,17 @@ public final class IdleEngine {
         }
     }
 
+    /** Whether the crop of a seasonal action grows now. Looks at the action's first block drop. */
+    public static boolean inSeason(ServerPlayer player, IdleAction action) {
+        for (IdleDrop drop : action.drops()) {
+            if (drop.kind() == IdleDrop.Kind.BLOCK) {
+                Block block = ForgeRegistries.BLOCKS.getValue(drop.id());
+                return block == null || Seasons.inSeason(player.level(), block);
+            }
+        }
+        return true;
+    }
+
     /** Why the tool in the slot cannot do this action, or null when it can. */
     public static SlotStatus toolProblem(IdleSkill skill, IdleAction action, ItemStack tool) {
         boolean hasTool = skill.tool().matches(tool);
@@ -129,6 +147,9 @@ public final class IdleEngine {
     }
 
     private static boolean takeInputs(PlayerIdleState state, IdleAction action) {
+        if (action.isRecipe()) {
+            return state.takeMatching(action.recipe().input());
+        }
         for (IdleInput input : action.inputs()) {
             if (state.countOf(input.item()) < input.count()) {
                 return false;
@@ -157,6 +178,14 @@ public final class IdleEngine {
         double extra = IdleMath.extraRollChance(level, IdleAttributes.yield(player, skill.id()));
         int rolls = IdleMath.rolls(extra, random.nextDouble());
         long items = 0;
+        if (action.isRecipe()) {
+            for (int r = 0; r < rolls; r++) {
+                ItemStack out = action.recipe().output().copy();
+                items += out.getCount();
+                state.store(out);
+            }
+            return items;
+        }
         for (int r = 0; r < rolls; r++) {
             for (IdleDrop drop : action.drops()) {
                 if (drop.chance() < 1.0 && random.nextDouble() >= drop.chance()) {
@@ -191,8 +220,19 @@ public final class IdleEngine {
                         .withLuck(player.getLuck() + drop.luck());
                 return state.getDrops(params);
             }
+            case ENTITY: {
+                return entityLoot(player, drop, tool);
+            }
             case LOOT_TABLE: {
                 LootTable table = level.getServer().getLootData().getLootTable(drop.id());
+                if (drop.chest()) {
+                    LootParams chest = new LootParams.Builder(level)
+                            .withParameter(LootContextParams.ORIGIN, origin)
+                            .withOptionalParameter(LootContextParams.THIS_ENTITY, player)
+                            .withLuck(player.getLuck() + drop.luck())
+                            .create(LootContextParamSets.CHEST);
+                    return table.getRandomItems(chest);
+                }
                 float luck = player.getLuck() + drop.luck()
                         + EnchantmentHelper.getItemEnchantmentLevel(Enchantments.FISHING_LUCK, tool);
                 LootParams params = new LootParams.Builder(level)
@@ -212,6 +252,40 @@ public final class IdleEngine {
                 return List.of(new ItemStack(ForgeRegistries.ITEMS.getValue(drop.id()), count));
             }
         }
+    }
+
+    private static final java.util.Map<ResourceLocation, net.minecraft.world.entity.LivingEntity> MOBS = new java.util.HashMap<>();
+
+    /** Rolls a mob's loot table as if the player had killed it. The mob is never added to the world. */
+    private static List<ItemStack> entityLoot(ServerPlayer player, IdleDrop drop, ItemStack weapon) {
+        ServerLevel level = player.serverLevel();
+        net.minecraft.world.entity.LivingEntity mob = MOBS.get(drop.id());
+        if (mob == null || mob.level() != level) {
+            net.minecraft.world.entity.EntityType<?> type = ForgeRegistries.ENTITY_TYPES.getValue(drop.id());
+            if (type == null || !(type.create(level) instanceof net.minecraft.world.entity.LivingEntity created)) {
+                return List.of();
+            }
+            mob = created;
+            MOBS.put(drop.id(), mob);
+        }
+        mob.setPos(player.position());
+        LootTable table = level.getServer().getLootData().getLootTable(mob.getLootTable());
+        LootParams params = new LootParams.Builder(level)
+                .withParameter(LootContextParams.THIS_ENTITY, mob)
+                .withParameter(LootContextParams.ORIGIN, player.position())
+                .withParameter(LootContextParams.DAMAGE_SOURCE, player.damageSources().playerAttack(player))
+                .withOptionalParameter(LootContextParams.KILLER_ENTITY, player)
+                .withOptionalParameter(LootContextParams.DIRECT_KILLER_ENTITY, player)
+                .withOptionalParameter(LootContextParams.LAST_DAMAGE_PLAYER, player)
+                .withLuck(player.getLuck() + drop.luck())
+                .create(LootContextParamSets.ENTITY);
+        List<ItemStack> drops = new java.util.ArrayList<>(table.getRandomItems(params));
+        // The weapon sits in the tool slot, not in the player's hand, so Looting is applied here.
+        int looting = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.MOB_LOOTING, weapon);
+        if (looting > 0 && player.getRandom().nextDouble() < looting * 0.15) {
+            drops.addAll(table.getRandomItems(params));
+        }
+        return drops;
     }
 
     /** The block as if fully grown: crops at max age, cave vines with berries. */

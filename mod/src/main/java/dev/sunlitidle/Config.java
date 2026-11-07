@@ -4,7 +4,7 @@ import net.minecraftforge.common.ForgeConfigSpec;
 
 public final class Config {
     public static final ForgeConfigSpec SPEC;
-    private static final TierConfig[] TIERS = new TierConfig[3];
+    private static final TierConfig[] TIERS = new TierConfig[5];
     public static final ForgeConfigSpec.IntValue MAX_LEVEL;
     public static final ForgeConfigSpec.IntValue RETREAT_SECONDS;
     public static final ForgeConfigSpec.DoubleValue SKILL_XP_FACTOR;
@@ -29,6 +29,8 @@ public final class Config {
         TIERS[0] = new TierConfig(b, 1, 10, 2, 1, 150, 1, 1);
         TIERS[1] = new TierConfig(b, 2, 25, 4, 2, 400, 3, 5);
         TIERS[2] = new TierConfig(b, 3, 60, 7, 3, 900, 8, 10);
+        TIERS[3] = new TierConfig(b, 4, 140, 11, 4, 2500, 18, 15);
+        TIERS[4] = new TierConfig(b, 5, 300, 16, 5, 8000, 35, 22);
         SPEC = b.build();
     }
 

@@ -54,11 +54,18 @@ public final class IdleCatalog {
 
     public static IdleAction action(String key) {
         skills();
-        return key == null ? null : actions.get(key);
+        if (key == null) {
+            return null;
+        }
+        IdleAction action = actions.get(key);
+        return action != null ? action : RecipeActions.byKey(key);
     }
 
     /** Actions of a skill whose blocks and items exist in this game. */
     public static synchronized List<IdleAction> availableActions(IdleSkill skill) {
+        if (skill.usesRecipes()) {
+            return RecipeActions.actions(skill);
+        }
         if (available == null) {
             Map<String, List<IdleAction>> map = new HashMap<>();
             for (IdleSkill s : skills()) {
@@ -84,6 +91,9 @@ public final class IdleCatalog {
                 return false;
             }
         }
+        if (action.isCombat() || action.isRecipe()) {
+            return true;
+        }
         // The first drop is the main output; the others are extras that may come from optional mods.
         return !action.drops().isEmpty() && dropExists(action.drops().get(0));
     }
@@ -92,6 +102,7 @@ public final class IdleCatalog {
         return switch (drop.kind()) {
             case BLOCK -> ForgeRegistries.BLOCKS.containsKey(drop.id());
             case ITEM -> ForgeRegistries.ITEMS.containsKey(drop.id());
+            case ENTITY -> ForgeRegistries.ENTITY_TYPES.containsKey(drop.id());
             case LOOT_TABLE -> true;
         };
     }
@@ -118,6 +129,8 @@ public final class IdleCatalog {
                         new ResourceLocation(s.get("icon").getAsString()),
                         ToolKind.byName(s.get("tool").getAsString()),
                         s.has("tool_required") && s.get("tool_required").getAsBoolean(),
+                        s.has("seasonal") && s.get("seasonal").getAsBoolean(),
+                        recipeTypes(s),
                         Collections.unmodifiableList(skillActions)));
             }
         } catch (Exception e) {
@@ -138,23 +151,31 @@ public final class IdleCatalog {
             }
         }
         List<IdleDrop> drops = new ArrayList<>();
-        for (JsonElement e : a.getAsJsonArray("drops")) {
-            drops.add(parseDrop(e.getAsJsonObject()));
+        if (a.has("drops")) {
+            for (JsonElement e : a.getAsJsonArray("drops")) {
+                drops.add(parseDrop(e.getAsJsonObject()));
+            }
         }
         return new IdleAction(skillId + "/" + id, skillId, id, getInt(a, "level", 0), getInt(a, "tool_tier", 0),
-                a.get("seconds").getAsDouble(), getInt(a, "xp", 1), new ResourceLocation(a.get("icon").getAsString()),
-                List.copyOf(inputs), List.copyOf(drops));
+                a.has("seconds") ? a.get("seconds").getAsDouble() : 0.0, getInt(a, "xp", 1), new ResourceLocation(a.get("icon").getAsString()),
+                List.copyOf(inputs), List.copyOf(drops), getInt(a, "dungeon", 0), null);
     }
 
     private static IdleDrop parseDrop(JsonObject o) {
         double chance = o.has("chance") ? o.get("chance").getAsDouble() : 1.0;
         int luck = getInt(o, "luck", 0);
         if (o.has("block")) {
-            return new IdleDrop(IdleDrop.Kind.BLOCK, new ResourceLocation(o.get("block").getAsString()), chance, 1, 1, luck);
+            return new IdleDrop(IdleDrop.Kind.BLOCK, new ResourceLocation(o.get("block").getAsString()), chance, 1, 1,
+                    luck, false);
+        }
+        if (o.has("entity")) {
+            return new IdleDrop(IdleDrop.Kind.ENTITY, new ResourceLocation(o.get("entity").getAsString()), chance, 1, 1,
+                    luck, false);
         }
         if (o.has("loot_table")) {
+            boolean chest = o.has("context") && "chest".equals(o.get("context").getAsString());
             return new IdleDrop(IdleDrop.Kind.LOOT_TABLE, new ResourceLocation(o.get("loot_table").getAsString()),
-                    chance, 1, 1, luck);
+                    chance, 1, 1, luck, chest);
         }
         int min = 1;
         int max = 1;
@@ -168,7 +189,18 @@ public final class IdleCatalog {
                 min = max = c.getAsInt();
             }
         }
-        return new IdleDrop(IdleDrop.Kind.ITEM, new ResourceLocation(o.get("item").getAsString()), chance, min, max, luck);
+        return new IdleDrop(IdleDrop.Kind.ITEM, new ResourceLocation(o.get("item").getAsString()), chance, min, max, luck,
+                false);
+    }
+
+    private static List<ResourceLocation> recipeTypes(JsonObject s) {
+        List<ResourceLocation> types = new ArrayList<>();
+        if (s.has("recipes")) {
+            for (JsonElement e : s.getAsJsonArray("recipes")) {
+                types.add(new ResourceLocation(e.getAsString()));
+            }
+        }
+        return List.copyOf(types);
     }
 
     private static int getInt(JsonObject o, String key, int fallback) {

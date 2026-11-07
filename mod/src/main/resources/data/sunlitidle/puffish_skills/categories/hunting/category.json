@@ -1,0 +1,14 @@
+{
+  "unlocked_by_default": true,
+  "title": {
+    "translate": "sunlitidle.skills.hunting.category.title"
+  },
+  "icon": {
+    "type": "item",
+    "data": {
+      "item": "minecraft:bow"
+    }
+  },
+  "background": "textures/block/spruce_planks.png",
+  "spent_points_limit": 12
+}

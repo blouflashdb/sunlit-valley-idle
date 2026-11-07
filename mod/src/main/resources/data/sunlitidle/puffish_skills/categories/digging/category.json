@@ -1,0 +1,14 @@
+{
+  "unlocked_by_default": true,
+  "title": {
+    "translate": "sunlitidle.skills.digging.category.title"
+  },
+  "icon": {
+    "type": "item",
+    "data": {
+      "item": "minecraft:iron_shovel"
+    }
+  },
+  "background": "textures/block/sand.png",
+  "spent_points_limit": 12
+}

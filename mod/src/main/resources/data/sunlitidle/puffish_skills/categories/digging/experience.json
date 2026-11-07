@@ -1,0 +1,49 @@
+{
+  "experience_per_level": {
+    "type": "values",
+    "data": {
+      "values": [
+        250,
+        500,
+        1000,
+        2000,
+        5000,
+        6000,
+        8000,
+        10000,
+        13000,
+        16000,
+        20000,
+        25000
+      ]
+    }
+  },
+  "sources": [
+    {
+      "type": "puffish_skills:mine_block",
+      "data": {
+        "variables": {
+          "shovel": {
+            "operations": [
+              {
+                "type": "get_mined_block_state"
+              },
+              {
+                "type": "puffish_skills:test",
+                "data": {
+                  "block": "#minecraft:mineable/shovel"
+                }
+              }
+            ]
+          }
+        },
+        "experience": [
+          {
+            "condition": "shovel",
+            "expression": "1"
+          }
+        ]
+      }
+    }
+  ]
+}

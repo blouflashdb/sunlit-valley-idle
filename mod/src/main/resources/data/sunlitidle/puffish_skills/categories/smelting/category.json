@@ -1,0 +1,14 @@
+{
+  "unlocked_by_default": true,
+  "title": {
+    "translate": "sunlitidle.skills.smelting.category.title"
+  },
+  "icon": {
+    "type": "item",
+    "data": {
+      "item": "minecraft:furnace"
+    }
+  },
+  "background": "textures/block/bricks.png",
+  "spent_points_limit": 12
+}

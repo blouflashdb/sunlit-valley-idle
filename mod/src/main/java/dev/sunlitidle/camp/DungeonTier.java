@@ -8,7 +8,9 @@ import net.minecraft.resources.ResourceLocation;
 public enum DungeonTier {
     T1(1),
     T2(2),
-    T3(3);
+    T3(3),
+    T4(4),
+    T5(5);
 
     private final int number;
 

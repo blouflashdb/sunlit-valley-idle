@@ -47,6 +47,16 @@ VANILLA = {
               entry("minecraft:magma_cream", 20, 1, 2), entry("minecraft:quartz", 20, 1, 4),
               entry("minecraft:diamond", 2)]),
     ),
+    4: table(
+        pool([entry("minecraft:raw_gold", 25, 1, 3), entry("minecraft:diamond", 10),
+              entry("minecraft:emerald", 15, 1, 2), entry("minecraft:ender_pearl", 20),
+              entry("minecraft:obsidian", 15, 1, 3), entry("minecraft:glowstone_dust", 15, 2, 6)]),
+    ),
+    5: table(
+        pool([entry("minecraft:diamond", 25, 1, 2), entry("minecraft:emerald", 20, 1, 3),
+              entry("minecraft:netherite_scrap", 8), entry("minecraft:wither_skeleton_skull", 2),
+              entry("minecraft:ghast_tear", 20), entry("minecraft:blaze_rod", 25, 1, 3)]),
+    ),
 }
 
 PACK = {
@@ -73,6 +83,24 @@ PACK = {
         pool([entry("society:magma_geode", 50), entry("society:fire_quartz", 25),
               entry("society:ruby", 13), entry("society:topaz", 12)], chance=0.25),
         pool([entry("numismatics:sprocket", 70, 1, 3), entry("numismatics:cog", 30, 1, 2)], chance=0.30),
+    ),
+    # T4: Skull Cavern ruins.
+    4: table(
+        pool([entry("oreganized:raw_lead", 25, 1, 3), entry("oreganized:raw_silver", 25, 1, 3),
+              entry("minecraft:diamond", 10), entry("minecraft:emerald", 15, 1, 2),
+              entry("minecraft:ender_pearl", 15), entry("minecraft:obsidian", 10, 1, 3)]),
+        pool([entry("society:omni_geode", 50), entry("society:sparkstone", 30, 2, 4),
+              entry("society:ghost_crystal", 15), entry("society:prismatic_shard", 5)], chance=0.25),
+        pool([entry("numismatics:cog", 75, 1, 3), entry("numismatics:crown", 25)], chance=0.30),
+    ),
+    # T5: the deep forge.
+    5: table(
+        pool([entry("minecraft:diamond", 25, 1, 2), entry("minecraft:emerald", 20, 1, 3),
+              entry("minecraft:netherite_scrap", 8), entry("minecraft:wither_skeleton_skull", 2),
+              entry("minecraft:ghast_tear", 20), entry("minecraft:blaze_rod", 25, 1, 3)]),
+        pool([entry("society:omni_geode", 40, 1, 2), entry("society:prismatic_shard", 20),
+              entry("society:pristine_aquamarine", 20), entry("minecraft:ancient_debris", 20)], chance=0.25),
+        pool([entry("numismatics:crown", 80, 1, 2), entry("numismatics:sun", 20)], chance=0.30),
     ),
 }
 

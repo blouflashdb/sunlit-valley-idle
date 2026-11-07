@@ -17,7 +17,11 @@ public enum ToolKind {
     SHOVEL(ToolActions.SHOVEL_DIG),
     HOE(ToolActions.HOE_DIG),
     ROD(ToolActions.FISHING_ROD_CAST),
-    SHEARS(ToolActions.SHEARS_DIG);
+    SHEARS(ToolActions.SHEARS_DIG),
+    /** Anything with attack damage; checked in {@link #matches}. */
+    WEAPON(null),
+    /** Archaeology brush; checked in {@link #matches}. */
+    BRUSH(null);
 
     private final ToolAction action;
 
@@ -26,6 +30,12 @@ public enum ToolKind {
     }
 
     public boolean matches(ItemStack stack) {
+        if (this == BRUSH) {
+            return stack.getItem() instanceof net.minecraft.world.item.BrushItem;
+        }
+        if (this == WEAPON) {
+            return dev.sunlitidle.camp.AdventurerCampBlockEntity.isWeapon(stack);
+        }
         return action != null && !stack.isEmpty() && stack.canPerformAction(action);
     }
 

@@ -23,6 +23,11 @@ public final class PlayerIdleState {
     /** XP per skill, used only when Pufferfish's Skills is not installed. */
     private final Map<String, Long> fallbackXp = new HashMap<>();
     private final ItemStackHandler tools;
+    /** Companion armor, head to feet (the weapon sits in the Adventuring tool slot). */
+    private final ItemStackHandler armor;
+    /** Companion food. Each slot refills itself from storage with the same item. */
+    private final ItemStackHandler food;
+    private double foodBuffer;
     private long lastSeen;
     private double offlineSeconds;
     private double caughtUpSeconds;
@@ -49,9 +54,55 @@ public final class PlayerIdleState {
                 markDirty();
             }
         };
+        armor = new ItemStackHandler(ARMOR_SLOTS) {
+            @Override
+            public boolean isItemValid(int slot, @NotNull ItemStack stack) {
+                return dev.sunlitidle.camp.AdventurerCampBlockEntity.fitsGearSlot(slot + 1, stack);
+            }
+
+            @Override
+            public int getSlotLimit(int slot) {
+                return 1;
+            }
+
+            @Override
+            protected void onContentsChanged(int slot) {
+                markDirty();
+            }
+        };
+        food = new ItemStackHandler(FOOD_SLOTS) {
+            @Override
+            public boolean isItemValid(int slot, @NotNull ItemStack stack) {
+                return stack.isEdible();
+            }
+
+            @Override
+            protected void onContentsChanged(int slot) {
+                markDirty();
+            }
+        };
         for (int i = 0; i < slotStatus.length; i++) {
             slotStatus[i] = SlotStatus.EMPTY;
         }
+    }
+
+    public static final int ARMOR_SLOTS = 4;
+    public static final int FOOD_SLOTS = 4;
+
+    public ItemStackHandler armor() {
+        return armor;
+    }
+
+    public ItemStackHandler food() {
+        return food;
+    }
+
+    public double foodBuffer() {
+        return foodBuffer;
+    }
+
+    void setFoodBuffer(double foodBuffer) {
+        this.foodBuffer = foodBuffer;
     }
 
     void setOnChange(Runnable onChange) {
@@ -160,6 +211,22 @@ public final class PlayerIdleState {
         return true;
     }
 
+    /** Removes one item that matches the ingredient. */
+    public boolean takeMatching(net.minecraft.world.item.crafting.Ingredient ingredient) {
+        for (int i = 0; i < storage.size(); i++) {
+            StoredStack stored = storage.get(i);
+            if (stored.count() > 0 && ingredient.test(stored.prototype())) {
+                stored.add(-1);
+                if (stored.count() <= 0) {
+                    storage.remove(i);
+                }
+                markDirty();
+                return true;
+            }
+        }
+        return false;
+    }
+
     /** Takes up to one stack of the entry at {@code index} out of storage. */
     public ItemStack withdraw(int index, int max) {
         if (index < 0 || index >= storage.size()) {
@@ -247,6 +314,9 @@ public final class PlayerIdleState {
         }
         tag.put("Slots", slots);
         tag.put("Tools", tools.serializeNBT());
+        tag.put("Armor", armor.serializeNBT());
+        tag.put("Food", food.serializeNBT());
+        tag.putDouble("FoodBuffer", foodBuffer);
         ListTag items = new ListTag();
         for (StoredStack stored : storage) {
             CompoundTag s = new CompoundTag();
@@ -263,6 +333,29 @@ public final class PlayerIdleState {
         return tag;
     }
 
+    /** Skills can be added between versions, which shifts tool slots: move tools back to a matching slot. */
+    private void fixMisplacedTools() {
+        for (int i = 0; i < tools.getSlots(); i++) {
+            ItemStack tool = tools.getStackInSlot(i);
+            IdleSkill skill = IdleCatalog.skill(i);
+            if (tool.isEmpty() || (skill != null && skill.tool().matches(tool))) {
+                continue;
+            }
+            tools.setStackInSlot(i, ItemStack.EMPTY);
+            boolean placed = false;
+            for (int j = 0; j < tools.getSlots() && !placed; j++) {
+                IdleSkill other = IdleCatalog.skill(j);
+                if (tools.getStackInSlot(j).isEmpty() && other != null && other.tool().matches(tool)) {
+                    tools.setStackInSlot(j, tool);
+                    placed = true;
+                }
+            }
+            if (!placed) {
+                store(tool);
+            }
+        }
+    }
+
     public static PlayerIdleState load(CompoundTag tag) {
         PlayerIdleState state = new PlayerIdleState();
         ListTag slots = tag.getList("Slots", Tag.TAG_COMPOUND);
@@ -276,6 +369,17 @@ public final class PlayerIdleState {
         // Keep the handler size even if the number of skills changed between versions.
         tools.putInt("Size", state.tools.getSlots());
         state.tools.deserializeNBT(tools);
+        if (tag.contains("Armor")) {
+            CompoundTag armor = tag.getCompound("Armor");
+            armor.putInt("Size", ARMOR_SLOTS);
+            state.armor.deserializeNBT(armor);
+        }
+        if (tag.contains("Food")) {
+            CompoundTag food = tag.getCompound("Food");
+            food.putInt("Size", FOOD_SLOTS);
+            state.food.deserializeNBT(food);
+        }
+        state.foodBuffer = tag.getDouble("FoodBuffer");
         ListTag items = tag.getList("Storage", Tag.TAG_COMPOUND);
         for (int i = 0; i < items.size(); i++) {
             CompoundTag s = items.getCompound(i);
@@ -291,6 +395,7 @@ public final class PlayerIdleState {
         }
         state.lastSeen = tag.getLong("LastSeen");
         state.offlineSeconds = tag.getDouble("OfflineSeconds");
+        state.fixMisplacedTools();
         return state;
     }
 }

@@ -10,6 +10,9 @@ public enum SlotStatus {
     NO_TOOL,
     WEAK_TOOL,
     NO_INPUT,
+    NO_FOOD,
+    RESTING,
+    OUT_OF_SEASON,
     UNKNOWN;
 
     public static SlotStatus byId(int id) {
