@@ -1,7 +1,7 @@
-package dev.sunlitidle.camp;
+package dev.sunlitidle.combat;
 
 /**
- * Pure combat math for the virtual dungeon fights. Kept free of Minecraft
+ * Pure combat math for the Adventuring companion's dungeon fights. Kept free of Minecraft
  * classes so it can be unit tested and tuned without a game instance.
  */
 public final class Combat {
@@ -97,10 +97,6 @@ public final class Combat {
             return enemy.baseFood();
         }
         return enemy.baseFood() + damageTaken / 4.0;
-    }
-
-    public static int xpForNextLevel(int level) {
-        return 20 * level * level;
     }
 
     private static double clamp(double v, double lo, double hi) {

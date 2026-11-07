@@ -1,6 +1,6 @@
 package dev.sunlitidle.client;
 
-import dev.sunlitidle.camp.Combat;
+import dev.sunlitidle.combat.Combat;
 import dev.sunlitidle.idle.IdleAction;
 import dev.sunlitidle.idle.IdleCombat;
 import dev.sunlitidle.idle.PlayerIdleState;
@@ -445,7 +445,7 @@ public class IdleScreen extends AbstractContainerScreen<IdleMenu> {
             ((ItemStackHandler) armor).setStackInSlot(i, menu.getSlot(IdleCatalog.skills().size() + i).getItem());
         }
         Combat.Enemy enemy = IdleCombat.enemy(a);
-        if (!dev.sunlitidle.camp.AdventurerCampBlockEntity.isWeapon(weapon)) {
+        if (!dev.sunlitidle.combat.Gear.isWeapon(weapon)) {
             lines.add(Component.translatable("sunlitidle.slot_status.no_tool").withStyle(ChatFormatting.RED));
             return;
         }

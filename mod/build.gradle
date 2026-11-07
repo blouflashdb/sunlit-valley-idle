@@ -54,8 +54,6 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
-    // Jade 11.13.2, the version the pack ships; optional at runtime.
-    compileOnly fg.deobf("curse.maven:jade-324717:6855440")
     // Pufferfish's Skills 0.16.1, the version the pack ships; optional at runtime (skill levels and trees).
     compileOnly fg.deobf("curse.maven:puffish-skills-835091:6614501")
 

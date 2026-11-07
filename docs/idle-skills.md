@@ -41,7 +41,7 @@ time. Manual smelting gives XP to the same skills.
 ## Adventuring
 
 The Adventuring tab shows four armor slots and four food slots; the weapon is the tab's tool slot. The fight
-math is the Adventurer Camp's: the companion's damage, speed, armor and health come from the gear plus the
+math lives in `dev.sunlitidle.combat`: the companion's damage, speed, armor and health come from the gear plus the
 Adventuring level (+0.5 damage, +3% speed, +0.5 armor and +2 health per level). Each kill eats food (food
 slots refill from storage with the same item), wears the weapon and armor and rolls the tier's loot table.
 A lost fight sends the companion to rest. The tooltip of a tier shows power, kill time, food per kill and
@@ -109,5 +109,4 @@ Out of season the slot waits. Crops without a season tag grow all year.
 
 ## Open points for later
 
-- Retire or rework the Adventurer Camp block now that the companion lives in the window.
 - Idle perks for the society skill trees.

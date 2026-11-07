@@ -6,12 +6,6 @@
   "selector_weight": 1,
   "trades": [
     {
-      "offer": { "item": "sunlitidle:adventurers_camp", "count": 1 },
-      "request": { "item": "numismatics:crown", "count": 2 },
-      "numismatics_cost": 1024,
-      "trade_id": "guild_adventurers_camp"
-    },
-    {
       "offer": {
         "item": "minecraft:leather_helmet",
         "count": 1

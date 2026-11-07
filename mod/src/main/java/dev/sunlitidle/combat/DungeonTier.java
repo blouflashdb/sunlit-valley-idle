@@ -1,4 +1,4 @@
-package dev.sunlitidle.camp;
+package dev.sunlitidle.combat;
 
 import dev.sunlitidle.Config;
 import dev.sunlitidle.SunlitIdle;
@@ -27,20 +27,8 @@ public enum DungeonTier {
         return new Combat.Enemy(c.enemyHealth.get(), c.enemyDamage.get(), c.baseFood.get(), c.power.get());
     }
 
-    public int xpPerKill() {
-        return Config.tier(number).xpPerKill.get();
-    }
-
-    public int unlockLevel() {
-        return Config.tier(number).unlockLevel.get();
-    }
-
     public ResourceLocation lootTable() {
         return new ResourceLocation(SunlitIdle.MOD_ID, "dungeon/tier_" + number);
-    }
-
-    public String translationKey() {
-        return "sunlitidle.tier." + number;
     }
 
     public static DungeonTier byNumber(int number) {
@@ -50,9 +38,5 @@ public enum DungeonTier {
             }
         }
         return T1;
-    }
-
-    public static int count() {
-        return values().length;
     }
 }

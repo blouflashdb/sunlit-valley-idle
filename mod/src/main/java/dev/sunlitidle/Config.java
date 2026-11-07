@@ -5,7 +5,6 @@ import net.minecraftforge.common.ForgeConfigSpec;
 public final class Config {
     public static final ForgeConfigSpec SPEC;
     private static final TierConfig[] TIERS = new TierConfig[5];
-    public static final ForgeConfigSpec.IntValue MAX_LEVEL;
     public static final ForgeConfigSpec.IntValue RETREAT_SECONDS;
     public static final ForgeConfigSpec.DoubleValue SKILL_XP_FACTOR;
     public static final ForgeConfigSpec.DoubleValue MAX_OFFLINE_HOURS;
@@ -14,7 +13,6 @@ public final class Config {
     static {
         ForgeConfigSpec.Builder b = new ForgeConfigSpec.Builder();
         b.push("companion");
-        MAX_LEVEL = b.comment("Maximum companion level").defineInRange("maxLevel", 30, 1, 100);
         RETREAT_SECONDS = b.comment("Seconds the companion rests after losing a fight")
                 .defineInRange("retreatSeconds", 60, 0, 3600);
         SKILL_XP_FACTOR = b.comment("Adventuring skill XP per kill = enemy health * this factor (0 disables)")
@@ -26,11 +24,11 @@ public final class Config {
         CATCH_UP_SECONDS_PER_TICK = b.comment("Offline seconds processed per second of play while catching up")
                 .defineInRange("catchUpSecondsPerSecond", 900, 1, 86400);
         b.pop();
-        TIERS[0] = new TierConfig(b, 1, 10, 2, 1, 150, 1, 1);
-        TIERS[1] = new TierConfig(b, 2, 25, 4, 2, 400, 3, 5);
-        TIERS[2] = new TierConfig(b, 3, 60, 7, 3, 900, 8, 10);
-        TIERS[3] = new TierConfig(b, 4, 140, 11, 4, 2500, 18, 15);
-        TIERS[4] = new TierConfig(b, 5, 300, 16, 5, 8000, 35, 22);
+        TIERS[0] = new TierConfig(b, 1, 10, 2, 1, 150);
+        TIERS[1] = new TierConfig(b, 2, 25, 4, 2, 400);
+        TIERS[2] = new TierConfig(b, 3, 60, 7, 3, 900);
+        TIERS[3] = new TierConfig(b, 4, 140, 11, 4, 2500);
+        TIERS[4] = new TierConfig(b, 5, 300, 16, 5, 8000);
         SPEC = b.build();
     }
 
@@ -46,19 +44,14 @@ public final class Config {
         public final ForgeConfigSpec.DoubleValue enemyDamage;
         public final ForgeConfigSpec.DoubleValue baseFood;
         public final ForgeConfigSpec.DoubleValue power;
-        public final ForgeConfigSpec.IntValue xpPerKill;
-        public final ForgeConfigSpec.IntValue unlockLevel;
 
-        TierConfig(ForgeConfigSpec.Builder b, int n, double hp, double dmg, double food, double power, int xp,
-                   int unlock) {
+        TierConfig(ForgeConfigSpec.Builder b, int n, double hp, double dmg, double food, double power) {
             b.push("tier" + n);
             enemyHealth = b.defineInRange("enemyHealth", hp, 1.0, 100000.0);
             enemyDamage = b.defineInRange("enemyDamage", dmg, 0.0, 10000.0);
             baseFood = b.comment("Nutrition used per kill before damage").defineInRange("baseFood", food, 0.0, 100.0);
             this.power = b.comment("Reference power; above twice this the companion fights faster")
                     .defineInRange("power", power, 1.0, 1.0E7);
-            xpPerKill = b.defineInRange("xpPerKill", xp, 0, 10000);
-            unlockLevel = b.defineInRange("unlockLevel", unlock, 1, 100);
             b.pop();
         }
     }

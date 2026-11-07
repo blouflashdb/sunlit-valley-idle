@@ -76,7 +76,7 @@ public class IdleMenu extends AbstractContainerMenu {
             addSlot(new SlotItemHandler(armor, i, MID_X + 1 + i * 18, GEAR_Y) {
                 @Override
                 public boolean mayPlace(@NotNull ItemStack stack) {
-                    return dev.sunlitidle.camp.AdventurerCampBlockEntity.fitsGearSlot(gearSlot, stack);
+                    return dev.sunlitidle.combat.Gear.fitsGearSlot(gearSlot, stack);
                 }
 
                 @Override

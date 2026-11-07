@@ -63,3 +63,15 @@ config/controllable-client.toml
 config/controllable/bindings.properties
 config/controllable/key_adapters.properties
 config/controllable/radial_menu_items.json
+
+# Files the game writes into the instance folder at runtime
+/ears-debug.log
+/knownkeys.txt
+/servers.dat
+/servers.dat_old
+/cherishedworlds-favorites.dat
+/controllable_natives/
+/emf/
+/FTBLang/
+/keybinding presets/
+/data/
