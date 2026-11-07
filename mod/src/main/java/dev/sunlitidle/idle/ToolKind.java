@@ -34,7 +34,7 @@ public enum ToolKind {
             return stack.getItem() instanceof net.minecraft.world.item.BrushItem;
         }
         if (this == WEAPON) {
-            return dev.sunlitidle.camp.AdventurerCampBlockEntity.isWeapon(stack);
+            return dev.sunlitidle.combat.Gear.isWeapon(stack);
         }
         return action != null && !stack.isEmpty() && stack.canPerformAction(action);
     }

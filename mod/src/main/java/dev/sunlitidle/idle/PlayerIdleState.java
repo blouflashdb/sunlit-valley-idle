@@ -57,7 +57,7 @@ public final class PlayerIdleState {
         armor = new ItemStackHandler(ARMOR_SLOTS) {
             @Override
             public boolean isItemValid(int slot, @NotNull ItemStack stack) {
-                return dev.sunlitidle.camp.AdventurerCampBlockEntity.fitsGearSlot(slot + 1, stack);
+                return dev.sunlitidle.combat.Gear.fitsGearSlot(slot + 1, stack);
             }
 
             @Override

@@ -1,4 +1,4 @@
-package dev.sunlitidle.camp;
+package dev.sunlitidle.combat;
 
 import org.junit.jupiter.api.Test;
 
@@ -83,11 +83,5 @@ class CombatTest {
         assertTrue(Combat.speedMultiplier(DIAMOND, T1) > 1.0);
         assertTrue(Combat.speedMultiplier(DIAMOND, T1) <= Combat.MAX_SPEED_MULTIPLIER);
         assertEquals(T1.baseFood(), Combat.foodCost(DIAMOND, T1, 5.0), 1e-9);
-    }
-
-    @Test
-    void levelCurve() {
-        assertEquals(20, Combat.xpForNextLevel(1));
-        assertEquals(2000, Combat.xpForNextLevel(10));
     }
 }

@@ -30,7 +30,6 @@ public final class ClientSetup {
 
     private static void onClientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
-            MenuScreens.register(ModRegistry.CAMP_MENU.get(), CampScreen::new);
             MenuScreens.register(ModRegistry.IDLE_MENU.get(), IdleScreen::new);
             RecipeActions.clientRecipes = () -> {
                 Minecraft mc = Minecraft.getInstance();

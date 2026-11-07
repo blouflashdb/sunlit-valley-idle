@@ -1,9 +1,9 @@
 package dev.sunlitidle.idle;
 
 import dev.sunlitidle.Config;
-import dev.sunlitidle.camp.AdventurerCampBlockEntity;
-import dev.sunlitidle.camp.Combat;
-import dev.sunlitidle.camp.DungeonTier;
+import dev.sunlitidle.combat.Combat;
+import dev.sunlitidle.combat.DungeonTier;
+import dev.sunlitidle.combat.Gear;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
@@ -21,8 +21,8 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.registries.ForgeRegistries;
 
 /**
- * The Adventuring companion: the same combat math as the Adventurer Camp, with stats from the Adventuring
- * level instead of camp stat points. Used by the server to fight and by the window to preview.
+ * The Adventuring companion: combat math from {@link Combat}, with stats from the gear and the Adventuring
+ * level. Used by the server to fight and by the window to preview.
  */
 public final class IdleCombat {
     private static final double BASE_HEALTH = 20.0;
@@ -35,10 +35,10 @@ public final class IdleCombat {
     public static Combat.Loadout loadout(ItemStack weapon, IItemHandler armor, int level) {
         double damage = 0.0;
         double speed = 0.0;
-        if (AdventurerCampBlockEntity.isWeapon(weapon)) {
-            damage = 1.0 + AdventurerCampBlockEntity.attributeSum(weapon, EquipmentSlot.MAINHAND, Attributes.ATTACK_DAMAGE)
+        if (Gear.isWeapon(weapon)) {
+            damage = 1.0 + Gear.attributeSum(weapon, EquipmentSlot.MAINHAND, Attributes.ATTACK_DAMAGE)
                     + EnchantmentHelper.getDamageBonus(weapon, MobType.UNDEFINED);
-            speed = 4.0 + AdventurerCampBlockEntity.attributeSum(weapon, EquipmentSlot.MAINHAND, Attributes.ATTACK_SPEED);
+            speed = 4.0 + Gear.attributeSum(weapon, EquipmentSlot.MAINHAND, Attributes.ATTACK_SPEED);
         }
         damage += 0.5 * level;
         speed = Math.max(0.25, speed) * (1.0 + 0.03 * level);
@@ -50,8 +50,8 @@ public final class IdleCombat {
             if (piece.isEmpty()) {
                 continue;
             }
-            armorPoints += AdventurerCampBlockEntity.attributeSum(piece, ARMOR_ORDER[i], Attributes.ARMOR);
-            toughness += AdventurerCampBlockEntity.attributeSum(piece, ARMOR_ORDER[i], Attributes.ARMOR_TOUGHNESS);
+            armorPoints += Gear.attributeSum(piece, ARMOR_ORDER[i], Attributes.ARMOR);
+            toughness += Gear.attributeSum(piece, ARMOR_ORDER[i], Attributes.ARMOR_TOUGHNESS);
             protection += EnchantmentHelper.getItemEnchantmentLevel(Enchantments.ALL_DAMAGE_PROTECTION, piece);
         }
         return new Combat.Loadout(damage, speed, armorPoints, toughness, protection, BASE_HEALTH + 2.0 * level);
@@ -84,7 +84,7 @@ public final class IdleCombat {
         int kills = 0;
         while (true) {
             ItemStack weapon = state.tools().getStackInSlot(skill.index());
-            if (!AdventurerCampBlockEntity.isWeapon(weapon)) {
+            if (!Gear.isWeapon(weapon)) {
                 state.setSlotStatus(slot, SlotStatus.NO_TOOL);
                 state.setSlotProgress(slot, 0.0);
                 return items;
@@ -163,7 +163,7 @@ public final class IdleCombat {
                     refill(state, slot, stack);
                     stack = state.food().getStackInSlot(slot);
                 }
-                double nutrition = AdventurerCampBlockEntity.nutritionOf(stack);
+                double nutrition = Gear.nutritionOf(stack);
                 if (nutrition <= 0) {
                     break;
                 }
