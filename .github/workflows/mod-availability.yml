@@ -1,0 +1,21 @@
+name: Mod availability
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ['claude/project-thread-8fg13w']
+    paths: ['tools/mod_availability.py', '.github/workflows/mod-availability.yml']
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python tools/mod_availability.py mod-availability.csv
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mod-availability
+          path: mod-availability.csv
