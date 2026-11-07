@@ -585,7 +585,7 @@
             ]
         },
         {
-            "pakku_id": "CrFPFBZstDsIgJ8m",
+            "pakku_id": "xKFsRu7DB1iTnrUP",
             "type": "MOD",
             "slug": {
                 "curseforge": "advanced-core-info"
@@ -623,7 +623,7 @@
         {
             "pakku_id": "AdRGoBjnkDCVFiKI",
             "pakku_links": [
-                "CrFPFBZstDsIgJ8m"
+                "xKFsRu7DB1iTnrUP"
             ],
             "type": "MOD",
             "slug": {
@@ -1012,85 +1012,6 @@
             ]
         },
         {
-            "pakku_id": "SxwRIsQIgiI2vOon",
-            "pakku_links": [
-                "YeM3ULjkID0lqZli"
-            ],
-            "type": "MOD",
-            "slug": {
-                "curseforge": "ars-botania"
-            },
-            "name": {
-                "curseforge": "Ars Botania"
-            },
-            "id": {
-                "curseforge": "1194681"
-            },
-            "files": [
-                {
-                    "type": "curseforge",
-                    "file_name": "1.21.1-ars_botania-1.2.0.jar",
-                    "mc_versions": [
-                        "1.21.1"
-                    ],
-                    "loaders": [
-                        "neoforge"
-                    ],
-                    "release_type": "beta",
-                    "url": "https://edge.forgecdn.net/files/7976/708/1.21.1-ars_botania-1.2.0.jar",
-                    "id": "7976708",
-                    "parent_id": "1194681",
-                    "hashes": {
-                        "sha1": "c2590b45ac38014c7774f73d39450955f5bf9576",
-                        "md5": "cb3442a8e8ff31a71ec3b5ad0646023f"
-                    },
-                    "required_dependencies": [
-                        "225643",
-                        "401955"
-                    ],
-                    "size": 51015,
-                    "date_published": "2026-04-24T10:08:48.687Z"
-                }
-            ]
-        },
-        {
-            "pakku_id": "YeM3ULjkID0lqZli",
-            "type": "MOD",
-            "slug": {
-                "curseforge": "ars-nouveau"
-            },
-            "name": {
-                "curseforge": "Ars Nouveau"
-            },
-            "id": {
-                "curseforge": "401955"
-            },
-            "files": [
-                {
-                    "type": "curseforge",
-                    "file_name": "ars_nouveau-1.21.1-5.13.4.jar",
-                    "mc_versions": [
-                        "1.21",
-                        "1.21.1"
-                    ],
-                    "loaders": [
-                        "neoforge"
-                    ],
-                    "release_type": "release",
-                    "url": "https://edge.forgecdn.net/files/9423/156/ars_nouveau-1.21.1-5.13.4.jar",
-                    "id": "9423156",
-                    "parent_id": "401955",
-                    "hashes": {
-                        "sha1": "50d712209c921e5af2d2983f424178c94277db0a",
-                        "md5": "911c6e6b8eae0b5542ce58c7bfa8a202"
-                    },
-                    "required_dependencies": [],
-                    "size": 19872506,
-                    "date_published": "2026-11-03T13:57:51.813Z"
-                }
-            ]
-        },
-        {
             "pakku_id": "jsY9XpHB1ObvyQFJ",
             "pakku_links": [
                 "AXP2BAJ04PgCqKVw"
@@ -1134,7 +1055,7 @@
         {
             "pakku_id": "JeRvt383P75HxgKw",
             "pakku_links": [
-                "7ZMUsCVnFtipaoL9",
+                "zatiq4XjF09lSBwP",
                 "3SKTUBNWpuvwHjOs"
             ],
             "type": "MOD",
@@ -1368,7 +1289,7 @@
             ]
         },
         {
-            "pakku_id": "JYGYnYCUwQpLxiFz",
+            "pakku_id": "tIgp48fAN3jovwfe",
             "type": "MOD",
             "slug": {
                 "curseforge": "better-advanced-tooltips"
@@ -1731,6 +1652,47 @@
                     "required_dependencies": [],
                     "size": 328813,
                     "date_published": "2026-02-10T22:44:17.77Z"
+                }
+            ]
+        },
+        {
+            "pakku_id": "SxwRIsQIgiI2vOon",
+            "pakku_links": [
+                "0DzlYHWUtFCckQS9"
+            ],
+            "type": "MOD",
+            "slug": {
+                "curseforge": "botania-revived"
+            },
+            "name": {
+                "curseforge": "Botania Revived"
+            },
+            "id": {
+                "curseforge": "1725641"
+            },
+            "files": [
+                {
+                    "type": "curseforge",
+                    "file_name": "Botania-Revived-1.21.1-1.0.6-NeoForge.jar",
+                    "mc_versions": [
+                        "1.21.1"
+                    ],
+                    "loaders": [
+                        "neoforge"
+                    ],
+                    "release_type": "release",
+                    "url": "https://edge.forgecdn.net/files/9466/699/Botania-Revived-1.21.1-1.0.6-NeoForge.jar",
+                    "id": "9466699",
+                    "parent_id": "1725641",
+                    "hashes": {
+                        "sha1": "f5dc2565e80929fe21b105e8ee8b6761c27b7046",
+                        "md5": "974b7d95045acefee0a6d8833a2e9df4"
+                    },
+                    "required_dependencies": [
+                        "306770"
+                    ],
+                    "size": 14660458,
+                    "date_published": "2026-11-06T00:05:11.243Z"
                 }
             ]
         },
@@ -2461,7 +2423,7 @@
         {
             "pakku_id": "eEi80WpuXV6IjtYh",
             "pakku_links": [
-                "0XRKqYeGX8VkuUbc"
+                "sYhqOttm9zCdbA6a"
             ],
             "type": "MOD",
             "side": "CLIENT",
@@ -3231,7 +3193,7 @@
         {
             "pakku_id": "nZMXRvG9MY7lcadX",
             "pakku_links": [
-                "4siK5L3okHawS119",
+                "fCJ3DSlriFSIF2Vh",
                 "ttAPeka8sDFIz5fp"
             ],
             "type": "MOD",
@@ -3275,7 +3237,7 @@
             "pakku_id": "rXJ32I5LMNJR9zL9",
             "pakku_links": [
                 "ttAPeka8sDFIz5fp",
-                "LniLEwHPqqbAMPTK"
+                "5K4jypQGqp9ojhZi"
             ],
             "type": "MOD",
             "slug": {
@@ -3465,7 +3427,7 @@
         {
             "pakku_id": "IiPlagNgZXtIFgYi",
             "pakku_links": [
-                "kDqKJscITFud0840",
+                "P07rSHAIhmdUMXSS",
                 "ttAPeka8sDFIz5fp"
             ],
             "type": "MOD",
@@ -3547,7 +3509,7 @@
             ]
         },
         {
-            "pakku_id": "2N5RuiA6YRiWQq0O",
+            "pakku_id": "0p36tKD70WIQBNSF",
             "pakku_links": [
                 "ttAPeka8sDFIz5fp"
             ],
@@ -3588,7 +3550,7 @@
             ]
         },
         {
-            "pakku_id": "kDqKJscITFud0840",
+            "pakku_id": "P07rSHAIhmdUMXSS",
             "pakku_links": [
                 "ttAPeka8sDFIz5fp"
             ],
@@ -3631,7 +3593,7 @@
         {
             "pakku_id": "PvbYubPyRmOtRix1",
             "pakku_links": [
-                "kDqKJscITFud0840",
+                "P07rSHAIhmdUMXSS",
                 "ttAPeka8sDFIz5fp"
             ],
             "type": "MOD",
@@ -3674,7 +3636,7 @@
         {
             "pakku_id": "b6QIOwpES6QXyA9G",
             "pakku_links": [
-                "2N5RuiA6YRiWQq0O",
+                "0p36tKD70WIQBNSF",
                 "ttAPeka8sDFIz5fp"
             ],
             "type": "MOD",
@@ -4307,7 +4269,7 @@
             ]
         },
         {
-            "pakku_id": "LniLEwHPqqbAMPTK",
+            "pakku_id": "5K4jypQGqp9ojhZi",
             "type": "MOD",
             "slug": {
                 "curseforge": "dragonlib"
@@ -4651,7 +4613,7 @@
         {
             "pakku_id": "ospe0If4RTPFYYE2",
             "pakku_links": [
-                "7ZMUsCVnFtipaoL9",
+                "zatiq4XjF09lSBwP",
                 "3SKTUBNWpuvwHjOs"
             ],
             "type": "MOD",
@@ -5569,7 +5531,7 @@
         {
             "pakku_id": "jR55srcuFvm2AgIS",
             "pakku_links": [
-                "NAEuNloO1C7IA6iT"
+                "gtlm0JmJfdxez2tK"
             ],
             "type": "MOD",
             "side": "CLIENT",
@@ -5732,7 +5694,7 @@
             ]
         },
         {
-            "pakku_id": "BcWSjgHtEkUGup9c",
+            "pakku_id": "BF0Z9vxvfEuA4B0b",
             "pakku_links": [
                 "E1izozCgXnbgewv8"
             ],
@@ -6022,7 +5984,7 @@
             ]
         },
         {
-            "pakku_id": "9ovhvKRt7XfPue50",
+            "pakku_id": "aALGsusG3gYffcbw",
             "pakku_links": [
                 "VjY1yclSang7lBB5"
             ],
@@ -6705,7 +6667,7 @@
         {
             "pakku_id": "VqReVPiM9fUwTRzy",
             "pakku_links": [
-                "9ovhvKRt7XfPue50"
+                "aALGsusG3gYffcbw"
             ],
             "type": "MOD",
             "slug": {
@@ -6780,9 +6742,9 @@
             ]
         },
         {
-            "pakku_id": "0XRKqYeGX8VkuUbc",
+            "pakku_id": "sYhqOttm9zCdbA6a",
             "pakku_links": [
-                "NAEuNloO1C7IA6iT"
+                "gtlm0JmJfdxez2tK"
             ],
             "type": "MOD",
             "side": "CLIENT",
@@ -7088,7 +7050,7 @@
         {
             "pakku_id": "Djr3B3G02XM83B3h",
             "pakku_links": [
-                "EDNarVnJ35LA4tAo"
+                "oMg1itcRh7zhA6yq"
             ],
             "type": "MOD",
             "slug": {
@@ -7322,7 +7284,7 @@
         {
             "pakku_id": "RBzJ5jZwsppstrfM",
             "pakku_links": [
-                "JYGYnYCUwQpLxiFz",
+                "tIgp48fAN3jovwfe",
                 "KQjD3BFWvknSEocI"
             ],
             "type": "MOD",
@@ -7912,7 +7874,7 @@
             ]
         },
         {
-            "pakku_id": "4siK5L3okHawS119",
+            "pakku_id": "fCJ3DSlriFSIF2Vh",
             "type": "MOD",
             "slug": {
                 "curseforge": "mechanicals-lib"
@@ -7986,7 +7948,7 @@
             ]
         },
         {
-            "pakku_id": "EDNarVnJ35LA4tAo",
+            "pakku_id": "oMg1itcRh7zhA6yq",
             "type": "MOD",
             "slug": {
                 "curseforge": "mezzconfig"
@@ -8979,7 +8941,7 @@
             ]
         },
         {
-            "pakku_id": "pcRrQVhIXSTQ9ZLw",
+            "pakku_id": "i2P3ljLy3u1BJm27",
             "type": "MOD",
             "slug": {
                 "curseforge": "owo-lib"
@@ -9738,7 +9700,7 @@
             ]
         },
         {
-            "pakku_id": "7ZMUsCVnFtipaoL9",
+            "pakku_id": "zatiq4XjF09lSBwP",
             "type": "MOD",
             "slug": {
                 "curseforge": "prickle"
@@ -10389,7 +10351,7 @@
         {
             "pakku_id": "5fYRqfXoOZYSfb1R",
             "pakku_links": [
-                "YDOIEcImgcQlw8Q6",
+                "XH0UklWDLagqC3mO",
                 "pthZzGsLRDrCMzUI"
             ],
             "type": "MOD",
@@ -10941,7 +10903,7 @@
         {
             "pakku_id": "myj1wSNMaYLnu7qY",
             "pakku_links": [
-                "pcRrQVhIXSTQ9ZLw"
+                "i2P3ljLy3u1BJm27"
             ],
             "type": "MOD",
             "slug": {
@@ -11404,7 +11366,7 @@
             ]
         },
         {
-            "pakku_id": "NAEuNloO1C7IA6iT",
+            "pakku_id": "gtlm0JmJfdxez2tK",
             "type": "MOD",
             "side": "CLIENT",
             "slug": {
@@ -11444,7 +11406,7 @@
             "pakku_id": "lL9TOUv9Ryu1s4iM",
             "pakku_links": [
                 "uWUTfAJJKo0YAkmR",
-                "NAEuNloO1C7IA6iT"
+                "gtlm0JmJfdxez2tK"
             ],
             "type": "MOD",
             "slug": {
@@ -11486,7 +11448,7 @@
         {
             "pakku_id": "uWUTfAJJKo0YAkmR",
             "pakku_links": [
-                "NAEuNloO1C7IA6iT"
+                "gtlm0JmJfdxez2tK"
             ],
             "type": "MOD",
             "slug": {
@@ -12341,7 +12303,7 @@
         {
             "pakku_id": "TbEKO6YuJDh5LCIC",
             "pakku_links": [
-                "7ZMUsCVnFtipaoL9",
+                "zatiq4XjF09lSBwP",
                 "3SKTUBNWpuvwHjOs"
             ],
             "type": "MOD",
@@ -13042,7 +13004,7 @@
             ]
         },
         {
-            "pakku_id": "iNgA0c73d72hhIoP",
+            "pakku_id": "0pUnt1HcewY5A0V7",
             "pakku_links": [
                 "zHRbMsZ6VkdEiqa7"
             ],
@@ -13093,7 +13055,7 @@
         {
             "pakku_id": "zHRbMsZ6VkdEiqa7",
             "pakku_links": [
-                "iNgA0c73d72hhIoP"
+                "0pUnt1HcewY5A0V7"
             ],
             "type": "MOD",
             "side": "CLIENT",
@@ -13385,7 +13347,7 @@
             ]
         },
         {
-            "pakku_id": "YDOIEcImgcQlw8Q6",
+            "pakku_id": "XH0UklWDLagqC3mO",
             "type": "MOD",
             "slug": {
                 "curseforge": "yungs-api-neoforge"
