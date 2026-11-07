@@ -315,6 +315,16 @@ public class AdventurerCampBlockEntity extends BlockEntity implements MenuProvid
         return foodBuffer >= needed;
     }
 
+    /** Nutrition of all food waiting in the food slots. */
+    public double storedNutrition() {
+        double total = 0.0;
+        for (int slot = 0; slot < FOOD_SLOTS; slot++) {
+            ItemStack stack = food.getStackInSlot(slot);
+            total += nutritionOf(stack) * stack.getCount();
+        }
+        return total;
+    }
+
     /** Nutrition of one item, with the quality bonus used by the pack's quality_food mod. */
     public static double nutritionOf(ItemStack stack) {
         FoodProperties props = stack.getFoodProperties(null);

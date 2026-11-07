@@ -44,10 +44,18 @@ minecraft {
 
 repositories {
     mavenCentral()
+    maven {
+        name = 'CurseMaven'
+        url = 'https://cursemaven.com'
+        content { includeGroup 'curse.maven' }
+    }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    // Jade 11.13.2, the version the pack ships; optional at runtime.
+    compileOnly fg.deobf("curse.maven:jade-324717:6855440")
 
     testImplementation platform('org.junit:junit-bom:5.10.2')
     testImplementation 'org.junit.jupiter:junit-jupiter'

@@ -23,5 +23,7 @@
   "sunlitidle.gui.health": "HP %s",
   "sunlitidle.gui.food_buffer": "Food %s",
   "sunlitidle.gui.power": "Power %s / %s",
-  "sunlitidle.gui.stats": "Stats (%s points)"
+  "sunlitidle.gui.stats": "Stats (%s points)",
+  "sunlitidle.jade.food": "Food: %s",
+  "config.jade.plugin_sunlitidle.adventurers_camp": "Adventurer's Camp"
 }
