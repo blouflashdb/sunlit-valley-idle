@@ -15,7 +15,7 @@ import zipfile
 
 PACK_NAME = "Sunlit Valley Idle"
 PACK_AUTHOR = "blouflashdb"
-EXCLUDE = ("kubejs/_unported",)
+EXCLUDE = ("kubejs/_unported", "config/_unported")
 
 
 def excluded(path):

@@ -30,7 +30,7 @@ FAIL_MARKERS = (
     "This crash report has been saved to",
     "Failed to start the minecraft server",
 )
-SKIP_OVERRIDES = ("kubejs/_unported",)
+SKIP_OVERRIDES = ("kubejs/_unported", "config/_unported")
 
 
 def download(url, dest, sha1=None):
