@@ -1,0 +1,60 @@
+{
+  "_comment": "Mod decisions for the 1.21.1 NeoForge port (epic #5). Read by tools/port/port_lock.py. Keys are CurseForge slugs from the 1.20.1 pakku-lock.json.",
+  "drop": {
+    "splendid-slimes": "rebuild: idle skill",
+    "vintage-delight": "rebuild: KubeJS with vintagedelight:* ids",
+    "watering-cans-dew-drop": "rebuild: sunlitidle",
+    "sturdy-farmland-growth-edition": "rebuild: sunlitidle",
+    "botania-seeds": "rebuild",
+    "croptania": "rebuild",
+    "society-tweaks": "rebuild: sunlitidle",
+
+    "trials-chambers-reuploaded": "not needed on 1.21",
+    "better-advanced-tooltips-backport": "not needed on 1.21",
+    "xxl-packets": "not needed on 1.21",
+    "online-detector": "not needed on 1.21",
+    "my-server-is-compatible": "not needed on 1.21",
+    "serverconfig-updater": "not needed on 1.21",
+    "serializerdebug": "not needed on 1.21",
+    "ftb-quest-localizer": "not needed on 1.21",
+    "serene-seasons-fix-revived": "not needed on 1.21",
+    "mct-refined-storage-mixin": "not needed on 1.21",
+    "bobby-reforged": "not needed on 1.21",
+
+    "lets-do-nethervinery": "drop",
+    "dracovita-farm-life": "drop",
+    "more-minecarts": "drop",
+    "species": "drop",
+    "legendary-creatures": "drop",
+    "domestication-innovation-fixed": "drop",
+    "createutilities": "drop",
+    "extractinator": "drop",
+    "verdantvibes": "drop",
+    "little-tractor": "drop",
+    "create-slime": "drop (Splendid Cogs)",
+    "hamsters": "drop",
+    "balloon-box": "drop",
+    "creeper-confetti": "drop",
+    "rainbow-oaks-3": "drop",
+    "radiant-gear": "drop",
+    "max-enchant-x": "drop",
+    "quests-additions": "drop",
+    "refined-storage-addons": "drop (RS Addons)",
+
+    "construction-wand": "replaced by Building Gadgets (already in pack)",
+    "fantasys-furniture": "replaced by existing furniture mods",
+    "decorative-blocks": "replaced by existing deco mods",
+    "oculus": "replaced by Iris",
+    "embeddium": "replaced by Sodium",
+    "item-filters": "replaced by FTB Filter System"
+  },
+  "add": [
+    {"slug": "irisshaders", "search": "Iris Shaders", "side": "CLIENT", "reason": "replaces Oculus"},
+    {"slug": "sodium", "search": "Sodium", "side": "CLIENT", "reason": "replaces Embeddium"},
+    {"slug": "ftb-filter-system", "search": "FTB Filter System", "reason": "replaces Item Filters"}
+  ],
+  "fallback": {
+    "botania": {"search": "Botania", "reason": "Botania Revived if the official project has no 1.21.1 NeoForge build"},
+    "create-steam-n-rails": {"search": "Steam 'n' Rails", "reason": "unofficial 1.21.1 port if the official project has none"}
+  }
+}
