@@ -22,7 +22,10 @@ jobs:
           ./gradlew build --no-daemon
       - name: Run in-game tests
         working-directory: mod
-        run: ./gradlew runGameTestServer --no-daemon
+        run: |
+          ./gradlew runGameTestServer --no-daemon 2>&1 | tee gametest.log
+          # Fail if the tests were not found or did not all pass.
+          grep -E "All [0-9]+ required tests passed" gametest.log
       - name: Export CurseForge pack
         run: |
           JAR=$(ls mod/build/libs/sunlitidle-*.jar | grep -v -- '-sources' | head -n1)
