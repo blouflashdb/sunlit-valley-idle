@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   resolve:
@@ -32,3 +33,8 @@ jobs:
           if git diff --cached --quiet; then echo "No changes"; exit 0; fi
           git commit -m "Resolve pakku lock for 1.21.1 NeoForge"
           git push origin "HEAD:${GITHUB_REF_NAME}"
+      - name: Run the pack build on the new lock
+        # Pushes made with GITHUB_TOKEN do not start workflows, so start the build explicitly.
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run build-mod.yml --ref "${GITHUB_REF_NAME}"
