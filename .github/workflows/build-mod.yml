@@ -9,12 +9,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
         with:
           distribution: temurin
           java-version: '17'
-      - uses: gradle/actions/setup-gradle@v4
+      - uses: gradle/actions/setup-gradle@v6
       - name: Build mod and run unit tests
         working-directory: mod
         run: |
@@ -35,11 +35,11 @@ jobs:
           # artifact zip then has manifest.json at its root and imports directly.
           mkdir -p build/pack && unzip -q "build/sunlit-valley-idle-${VERSION}.zip" -d build/pack
           echo "PACK_VERSION=${VERSION}" >> "$GITHUB_ENV"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: sunlitidle-mod
           path: mod/build/libs/*.jar
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: sunlit-valley-idle-${{ env.PACK_VERSION }}-curseforge
           path: build/pack/
