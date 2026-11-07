@@ -260,6 +260,16 @@ def main():
         linked.append(q)
     entries = linked
 
+    # Client-only mods that the 1.20.1 lock did not mark.
+    sides = decisions.get("sides", {})
+    for i, p in enumerate(entries):
+        side = sides.get(p["slug"]["curseforge"])
+        if side:
+            q = {k: p[k] for k in ("pakku_id", "pakku_links", "type") if k in p}
+            q["side"] = side
+            q.update({k: v for k, v in p.items() if k not in q})
+            entries[i] = q
+
     lock = {"target": base["target"], "mc_versions": [MC], "loaders": {"neoforge": neoforge},
             "projects": entries, "lockfile_version": base["lockfile_version"]}
     pathlib.Path("pakku-lock.json").write_text(json.dumps(lock, indent=4, ensure_ascii=False) + "\n")
@@ -270,6 +280,9 @@ def main():
     for add in decisions.get("add", []):
         if add.get("side") and add["slug"] in slugs:
             pakku["projects"][add["slug"]] = {"side": add["side"]}
+    for slug, side in sides.items():
+        if slug in slugs:
+            pakku["projects"][slug] = {**pakku["projects"].get(slug, {}), "side": side}
     pathlib.Path("pakku.json").write_text(json.dumps(pakku, indent=4, ensure_ascii=False) + "\n")
 
     expected_missing = {"botania", "create-steam-n-rails"}
