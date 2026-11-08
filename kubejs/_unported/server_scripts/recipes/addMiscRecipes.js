@@ -351,10 +351,7 @@ ServerEvents.recipes((e) => {
     "relics:horse_flute",
     "society:prismatic_shard",
   ]);
-  e.shaped("society:prize_machine", ["ttt", "tbt", "ttt"], {
-    b: "bountiful:bountyboard",
-    t: "society:prize_ticket",
-  });
+  // society:prize_machine is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   e.shaped("torchmaster:megatorch", [" p ", "sts", " s "], {
     t: "minecraft:torch",
     s: "numismatics:sun",
@@ -390,10 +387,7 @@ ServerEvents.recipes((e) => {
     l: "minecraft:leather",
     p: "society:prismatic_shard",
   });
-  e.shapeless("society:ancient_goddess_statue", [
-    "paraglider:goddess_statue",
-    "society:prismatic_shard",
-  ]);
+  // society:ancient_goddess_statue is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   e.shapeless("rehooked:red_hook", [
     "rehooked:diamond_hook",
     "society:prismatic_shard",

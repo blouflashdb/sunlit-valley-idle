@@ -77,10 +77,7 @@ BlockEvents.broken("society:fish_pond", (e) => {
   }
 });
 
-BlockEvents.broken("society:prize_machine", (e) => {
-  const nbt = e.block.getEntityData();
-  e.block.popItem(Item.of("society:prize_machine", `{prize:${nbt.data.prize}}`));
-});
+// society:prize_machine is ported: kubejs/server_scripts/blockEvents/prizeMachineEvents.js
 
 BlockEvents.broken("society:coin_leaderboard", (e) => {
   global.clearOldTextDisplay(e.block, e.level, "leaderboard");

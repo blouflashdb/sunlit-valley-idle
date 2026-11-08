@@ -12,6 +12,7 @@ Usage (from the repository root):
 Writes kubejs/assets/society/models/block/kubejs/<name>/<name>{,_off,_done}{,_upgraded}.json and
 <name>_particle.json. "off" uses --side, "working" --working, "done" --done on the four sides; the upgraded
 models put --upgraded (gold by default) on the top face. Existing files are overwritten.
+With --single only <name>/<name>.json is written (--working is the front), for blocks without machine states.
 """
 import argparse
 import json
@@ -35,7 +36,19 @@ def main():
     ap.add_argument("--working", help="side texture while working, defaults to --side")
     ap.add_argument("--done", help="side texture when the product is ready, defaults to --working")
     ap.add_argument("--upgraded", default="minecraft:block/gold_block", help="top texture of the upgraded models")
+    ap.add_argument("--single", action="store_true", help="only <name>/<name>.json, for blocks without machine states")
     args = ap.parse_args()
+
+    if args.single:
+        textures = {
+            "side": args.side,
+            "front": args.working or args.side,
+            "top": args.top,
+            "bottom": args.bottom or args.top,
+            "particle": args.side,
+        }
+        write(MODELS / args.name / f"{args.name}.json", {"parent": PARENT, "textures": textures})
+        return
 
     working = args.working or args.side
     done = args.done or working
