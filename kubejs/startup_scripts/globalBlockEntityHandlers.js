@@ -82,7 +82,7 @@ global.setMachineData = (block, values) => {
   if (!entity || !entity.data) return;
   const data = entity.data;
   Object.keys(values).forEach((key) => {
-    const value = values[key];
+    let value = values[key];
     if (typeof value === "number") data.putInt(key, Math.floor(value));
     else if (typeof value === "boolean") data.putBoolean(key, value);
     else if (Array.isArray(value)) data.putString(key, JSON.stringify(value));
@@ -166,7 +166,7 @@ const getCanTakeItems = (item, recipe, block, hasTag, inputCount, recipes) => {
   if (hasTag) {
     Array.from(recipes.keys()).forEach((key) => {
       if (key.startsWith("#") && itemHasTag(item, key)) {
-        const currentRecipe = global.getMachineString(block, "recipe");
+        let currentRecipe = global.getMachineString(block, "recipe");
         if (currentRecipe === "") {
           global.setMachineData(block, { recipe: key, originalInputs: [] });
           itemCheck = true;
@@ -374,7 +374,7 @@ global.handleBETick = (entity, recipes, stageCount, halveTime, forced) => {
     global.convertFromLegacy(recipes, level, block);
     let recipe = recipes && recipes.get(global.getMachineString(block, "recipe"));
     let resolvedStage = (recipe && recipe.time) || stageCount;
-    const stage = global.getMachineInt(block, "stage");
+    let stage = global.getMachineInt(block, "stage");
     let mature;
     if (halveTime && global.isBlockPropertyTrue(block, "upgraded")) {
       mature = stage >= resolvedStage / 2 - 1;

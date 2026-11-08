@@ -20,7 +20,7 @@ ServerEvents.loaded((event) => {
       check(!Item.of("society:pristine_diamond").isEmpty(), "society:pristine_diamond is not registered");
       let hasRecipe = false;
       server.getRecipeManager().getRecipes().forEach((holder) => {
-        const result = holder.value().getResultItem(server.registryAccess());
+        let result = holder.value().getResultItem(server.registryAccess());
         if (String(result.id) === "society:crystalarium") hasRecipe = true;
       });
       check(hasRecipe, "no crafting recipe makes society:crystalarium");
@@ -30,8 +30,8 @@ ServerEvents.loaded((event) => {
       check(global.getMachineData(block) !== null, "no KubeJS block entity data");
       check(global.getMachineString(block, "recipe") === "", "new machine already has a recipe");
 
-      const used = global.artisanInsert(block, Item.of("minecraft:diamond"), level, recipes, 5, sound, false, false, true, server, null);
-      check(used === 1, `insert used ${used} items`);
+      let usedCount = global.artisanInsert(block, Item.of("minecraft:diamond"), level, recipes, 5, sound, false, false, true, server, null);
+      check(usedCount === 1, `insert used ${usedCount} items`);
       check(global.getMachineString(block, "recipe") === "minecraft:diamond", "recipe was not stored");
       check(global.isBlockPropertyTrue(block, "working"), "machine is not working after insert");
 
@@ -46,7 +46,7 @@ ServerEvents.loaded((event) => {
     } else {
       check(global.isBlockPropertyTrue(block, "mature"), "done state was lost on restart");
       check(global.getMachineString(block, "recipe") === "minecraft:diamond", "recipe was lost on restart");
-      const outputs = global.artisanHarvest(block, recipes, 5, 1, false, true, server, null);
+      let outputs = global.artisanHarvest(block, recipes, 5, 1, false, true, server, null);
       check(outputs && outputs.length === 1, `harvest returned ${outputs}`);
       check(String(outputs[0].id) === "minecraft:diamond" && outputs[0].count === 2, `harvested ${outputs[0]}`);
       check(global.getMachineString(block, "recipe") === "", "recipe not cleared after harvest");

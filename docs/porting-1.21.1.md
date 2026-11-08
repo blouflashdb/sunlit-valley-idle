@@ -120,6 +120,8 @@ missing textures. That does not affect the server or the CI tests.
 
 ## Events and objects
 
+- Prefer `let` over `const` inside blocks (`if`, `try`, loops). Rhino can reject a block-level `const` with
+  "redeclaration of var".
 - Compare enums as strings: `String(hand) === "MAIN_HAND"`, not `hand == "MAIN_HAND"`.
 - Compare items by id: `String(item.id) === "society:black_opal"`, not `item == "society:black_opal"`.
 - `player.isFake()`, `level.spawnParticles(...)`, `block.popItemFromFace(...)`, `block.set(id, props)`,
