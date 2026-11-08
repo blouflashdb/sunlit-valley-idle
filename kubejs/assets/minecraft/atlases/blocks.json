@@ -2342,13 +2342,28 @@
     },
     {
       "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/vintagedelight/apple_sauce_mason_jar"
+    },
+    {
+      "type": "single",
       "resource": "minecraft:item/dragon_breath",
       "sprite": "vintagedelight:item/gearo_berry_mason_jar"
     },
     {
       "type": "single",
+      "resource": "minecraft:item/dragon_breath",
+      "sprite": "society:item/vintagedelight/gearo_berry_mason_jar"
+    },
+    {
+      "type": "single",
       "resource": "minecraft:item/experience_bottle",
       "sprite": "vintagedelight:item/glow_berry_mason_jar"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/experience_bottle",
+      "sprite": "society:item/vintagedelight/glow_berry_mason_jar"
     },
     {
       "type": "single",
@@ -2362,8 +2377,18 @@
     },
     {
       "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/vintagedelight/nut_mash_mason_jar"
+    },
+    {
+      "type": "single",
       "resource": "minecraft:item/dragon_breath",
       "sprite": "vintagedelight:item/pepper_jam_mason_jar"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dragon_breath",
+      "sprite": "society:item/vintagedelight/pepper_jam_mason_jar"
     },
     {
       "type": "single",
@@ -2372,8 +2397,18 @@
     },
     {
       "type": "single",
+      "resource": "minecraft:item/experience_bottle",
+      "sprite": "society:item/vintagedelight/relish_mason_jar"
+    },
+    {
+      "type": "single",
       "resource": "minecraft:item/dragon_breath",
       "sprite": "vintagedelight:item/sweet_berry_mason_jar"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dragon_breath",
+      "sprite": "society:item/vintagedelight/sweet_berry_mason_jar"
     },
     {
       "type": "single",

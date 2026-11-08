@@ -46,13 +46,25 @@ BLOCKS = {
 }
 
 
+OURS = ("vintagedelight:", "society:item/vintagedelight/")
+# Items that have a model in kubejs/assets/vintagedelight/models/item using a society:item/vintagedelight/ texture.
+SOCIETY_MODELS = sorted(
+    p.stem for p in Path("kubejs/assets/vintagedelight/models/item").glob("*.json")
+    if "society:item/vintagedelight/" in p.read_text()
+)
+
+
 def main():
     atlas = json.loads(ATLAS.read_text())
     sources = atlas["sources"]
     tail = [s for s in sources if s["type"] == "directory"]
-    singles = [s for s in sources if s["type"] != "directory" and not s.get("sprite", "").startswith("vintagedelight:")]
+    singles = [s for s in sources if s["type"] != "directory" and not s.get("sprite", "").startswith(OURS)]
     for name, tex in ITEMS.items():
         singles.append({"type": "single", "resource": f"minecraft:item/{tex}", "sprite": f"vintagedelight:item/{name}"})
+        # The 1.20.1 pack's own item models for the jars point at society:item/vintagedelight/<name>.
+        if name in SOCIETY_MODELS:
+            singles.append({"type": "single", "resource": f"minecraft:item/{tex}",
+                            "sprite": f"society:item/vintagedelight/{name}"})
     for name, tex in BLOCKS.items():
         singles.append({"type": "single", "resource": f"minecraft:block/{tex}", "sprite": f"vintagedelight:block/{name}"})
     if not any(s.get("source") == "block" for s in tail):
