@@ -91,5 +91,38 @@ ServerEvents.recipes((e) => {
     F: "meadow:fire_log",
   });
 
+  shaped("society:tapper", [" C ", "lwl", " e "], {
+    w: "meadow:wooden_bucket",
+    l: "meadow:fire_log",
+    e: "society:earth_crystal",
+    C: "minecraft:copper_block",
+  });
+  shaped("society:mushroom_log", ["LLL", "LML", "mPm"], {
+    L: "meadow:fire_log",
+    P: "society:mossberry_preserves",
+    m: "society:mossberry",
+    M: "farmersdelight:rich_soil",
+  });
+  shaped("society:espresso_machine", ["iii", "ltl", "bib"], {
+    t: "herbalbrews:tea_kettle",
+    l: "minecraft:lime_dye",
+    b: "society:battery",
+    i: "create:zinc_ingot",
+  });
+  shaped("society:deluxe_worm_farm", ["zNz", "pwp", "zaz"], {
+    w: "aquaculture:worm_farm",
+    N: "aquaculture:neptunium_ingot",
+    a: "society:aquamarine",
+    p: "crabbersdelight:pearl_block",
+    z: "create:zinc_block",
+  });
+  shaped("society:charging_rod", [" f ", "zlz", "ZbZ"], {
+    Z: "create:zinc_block",
+    z: "etcetera:bismuth_ingot",
+    l: "minecraft:lightning_rod",
+    f: "society:fire_quartz",
+    b: "quark:blaze_lantern",
+  });
+
   if (skipped.length > 0) console.info(`[SOCIETY] Artisan machine recipes skipped: ${skipped.join("; ")}`);
 });

@@ -102,44 +102,44 @@ global.tapperRecipes = new Map([
 StartupEvents.registry("block", (event) => {
   event
     .create("society:tapper", "cardinal")
-    .property(booleanProperty.create("working"))
-    .property(booleanProperty.create("mature"))
-    .property(booleanProperty.create("upgraded"))
-    .property(booleanProperty.create("error"))
+    .property(workingProperty)
+    .property(matureProperty)
+    .property(upgradedProperty)
+    .property(errorProperty)
     .soundType("copper")
     .defaultCutout()
     .box(3, 0, 6, 13, 16, 16)
     .tagBlock("minecraft:mineable/pickaxe")
     .tagBlock("minecraft:mineable/axe")
     .tagBlock("minecraft:needs_stone_tool")
+    // Blockstate: client_scripts/machineBlockstates.js. Models: tools/port/assets/make_machine_placeholder.py.
+    .parentModel("society:block/kubejs/tapper/tapper_off")
     .item((item) => {
       item.tooltip(Text.translatable("block.society.tapper.description").gray());
-      item.modelJson({
-        parent: "society:block/kubejs/tapper",
-      });
+      item.parentModel("society:block/kubejs/tapper/tapper_off");
     })
     .defaultState((state) => {
       state
-        .set(booleanProperty.create("working"), false)
-        .set(booleanProperty.create("mature"), false)
-        .set(booleanProperty.create("upgraded"), false)
-        .set(booleanProperty.create("error"), false);
+        .set(workingProperty, false)
+        .set(matureProperty, false)
+        .set(upgradedProperty, false)
+        .set(errorProperty, false);
     })
     .placementState((state) => {
       state
-        .set(booleanProperty.create("working"), false)
-        .set(booleanProperty.create("mature"), false)
-        .set(booleanProperty.create("upgraded"), false)
-        .set(booleanProperty.create("error"), false);
+        .set(workingProperty, false)
+        .set(matureProperty, false)
+        .set(upgradedProperty, false)
+        .set(errorProperty, false);
     })
     .rightClick((click) => {
-      const { player, item, block, hand, level } = click;
+      let { player, item, block, hand, level } = click;
       if (player.isFake()) return;
-      const upgraded = block.properties.get("upgraded").toLowerCase() == "true";
+      let upgraded = global.isBlockPropertyTrue(block, "upgraded");
 
-      if (hand == "OFF_HAND") return;
-      if (hand == "MAIN_HAND") {
-        if (!upgraded && item == "society:slime_gel") {
+      if (String(hand) === "OFF_HAND") return;
+      if (String(hand) === "MAIN_HAND") {
+        if (!upgraded && String(item.id) === "society:slime_gel") {
           if (!player.isCreative()) item.count--;
           level.spawnParticles(
             "farmersdelight:star",
@@ -153,20 +153,17 @@ StartupEvents.registry("block", (event) => {
             3,
             0.01
           );
-          block.set(block.id, {
-            working: block.properties.get("working"),
-            mature: block.properties.get("mature"),
-            upgraded: true,
-            error: block.properties.get("error"),
-          });
+          let upgradedProperties = block.getProperties();
+          upgradedProperties.upgraded = true;
+          block.set(block.id, upgradedProperties);
         }
       }
       if (
         !player.stages.has("canadian_and_famous") &&
-        block.properties.get("mature") === "true" &&
+        global.isBlockPropertyTrue(block, "mature") &&
         Math.random() <= 0.01
       ) {
-        block.popItemFromFace("society:canadian_and_famous", block.properties.get("facing"));
+        block.popItemFromFace("society:canadian_and_famous", global.getBlockProperty(block, "facing"));
       }
 
       global.handleBERightClick(
@@ -186,23 +183,8 @@ StartupEvents.registry("block", (event) => {
     })
     .blockEntity((blockInfo) => {
       blockInfo.initialData({ stage: 0, recipe: "" });
-      blockInfo.serverTick(artMachineTickRate, 0, (entity) => {
-        if (entity.block.properties.get("error") !== "true")
-          global.handleBETick(entity, global.tapperRecipes, 7);
-      });
-    }).blockstateJson = {
-    multipart: [
-      {
-        apply: { model: "society:block/kubejs/tapper_particle" },
-      },
-      {
-        when: { mature: true },
-        apply: { model: "society:block/kubejs/machine_done" },
-      },
-      {
-        when: { error: true },
-        apply: { model: "society:block/kubejs/error" },
-      },
-    ].concat(getCardinalMultipartJsonBasic("tapper")),
-  };
+      blockInfo.serverTicking();
+      blockInfo.tickFrequency(artMachineTickRate);
+    });
 });
+// Morning tick: server_scripts/blockEvents/machineTicks.js

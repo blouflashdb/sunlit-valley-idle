@@ -215,12 +215,7 @@ ServerEvents.recipes((e) => {
     f: "meadow:fire_log",
   });
   // Earth Crystal
-  e.shaped("society:tapper", [" C ", "lwl", " e "], {
-    w: "meadow:wooden_bucket",
-    l: "meadow:fire_log",
-    e: "society:earth_crystal",
-    C: "minecraft:copper_block",
-  });
+  // society:tapper is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   // society:mayonnaise_machine is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   // society:cheese_press is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   e.shaped("meadow:cheese_form", [" C ", "pcp", " b "], {
@@ -340,20 +335,10 @@ ServerEvents.recipes((e) => {
     f: "society:fire_quartz",
   });
   // society:recycling_machine is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
-  e.shaped("society:mushroom_log", ["LLL", "LML", "mPm"], {
-    L: "meadow:fire_log",
-    P: "society:mossberry_preserves",
-    m: "society:mossberry",
-    M: "farmersdelight:rich_soil",
-  });
+  // society:mushroom_log is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   // Battery
   // society:crystalarium is ported: kubejs/server_scripts/recipes/addMiscRecipes.js
-  e.shaped("society:espresso_machine", ["iii", "ltl", "bib"], {
-    t: "herbalbrews:tea_kettle",
-    l: "minecraft:lime_dye",
-    b: "society:battery",
-    i: "create:zinc_ingot",
-  });
+  // society:espresso_machine is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   // society:pickling_can is ported: kubejs/server_scripts/recipes/vintageDelightRecipes.js
   e.shaped("beachparty:mini_fridge", ["zlz", "ziz", "zbz"], {
     l: "minecraft:lime_dye",
@@ -527,13 +512,7 @@ ServerEvents.recipes((e) => {
     C: "society:battery",
     l: "minecraft:iron_ingot",
   });
-  e.shaped("society:deluxe_worm_farm", ["zNz", "pwp", "zaz"], {
-    w: "aquaculture:worm_farm",
-    N: "aquaculture:neptunium_ingot",
-    a: "society:aquamarine",
-    p: "crabbersdelight:pearl_block",
-    z: "create:zinc_block",
-  });
+  // society:deluxe_worm_farm is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   e.shaped("crabbersdelight:crab_trap", ["nsn", "s s", "wpw"], {
     s: "create:zinc_ingot",
     n: "farmersdelight:safety_net",
@@ -546,13 +525,7 @@ ServerEvents.recipes((e) => {
   // society:aging_cask is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
 
   // Other
-  e.shaped("society:charging_rod", [" f ", "zlz", "ZbZ"], {
-    Z: "create:zinc_block",
-    z: "etcetera:bismuth_ingot",
-    l: "minecraft:lightning_rod",
-    f: "society:fire_quartz",
-    b: "quark:blaze_lantern",
-  });
+  // society:charging_rod is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   e.shaped("society:auto_tapper", [" F ", "bTb", "fPf"], {
     f: "create_factory_logistics:fluid_mechanism",
     F: "create:fluid_tank",

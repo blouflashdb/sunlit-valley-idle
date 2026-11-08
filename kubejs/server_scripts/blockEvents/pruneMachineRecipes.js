@@ -29,4 +29,9 @@ ServerEvents.loaded(() => {
   prune("Oil Maker", global.oilMakerRecipes, (recipe) => recipe.output);
   prune("Recycling Machine", global.recyclingMachineRecipes, (recipe) => recipe.output);
   prune("Seed Maker", global.seedMakerRecipes, (recipe) => recipe.output);
+  prune("Tapper", global.tapperRecipes, (recipe) => recipe.output);
+  prune("Mushroom Log", global.mushroomLogRecipes, (recipe) => recipe.output);
+  prune("Mushroom Log dominant blocks", global.dominantMushroomLogBlocks, (recipe) => recipe.output);
+  prune("Espresso Machine", global.espressoMachineRecipes, (recipe) => recipe.output);
+  prune("Deluxe Worm Farm", global.deluxeWormFarmRecipes, (recipe) => recipe.output);
 });

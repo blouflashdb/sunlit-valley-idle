@@ -92,3 +92,15 @@ BlockEvents.blockEntityTick("society:recycling_machine", (entity) => {
 BlockEvents.blockEntityTick("society:seed_maker", (entity) => {
   global.handleBETick(entity, global.seedMakerRecipes, 1);
 });
+
+BlockEvents.blockEntityTick("society:tapper", (entity) => {
+  if (!global.isBlockPropertyTrue(entity.block, "error")) global.handleBETick(entity, global.tapperRecipes, 7);
+});
+
+BlockEvents.blockEntityTick("society:mushroom_log", (entity) => {
+  global.handleBETick(entity, global.mushroomLogRecipes, 4);
+});
+
+BlockEvents.blockEntityTick("society:charging_rod", (entity) => {
+  global.handleBETick(entity, null, 5);
+});

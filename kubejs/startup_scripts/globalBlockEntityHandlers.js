@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 // priority: 1000
-// Shared machine core, ported to KubeJS 7 (1.21.1). The rest of the 1.20.1 file (tapper, mushroom log,
-// inventories, fluids, crops, Skull Cavern) is still in kubejs/_unported/startup_scripts/globalBlockEntityHandlers.js
+// Shared machine core, ported to KubeJS 7 (1.21.1). The rest of the 1.20.1 file (inventories, fluids, crops, Skull Cavern) is still in kubejs/_unported/startup_scripts/globalBlockEntityHandlers.js
 // and moves here with the slice that needs it. See docs/porting-1.21.1.md.
 console.info("[SOCIETY] globalBlockEntityHandlers.js loaded");
 
@@ -459,6 +458,173 @@ global.getCardinalMultipartJson = (name, disableExclamation) => {
 
 // The 1.20.1 machine scripts call this without `global.`.
 const getCardinalMultipartJson = global.getCardinalMultipartJson;
+
+/*
+ * Tapper and Mushroom Log (#11)
+ */
+const errorProperty = booleanProperty.create("error");
+
+/** Sets some block state properties and keeps the others (facing included). */
+global.setBlockProperties = (block, values) => {
+  let properties = block.getProperties();
+  Object.keys(values).forEach((key) => {
+    properties[key] = String(values[key]);
+  });
+  block.set(block.id, properties);
+};
+
+global.getOpposite = (facing, pos) => {
+  switch (String(facing)) {
+    case "north":
+      return pos.offset(0, 0, 1);
+    case "south":
+      return pos.offset(0, 0, -1);
+    case "west":
+      return pos.offset(1, 0, 0);
+    case "east":
+      return pos.offset(-1, 0, 0);
+  }
+};
+
+global.getFacing = (facing, pos) => {
+  switch (String(facing)) {
+    case "north":
+      return pos.offset(0, 0, -1);
+    case "south":
+      return pos.offset(0, 0, 1);
+    case "west":
+      return pos.offset(-1, 0, 0);
+    case "east":
+      return pos.offset(1, 0, 0);
+  }
+};
+
+global.getTapperLog = (level, block) =>
+  level.getBlock(global.getOpposite(global.getBlockProperty(block, "facing"), block.getPos()));
+
+global.hasMultipleTappers = (level, block) => {
+  const attachedBlock = global.getTapperLog(level, block);
+  let tapperCount = 0;
+  [
+    [1, 0],
+    [0, 1],
+    [-1, 0],
+    [0, -1],
+  ].forEach((offset) => {
+    let id = String(level.getBlock(attachedBlock.x + offset[0], attachedBlock.y, attachedBlock.z + offset[1]).id);
+    if (id === "society:tapper" || id === "society:auto_tapper") tapperCount++;
+  });
+  return tapperCount > 1;
+};
+
+/**
+ * Starts the tapper when the log behind it is tappable and sets the error state otherwise. With
+ * returnFluidData (Auto-Tapper) it returns { fluid, time } of the log's recipe instead of starting it.
+ */
+global.handleTapperRandomTick = (tickEvent, returnFluidData) => {
+  const { block, level } = tickEvent;
+  const server = level.server;
+  const attachedBlock = global.getTapperLog(level, block);
+  const attachedId = String(attachedBlock.id);
+  let foundFluidData = undefined;
+  let hasError = false;
+  if (!attachedBlock.hasTag("society:tappable_blocks")) {
+    global.setBlockProperties(block, { error: true });
+    return undefined;
+  }
+  if (global.getMachineString(block, "recipe") !== attachedId || global.hasMultipleTappers(level, block)) {
+    hasError = true;
+  }
+  if (
+    returnFluidData ||
+    (!global.isBlockPropertyTrue(block, "working") && !global.isBlockPropertyTrue(block, "mature"))
+  ) {
+    const recipe = global.tapperRecipes.get(attachedId);
+    if (returnFluidData && recipe) {
+      foundFluidData = { fluid: recipe.fluidOutput, time: recipe.time };
+      global.setMachineData(block, { recipe: attachedId });
+      hasError = false;
+    }
+    if (!returnFluidData && getCanTakeItems(attachedId, recipe, block, false)) {
+      successParticles(level, block);
+      server.runCommandSilent(`playsound vinery:cabinet_close block @a ${block.x} ${block.y} ${block.z}`);
+      global.setMachineData(block, { recipe: attachedId, stage: 0 });
+      global.setBlockProperties(block, { mature: false, working: true, error: false });
+      return undefined;
+    }
+  }
+  global.setBlockProperties(block, { error: hasError });
+  return foundFluidData;
+};
+
+global.getTaggedBlocksInRadius = (level, scanTag, centerPos, radius, returnTagged) => {
+  const { x, y, z } = centerPos;
+  let scannedBlocks = 0;
+  let taggedBlocks = [];
+  for (let dx = -radius; dx <= radius; dx++) {
+    for (let dy = -radius; dy <= radius; dy++) {
+      for (let dz = -radius; dz <= radius; dz++) {
+        let scanBlock = level.getBlock(x + dx, y + dy, z + dz);
+        if (scanBlock.hasTag(scanTag)) {
+          scannedBlocks++;
+          if (returnTagged) taggedBlocks.push(String(scanBlock.id));
+        }
+      }
+    }
+  }
+  return returnTagged ? taggedBlocks : scannedBlocks;
+};
+
+const getMushroomLogData = (level, centerPos, radius) => {
+  const { x, y, z } = centerPos;
+  let scannedBlocks = 0;
+  let regularOutputs = [];
+  let dominantOutputs = [];
+  let airBlocks = 0;
+  for (let dx = -radius; dx <= radius; dx++) {
+    for (let dy = -radius; dy <= radius; dy++) {
+      for (let dz = -radius; dz <= radius; dz++) {
+        let scanBlock = level.getBlock(x + dx, y + dy, z + dz);
+        let id = String(scanBlock.id);
+        if (scanBlock.hasTag("society:mushroom_log_detects")) {
+          scannedBlocks++;
+          let outputs = scanBlock.hasTag("society:mushroom_log_dominant") ? dominantOutputs : regularOutputs;
+          if (!outputs.includes(id)) outputs.push(id);
+        } else if (id === "minecraft:air") airBlocks++;
+      }
+    }
+  }
+  return {
+    count: airBlocks < 100 ? 4 : scannedBlocks,
+    possibleOutputs: dominantOutputs.length > 0 ? dominantOutputs : regularOutputs,
+  };
+};
+
+/** Starts the Mushroom Log with a recipe rolled from the logs and mushroom blocks around it. */
+global.handleMushroomLogRandomTick = (tickEvent) => {
+  const { block, level } = tickEvent;
+  if (global.isBlockPropertyTrue(block, "working") || global.isBlockPropertyTrue(block, "mature")) return;
+  const leafCount = global.getTaggedBlocksInRadius(
+    level,
+    "society:mushroom_log_leaves",
+    { x: block.x, y: block.y + 4, z: block.z },
+    8
+  );
+  const logData = getMushroomLogData(level, { x: block.x, y: block.y, z: block.z }, 8);
+  if (logData.count == 0 || logData.possibleOutputs.length == 0) return;
+  let baseCount = Math.max(1, Math.floor(Math.min(8, logData.count / 4) + Math.min(8, leafCount / 4)));
+  let rolledRecipe = logData.possibleOutputs[Math.floor(Math.random() * logData.possibleOutputs.length)];
+  const recipe = global.mushroomLogRecipes.get(rolledRecipe);
+  if (!getCanTakeItems(rolledRecipe, recipe, block, false)) return;
+  successParticles(level, block);
+  level.server.runCommandSilent(`playsound minecraft:block.moss.place block @a ${block.x} ${block.y} ${block.z}`);
+  let quality = 0;
+  if (logData.count > 20 && logData.count / 40 > Math.random()) quality = 1;
+  if (logData.count > 40 && logData.count / 60 > Math.random()) quality = 2;
+  if (logData.count > 60 && logData.count / 80 > Math.random()) quality = 3;
+  global.setMachineData(block, { recipe: rolledRecipe, stage: 0, baseCount: baseCount, quality: quality });
+  global.setBlockProperties(block, { mature: false, working: true });
+};
 
 /*
  * Crops
