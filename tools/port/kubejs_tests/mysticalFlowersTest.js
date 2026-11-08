@@ -41,12 +41,12 @@ ServerEvents.loaded((event) => {
         "botania:orechid/lead_ore",
       ].forEach((id) => check(recipes.byKey(rl.parse(id)).isPresent(), `recipe ${id} is missing`));
       let fireIngredients = recipes.byKey(rl.parse("botania:runic_altar/fire")).get().value().getIngredients();
-      let fireItems = [];
+      let fireQuartz = Item.of("society:fire_quartz");
+      let usesQuartz = false;
       for (let i = 0; i < fireIngredients.size(); i++) {
-        let stacks = fireIngredients.get(i).getItems();
-        for (let j = 0; j < stacks.length; j++) fireItems.push(String(stacks[j].getId()));
+        if (fireIngredients.get(i).test(fireQuartz)) usesQuartz = true;
       }
-      check(fireItems.indexOf("society:fire_quartz") >= 0, `the fire rune is still Botania's: ${fireItems}`);
+      check(usesQuartz, "the fire rune is still Botania's");
 
       pool().set("botania:mana_pool");
       let entity = pool().getEntity();
