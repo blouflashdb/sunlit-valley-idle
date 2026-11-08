@@ -14,7 +14,6 @@ console.info("[SOCIETY] globalAnimalHandlers.js loaded");
 
 const $AnimalRegistries = Java.loadClass("net.minecraft.core.registries.BuiltInRegistries");
 const $AnimalRegistryKeys = Java.loadClass("net.minecraft.core.registries.Registries");
-const $AnimalTagKey = Java.loadClass("net.minecraft.tags.TagKey");
 const $AnimalResourceLocation = Java.loadClass("net.minecraft.resources.ResourceLocation");
 const $AnimalResourceKey = Java.loadClass("net.minecraft.resources.ResourceKey");
 const $AnimalBlockPos = Java.loadClass("net.minecraft.core.BlockPos");
@@ -23,13 +22,6 @@ const $AnimalEffects = Java.loadClass("net.minecraft.world.effect.MobEffects");
 const $AnimalLootParamsBuilder = Java.loadClass("net.minecraft.world.level.storage.loot.LootParams$Builder");
 const $AnimalLootContextParams = Java.loadClass("net.minecraft.world.level.storage.loot.parameters.LootContextParams");
 const $AnimalLootContextParamSets = Java.loadClass("net.minecraft.world.level.storage.loot.parameters.LootContextParamSets");
-
-const animalTagKeys = {};
-const animalTagKey = (registry, tag) => {
-  const cacheKey = `${registry}|${tag}`;
-  if (!animalTagKeys[cacheKey]) animalTagKeys[cacheKey] = $AnimalTagKey.create(registry, $AnimalResourceLocation.parse(tag));
-  return animalTagKeys[cacheKey];
-};
 
 global.entityExists = (id) => $AnimalRegistries.ENTITY_TYPE.containsKey($AnimalResourceLocation.parse(String(id)));
 
@@ -43,7 +35,11 @@ global.entityTypeId = (entity) => {
 global.checkEntityTag = (entity, checkedTag) => {
   const id = global.entityTypeId(entity);
   if (id === "") return false;
-  return $AnimalRegistries.ENTITY_TYPE.get($AnimalResourceLocation.parse(id)).is(animalTagKey($AnimalRegistryKeys.ENTITY_TYPE, checkedTag));
+  // EntityType.is(TagKey) is ambiguous for Rhino, so compare the holder's tags.
+  return $AnimalRegistries.ENTITY_TYPE.get($AnimalResourceLocation.parse(id))
+    .builtInRegistryHolder()
+    .tags()
+    .anyMatch((tag) => String(tag.location()) === checkedTag);
 };
 
 /** Sends a husbandry message to the action bar (not to fake players such as the Auto-Petter). */
@@ -254,13 +250,13 @@ const getMoodImpactModifier = (type) => {
 };
 
 const countNearbyTaggedBlocks = (level, target, radius, tag) => {
-  const key = animalTagKey($AnimalRegistryKeys.BLOCK, tag);
   const x = Math.floor(target.x);
   const y = Math.floor(target.y);
   const z = Math.floor(target.z);
   let count = 0;
   $AnimalBlockPos.betweenClosed(x - radius, y - radius, z - radius, x + radius, y + radius, z + radius).forEach((pos) => {
-    if (level.isLoaded(pos) && level.getBlockState(pos).is(key)) count++;
+    // BlockState.is(TagKey) is ambiguous for Rhino as well.
+    if (level.isLoaded(pos) && level.getBlockState(pos).getTags().anyMatch((t) => String(t.location()) === tag)) count++;
   });
   return count;
 };
