@@ -169,3 +169,12 @@ BlockEvents.blockEntityTick("society:fish_pond_manager", (entity) => {
 BlockEvents.blockEntityTick("society:roe_recycler", (entity) => {
   global.runRoeRecycler(entity, false);
 });
+
+// Ribbit Hut and Caterpillar Box (#12): startup_scripts/husbandry/.
+BlockEvents.blockEntityTick("society:ribbit_hut", (entity) => {
+  global.runRibbitHut(entity, false);
+});
+
+BlockEvents.blockEntityTick("society:caterpillar_box", (entity) => {
+  global.runCaterpillarBox(entity);
+});

@@ -230,5 +230,15 @@ ServerEvents.recipes((e) => {
     N: "aquaculture:neptunium_ingot",
   });
 
+  // Longwings (#12)
+  shaped("society:caterpillar_box", ["isi", "abm", "iBi"], {
+    s: "#minecraft:saplings",
+    i: "minecraft:iron_block",
+    b: "minecraft:barrel",
+    B: "society:battery",
+    a: "society:butterfly_amber",
+    m: "society:moth_pollen",
+  });
+
   if (skipped.length > 0) console.info(`[SOCIETY] Artisan machine recipes skipped: ${skipped.join("; ")}`);
 });

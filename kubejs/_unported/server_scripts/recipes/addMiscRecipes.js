@@ -689,18 +689,7 @@ ServerEvents.recipes((e) => {
     f: "society:fire_quartz",
     e: "society:earth_crystal",
   });
-  e.shaped(
-    "society:caterpillar_box",
-    ["isi", "abm", "iBi"],
-    {
-      s: "#minecraft:saplings",
-      i: "minecraft:iron_block",
-      b: "minecraft:barrel",
-      B: "society:battery",
-      a: "society:butterfly_amber",
-      m: "society:moth_pollen",
-    }
-  );
+  // society:caterpillar_box is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   e.shaped(
     "dew_drop_farmland_growth:diamond_sprinkler",
     ["nDn", " s ", " b "],
