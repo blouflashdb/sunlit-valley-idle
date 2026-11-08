@@ -10,13 +10,14 @@ global.getArtisanProgressText = (block) => {
   const recipeId = global.getMachineString(block, "recipe");
   const stage = global.getMachineInt(block, "stage");
   let outputId;
+  let progressRecipe;
   let duration;
   if (id === "society:charging_rod") {
     outputId = "society:battery";
     duration = machine.stageCount;
   } else {
     if (recipeId === "" || typeof machine.recipes === "string") return null;
-    let progressRecipe = machine.recipes.get(recipeId);
+    progressRecipe = machine.recipes.get(recipeId);
     if (!progressRecipe || !global.itemExists(progressRecipe.output[0])) return null;
     outputId = String(Item.of(progressRecipe.output[0]).id);
     duration = progressRecipe.time || machine.stageCount;
