@@ -53,12 +53,12 @@ ServerEvents.loaded((event) => {
 
       // Fish Pond Basket (diagonal to the pond) harvests into the chest below for one sparkstone.
       global.setBlockProperties(pond(), { mature: true });
-      at(-2, 0, -1).set("society:fish_pond_basket");
-      at(-2, -1, -1).set("minecraft:chest");
-      global.insertIntoHandler(inv(at(-2, 0, -1)), Item.of("society:sparkstone", 3), false);
-      global.runFishPondBaskets(machine(-2, 0, -1), 1);
-      check(global.countInHandler(global.getInventoryBelow(level, at(-2, 0, -1)), "society:cod_roe") > 0, "the basket put no roe in the chest");
-      check(global.countInHandler(inv(at(-2, 0, -1)), "society:sparkstone") === 2, "the basket did not use one sparkstone");
+      at(-1, 0, -1).set("society:fish_pond_basket");
+      at(-1, -1, -1).set("minecraft:chest");
+      global.insertIntoHandler(inv(at(-1, 0, -1)), Item.of("society:sparkstone", 3), false);
+      global.runFishPondBaskets(machine(-1, 0, -1), 1);
+      check(global.countInHandler(global.getInventoryBelow(level, at(-1, 0, -1)), "society:cod_roe") > 0, "the basket put no roe in the chest");
+      check(global.countInHandler(inv(at(-1, 0, -1)), "society:sparkstone") === 2, "the basket did not use one sparkstone");
 
       // Roe Recycler: one roe a run.
       at(3, 0, -3).set("society:roe_recycler", { facing: "north" });
@@ -78,7 +78,7 @@ ServerEvents.loaded((event) => {
     } else {
       check(global.getMachineString(pond(), "type") === "minecraft:cod", "the pond lost its fish after the restart");
       check(global.getMachineInt(pond(), "max_population") === 5, "the pond lost its cap after the restart");
-      check(global.countInHandler(global.getInventoryBelow(level, at(-2, 0, -1)), "society:cod_roe") > 0, "the roe is gone after the restart");
+      check(global.countInHandler(global.getInventoryBelow(level, at(-1, 0, -1)), "society:cod_roe") > 0, "the roe is gone after the restart");
       check(global.getMachineString(at(6, 0, 0), "type") === "minecraft:cod", "the restored pond lost its fish after the restart");
       for (let dx = -2; dx <= 6; dx++) {
         for (let dz = -3; dz <= 4; dz++) {
