@@ -15,9 +15,12 @@ function SocietyStages(stages) {
 
 global.NO_STAGES = SocietyStages([]);
 
-/** The owner's stages cached by global.cacheOwner. Takes a block entity event or a block. */
+/**
+ * The owner's stages cached by global.cacheOwner. Takes a block (LevelBlock) or a block entity tick event.
+ * A LevelBlock also has a `.block` (the vanilla Block), so tell them apart by getEntity.
+ */
 global.getBlockEntityStages = (entityOrBlock) => {
-  const block = entityOrBlock.block || entityOrBlock;
+  const block = entityOrBlock.getEntity ? entityOrBlock : entityOrBlock.block;
   const raw = global.getMachineString(block, "stages");
   if (raw === "") return global.NO_STAGES;
   try {
