@@ -4,7 +4,7 @@ console.info("[SOCIETY] plushies.js loaded");
 // entity that remembers a trait (type), an affection level (0-4), a gift quest (quest_id) and a quality. The
 // original plushies are removed items (globalRemovedItems.js); the adv_ ones come from Plushie Capsules.
 // Right-click a placed plushie with the item it asks for to raise its affection. The item form keeps the data in
-// custom data (1.20.1: item NBT) and the quality as a Quality Food quality. Events:
+// custom data (1.20.1: item NBT), the rarity (quality) too, since Quality Food only takes food items. Events:
 // server_scripts/blockEvents/plushieEvents.js. Storing an animal in a plushie (Sunlit Crystal) is not ported yet.
 
 const $PlushieDataComponents = Java.loadClass("net.minecraft.core.component.DataComponents");
@@ -133,7 +133,7 @@ global.getPlushieItemData = (stack) => {
     type: Number(tag.getInt("type")),
     quest_id: Number(tag.getInt("quest_id")),
     affection: Number(tag.getInt("affection")),
-    quality: global.getItemQuality(stack),
+    quality: tag.contains("quality") ? Number(tag.getInt("quality")) : global.getItemQuality(stack),
   };
 };
 
@@ -141,9 +141,9 @@ global.getPlushieItemData = (stack) => {
 global.plushieItem = (id, values, count) => {
   let stack = Item.of(id, count || 1);
   let tag = new $PlushieCompoundTag();
-  ["type", "quest_id", "affection"].forEach((key) => tag.putInt(key, Math.floor(Number(values[key]) || 0)));
+  ["type", "quest_id", "affection", "quality"].forEach((key) => tag.putInt(key, Math.floor(Number(values[key]) || 0)));
   stack.set($PlushieDataComponents.CUSTOM_DATA, $PlushieCustomData.of(tag));
-  return global.withItemQuality(stack, values.quality);
+  return stack;
 };
 
 /** A random new plushie as a Plushie Capsule gives it. */
