@@ -15,4 +15,5 @@ ServerEvents.recipes((e) => {
     S: "create:zinc_ingot",
     b: "society:battery",
   });
+  e.shapeless("society:plushie_capsule", ["4x #society:plushies"]);
 });
