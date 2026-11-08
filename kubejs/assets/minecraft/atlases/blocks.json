@@ -2091,6 +2091,11 @@
       "sprite": "society:item/water_cup"
     },
     {
+      "type": "single",
+      "resource": "minecraft:item/cod",
+      "sprite": "unusualfishmod:item/raw_snowflake_tail_fish"
+    },
+    {
       "type": "directory",
       "source": "item",
       "prefix": "item/"
