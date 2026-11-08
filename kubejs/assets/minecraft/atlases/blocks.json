@@ -1,0 +1,2104 @@
+{
+  "sources": [
+    {
+      "type": "single",
+      "resource": "minecraft:item/glow_berries",
+      "sprite": "society:item/aged_roe"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/clock_00",
+      "sprite": "society:item/ancient_cog"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/gold_nugget",
+      "sprite": "society:item/ancient_coin"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/cookie",
+      "sprite": "society:item/ancient_cookie"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/chorus_fruit",
+      "sprite": "society:item/ancient_fruit"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/nether_wart",
+      "sprite": "society:item/ancient_roe"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/cookie",
+      "sprite": "society:item/animal_cracker"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/chest_minecart",
+      "sprite": "society:item/artifact_trove"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/totem_of_undying",
+      "sprite": "society:item/artifacts/amulet_of_light"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/brush",
+      "sprite": "society:item/artifacts/ancient_builders_tool"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glowstone_dust",
+      "sprite": "society:item/artifacts/aquamagical_dust"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honeycomb",
+      "sprite": "society:item/artifacts/beemonican_seal"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/blaze_powder",
+      "sprite": "society:item/artifacts/ember_crystal_cluster"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/turtle_helmet",
+      "sprite": "society:item/artifacts/froggy_helm"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/leather",
+      "sprite": "society:item/artifacts/giant_bandolier_belt"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/music_disc_11",
+      "sprite": "society:item/artifacts/glitched_vhs"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honeycomb",
+      "sprite": "society:item/artifacts/green_tea_honeycomb"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/heart_of_the_sea",
+      "sprite": "society:item/artifacts/heart_of_neptunium"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/nether_star",
+      "sprite": "society:item/artifacts/holy_symbol"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glow_ink_sac",
+      "sprite": "society:item/artifacts/legendary_ink"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/rotten_flesh",
+      "sprite": "society:item/artifacts/living_flesh"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/ender_eye",
+      "sprite": "society:item/artifacts/mini_oni_eye"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/apple",
+      "sprite": "society:item/artifacts/perfect_cherry"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/experience_bottle",
+      "sprite": "society:item/artifacts/production_science_pack"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/iron_hoe",
+      "sprite": "society:item/artifacts/red_wrench"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/goat_horn",
+      "sprite": "society:item/artifacts/ribbit_drum"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/compass_16",
+      "sprite": "society:item/artifacts/ribbit_gadget"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/emerald",
+      "sprite": "society:item/artifacts/source_gem"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/string",
+      "sprite": "society:item/artifacts/spider_silk"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/clock_00",
+      "sprite": "society:item/artifacts/steamy_gadget"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/gold_nugget",
+      "sprite": "society:item/artifacts/token_of_unity"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/minecart",
+      "sprite": "society:item/artifacts/toy_train"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/clock_00",
+      "sprite": "society:item/artifacts/wheel_of_adaptation"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/redstone",
+      "sprite": "society:item/battery"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/iron_nugget",
+      "sprite": "society:item/bismuth_nugget"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/echo_shard",
+      "sprite": "society:item/black_opal"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/sweet_berries",
+      "sprite": "society:item/blueberry"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/snowball",
+      "sprite": "society:item/blueberry_icecream"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/book",
+      "sprite": "society:item/books/alias_moss"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/writable_book",
+      "sprite": "society:item/books/animal_fancy"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/written_book",
+      "sprite": "society:item/books/banana_karenina"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/enchanted_book",
+      "sprite": "society:item/books/bluegill_meridian"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/knowledge_book",
+      "sprite": "society:item/books/book_of_stars"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/book",
+      "sprite": "society:item/books/brine_and_punishment"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/writable_book",
+      "sprite": "society:item/books/bullfish_jobs"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/written_book",
+      "sprite": "society:item/books/canadian_and_famous"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/enchanted_book",
+      "sprite": "society:item/books/combat_quarterly"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/knowledge_book",
+      "sprite": "society:item/books/debt_caverns"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/book",
+      "sprite": "society:item/books/first_aid_guide"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/writable_book",
+      "sprite": "society:item/books/frogs_bounty_bazaar"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/written_book",
+      "sprite": "society:item/books/hitting_hard_and_soft"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/enchanted_book",
+      "sprite": "society:item/books/husbandry_hourly"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/knowledge_book",
+      "sprite": "society:item/books/intro_to_algorithms"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/book",
+      "sprite": "society:item/books/mining_monthly"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/writable_book",
+      "sprite": "society:item/books/no_name_for_the_sheep"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/written_book",
+      "sprite": "society:item/books/paradise_crop"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/enchanted_book",
+      "sprite": "society:item/books/phenomenology_of_treasure"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/knowledge_book",
+      "sprite": "society:item/books/pond_house_five"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/book",
+      "sprite": "society:item/books/slime_contain_protect"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/writable_book",
+      "sprite": "society:item/books/slouching_towards_artistry"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/written_book",
+      "sprite": "society:item/books/the_metamorphosize"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/enchanted_book",
+      "sprite": "society:item/books/the_quality_of_the_earth"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/knowledge_book",
+      "sprite": "society:item/books/the_red_and_the_black"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/book",
+      "sprite": "society:item/books/the_spark_also_rises"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/writable_book",
+      "sprite": "society:item/books/universal_methods_of_farming"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/written_book",
+      "sprite": "society:item/books/wet_weekly"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/enchanted_book",
+      "sprite": "society:item/books/women_who_run_with_the_plushies"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/knowledge_book",
+      "sprite": "society:item/books/wuthering_logs"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/book",
+      "sprite": "society:item/books/yard_work_yearly"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honeycomb",
+      "sprite": "society:item/botanical_tribute"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/bundle",
+      "sprite": "society:item/bouquet_bag"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/sweet_berries",
+      "sprite": "society:item/boysenberry"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/clock_00",
+      "sprite": "society:item/broken_clock"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/totem_of_undying",
+      "sprite": "society:item/bubble_totem"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/brick",
+      "sprite": "society:item/building_supplies"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honeycomb",
+      "sprite": "society:item/butterfly_amber"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/paper",
+      "sprite": "society:item/canvas"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/trial_key",
+      "sprite": "society:item/car_key"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/pitcher_pod",
+      "sprite": "society:item/caterpillar_eggs"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/cocoa_beans",
+      "sprite": "society:item/chai_blend"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/rabbit_stew",
+      "sprite": "society:item/chicken_tortilla_soup"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/cookie",
+      "sprite": "society:item/chocolate_donut"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/coconut_oil"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/nether_wart",
+      "sprite": "society:item/cordycep"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/goat_horn",
+      "sprite": "society:item/cornucopia"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/rotten_flesh",
+      "sprite": "society:item/crab_trap_bait"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/egg",
+      "sprite": "society:item/cracked_egg"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/sweet_berries",
+      "sprite": "society:item/cranberry"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/raw_iron",
+      "sprite": "society:item/crushed_raw_bismuth"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/end_crystal",
+      "sprite": "society:item/crystal_of_regret_adventuring"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/end_crystal",
+      "sprite": "society:item/crystal_of_regret_farming"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/end_crystal",
+      "sprite": "society:item/crystal_of_regret_fishing"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/end_crystal",
+      "sprite": "society:item/crystal_of_regret_husbandry"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/end_crystal",
+      "sprite": "society:item/crystal_of_regret_mining"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glow_berries",
+      "sprite": "society:item/crystalberry"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/snowball",
+      "sprite": "society:item/deep_a_mochi"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/spider_eye",
+      "sprite": "society:item/deluxe_crab_trap_bait"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_alphacene_mushroom"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_ancient_fruit"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/apple",
+      "sprite": "society:item/dried/dried_apple"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_banana"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_blue_roundhead"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_blueberry"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_boysenberry"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_bracket_mushroom"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_brown_mushroom"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_cherry"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/popped_chorus_fruit",
+      "sprite": "society:item/dried/dried_chorus_fruit"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_cranberry"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_crimson_fungus"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_crystalberry"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_currant"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_dragonfruit"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_fly_agaric"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_foul_berries"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_gearo_berry"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glow_berries",
+      "sprite": "society:item/dried/dried_glow_berries"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_glow_shroom"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_lemon"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_lychee"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_mana_fruit"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_mango"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/melon_slice",
+      "sprite": "society:item/dried/dried_melon_slice"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_mossberry"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_orange"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_passion_fruit"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_pawpaw"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_peach"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_plum"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_red_mushroom"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_salmonberry"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_shimmering_mushrooms"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_sparkpod"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_starfruit"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_strawberry"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/sweet_berries",
+      "sprite": "society:item/dried/dried_sweet_berries"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_toadstool"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_warped_fungus"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_wild_berries"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "society:item/dried/dried_yucca_fruit"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/nether_wart",
+      "sprite": "society:item/dried/nether_raisins"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/sweet_berries",
+      "sprite": "society:item/dried/raisins"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/drinks/ancient_juice"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/mushroom_stew",
+      "sprite": "society:item/drinks/chai_tea"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/mushroom_stew",
+      "sprite": "society:item/drinks/cinnamon_coffee"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dragon_breath",
+      "sprite": "society:item/drinks/death_liquid"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/experience_bottle",
+      "sprite": "society:item/drinks/energy_drink"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/mushroom_stew",
+      "sprite": "society:item/drinks/hazelnut_coffee"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/experience_bottle",
+      "sprite": "society:item/drinks/mana_energy_drink"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/drinks/mana_fruit_juice"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/experience_bottle",
+      "sprite": "society:item/drinks/pink_energy_drink"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/drinks/sparkpod_juice"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/drinks/starfruit_juice"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/mushroom_stew",
+      "sprite": "society:item/drinks/suspicious_milk_tea"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/experience_bottle",
+      "sprite": "society:item/drinks/white_energy_drink"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/totem_of_undying",
+      "sprite": "society:item/dry_totem"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/beetroot",
+      "sprite": "society:item/eggplant"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/phantom_membrane",
+      "sprite": "society:item/elytra_wing"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/ghast_tear",
+      "sprite": "society:item/enkephalin"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/bone_meal",
+      "sprite": "society:item/enriched_bonemeal"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/bundle",
+      "sprite": "society:item/fantasy_box_bone"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/bundle",
+      "sprite": "society:item/fantasy_box_dunmer"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/bundle",
+      "sprite": "society:item/fantasy_box_necrolord"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/bundle",
+      "sprite": "society:item/fantasy_box_nordic"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/bundle",
+      "sprite": "society:item/fantasy_box_royal"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/bundle",
+      "sprite": "society:item/fantasy_box_venthyr"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glowstone_dust",
+      "sprite": "society:item/fantasy_dust"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/rotten_flesh",
+      "sprite": "society:item/fish_bait"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/recovery_compass_16",
+      "sprite": "society:item/fish_radar"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/snowball",
+      "sprite": "society:item/frosted_tip"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/prismarine_crystals",
+      "sprite": "society:item/frozen_geode/aerinite"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/prismarine_shard",
+      "sprite": "society:item/frozen_geode/esperite"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/quartz",
+      "sprite": "society:item/frozen_geode/fairy_stone"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/diamond",
+      "sprite": "society:item/frozen_geode/fluorapatite"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/snowball",
+      "sprite": "society:item/frozen_geode/frozen_geode"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/ghast_tear",
+      "sprite": "society:item/frozen_geode/frozen_tear"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/ghast_tear",
+      "sprite": "society:item/frozen_geode/geminite"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/prismarine_crystals",
+      "sprite": "society:item/frozen_geode/ghost_crystal"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/prismarine_shard",
+      "sprite": "society:item/frozen_geode/hematite"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/quartz",
+      "sprite": "society:item/frozen_geode/kyanite"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/diamond",
+      "sprite": "society:item/frozen_geode/lunarite"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/echo_shard",
+      "sprite": "society:item/frozen_geode/marble"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/lapis_lazuli",
+      "sprite": "society:item/frozen_geode/ocean_stone"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/quartz",
+      "sprite": "society:item/frozen_geode/opal"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/prismarine_crystals",
+      "sprite": "society:item/frozen_geode/pyrite"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/prismarine_shard",
+      "sprite": "society:item/frozen_geode/soapstone"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/bundle",
+      "sprite": "society:item/furniture_box"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/heart_of_the_sea",
+      "sprite": "society:item/gadget_core"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/amethyst_shard",
+      "sprite": "society:item/gems/amethyst_chunk"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/diamond",
+      "sprite": "society:item/gems/aquamarine"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/emerald",
+      "sprite": "society:item/gems/jade"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/redstone",
+      "sprite": "society:item/gems/ruby"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/echo_shard",
+      "sprite": "society:item/gems/spinel"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/raw_gold",
+      "sprite": "society:item/gems/topaz"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/flint",
+      "sprite": "society:item/geode/allanite"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/raw_iron",
+      "sprite": "society:item/geode/calcite_gem"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/clay_ball",
+      "sprite": "society:item/geode/celestine"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/quartz",
+      "sprite": "society:item/geode/earth_crystal"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/firework_star",
+      "sprite": "society:item/geode/geode"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/brick",
+      "sprite": "society:item/geode/granite_slate"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/charcoal",
+      "sprite": "society:item/geode/jagoite"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/iron_nugget",
+      "sprite": "society:item/geode/jamborite"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/flint",
+      "sprite": "society:item/geode/limestone_pebble"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/raw_iron",
+      "sprite": "society:item/geode/malachite"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/clay_ball",
+      "sprite": "society:item/geode/mudstone"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/coal",
+      "sprite": "society:item/geode/nekoite"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/raw_copper",
+      "sprite": "society:item/geode/orpiment"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/slime_ball",
+      "sprite": "society:item/geode/petrified_slime"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/charcoal",
+      "sprite": "society:item/geode/sandstone_slate"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/iron_nugget",
+      "sprite": "society:item/geode/slate"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/egg",
+      "sprite": "society:item/geode/thunder_egg"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/mace",
+      "sprite": "society:item/geode_buster"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/book",
+      "sprite": "society:item/gray_anatomy"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/brick",
+      "sprite": "society:item/greenhouse_building_supplies"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/blaze_powder",
+      "sprite": "society:item/ground_cinnamon"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/cocoa_beans",
+      "sprite": "society:item/ground_coffee"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/hazelnut_ella"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/milk_bucket",
+      "sprite": "society:item/husbandry/amethyst_milk"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/wheat",
+      "sprite": "society:item/husbandry/animal_feed"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/milk_bucket",
+      "sprite": "society:item/husbandry/buffalo_milk"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/golden_carrot",
+      "sprite": "society:item/husbandry/candied_animal_feed"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/string",
+      "sprite": "society:item/husbandry/fine_wool"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/egg",
+      "sprite": "society:item/husbandry/flamingo_egg"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/lead",
+      "sprite": "society:item/husbandry/friendship_necklace"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/milk_bucket",
+      "sprite": "society:item/husbandry/goat_milk"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/milk_bucket",
+      "sprite": "society:item/husbandry/grain_milk"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/milk_bucket",
+      "sprite": "society:item/husbandry/large_amethyst_milk"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/milk_bucket",
+      "sprite": "society:item/husbandry/large_buffalo_milk"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/turtle_egg",
+      "sprite": "society:item/husbandry/large_duck_egg"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/turtle_egg",
+      "sprite": "society:item/husbandry/large_egg"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/turtle_egg",
+      "sprite": "society:item/husbandry/large_galliraptor_egg"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/milk_bucket",
+      "sprite": "society:item/husbandry/large_goat_milk"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/turtle_egg",
+      "sprite": "society:item/husbandry/large_goose_egg"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/milk_bucket",
+      "sprite": "society:item/husbandry/large_grain_milk"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/milk_bucket",
+      "sprite": "society:item/husbandry/large_milk"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/milk_bucket",
+      "sprite": "society:item/husbandry/large_sheep_milk"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/milk_bucket",
+      "sprite": "society:item/husbandry/large_tri_bull_milk"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/turtle_egg",
+      "sprite": "society:item/husbandry/large_turkey_egg"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/milk_bucket",
+      "sprite": "society:item/husbandry/large_warped_milk"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/shears",
+      "sprite": "society:item/husbandry/magic_shears"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glow_berries",
+      "sprite": "society:item/husbandry/mana_feed"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/milk_bucket",
+      "sprite": "society:item/husbandry/milk"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/bucket",
+      "sprite": "society:item/husbandry/milk_pail"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/experience_bottle",
+      "sprite": "society:item/husbandry/miracle_potion"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/spyglass",
+      "sprite": "society:item/husbandry/mood_scanner"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/egg",
+      "sprite": "society:item/husbandry/penguin_egg"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/milk_bucket",
+      "sprite": "society:item/husbandry/sheep_milk"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/milk_bucket",
+      "sprite": "society:item/husbandry/tri_bull_milk"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/cocoa_beans",
+      "sprite": "society:item/husbandry/truffle"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/husbandry/truffle_oil"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/milk_bucket",
+      "sprite": "society:item/husbandry/warped_milk"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/string",
+      "sprite": "society:item/infinity_worm"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/hopper",
+      "sprite": "society:item/inserter"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/map",
+      "sprite": "society:item/kinetic_blueprint"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/iron_ingot",
+      "sprite": "society:item/lead_sheet"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/bread",
+      "sprite": "society:item/lemon_beignets"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glowstone_dust",
+      "sprite": "society:item/magic_bulb"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/sugar",
+      "sprite": "society:item/magic_rock_candy"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/lead",
+      "sprite": "society:item/magic_rope"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/ender_pearl",
+      "sprite": "society:item/magic_tunnel"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/blaze_powder",
+      "sprite": "society:item/magma_geode/baryte"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/magma_cream",
+      "sprite": "society:item/magma_geode/basalt_shard"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/raw_gold",
+      "sprite": "society:item/magma_geode/bixbyite"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/redstone",
+      "sprite": "society:item/magma_geode/dolomite"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/nether_brick",
+      "sprite": "society:item/magma_geode/fire_opal"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/quartz",
+      "sprite": "society:item/magma_geode/fire_quartz"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/gold_nugget",
+      "sprite": "society:item/magma_geode/helvite"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/blaze_powder",
+      "sprite": "society:item/magma_geode/jasper"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/magma_cream",
+      "sprite": "society:item/magma_geode/lemon_stone"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/fire_charge",
+      "sprite": "society:item/magma_geode/magma_geode"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/redstone",
+      "sprite": "society:item/magma_geode/neptunite"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/netherite_scrap",
+      "sprite": "society:item/magma_geode/pure_obsidian"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/netherite_scrap",
+      "sprite": "society:item/magma_geode/star_shards"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/gold_nugget",
+      "sprite": "society:item/magma_geode/tigerseye"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/spyglass",
+      "sprite": "society:item/magnifying_glass"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/fermented_spider_eye",
+      "sprite": "society:item/mana_crab_trap_bait"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/chorus_fruit",
+      "sprite": "society:item/mana_fruit"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/maple_syrup"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glass_bottle",
+      "sprite": "society:item/mayo/birt_mayonnaise"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glass_bottle",
+      "sprite": "society:item/mayo/cruncher_mayonnaise"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dragon_breath",
+      "sprite": "society:item/mayo/dragon_mayonnaise"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glass_bottle",
+      "sprite": "society:item/mayo/duck_mayonnaise"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glass_bottle",
+      "sprite": "society:item/mayo/flamingo_mayonnaise"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glass_bottle",
+      "sprite": "society:item/mayo/galliraptor_mayonnaise"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/experience_bottle",
+      "sprite": "society:item/mayo/golden_mayonnaise"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glass_bottle",
+      "sprite": "society:item/mayo/goose_mayonnaise"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glass_bottle",
+      "sprite": "society:item/mayo/large_duck_mayonnaise"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glass_bottle",
+      "sprite": "society:item/mayo/large_galliraptor_mayonnaise"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glass_bottle",
+      "sprite": "society:item/mayo/large_goose_mayonnaise"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glass_bottle",
+      "sprite": "society:item/mayo/large_mayonnaise"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glass_bottle",
+      "sprite": "society:item/mayo/large_turkey_mayonnaise"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glass_bottle",
+      "sprite": "society:item/mayo/mayonnaise"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glass_bottle",
+      "sprite": "society:item/mayo/parrot_mayonnaise"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glass_bottle",
+      "sprite": "society:item/mayo/penguin_mayonnaise"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glass_bottle",
+      "sprite": "society:item/mayo/petrified_mayonnaise"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glass_bottle",
+      "sprite": "society:item/mayo/sniffer_mayonnaise"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glass_bottle",
+      "sprite": "society:item/mayo/springling_mayonnaise"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glass_bottle",
+      "sprite": "society:item/mayo/turkey_mayonnaise"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glass_bottle",
+      "sprite": "society:item/mayo/turtle_mayonnaise"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glass_bottle",
+      "sprite": "society:item/mayo/wraptor_mayonnaise"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/string",
+      "sprite": "society:item/merino_wool"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/baked_potato",
+      "sprite": "society:item/mexican_street_corn"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glow_berries",
+      "sprite": "society:item/mossberry"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/beetroot_soup",
+      "sprite": "society:item/mossberry_stew"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glowstone_dust",
+      "sprite": "society:item/moth_pollen"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dragon_breath",
+      "sprite": "society:item/mystic_syrup"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/fishing_rod",
+      "sprite": "society:item/needle_bobber"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/tropical_fish",
+      "sprite": "society:item/neptuna"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/prismarine_shard",
+      "sprite": "society:item/neptunium_coin"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/fishing_rod",
+      "sprite": "society:item/net_bobber"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/magma_cream",
+      "sprite": "society:item/nether_jelly"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honeycomb",
+      "sprite": "society:item/oak_resin"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/slime_ball",
+      "sprite": "society:item/ocean_jelly"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/oil"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/firework_star",
+      "sprite": "society:item/omni_geode"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/emerald",
+      "sprite": "society:item/overflow_token"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/paper",
+      "sprite": "society:item/pig_race_ticket"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/paper",
+      "sprite": "society:item/pig_race_ticket_multiplayer"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/ink_sac",
+      "sprite": "society:item/pine_tar"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/magma_cream",
+      "sprite": "society:item/pink_matter"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/blaze_rod",
+      "sprite": "society:item/plushie_wand"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/aloe_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/ancient_fruit_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/banana_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/beetroot_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/bell_pepper_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/blueberry_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/boysenberry_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/broccoli_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/carrot_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/cauliflower_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/cherry_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/chorus_fruit_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/corn_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/cranberry_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/crystalberry_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/currant_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/dragonfruit_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/eggplant_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/foul_berries_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/garlic_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/ginger_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/hazelnut_mash"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/lemon_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/lychee_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/mana_fruit_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/mango_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/melon_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/mossberry_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/onion_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/orange_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/passion_fruit_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/pawpaw_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/peach_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/plum_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/potato_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/pumpkin_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/red_grape_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/salmonberry_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/sparkpod_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/starfruit_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/strawberry_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/sweet_potato_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/tomato_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/turnip_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/white_grape_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/wild_berries_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/yucca_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/preserves/zucchini_preserves"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/nether_star",
+      "sprite": "society:item/prismatic_coin"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/prismarine_crystals",
+      "sprite": "society:item/prismatic_shard"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/paper",
+      "sprite": "society:item/prize_ticket"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/totem_of_undying",
+      "sprite": "society:item/rain_totem"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/heart_of_the_sea",
+      "sprite": "society:item/recycled_core"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/chest_minecart",
+      "sprite": "society:item/relic_trove"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/slime_ball",
+      "sprite": "society:item/river_jelly"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/sweet_berries",
+      "sprite": "society:item/roe"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/slime_ball",
+      "sprite": "society:item/rubber"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/sweet_berries",
+      "sprite": "society:item/salmonberry"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/sap"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/cookie",
+      "sprite": "society:item/sea_biscut"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/black_dye",
+      "sprite": "society:item/sheets/black"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/blue_dye",
+      "sprite": "society:item/sheets/blue"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/brown_dye",
+      "sprite": "society:item/sheets/brown"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/cyan_dye",
+      "sprite": "society:item/sheets/cyan"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/gray_dye",
+      "sprite": "society:item/sheets/gray"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/green_dye",
+      "sprite": "society:item/sheets/green"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/light_blue_dye",
+      "sprite": "society:item/sheets/light_blue"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/light_gray_dye",
+      "sprite": "society:item/sheets/light_gray"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/lime_dye",
+      "sprite": "society:item/sheets/lime"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/magenta_dye",
+      "sprite": "society:item/sheets/magenta"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/orange_dye",
+      "sprite": "society:item/sheets/orange"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/pink_dye",
+      "sprite": "society:item/sheets/pink"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/purple_dye",
+      "sprite": "society:item/sheets/purple"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/red_dye",
+      "sprite": "society:item/sheets/red"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/white_dye",
+      "sprite": "society:item/sheets/white"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/yellow_dye",
+      "sprite": "society:item/sheets/yellow"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/iron_ingot",
+      "sprite": "society:item/silver_sheet"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/heart_of_the_sea",
+      "sprite": "society:item/small_core"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/netherite_upgrade_smithing_template",
+      "sprite": "society:item/smithing/diamond"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/netherite_upgrade_smithing_template",
+      "sprite": "society:item/smithing/gold"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/netherite_upgrade_smithing_template",
+      "sprite": "society:item/smithing/iron"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/netherite_upgrade_smithing_template",
+      "sprite": "society:item/smithing/neptunium"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/bone_meal",
+      "sprite": "society:item/spark_gro"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glow_berries",
+      "sprite": "society:item/sparkpod"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/redstone",
+      "sprite": "society:item/sparkstone"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/redstone",
+      "sprite": "society:item/sparkstone_dust"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/flint",
+      "sprite": "society:item/stone_hand"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/sugar",
+      "sprite": "society:item/sun_candy"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/amethyst_shard",
+      "sprite": "society:item/sunlit_crystal"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/ender_eye",
+      "sprite": "society:item/sunlit_pearl"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/totem_of_undying",
+      "sprite": "society:item/thunder_totem"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/armor_stand",
+      "sprite": "society:item/tiny_gnome"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/totem_of_undying",
+      "sprite": "society:item/treasure_totem"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/kelp",
+      "sprite": "society:item/tubabacco_leaf"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/paper",
+      "sprite": "society:item/tubasmoke_carton"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/stick",
+      "sprite": "society:item/tubasmoke_stick"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glass_bottle",
+      "sprite": "society:item/water_cup"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/cod",
+      "sprite": "unusualfishmod:item/raw_snowflake_tail_fish"
+    },
+    {
+      "type": "directory",
+      "source": "item",
+      "prefix": "item/"
+    }
+  ]
+}

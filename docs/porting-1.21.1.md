@@ -94,8 +94,42 @@ KubeJS 7 has no `modelJson` or `blockstateJson` setters.
   `ClientEvents.generateAssets("after_mods", ...)`, which overrides KubeJS' own blockstate.
 
 **Textures:** all `society:*` models and textures came from the Society Tweaks jar (license ARR), which
-has no 1.21.1 build. Until the texture slice (#22) adds placeholder models, society blocks and items render as
-missing textures. That does not affect the server or the CI tests.
+has no 1.21.1 build. We may not copy them, so the repository has placeholders that only reference textures
+already in the pack (#22). See "Placeholder textures and models" below.
+
+## Placeholder textures and models
+
+- **Item textures** stay as they were in the scripts (`.texture("society:item/gems/ruby")`). Each
+  `society:item/...` sprite is registered in `kubejs/assets/minecraft/atlases/blocks.json` from a vanilla or
+  mod texture with a `single` source:
+  `{ "type": "single", "resource": "minecraft:item/redstone", "sprite": "society:item/gems/ruby" }`.
+  The last source in that file re-adds the `item/` folder, so a real `society:item/...` texture (from a
+  resource pack or a future Society build) wins over the placeholder without any change here.
+- **Machine models** are our own boxes under `kubejs/assets/society/models/block/kubejs/<machine>/`, made by
+  `tools/port/assets/make_machine_placeholder.py` (parent `society:block/kubejs/placeholder/machine`; the
+  exclamation mark is `machine_done.json`). Files in `kubejs/assets` override mod resources, so if the
+  original models become available, delete the placeholder files they replace.
+- Never add files under `kubejs/assets/society/textures`, and never use a `society:` texture as a
+  placeholder source. CI fails on both.
+
+When you port a new item, add one `single` line per new `society:item/...` texture to the atlas file (pick
+something that reads as the same kind of thing: a bottle for drinks, a dye for colours). When you port a
+machine, run for example
+
+```sh
+python3 tools/port/assets/make_machine_placeholder.py crystalarium \
+  --side minecraft:block/calcite --top minecraft:block/smooth_stone \
+  --working minecraft:block/budding_amethyst --done minecraft:block/amethyst_block
+```
+
+and add the machine to `multipartMachines` in `client_scripts/machineBlockstates.js`.
+
+`python3 tools/port/assets/check_placeholders.py` lists every item and machine without a model or texture.
+It runs the startup scripts under Node with stand-ins for KubeJS (`collect_registered_assets.mjs`); if a newly
+ported script uses a KubeJS global it does not know, add the name to the list in that file. Locally it only
+checks `society:` assets; in CI (server-boot job) it also checks every texture against the vanilla client jar
+and the server's mod jars. Client-only mods are not in that set, so pick placeholders from vanilla or from a
+mod that also runs on the server.
 
 ## Items
 
