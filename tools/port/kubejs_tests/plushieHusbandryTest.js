@@ -41,7 +41,9 @@ ServerEvents.loaded((event) => {
       // Placed, it gives milk, the daily drops and the Eldritch raw silver once a day.
       plushie().set(plushieId, { facing: "north" });
       global.setMachineData(plushie(), global.getPlushieItemData(housed));
-      check(global.getPlushieBlockAnimal(plushie()).type === "minecraft:cow", "the placed plushie has no cow");
+      let placedAnimal = global.getPlushieBlockAnimal(plushie());
+      let raw = global.getMachineString(plushie(), "animal");
+      check(placedAnimal && placedAnimal.type === "minecraft:cow", `the placed plushie has no cow: "${raw}"`);
       let first = global.harvestPlushieAnimal(level, plushie(), { milk: true });
       check(first.milked, `the cow gave no milk: ${ids(first.stacks)}`);
       check(ids(first.stacks).indexOf("oreganized:raw_silver") !== -1, `no Eldritch drop: ${ids(first.stacks)}`);

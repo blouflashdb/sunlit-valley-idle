@@ -24,6 +24,7 @@ global.parsePlushieAnimal = (raw) => {
     const animal = JSON.parse(String(raw));
     return animal && animal.type ? animal : null;
   } catch (e) {
+    console.warn(`[SOCIETY] bad plushie animal data ${raw}: ${e}`);
     return null;
   }
 };
