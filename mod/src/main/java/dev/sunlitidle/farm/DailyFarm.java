@@ -31,7 +31,7 @@ import java.util.Map;
 
 /**
  * The Stardew-like farm day. Every morning (day time {@link #MORNING}) each loaded farm tile is processed once:
- * a crop on watered soil grows one stage (speed fertilizers add stages on its first day), then the soil dries
+ * a crop on watered soil grows one stage if Serene Seasons finds it in season (speed fertilizers add stages on its first day), then the soil dries
  * unless a hydrating fertilizer keeps it wet or rain falls on it, then sprinklers water their area.
  * Crops in {@code dew_drop_farmland_growth:cancel_random_tick} on such soil do not grow on random ticks.
  * While it rains, exposed farmland is watered every {@link #RAIN_INTERVAL} ticks.
@@ -152,7 +152,7 @@ public final class DailyFarm {
         }
         growing = true;
         try {
-            boolean allowed = CommonHooks.canCropGrow(level, pos, state, true);
+            boolean allowed = CommonHooks.canCropGrow(level, pos, state, true) && SeasonFertility.isFertile(level, pos, state);
             if (!allowed && soil.getBlock() instanceof GardenPotBlock && !level.canSeeSky(pos.above())) {
                 allowed = true;
             }
