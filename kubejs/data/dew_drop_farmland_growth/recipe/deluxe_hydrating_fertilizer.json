@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "l": {
+      "item": "minecraft:lapis_block"
+    },
+    "c": {
+      "item": "aquaculture:neptunium_nugget"
+    },
+    "b": {
+      "item": "society:oak_resin"
+    }
+  },
+  "pattern": [
+    "clc",
+    "lbl",
+    "clc"
+  ],
+  "result": {
+    "id": "dew_drop_farmland_growth:deluxe_hydrating_fertilizer",
+    "count": 1
+  },
+  "show_notification": true
+}
