@@ -1,7 +1,7 @@
 """Generates the dungeon tier loot tables.
 
 Writes two sets:
-- mod/src/main/resources/data/sunlitidle/loot_tables/dungeon: vanilla-only fallbacks shipped in the jar.
+- mod/src/main/resources/data/sunlitidle/loot_table/dungeon: vanilla-only fallbacks shipped in the jar.
 - kubejs/data/sunlitidle/loot_tables/dungeon: the pack versions, which override the fallbacks and use
   Sunlit Valley items (geodes, sparkstone, coins).
 
@@ -112,5 +112,5 @@ def write(base, tables):
         (out / f"tier_{tier}.json").write_text(json.dumps(t, indent=2) + "\n")
 
 
-write("mod/src/main/resources/data/sunlitidle/loot_tables/dungeon", VANILLA)
+write("mod/src/main/resources/data/sunlitidle/loot_table/dungeon", VANILLA)
 write("kubejs/data/sunlitidle/loot_tables/dungeon", PACK)

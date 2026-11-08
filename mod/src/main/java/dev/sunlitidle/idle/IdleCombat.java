@@ -4,21 +4,21 @@ import dev.sunlitidle.Config;
 import dev.sunlitidle.combat.Combat;
 import dev.sunlitidle.combat.DungeonTier;
 import dev.sunlitidle.combat.Gear;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.MobType;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.ItemStackHandler;
 
 /**
  * The Adventuring companion: combat math from {@link Combat}, with stats from the gear and the Adventuring
@@ -37,7 +37,7 @@ public final class IdleCombat {
         double speed = 0.0;
         if (Gear.isWeapon(weapon)) {
             damage = 1.0 + Gear.attributeSum(weapon, EquipmentSlot.MAINHAND, Attributes.ATTACK_DAMAGE)
-                    + EnchantmentHelper.getDamageBonus(weapon, MobType.UNDEFINED);
+                    + Enchants.sharpnessBonus(weapon);
             speed = 4.0 + Gear.attributeSum(weapon, EquipmentSlot.MAINHAND, Attributes.ATTACK_SPEED);
         }
         damage += 0.5 * level;
@@ -52,7 +52,7 @@ public final class IdleCombat {
             }
             armorPoints += Gear.attributeSum(piece, ARMOR_ORDER[i], Attributes.ARMOR);
             toughness += Gear.attributeSum(piece, ARMOR_ORDER[i], Attributes.ARMOR_TOUGHNESS);
-            protection += EnchantmentHelper.getItemEnchantmentLevel(Enchantments.ALL_DAMAGE_PROTECTION, piece);
+            protection += Enchants.level(piece, Enchantments.PROTECTION);
         }
         return new Combat.Loadout(damage, speed, armorPoints, toughness, protection, BASE_HEALTH + 2.0 * level);
     }
@@ -111,9 +111,9 @@ public final class IdleCombat {
             double foodCost = Combat.foodCost(loadout, enemy, Math.min(damage, loadout.maxHealth()));
             ensureFood(state, foodCost);
             state.setFoodBuffer(Math.max(0.0, state.foodBuffer() - foodCost));
-            damage(state.tools(), skill.index(), random);
+            damage(player.serverLevel(), state.tools(), skill.index());
             for (int i = 0; i < hits; i++) {
-                damage(state.armor(), random.nextInt(state.armor().getSlots()), random);
+                damage(player.serverLevel(), state.armor(), random.nextInt(state.armor().getSlots()));
             }
             if (lost) {
                 state.setSlotProgress(slot, -Config.RETREAT_SECONDS.get());
@@ -121,9 +121,9 @@ public final class IdleCombat {
                 return items;
             }
             double extra = IdleMath.extraRollChance(level, IdleAttributes.yield(player, skill.id()))
-                    + EnchantmentHelper.getItemEnchantmentLevel(Enchantments.MOB_LOOTING, weapon) * 0.10;
+                    + Enchants.level(weapon, Enchantments.LOOTING) * 0.10;
             int rolls = IdleMath.rolls(extra, random.nextDouble());
-            LootTable table = player.server.getLootData().getLootTable(DungeonTier.byNumber(action.dungeon()).lootTable());
+            LootTable table = player.server.reloadableRegistries().getLootTable(DungeonTier.byNumber(action.dungeon()).lootTable());
             LootParams params = new LootParams.Builder(player.serverLevel())
                     .withParameter(LootContextParams.ORIGIN, player.position())
                     .withOptionalParameter(LootContextParams.THIS_ENTITY, player)
@@ -139,16 +139,8 @@ public final class IdleCombat {
         }
     }
 
-    private static void damage(net.minecraftforge.items.ItemStackHandler handler, int slot, RandomSource random) {
-        ItemStack stack = handler.getStackInSlot(slot);
-        if (stack.isEmpty() || !stack.isDamageableItem()) {
-            return;
-        }
-        ItemStack copy = stack.copy();
-        if (copy.hurt(1, random, null)) {
-            copy = ItemStack.EMPTY;
-        }
-        handler.setStackInSlot(slot, copy);
+    private static void damage(ServerLevel level, ItemStackHandler handler, int slot) {
+        handler.setStackInSlot(slot, IdleEngine.wear(level, handler.getStackInSlot(slot)));
     }
 
     /** Eats from the food slots until the buffer holds {@code needed}; slots refill from storage. */
@@ -179,7 +171,7 @@ public final class IdleCombat {
     }
 
     private static void refill(PlayerIdleState state, int slot, ItemStack stack) {
-        ResourceLocation id = ForgeRegistries.ITEMS.getKey(stack.getItem());
+        ResourceLocation id = BuiltInRegistries.ITEM.getKey(stack.getItem());
         if (id == null) {
             return;
         }

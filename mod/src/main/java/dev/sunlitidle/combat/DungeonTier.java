@@ -2,7 +2,9 @@ package dev.sunlitidle.combat;
 
 import dev.sunlitidle.Config;
 import dev.sunlitidle.SunlitIdle;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.storage.loot.LootTable;
 
 /** Dungeon tiers. Numbers are read from the common config so they can be tuned in the pack. */
 public enum DungeonTier {
@@ -27,8 +29,8 @@ public enum DungeonTier {
         return new Combat.Enemy(c.enemyHealth.get(), c.enemyDamage.get(), c.baseFood.get(), c.power.get());
     }
 
-    public ResourceLocation lootTable() {
-        return new ResourceLocation(SunlitIdle.MOD_ID, "dungeon/tier_" + number);
+    public ResourceKey<LootTable> lootTable() {
+        return ResourceKey.create(Registries.LOOT_TABLE, SunlitIdle.id("dungeon/tier_" + number));
     }
 
     public static DungeonTier byNumber(int number) {

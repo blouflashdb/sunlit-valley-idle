@@ -5,13 +5,13 @@ import dev.sunlitidle.client.ClientSetup;
 import dev.sunlitidle.idle.IdleAttributes;
 import dev.sunlitidle.idle.IdleService;
 import dev.sunlitidle.network.IdleNetwork;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.DistExecutor;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraft.resources.ResourceLocation;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
+import net.neoforged.fml.loading.FMLEnvironment;
 import org.slf4j.Logger;
 
 @Mod(SunlitIdle.MOD_ID)
@@ -19,13 +19,18 @@ public final class SunlitIdle {
     public static final String MOD_ID = "sunlitidle";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public SunlitIdle() {
-        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+    public SunlitIdle(IEventBus bus, ModContainer container) {
         ModRegistry.register(bus);
         IdleAttributes.register(bus);
-        IdleNetwork.register();
+        IdleNetwork.register(bus);
         IdleService.init();
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
-        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> ClientSetup.init(bus));
+        container.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        if (FMLEnvironment.dist == Dist.CLIENT) {
+            ClientSetup.init(bus);
+        }
+    }
+
+    public static ResourceLocation id(String path) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
     }
 }

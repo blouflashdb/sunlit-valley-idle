@@ -3,7 +3,7 @@ package dev.sunlitidle.idle;
 import dev.sunlitidle.SunlitIdle;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraftforge.fml.ModList;
+import net.neoforged.fml.ModList;
 
 /**
  * Reads and adds skill levels. With Pufferfish's Skills installed (the pack) the level is the category level,
@@ -12,7 +12,7 @@ import net.minecraftforge.fml.ModList;
 public final class SkillLevels {
     /** Same curve as the pack's mining category. */
     public static final int[] FALLBACK_CURVE = {250, 500, 1000, 2000, 5000, 6000, 8000, 10000, 13000, 16000, 20000, 25000};
-    private static final ResourceLocation MASTERY = new ResourceLocation("society", "mastery");
+    private static final ResourceLocation MASTERY = ResourceLocation.fromNamespaceAndPath("society", "mastery");
     private static final String MASTERY_STAGE = "mastery_unlocked";
     private static Boolean puffish;
 

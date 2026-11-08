@@ -1,11 +1,13 @@
 package dev.sunlitidle.idle;
 
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -17,7 +19,6 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
 
@@ -120,8 +121,8 @@ public final class IdleEngine {
     public static boolean inSeason(ServerPlayer player, IdleAction action) {
         for (IdleDrop drop : action.drops()) {
             if (drop.kind() == IdleDrop.Kind.BLOCK) {
-                Block block = ForgeRegistries.BLOCKS.getValue(drop.id());
-                return block == null || Seasons.inSeason(player.level(), block);
+                return BuiltInRegistries.BLOCK.getOptional(drop.id())
+                        .map(block -> Seasons.inSeason(player.level(), block)).orElse(true);
             }
         }
         return true;
@@ -162,14 +163,21 @@ public final class IdleEngine {
     }
 
     private static void damageTool(ServerPlayer player, PlayerIdleState state, IdleSkill skill, ItemStack tool) {
-        if (!tool.isDamageableItem()) {
-            return;
+        if (tool.isDamageableItem()) {
+            state.tools().setStackInSlot(skill.index(), wear(player.serverLevel(), tool));
         }
-        ItemStack copy = tool.copy();
-        if (copy.hurt(1, player.getRandom(), null)) {
-            copy = ItemStack.EMPTY;
+    }
+
+    /** A copy of the stack with one point of wear (Unbreaking applies), or EMPTY when it broke. */
+    static ItemStack wear(ServerLevel level, ItemStack stack) {
+        if (stack.isEmpty() || !stack.isDamageableItem()) {
+            return stack;
         }
-        state.tools().setStackInSlot(skill.index(), copy);
+        ItemStack copy = stack.copy();
+        // No player, so creative mode does not stop the wear, like the idle tools on 1.20.1.
+        copy.hurtAndBreak(1, level, null, item -> {
+        });
+        return copy.isEmpty() ? ItemStack.EMPTY : copy;
     }
 
     private static long complete(ServerPlayer player, PlayerIdleState state, IdleSkill skill, IdleAction action,
@@ -208,7 +216,7 @@ public final class IdleEngine {
         Vec3 origin = player.position();
         switch (drop.kind()) {
             case BLOCK: {
-                Block block = ForgeRegistries.BLOCKS.getValue(drop.id());
+                Block block = BuiltInRegistries.BLOCK.getOptional(drop.id()).orElse(null);
                 if (block == null) {
                     return List.of();
                 }
@@ -224,7 +232,7 @@ public final class IdleEngine {
                 return entityLoot(player, drop, tool);
             }
             case LOOT_TABLE: {
-                LootTable table = level.getServer().getLootData().getLootTable(drop.id());
+                LootTable table = level.getServer().reloadableRegistries().getLootTable(ResourceKey.create(Registries.LOOT_TABLE, drop.id()));
                 if (drop.chest()) {
                     LootParams chest = new LootParams.Builder(level)
                             .withParameter(LootContextParams.ORIGIN, origin)
@@ -234,7 +242,7 @@ public final class IdleEngine {
                     return table.getRandomItems(chest);
                 }
                 float luck = player.getLuck() + drop.luck()
-                        + EnchantmentHelper.getItemEnchantmentLevel(Enchantments.FISHING_LUCK, tool);
+                        + Enchants.level(tool, Enchantments.LUCK_OF_THE_SEA);
                 LootParams params = new LootParams.Builder(level)
                         .withParameter(LootContextParams.ORIGIN, origin)
                         .withParameter(LootContextParams.TOOL, tool)
@@ -249,7 +257,8 @@ public final class IdleEngine {
                 if (count <= 0) {
                     return List.of();
                 }
-                return List.of(new ItemStack(ForgeRegistries.ITEMS.getValue(drop.id()), count));
+                return BuiltInRegistries.ITEM.getOptional(drop.id())
+                        .map(item -> List.of(new ItemStack(item, count))).orElse(List.of());
             }
         }
     }
@@ -261,7 +270,7 @@ public final class IdleEngine {
         ServerLevel level = player.serverLevel();
         net.minecraft.world.entity.LivingEntity mob = MOBS.get(drop.id());
         if (mob == null || mob.level() != level) {
-            net.minecraft.world.entity.EntityType<?> type = ForgeRegistries.ENTITY_TYPES.getValue(drop.id());
+            net.minecraft.world.entity.EntityType<?> type = BuiltInRegistries.ENTITY_TYPE.getOptional(drop.id()).orElse(null);
             if (type == null || !(type.create(level) instanceof net.minecraft.world.entity.LivingEntity created)) {
                 return List.of();
             }
@@ -269,19 +278,19 @@ public final class IdleEngine {
             MOBS.put(drop.id(), mob);
         }
         mob.setPos(player.position());
-        LootTable table = level.getServer().getLootData().getLootTable(mob.getLootTable());
+        LootTable table = level.getServer().reloadableRegistries().getLootTable(mob.getLootTable());
         LootParams params = new LootParams.Builder(level)
                 .withParameter(LootContextParams.THIS_ENTITY, mob)
                 .withParameter(LootContextParams.ORIGIN, player.position())
                 .withParameter(LootContextParams.DAMAGE_SOURCE, player.damageSources().playerAttack(player))
-                .withOptionalParameter(LootContextParams.KILLER_ENTITY, player)
-                .withOptionalParameter(LootContextParams.DIRECT_KILLER_ENTITY, player)
+                .withOptionalParameter(LootContextParams.ATTACKING_ENTITY, player)
+                .withOptionalParameter(LootContextParams.DIRECT_ATTACKING_ENTITY, player)
                 .withOptionalParameter(LootContextParams.LAST_DAMAGE_PLAYER, player)
                 .withLuck(player.getLuck() + drop.luck())
                 .create(LootContextParamSets.ENTITY);
         List<ItemStack> drops = new java.util.ArrayList<>(table.getRandomItems(params));
         // The weapon sits in the tool slot, not in the player's hand, so Looting is applied here.
-        int looting = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.MOB_LOOTING, weapon);
+        int looting = Enchants.level(weapon, Enchantments.LOOTING);
         if (looting > 0 && player.getRandom().nextDouble() < looting * 0.15) {
             drops.addAll(table.getRandomItems(params));
         }
@@ -303,6 +312,6 @@ public final class IdleEngine {
 
     /** Item id helper for the screen and messages. */
     public static ResourceLocation idOf(ItemStack stack) {
-        return ForgeRegistries.ITEMS.getKey(stack.getItem());
+        return BuiltInRegistries.ITEM.getKey(stack.getItem());
     }
 }

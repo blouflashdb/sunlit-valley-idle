@@ -7,12 +7,12 @@ import dev.sunlitidle.network.IdleActionPacket;
 import dev.sunlitidle.network.IdleNetwork;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.ClientTickEvent;
+import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.neoforged.neoforge.common.NeoForge;
 import org.lwjgl.glfw.GLFW;
 
 public final class ClientSetup {
@@ -25,12 +25,12 @@ public final class ClientSetup {
     public static void init(IEventBus bus) {
         bus.addListener(ClientSetup::onClientSetup);
         bus.addListener(ClientSetup::onKeys);
-        MinecraftForge.EVENT_BUS.addListener(ClientSetup::onClientTick);
+        bus.addListener(ClientSetup::onScreens);
+        NeoForge.EVENT_BUS.addListener(ClientSetup::onClientTick);
     }
 
     private static void onClientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
-            MenuScreens.register(ModRegistry.IDLE_MENU.get(), IdleScreen::new);
             RecipeActions.clientRecipes = () -> {
                 Minecraft mc = Minecraft.getInstance();
                 return mc.level != null ? mc.level.getRecipeManager() : null;
@@ -42,14 +42,15 @@ public final class ClientSetup {
         });
     }
 
+    private static void onScreens(RegisterMenuScreensEvent event) {
+        event.register(ModRegistry.IDLE_MENU.get(), IdleScreen::new);
+    }
+
     private static void onKeys(RegisterKeyMappingsEvent event) {
         event.register(OPEN_IDLE);
     }
 
-    private static void onClientTick(TickEvent.ClientTickEvent event) {
-        if (event.phase != TickEvent.Phase.END) {
-            return;
-        }
+    private static void onClientTick(ClientTickEvent.Post event) {
         Minecraft mc = Minecraft.getInstance();
         while (OPEN_IDLE.consumeClick()) {
             if (mc.player != null && mc.screen == null) {

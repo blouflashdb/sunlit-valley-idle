@@ -1,16 +1,16 @@
 package dev.sunlitidle.idle;
 
 import dev.sunlitidle.ModRegistry;
-import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.items.SlotItemHandler;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.ItemStackHandler;
+import net.neoforged.neoforge.items.SlotItemHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -41,7 +41,7 @@ public class IdleMenu extends AbstractContainerMenu {
     @Nullable
     private final PlayerIdleState state;
 
-    public static IdleMenu fromNetwork(int windowId, Inventory inventory, FriendlyByteBuf buf) {
+    public static IdleMenu fromNetwork(int windowId, Inventory inventory, RegistryFriendlyByteBuf buf) {
         return new IdleMenu(windowId, inventory, null);
     }
 
@@ -95,7 +95,7 @@ public class IdleMenu extends AbstractContainerMenu {
             addSlot(new SlotItemHandler(food, i, FOOD_X + i * 18, GEAR_Y) {
                 @Override
                 public boolean mayPlace(@NotNull ItemStack stack) {
-                    return stack.isEdible();
+                    return dev.sunlitidle.combat.Gear.isFood(stack);
                 }
 
                 @Override
@@ -146,7 +146,7 @@ public class IdleMenu extends AbstractContainerMenu {
             }
             for (int i = armorEnd; i < foodEnd && !moved; i++) {
                 Slot target = slots.get(i);
-                if (target.hasItem() && ItemStack.isSameItemSameTags(target.getItem(), stack)) {
+                if (target.hasItem() && ItemStack.isSameItemSameComponents(target.getItem(), stack)) {
                     moved = moveItemStackTo(stack, i, i + 1, false);
                 }
             }

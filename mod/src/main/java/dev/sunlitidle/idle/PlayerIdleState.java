@@ -1,11 +1,13 @@
 package dev.sunlitidle.idle;
 
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.items.ItemStackHandler;
+import net.neoforged.neoforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -73,7 +75,7 @@ public final class PlayerIdleState {
         food = new ItemStackHandler(FOOD_SLOTS) {
             @Override
             public boolean isItemValid(int slot, @NotNull ItemStack stack) {
-                return stack.isEdible();
+                return dev.sunlitidle.combat.Gear.isFood(stack);
             }
 
             @Override
@@ -183,7 +185,7 @@ public final class PlayerIdleState {
     public long countOf(ResourceLocation itemId) {
         long total = 0;
         for (StoredStack stored : storage) {
-            if (itemId.equals(net.minecraftforge.registries.ForgeRegistries.ITEMS.getKey(stored.prototype().getItem()))) {
+            if (itemId.equals(BuiltInRegistries.ITEM.getKey(stored.prototype().getItem()))) {
                 total += stored.count();
             }
         }
@@ -198,7 +200,7 @@ public final class PlayerIdleState {
         long left = amount;
         for (int i = storage.size() - 1; i >= 0 && left > 0; i--) {
             StoredStack stored = storage.get(i);
-            if (itemId.equals(net.minecraftforge.registries.ForgeRegistries.ITEMS.getKey(stored.prototype().getItem()))) {
+            if (itemId.equals(BuiltInRegistries.ITEM.getKey(stored.prototype().getItem()))) {
                 long used = Math.min(left, stored.count());
                 stored.add(-used);
                 left -= used;
@@ -301,7 +303,7 @@ public final class PlayerIdleState {
 
     // ---------------------------------------------------------------- save
 
-    public CompoundTag save() {
+    public CompoundTag save(HolderLookup.Provider registries) {
         CompoundTag tag = new CompoundTag();
         ListTag slots = new ListTag();
         for (int i = 0; i < slotActions.length; i++) {
@@ -313,14 +315,14 @@ public final class PlayerIdleState {
             slots.add(s);
         }
         tag.put("Slots", slots);
-        tag.put("Tools", tools.serializeNBT());
-        tag.put("Armor", armor.serializeNBT());
-        tag.put("Food", food.serializeNBT());
+        tag.put("Tools", tools.serializeNBT(registries));
+        tag.put("Armor", armor.serializeNBT(registries));
+        tag.put("Food", food.serializeNBT(registries));
         tag.putDouble("FoodBuffer", foodBuffer);
         ListTag items = new ListTag();
         for (StoredStack stored : storage) {
             CompoundTag s = new CompoundTag();
-            s.put("Item", stored.prototype().save(new CompoundTag()));
+            s.put("Item", stored.prototype().save(registries));
             s.putLong("Count", stored.count());
             items.add(s);
         }
@@ -356,7 +358,7 @@ public final class PlayerIdleState {
         }
     }
 
-    public static PlayerIdleState load(CompoundTag tag) {
+    public static PlayerIdleState load(CompoundTag tag, HolderLookup.Provider registries) {
         PlayerIdleState state = new PlayerIdleState();
         ListTag slots = tag.getList("Slots", Tag.TAG_COMPOUND);
         for (int i = 0; i < slots.size() && i < state.slotActions.length; i++) {
@@ -368,22 +370,22 @@ public final class PlayerIdleState {
         CompoundTag tools = tag.getCompound("Tools");
         // Keep the handler size even if the number of skills changed between versions.
         tools.putInt("Size", state.tools.getSlots());
-        state.tools.deserializeNBT(tools);
+        state.tools.deserializeNBT(registries, tools);
         if (tag.contains("Armor")) {
             CompoundTag armor = tag.getCompound("Armor");
             armor.putInt("Size", ARMOR_SLOTS);
-            state.armor.deserializeNBT(armor);
+            state.armor.deserializeNBT(registries, armor);
         }
         if (tag.contains("Food")) {
             CompoundTag food = tag.getCompound("Food");
             food.putInt("Size", FOOD_SLOTS);
-            state.food.deserializeNBT(food);
+            state.food.deserializeNBT(registries, food);
         }
         state.foodBuffer = tag.getDouble("FoodBuffer");
         ListTag items = tag.getList("Storage", Tag.TAG_COMPOUND);
         for (int i = 0; i < items.size(); i++) {
             CompoundTag s = items.getCompound(i);
-            ItemStack proto = ItemStack.of(s.getCompound("Item"));
+            ItemStack proto = ItemStack.parseOptional(registries, s.getCompound("Item"));
             long count = s.getLong("Count");
             if (!proto.isEmpty() && count > 0) {
                 state.storage.add(new StoredStack(proto, count));

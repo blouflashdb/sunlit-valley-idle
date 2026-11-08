@@ -23,12 +23,10 @@ import net.minecraft.client.resources.language.I18n;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.Block;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.ItemStackHandler;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -128,7 +126,7 @@ public class IdleScreen extends AbstractContainerScreen<IdleMenu> {
 
     @Override
     public void render(GuiGraphics g, int mouseX, int mouseY, float partialTick) {
-        renderBackground(g);
+        // Screen.render draws the background (and blur) itself since 1.20.2.
         super.render(g, mouseX, mouseY, partialTick);
         renderTooltip(g, mouseX, mouseY);
         renderOwnTooltips(g, mouseX, mouseY);
@@ -416,18 +414,14 @@ public class IdleScreen extends AbstractContainerScreen<IdleMenu> {
             }
             switch (drop.kind()) {
                 case BLOCK -> {
-                    Block block = ForgeRegistries.BLOCKS.getValue(drop.id());
-                    if (block != null) {
-                        names.add(block.getName().getString());
-                    }
+                    BuiltInRegistries.BLOCK.getOptional(drop.id())
+                            .ifPresent(block -> names.add(block.getName().getString()));
                 }
                 case ITEM -> names.add(stackOf(drop.id()).getHoverName().getString());
                 case LOOT_TABLE -> names.add(I18n.get(drop.chest() ? "sunlitidle.idle.chest_loot" : "sunlitidle.idle.fishing_loot"));
                 case ENTITY -> {
-                    var type = ForgeRegistries.ENTITY_TYPES.getValue(drop.id());
-                    if (type != null) {
-                        names.add(I18n.get("sunlitidle.idle.mob_loot", type.getDescription().getString()));
-                    }
+                    BuiltInRegistries.ENTITY_TYPE.getOptional(drop.id()).ifPresent(type ->
+                            names.add(I18n.get("sunlitidle.idle.mob_loot", type.getDescription().getString())));
                 }
             }
         }
@@ -521,7 +515,7 @@ public class IdleScreen extends AbstractContainerScreen<IdleMenu> {
     }
 
     @Override
-    public boolean mouseScrolled(double mouseX, double mouseY, double delta) {
+    public boolean mouseScrolled(double mouseX, double mouseY, double scrollX, double delta) {
         int mx = (int) mouseX - leftPos;
         int my = (int) mouseY - topPos;
         int step = delta > 0 ? -1 : 1;
@@ -533,7 +527,7 @@ public class IdleScreen extends AbstractContainerScreen<IdleMenu> {
             storageScroll += step;
             return true;
         }
-        return super.mouseScrolled(mouseX, mouseY, delta);
+        return super.mouseScrolled(mouseX, mouseY, scrollX, delta);
     }
 
     private int storageIndexAt(int mx, int my) {
@@ -555,8 +549,7 @@ public class IdleScreen extends AbstractContainerScreen<IdleMenu> {
     }
 
     private static ItemStack stackOf(ResourceLocation id) {
-        Item item = ForgeRegistries.ITEMS.getValue(id);
-        return item == null ? ItemStack.EMPTY : new ItemStack(item);
+        return BuiltInRegistries.ITEM.getOptional(id).map(ItemStack::new).orElse(ItemStack.EMPTY);
     }
 
     static String shortCount(long count) {

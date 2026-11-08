@@ -7,7 +7,7 @@ Fails if the server never reaches "Done", crashes, or NeoForge reports missing d
 Runs in GitHub Actions (needs Java 21); the cloud dev container cannot reach the mod CDN.
 
 Usage (from the repository root):
-    python3 tools/port/server_boot_test.py --dir build/server
+    python3 tools/port/server_boot_test.py --dir build/server [--extra-mod mod/build/libs/sunlitidle-0.2.0.jar]
 """
 import argparse
 import concurrent.futures
@@ -65,6 +65,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dir", default="build/server")
     ap.add_argument("--timeout", type=int, default=900, help="seconds to wait for the world")
+    ap.add_argument("--extra-mod", action="append", default=[], help="local mod jar to add, such as sunlitidle")
     args = ap.parse_args()
 
     lock = json.loads(pathlib.Path("pakku-lock.json").read_text())
@@ -83,6 +84,9 @@ def main():
     with concurrent.futures.ThreadPoolExecutor(8) as pool:
         list(pool.map(lambda p: download(p["files"][0]["url"], server / "mods" / p["files"][0]["file_name"],
                                          p["files"][0]["hashes"].get("sha1")), mods))
+
+    for jar in args.extra_mod:
+        shutil.copy2(jar, server / "mods" / pathlib.Path(jar).name)
 
     copy_overrides(pakku, server)
     (server / "eula.txt").write_text("eula=true\n")
