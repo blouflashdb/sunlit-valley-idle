@@ -3,6 +3,7 @@ package dev.sunlitidle.farm;
 import com.mojang.serialization.Codec;
 import dev.sunlitidle.SunlitIdle;
 import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -32,7 +33,7 @@ public final class FarmRegistry {
     private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(FARMLAND_NAMESPACE);
     private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(FARMLAND_NAMESPACE);
     private static final DeferredRegister.Items CAN_ITEMS = DeferredRegister.createItems(CANS_NAMESPACE);
-    private static final DeferredRegister.DataComponents COMPONENTS = DeferredRegister.createDataComponents(SunlitIdle.MOD_ID);
+    private static final DeferredRegister.DataComponents COMPONENTS = DeferredRegister.createDataComponents(Registries.DATA_COMPONENT_TYPE, SunlitIdle.MOD_ID);
 
     /** Water left in a watering can. */
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> WATER =
