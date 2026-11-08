@@ -10,4 +10,9 @@ ServerEvents.recipes((e) => {
     I: "oreganized:lead_ingot",
     i: "oreganized:lead_block",
   });
+  e.shaped("shippingbin:smart_shipping_bin", ["SSS", "SsS", "SbS"], {
+    s: "shippingbin:basic_shipping_bin",
+    S: "create:zinc_ingot",
+    b: "society:battery",
+  });
 });
