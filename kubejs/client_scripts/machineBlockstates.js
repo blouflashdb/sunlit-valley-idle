@@ -7,6 +7,16 @@ const multipartMachines = ["crystalarium", "preserves_jar", "wine_keg", "aging_c
 const noExclamationMachines = ["fish_smoker"];
 
 ClientEvents.generateAssets("after_mods", (event) => {
+  // Feeding Trough: Farm & Charm's trough models by fill level.
+  const troughFacings = { north: 0, east: 90, south: 180, west: 270 };
+  const troughVariants = {};
+  Object.keys(troughFacings).forEach((facing) => {
+    for (let fill = 0; fill <= 4; fill++) {
+      troughVariants[`facing=${facing},fill=${fill}`] = { model: `farm_and_charm:block/feeding_trough_size_${fill}`, y: troughFacings[facing] };
+    }
+  });
+  event.json("society:blockstates/feeding_trough", { variants: troughVariants });
+
   multipartMachines.forEach((name) => {
     event.json(`society:blockstates/${name}`, {
       multipart: global.getCardinalMultipartJson(name, noExclamationMachines.includes(name)),

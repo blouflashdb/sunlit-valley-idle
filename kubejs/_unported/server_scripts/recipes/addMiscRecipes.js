@@ -430,14 +430,7 @@ ServerEvents.recipes((e) => {
     c: "minecraft:netherite_upgrade_smithing_template",
   });
   // Sparkstone
-  e.shaped("society:auto_grabber", ["lal", "bfb", "nsn"], {
-    f: "society:animal_feed",
-    a: "numismatics:ancient_coin",
-    n: "minecraft:netherite_ingot",
-    b: "society:battery",
-    s: "society:sparkstone",
-    l: "meadow:fire_log",
-  });
+  // society:auto_grabber, cornucopia and drum_cornucopia are ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   // society:artisan_hopper and society:mini_artisan_hopper are ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   e.shaped("society:fish_pond_basket", ["NaN", "bhb", "nsn"], {
     a: "farmersdelight:safety_net",
@@ -807,21 +800,6 @@ ServerEvents.recipes((e) => {
     s: "paraglider:spirit_orb",
   });
 
-  e.shaped("society:cornucopia", [" p ", "php", " p "], {
-    p: "botania:pixie_dust",
-    h: "botania:horn_grass",
-  });
-  e.shaped("society:cornucopia", [" c ", "shs", " s "], {
-    c: "numismatics:neptunium_coin",
-    s: "society:sparkstone_block",
-    h: "minecraft:goat_horn",
-  });
-  e.shaped("society:drum_cornucopia", ["LLL", "lcl", "lbl"], {
-    L: "minecraft:leather",
-    c: "society:cornucopia",
-    b: "society:magic_bulb",
-    l: "meadow:fire_log"
-  });
   e.shaped("society:mana_milker", ["rtr", "nMn", "lTl"], {
     r: "botania:rune_earth",
     t: "society:botanical_tribute",

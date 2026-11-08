@@ -175,5 +175,30 @@ ServerEvents.recipes((e) => {
     b: "society:magic_bulb",
   });
 
+  // Husbandry automation (#12). The Auto-Petter and Feeding Trough are bought in the shepherd shop.
+  shaped("society:auto_grabber", ["lal", "bfb", "nsn"], {
+    f: "society:animal_feed",
+    a: "numismatics:ancient_coin",
+    n: "minecraft:netherite_ingot",
+    b: "society:battery",
+    s: "society:sparkstone",
+    l: "meadow:fire_log",
+  });
+  shaped("society:cornucopia", [" p ", "php", " p "], {
+    p: "botania:pixie_dust",
+    h: "botania:horn_grass",
+  });
+  shaped("society:cornucopia", [" c ", "shs", " s "], {
+    c: "numismatics:neptunium_coin",
+    s: "society:sparkstone_block",
+    h: "minecraft:goat_horn",
+  });
+  shaped("society:drum_cornucopia", ["LLL", "lcl", "lbl"], {
+    L: "minecraft:leather",
+    c: "society:cornucopia",
+    b: "society:magic_bulb",
+    l: "meadow:fire_log",
+  });
+
   if (skipped.length > 0) console.info(`[SOCIETY] Artisan machine recipes skipped: ${skipped.join("; ")}`);
 });

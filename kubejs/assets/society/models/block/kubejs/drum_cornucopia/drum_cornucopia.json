@@ -1,0 +1,10 @@
+{
+  "parent": "society:block/kubejs/placeholder/machine",
+  "textures": {
+    "side": "minecraft:block/note_block",
+    "front": "minecraft:block/note_block",
+    "top": "minecraft:block/white_wool",
+    "bottom": "minecraft:block/oak_planks",
+    "particle": "minecraft:block/note_block"
+  }
+}

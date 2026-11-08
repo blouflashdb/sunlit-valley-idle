@@ -38,9 +38,4 @@ BlockEvents.broken("society:fish_pond_basket", (e) => {
     block.popItem(Item.of("minecraft:bucket"));
   }
 });
-BlockEvents.broken("society:auto_grabber", (e) => {
-  const { block } = e;
-  if (block.properties.get("upgraded").toLowerCase() == "true") {
-    block.popItem(Item.of("society:magic_shears"));
-  }
-});
+// society:auto_grabber is ported: kubejs/server_scripts/blockEvents/autoGrabberUpgrade.js

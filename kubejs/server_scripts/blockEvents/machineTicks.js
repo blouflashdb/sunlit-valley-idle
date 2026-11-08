@@ -132,3 +132,19 @@ BlockEvents.blockEntityTick("society:auto_worm_farm", (entity) => {
 BlockEvents.blockEntityTick("society:growth_obelisk", (entity) => {
   global.runGrowthObelisk(entity);
 });
+
+BlockEvents.blockEntityTick("society:auto_petter", (entity) => {
+  global.runAutoPetter(entity);
+});
+
+BlockEvents.blockEntityTick("society:auto_grabber", (entity) => {
+  global.runAutoGrabber(entity);
+});
+
+BlockEvents.blockEntityTick("society:feeding_trough", (entity) => {
+  global.runFeedingTrough(entity);
+});
+
+BlockEvents.blockEntityTick("society:drum_cornucopia", (entity) => {
+  global.runDrumCornucopia(entity);
+});
