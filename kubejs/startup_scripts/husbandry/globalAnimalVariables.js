@@ -1,4 +1,7 @@
 // priority: 0
+console.info("[SOCIETY] globalAnimalVariables.js loaded");
+
+// Animals from mods that are not in the 1.21.1 pack are skipped where the lists are used (global.entityExists).
 global.husbandryAnimals = [
   "minecraft:cow",
   "minecraft:goat",
@@ -16,11 +19,7 @@ global.husbandryAnimals = [
   "minecraft:sniffer",
   "etcetera:chapple",
   "minecraft:panda",
-  "species:mammutilation",
   "snuffles:snuffle",
-  "species:goober",
-  "species:cruncher",
-  "farmlife:domestic_tribull",
   "wildernature:minisheep",
   "wildernature:deer",
   "wildernature:raccoon",
@@ -30,10 +29,8 @@ global.husbandryAnimals = [
   "untitledduckmod:goose",
   "etcetera:chapple",
   "autumnity:turkey",
-  "species:wraptor",
   "wildernature:flamingo",
   "wildernature:penguin",
-  "farmlife:galliraptor",
   "minecraft:frog",
   "wildernature:squirrel",
   "atmospheric:cochineal",
@@ -55,8 +52,6 @@ global.milkableAnimals = [
   "meadow:water_buffalo",
   "minecraft:mooshroom",
   "buzzier_bees:moobloom",
-  "species:mammutilation",
-  "farmlife:domestic_tribull",
   "wildernature:minisheep",
   "wildernature:bison",
   "minecraft:squid",
@@ -70,10 +65,8 @@ global.coopMasterAnimals = [
   "untitledduckmod:goose",
   "etcetera:chapple",
   "autumnity:turkey",
-  "species:wraptor",
   "wildernature:flamingo",
   "wildernature:penguin",
-  "farmlife:galliraptor",
   "crittersandcompanions:shima_enaga",
 ];
 
@@ -97,25 +90,16 @@ global.tierTwoHusbandryAnimals = [
 global.tierThreeHusbandryAnimals = [
   "minecraft:goat",
   "buzzier_bees:moobloom",
-  "species:mammutilation",
-  "species:goober",
-  "species:cruncher",
-  "farmlife:domestic_tribull",
   "windswept:frostbiter",
-  "species:wraptor",
   "etcetera:chapple",
   "wildernature:flamingo",
   "wildernature:penguin",
-  "farmlife:galliraptor",
   "crittersandcompanions:shima_enaga",
 ];
 
 global.coldMobs = [
-  "species:mammutilation",
   "windswept:frostbiter",
   "wildernature:penguin",
   "snowpig:snow_pig",
   "snuffles:snuffle",
 ];
-
-global.animalMessageSettings = `{anchor:"BOTTOM_CENTER",background:1,wrap:220,align:"BOTTOM_CENTER",color:"#FF5555",offsetY:-80}`;
