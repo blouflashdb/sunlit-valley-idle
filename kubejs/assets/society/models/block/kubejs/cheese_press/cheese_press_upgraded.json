@@ -1,0 +1,10 @@
+{
+  "parent": "society:block/kubejs/placeholder/machine",
+  "textures": {
+    "side": "minecraft:block/smooth_sandstone",
+    "front": "minecraft:block/smooth_sandstone",
+    "top": "minecraft:block/gold_block",
+    "bottom": "minecraft:block/birch_planks",
+    "particle": "minecraft:block/stripped_birch_log"
+  }
+}

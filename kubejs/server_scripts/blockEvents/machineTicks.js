@@ -43,3 +43,52 @@ BlockEvents.blockEntityTick("vintagedelight:evaporator", (event) => {
   const morning = Number(event.level.dayTime()) % 24000;
   if (morning >= 20 && morning < 220) global.handleEvaporator(event.level, event.block);
 });
+
+// Artisan machines (#11): morning ticks every artMachineTickRate ticks.
+BlockEvents.blockEntityTick("society:wine_keg", (entity) => {
+  global.handleBETick(entity, global.wineKegRecipes, 6);
+});
+
+BlockEvents.blockEntityTick("society:aging_cask", (entity) => {
+  global.handleBETick(entity, global.agingCaskRecipes, 10, true);
+});
+
+BlockEvents.blockEntityTick("society:ancient_cask", (entity) => {
+  global.handleBETick(entity, global.ancientCaskRecipes, 20);
+});
+
+BlockEvents.blockEntityTick("society:bait_maker", (entity) => {
+  global.handleBETick(entity, global.baitMakerRecipes, 1);
+});
+
+BlockEvents.blockEntityTick("society:cheese_press", (entity) => {
+  global.handleBETick(entity, global.cheesePressRecipes, 2);
+});
+
+BlockEvents.blockEntityTick("society:dehydrator", (entity) => {
+  global.handleBETick(entity, global.dehydratorRecipes, 1);
+});
+
+BlockEvents.blockEntityTick("society:fish_smoker", (entity) => {
+  global.handleBETick(entity, global.fishSmokerRecipes, 2);
+});
+
+BlockEvents.blockEntityTick("society:loom", (entity) => {
+  global.handleBETick(entity, global.loomRecipes, 1);
+});
+
+BlockEvents.blockEntityTick("society:mayonnaise_machine", (entity) => {
+  global.handleBETick(entity, global.mayonnaiseMachineRecipes, 1);
+});
+
+BlockEvents.blockEntityTick("society:oil_maker", (entity) => {
+  global.handleBETick(entity, global.oilMakerRecipes, 1);
+});
+
+BlockEvents.blockEntityTick("society:recycling_machine", (entity) => {
+  global.handleBETick(entity, global.recyclingMachineRecipes, 1);
+});
+
+BlockEvents.blockEntityTick("society:seed_maker", (entity) => {
+  global.handleBETick(entity, global.seedMakerRecipes, 1);
+});

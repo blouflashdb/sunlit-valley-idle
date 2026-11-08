@@ -221,18 +221,8 @@ ServerEvents.recipes((e) => {
     e: "society:earth_crystal",
     C: "minecraft:copper_block",
   });
-  e.shaped("society:mayonnaise_machine", [" p ", "fcf", "CeC"], {
-    c: "minecraft:composter",
-    C: "minecraft:copper_block",
-    e: "society:earth_crystal",
-    p: "society:pine_tar",
-    f: "meadow:fire_log",
-  });
-  e.shaped("society:cheese_press", [" p ", "fef", "fff"], {
-    f: "meadow:fire_log",
-    e: "society:earth_crystal",
-    p: "society:pine_tar",
-  });
+  // society:mayonnaise_machine is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
+  // society:cheese_press is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   e.shaped("meadow:cheese_form", [" C ", "pcp", " b "], {
     c: "society:cheese_press",
     C: "minecraft:netherite_ingot",
@@ -251,10 +241,7 @@ ServerEvents.recipes((e) => {
     e: "society:earth_crystal",
     s: "meadow:alpine_salt",
   });
-  e.shaped("society:loom", ["l  ", "l  ", "ltl"], {
-    l: "meadow:fire_log",
-    t: "society:treated_log",
-  });
+  // society:loom is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   e.shaped("minecraft:beehive", ["ppp", "hhh", "pop"], {
     h: "minecraft:iron_ingot",
     p: "#minecraft:planks",
@@ -292,13 +279,7 @@ ServerEvents.recipes((e) => {
     z: "create:zinc_ingot",
   });
   // Fire Quartz
-  e.shaped("society:seed_maker", [" f ", "pcp", "FgF"], {
-    g: "minecraft:gold_block",
-    c: "minecraft:composter",
-    f: "society:earth_crystal",
-    p: "society:pine_tar",
-    F: "meadow:fire_log",
-  });
+  // society:seed_maker is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   e.shaped("brewery:copper_brewingstation", ["tct", "cbc", "fcf"], {
     t: "society:pine_tar",
     f: "society:fire_quartz",
@@ -350,32 +331,15 @@ ServerEvents.recipes((e) => {
     C: "society:jade",
     f: "society:fire_quartz",
   });
-  e.shaped("society:oil_maker", ["ccj", "ccs", "fgf"], {
-    c: "minecraft:copper_block",
-    g: "minecraft:gold_block",
-    j: "society:jade",
-    s: "supplementaries:jar",
-    f: "meadow:fire_log",
-  });
+  // society:oil_maker is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   // society:preserves_jar is ported: kubejs/server_scripts/recipes/vintageDelightRecipes.js
-  e.shaped("society:dehydrator", ["LGL", "pbp", "LfL"], {
-    b: "minecraft:barrel",
-    L: "meadow:fire_log",
-    G: "society:raisins",
-    f: "society:battery",
-    p: "society:pine_tar",
-  });
+  // society:dehydrator is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   e.shaped("society:snow_melter", [" f ", "fbf", " B "], {
     b: "minecraft:blast_furnace",
     B: "society:battery",
     f: "society:fire_quartz",
   });
-  e.shaped("society:recycling_machine", ["LIL", "fbf", "LIL"], {
-    b: "minecraft:barrel",
-    L: "meadow:fire_log",
-    f: "society:fire_quartz",
-    I: "minecraft:iron_block",
-  });
+  // society:recycling_machine is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   e.shaped("society:mushroom_log", ["LLL", "LML", "mPm"], {
     L: "meadow:fire_log",
     P: "society:mossberry_preserves",
@@ -449,11 +413,7 @@ ServerEvents.recipes((e) => {
     "rehooked:diamond_hook",
     "society:prismatic_shard",
   ]);
-  e.shaped("society:ancient_cask", [" p ", "vav", " p "], {
-    a: "society:aging_cask",
-    p: "society:prismatic_shard",
-    v: "society:aged_ancient_vespertine",
-  });
+  // society:ancient_cask is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   e.shaped("4x waystones:waystone", ["ara", "bPg", "apa"], {
     r: "waystones:red_sharestone",
     b: "waystones:blue_sharestone",
@@ -557,19 +517,8 @@ ServerEvents.recipes((e) => {
     r: "society:river_jelly",
     o: "society:ocean_jelly",
   });
-  e.shaped("society:fish_smoker", ["lCl", "asa", "lNl"], {
-    s: "minecraft:smoker",
-    N: "aquaculture:neptunium_ingot",
-    a: "society:aquamarine",
-    C: "society:sunlit_pearl",
-    l: "meadow:fire_log",
-  });
-  e.shaped("society:bait_maker", [" S ", "asa", "lll"], {
-    s: "society:seed_maker",
-    a: "aquaculture:neptunium_ingot",
-    S: "society:sunlit_pearl",
-    l: "create:zinc_ingot",
-  });
+  // society:fish_smoker is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
+  // society:bait_maker is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   e.shaped("society:auto_worm_farm", ["lpl", "asa", "CSC"], {
     s: "farmersdelight:rich_soil",
     S: "society:sunlit_pearl",
@@ -591,22 +540,10 @@ ServerEvents.recipes((e) => {
     p: "crabbersdelight:pearl",
     w: "#minecraft:wooden_slabs",
   });
-  e.shaped("society:wine_keg", ["FoF", "IbI", "FfF"], {
-    b: "minecraft:barrel",
-    I: "minecraft:iron_block",
-    I: "minecraft:iron_block",
-    f: "minecraft:quartz_block",
-    o: "society:oak_resin",
-    F: "meadow:fire_log",
-  });
+  // society:wine_keg is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
 
   // Jade
-  e.shaped("society:aging_cask", [" j ", "pbp", "SpS"], {
-    b: "society:wine_keg",
-    S: "oreganized:lead_block",
-    j: "society:jade",
-    p: "society:pine_tar",
-  });
+  // society:aging_cask is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
 
   // Other
   e.shaped("society:charging_rod", [" f ", "zlz", "ZbZ"], {

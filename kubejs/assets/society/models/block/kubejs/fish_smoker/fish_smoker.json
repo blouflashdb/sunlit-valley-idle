@@ -1,0 +1,10 @@
+{
+  "parent": "society:block/kubejs/placeholder/machine",
+  "textures": {
+    "side": "minecraft:block/smoker_front_on",
+    "front": "minecraft:block/smoker_front_on",
+    "top": "minecraft:block/smoker_top",
+    "bottom": "minecraft:block/smoker_top",
+    "particle": "minecraft:block/smoker_side"
+  }
+}

@@ -932,8 +932,8 @@ StartupEvents.registry("item", (e) => {
     },
   ];
 
-  // Defined by customMachines/agingCask.js, which is not ported yet.
-  (global.ageableProductInputs || []).forEach((product) => {
+  // Defined by customMachines/agingCask.js.
+  global.ageableProductInputs.forEach((product) => {
     const splitProduct = product.item.split(":");
     let texturePath = `${splitProduct[0]}:item/${splitProduct[1]}`;
     ageableProductsTextureMap.find((e) => {
