@@ -11,22 +11,28 @@ const vdHasItem = (id) => $VDRegistries.ITEM.containsKey($VDResourceLocation.par
 // Ingredient strings: "minecraft:egg" or "#c:foods/berry".
 const vdIngredient = (s) => (s.startsWith("#") ? { tag: s.substring(1) } : { item: s });
 
-const vdAllExist = (ids) => ids.every((s) => s.startsWith("#") || vdHasItem(s.replace(/^\d+x /, "")));
+const vdMissing = (ids) => ids.filter((s) => !s.startsWith("#") && !vdHasItem(s.replace(/^\d+x /, "")));
 
 ServerEvents.recipes((e) => {
   let VD = "vintagedelight";
   let skipped = [];
+  // Records and returns true when one of the ids is not registered.
+  let skip = (output, ids) => {
+    let missing = vdMissing(ids);
+    if (missing.length > 0) skipped.push(`${output} (missing ${missing.join(", ")})`);
+    return missing.length > 0;
+  };
 
   let shapeless = (output, inputs) => {
-    if (!vdAllExist([output].concat(inputs))) return skipped.push(output);
+    if (skip(output, [output].concat(inputs))) return;
     e.shapeless(output, inputs);
   };
   let shaped = (output, pattern, key) => {
-    if (!vdAllExist([output].concat(Object.values(key)))) return skipped.push(output);
+    if (skip(output, [output].concat(Object.values(key)))) return;
     e.shaped(output, pattern, key);
   };
   let cooking = (output, inputs, container, time) => {
-    if (!vdAllExist([output, container].concat(inputs))) return skipped.push(output);
+    if (skip(output, [output, container].concat(inputs))) return;
     e.custom({
       type: "farmersdelight:cooking",
       container: { count: 1, id: container },
@@ -38,7 +44,7 @@ ServerEvents.recipes((e) => {
     });
   };
   let cutting = (input, output, count) => {
-    if (!vdAllExist([input, output])) return skipped.push(output);
+    if (skip(output, [input, output])) return;
     e.custom({
       type: "farmersdelight:cutting",
       ingredients: [{ item: input }],
@@ -47,7 +53,7 @@ ServerEvents.recipes((e) => {
     });
   };
   let roast = (input, output) => {
-    if (!vdAllExist([input, output])) return skipped.push(output);
+    if (skip(output, [input, output])) return;
     e.smelting(output, input).xp(0.35);
     e.smoking(output, input).xp(0.35);
     e.campfireCooking(output, input).xp(0.35);
@@ -69,7 +75,7 @@ ServerEvents.recipes((e) => {
   // Salt
   shaped(`${VD}:salt_block`, ["##", "##"], { "#": `${VD}:salt` });
   shapeless(`4x ${VD}:salt`, [`${VD}:salt_block`]);
-  if (vdAllExist([`${VD}:salt_block`, `${VD}:smooth_salt_block`])) e.smelting(`${VD}:smooth_salt_block`, `${VD}:salt_block`);
+  if (vdMissing([`${VD}:salt_block`, `${VD}:smooth_salt_block`]).length === 0) e.smelting(`${VD}:smooth_salt_block`, `${VD}:salt_block`);
   shaped(`4x ${VD}:salt_bricks`, ["##", "##"], { "#": `${VD}:smooth_salt_block` });
   shaped(`4x ${VD}:mixed_salt_bricks`, ["#s", "s#"], { "#": `${VD}:salt_bricks`, s: "minecraft:stone_bricks" });
   shaped(`${VD}:salt_lamp_default`, ["#", "t"], { "#": `${VD}:salt_block`, t: "minecraft:torch" });
@@ -88,7 +94,7 @@ ServerEvents.recipes((e) => {
   });
 
   // Magic vine
-  if (vdAllExist([`${VD}:magic_vine`, `${VD}:stripped_magic_vine`])) {
+  if (vdMissing([`${VD}:magic_vine`, `${VD}:stripped_magic_vine`]).length === 0) {
     e.custom({
       type: "farmersdelight:cutting",
       ingredients: [{ item: `${VD}:magic_vine` }],
@@ -178,5 +184,6 @@ ServerEvents.recipes((e) => {
     m: "minecraft:magma_block",
   });
 
+  global.vintageDelightSkippedRecipes = skipped;
   if (skipped.length > 0) console.info(`[SOCIETY] Vintage Delight recipes skipped, items missing: ${skipped.join(", ")}`);
 });

@@ -36,7 +36,8 @@ ServerEvents.loaded((event) => {
       server.getRecipeManager().getRecipes().forEach((holder) => {
         crafted[String(holder.value().getResultItem(server.registryAccess()).id)] = true;
       });
-      machines.forEach((id) => check(crafted[id], `no crafting recipe makes ${id}`));
+      let skipped = (global.vintageDelightSkippedRecipes || []).join("; ");
+      machines.forEach((id) => check(crafted[id], `no crafting recipe makes ${id}; skipped recipes: ${skipped}`));
 
       // Preserves Jar: five cucumbers, three mornings, relish.
       jar.set("society:preserves_jar", { facing: "north" });
