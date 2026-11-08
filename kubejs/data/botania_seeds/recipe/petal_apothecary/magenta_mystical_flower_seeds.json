@@ -1,0 +1,34 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "botania_seeds:magenta_mystical_flower_seeds"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "vintagedelight:gearo_berry"
+    }
+  ],
+  "type": "botania:petal_apothecary",
+  "ingredients": [
+    {
+      "item": "vintagedelight:gearo_berry"
+    },
+    {
+      "item": "vintagedelight:gearo_berry"
+    },
+    {
+      "item": "vintagedelight:gearo_berry"
+    },
+    {
+      "item": "vintagedelight:gearo_berry"
+    }
+  ],
+  "output": {
+    "count": 4,
+    "id": "botania_seeds:magenta_mystical_flower_seeds"
+  },
+  "reagent": {
+    "tag": "botania:seed_apothecary_reagent"
+  }
+}

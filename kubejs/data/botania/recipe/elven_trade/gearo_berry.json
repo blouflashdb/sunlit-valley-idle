@@ -1,0 +1,24 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "society:blueberry_preserves"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "vintagedelight:gearo_berry"
+    }
+  ],
+  "type": "botania:elven_trade",
+  "ingredients": [
+    {
+      "item": "society:blueberry_preserves"
+    }
+  ],
+  "output": [
+    {
+      "count": 1,
+      "id": "vintagedelight:gearo_berry"
+    }
+  ]
+}

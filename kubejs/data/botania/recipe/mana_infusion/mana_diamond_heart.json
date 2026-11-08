@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "quark:diamond_heart"
+    }
+  ],
+  "type": "botania:mana_infusion",
+  "input": {
+    "item": "minecraft:diamond_block"
+  },
+  "mana": 5000,
+  "output": {
+    "count": 1,
+    "id": "quark:diamond_heart"
+  }
+}

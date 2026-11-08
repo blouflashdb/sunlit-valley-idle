@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "society:fire_quartz"
+    }
+  ],
+  "type": "botania:mana_infusion",
+  "input": {
+    "item": "society:fire_quartz"
+  },
+  "mana": 250,
+  "output": {
+    "count": 32,
+    "id": "botania:quartz_mana"
+  }
+}

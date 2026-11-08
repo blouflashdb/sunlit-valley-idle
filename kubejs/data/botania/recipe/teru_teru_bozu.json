@@ -1,0 +1,45 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "unusualfishmod:clement_shell"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "unusualfishmod:fluvial_shell"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "unusualfishmod:thunderous_shell"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "botania:manaweave_cloth"
+    },
+    "S": {
+      "item": "minecraft:sunflower"
+    },
+    "F": {
+      "item": "unusualfishmod:fluvial_shell"
+    },
+    "c": {
+      "item": "unusualfishmod:clement_shell"
+    },
+    "T": {
+      "item": "unusualfishmod:thunderous_shell"
+    }
+  },
+  "pattern": [
+    "CCC",
+    "FcT",
+    "CSC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "botania:teru_teru_bozu"
+  },
+  "show_notification": true
+}

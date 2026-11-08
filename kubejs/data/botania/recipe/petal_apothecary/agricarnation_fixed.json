@@ -1,0 +1,39 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "society:botanical_tribute"
+    }
+  ],
+  "type": "botania:petal_apothecary",
+  "ingredients": [
+    {
+      "tag": "botania:petals/lime"
+    },
+    {
+      "tag": "botania:petals/lime"
+    },
+    {
+      "tag": "botania:petals/green"
+    },
+    {
+      "tag": "botania:petals/yellow"
+    },
+    {
+      "item": "botania:rune_spring"
+    },
+    {
+      "item": "botania:redstone_root"
+    },
+    {
+      "item": "society:botanical_tribute"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "id": "botania:agricarnation"
+  },
+  "reagent": {
+    "tag": "botania:seed_apothecary_reagent"
+  }
+}

@@ -1,6 +1,7 @@
 // CI only: server_boot_test.py copies this into kubejs/server_scripts/_ci/ and boots the server twice.
 // Boot 1 plants a grown mystical flower crop and a wheat crop next to a Cropnolia with a mana pool, lets the
-// Cropnolia eat them and checks the pool got their mana. Boot 2 checks the pool kept it.
+// Cropnolia eat them and checks the pool got their mana; it also checks the pack's Botania recipes loaded.
+// Boot 2 checks the pool kept its mana.
 // Prints "[PORT-TEST] PHASE1 mysticalflowers", "[PORT-TEST] PASS mysticalflowers" or "[PORT-TEST] FAIL mysticalflowers: ...".
 
 ServerEvents.loaded((event) => {
@@ -28,6 +29,24 @@ ServerEvents.loaded((event) => {
         check(itemExists(`botania_seeds:${color}_mystical_flower_seeds`), `no ${color} mystical flower seeds`);
       });
       check(itemExists("croptania:cropnolia"), "no croptania:cropnolia");
+      // Botania data from kubejs/data (tools/port/port_botania_data.py).
+      let recipes = server.getRecipeManager();
+      [
+        "botania_seeds:petal_apothecary/white_mystical_flower_seeds",
+        "croptania:cropnolia",
+        "botania:mana_infusion/mana_seed",
+        "botania:runic_altar/fire",
+        "botania:runic_altar/air",
+        "botania:elven_trade/moth_pollen",
+        "botania:orechid/lead_ore",
+      ].forEach((id) => check(recipes.byKey(rl.parse(id)).isPresent(), `recipe ${id} is missing`));
+      let fireIngredients = recipes.byKey(rl.parse("botania:runic_altar/fire")).get().value().getIngredients();
+      let fireItems = [];
+      for (let i = 0; i < fireIngredients.size(); i++) {
+        let stacks = fireIngredients.get(i).getItems();
+        for (let j = 0; j < stacks.length; j++) fireItems.push(String(stacks[j].getId()));
+      }
+      check(fireItems.indexOf("society:fire_quartz") >= 0, `the fire rune is still Botania's: ${fireItems}`);
 
       pool().set("botania:mana_pool");
       let entity = pool().getEntity();

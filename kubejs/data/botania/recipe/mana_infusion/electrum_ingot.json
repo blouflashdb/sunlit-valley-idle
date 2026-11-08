@@ -1,0 +1,21 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "oreganized:electrum_ingot"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "oreganized:silver_ingot"
+    }
+  ],
+  "type": "botania:mana_infusion",
+  "input": {
+    "item": "oreganized:silver_ingot"
+  },
+  "mana": 5000,
+  "output": {
+    "count": 1,
+    "id": "oreganized:electrum_ingot"
+  }
+}

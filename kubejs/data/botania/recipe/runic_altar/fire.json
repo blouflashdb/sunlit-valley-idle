@@ -1,0 +1,39 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "society:earth_crystal"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "society:fire_quartz"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "society:jade"
+    }
+  ],
+  "type": "botania:runic_altar",
+  "ingredients": [
+    {
+      "tag": "botania:mana_dusts"
+    },
+    {
+      "tag": "botania:manasteel_ingots"
+    },
+    {
+      "item": "society:fire_quartz"
+    },
+    {
+      "item": "society:earth_crystal"
+    },
+    {
+      "item": "society:jade"
+    }
+  ],
+  "mana": 5200,
+  "output": {
+    "count": 2,
+    "id": "botania:rune_fire"
+  }
+}

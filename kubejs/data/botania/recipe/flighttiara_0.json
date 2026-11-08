@@ -1,0 +1,37 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "numismatics:prismatic_coin"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "E": {
+      "item": "botania:ender_air_bottle"
+    },
+    "F": {
+      "item": "minecraft:feather"
+    },
+    "I": {
+      "tag": "botania:elementium_ingots"
+    },
+    "L": {
+      "item": "botania:life_essence"
+    },
+    "P": {
+      "item": "numismatics:prismatic_coin"
+    }
+  },
+  "pattern": [
+    "LLL",
+    "IPI",
+    "FEF"
+  ],
+  "result": {
+    "count": 1,
+    "id": "botania:flight_tiara"
+  },
+  "show_notification": true
+}
