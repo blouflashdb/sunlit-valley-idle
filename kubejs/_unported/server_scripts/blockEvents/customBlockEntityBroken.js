@@ -1,61 +1,6 @@
 console.info("[SOCIETY] customBlockEntityBroken.js loaded");
 
-const handleBrokenMachine = (block) => {
-  const machine = global.artisanMachineDefinitions.filter((obj) => {
-    return obj.id === block.id;
-  })[0];
-  if (!machine) return;
-  let working = block.properties.get("working").toLowerCase() == "true";
-  if (machine.upgrade && block.properties.get("upgraded").toLowerCase() == "true") {
-    block.popItem(machine.upgrade);
-  }
-  const nbt = block.getEntityData();
-  const currentRecipe = machine.recipes.get(nbt.data.recipe);
-  if (block.properties.get("mature").toLowerCase() == "true") {
-    currentRecipe.output.forEach((element) => {
-      block.popItem(element);
-    });
-    if (
-      block.id == "society:ancient_cask" &&
-      block.properties.get("upgraded").toLowerCase() == "true"
-    ) block.popItem(Item.of(`3x ${Item.of(`${currentRecipe.output[0]}`).id}`));
-  } else if (!["society:charging_rod", "society:tapper", "society:mushroom_log"].includes(block.id)) {
-    let stage = Number(nbt.data.stage);
-    if (
-      currentRecipe &&
-      block.id == "society:ancient_cask" &&
-      block.properties.get("upgraded").toLowerCase() == "true"
-    ) {
-      if (working) block.popItem(Item.of(`4x ${nbt.data.recipe}`));
-      else block.popItem(Item.of(`${stage}x ${nbt.data.recipe}`));
-    } else if (
-      block.id == "society:deluxe_worm_farm" &&
-      block.properties.get("upgraded").toLowerCase() == "true"
-    ) {
-      // Do nothing because of infinity worm upgrade
-    } else if (
-      currentRecipe &&
-      block.id == "society:preserves_jar" &&
-      block.properties.get("upgraded").toLowerCase() == "true"
-    ) {
-      if (working) block.popItem(Item.of(`3x ${nbt.data.recipe}`));
-      else block.popItem(Item.of(`${stage}x ${nbt.data.recipe}`));
-    } else if (currentRecipe) {
-      if (nbt.data.originalInputs && nbt.data.originalInputs.length > 0) {
-        nbt.data.originalInputs.forEach((item) => {
-          block.popItem(Item.of(`${item.Count}x ${item.id}`));
-        });
-      } else {
-        if (working) block.popItem(Item.of(`${machine.maxInput}x ${nbt.data.recipe}`));
-        else block.popItem(Item.of(`${stage}x ${nbt.data.recipe}`));
-      }
-    }
-  }
-};
-
-BlockEvents.broken(global.artisanMachineIds, (e) => {
-  handleBrokenMachine(e.block);
-});
+// The artisan machine drops (handleBrokenMachine) are ported: kubejs/server_scripts/blockEvents/artisanMachineBroken.js
 
 BlockEvents.broken("society:fish_pond", (e) => {
   const { block } = e;
