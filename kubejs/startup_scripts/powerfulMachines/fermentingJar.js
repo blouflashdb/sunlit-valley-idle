@@ -7,6 +7,8 @@
 console.info("[SOCIETY] fermentingJar.js loaded");
 
 const fermentingJarTickRate = 100;
+// Filled by server_scripts/recipes/vintageDelightRecipes.js with the recipes it skipped (read by the CI test).
+global.vintageDelightSkippedRecipes = [];
 const $FermentingRegistries = Java.loadClass("net.minecraft.core.registries.BuiltInRegistries");
 const $FermentingResourceLocation = Java.loadClass("net.minecraft.resources.ResourceLocation");
 

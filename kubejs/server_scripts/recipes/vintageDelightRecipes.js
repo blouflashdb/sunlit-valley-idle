@@ -184,6 +184,8 @@ ServerEvents.recipes((e) => {
     m: "minecraft:magma_block",
   });
 
-  global.vintageDelightSkippedRecipes = skipped;
+  // Server scripts cannot assign to global; the array comes from startup_scripts/powerfulMachines/fermentingJar.js.
+  global.vintageDelightSkippedRecipes.length = 0;
+  skipped.forEach((entry) => global.vintageDelightSkippedRecipes.push(entry));
   if (skipped.length > 0) console.info(`[SOCIETY] Vintage Delight recipes skipped, items missing: ${skipped.join(", ")}`);
 });
