@@ -1,8 +1,9 @@
 console.info("[SOCIETY] autoGrabber.js loaded");
 
-// The Auto-Grabber milks the farm animals within 5 blocks (11x11x11) and collects their daily drops into the
-// inventory below. Upgraded with Magic Shears it also shears them. Every product costs one sparkstone from its own
-// inventory. It applies the skills of the player who placed it (server_scripts/blockEvents/machineOwner.js).
+// The Auto-Grabber milks the farm animals within 5 blocks (11x11x11), also those in plushies, and collects their
+// daily drops into the inventory below. Upgraded with Magic Shears it also shears them. Every product costs one
+// sparkstone from its own inventory. It applies the skills of the player who placed it
+// (server_scripts/blockEvents/machineOwner.js).
 
 const autoGrabberOwnerStages = [
   "animal_fancy",
@@ -67,10 +68,31 @@ global.autoGrabAnimal = (entity, owner, animal) => {
   }
 };
 
+/** Collects the products of the animal in a plushie (startup_scripts/plushies/plushieHusbandry.js). */
+global.autoGrabPlushie = (entity, owner, plushie) => {
+  const { block, level } = entity;
+  const fuel = block.getEntity().attachments.get("inventory");
+  if (global.countInHandler(fuel, "society:sparkstone") < 1) return;
+  const result = global.harvestPlushieAnimal(level, plushie, {
+    player: owner,
+    stages: global.getBlockEntityStages(entity),
+    milk: true,
+    shear: global.isBlockPropertyTrue(level.getBlock(block.getPos()), "upgraded"),
+  });
+  if (!result) return;
+  result.stacks.forEach((stack) => {
+    if (grabberDeliver(level, block, fuel, [stack])) {
+      let { x, y, z } = plushie;
+      level.spawnParticles("minecraft:happy_villager", true, x + 0.5, y + 1, z + 0.5, 0.3, 0.3, 0.3, 3, 0.01);
+    }
+  });
+};
+
 global.runAutoGrabber = (entity) => {
   const { block, level } = entity;
   const owner = global.cacheOwner(entity, autoGrabberOwnerStages);
   global.getAnimalsAround(level, block, 5).forEach((animal) => global.autoGrabAnimal(entity, owner, animal));
+  global.getPlushieAnimalsAround(level, block, 5).forEach((plushie) => global.autoGrabPlushie(entity, owner, plushie));
 };
 
 StartupEvents.registry("block", (event) => {

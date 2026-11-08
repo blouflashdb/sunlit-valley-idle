@@ -1,8 +1,9 @@
 console.info("[SOCIETY] plushieEvents.js loaded");
 
 // Plushies (#14): placing, breaking and gifting the adv_ plushies of startup_scripts/plushies/plushies.js, the
-// Plushie Wand pickup and the Gatcha Machine. The 1.20.1 singing frog (an animated block) and storing animals
-// with a Sunlit Crystal are not ported yet, so the wand has no animal to take out.
+// Plushie Wand pickup and the Gatcha Machine. Plushies with an animal inside:
+// startup_scripts/plushies/plushieHusbandry.js.
+// The 1.20.1 singing frog (an animated block) is not ported.
 
 const PLUSHIE_GLOW_PARTICLES = (level, block) => {
   level.spawnParticles("minecraft:end_rod", true, block.x + 0.5, block.y + 0.5, block.z + 0.5, 0.4, 0.4, 0.4, 20, 0.05);
@@ -24,6 +25,10 @@ BlockEvents.broken(global.plushies, (e) => {
 BlockEvents.rightClicked(global.plushies, (e) => {
   const { item, player, block, hand, server } = e;
   if (String(hand) !== "MAIN_HAND" || player.isFake()) return;
+  if (global.getPlushieBlockAnimal(block)) {
+    if (global.handlePlushieAnimalClick(player, block, item)) e.cancel();
+    return;
+  }
   if (String(item.id) === "society:plushie_wand") {
     player.tell(Text.translatable("item.society.plushie_wand.no_animal").red());
     global.addItemCooldown(player, item, 5);
