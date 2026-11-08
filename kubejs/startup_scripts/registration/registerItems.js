@@ -974,7 +974,7 @@ StartupEvents.registry("item", (e) => {
   const fishTexureMapping = [
     {
       item: "unusualfishmod:raw_snowflake",
-      texture: "raw_snowflake_tail_fish",
+      texture: "raw_snowflake",
       displayId: "frosty_fin",
     },
     {

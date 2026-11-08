@@ -59,6 +59,18 @@ class Resources:
         ns, path = rl(loc).split(":", 1)
         return f"assets/{ns}/{kind}/{path}{ext}" in self.jar_files
 
+    def similar(self, loc):
+        """Hint for a renamed texture: files in the same folder that share a word with the missing one."""
+        if not self.check_jars:
+            return ""
+        ns, path = rl(loc).split(":", 1)
+        folder, _, name = f"assets/{ns}/textures/{path}".rpartition("/")
+        words = {w for w in name.split("_") if len(w) > 3 and w != "raw"}
+        found = sorted(f.rpartition("/")[2][:-4] for f in self.jar_files
+                       if f.startswith(folder + "/") and f.endswith(".png") and "/" not in f[len(folder) + 1:]
+                       and words & set(f.rpartition("/")[2][:-4].split("_")))
+        return f" (similar in {ns}: {', '.join(found[:10])})" if found else f" (nothing similar in {ns})"
+
     def read_jar_json(self, kind, loc):
         ns, path = rl(loc).split(":", 1)
         name = f"assets/{ns}/{kind}/{path}.json"
@@ -177,7 +189,7 @@ def main():
                 layers = [f"{ns}:item/{path}"]
             for tex in layers:
                 if not texture_ok(tex):
-                    errors.append(f"{where}: texture {rl(tex)} does not exist")
+                    errors.append(f"{where}: texture {rl(tex)} does not exist{res.similar(tex)}")
 
     machines_js = pathlib.Path("kubejs/client_scripts/machineBlockstates.js").read_text()
     names = re.search(r"const multipartMachines = \[([^\]]*)\]", machines_js)
