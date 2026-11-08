@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "b": {
-      "tag": "forge:chests/wooden"
+      "tag": "c:chests/wooden"
     },
     "t": {
       "tag": "minecraft:trapdoors"
@@ -14,7 +14,8 @@
     "b"
   ],
   "result": {
-    "item": "shippingbin:basic_shipping_bin"
+    "id": "shippingbin:basic_shipping_bin",
+    "count": 1
   },
   "show_notification": true
 }

@@ -1,0 +1,21 @@
+{
+  "amplifier_modifier": 2,
+  "chance": 0.0,
+  "cooking_bonus": 1.0,
+  "crafting_bonus": 0.4,
+  "crop_multiplier": 0.9,
+  "duration_multiplier": 2.0,
+  "icon": "quality_food:quality_icon/gold",
+  "level": 2,
+  "min_weight": 1.0,
+  "name": {
+    "color": "gold",
+    "translate": "quality_type.quality_food.gold"
+  },
+  "nutrition_multiplier": 1.5,
+  "potential_bonus": 0.0,
+  "probability_multiplier": 1.5,
+  "saturation_multiplier": 1.15,
+  "seed_multiplier": 0.9,
+  "weight": 2.0
+}

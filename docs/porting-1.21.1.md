@@ -81,6 +81,19 @@ BlockEvents.blockEntityTick("society:crystalarium", (event) => {
 });
 ```
 
+## Inventories and native events
+
+- `blockInfo.inventory(9, 4)` and `attachCapability(CapabilityBuilder.ITEM...)` are gone. Use
+  `blockInfo.inventory("inventory", [], 9, 4)` (id, sides, width, height) and
+  `blockInfo.rightClickOpensInventory("inventory")`; the item handler capability is registered for all sides
+  automatically. In code, `block.getEntity().attachments.get("inventory")` is the `ItemStackHandler`
+  (`global.getShippingBinInventory(block)`).
+- `ForgeEvents.onEvent("some.Event", fn)` is `NativeEvents.onEvent(Java.loadClass("some.Event"), fn)`.
+- Debts (hospital bills) are `server.persistentData.debts` = `{uuid: amount}`; use `global.getDebt`,
+  `global.setDebt` and `global.addDebt` from `startup_scripts/globalShippingBinHandlers.js`.
+- Embers Text API popups built from `Text...toJson()` do not work (components have no `toJson()` in
+  KubeJS 7). Use `player.setStatusMessage(text)` for short notices.
+
 ## Models and blockstates
 
 KubeJS 7 has no `modelJson` or `blockstateJson` setters.

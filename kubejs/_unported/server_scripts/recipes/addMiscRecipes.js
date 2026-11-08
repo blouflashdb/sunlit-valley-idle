@@ -408,11 +408,6 @@ ServerEvents.recipes((e) => {
     b: "society:battery",
     z: "create:zinc_ingot",
   });
-  e.shaped("shippingbin:smart_shipping_bin", ["SSS", "SsS", "SbS"], {
-    s: "shippingbin:basic_shipping_bin",
-    S: "create:zinc_ingot",
-    b: "society:battery",
-  });
   // Prismatic
   e.shapeless("society:car_key", [
     "relics:horse_flute",
