@@ -7,10 +7,10 @@ const plantedBy = {
 };
 
 BlockEvents.rightClicked((e) => {
-  const { item, player, level, server, block } = e;
-  const crop = plantedBy[String(item.id)];
+  let { item, player, level, server, block } = e;
+  let crop = plantedBy[String(item.id)];
   if (!crop || String(e.facing) !== "up" || !block.hasTag("dewdrop:waterable")) return;
-  const aboveBlock = level.getBlock(block.getPos().above());
+  let aboveBlock = level.getBlock(block.getPos().above());
   if (String(aboveBlock.id) !== "minecraft:air") return;
   aboveBlock.set(crop);
   if (!player.isCreative()) item.shrink(1);

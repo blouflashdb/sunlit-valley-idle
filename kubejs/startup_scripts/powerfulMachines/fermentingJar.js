@@ -71,10 +71,10 @@ const fermentingMatches = (stack, key) =>
  * Exact items are taken first so that a tag does not use up an item another ingredient needs.
  */
 global.planFermentingRecipe = (inventory, recipe) => {
-  const left = [];
+  let left = [];
   for (let i = 0; i < inventory.getSlots(); i++) left.push(inventory.getStackInSlot(i).count);
-  const take = {};
-  const inputs = recipe.inputs.filter((i) => !i.key.startsWith("#")).concat(recipe.inputs.filter((i) => i.key.startsWith("#")));
+  let take = {};
+  let inputs = recipe.inputs.filter((i) => !i.key.startsWith("#")).concat(recipe.inputs.filter((i) => i.key.startsWith("#")));
   for (let input of inputs) {
     let needed = input.count;
     for (let i = 0; i < left.length && needed > 0; i++) {
@@ -92,15 +92,15 @@ global.planFermentingRecipe = (inventory, recipe) => {
 };
 
 global.getFermentingJarInventory = (block) => {
-  const entity = block.getEntity();
+  let entity = block.getEntity();
   return entity && entity.attachments ? entity.attachments.get("inventory") : null;
 };
 
 /** One tick of the jar (every fermentingJarTickRate ticks). Returns the recipe id it started or finished. */
 global.handleFermentingJar = (level, block) => {
-  const inventory = global.getFermentingJarInventory(block);
+  let inventory = global.getFermentingJarInventory(block);
   if (!inventory) return null;
-  const current = global.getMachineString(block, "recipe");
+  let current = global.getMachineString(block, "recipe");
   if (current !== "") {
     let remaining = global.getMachineInt(block, "remaining") - fermentingJarTickRate;
     if (remaining > 0) {

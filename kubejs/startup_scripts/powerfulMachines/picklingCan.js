@@ -55,10 +55,10 @@ const findSaltNear = (level, block) => {
 
 /** One pickling step. Returns the pickle it made, or null. */
 global.handlePicklingCan = (level, block) => {
-  const entity = block.getEntity();
-  const inventory = entity && entity.attachments ? entity.attachments.get("inventory") : null;
+  let entity = block.getEntity();
+  let inventory = entity && entity.attachments ? entity.attachments.get("inventory") : null;
   if (!inventory) return null;
-  const below = global.getInventoryBelow(level, block);
+  let below = global.getInventoryBelow(level, block);
   if (!below) return null;
   for (let i = 0; i < inventory.getSlots(); i++) {
     let slotItem = inventory.getStackInSlot(i);

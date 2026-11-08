@@ -4,12 +4,12 @@
 // Prints "[PORT-TEST] PHASE1 vintagedelight", "[PORT-TEST] PASS vintagedelight" or "[PORT-TEST] FAIL vintagedelight: ...".
 
 ServerEvents.loaded((event) => {
-  const server = event.server;
-  const level = server.overworld();
-  const spawn = level.getSharedSpawnPos();
-  const soil = level.getBlock(spawn.x + 4, 300, spawn.z);
-  const crop = level.getBlock(spawn.x + 4, 301, spawn.z);
-  const check = (ok, message) => {
+  let server = event.server;
+  let level = server.overworld();
+  let spawn = level.getSharedSpawnPos();
+  let soil = level.getBlock(spawn.x + 4, 300, spawn.z);
+  let crop = level.getBlock(spawn.x + 4, 301, spawn.z);
+  let check = (ok, message) => {
     if (!ok) throw new Error(message);
   };
 
@@ -28,7 +28,7 @@ ServerEvents.loaded((event) => {
         "vintagedelight:nut_mash_mason_jar",
       ].forEach((id) => check(!Item.of(id).isEmpty(), `${id} is not registered`));
 
-      const results = new Set();
+      let results = new Set();
       server.getRecipeManager().getRecipes().forEach((holder) => {
         results.add(String(holder.value().getResultItem(server.registryAccess()).id));
       });

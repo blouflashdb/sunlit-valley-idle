@@ -3,7 +3,7 @@
 console.info("[SOCIETY] pruneMachineRecipes.js loaded");
 
 ServerEvents.loaded(() => {
-  const prune = (name, recipes, outputsOf) => {
+  let prune = (name, recipes, outputsOf) => {
     let removed = [];
     Array.from(recipes.keys()).forEach((input) => {
       let ok = (input.startsWith("#") || global.itemExists(input)) && outputsOf(recipes.get(input)).every(global.itemExists);

@@ -4,22 +4,22 @@
 // Prints "[PORT-TEST] PHASE1 vintagemachines", "[PORT-TEST] PASS vintagemachines" or "[PORT-TEST] FAIL vintagemachines: ...".
 
 ServerEvents.loaded((event) => {
-  const server = event.server;
-  const level = server.overworld();
-  const spawn = level.getSharedSpawnPos();
-  const at = (dx, y) => level.getBlock(spawn.x + dx, y, spawn.z);
-  const jar = at(6, 300);
-  const fermenter = at(8, 300);
-  const chest = at(10, 300);
-  const can = at(10, 301);
-  const salt = at(11, 301);
-  const evaporator = at(12, 300);
-  const water = at(13, 300);
-  const check = (ok, message) => {
+  let server = event.server;
+  let level = server.overworld();
+  let spawn = level.getSharedSpawnPos();
+  let at = (dx, y) => level.getBlock(spawn.x + dx, y, spawn.z);
+  let jar = at(6, 300);
+  let fermenter = at(8, 300);
+  let chest = at(10, 300);
+  let can = at(10, 301);
+  let salt = at(11, 301);
+  let evaporator = at(12, 300);
+  let water = at(13, 300);
+  let check = (ok, message) => {
     if (!ok) throw new Error(message);
   };
-  const inventoryOf = (block) => block.getEntity().attachments.get("inventory");
-  const countIn = (handler, id) => {
+  let inventoryOf = (block) => block.getEntity().attachments.get("inventory");
+  let countIn = (handler, id) => {
     let count = 0;
     for (let i = 0; i < handler.getSlots(); i++) {
       let stack = handler.getStackInSlot(i);
@@ -30,7 +30,7 @@ ServerEvents.loaded((event) => {
 
   try {
     if (String(jar.id) !== "society:preserves_jar") {
-      const machines = ["society:preserves_jar", "society:pickling_can", "vintagedelight:fermenting_jar", "vintagedelight:evaporator"];
+      let machines = ["society:preserves_jar", "society:pickling_can", "vintagedelight:fermenting_jar", "vintagedelight:evaporator"];
       machines.forEach((id) => check(global.itemExists(id), `${id} is not registered`));
       let crafted = {};
       server.getRecipeManager().getRecipes().forEach((holder) => {

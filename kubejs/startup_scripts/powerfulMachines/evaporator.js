@@ -13,8 +13,8 @@ const evaporatorSides = [
 
 /** One evaporation. Returns the number of salt made. */
 global.handleEvaporator = (level, block) => {
-  const entity = block.getEntity();
-  const inventory = entity && entity.attachments ? entity.attachments.get("inventory") : null;
+  let entity = block.getEntity();
+  let inventory = entity && entity.attachments ? entity.attachments.get("inventory") : null;
   if (!inventory) return 0;
   let sides = evaporatorSides.filter(
     (side) => String(level.getBlock(block.x + side[0], block.y, block.z + side[1]).id) === "minecraft:water"

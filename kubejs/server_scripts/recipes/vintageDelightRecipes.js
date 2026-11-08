@@ -14,18 +14,18 @@ const vdIngredient = (s) => (s.startsWith("#") ? { tag: s.substring(1) } : { ite
 const vdAllExist = (ids) => ids.every((s) => s.startsWith("#") || vdHasItem(s.replace(/^\d+x /, "")));
 
 ServerEvents.recipes((e) => {
-  const VD = "vintagedelight";
-  const skipped = [];
+  let VD = "vintagedelight";
+  let skipped = [];
 
-  const shapeless = (output, inputs) => {
+  let shapeless = (output, inputs) => {
     if (!vdAllExist([output].concat(inputs))) return skipped.push(output);
     e.shapeless(output, inputs);
   };
-  const shaped = (output, pattern, key) => {
+  let shaped = (output, pattern, key) => {
     if (!vdAllExist([output].concat(Object.values(key)))) return skipped.push(output);
     e.shaped(output, pattern, key);
   };
-  const cooking = (output, inputs, container, time) => {
+  let cooking = (output, inputs, container, time) => {
     if (!vdAllExist([output, container].concat(inputs))) return skipped.push(output);
     e.custom({
       type: "farmersdelight:cooking",
@@ -37,7 +37,7 @@ ServerEvents.recipes((e) => {
       result: { count: 1, id: output },
     });
   };
-  const cutting = (input, output, count) => {
+  let cutting = (input, output, count) => {
     if (!vdAllExist([input, output])) return skipped.push(output);
     e.custom({
       type: "farmersdelight:cutting",
@@ -46,7 +46,7 @@ ServerEvents.recipes((e) => {
       tool: { tag: "c:tools/knife" },
     });
   };
-  const roast = (input, output) => {
+  let roast = (input, output) => {
     if (!vdAllExist([input, output])) return skipped.push(output);
     e.smelting(output, input).xp(0.35);
     e.smoking(output, input).xp(0.35);
