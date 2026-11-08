@@ -83,16 +83,16 @@ StartupEvents.registry("item", (e) => {
   e.create("society:blueberry")
     .texture("society:item/blueberry")
     .food((food) => {
-      food.hunger(1);
+      food.nutrition(1);
       food.saturation(2);
-      food.fastToEat(true);
+      food.fastToEat();
     });
   e.create("society:eggplant")
     .texture("society:item/eggplant")
     .food((food) => {
-      food.hunger(2.5);
+      food.nutrition(2);
       food.saturation(1);
-      food.fastToEat(true);
+      food.fastToEat();
     });
   e.create("society:tubabacco_leaf").texture("society:item/tubabacco_leaf");
   e.create("society:dried_tubabacco_leaf")
@@ -103,83 +103,83 @@ StartupEvents.registry("item", (e) => {
   e.create("society:ancient_fruit")
     .texture("society:item/ancient_fruit")
     .food((food) => {
-      food.hunger(6);
+      food.nutrition(6);
       food.saturation(3);
-      food.fastToEat(true);
+      food.fastToEat();
     });
   e.create("society:sparkpod")
     .texture("society:item/sparkpod")
     .food((food) => {
-      food.hunger(3);
+      food.nutrition(3);
       food.saturation(1);
       food.effect("minecraft:haste", 2000, 2, 1.0);
-      food.fastToEat(true);
+      food.fastToEat();
     });
   e.create("society:salmonberry")
     .texture("society:item/salmonberry")
     .food((food) => {
-      food.hunger(1);
+      food.nutrition(1);
       food.saturation(2);
-      food.fastToEat(true);
+      food.fastToEat();
     });
   e.create("society:boysenberry")
     .texture("society:item/boysenberry")
     .food((food) => {
-      food.hunger(1);
+      food.nutrition(1);
       food.saturation(3);
-      food.fastToEat(true);
+      food.fastToEat();
     });
   e.create("society:cranberry")
     .texture("society:item/cranberry")
     .food((food) => {
-      food.hunger(1);
+      food.nutrition(1);
       food.saturation(2);
-      food.fastToEat(true);
+      food.fastToEat();
     });
   e.create("society:crystalberry")
     .texture("society:item/crystalberry")
     .food((food) => {
-      food.hunger(1);
+      food.nutrition(1);
       food.saturation(1);
-      food.fastToEat(true);
+      food.fastToEat();
     });
   e.create("society:mossberry")
     .texture("society:item/mossberry")
     .food((food) => {
-      food.hunger(2);
+      food.nutrition(2);
       food.saturation(3);
-      food.fastToEat(true);
+      food.fastToEat();
       food.effect("minecraft:resistance", 1200, 0, 1.0);
     });
   e.create("society:ancient_juice")
     .texture("society:item/drinks/ancient_juice")
     .food((food) => {
-      food.hunger(6);
-      food.fastToEat(true);
+      food.nutrition(6);
+      food.fastToEat();
       food.saturation(4);
     })
     .useAnimation("drink");
   e.create("society:starfruit_juice")
     .texture("society:item/drinks/starfruit_juice")
     .food((food) => {
-      food.hunger(6);
-      food.fastToEat(true);
+      food.nutrition(6);
+      food.fastToEat();
       food.saturation(3);
     })
     .useAnimation("drink");
   e.create("society:sparkpod_juice")
     .texture("society:item/drinks/sparkpod_juice")
     .food((food) => {
-      food.hunger(5);
-      food.fastToEat(true);
+      food.nutrition(5);
+      food.fastToEat();
       food.saturation(2);
     })
     .useAnimation("drink");
   e.create("society:mana_fruit_juice")
     .texture("society:item/drinks/mana_fruit_juice")
     .food((food) => {
-      food.hunger(6);
-      food.fastToEat(true);
+      food.nutrition(6);
+      food.fastToEat();
       food.saturation(42);
     })
     .useAnimation("drink");
@@ -207,58 +207,8 @@ StartupEvents.registry("item", (e) => {
   });
   e.create("society:bouquet_bag").texture("society:item/bouquet_bag");
   e.create("society:scavenged_food_bag").texture("wildernature:item/loot_bag");
-  e.create("society:plushie_capsule").modelJson({
-    format_version: "1.21.6",
-    credit: "Made with Blockbench",
-    textures: {
-      0: "whimsy_deco:item/gatcha_capsule",
-      particle: "whimsy_deco:item/gatcha_capsule",
-    },
-    elements: [
-      {
-        from: [5.5, 0, 5.5],
-        to: [10.5, 5, 10.5],
-        rotation: { angle: 0, axis: "y", origin: [5.5, 1.5, 5.5] },
-        faces: {
-          north: { uv: [0, 10, 5, 15], texture: "#0" },
-          east: { uv: [0, 10, 5, 15], texture: "#0" },
-          south: { uv: [0, 10, 5, 15], texture: "#0" },
-          west: { uv: [0, 10, 5, 15], texture: "#0" },
-          up: { uv: [5, 0, 10, 5], texture: "#0" },
-          down: { uv: [11, 10, 16, 15], texture: "#0" },
-        },
-      },
-    ],
-    display: {
-      thirdperson_righthand: {
-        translation: [0, 7.25, 0],
-      },
-      thirdperson_lefthand: {
-        translation: [0, 7.25, 0],
-      },
-      firstperson_righthand: {
-        translation: [0, 8, 0],
-      },
-      firstperson_lefthand: {
-        translation: [0, 8, 0],
-      },
-      ground: {
-        translation: [0, 2, 0],
-        scale: [0.5, 0.5, 0.5],
-      },
-      gui: {
-        rotation: [30, -135, 0],
-        translation: [0, 5.75, 0],
-        scale: [1.25, 1.25, 1.25],
-      },
-      head: {
-        translation: [0, 14.25, 0],
-      },
-      fixed: {
-        rotation: [0, -180, 0],
-      },
-    },
-  });
+  // KubeJS 7 has no modelJson; the item model is a static file in kubejs/assets/society/models/item/plushie_capsule.json
+  e.create("society:plushie_capsule");
   e.create("society:sap").texture("society:item/sap");
   e.create("society:rubber").texture("society:item/rubber");
   e.create("society:pine_tar").texture("society:item/pine_tar");
@@ -267,7 +217,7 @@ StartupEvents.registry("item", (e) => {
   e.create("society:battery").texture("society:item/battery");
   e.create("society:neptuna")
     .food((food) => {
-      food.hunger(10).saturation(1).meat();
+      food.nutrition(10).saturation(1);
     })
     .texture("society:item/neptuna")
     .glow(true);
@@ -297,10 +247,10 @@ StartupEvents.registry("item", (e) => {
   e.create("society:mana_fruit")
     .texture("society:item/mana_fruit")
     .food((food) => {
-      food.hunger(3);
+      food.nutrition(3);
       food.saturation(1);
       food.effect("botania:soul_cross", 3000, 2, 1.0);
-      food.fastToEat(true);
+      food.fastToEat();
     });
   e.create("society:canvas")
     .texture("society:item/canvas")
@@ -443,7 +393,7 @@ StartupEvents.registry("item", (e) => {
   e.create("society:perfect_cherry")
     .texture("society:item/artifacts/perfect_cherry")
     .food((food) => {
-      food.hunger(1);
+      food.nutrition(1);
       food.saturation(1);
       food.eaten((e) => {
         const { player, server, level } = e;
@@ -465,7 +415,7 @@ StartupEvents.registry("item", (e) => {
           }
           if (Math.random() < 0.2) {
             server.runCommandSilent(
-              `effect give ${player.username} legendarycreatures:convulsion 100 1`
+              `effect give ${player.username} minecraft:nausea 100 1`
             );
           }
           if (Math.random() < 0.2) {
@@ -499,7 +449,7 @@ StartupEvents.registry("item", (e) => {
   e.create("society:energy_drink")
     .texture("society:item/drinks/energy_drink")
     .food((food) => {
-      food.fastToEat(true);
+      food.fastToEat();
       food.effect("botania:emptiness", 4800, 0, 1.0);
       food.effect("minecraft:speed", 4800, 2, 1.0);
     })
@@ -507,7 +457,7 @@ StartupEvents.registry("item", (e) => {
   e.create("society:pink_energy_drink")
     .texture("society:item/drinks/pink_energy_drink")
     .food((food) => {
-      food.fastToEat(true);
+      food.fastToEat();
       food.effect("botania:emptiness", 4800, 0, 1.0);
       food.effect("minecraft:haste", 4800, 2, 1.0);
     })
@@ -515,7 +465,7 @@ StartupEvents.registry("item", (e) => {
   e.create("society:white_energy_drink")
     .texture("society:item/drinks/white_energy_drink")
     .food((food) => {
-      food.fastToEat(true);
+      food.fastToEat();
       food.effect("botania:emptiness", 4800, 0, 1.0);
       food.effect("minecraft:strength", 4800, 2, 1.0);
     })
@@ -523,7 +473,7 @@ StartupEvents.registry("item", (e) => {
   e.create("society:mana_energy_drink")
     .texture("society:item/drinks/mana_energy_drink")
     .food((food) => {
-      food.fastToEat(true);
+      food.fastToEat();
       food.effect("botania:emptiness", 4800, 0, 1.0);
       food.effect("minecraft:resistance", 4800, 2, 1.0);
     })
@@ -534,7 +484,7 @@ StartupEvents.registry("item", (e) => {
       Text.translatable("item.society.death_liquid.description").darkPurple()
     )
     .food((food) => {
-      food.fastToEat(true);
+      food.fastToEat();
       food.effect("minecraft:poison", 800, 2, 1.0);
     })
     .useAnimation("drink");
@@ -544,7 +494,7 @@ StartupEvents.registry("item", (e) => {
       Text.translatable("item.society.suspicious_milk_tea.description").darkPurple()
     )
     .food((food) => {
-      food.fastToEat(true);
+      food.fastToEat();
       food.effect("minecraft:poison", 800, 2, 1.0);
     })
     .useAnimation("drink");
@@ -554,7 +504,7 @@ StartupEvents.registry("item", (e) => {
     .texture("society:item/drinks/cinnamon_coffee")
     .food((food) => {
       food.alwaysEdible(true);
-      food.hunger(1);
+      food.nutrition(1);
       food.saturation(2);
       food.effect("farm_and_charm:grandmas_blessing", 2400, 0, 1.0);
     })
@@ -564,7 +514,7 @@ StartupEvents.registry("item", (e) => {
     .texture("society:item/drinks/hazelnut_coffee")
     .food((food) => {
       food.alwaysEdible(true);
-      food.hunger(1);
+      food.nutrition(1);
       food.saturation(2);
       food.effect("minecraft:resistance", 2400, 0, 1.0);
     })
@@ -574,7 +524,7 @@ StartupEvents.registry("item", (e) => {
     .texture("society:item/drinks/chai_tea")
     .food((food) => {
       food.alwaysEdible(true);
-      food.hunger(1);
+      food.nutrition(1);
       food.saturation(2);
       food.effect("herbalbrews:tough", 6000, 1, 1.0);
     })
@@ -583,7 +533,7 @@ StartupEvents.registry("item", (e) => {
   e.create("bakery:hazelnut_ella")
     .texture("society:item/hazelnut_ella")
     .food((food) => {
-      food.hunger(5);
+      food.nutrition(5);
       food.saturation(2);
       food.effect("farm_and_charm:grandmas_blessing", 6000, 1, 1.0);
     });
@@ -591,7 +541,7 @@ StartupEvents.registry("item", (e) => {
   e.create("society:chicken_tortilla_soup")
     .texture("society:item/chicken_tortilla_soup")
     .food((food) => {
-      food.hunger(8);
+      food.nutrition(8);
       food.saturation(1);
       food.effect("farm_and_charm:feast", 800, 0, 1.0);
     });
@@ -599,51 +549,51 @@ StartupEvents.registry("item", (e) => {
   e.create("society:mexican_street_corn")
     .texture("society:item/mexican_street_corn")
     .food((food) => {
-      food.hunger(7);
+      food.nutrition(7);
       food.saturation(1);
-      food.fastToEat(true);
+      food.fastToEat();
       food.effect("farm_and_charm:feast", 200, 0, 1.0);
     });
 
   e.create("bakery:chocolate_donut")
     .texture("society:item/chocolate_donut")
     .food((food) => {
-      food.hunger(5);
+      food.nutrition(5);
       food.saturation(2);
     });
   e.create("society:blueberry_icecream")
     .texture("society:item/blueberry_icecream")
     .food((food) => {
-      food.hunger(2);
+      food.nutrition(2);
       food.saturation(2);
     });
   e.create("society:deep_a_mochi")
     .texture("society:item/deep_a_mochi")
     .displayName("Deep-a-Mochi")
     .food((food) => {
-      food.hunger(4);
+      food.nutrition(4);
       food.saturation(2);
     });
   e.create("society:lemon_beignets")
     .texture("society:item/lemon_beignets")
     .food((food) => {
-      food.hunger(3);
+      food.nutrition(3);
       food.saturation(3);
       food.effect("farm_and_charm:sweets", 300, 1, 1.0);
     });
   e.create("society:ancient_cookie")
     .texture("society:item/ancient_cookie")
     .food((food) => {
-      food.hunger(4);
+      food.nutrition(4);
       food.saturation(4);
       food.effect("farm_and_charm:grandmas_blessing", 6000, 1, 1.0);
     });
   e.create("society:mossberry_stew")
     .texture("society:item/mossberry_stew")
     .food((food) => {
-      food.hunger(5);
+      food.nutrition(5);
       food.saturation(3);
-      food.fastToEat(true);
+      food.fastToEat();
       food.effect("minecraft:resistance", 2400, 0, 1.0);
     });
   e.create("society:ground_cinnamon").texture("society:item/ground_cinnamon");
@@ -652,7 +602,7 @@ StartupEvents.registry("item", (e) => {
     .texture("society:item/sun_candy")
     .rarity("epic")
     .food((food) => {
-      food.hunger(2);
+      food.nutrition(2);
       food.saturation(14);
       food.effect("minecraft:strength", 3000, 0, 1.0);
       food.effect("farm_and_charm:sweets", 3000, 2, 1.0);
@@ -661,7 +611,7 @@ StartupEvents.registry("item", (e) => {
     .texture("society:item/magic_rock_candy")
     .rarity("epic")
     .food((food) => {
-      food.hunger(20);
+      food.nutrition(20);
       food.saturation(20);
       food.effect("minecraft:haste", 6000, 2, 1.0);
       food.effect("minecraft:luck", 6000, 2, 1.0);
@@ -742,7 +692,7 @@ StartupEvents.registry("item", (e) => {
   e.create("society:mayonnaise")
     .texture("society:item/mayo/mayonnaise")
     .food((food) => {
-      food.hunger(4);
+      food.nutrition(4);
       food.saturation(0.5);
       food.effect("minecraft:nausea", 600, 1, 1.0);
     })
@@ -753,7 +703,7 @@ StartupEvents.registry("item", (e) => {
     .texture("society:item/mayo/large_mayonnaise")
     .tag("society:large_mayonnaise")
     .food((food) => {
-      food.hunger(8);
+      food.nutrition(8);
       food.saturation(0.5);
       food.effect("minecraft:nausea", 1200, 1, 1.0);
     })
@@ -784,7 +734,7 @@ StartupEvents.registry("item", (e) => {
       .texture(`society:item/mayo/${egg}_mayonnaise`)
       .tag("society:small_mayonnaise")
       .food((food) => {
-        food.hunger(4);
+        food.nutrition(4);
         food.saturation(0.5);
         food.effect("minecraft:nausea", 600, 1, 1.0);
       });
@@ -793,7 +743,7 @@ StartupEvents.registry("item", (e) => {
         .texture(`society:item/mayo/large_${egg}_mayonnaise`)
         .tag("society:large_mayonnaise")
         .food((food) => {
-          food.hunger(8);
+          food.nutrition(8);
           food.saturation(0.5);
           food.effect("minecraft:nausea", 1200, 1, 1.0);
         });
@@ -820,7 +770,7 @@ StartupEvents.registry("item", (e) => {
     e.create(`society:${item}`)
       .texture(`society:item/husbandry/${item}`)
       .food((food) => {
-        food.hunger(item.includes("large") ? 5 : 1);
+        food.nutrition(item.includes("large") ? 5 : 1);
         food.saturation(1);
         food.effect("farm_and_charm:grandmas_blessing", 200, 0, 1.0);
         food.alwaysEdible(true);
@@ -898,7 +848,7 @@ StartupEvents.registry("item", (e) => {
       .texture(texturePath)
       .color(0, 0xd8f266)
       .food((food) => {
-        food.hunger(4);
+        food.nutrition(4);
         food.saturation(1);
         food.effect("farmersdelight:nourishment", 600, 1, 1.0);
       });
@@ -909,9 +859,9 @@ StartupEvents.registry("item", (e) => {
       e.create(`society:${jar.item.path}`)
         .texture(`society:item/preserves/${jar.item.path}`)
         .food((food) => {
-          food.hunger(5);
+          food.nutrition(5);
           food.saturation(1);
-          food.fastToEat(true);
+          food.fastToEat();
           food.effect("farm_and_charm:grandmas_blessing", 6000, 1, 1.0);
         });
     }
@@ -922,9 +872,9 @@ StartupEvents.registry("item", (e) => {
       .texture(`society:item/dried/${dried.item.path}`)
       .tag("society:dehydrated")
       .food((food) => {
-        food.hunger(9);
+        food.nutrition(9);
         food.saturation(0.5);
-        food.fastToEat(true);
+        food.fastToEat();
       });
   });
   const ageableProductsTextureMap = [
@@ -986,7 +936,8 @@ StartupEvents.registry("item", (e) => {
     },
   ];
 
-  global.ageableProductInputs.forEach((product) => {
+  // Defined by customMachines/agingCask.js, which is not ported yet.
+  (global.ageableProductInputs || []).forEach((product) => {
     const splitProduct = product.item.split(":");
     let texturePath = `${splitProduct[0]}:item/${splitProduct[1]}`;
     ageableProductsTextureMap.find((e) => {
@@ -1138,7 +1089,7 @@ StartupEvents.registry("item", (e) => {
       .tag("forge:cooked_fishes")
       .tag("society:smoked_fish")
       .food((food) => {
-        food.hunger(3);
+        food.nutrition(3);
         food.saturation(2);
       });
     const roeHex = fishRoeMapping.find((val) => val.item === fish.item)?.hex;
@@ -1151,7 +1102,7 @@ StartupEvents.registry("item", (e) => {
       .tag("society:aged_roe")
       .color(0, roeHex)
       .food((food) => {
-        food.hunger(5);
+        food.nutrition(5);
         food.saturation(2);
       });
     e.create(`society:${fishId}_bait`)

@@ -62,7 +62,8 @@ jobs:
       - name: Boot a NeoForge server with the pack and the mod
         run: |
           JAR=$(ls build/mod/sunlitidle-*.jar | grep -v -- '-sources' | head -n1)
-          python3 tools/port/server_boot_test.py --dir build/server --extra-mod "$JAR"
+          python3 tools/port/server_boot_test.py --dir build/server --extra-mod "$JAR" --kubejs-tests tools/port/kubejs_tests
+          # KubeJS must load without errors and the KubeJS tests must pass (the script fails otherwise).
           # The mod must have loaded, and Pufferfish's Skills must have accepted its skill categories.
           grep -q "sunlitidle" build/server/logs/latest.log
           if grep -q "Data pack \`sunlitidle\` could not be loaded" build/server/logs/latest.log; then

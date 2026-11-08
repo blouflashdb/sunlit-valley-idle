@@ -78,82 +78,75 @@ StartupEvents.registry("block", (event) => {
     .soundType("stone")
     .tagBlock("minecraft:mineable/pickaxe")
     .tagBlock("minecraft:needs_stone_tool")
+    // Blockstate: client_scripts/machineBlockstates.js. Models and textures: see docs/porting-1.21.1.md.
+    .parentModel("society:block/kubejs/crystalarium/crystalarium")
     .item((item) => {
       item.tooltip(Text.translatable("block.society.crystalarium.description").gray());
-      item.modelJson({
-        parent: "society:block/kubejs/crystalarium/crystalarium",
-      });
+      item.parentModel("society:block/kubejs/crystalarium/crystalarium");
     })
     .defaultState((state) => {
       state
         .set(booleanProperty.create("working"), false)
         .set(booleanProperty.create("mature"), false)
-        .set(booleanProperty.create("upgraded"), false)
+        .set(booleanProperty.create("upgraded"), false);
     })
     .placementState((state) => {
       state
         .set(booleanProperty.create("working"), false)
         .set(booleanProperty.create("mature"), false)
-        .set(booleanProperty.create("upgraded"), false)
+        .set(booleanProperty.create("upgraded"), false);
     })
     .rightClick((click) => {
       const { player, item, block, hand, level } = click;
       if (player.isFake()) return;
-      const upgraded = block.properties.get("upgraded").toLowerCase() == "true";
-      if (hand == "OFF_HAND") return;
-      if (hand == "MAIN_HAND") {
-        if (!upgraded && item == "society:black_opal") {
-          if (!player.isCreative()) item.count--;
-          level.spawnParticles(
-            "farmersdelight:star",
-            true,
-            block.x,
-            block.y + 1,
-            block.z,
-            0.2 * rnd(1, 2),
-            0.2 * rnd(1, 2),
-            0.2 * rnd(1, 2),
-            3,
-            0.01
-          );
-          block.set(block.id, {
-            facing: block.properties.get("facing"),
-            working: block.properties.get("working"),
-            mature: block.properties.get("mature"),
-            upgraded: true,
-          });
-        }
+      if (String(hand) !== "MAIN_HAND") return;
+      const upgraded = global.isBlockPropertyTrue(block, "upgraded");
+      if (!upgraded && String(item.id) === "society:black_opal") {
+        if (!player.isCreative()) item.count--;
+        level.spawnParticles(
+          "farmersdelight:star",
+          true,
+          block.x,
+          block.y + 1,
+          block.z,
+          0.2 * rnd(1, 2),
+          0.2 * rnd(1, 2),
+          0.2 * rnd(1, 2),
+          3,
+          0.01
+        );
+        block.set(block.id, {
+          facing: global.getBlockProperty(block, "facing"),
+          working: global.getBlockProperty(block, "working"),
+          mature: global.getBlockProperty(block, "mature"),
+          upgraded: true,
+        });
       }
 
       global.convertFromLegacy(global.crystalariumCrystals, level, block);
 
-      if (upgraded && block.properties.get("mature") === "true" && rnd10()) {
-        let nbt = block.getEntityData();
-        let recipeId = nbt.data.recipe;
-        let recipe = recipeId ? global.crystalariumCrystals.get(recipeId) : null;
+      // Upgraded: 10% chance for a pristine gem on harvest
+      if (upgraded && global.isBlockPropertyTrue(block, "mature") && rnd10()) {
+        let recipe = global.crystalariumCrystals.get(global.getMachineString(block, "recipe"));
         if (recipe && recipe.output) {
-          recipe.output.forEach((item) => {
-            let pristinePath = String(Item.of(item).id).split(":")[1];
+          recipe.output.forEach((output) => {
+            let pristinePath = String(Item.of(output).id).split(":")[1];
             if (pristinePath) {
-              block.popItemFromFace(`society:pristine_${pristinePath}`, block.properties.get("facing").toLowerCase());
+              block.popItemFromFace(`society:pristine_${pristinePath}`, global.getBlockProperty(block, "facing"));
             }
-          })
+          });
         }
       }
 
-      global.handleBERightClick(
-        "minecraft:block.amethyst_block.step",
-        click,
-        global.crystalariumCrystals,
-        5
-      );
+      global.handleBERightClick("minecraft:block.amethyst_block.step", click, global.crystalariumCrystals, 5);
     })
     .blockEntity((blockInfo) => {
       blockInfo.initialData({ stage: 0, recipe: "" });
-      blockInfo.serverTick(artMachineTickRate, 0, (entity) => {
-        global.handleBETick(entity, global.crystalariumCrystals, 5);
-      });
-    }).blockstateJson = {
-    multipart: getCardinalMultipartJson("crystalarium"),
-  };
+      blockInfo.serverTicking();
+      blockInfo.tickFrequency(artMachineTickRate);
+    });
+});
+
+global.registerMachineTick("society:crystalarium", (event) => {
+  global.handleBETick(event, global.crystalariumCrystals, 5);
 });

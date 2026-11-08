@@ -388,13 +388,7 @@ ServerEvents.recipes((e) => {
     M: "farmersdelight:rich_soil",
   });
   // Battery
-  e.shaped("society:crystalarium", ["III", "SDS", "ibi"], {
-    D: "minecraft:diamond_block",
-    S: "minecraft:netherite_ingot",
-    b: "society:battery",
-    I: "oreganized:lead_ingot",
-    i: "oreganized:lead_block",
-  });
+  // society:crystalarium is ported: kubejs/server_scripts/recipes/addMiscRecipes.js
   e.shaped("society:espresso_machine", ["iii", "ltl", "bib"], {
     t: "herbalbrews:tea_kettle",
     l: "minecraft:lime_dye",
