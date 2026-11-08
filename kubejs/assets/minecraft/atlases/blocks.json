@@ -2602,6 +2602,11 @@
     },
     {
       "type": "single",
+      "resource": "minecraft:item/milk_bucket",
+      "sprite": "society:item/steamed_milk"
+    },
+    {
+      "type": "single",
       "resource": "minecraft:item/dragon_breath",
       "sprite": "society:item/drinks/forks_of_blue"
     },

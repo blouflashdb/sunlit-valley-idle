@@ -151,6 +151,24 @@ StartupEvents.registry("item", (e) => {
       food.fastToEat();
       food.effect("minecraft:resistance", 1200, 0, 1.0);
     });
+  // Espresso Machine outputs. On 1.20.1 these were placeable cups (registerBlocks.js); for now they are items.
+  e.create("society:espresso")
+    .texture("society:item/drinks/espresso")
+    .food((food) => {
+      food.nutrition(0);
+      food.saturation(0);
+      food.alwaysEdible();
+      food.effect("minecraft:speed", 2400, 1, 1.0);
+    })
+    .useAnimation("drink");
+  e.create("society:steamed_milk")
+    .texture("society:item/steamed_milk")
+    .food((food) => {
+      food.nutrition(2);
+      food.saturation(4);
+      food.alwaysEdible();
+    })
+    .useAnimation("drink");
   e.create("society:ancient_juice")
     .texture("society:item/drinks/ancient_juice")
     .food((food) => {

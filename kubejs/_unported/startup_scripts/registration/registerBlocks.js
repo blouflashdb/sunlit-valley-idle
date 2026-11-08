@@ -329,7 +329,8 @@ StartupEvents.registry("block", (e) => {
       },
     },
   };
-  // Drinks
+  // Drinks. society:espresso and society:steamed_milk are registered as items in registration/registerItems.js;
+  // remove them here when the drink blocks are ported.
   e.create("society:espresso")
     .box(6, 0, 6, 10, 4, 10)
     .defaultCutout()
