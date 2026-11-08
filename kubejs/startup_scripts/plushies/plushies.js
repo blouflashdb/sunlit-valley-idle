@@ -5,7 +5,7 @@ console.info("[SOCIETY] plushies.js loaded");
 // original plushies are removed items (globalRemovedItems.js); the adv_ ones come from Plushie Capsules.
 // Right-click a placed plushie with the item it asks for to raise its affection. The item form keeps the data in
 // custom data (1.20.1: item NBT), the rarity (quality) too, since Quality Food only takes food items. Events:
-// server_scripts/blockEvents/plushieEvents.js. Storing an animal in a plushie (Sunlit Crystal) is not ported yet.
+// server_scripts/blockEvents/plushieEvents.js. Animals in plushies: plushieHusbandry.js.
 
 const $PlushieDataComponents = Java.loadClass("net.minecraft.core.component.DataComponents");
 const $PlushieCustomData = Java.loadClass("net.minecraft.world.item.component.CustomData");
@@ -121,6 +121,7 @@ global.getPlushieBlockData = (block) => ({
   quest_id: global.getMachineInt(block, "quest_id"),
   affection: global.getMachineInt(block, "affection"),
   quality: global.getMachineInt(block, "quality"),
+  animal: global.getMachineString(block, "animal"),
 });
 
 /** The plushie data of a plushie item, or null when it has none (a plain plushie from a recipe or creative). */
@@ -134,6 +135,7 @@ global.getPlushieItemData = (stack) => {
     quest_id: Number(tag.getInt("quest_id")),
     affection: Number(tag.getInt("affection")),
     quality: tag.contains("quality") ? Number(tag.getInt("quality")) : global.getItemQuality(stack),
+    animal: tag.contains("animal") ? String(tag.getString("animal")) : "",
   };
 };
 
@@ -142,6 +144,7 @@ global.plushieItem = (id, values, count) => {
   let stack = Item.of(id, count || 1);
   let tag = new $PlushieCompoundTag();
   ["type", "quest_id", "affection", "quality"].forEach((key) => tag.putInt(key, Math.floor(Number(values[key]) || 0)));
+  if (values.animal) tag.putString("animal", String(values.animal));
   stack.set($PlushieDataComponents.CUSTOM_DATA, $PlushieCustomData.of(tag));
   return stack;
 };
@@ -225,6 +228,7 @@ StartupEvents.registry("block", (event) => {
       .defaultCutout()
       .box(2, 0, 2, 14, 14, 14)
       .tagBlock("minecraft:mineable/axe")
+      .tagBlock("society:plushies")
       .tagItem("society:plushies")
       .soundType("wool")
       .hardness(1.0)
@@ -234,7 +238,7 @@ StartupEvents.registry("block", (event) => {
       .parentModel(modelPath)
       .item((item) => item.parentModel(modelPath))
       .blockEntity((blockInfo) => {
-        blockInfo.initialData({ type: 0, quest_id: 0, quality: 0, affection: 0 });
+        blockInfo.initialData({ type: 0, quest_id: 0, quality: 0, affection: 0, animal: "" });
       });
   });
 });

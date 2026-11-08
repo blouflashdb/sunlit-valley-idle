@@ -8,7 +8,8 @@ console.info("[SOCIETY] globalAnimalHandlers.js loaded");
  *   with putInt/putBoolean, so 1.20.1 worlds would keep their values (the keys are the same).
  * - Animals from mods that are not in the 1.21.1 pack are skipped (global.entityExists) and drops of items that do
  *   not exist are skipped (global.itemExists).
- * - Plushie husbandry (an animal stored in a plushie) is not ported yet; the plushie code paths are gone.
+ * - Plushie husbandry rolls on an animal entity that is not in the world (startup_scripts/plushies/plushieHusbandry.js);
+ *   it carries the "plushie" flag, which gives the best mood.
  * - Messages go to the action bar instead of the Ember's Text API / Paint overlays.
  */
 
@@ -153,7 +154,7 @@ global.getMilk = (level, target, player, day, raiseAffection, stages) => {
  * the day, or returns an empty array when the animal already dropped today.
  * @param {Internal.Player|null} player a real or fake player (Auto-Petter), or null (Auto-Grabber)
  */
-global.rollSpecialDrops = (level, target, player, stages) => {
+global.rollSpecialDrops = (level, target, player, stages, chanceBonus) => {
   const day = global.getDay(level);
   const data = target.persistentData;
   const ageLastDroppedSpecial = global.animalInt(data, "ageLastDroppedSpecial");
@@ -165,7 +166,7 @@ global.rollSpecialDrops = (level, target, player, stages) => {
   const mood = global.getOrFetchMood(level, target, day, player);
   const drops = [];
   const roll = (chance, minHearts, count, itemId, hasQuality) => {
-    if (hungry || hearts < minHearts || Math.random() > chance || !global.itemExists(itemId)) return;
+    if (hungry || hearts < minHearts || Math.random() > chance + (chanceBonus || 0) || !global.itemExists(itemId)) return;
     if (String(itemId).includes("large") && Math.random() > (mood + hearts * 10) / 256) return;
     const quality = hasQuality && mood >= 160 ? global.getHusbandryQuality(hearts, mood) : 0;
     drops.push(animalStack(count, itemId, quality));
@@ -235,7 +236,7 @@ global.getMagicShearsOutput = (level, target, player, stages) => {
   }
   if (stages.has("heretic")) {
     loot.push(Item.of("society:sparkstone", 3));
-    if (player) {
+    if (player && !global.animalFlag(data, "plushie")) {
       target.attack(2);
       global.addAffection(data, -20);
     }
@@ -268,8 +269,8 @@ const countNearbyTaggedBlocks = (level, target, radius, tag) => {
  * @param disregardPet ignore "not pet today" (used while petting)
  */
 global.getOrFetchMood = (level, target, day, player, debugMood, disregardPet) => {
-  if (global.checkEntityTag(target, "society:pet_animal")) return 256;
   const data = target.persistentData;
+  if (global.checkEntityTag(target, "society:pet_animal") || global.animalFlag(data, "plushie")) return 256;
   const type = global.entityTypeId(target);
   const tell = (text) => {
     if (debugMood && player) player.tell(text);
