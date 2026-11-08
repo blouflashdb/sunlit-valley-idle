@@ -22,6 +22,9 @@ CROPS = {
     "vintagedelight:block/cucumber_stage": (6, "carrots", 4),
     "vintagedelight:block/ghost_pepper_stage": (6, "potatoes", 4),
 }
+# Mystical flower crops (Botania Seeds, #14): three young stages, then the Botania flower itself.
+MYSTICAL_COLORS = ["white", "orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray", "light_gray", "cyan",
+                   "purple", "blue", "brown", "green", "red", "black"]
 BUSHES = {
     "society:block/kubejs/berry_bush/base": "minecraft:block/sweet_berry_bush_stage1",
     "society:block/kubejs/berry_bush/salmonberry": "minecraft:block/sweet_berry_bush_stage3",
@@ -48,6 +51,13 @@ def main():
             vanilla_stage = round(stage * (vanilla_stages - 1) / (stages - 1))
             write(f"{prefix}{stage}", {"parent": "minecraft:block/crop",
                                        "textures": {"crop": f"minecraft:block/{vanilla}_stage{vanilla_stage}"}})
+    for color in MYSTICAL_COLORS:
+        prefix = f"botania_seeds:block/{color}_mystical_flower_stage"
+        for stage in range(3):
+            write(f"{prefix}{stage}", {"parent": "minecraft:block/crop",
+                                       "textures": {"crop": f"minecraft:block/carrots_stage{stage}"}})
+        write(f"{prefix}3", {"parent": "minecraft:block/cross",
+                             "textures": {"cross": f"botania:block/{color}_mystical_flower"}})
     for model, texture in BUSHES.items():
         write(model, {"parent": "minecraft:block/cross", "textures": {"cross": texture}})
 

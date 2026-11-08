@@ -39,7 +39,7 @@
 				""
 				"{ftbquests.chapter.botania.quest44C80D7C3D2B11E8.description2}"
 			]
-			icon: "botania_seeds:white_mystical_flower_seed"
+			icon: "botania_seeds:white_mystical_flower_seeds"
 			id: "44C80D7C3D2B11E8"
 			rewards: [{
 				id: "7A60653ECC43AFA3"
@@ -332,7 +332,7 @@
 			rewards: [{
 				count: 8
 				id: "3B8818DAAD40E9F6"
-				item: "botania_seeds:white_mystical_flower_seed"
+				item: "botania_seeds:white_mystical_flower_seeds"
 				type: "item"
 			}]
 			tasks: [{
