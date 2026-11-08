@@ -2,7 +2,7 @@
 // artisan insert/harvest, ticks, multipart blockstates, rnd helpers) is ported in
 // kubejs/startup_scripts/globalBlockEntityHandlers.js; move the rest there with the slice that needs it.
 /* eslint-disable no-unused-vars */
-// Priority: 1000
+// priority: 1000
 const CropGrowthUtils = Java.loadClass(
   "cool.bot.dewdropfarmland.utils.CropHandlerUtils"
 );

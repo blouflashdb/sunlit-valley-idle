@@ -70,9 +70,9 @@ crystals.forEach((crystal) => {
 StartupEvents.registry("block", (event) => {
   event
     .create("society:crystalarium", "cardinal")
-    .property(booleanProperty.create("working"))
-    .property(booleanProperty.create("mature"))
-    .property(booleanProperty.create("upgraded"))
+    .property(workingProperty)
+    .property(matureProperty)
+    .property(upgradedProperty)
     .box(2, 0, 2, 14, 16, 14)
     .defaultCutout()
     .soundType("stone")
@@ -86,15 +86,15 @@ StartupEvents.registry("block", (event) => {
     })
     .defaultState((state) => {
       state
-        .set(booleanProperty.create("working"), false)
-        .set(booleanProperty.create("mature"), false)
-        .set(booleanProperty.create("upgraded"), false);
+        .set(workingProperty, false)
+        .set(matureProperty, false)
+        .set(upgradedProperty, false);
     })
     .placementState((state) => {
       state
-        .set(booleanProperty.create("working"), false)
-        .set(booleanProperty.create("mature"), false)
-        .set(booleanProperty.create("upgraded"), false);
+        .set(workingProperty, false)
+        .set(matureProperty, false)
+        .set(upgradedProperty, false);
     })
     .rightClick((click) => {
       const { player, item, block, hand, level } = click;

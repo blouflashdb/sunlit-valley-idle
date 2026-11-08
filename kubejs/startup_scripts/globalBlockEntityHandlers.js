@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-// Priority: 1000
+// priority: 1000
 // Shared machine core, ported to KubeJS 7 (1.21.1). The rest of the 1.20.1 file (tapper, mushroom log,
 // inventories, fluids, crops, Skull Cavern) is still in kubejs/_unported/startup_scripts/globalBlockEntityHandlers.js
 // and moves here with the slice that needs it. See docs/porting-1.21.1.md.
@@ -14,6 +14,12 @@ const booleanProperty = Java.loadClass("net.minecraft.world.level.block.state.pr
 const integerProperty = Java.loadClass("net.minecraft.world.level.block.state.properties.IntegerProperty");
 
 const directionProperty = Java.loadClass("net.minecraft.world.level.block.state.properties.DirectionProperty");
+
+// KubeJS 7 matches block state properties by instance, so every machine must use these shared ones
+// (a second booleanProperty.create("working") is a different property and fails in defaultState).
+const workingProperty = booleanProperty.create("working");
+const matureProperty = booleanProperty.create("mature");
+const upgradedProperty = booleanProperty.create("upgraded");
 
 function rnd(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;

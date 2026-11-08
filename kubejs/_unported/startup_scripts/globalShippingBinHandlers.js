@@ -1,4 +1,4 @@
-// Priority: 1000
+// priority: 1000
 const calculateQualityValue = (number, quality, doubled) => {
   let value;
   if (quality) {

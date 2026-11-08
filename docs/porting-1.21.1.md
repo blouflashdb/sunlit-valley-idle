@@ -105,6 +105,16 @@ missing textures. That does not affect the server or the CI tests.
   press, mayonnaise machine, fish smoker or seed maker fills them in.
 - Strings still have `.namespace` and `.path` (`"society:opal".path === "opal"`).
 
+## Script headers and block properties
+
+- Script properties are case sensitive: `// priority: 1000`, not `// Priority: 1000`. A capitalised header
+  is ignored, the script loads with priority 0 and globals it defines are missing in earlier scripts. All
+  headers in the repository are already lowercase.
+- Block state properties are matched by instance. Use the shared `workingProperty`, `matureProperty` and
+  `upgradedProperty` from `globalBlockEntityHandlers.js` in `.property(...)`, `defaultState` and
+  `placementState`; a second `booleanProperty.create("working")` fails with "Cannot set property ... as it
+  does not exist".
+
 ## Events and objects
 
 - Compare enums as strings: `String(hand) === "MAIN_HAND"`, not `hand == "MAIN_HAND"`.

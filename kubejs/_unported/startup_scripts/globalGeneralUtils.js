@@ -1,4 +1,4 @@
-// Priority: 1000
+// priority: 1000
 const $CuriosApi = Java.loadClass("top.theillusivec4.curios.api.CuriosApi")
 
 global.getDay = (level) => Number((Math.floor(Number(level.dayTime() / 24000)) + 1).toFixed());

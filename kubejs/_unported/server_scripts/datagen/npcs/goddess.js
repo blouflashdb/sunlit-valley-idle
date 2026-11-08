@@ -1,6 +1,6 @@
 
 if (global.datagenDialog) {
-    // Priority: -100
+    // priority: -100
     if (global.datagenDialog) {
         runNpcDatagen("goddess", {
             name: "Selene",
