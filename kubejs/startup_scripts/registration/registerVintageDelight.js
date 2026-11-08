@@ -96,7 +96,11 @@ global.vintageDelightSaltLamps = [
 ];
 
 StartupEvents.registry("item", (e) => {
-  global.vintageDelightFoods.forEach(([id, nutrition, saturation, options]) => {
+  global.vintageDelightFoods.forEach((entry) => {
+    let id = entry[0];
+    let nutrition = entry[1];
+    let saturation = entry[2];
+    let options = entry[3];
     let builder = e.create(`${VD}:${id}`);
     builder.food((food) => {
       food.nutrition(nutrition);
@@ -159,7 +163,10 @@ StartupEvents.registry("block", (e) => {
   [
     ["cucumber", 5, 2],
     ["ghost_pepper", 5, 2],
-  ].forEach(([id, age, count]) => {
+  ].forEach((crop) => {
+    let id = crop[0];
+    let age = crop[1];
+    let count = crop[2];
     e.create(`${VD}:${id}`, "crop")
       .age(age)
       .survive((state, level, pos) => global.surviveCheck(level, pos))

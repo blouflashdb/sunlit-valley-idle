@@ -59,7 +59,9 @@ ServerEvents.recipes((e) => {
     ["ghost_pepper_crate", "ghost_pepper"],
     ["peanut_crate", "peanut"],
     ["gearo_berry_bag", "gearo_berry"],
-  ].forEach(([block, item]) => {
+  ].forEach((pair) => {
+    let block = pair[0];
+    let item = pair[1];
     shaped(`${VD}:${block}`, ["###", "###", "###"], { "#": `${VD}:${item}` });
     shapeless(`9x ${VD}:${item}`, [`${VD}:${block}`]);
   });
@@ -79,7 +81,9 @@ ServerEvents.recipes((e) => {
     ["light_blue", "minecraft:light_blue_dye"],
     ["pink", "minecraft:pink_dye"],
     ["purple", "minecraft:purple_dye"],
-  ].forEach(([color, dye]) => {
+  ].forEach((pair) => {
+    let color = pair[0];
+    let dye = pair[1];
     shapeless(`${VD}:salt_lamp_${color}`, [`${VD}:salt_lamp_default`, dye]);
   });
 

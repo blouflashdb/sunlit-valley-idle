@@ -169,6 +169,8 @@ mod that also runs on the server.
 
 - Prefer `let` over `const` inside blocks (`if`, `try`, loops). Rhino can reject a block-level `const` with
   "redeclaration of var".
+- No destructuring in parameters: `list.forEach(([id, count]) => ...)` is a startup script syntax error that
+  stops the game from loading. Take the array and index it (`(entry) => { let id = entry[0]; ... }`).
 - Compare enums as strings: `String(hand) === "MAIN_HAND"`, not `hand == "MAIN_HAND"`.
 - Compare items by id: `String(item.id) === "society:black_opal"`, not `item == "society:black_opal"`.
 - `player.isFake()`, `level.spawnParticles(...)`, `block.popItemFromFace(...)`, `block.set(id, props)`,
