@@ -9,7 +9,7 @@ ServerEvents.loaded((event) => {
   let spawn = level.getSharedSpawnPos();
   let bx = spawn.x + 8;
   let bz = spawn.z - 12;
-  let y = 320;
+  let y = 310; // the build limit is 319
   let check = (ok, message) => {
     if (!ok) throw new Error(message);
   };
