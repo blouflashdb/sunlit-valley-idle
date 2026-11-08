@@ -15,6 +15,7 @@ CROPS = {
     "society:block/kubejs/crops/cranberry_crop_stage": (6, "beetroots", 4),
     "society:block/kubejs/crops/eggplant_crop_stage": (5, "potatoes", 4),
     "society:block/kubejs/crops/hops_crop_stage": (5, "wheat", 8),
+    "society:block/kubejs/crops/mana_fruit_crop_stage": (6, "beetroots", 4),
     "society:block/kubejs/crops/sparkpod_crop_stage": (5, "carrots", 4),
     "society:block/kubejs/crops/tubabacco_plant_stage": (5, "wheat", 8),
     "vintagedelight:block/peanuts_stage": (5, "potatoes", 4),

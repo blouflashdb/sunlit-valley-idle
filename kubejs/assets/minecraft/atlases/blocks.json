@@ -2132,6 +2132,11 @@
     },
     {
       "type": "single",
+      "resource": "minecraft:item/pitcher_pod",
+      "sprite": "society:item/mana_fruit_seed"
+    },
+    {
+      "type": "single",
       "resource": "minecraft:item/paper",
       "sprite": "society:item/tubasmoke_carton"
     },

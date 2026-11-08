@@ -187,3 +187,24 @@ BlockEvents.blockEntityTick("society:plort_ripper", (entity) => {
 BlockEvents.blockEntityTick("society:plort_press", (entity) => {
   global.runPlortPress(entity);
 });
+
+// Mana machines (#14): startup_scripts/mana/manaMachines.js. They take mana from a Botania pool next to them.
+BlockEvents.blockEntityTick("society:mana_fruit_crop", (entity) => {
+  global.runManaFruit(entity, false);
+});
+
+BlockEvents.blockEntityTick("society:mana_sprinkler", (entity) => {
+  global.runManaSprinkler(entity);
+});
+
+BlockEvents.blockEntityTick("society:mana_milker", (entity) => {
+  global.runManaMilker(entity);
+});
+
+BlockEvents.blockEntityTick("society:mana_clock", (entity) => {
+  global.runManaClock(entity);
+});
+
+BlockEvents.blockEntityTick("society:sparkstone_recycler", (entity) => {
+  global.runSparkstoneRecycler(entity);
+});

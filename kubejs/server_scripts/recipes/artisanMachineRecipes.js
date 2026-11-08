@@ -256,5 +256,35 @@ ServerEvents.recipes((e) => {
     i: "minecraft:iron_ingot",
   });
 
+  // Mana machines (#14)
+  shaped("society:mana_milker", ["rtr", "nMn", "lTl"], {
+    r: "botania:rune_earth",
+    t: "society:botanical_tribute",
+    n: "botania:terrasteel_nugget",
+    M: "society:milk_pail",
+    l: "botania:livingwood_log",
+    T: "botania:mana_tablet",
+  });
+  shaped("society:mana_sprinkler", ["lil", "iSi", "lPl"], {
+    i: "botania:manasteel_ingot",
+    S: "dew_drop_farmland_growth:gold_sprinkler",
+    l: "botania:livingwood_log",
+    P: "botania:pump",
+  });
+  shaped("society:mana_clock", ["mrm", "ncn", "mTm"], {
+    r: "botania:rune_sloth",
+    T: "botania:terrasteel_ingot",
+    m: "botania:manasteel_block",
+    c: "minecraft:clock",
+    n: "minecraft:netherite_ingot",
+  });
+  shaped("society:sparkstone_recycler", ["mrm", "ncn", "mTm"], {
+    r: "botania:rune_greed",
+    T: "botania:mana_pylon",
+    m: "society:botanical_tribute",
+    c: "botania:life_essence",
+    n: "botania:dragonstone",
+  });
+
   if (skipped.length > 0) console.info(`[SOCIETY] Artisan machine recipes skipped: ${skipped.join("; ")}`);
 });
