@@ -16,10 +16,10 @@ global.getArtisanProgressText = (block) => {
     duration = machine.stageCount;
   } else {
     if (recipeId === "" || typeof machine.recipes === "string") return null;
-    const recipe = machine.recipes.get(recipeId);
-    if (!recipe || !global.itemExists(recipe.output[0])) return null;
-    outputId = String(Item.of(recipe.output[0]).id);
-    duration = recipe.time || machine.stageCount;
+    let progressRecipe = machine.recipes.get(recipeId);
+    if (!progressRecipe || !global.itemExists(progressRecipe.output[0])) return null;
+    outputId = String(Item.of(progressRecipe.output[0]).id);
+    duration = progressRecipe.time || machine.stageCount;
   }
   if (id === "society:aging_cask" && upgraded) duration = duration / 2;
   const pipCount = working ? Math.round(duration) : machine.maxInput;
