@@ -2571,6 +2571,91 @@
       "sprite": "vintagedelight:block/evaporator"
     },
     {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/drinks/ancient_cider"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dragon_breath",
+      "sprite": "society:item/drinks/ancient_vespertine"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/drinks/beer_attunecore"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/drinks/beer_london"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/experience_bottle",
+      "sprite": "society:item/drinks/dewy_star"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/drinks/espresso"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dragon_breath",
+      "sprite": "society:item/drinks/forks_of_blue"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dragon_breath",
+      "sprite": "society:item/drinks/good_catawba"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dragon_breath",
+      "sprite": "society:item/drinks/laputa_franc"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/experience_bottle",
+      "sprite": "society:item/drinks/mana_king"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/drinks/nutty_basil"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/experience_bottle",
+      "sprite": "society:item/drinks/sparkling_le_roy"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/experience_bottle",
+      "sprite": "society:item/drinks/star_coquito"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/experience_bottle",
+      "sprite": "society:item/drinks/starcardi"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dragon_breath",
+      "sprite": "society:item/drinks/violet_moon"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/stripped_dark_oak_log",
+      "sprite": "society:block/treated_log"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/stripped_dark_oak_log_top",
+      "sprite": "society:block/treated_log_top"
+    },
+    {
       "type": "directory",
       "source": "item",
       "prefix": "item/"

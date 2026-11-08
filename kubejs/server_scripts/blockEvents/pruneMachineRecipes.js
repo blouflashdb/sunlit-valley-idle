@@ -17,4 +17,16 @@ ServerEvents.loaded(() => {
   prune("Preserves Jar", global.preservesJarRecipes, (recipe) => recipe.output);
   prune("Pickling Can", global.picklingRecipes, (recipe) => [recipe.pickle]);
   prune("Crystalarium", global.crystalariumCrystals, (recipe) => recipe.output);
+  prune("Wine Keg", global.wineKegRecipes, (recipe) => recipe.output);
+  prune("Aging Cask", global.agingCaskRecipes, (recipe) => recipe.output);
+  prune("Ancient Cask", global.ancientCaskRecipes, (recipe) => recipe.output);
+  prune("Bait Maker", global.baitMakerRecipes, (recipe) => recipe.output);
+  prune("Cheese Press", global.cheesePressRecipes, (recipe) => recipe.output);
+  prune("Dehydrator", global.dehydratorRecipes, (recipe) => recipe.output);
+  prune("Fish Smoker", global.fishSmokerRecipes, (recipe) => recipe.output);
+  prune("Loom", global.loomRecipes, (recipe) => recipe.output);
+  prune("Mayonnaise Machine", global.mayonnaiseMachineRecipes, (recipe) => recipe.output);
+  prune("Oil Maker", global.oilMakerRecipes, (recipe) => recipe.output);
+  prune("Recycling Machine", global.recyclingMachineRecipes, (recipe) => recipe.output);
+  prune("Seed Maker", global.seedMakerRecipes, (recipe) => recipe.output);
 });

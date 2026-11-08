@@ -1,0 +1,10 @@
+{
+  "parent": "society:block/kubejs/placeholder/machine",
+  "textures": {
+    "side": "minecraft:block/loom_side",
+    "front": "minecraft:block/loom_side",
+    "top": "minecraft:block/gold_block",
+    "bottom": "minecraft:block/loom_top",
+    "particle": "minecraft:block/loom_side"
+  }
+}

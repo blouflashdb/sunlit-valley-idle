@@ -1,29 +1,8 @@
 StartupEvents.registry("block", (e) => {
-  e
-    .create("society:treated_log")
-    .soundType("wood")
-    .property(BlockProperties.AXIS)
-    .placementState((e) => e.set(BlockProperties.AXIS, e.clickedFace.axis))
-    .hardness(1.0)
-    .resistance(1.0)
-    .requiresTool(false)
-    .tagBlock("minecraft:mineable/axe").blockstateJson = {
-    variants: {
-      "axis=x": {
-        model: "society:block/kubejs/treated_log_horizontal",
-        x: 90,
-        y: 90,
-      },
-      "axis=y": {
-        model: "society:block/kubejs/treated_log",
-      },
-      "axis=z": {
-        model: "society:block/kubejs/treated_log_horizontal",
-        x: 90,
-      },
-    },
-  };
+  // society:treated_log is ported: kubejs/startup_scripts/registration/registerBlocks.js
   // Ores
+  // NOTE: society:earth_crystal and society:fire_quartz are registered as plain items in
+  // startup_scripts/registration/registerItems.js (#10). Remove those when porting these blocks.
   e.create("society:earth_crystal")
     .box(2, 0, 2, 14, 8, 14)
     .defaultCutout()
