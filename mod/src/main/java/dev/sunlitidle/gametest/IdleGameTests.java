@@ -37,7 +37,7 @@ public final class IdleGameTests {
 
     @GameTest(template = "empty")
     public static void catalogLoadsAllSkills(GameTestHelper helper) {
-        helper.assertTrue(IdleCatalog.skills().size() == 12, "expected 12 skills, got " + IdleCatalog.skills().size());
+        helper.assertTrue(IdleCatalog.skills().size() == 13, "expected 13 skills, got " + IdleCatalog.skills().size());
         for (IdleSkill skill : IdleCatalog.skills()) {
             // Smelting and Cooking are built from the server's recipes and checked in their own test.
             if (skill.usesRecipes()) {
@@ -127,6 +127,23 @@ public final class IdleGameTests {
         state.setSlotAction(0, "digging/sand");
         IdleEngine.advance(player, state, 60.0);
         helper.assertTrue(state.countOf(ResourceLocation.withDefaultNamespace("sand")) >= 5, "too little sand");
+        helper.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void slimeRanchingTurnsFoodIntoPlorts(GameTestHelper helper) {
+        ServerPlayer player = player(helper);
+        PlayerIdleState state = new PlayerIdleState();
+        state.setSlotAction(0, "slime_ranching/slimy");
+        IdleEngine.advance(player, state, 30.0);
+        helper.assertTrue(state.slotStatus(0) == SlotStatus.NO_INPUT, "slimes ate nothing: " + state.slotStatus(0));
+        state.store(new ItemStack(Items.SWEET_BERRIES, 3));
+        IdleEngine.advance(player, state, 60.0);
+        ResourceLocation plort = ResourceLocation.fromNamespaceAndPath("splendid_slimes", "plort_slimy");
+        helper.assertTrue(state.countOf(plort) >= 3, "too few slimy plorts: " + state.countOf(plort));
+        helper.assertTrue(state.countOf(ResourceLocation.withDefaultNamespace("sweet_berries")) == 0, "berries left");
+        IdleSkill slimes = IdleCatalog.skill("slime_ranching");
+        helper.assertTrue(SkillLevels.progress(player, state, slimes).xp() > 0, "no slime ranching XP");
         helper.succeed();
     }
 

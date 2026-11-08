@@ -1,17 +1,17 @@
 {
   "name": "Orby",
   "category": "patchouli:slimes",
-  "icon": "splendid_slimes:plort{plort:{id:\"splendid_slimes:orby\"}}",
+  "icon": "splendid_slimes:plort_orby",
+  "sortnum": 19,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "$(l)Locations:$()$(li)Structure: Ancient City$(br2)$(l)Risks:$()$(br)Has Strength I and causes the Darkness effect when upset. Makes other Slime's negative effects positive. Will hold an item given to it until killed/split."
+      "text": "$(l)Slime Ranching level:$() 9$(br2)$(l)Food:$() Raisins$(br)$(l)Favorite food (double plorts):$() Dried Shimmering Mushrooms$(br2)Rip its plorts in a Plort Ripper, or press 16 into a Slime Heart."
     },
     {
-      "type": "patchouli:entity",
-      "name": "Orby Slime",
-      "entity": "splendid_slimes:splendid_slime{Breed:\"splendid_slimes:orby\"}",
-      "scale": 0.9
+      "type": "patchouli:spotlight",
+      "item": "splendid_slimes:plort_orby,splendid_slimes:slime_heart_orby",
+      "title": "Orby Plort"
     }
   ]
 }

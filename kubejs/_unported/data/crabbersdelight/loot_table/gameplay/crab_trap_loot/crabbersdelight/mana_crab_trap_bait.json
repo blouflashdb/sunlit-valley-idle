@@ -120,14 +120,8 @@
         },
         {
           "type": "minecraft:item",
-          "name": "splendid_slimes:slime_heart",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "minecraft:set_nbt",
-              "tag": "{slime:{id:\"splendid_slimes:sparkcat\"}}"
-            }
-          ]
+          "name": "splendid_slimes:slime_heart_sparkcat",
+          "weight": 1
         }
       ]
     }

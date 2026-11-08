@@ -232,57 +232,22 @@ ItemEvents.tooltip((tooltip) => {
     });
   });
 
-  tooltip.addAdvanced("splendid_slimes:plort", (item, advanced, text) => {
-    let plortType;
-    let price;
-    if (item.nbt && item.nbt.plort) {
-      plortType = item.nbt.plort.id;
-    }
-    global.plorts.forEach((plort) => {
-      if (plort.type == plortType) price = plort.value;
+  // Plorts and Slime Hearts are one item per breed since #13.
+  const slimePriceTooltip = (id, price) => {
+    tooltip.addAdvanced(id, (item, advanced, text) => {
+      if (tooltip.shift) {
+        getStackBonusValueTooltips(text, price, item, "crop", 0);
+      } else {
+        text.add(1, [
+          Text.translatable("tooltip.society.coins", `${formatNumber(price, 0)}`).white(),
+          Text.of(" "),
+          Text.translatable("tooltip.society.hold_key", Text.translatable("key.keyboard.shift").gray()).darkGray(),
+        ]);
+      }
     });
-    if (tooltip.shift) {
-      getStackBonusValueTooltips(text, price, item, "crop", 0);
-    } else {
-      text.add(1, [
-        Text.translatable(
-          "tooltip.society.coins",
-          `${formatNumber(price, 0)}`
-        ).white(),
-        Text.of(" "),
-        Text.translatable(
-          "tooltip.society.hold_key",
-          Text.translatable("key.keyboard.shift").gray()
-        ).darkGray(),
-      ]);
-    }
-  });
-
-  tooltip.addAdvanced("splendid_slimes:slime_heart", (item, advanced, text) => {
-    let heartType;
-    let price;
-    if (item.nbt && item.nbt.slime) {
-      heartType = item.nbt.slime.id;
-    }
-    global.slimeHearts.forEach((heart) => {
-      if (heart.type == heartType) price = heart.value;
-    });
-    if (tooltip.shift) {
-      getStackBonusValueTooltips(text, price, item, "crop", 0);
-    } else {
-      text.add(1, [
-        Text.translatable(
-          "tooltip.society.coins",
-          `${formatNumber(price, 0)}`
-        ).white(),
-        Text.of(" "),
-        Text.translatable(
-          "tooltip.society.hold_key",
-          Text.translatable("key.keyboard.shift").gray()
-        ).darkGray(),
-      ]);
-    }
-  });
+  };
+  global.plorts.forEach((plort) => slimePriceTooltip(`splendid_slimes:plort_${plort.type}`, plort.value));
+  global.slimeHearts.forEach((heart) => slimePriceTooltip(`splendid_slimes:slime_heart_${heart.type}`, heart.value));
   const getLongwingTooltips = (item, text) => {
     let variant;
     let size = 1.0;

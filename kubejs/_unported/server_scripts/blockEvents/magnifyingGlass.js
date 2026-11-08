@@ -11,7 +11,6 @@ const magnifyingGlassBlocks = [
   { id: "society:fish_pond_basket", radius: { x: 1, y: 1, z: 1 }},
   { id: "society:fish_pond_hatchery", radius: { x: 1, y: 3, z: 1 }},
   { id: "society:feeding_trough", radius: { x: 6, y: 6, z: 6 }},
-  { id: "splendid_slimes:slime_feeder", radius: { x: 6, y: 6, z: 6 }},
   { id: "dew_drop_farmland_growth:iron_sprinkler", radius: { x: 1, y: 0, z: 1 }},
   { id: "dew_drop_farmland_growth:gold_sprinkler", radius: { x: 2, y: 0, z: 2 }},
   { id: "society:mana_sprinkler", radius: { x: 2, y: 0, z: 2 }},

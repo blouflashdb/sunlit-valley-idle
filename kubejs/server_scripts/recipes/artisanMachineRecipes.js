@@ -240,5 +240,21 @@ ServerEvents.recipes((e) => {
     m: "society:moth_pollen",
   });
 
+  // Slime Ranching (#13): the Splendid Slimes Plort Rippit and Plort Press recipes.
+  shaped("society:plort_ripper", ["iei", "sps", "III"], {
+    I: "minecraft:iron_block",
+    p: "splendid_slimes:plort_slimy",
+    s: "minecraft:slime_ball",
+    e: "society:battery",
+    i: "minecraft:iron_ingot",
+  });
+  shaped("society:plort_press", ["ipi", "apa", "ILI"], {
+    I: "minecraft:iron_block",
+    L: "society:battery",
+    p: "minecraft:piston",
+    a: "minecraft:netherite_ingot",
+    i: "minecraft:iron_ingot",
+  });
+
   if (skipped.length > 0) console.info(`[SOCIETY] Artisan machine recipes skipped: ${skipped.join("; ")}`);
 });

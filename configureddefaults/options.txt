@@ -242,7 +242,6 @@ key_key.retract:key.keyboard.down:NONE
 key_key.solonion.open_food_book:key.keyboard.unknown:NONE
 key_key.plonk.place:key.keyboard.p:NONE
 key_tooltipoverhaul.binds.compare_bind:key.keyboard.left.shift:NONE
-key_key.splendid_slimes.slime_vac_mode:key.keyboard.v:NONE
 key_key.mount_jump:key.keyboard.f7:NONE
 key_gnetum.config.keyMapping:key.keyboard.end:NONE
 key_treechop.key.toggle_chopping:key.keyboard.comma:NONE

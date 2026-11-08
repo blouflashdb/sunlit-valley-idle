@@ -82,14 +82,8 @@
         },
         {
           "type": "minecraft:item",
-          "name": "splendid_slimes:slime_heart",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "minecraft:set_nbt",
-              "tag": "{slime:{id:\"splendid_slimes:puddle\"}}"
-            }
-          ]
+          "name": "splendid_slimes:slime_heart_puddle",
+          "weight": 1
         }
       ]
     }

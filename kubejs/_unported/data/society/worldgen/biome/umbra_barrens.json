@@ -40,12 +40,6 @@
         "maxCount": 1,
         "minCount": 1,
         "weight": 25
-      },
-      {
-        "type": "splendid_slimes:splendid_slime",
-        "weight": 10,
-        "minCount": 1,
-        "maxCount": 4
       }
     ],
     "creature": [],

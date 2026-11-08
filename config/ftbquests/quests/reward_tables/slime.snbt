@@ -6,45 +6,25 @@
 		{
 			item: {
 				Count: 1
-				id: "splendid_slimes:slime_heart"
-				tag: {
-					slime: {
-						id: "splendid_slimes:rotting"
-					}
-				}
+				id: "splendid_slimes:slime_heart_rotting"
 			}
 		}
 		{
 			item: {
 				Count: 1
-				id: "splendid_slimes:slime_heart"
-				tag: {
-					slime: {
-						id: "splendid_slimes:dusty"
-					}
-				}
+				id: "splendid_slimes:slime_heart_dusty"
 			}
 		}
 		{
 			item: {
 				Count: 1
-				id: "splendid_slimes:slime_heart"
-				tag: {
-					slime: {
-						id: "splendid_slimes:bony"
-					}
-				}
+				id: "splendid_slimes:slime_heart_bony"
 			}
 		}
 		{
 			item: {
 				Count: 1
-				id: "splendid_slimes:slime_heart"
-				tag: {
-					slime: {
-						id: "splendid_slimes:webby"
-					}
-				}
+				id: "splendid_slimes:slime_heart_webby"
 			}
 		}
 		{ item: "splendid_slimes:slime_ticket" }

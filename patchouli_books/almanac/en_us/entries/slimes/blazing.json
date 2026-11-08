@@ -1,17 +1,17 @@
 {
   "name": "Blazing",
   "category": "patchouli:slimes",
-  "icon": "splendid_slimes:plort{plort:{id:\"splendid_slimes:blazing\"}}",
+  "icon": "splendid_slimes:plort_blazing",
+  "sortnum": 13,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "$(l)Locations:$()$(li)Biome: Blackstone Caves (Skull Cavern)$(li)Structure: Nether Fortress, Bastion chests, Nether Slime Spawners$(li)Dig spots: Nether blocks$(br2)$(l)Risks:$()$(br)Starts fires when hungry and increase fire damage when mad."
+      "text": "$(l)Slime Ranching level:$() 6$(br2)$(l)Food:$() Cooked Beef$(br)$(l)Favorite food (double plorts):$() Cooked Turkey$(br2)Rip its plorts in a Plort Ripper, or press 16 into a Slime Heart."
     },
     {
-      "type": "patchouli:entity",
-      "name": "Blazing Slime",
-      "entity": "splendid_slimes:splendid_slime{Breed:\"splendid_slimes:blazing\"}",
-      "scale": 0.9
+      "type": "patchouli:spotlight",
+      "item": "splendid_slimes:plort_blazing,splendid_slimes:slime_heart_blazing",
+      "title": "Blazing Plort"
     }
   ]
 }

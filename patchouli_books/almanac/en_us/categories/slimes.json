@@ -1,6 +1,5 @@
 {
-    "name": "Slimes",
-	"description": "Gives information on where to locate Splendid Slimes as well as risks when ranching. Some Slimes can only be obtained by crafting their Slime Hearts in a Plort Press. This is known as \"Heart Fusion\" in this section.",
-    "icon": "splendid_slimes:slime_heart{slime:{id:\"splendid_slimes:slimy\"}}",
-    "category": "patchouli:slimes"
+  "name": "Slimes",
+  "description": "The slime breeds of the Slime Ranching idle skill: the level that unlocks them, what they eat and their favorite food, which gives double plorts.",
+  "icon": "splendid_slimes:plort_slimy"
 }

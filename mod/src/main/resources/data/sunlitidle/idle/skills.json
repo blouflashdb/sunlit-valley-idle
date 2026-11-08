@@ -3135,6 +3135,903 @@
     "minecraft:campfire_cooking"
    ],
    "actions": []
+  },
+  {
+   "id": "slime_ranching",
+   "category": "sunlitidle:slime_ranching",
+   "icon": "splendid_slimes:plort_slimy",
+   "tool": "none",
+   "tool_required": false,
+   "actions": [
+    {
+     "id": "slimy",
+     "level": 0,
+     "seconds": 12.0,
+     "xp": 3,
+     "icon": "splendid_slimes:plort_slimy",
+     "inputs": [
+      {
+       "item": "minecraft:sweet_berries",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_slimy"
+      }
+     ]
+    },
+    {
+     "id": "slimy_treat",
+     "level": 0,
+     "seconds": 12.0,
+     "xp": 4,
+     "icon": "farm_and_charm:strawberry",
+     "inputs": [
+      {
+       "item": "farm_and_charm:strawberry",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_slimy",
+       "count": 2
+      }
+     ]
+    },
+    {
+     "id": "dusty",
+     "level": 0,
+     "seconds": 12.0,
+     "xp": 3,
+     "icon": "splendid_slimes:plort_dusty",
+     "inputs": [
+      {
+       "item": "minecraft:bone",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_dusty"
+      }
+     ]
+    },
+    {
+     "id": "dusty_treat",
+     "level": 0,
+     "seconds": 12.0,
+     "xp": 4,
+     "icon": "netherdepthsupgrade:bonefish",
+     "inputs": [
+      {
+       "item": "netherdepthsupgrade:bonefish",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_dusty",
+       "count": 2
+      }
+     ]
+    },
+    {
+     "id": "bony",
+     "level": 1,
+     "seconds": 14.0,
+     "xp": 5,
+     "icon": "splendid_slimes:plort_bony",
+     "inputs": [
+      {
+       "item": "society:milk",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_bony"
+      }
+     ]
+    },
+    {
+     "id": "bony_treat",
+     "level": 1,
+     "seconds": 14.0,
+     "xp": 8,
+     "icon": "society:large_sheep_milk",
+     "inputs": [
+      {
+       "item": "society:large_sheep_milk",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_bony",
+       "count": 2
+      }
+     ]
+    },
+    {
+     "id": "rotting",
+     "level": 1,
+     "seconds": 14.0,
+     "xp": 5,
+     "icon": "splendid_slimes:plort_rotting",
+     "inputs": [
+      {
+       "item": "minecraft:beef",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_rotting"
+      }
+     ]
+    },
+    {
+     "id": "rotting_treat",
+     "level": 1,
+     "seconds": 14.0,
+     "xp": 8,
+     "icon": "minecraft:chicken",
+     "inputs": [
+      {
+       "item": "minecraft:chicken",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_rotting",
+       "count": 2
+      }
+     ]
+    },
+    {
+     "id": "juicy",
+     "level": 2,
+     "seconds": 16.0,
+     "xp": 6,
+     "icon": "splendid_slimes:plort_juicy",
+     "inputs": [
+      {
+       "item": "vinery:red_grape",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_juicy"
+      }
+     ]
+    },
+    {
+     "id": "juicy_treat",
+     "level": 2,
+     "seconds": 16.0,
+     "xp": 9,
+     "icon": "vinery:jungle_grapes_red",
+     "inputs": [
+      {
+       "item": "vinery:jungle_grapes_red",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_juicy",
+       "count": 2
+      }
+     ]
+    },
+    {
+     "id": "webby",
+     "level": 2,
+     "seconds": 16.0,
+     "xp": 6,
+     "icon": "splendid_slimes:plort_webby",
+     "inputs": [
+      {
+       "item": "minecraft:carrot",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_webby"
+      }
+     ]
+    },
+    {
+     "id": "webby_treat",
+     "level": 2,
+     "seconds": 16.0,
+     "xp": 9,
+     "icon": "veggiesdelight:garlic",
+     "inputs": [
+      {
+       "item": "veggiesdelight:garlic",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_webby",
+       "count": 2
+      }
+     ]
+    },
+    {
+     "id": "luminous",
+     "level": 3,
+     "seconds": 18.0,
+     "xp": 7,
+     "icon": "splendid_slimes:plort_luminous",
+     "inputs": [
+      {
+       "item": "vintagedelight:pickled_beetroot",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_luminous"
+      }
+     ]
+    },
+    {
+     "id": "luminous_treat",
+     "level": 3,
+     "seconds": 18.0,
+     "xp": 10,
+     "icon": "vintagedelight:pickle",
+     "inputs": [
+      {
+       "item": "vintagedelight:pickle",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_luminous",
+       "count": 2
+      }
+     ]
+    },
+    {
+     "id": "mechanic",
+     "level": 3,
+     "seconds": 18.0,
+     "xp": 7,
+     "icon": "splendid_slimes:plort_mechanic",
+     "inputs": [
+      {
+       "item": "minecraft:iron_ingot",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_mechanic"
+      }
+     ]
+    },
+    {
+     "id": "mechanic_treat",
+     "level": 3,
+     "seconds": 18.0,
+     "xp": 10,
+     "icon": "oreganized:lead_ingot",
+     "inputs": [
+      {
+       "item": "oreganized:lead_ingot",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_mechanic",
+       "count": 2
+      }
+     ]
+    },
+    {
+     "id": "ender",
+     "level": 4,
+     "seconds": 20.0,
+     "xp": 9,
+     "icon": "splendid_slimes:plort_ender",
+     "inputs": [
+      {
+       "item": "minecraft:lapis_lazuli",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_ender"
+      }
+     ]
+    },
+    {
+     "id": "ender_treat",
+     "level": 4,
+     "seconds": 20.0,
+     "xp": 14,
+     "icon": "minecraft:amethyst_shard",
+     "inputs": [
+      {
+       "item": "minecraft:amethyst_shard",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_ender",
+       "count": 2
+      }
+     ]
+    },
+    {
+     "id": "boomcat",
+     "level": 4,
+     "seconds": 20.0,
+     "xp": 9,
+     "icon": "splendid_slimes:plort_boomcat",
+     "inputs": [
+      {
+       "item": "minecraft:porkchop",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_boomcat"
+      }
+     ]
+    },
+    {
+     "id": "boomcat_treat",
+     "level": 4,
+     "seconds": 20.0,
+     "xp": 14,
+     "icon": "untitledduckmod:cooked_duck",
+     "inputs": [
+      {
+       "item": "untitledduckmod:cooked_duck",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_boomcat",
+       "count": 2
+      }
+     ]
+    },
+    {
+     "id": "puddle",
+     "level": 5,
+     "seconds": 22.0,
+     "xp": 11,
+     "icon": "splendid_slimes:plort_puddle",
+     "inputs": [
+      {
+       "item": "minecraft:cod",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_puddle"
+      }
+     ]
+    },
+    {
+     "id": "puddle_treat",
+     "level": 5,
+     "seconds": 22.0,
+     "xp": 16,
+     "icon": "unusualfishmod:raw_sneep_snorp",
+     "inputs": [
+      {
+       "item": "unusualfishmod:raw_sneep_snorp",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_puddle",
+       "count": 2
+      }
+     ]
+    },
+    {
+     "id": "bear",
+     "level": 5,
+     "seconds": 22.0,
+     "xp": 11,
+     "icon": "splendid_slimes:plort_bear",
+     "inputs": [
+      {
+       "item": "minecraft:honeycomb",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_bear"
+      }
+     ]
+    },
+    {
+     "id": "bear_treat",
+     "level": 5,
+     "seconds": 22.0,
+     "xp": 16,
+     "icon": "buzzier_bees:crystallized_honey_block",
+     "inputs": [
+      {
+       "item": "buzzier_bees:crystallized_honey_block",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_bear",
+       "count": 2
+      }
+     ]
+    },
+    {
+     "id": "all_seeing",
+     "level": 6,
+     "seconds": 24.0,
+     "xp": 12,
+     "icon": "splendid_slimes:plort_all_seeing",
+     "inputs": [
+      {
+       "item": "minecraft:potato",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_all_seeing"
+      }
+     ]
+    },
+    {
+     "id": "all_seeing_treat",
+     "level": 6,
+     "seconds": 24.0,
+     "xp": 18,
+     "icon": "minecraft:golden_carrot",
+     "inputs": [
+      {
+       "item": "minecraft:golden_carrot",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_all_seeing",
+       "count": 2
+      }
+     ]
+    },
+    {
+     "id": "blazing",
+     "level": 6,
+     "seconds": 24.0,
+     "xp": 12,
+     "icon": "splendid_slimes:plort_blazing",
+     "inputs": [
+      {
+       "item": "minecraft:cooked_beef",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_blazing"
+      }
+     ]
+    },
+    {
+     "id": "blazing_treat",
+     "level": 6,
+     "seconds": 24.0,
+     "xp": 18,
+     "icon": "autumnity:cooked_turkey",
+     "inputs": [
+      {
+       "item": "autumnity:cooked_turkey",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_blazing",
+       "count": 2
+      }
+     ]
+    },
+    {
+     "id": "sweet",
+     "level": 7,
+     "seconds": 26.0,
+     "xp": 13,
+     "icon": "splendid_slimes:plort_sweet",
+     "inputs": [
+      {
+       "item": "minecraft:apple",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_sweet"
+      }
+     ]
+    },
+    {
+     "id": "sweet_treat",
+     "level": 7,
+     "seconds": 26.0,
+     "xp": 20,
+     "icon": "atmospheric:orange",
+     "inputs": [
+      {
+       "item": "atmospheric:orange",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_sweet",
+       "count": 2
+      }
+     ]
+    },
+    {
+     "id": "bitwise",
+     "level": 7,
+     "seconds": 26.0,
+     "xp": 13,
+     "icon": "splendid_slimes:plort_bitwise",
+     "inputs": [
+      {
+       "item": "minecraft:quartz",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_bitwise"
+      }
+     ]
+    },
+    {
+     "id": "bitwise_treat",
+     "level": 7,
+     "seconds": 26.0,
+     "xp": 20,
+     "icon": "society:fire_opal",
+     "inputs": [
+      {
+       "item": "society:fire_opal",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_bitwise",
+       "count": 2
+      }
+     ]
+    },
+    {
+     "id": "weeping",
+     "level": 8,
+     "seconds": 28.0,
+     "xp": 15,
+     "icon": "splendid_slimes:plort_weeping",
+     "inputs": [
+      {
+       "item": "minecraft:glow_berries",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_weeping"
+      }
+     ]
+    },
+    {
+     "id": "weeping_treat",
+     "level": 8,
+     "seconds": 28.0,
+     "xp": 22,
+     "icon": "pamhc2trees:bananaitem",
+     "inputs": [
+      {
+       "item": "pamhc2trees:bananaitem",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_weeping",
+       "count": 2
+      }
+     ]
+    },
+    {
+     "id": "minty",
+     "level": 8,
+     "seconds": 28.0,
+     "xp": 15,
+     "icon": "splendid_slimes:plort_minty",
+     "inputs": [
+      {
+       "item": "society:tubabacco_leaf",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_minty"
+      }
+     ]
+    },
+    {
+     "id": "minty_treat",
+     "level": 8,
+     "seconds": 28.0,
+     "xp": 22,
+     "icon": "society:tubasmoke_stick",
+     "inputs": [
+      {
+       "item": "society:tubasmoke_stick",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_minty",
+       "count": 2
+      }
+     ]
+    },
+    {
+     "id": "prisma",
+     "level": 9,
+     "seconds": 30.0,
+     "xp": 17,
+     "icon": "splendid_slimes:plort_prisma",
+     "inputs": [
+      {
+       "item": "minecraft:salmon",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_prisma"
+      }
+     ]
+    },
+    {
+     "id": "prisma_treat",
+     "level": 9,
+     "seconds": 30.0,
+     "xp": 26,
+     "icon": "aquaculture:boulti",
+     "inputs": [
+      {
+       "item": "aquaculture:boulti",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_prisma",
+       "count": 2
+      }
+     ]
+    },
+    {
+     "id": "orby",
+     "level": 9,
+     "seconds": 30.0,
+     "xp": 17,
+     "icon": "splendid_slimes:plort_orby",
+     "inputs": [
+      {
+       "item": "society:raisins",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_orby"
+      }
+     ]
+    },
+    {
+     "id": "orby_treat",
+     "level": 9,
+     "seconds": 30.0,
+     "xp": 26,
+     "icon": "society:dried_shimmering_mushrooms",
+     "inputs": [
+      {
+       "item": "society:dried_shimmering_mushrooms",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_orby",
+       "count": 2
+      }
+     ]
+    },
+    {
+     "id": "phantom",
+     "level": 10,
+     "seconds": 32.0,
+     "xp": 18,
+     "icon": "splendid_slimes:plort_phantom",
+     "inputs": [
+      {
+       "item": "minecraft:white_bed",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_phantom"
+      }
+     ]
+    },
+    {
+     "id": "phantom_treat",
+     "level": 10,
+     "seconds": 32.0,
+     "xp": 27,
+     "icon": "minecraft:purple_bed",
+     "inputs": [
+      {
+       "item": "minecraft:purple_bed",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_phantom",
+       "count": 2
+      }
+     ]
+    },
+    {
+     "id": "shulking",
+     "level": 10,
+     "seconds": 32.0,
+     "xp": 18,
+     "icon": "splendid_slimes:plort_shulking",
+     "inputs": [
+      {
+       "item": "minecraft:chorus_fruit",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_shulking"
+      }
+     ]
+    },
+    {
+     "id": "shulking_treat",
+     "level": 10,
+     "seconds": 32.0,
+     "xp": 27,
+     "icon": "minecraft:chorus_flower",
+     "inputs": [
+      {
+       "item": "minecraft:chorus_flower",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_shulking",
+       "count": 2
+      }
+     ]
+    },
+    {
+     "id": "sparkcat",
+     "level": 11,
+     "seconds": 34.0,
+     "xp": 19,
+     "icon": "splendid_slimes:plort_sparkcat",
+     "inputs": [
+      {
+       "item": "society:smoked_cod",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_sparkcat"
+      }
+     ]
+    },
+    {
+     "id": "sparkcat_treat",
+     "level": 11,
+     "seconds": 34.0,
+     "xp": 28,
+     "icon": "society:smoked_spindlefish",
+     "inputs": [
+      {
+       "item": "society:smoked_spindlefish",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_sparkcat",
+       "count": 2
+      }
+     ]
+    },
+    {
+     "id": "gold",
+     "level": 12,
+     "seconds": 36.0,
+     "xp": 21,
+     "icon": "splendid_slimes:plort_gold",
+     "inputs": [
+      {
+       "item": "society:carrot_preserves",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_gold"
+      }
+     ]
+    },
+    {
+     "id": "gold_treat",
+     "level": 12,
+     "seconds": 36.0,
+     "xp": 32,
+     "icon": "society:bell_pepper_preserves",
+     "inputs": [
+      {
+       "item": "society:bell_pepper_preserves",
+       "count": 1
+      }
+     ],
+     "drops": [
+      {
+       "item": "splendid_slimes:plort_gold",
+       "count": 2
+      }
+     ]
+    }
+   ]
   }
  ]
 }

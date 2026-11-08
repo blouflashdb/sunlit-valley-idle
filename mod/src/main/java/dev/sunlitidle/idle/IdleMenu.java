@@ -22,7 +22,7 @@ public class IdleMenu extends AbstractContainerMenu {
     // Layout, shared with the screen.
     public static final int TAB_X = 6;
     public static final int TAB_Y = 18;
-    public static final int TAB_STEP = 19;
+    public static final int TAB_STEP = 18; // 13 skill tabs fit above the bottom edge (#13)
     public static final int TAB_SIZE = 18;
     public static final int TOOL_X = 28;
     public static final int MID_X = 50;

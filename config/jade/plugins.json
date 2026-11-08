@@ -51,9 +51,6 @@
     "painting": true,
     "chiseled_bookshelf": true
   },
-  "splendid_slimes": {
-    "splendid_slime": true
-  },
   "treechop": {
     "plugin": true,
     "show_tree_block_counts": true,

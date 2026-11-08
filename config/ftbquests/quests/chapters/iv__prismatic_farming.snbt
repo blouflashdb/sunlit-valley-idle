@@ -655,7 +655,7 @@
 				""
 				"{ftbquests.chapter.iv__prismatic_farming.quest62CB7BAB9BBB4030.description2}"
 			]
-			icon: "splendid_slimes:slime_incubator"
+			icon: "society:plort_press"
 			id: "62CB7BAB9BBB4030"
 			rewards: [{
 				id: "130DFC5746CD789A"
@@ -665,12 +665,12 @@
 			tasks: [
 				{
 					id: "6E66E78EAC35C439"
-					item: "splendid_slimes:slime_incubator"
+					item: "society:plort_press"
 					type: "item"
 				}
 				{
 					id: "101FB480709F5DFB"
-					item: "splendid_slimes:slime_heart"
+					item: "splendid_slimes:slime_heart_slimy"
 					type: "item"
 				}
 			]
@@ -696,7 +696,7 @@
 			}]
 			tasks: [{
 				id: "080ED1B31DF3E9F2"
-				item: "splendid_slimes:plort_press"
+				item: "society:plort_press"
 				type: "item"
 			}]
 			title: "{ftbquests.chapter.iv__prismatic_farming.quest4ABFC024D15BFC10.title}"

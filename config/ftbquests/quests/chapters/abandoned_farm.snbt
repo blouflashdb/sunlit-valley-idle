@@ -101,12 +101,7 @@
 					id: "502219E3812CFF6C"
 					item: {
 						Count: 1
-						id: "splendid_slimes:plort"
-						tag: {
-							plort: {
-								id: "splendid_slimes:all_seeing"
-							}
-						}
+						id: "splendid_slimes:plort_all_seeing"
 					}
 					type: "item"
 				}

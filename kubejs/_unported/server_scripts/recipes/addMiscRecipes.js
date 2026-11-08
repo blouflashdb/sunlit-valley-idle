@@ -872,7 +872,7 @@ ServerEvents.recipes((e) => {
     b: "#minecraft:planks",
   });
 
-  e.shapeless("society:sun_candy", ['pamhc2trees:lemonitem', 'atmospheric:blood_orange', 'pamhc2trees:mangoitem', 'atmospheric:passion_fruit', Item.of('splendid_slimes:plort', '{plort:{id:"splendid_slimes:sweet"}}').strongNBT(), 'pamhc2trees:dragonfruititem', 'pamhc2trees:starfruititem', 'pamhc2trees:plumitem', 'pamhc2trees:peachitem'])
+  e.shapeless("society:sun_candy", ['pamhc2trees:lemonitem', 'atmospheric:blood_orange', 'pamhc2trees:mangoitem', 'atmospheric:passion_fruit', "splendid_slimes:plort_sweet", 'pamhc2trees:dragonfruititem', 'pamhc2trees:starfruititem', 'pamhc2trees:plumitem', 'pamhc2trees:peachitem'])
   // Sophisticated
   e.shapeless("sophisticatedbackpacks:stack_upgrade_tier_1", ["2x sophisticatedbackpacks:stack_upgrade_starter_tier"]);
   e.shapeless("sophisticatedbackpacks:stack_upgrade_tier_2", ["2x sophisticatedbackpacks:stack_upgrade_tier_1"]);
