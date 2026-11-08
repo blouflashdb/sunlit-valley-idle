@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "moisture=0": {
+      "model": "dew_drop_farmland_growth:block/high_quality_fertilized_farmland"
+    },
+    "moisture=1": {
+      "model": "dew_drop_farmland_growth:block/high_quality_fertilized_farmland"
+    },
+    "moisture=2": {
+      "model": "dew_drop_farmland_growth:block/high_quality_fertilized_farmland"
+    },
+    "moisture=3": {
+      "model": "dew_drop_farmland_growth:block/high_quality_fertilized_farmland"
+    },
+    "moisture=4": {
+      "model": "dew_drop_farmland_growth:block/high_quality_fertilized_farmland"
+    },
+    "moisture=5": {
+      "model": "dew_drop_farmland_growth:block/high_quality_fertilized_farmland"
+    },
+    "moisture=6": {
+      "model": "dew_drop_farmland_growth:block/high_quality_fertilized_farmland"
+    },
+    "moisture=7": {
+      "model": "dew_drop_farmland_growth:block/high_quality_fertilized_farmland_moist"
+    }
+  }
+}

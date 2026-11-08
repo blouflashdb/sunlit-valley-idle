@@ -274,5 +274,10 @@
   "sunlitidle.action.adventuring.t2": "T2 Frozen Hollow",
   "sunlitidle.action.adventuring.t3": "T3 Magma Depths",
   "sunlitidle.action.adventuring.t4": "T4 Skull Cavern Ruins",
-  "sunlitidle.action.adventuring.t5": "T5 Ember Forge"
+  "sunlitidle.action.adventuring.t5": "T5 Ember Forge",
+  "item.sunlitidle.watering_can.charge": "Charge %s",
+  "item.sunlitidle.watering_can.too_hot": "The water would boil away here",
+  "item.sunlitidle.watering_can.empty": "The watering can is empty. Fill it at a water source.",
+  "item.sunlitidle.watering_can.water": "Water: %s / %s",
+  "item.sunlitidle.watering_can.hold": "Hold to charge, up to level %s"
 }

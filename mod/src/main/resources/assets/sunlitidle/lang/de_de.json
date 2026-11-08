@@ -274,5 +274,10 @@
   "sunlitidle.action.adventuring.t2": "T2 Frosthöhle",
   "sunlitidle.action.adventuring.t3": "T3 Magmatiefen",
   "sunlitidle.action.adventuring.t4": "T4 Schädelhöhlen-Ruinen",
-  "sunlitidle.action.adventuring.t5": "T5 Glutschmiede"
+  "sunlitidle.action.adventuring.t5": "T5 Glutschmiede",
+  "item.sunlitidle.watering_can.charge": "Aufladung %s",
+  "item.sunlitidle.watering_can.too_hot": "Das Wasser würde hier verdampfen",
+  "item.sunlitidle.watering_can.empty": "Die Gießkanne ist leer. Fülle sie an einer Wasserquelle.",
+  "item.sunlitidle.watering_can.water": "Wasser: %s / %s",
+  "item.sunlitidle.watering_can.hold": "Gedrückt halten zum Aufladen, bis Stufe %s"
 }

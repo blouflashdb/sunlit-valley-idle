@@ -2,6 +2,9 @@ package dev.sunlitidle;
 
 import com.mojang.logging.LogUtils;
 import dev.sunlitidle.client.ClientSetup;
+import dev.sunlitidle.farm.DailyFarm;
+import dev.sunlitidle.farm.FarmEvents;
+import dev.sunlitidle.farm.FarmRegistry;
 import dev.sunlitidle.idle.IdleAttributes;
 import dev.sunlitidle.idle.IdleService;
 import dev.sunlitidle.network.IdleNetwork;
@@ -21,6 +24,9 @@ public final class SunlitIdle {
 
     public SunlitIdle(IEventBus bus, ModContainer container) {
         ModRegistry.register(bus);
+        FarmRegistry.register(bus);
+        DailyFarm.init();
+        FarmEvents.init();
         IdleAttributes.register(bus);
         IdleNetwork.register(bus);
         IdleService.init();
