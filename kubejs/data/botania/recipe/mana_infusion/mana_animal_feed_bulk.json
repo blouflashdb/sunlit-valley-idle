@@ -1,0 +1,21 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "society:animal_feed_sack"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "society:mana_feed"
+    }
+  ],
+  "type": "botania:mana_infusion",
+  "input": {
+    "item": "society:animal_feed_sack"
+  },
+  "mana": 90000,
+  "output": {
+    "count": 9,
+    "id": "society:mana_feed"
+  }
+}

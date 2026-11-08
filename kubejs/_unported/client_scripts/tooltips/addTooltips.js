@@ -1211,7 +1211,7 @@ ItemEvents.tooltip((tooltip) => {
     "cluttered:willow_sapling",
     "society:bubble_totem",
     "society:treasure_totem",
-    "society:sparkpod_seed",
+    "society:sparkpod_seeds",
     "society:sparkpod",
     "society:statue_of_cravings",
   ].forEach((item) => {

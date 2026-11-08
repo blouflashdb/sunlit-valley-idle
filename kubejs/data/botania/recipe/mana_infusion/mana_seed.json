@@ -1,0 +1,21 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "society:ancient_fruit_seeds"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "society:mana_fruit_crop"
+    }
+  ],
+  "type": "botania:mana_infusion",
+  "input": {
+    "item": "society:ancient_fruit_seeds"
+  },
+  "mana": 5000,
+  "output": {
+    "count": 1,
+    "id": "society:mana_fruit_crop"
+  }
+}

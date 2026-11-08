@@ -1,0 +1,34 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "society:mana_fruit"
+    }
+  ],
+  "type": "botania:runic_altar",
+  "ingredients": [
+    {
+      "item": "society:mana_fruit"
+    },
+    {
+      "item": "society:mana_fruit"
+    },
+    {
+      "item": "society:mana_fruit"
+    },
+    {
+      "item": "society:mana_fruit"
+    },
+    {
+      "item": "society:mana_fruit"
+    },
+    {
+      "item": "botania:mana_pearl"
+    }
+  ],
+  "mana": 8000,
+  "output": {
+    "count": 1,
+    "id": "botania:rune_mana"
+  }
+}

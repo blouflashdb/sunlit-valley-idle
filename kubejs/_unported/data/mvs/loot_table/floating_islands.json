@@ -52,7 +52,7 @@
         {
           "type": "minecraft:item",
           "weight": 3,
-          "name": "brewery:hop_trellis_seed",
+          "name": "brewery:hop_trellis_seeds",
           "functions": [
             {
               "function": "minecraft:set_count",

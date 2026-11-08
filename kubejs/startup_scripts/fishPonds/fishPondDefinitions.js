@@ -1005,7 +1005,7 @@ global.fishPondDefinitions = new Map([
       additionalRewards: [
         {
           minPopulation: 8,
-          item: "society:ancient_fruit_seed",
+          item: "society:ancient_fruit_seeds",
           count: 1,
           chance: 0.3,
         },
@@ -1483,7 +1483,7 @@ global.fishPondDefinitions = new Map([
           population: 3,
           requestedItems: [
             { item: "minecraft:emerald", count: 4 },
-            { item: "brewery:hop_trellis_seed", count: 16 },
+            { item: "brewery:hop_trellis_seeds", count: 16 },
           ],
         },
         {

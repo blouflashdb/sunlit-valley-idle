@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "etcetera:bismuth_block"
+    }
+  ],
+  "type": "botania:mana_infusion",
+  "input": {
+    "item": "etcetera:bismuth_block"
+  },
+  "mana": 27000,
+  "output": {
+    "count": 1,
+    "id": "botania:manasteel_block"
+  }
+}

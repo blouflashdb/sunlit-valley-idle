@@ -74,7 +74,7 @@
     },
     {
       "offer": {
-        "item": "society:onion_seed",
+        "item": "society:onion_seeds",
         "count": 1
       },
       "request": {
@@ -128,7 +128,7 @@
     },
     {
       "offer": {
-        "item": "society:carrot_seed",
+        "item": "society:carrot_seeds",
         "count": 1
       },
       "request": {
@@ -149,7 +149,7 @@
     },
     {
       "offer": {
-        "item": "society:potato_seed",
+        "item": "society:potato_seeds",
         "count": 1
       },
       "request": {
@@ -225,7 +225,7 @@
     },
     {
       "offer": {
-        "item": "society:blueberry_seed",
+        "item": "society:blueberry_seeds",
         "count": 1
       },
       "request": {
@@ -359,7 +359,7 @@
     },
     {
       "offer": {
-        "item": "society:eggplant_seed",
+        "item": "society:eggplant_seeds",
         "count": 1
       },
       "request": {
@@ -377,7 +377,7 @@
     },
     {
       "offer": {
-        "item": "society:cranberry_seed",
+        "item": "society:cranberry_seeds",
         "count": 1
       },
       "request": {
@@ -479,7 +479,7 @@
     },
     {
       "offer": {
-        "item": "society:sweet_potato_seed",
+        "item": "society:sweet_potato_seeds",
         "count": 1
       },
       "request": {
@@ -499,7 +499,7 @@
     },
     {
       "offer": {
-        "item": "society:peanut_seed",
+        "item": "society:peanut_seeds",
         "count": 1
       },
       "request": {
@@ -537,7 +537,7 @@
     },
     {
       "offer": {
-        "item": "society:sparkpod_seed",
+        "item": "society:sparkpod_seeds",
         "count": 4
       },
       "request": {
@@ -572,7 +572,7 @@
     },
     {
       "offer": {
-        "item": "society:tubabacco_leaf_seed",
+        "item": "society:tubabacco_leaf_seeds",
         "count": 1
       },
       "request": {

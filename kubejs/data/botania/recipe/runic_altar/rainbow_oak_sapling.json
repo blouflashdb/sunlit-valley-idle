@@ -1,0 +1,65 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "cluttered:fluorescent_maple_sapling"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "rainbowoaks:rainbow_sapling"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "society:amethyst_chunk"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "society:aquamarine"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "society:jade"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "society:ruby"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "society:spinel"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "society:topaz"
+    }
+  ],
+  "type": "botania:runic_altar",
+  "ingredients": [
+    {
+      "item": "society:aquamarine"
+    },
+    {
+      "item": "society:ruby"
+    },
+    {
+      "item": "society:topaz"
+    },
+    {
+      "item": "society:amethyst_chunk"
+    },
+    {
+      "item": "society:spinel"
+    },
+    {
+      "item": "society:jade"
+    },
+    {
+      "item": "cluttered:fluorescent_maple_sapling"
+    }
+  ],
+  "mana": 50000,
+  "output": {
+    "count": 1,
+    "id": "rainbowoaks:rainbow_sapling"
+  }
+}

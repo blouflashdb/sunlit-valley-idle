@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "crabbersdelight:pearl"
+    }
+  ],
+  "type": "botania:mana_infusion",
+  "input": {
+    "item": "crabbersdelight:pearl"
+  },
+  "mana": 6000,
+  "output": {
+    "count": 1,
+    "id": "botania:mana_pearl"
+  }
+}

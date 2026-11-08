@@ -1,0 +1,18 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "oreganized:silver_ore"
+    }
+  ],
+  "type": "botania:orechid",
+  "input": {
+    "type": "block",
+    "block": "minecraft:stone"
+  },
+  "output": {
+    "type": "block",
+    "block": "oreganized:silver_ore"
+  },
+  "weight": 483
+}

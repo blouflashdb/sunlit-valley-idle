@@ -61,7 +61,7 @@ const handleNpc = (e, npcId, level, server, target, player, item) => {
             player.give(Item.of("2x waystones:waystone"))
             server.runCommandSilent(`dialog ${player.username} show ${player.username} banker_unique_five_gift_read`);
         } else if (npcId.equals("market") && player.stages.has("universal_methods_of_farming")) {
-            player.give(Item.of("16x society:sparkpod_seed"))
+            player.give(Item.of("16x society:sparkpod_seeds"))
             server.runCommandSilent(`dialog ${player.username} show ${player.username} market_unique_five_gift_read`);
         } else if (npcId.equals("librarian") && player.stages.has("debt_caverns")) {
             player.give(Item.of('botania:diva_charm'))

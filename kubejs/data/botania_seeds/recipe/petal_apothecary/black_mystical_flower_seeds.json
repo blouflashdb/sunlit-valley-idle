@@ -1,0 +1,34 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "botania_seeds:black_mystical_flower_seeds"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "vintagedelight:ghost_charcoal"
+    }
+  ],
+  "type": "botania:petal_apothecary",
+  "ingredients": [
+    {
+      "item": "vintagedelight:ghost_charcoal"
+    },
+    {
+      "item": "vintagedelight:ghost_charcoal"
+    },
+    {
+      "item": "vintagedelight:ghost_charcoal"
+    },
+    {
+      "item": "vintagedelight:ghost_charcoal"
+    }
+  ],
+  "output": {
+    "count": 4,
+    "id": "botania_seeds:black_mystical_flower_seeds"
+  },
+  "reagent": {
+    "tag": "botania:seed_apothecary_reagent"
+  }
+}

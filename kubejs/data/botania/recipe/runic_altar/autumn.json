@@ -1,0 +1,39 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "pamhc2trees:plumitem"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "unusualfishmod:raw_forkfish"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "vintagedelight:peanut"
+    }
+  ],
+  "type": "botania:runic_altar",
+  "ingredients": [
+    {
+      "item": "botania:rune_fire"
+    },
+    {
+      "item": "botania:rune_air"
+    },
+    {
+      "item": "pamhc2trees:plumitem"
+    },
+    {
+      "item": "unusualfishmod:raw_forkfish"
+    },
+    {
+      "item": "vintagedelight:peanut"
+    }
+  ],
+  "mana": 8000,
+  "output": {
+    "count": 1,
+    "id": "botania:rune_autumn"
+  }
+}

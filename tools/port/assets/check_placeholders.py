@@ -13,7 +13,8 @@ The script runs collect_registered_assets.mjs (Node) to list what the startup sc
      with --jar, a file in one of the jars (vanilla client jar and the pack's mods);
   2. every model the machine blockstates in client_scripts/machineBlockstates.js use exists and resolves;
   3. every placeholder sprite source exists in the jars (with --jar) and is not a society:* file itself;
-  4. no texture file is in kubejs/assets/society/textures (those would be copies of Society Tweaks).
+  4. no texture file is in kubejs/assets/society/textures (those would be copies of Society Tweaks);
+  5. every model of the rebuilt mods in REBUILT_NAMESPACES resolves.
 Without --jar only textures from other namespaces are assumed to exist; CI passes the jars.
 
 Usage (from the repository root):
@@ -33,6 +34,8 @@ ASSETS = pathlib.Path("kubejs/assets")
 ATLAS = ASSETS / "minecraft/atlases/blocks.json"
 MANIFEST = "https://piston-meta.mojang.com/mc/game/version_manifest_v2.json"
 UA = {"User-Agent": "sunlit-valley-idle/check-placeholders (github.com/blouflashdb/sunlit-valley-idle)"}
+# Namespaces of mods without a 1.21.1 build whose models live in kubejs/assets (Botania Seeds, Croptania).
+REBUILT_NAMESPACES = ("botania_seeds", "croptania")
 BUILTIN_PARENTS = {"minecraft:builtin/generated", "minecraft:builtin/entity", "builtin/generated", "builtin/entity"}
 
 
@@ -211,6 +214,12 @@ def main():
             check_model(f"society:block/kubejs/{name}/{name}{state}", f"machine {name}")
     if machines:
         check_model("society:block/kubejs/machine_done", "machine_done")
+
+    # Our own models for rebuilt mods (#14): every one of them must resolve.
+    for namespace in REBUILT_NAMESPACES:
+        for model in sorted((ASSETS / namespace / "models").rglob("*.json")):
+            path = model.relative_to(ASSETS / namespace / "models").with_suffix("").as_posix()
+            check_model(f"{namespace}:{path}", f"model {namespace}:{path}")
 
     for sprite, source in sprites.items():
         if source.startswith("society:"):

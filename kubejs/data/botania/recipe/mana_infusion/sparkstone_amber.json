@@ -1,0 +1,21 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "society:butterfly_amber"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "society:sparkstone"
+    }
+  ],
+  "type": "botania:mana_infusion",
+  "input": {
+    "item": "society:butterfly_amber"
+  },
+  "mana": 10000,
+  "output": {
+    "count": 4,
+    "id": "society:sparkstone"
+  }
+}

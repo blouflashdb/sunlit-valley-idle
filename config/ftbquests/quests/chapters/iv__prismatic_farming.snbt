@@ -777,7 +777,7 @@
 				}
 				{
 					id: "0CB5981FD6CF3E3D"
-					item: "society:ancient_fruit_seed"
+					item: "society:ancient_fruit_seeds"
 					type: "item"
 				}
 			]
@@ -791,7 +791,7 @@
 			id: "72CCDB6B078E8908"
 			rewards: [{
 				id: "724608884B0BFC47"
-				item: "society:ancient_fruit_seed"
+				item: "society:ancient_fruit_seeds"
 				type: "item"
 			}]
 			tasks: [{
@@ -1512,12 +1512,12 @@
 			id: "76672EF7299492DF"
 			rewards: [{
 				id: "039F60D5EE60F51E"
-				item: "society:sparkpod_seed"
+				item: "society:sparkpod_seeds"
 				type: "item"
 			}]
 			tasks: [{
 				id: "3211101688780CC5"
-				item: "society:sparkpod_seed"
+				item: "society:sparkpod_seeds"
 				type: "item"
 			}]
 			x: -7.0d

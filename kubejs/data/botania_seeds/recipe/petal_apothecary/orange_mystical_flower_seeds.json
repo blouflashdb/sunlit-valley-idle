@@ -1,0 +1,34 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "botania_seeds:orange_mystical_flower_seeds"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "veggiesdelight:bellpepper"
+    }
+  ],
+  "type": "botania:petal_apothecary",
+  "ingredients": [
+    {
+      "item": "veggiesdelight:bellpepper"
+    },
+    {
+      "item": "veggiesdelight:bellpepper"
+    },
+    {
+      "item": "veggiesdelight:bellpepper"
+    },
+    {
+      "item": "veggiesdelight:bellpepper"
+    }
+  ],
+  "output": {
+    "count": 4,
+    "id": "botania_seeds:orange_mystical_flower_seeds"
+  },
+  "reagent": {
+    "tag": "botania:seed_apothecary_reagent"
+  }
+}

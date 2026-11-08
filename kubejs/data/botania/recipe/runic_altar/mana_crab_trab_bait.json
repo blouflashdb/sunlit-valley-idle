@@ -1,0 +1,41 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "crabbersdelight:deluxe_crab_trap_bait"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "crabbersdelight:mana_crab_trap_bait"
+    }
+  ],
+  "type": "botania:runic_altar",
+  "ingredients": [
+    {
+      "item": "crabbersdelight:deluxe_crab_trap_bait"
+    },
+    {
+      "item": "crabbersdelight:deluxe_crab_trap_bait"
+    },
+    {
+      "item": "crabbersdelight:deluxe_crab_trap_bait"
+    },
+    {
+      "item": "crabbersdelight:deluxe_crab_trap_bait"
+    },
+    {
+      "item": "botania:pixie_dust"
+    },
+    {
+      "item": "botania:infused_seeds"
+    },
+    {
+      "item": "botania:lime_shiny_flower"
+    }
+  ],
+  "mana": 50000,
+  "output": {
+    "count": 4,
+    "id": "crabbersdelight:mana_crab_trap_bait"
+  }
+}

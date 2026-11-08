@@ -1,0 +1,39 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "aquaculture:synodontis"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "pamhc2trees:bananaitem"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "society:blueberry"
+    }
+  ],
+  "type": "botania:runic_altar",
+  "ingredients": [
+    {
+      "item": "botania:rune_earth"
+    },
+    {
+      "item": "botania:rune_air"
+    },
+    {
+      "item": "pamhc2trees:bananaitem"
+    },
+    {
+      "item": "aquaculture:synodontis"
+    },
+    {
+      "item": "society:blueberry"
+    }
+  ],
+  "mana": 8000,
+  "output": {
+    "count": 1,
+    "id": "botania:rune_summer"
+  }
+}

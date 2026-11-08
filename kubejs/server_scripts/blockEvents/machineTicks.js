@@ -208,3 +208,8 @@ BlockEvents.blockEntityTick("society:mana_clock", (entity) => {
 BlockEvents.blockEntityTick("society:sparkstone_recycler", (entity) => {
   global.runSparkstoneRecycler(entity);
 });
+
+// Cropnolia (#14): startup_scripts/mana/cropnolia.js. Turns grown crops around it into mana for a pool.
+BlockEvents.blockEntityTick("croptania:cropnolia", (entity) => {
+  global.runCropnolia(entity.level, entity.block);
+});

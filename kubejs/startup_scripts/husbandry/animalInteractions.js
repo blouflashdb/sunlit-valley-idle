@@ -306,8 +306,8 @@ const breedingItems = [
   "minecraft:torchflower_seeds",
   "farmersdelight:tomato_seeds",
   "society:tubabacco_seed",
-  "society:ancient_fruit_seed",
-  "society:blueberry_seed",
+  "society:ancient_fruit_seeds",
+  "society:blueberry_seeds",
   "minecraft:dandelion",
   "minecraft:golden_carrot",
 ];

@@ -1,0 +1,18 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "etcetera:nether_bismuth_ore"
+    }
+  ],
+  "type": "botania:orechid_ignem",
+  "input": {
+    "type": "block",
+    "block": "minecraft:netherrack"
+  },
+  "output": {
+    "type": "block",
+    "block": "etcetera:nether_bismuth_ore"
+  },
+  "weight": 248
+}
