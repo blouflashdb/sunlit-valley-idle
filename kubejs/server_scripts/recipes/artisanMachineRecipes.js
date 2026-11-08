@@ -135,5 +135,24 @@ ServerEvents.recipes((e) => {
   });
   shapeless("society:ancient_goddess_statue", ["paraglider:goddess_statue", "society:prismatic_shard"]);
 
+  shaped("society:artisan_hopper", ["zaz", "bhb", "nsn"], {
+    a: "numismatics:ancient_coin",
+    n: "minecraft:netherite_ingot",
+    h: "minecraft:hopper",
+    b: "society:battery",
+    s: "society:sparkstone",
+    z: "create:zinc_ingot",
+  });
+  shapeless("society:artisan_hopper", ["4x society:mini_artisan_hopper"]);
+  shapeless("4x society:mini_artisan_hopper", ["society:artisan_hopper"]);
+  shaped("society:mini_artisan_hopper", ["zsz", "nhn", "aba"], {
+    a: "numismatics:neptunium_coin",
+    n: "minecraft:netherite_scrap",
+    h: "minecraft:hopper",
+    b: "society:battery",
+    s: "society:sparkstone",
+    z: "create:zinc_ingot",
+  });
+
   if (skipped.length > 0) console.info(`[SOCIETY] Artisan machine recipes skipped: ${skipped.join("; ")}`);
 });

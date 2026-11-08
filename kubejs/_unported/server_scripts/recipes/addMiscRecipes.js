@@ -443,24 +443,7 @@ ServerEvents.recipes((e) => {
     s: "society:sparkstone",
     l: "meadow:fire_log",
   });
-  e.shaped("society:artisan_hopper", ["zaz", "bhb", "nsn"], {
-    a: "numismatics:ancient_coin",
-    n: "minecraft:netherite_ingot",
-    h: "minecraft:hopper",
-    b: "society:battery",
-    s: "society:sparkstone",
-    z: "create:zinc_ingot",
-  });
-  e.shapeless("society:artisan_hopper", ["4x society:mini_artisan_hopper"]);
-  e.shapeless("4x society:mini_artisan_hopper", ["society:artisan_hopper"]);
-  e.shaped("society:mini_artisan_hopper", ["zsz", "nhn", "aba"], {
-    a: "numismatics:neptunium_coin",
-    n: "minecraft:netherite_scrap",
-    h: "minecraft:hopper",
-    b: "society:battery",
-    s: "society:sparkstone",
-    z: "create:zinc_ingot",
-  });
+  // society:artisan_hopper and society:mini_artisan_hopper are ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   e.shaped("society:fish_pond_basket", ["NaN", "bhb", "nsn"], {
     a: "farmersdelight:safety_net",
     n: "minecraft:netherite_ingot",
