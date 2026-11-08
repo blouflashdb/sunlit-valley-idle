@@ -884,31 +884,31 @@ StartupEvents.registry("item", (e) => {
     },
     {
       item: "meadow:goat_cheese_block",
-      texture: "wheel_of_goat_cheese",
+      texture: "goat_cheese_wheel",
     },
     {
       item: "meadow:cheese_block",
-      texture: "wheel_of_cheese",
+      texture: "cheese_wheel",
     },
     {
       item: "meadow:amethyst_cheese_block",
-      texture: "wheel_of_amethyst_cheese",
+      texture: "amethyst_cheese_wheel",
     },
     {
       item: "meadow:warped_cheese_block",
-      texture: "warped_cheese",
+      texture: "warped_cheese_wheel",
     },
     {
       item: "meadow:sheep_cheese_block",
-      texture: "wheel_of_sheep_cheese",
+      texture: "sheep_cheese_wheel",
     },
     {
       item: "meadow:grain_cheese_block",
-      texture: "wheel_of_grain_cheese",
+      texture: "grain_cheese_wheel",
     },
     {
       item: "meadow:buffalo_cheese_block",
-      texture: "wheel_of_herb_cheese",
+      texture: "buffalo_cheese_wheel",
     },
     {
       item: "brewery:whiskey_jojannik",

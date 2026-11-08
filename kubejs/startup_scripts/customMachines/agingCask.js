@@ -135,6 +135,10 @@ global.ageableProductInputs = [
   { item: "society:sparkling_le_roy", name: "Sparkling Le Roy", time: 5 },
   { item: "society:mana_king", name: "Mana King", time: 10 },
 ];
+// Let's Do Nethervinery and Farm Life are not in the 1.21.1 pack, so their drinks and cheese get no aged items.
+global.ageableProductInputs = global.ageableProductInputs.filter(
+  (product) => !["nethervinery", "farmlife"].includes(product.item.split(":")[0])
+);
 global.ageableProductInputs.forEach((product) => {
   let splitProduct = product.item.split(":");
   global.agingCaskRecipes.set(product.item, {
