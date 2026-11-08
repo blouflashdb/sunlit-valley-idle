@@ -20,13 +20,14 @@ const PLUSHIE_ANIMAL_FLAGS = ["clockwork", "bribed", "bff", "animalCracker"];
 /** The animal in a plushie (parsed "animal" data), or null. */
 global.parsePlushieAnimal = (raw) => {
   if (!raw) return null;
+  // Rhino rejects a const declared inside this try ("redeclaration of var").
+  let parsed = null;
   try {
-    const animal = JSON.parse(String(raw));
-    return animal && animal.type ? animal : null;
+    parsed = JSON.parse(String(raw));
   } catch (e) {
     console.warn(`[SOCIETY] bad plushie animal data ${raw}: ${e}`);
-    return null;
   }
+  return parsed && parsed.type ? parsed : null;
 };
 
 global.getPlushieBlockAnimal = (block) => global.parsePlushieAnimal(global.getMachineString(block, "animal"));
