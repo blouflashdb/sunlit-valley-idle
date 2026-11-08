@@ -120,3 +120,15 @@ BlockEvents.blockEntityTick("society:artisan_hopper", (entity) => {
 BlockEvents.blockEntityTick("society:mini_artisan_hopper", (entity) => {
   global.artisanHopperScan(entity, 1);
 });
+
+BlockEvents.blockEntityTick("society:quality_washer", (entity) => {
+  global.handleQualityWasher(entity);
+});
+
+BlockEvents.blockEntityTick("society:auto_worm_farm", (entity) => {
+  global.runAutoWormFarm(entity);
+});
+
+BlockEvents.blockEntityTick("society:growth_obelisk", (entity) => {
+  global.runGrowthObelisk(entity);
+});

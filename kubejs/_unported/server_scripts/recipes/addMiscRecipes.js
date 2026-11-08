@@ -297,12 +297,7 @@ ServerEvents.recipes((e) => {
     C: "numismatics:crown",
     f: "society:fire_quartz",
   });
-  e.shaped("society:quality_washer", [" S ", "zcz", "fzf"], {
-    c: "minecraft:cauldron",
-    S: "dew_drop_farmland_growth:high_quality_fertilizer",
-    f: "society:fire_quartz",
-    z: "create:zinc_ingot",
-  });
+  // society:quality_washer is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   e.shaped("farm_and_charm:mincer", ["iCi", "ici", "ifi"], {
     c: "minecraft:iron_block",
     C: "quark:sturdy_stone",
@@ -481,14 +476,7 @@ ServerEvents.recipes((e) => {
   });
   // society:fish_smoker is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   // society:bait_maker is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
-  e.shaped("society:auto_worm_farm", ["lpl", "asa", "CSC"], {
-    s: "farmersdelight:rich_soil",
-    S: "society:sunlit_pearl",
-    p: "create:precision_mechanism",
-    a: "aquaculture:worm_farm",
-    C: "society:battery",
-    l: "minecraft:iron_ingot",
-  });
+  // society:auto_worm_farm is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   // society:deluxe_worm_farm is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   e.shaped("crabbersdelight:crab_trap", ["nsn", "s s", "wpw"], {
     s: "create:zinc_ingot",
@@ -875,12 +863,7 @@ ServerEvents.recipes((e) => {
     s: "society:sparkstone_dust",
     p: "society:moth_pollen",
   });
-  e.shaped("society:growth_obelisk", ["sis", "sjs", "sbs"], {
-    s: "minecraft:stone_bricks",
-    i: "minecraft:netherite_ingot",
-    j: "society:jade",
-    b: "society:magic_bulb",
-  });
+  // society:growth_obelisk is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   e.shaped("society:magic_bulb", ["dgf", "sbs", "SSS"], {
     d: "society:ribbit_drum",
     g: "society:ribbit_gadget",

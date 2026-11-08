@@ -154,5 +154,26 @@ ServerEvents.recipes((e) => {
     z: "create:zinc_ingot",
   });
 
+  shaped("society:quality_washer", [" S ", "zcz", "fzf"], {
+    c: "minecraft:cauldron",
+    S: "dew_drop_farmland_growth:high_quality_fertilizer",
+    f: "society:fire_quartz",
+    z: "create:zinc_ingot",
+  });
+  shaped("society:auto_worm_farm", ["lpl", "asa", "CSC"], {
+    s: "farmersdelight:rich_soil",
+    S: "society:sunlit_pearl",
+    p: "create:precision_mechanism",
+    a: "aquaculture:worm_farm",
+    C: "society:battery",
+    l: "minecraft:iron_ingot",
+  });
+  shaped("society:growth_obelisk", ["sis", "sjs", "sbs"], {
+    s: "minecraft:stone_bricks",
+    i: "minecraft:netherite_ingot",
+    j: "society:jade",
+    b: "society:magic_bulb",
+  });
+
   if (skipped.length > 0) console.info(`[SOCIETY] Artisan machine recipes skipped: ${skipped.join("; ")}`);
 });
