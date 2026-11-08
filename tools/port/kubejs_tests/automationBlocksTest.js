@@ -53,12 +53,21 @@ ServerEvents.loaded((event) => {
       check(global.runGrowthObelisk({ level: level, block: obelisk }, true), "the growth obelisk did not run");
       check(count(inv(obelisk), "society:spark_gro") === 1, "the growth obelisk did not use one Spark-Gro");
 
+      let keg = level.getBlock(bx + 6, y, bz);
+      keg.set("society:wine_keg", { facing: "north" });
+      keg = level.getBlock(bx + 6, y, bz);
+      check(global.getArtisanProgressText(keg) === null, "an empty wine keg shows progress");
+      let grape = Array.from(global.wineKegRecipes.keys()).filter((key) => !key.startsWith("#") && global.itemExists(key))[0];
+      global.setMachineData(keg, { recipe: grape, stage: 1 });
+      let progress = global.getArtisanProgressText(keg);
+      check(progress !== null && String(progress.getString()).indexOf("⬛") >= 0, `the wine keg progress line is ${progress}`);
+      console.info(`[PORT-TEST] automationblocks progress: ${progress.getString()}`);
       console.info("[PORT-TEST] PHASE1 automationblocks");
     } else {
       check(washedQuality() === 0, "the washed apple is gone after the restart");
       check(count(inv(wormFarm), "aquaculture:worm") === 1, "the worm is gone after the restart");
       check(count(inv(obelisk), "society:spark_gro") === 1, "the obelisk holds the wrong Spark-Gro count after the restart");
-      for (let x = 0; x <= 4; x++) {
+      for (let x = 0; x <= 6; x++) {
         level.getBlock(bx + x, y, bz).set("minecraft:air");
         level.getBlock(bx + x, y - 1, bz).set("minecraft:air");
       }
