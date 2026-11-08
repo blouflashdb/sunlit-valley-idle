@@ -12,11 +12,11 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.items.ItemHandlerHelper;
-import net.minecraftforge.network.NetworkHooks;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
+import net.neoforged.neoforge.event.tick.ServerTickEvent;
+import net.neoforged.neoforge.items.ItemStackHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,10 +30,10 @@ public final class IdleService {
     }
 
     public static void init() {
-        MinecraftForge.EVENT_BUS.addListener(IdleService::onServerTick);
-        MinecraftForge.EVENT_BUS.addListener(IdleService::onLogin);
-        MinecraftForge.EVENT_BUS.addListener(IdleService::onLogout);
-        MinecraftForge.EVENT_BUS.addListener(IdleService::onSmelted);
+        NeoForge.EVENT_BUS.addListener(IdleService::onServerTick);
+        NeoForge.EVENT_BUS.addListener(IdleService::onLogin);
+        NeoForge.EVENT_BUS.addListener(IdleService::onLogout);
+        NeoForge.EVENT_BUS.addListener(IdleService::onSmelted);
     }
 
     public static PlayerIdleState state(ServerPlayer player) {
@@ -42,15 +42,12 @@ public final class IdleService {
 
     // ---------------------------------------------------------------- events
 
-    private static void onServerTick(TickEvent.ServerTickEvent event) {
-        if (event.phase != TickEvent.Phase.END || ++tickCounter < TICKS_PER_STEP) {
+    private static void onServerTick(ServerTickEvent.Post event) {
+        if (++tickCounter < TICKS_PER_STEP) {
             return;
         }
         tickCounter = 0;
-        MinecraftServer server = net.minecraftforge.server.ServerLifecycleHooks.getCurrentServer();
-        if (server == null) {
-            return;
-        }
+        MinecraftServer server = event.getServer();
         for (ServerPlayer player : server.getPlayerList().getPlayers()) {
             try {
                 step(player, state(player), 1.0);
@@ -109,7 +106,7 @@ public final class IdleService {
             return;
         }
         ItemStack result = event.getSmelting();
-        IdleSkill skill = IdleCatalog.skill(result.isEdible() ? "cooking" : "smelting");
+        IdleSkill skill = IdleCatalog.skill(dev.sunlitidle.combat.Gear.isFood(result) ? "cooking" : "smelting");
         if (skill != null) {
             SkillLevels.addXp(player, state(player), skill, Math.max(1, result.getCount() * 2));
         }
@@ -128,7 +125,7 @@ public final class IdleService {
 
     public static void handle(ServerPlayer player, IdleActionPacket packet) {
         PlayerIdleState state = state(player);
-        switch (packet.type()) {
+        switch (packet.op()) {
             case OPEN -> open(player);
             case ASSIGN -> assign(player, state, packet.index(), packet.text());
             case WITHDRAW -> withdraw(player, state, packet.index(), packet.flag());
@@ -147,7 +144,7 @@ public final class IdleService {
 
     public static void open(ServerPlayer player) {
         PlayerIdleState state = state(player);
-        NetworkHooks.openScreen(player, new SimpleMenuProvider(
+        player.openMenu(new SimpleMenuProvider(
                 (id, inventory, p) -> new IdleMenu(id, inventory, state), Component.translatable("sunlitidle.idle.title")));
         sync(player, state);
     }
@@ -196,7 +193,7 @@ public final class IdleService {
             if (taken.isEmpty()) {
                 return;
             }
-            ItemHandlerHelper.giveItemToPlayer(player, taken);
+            player.getInventory().placeItemBackInInventory(taken);
             if (index >= state.storage().size() || !state.storage().get(index).matches(proto)) {
                 return;
             }
@@ -225,7 +222,7 @@ public final class IdleService {
             return;
         }
         // One handler slot per entry, capped at an int; the rest stays for the next sale.
-        net.minecraftforge.items.ItemStackHandler items = new net.minecraftforge.items.ItemStackHandler(chosen.size()) {
+        ItemStackHandler items = new ItemStackHandler(chosen.size()) {
             @Override
             public int getSlotLimit(int slot) {
                 return Integer.MAX_VALUE;
@@ -241,7 +238,7 @@ public final class IdleService {
             items.setStackInSlot(i, stored.prototype().copyWithCount((int) Math.min(Integer.MAX_VALUE, stored.count())));
         }
         IdleSellEvent event = new IdleSellEvent(player, items);
-        MinecraftForge.EVENT_BUS.post(event);
+        NeoForge.EVENT_BUS.post(event);
         long soldItems = 0;
         for (int i = 0; i < chosen.size(); i++) {
             if (items.getStackInSlot(i).isEmpty()) {
@@ -278,7 +275,7 @@ public final class IdleService {
                 continue;
             }
             for (IdleInput input : action.inputs()) {
-                keep.add(net.minecraftforge.registries.ForgeRegistries.ITEMS.getValue(input.item()));
+                BuiltInRegistries.ITEM.getOptional(input.item()).ifPresent(keep::add);
             }
             if (action.isRecipe()) {
                 for (ItemStack s : action.recipe().input().getItems()) {
@@ -299,7 +296,7 @@ public final class IdleService {
             ItemStack s = inventory.items.get(i);
             if (s.isEmpty()) {
                 space += proto.getMaxStackSize();
-            } else if (ItemStack.isSameItemSameTags(s, proto)) {
+            } else if (ItemStack.isSameItemSameComponents(s, proto)) {
                 space += s.getMaxStackSize() - s.getCount();
             }
         }

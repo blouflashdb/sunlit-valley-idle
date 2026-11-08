@@ -88,7 +88,7 @@ tree("woodcutting", "minecraft:iron_axe", "textures/block/oak_planks.png",
      [("log", "#minecraft:logs", 2)])
 tree("foraging", "minecraft:sweet_berries", "textures/block/moss_block.png",
      [attr("puffish_skills:fortune", 1)], "minecraft:sweet_berries", "minecraft:poppy",
-     [("flower", "#minecraft:flowers", 3), ("grass", "minecraft:grass", 1), ("fern", "minecraft:fern", 1),
+     [("flower", "#minecraft:flowers", 3), ("grass", "minecraft:short_grass", 1), ("fern", "minecraft:fern", 1),
       ("brown_mushroom", "minecraft:brown_mushroom", 3), ("red_mushroom", "minecraft:red_mushroom", 3)])
 
 KILL = {"type": "puffish_skills:kill_entity",

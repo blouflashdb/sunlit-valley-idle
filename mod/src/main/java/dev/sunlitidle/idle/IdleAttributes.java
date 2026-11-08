@@ -5,11 +5,11 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 import net.minecraft.world.entity.player.Player;
-import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.minecraft.core.registries.Registries;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.event.entity.EntityAttributeModificationEvent;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,9 +22,9 @@ public final class IdleAttributes {
     /** Fixed list so the attributes exist before the catalog is read. Must match skills.json. */
     public static final String[] SKILLS = {"woodcutting", "mining", "digging", "foraging", "farming", "fishing", "hunting",
             "husbandry", "archaeology", "adventuring", "smelting", "cooking"};
-    private static final DeferredRegister<Attribute> ATTRIBUTES = DeferredRegister.create(ForgeRegistries.ATTRIBUTES, SunlitIdle.MOD_ID);
-    private static final Map<String, RegistryObject<Attribute>> SPEED = new HashMap<>();
-    private static final Map<String, RegistryObject<Attribute>> YIELD = new HashMap<>();
+    private static final DeferredRegister<Attribute> ATTRIBUTES = DeferredRegister.create(Registries.ATTRIBUTE, SunlitIdle.MOD_ID);
+    private static final Map<String, DeferredHolder<Attribute, Attribute>> SPEED = new HashMap<>();
+    private static final Map<String, DeferredHolder<Attribute, Attribute>> YIELD = new HashMap<>();
 
     static {
         for (String skill : SKILLS) {
@@ -36,7 +36,7 @@ public final class IdleAttributes {
     private IdleAttributes() {
     }
 
-    private static RegistryObject<Attribute> register(String name) {
+    private static DeferredHolder<Attribute, Attribute> register(String name) {
         return ATTRIBUTES.register(name, () -> new RangedAttribute("attribute.name." + SunlitIdle.MOD_ID + "." + name,
                 0.0, 0.0, 100.0).setSyncable(true));
     }
@@ -47,11 +47,11 @@ public final class IdleAttributes {
     }
 
     private static void onAttributes(EntityAttributeModificationEvent event) {
-        for (RegistryObject<Attribute> a : SPEED.values()) {
-            event.add(EntityType.PLAYER, a.get());
+        for (DeferredHolder<Attribute, Attribute> a : SPEED.values()) {
+            event.add(EntityType.PLAYER, a);
         }
-        for (RegistryObject<Attribute> a : YIELD.values()) {
-            event.add(EntityType.PLAYER, a.get());
+        for (DeferredHolder<Attribute, Attribute> a : YIELD.values()) {
+            event.add(EntityType.PLAYER, a);
         }
     }
 
@@ -63,11 +63,11 @@ public final class IdleAttributes {
         return value(player, YIELD.get(skill));
     }
 
-    private static double value(Player player, RegistryObject<Attribute> attribute) {
-        if (attribute == null || !attribute.isPresent()) {
+    private static double value(Player player, DeferredHolder<Attribute, Attribute> attribute) {
+        if (attribute == null || !attribute.isBound()) {
             return 0.0;
         }
-        var instance = player.getAttribute(attribute.get());
+        var instance = player.getAttribute(attribute);
         return instance == null ? 0.0 : instance.getValue();
     }
 }

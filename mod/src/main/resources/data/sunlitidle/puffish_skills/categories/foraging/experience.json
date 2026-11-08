@@ -44,7 +44,7 @@
               {
                 "type": "puffish_skills:test",
                 "data": {
-                  "block": "minecraft:grass"
+                  "block": "minecraft:short_grass"
                 }
               }
             ]

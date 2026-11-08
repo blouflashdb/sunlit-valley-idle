@@ -1221,7 +1221,7 @@
      "icon": "minecraft:wheat_seeds",
      "drops": [
       {
-       "block": "minecraft:grass",
+       "block": "minecraft:short_grass",
        "chance": 0.333
       },
       {

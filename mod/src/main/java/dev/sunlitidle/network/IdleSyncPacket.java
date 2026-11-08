@@ -1,18 +1,20 @@
 package dev.sunlitidle.network;
 
-import net.minecraft.network.FriendlyByteBuf;
+import dev.sunlitidle.SunlitIdle;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.fml.DistExecutor;
-import net.minecraftforge.network.NetworkEvent;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Supplier;
 
 /** Snapshot of a player's idle state for the open window. */
 public record IdleSyncPacket(int unlockedSlots, int totalLevel, List<Slot> slots, List<Skill> skills,
-                             List<Entry> storage, int offlineSeconds) {
+                             List<Entry> storage, int offlineSeconds) implements CustomPacketPayload {
+    public static final CustomPacketPayload.Type<IdleSyncPacket> TYPE = new CustomPacketPayload.Type<>(SunlitIdle.id("sync"));
+    public static final StreamCodec<RegistryFriendlyByteBuf, IdleSyncPacket> STREAM_CODEC =
+            StreamCodec.of(IdleSyncPacket::encode, IdleSyncPacket::decode);
     /** Most storage entries sent; the window shows the first ones. */
     public static final int MAX_ENTRIES = 1024;
 
@@ -25,7 +27,7 @@ public record IdleSyncPacket(int unlockedSlots, int totalLevel, List<Slot> slots
     public record Entry(ItemStack item, long count) {
     }
 
-    public static void encode(IdleSyncPacket p, FriendlyByteBuf buf) {
+    private static void encode(RegistryFriendlyByteBuf buf, IdleSyncPacket p) {
         buf.writeVarInt(p.unlockedSlots);
         buf.writeVarInt(p.totalLevel);
         buf.writeVarInt(p.slots.size());
@@ -44,13 +46,13 @@ public record IdleSyncPacket(int unlockedSlots, int totalLevel, List<Slot> slots
         int entries = Math.min(MAX_ENTRIES, p.storage.size());
         buf.writeVarInt(entries);
         for (int i = 0; i < entries; i++) {
-            buf.writeItem(p.storage.get(i).item);
+            ItemStack.OPTIONAL_STREAM_CODEC.encode(buf, p.storage.get(i).item);
             buf.writeVarLong(p.storage.get(i).count);
         }
         buf.writeVarInt(p.offlineSeconds);
     }
 
-    public static IdleSyncPacket decode(FriendlyByteBuf buf) {
+    private static IdleSyncPacket decode(RegistryFriendlyByteBuf buf) {
         int unlocked = buf.readVarInt();
         int total = buf.readVarInt();
         int slotCount = buf.readVarInt();
@@ -67,14 +69,13 @@ public record IdleSyncPacket(int unlockedSlots, int totalLevel, List<Slot> slots
         int entries = buf.readVarInt();
         List<Entry> storage = new ArrayList<>(entries);
         for (int i = 0; i < entries; i++) {
-            storage.add(new Entry(buf.readItem(), buf.readVarLong()));
+            storage.add(new Entry(ItemStack.OPTIONAL_STREAM_CODEC.decode(buf), buf.readVarLong()));
         }
         return new IdleSyncPacket(unlocked, total, slots, skills, storage, buf.readVarInt());
     }
 
-    public static void handle(IdleSyncPacket p, Supplier<NetworkEvent.Context> ctx) {
-        ctx.get().enqueueWork(() -> DistExecutor.unsafeRunWhenOn(Dist.CLIENT,
-                () -> () -> dev.sunlitidle.client.ClientIdleData.set(p)));
-        ctx.get().setPacketHandled(true);
+    @Override
+    public Type<IdleSyncPacket> type() {
+        return TYPE;
     }
 }

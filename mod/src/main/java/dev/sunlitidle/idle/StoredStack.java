@@ -2,7 +2,7 @@ package dev.sunlitidle.idle;
 
 import net.minecraft.world.item.ItemStack;
 
-/** One kind of item in idle storage. {@code prototype} has count 1 and carries the item's NBT. */
+/** One kind of item in idle storage. {@code prototype} has count 1 and carries the item's data components. */
 public final class StoredStack {
     private final ItemStack prototype;
     private long count;
@@ -25,6 +25,6 @@ public final class StoredStack {
     }
 
     public boolean matches(ItemStack stack) {
-        return ItemStack.isSameItemSameTags(prototype, stack);
+        return ItemStack.isSameItemSameComponents(prototype, stack);
     }
 }

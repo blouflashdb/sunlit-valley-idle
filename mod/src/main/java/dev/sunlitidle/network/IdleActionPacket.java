@@ -1,15 +1,17 @@
 package dev.sunlitidle.network;
 
-import dev.sunlitidle.idle.IdleService;
+import dev.sunlitidle.SunlitIdle;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraftforge.network.NetworkEvent;
-
-import java.util.function.Supplier;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 
 /** Everything the client asks of the idle system. */
-public record IdleActionPacket(Type type, int index, String text, boolean flag) {
-    public enum Type {
+public record IdleActionPacket(Op op, int index, String text, boolean flag) implements CustomPacketPayload {
+    public static final CustomPacketPayload.Type<IdleActionPacket> TYPE = new CustomPacketPayload.Type<>(SunlitIdle.id("action"));
+    public static final StreamCodec<FriendlyByteBuf, IdleActionPacket> STREAM_CODEC =
+            StreamCodec.of((buf, p) -> p.write(buf), IdleActionPacket::read);
+
+    public enum Op {
         /** Open the idle window. */
         OPEN,
         /** Put action {@code text} into slot {@code index}; an empty text clears the slot. */
@@ -23,44 +25,38 @@ public record IdleActionPacket(Type type, int index, String text, boolean flag) 
     }
 
     public static IdleActionPacket open() {
-        return new IdleActionPacket(Type.OPEN, 0, "", false);
+        return new IdleActionPacket(Op.OPEN, 0, "", false);
     }
 
     public static IdleActionPacket assign(int slot, String actionKey) {
-        return new IdleActionPacket(Type.ASSIGN, slot, actionKey == null ? "" : actionKey, false);
+        return new IdleActionPacket(Op.ASSIGN, slot, actionKey == null ? "" : actionKey, false);
     }
 
     public static IdleActionPacket withdraw(int index, boolean all) {
-        return new IdleActionPacket(Type.WITHDRAW, index, "", all);
+        return new IdleActionPacket(Op.WITHDRAW, index, "", all);
     }
 
     public static IdleActionPacket openTree(int skill) {
-        return new IdleActionPacket(Type.OPEN_TREE, skill, "", false);
+        return new IdleActionPacket(Op.OPEN_TREE, skill, "", false);
     }
 
     public static IdleActionPacket sell(int index) {
-        return new IdleActionPacket(Type.SELL, index, "", false);
+        return new IdleActionPacket(Op.SELL, index, "", false);
     }
 
-    public static void encode(IdleActionPacket p, FriendlyByteBuf buf) {
-        buf.writeEnum(p.type);
-        buf.writeInt(p.index);
-        buf.writeUtf(p.text, 256);
-        buf.writeBoolean(p.flag);
+    private void write(FriendlyByteBuf buf) {
+        buf.writeEnum(op);
+        buf.writeInt(index);
+        buf.writeUtf(text, 256);
+        buf.writeBoolean(flag);
     }
 
-    public static IdleActionPacket decode(FriendlyByteBuf buf) {
-        return new IdleActionPacket(buf.readEnum(Type.class), buf.readInt(), buf.readUtf(256), buf.readBoolean());
+    private static IdleActionPacket read(FriendlyByteBuf buf) {
+        return new IdleActionPacket(buf.readEnum(Op.class), buf.readInt(), buf.readUtf(256), buf.readBoolean());
     }
 
-    public static void handle(IdleActionPacket p, Supplier<NetworkEvent.Context> ctx) {
-        NetworkEvent.Context context = ctx.get();
-        ServerPlayer player = context.getSender();
-        context.enqueueWork(() -> {
-            if (player != null) {
-                IdleService.handle(player, p);
-            }
-        });
-        context.setPacketHandled(true);
+    @Override
+    public Type<IdleActionPacket> type() {
+        return TYPE;
     }
 }
