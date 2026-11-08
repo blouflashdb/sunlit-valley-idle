@@ -169,6 +169,9 @@ global.getManaFruitPips = (block) => {
   return "⬛".repeat(filled) + "⬜".repeat(10 - filled);
 };
 
+// One shared instance: block states only accept the property object they were built with.
+const manaFruitAgeProperty = integerProperty.create("age", 0, 7);
+
 StartupEvents.registry("block", (event) => {
   const manaMachine = (id, tooltips, sound, mineable) => {
     const name = id.split(":")[1];
@@ -256,12 +259,12 @@ StartupEvents.registry("block", (event) => {
     .mapColor("grass")
     .soundType("azalea_leaves")
     .box(1, 0, 1, 15, 4, 15)
-    .property(integerProperty.create("age", 0, 7))
+    .property(manaFruitAgeProperty)
     .defaultState((state) => {
-      state.set(integerProperty.create("age", 0, 7), 0);
+      state.set(manaFruitAgeProperty, 0);
     })
     .placementState((state) => {
-      state.set(integerProperty.create("age", 0, 7), 0);
+      state.set(manaFruitAgeProperty, 0);
     })
     .tagBlock("minecraft:mineable/hoe")
     .tagBlock("minecraft:crops")
