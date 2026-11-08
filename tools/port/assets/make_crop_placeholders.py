@@ -18,6 +18,8 @@ CROPS = {
     "society:block/kubejs/crops/sparkpod_crop_stage": (5, "carrots", 4),
     "society:block/kubejs/crops/tubabacco_plant_stage": (5, "wheat", 8),
     "vintagedelight:block/peanuts_stage": (5, "potatoes", 4),
+    "vintagedelight:block/cucumber_stage": (6, "carrots", 4),
+    "vintagedelight:block/ghost_pepper_stage": (6, "potatoes", 4),
 }
 BUSHES = {
     "society:block/kubejs/berry_bush/base": "minecraft:block/sweet_berry_bush_stage1",
@@ -25,6 +27,10 @@ BUSHES = {
     "society:block/kubejs/berry_bush/boysenberry": "minecraft:block/sweet_berry_bush_stage3",
     "society:block/kubejs/berry_bush/cranberry": "minecraft:block/sweet_berry_bush_stage2",
     "society:block/kubejs/berry_bush/crystalberry": "minecraft:block/sweet_berry_bush_stage2",
+    "vintagedelight:block/gearo_berry_bush_stage0": "minecraft:block/sweet_berry_bush_stage0",
+    "vintagedelight:block/gearo_berry_bush_stage1": "minecraft:block/sweet_berry_bush_stage1",
+    "vintagedelight:block/gearo_berry_bush_stage2": "minecraft:block/sweet_berry_bush_stage2",
+    "vintagedelight:block/gearo_berry_bush_stage3": "minecraft:block/sweet_berry_bush_stage3",
 }
 
 

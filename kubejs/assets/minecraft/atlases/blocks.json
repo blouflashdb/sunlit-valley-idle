@@ -2151,9 +2151,389 @@
       "sprite": "unusualfishmod:item/raw_snowflake_tail_fish"
     },
     {
+      "type": "single",
+      "resource": "minecraft:item/cocoa_beans",
+      "sprite": "vintagedelight:item/peanut"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/cocoa_beans",
+      "sprite": "vintagedelight:item/roasted_peanut"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honeycomb",
+      "sprite": "vintagedelight:item/honey_roasted_peanut"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glow_berries",
+      "sprite": "vintagedelight:item/magic_peanut"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/kelp",
+      "sprite": "vintagedelight:item/cucumber"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/beetroot",
+      "sprite": "vintagedelight:item/ghost_pepper"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/sweet_berries",
+      "sprite": "vintagedelight:item/gearo_berry"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/kelp",
+      "sprite": "vintagedelight:item/pickle"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/egg",
+      "sprite": "vintagedelight:item/pickled_egg"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/beetroot",
+      "sprite": "vintagedelight:item/pickled_pepper"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/beetroot",
+      "sprite": "vintagedelight:item/pickled_beetroot"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/potato",
+      "sprite": "vintagedelight:item/pickled_onion"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/pitcher_pod",
+      "sprite": "vintagedelight:item/pickled_pitcher_pod"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/turtle_egg",
+      "sprite": "vintagedelight:item/century_egg"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/cod",
+      "sprite": "vintagedelight:item/surstromming"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/cooked_cod",
+      "sprite": "vintagedelight:item/salted_cod"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/cooked_salmon",
+      "sprite": "vintagedelight:item/salted_salmon"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/beetroot_soup",
+      "sprite": "vintagedelight:item/kimchi"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/mushroom_stew",
+      "sprite": "vintagedelight:item/pad_thai"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/mushroom_stew",
+      "sprite": "vintagedelight:item/cheese_pasta"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/beetroot_soup",
+      "sprite": "vintagedelight:item/cucumber_salad"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/mushroom_stew",
+      "sprite": "vintagedelight:item/cucumber_noodles"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/rabbit_stew",
+      "sprite": "vintagedelight:item/pickle_soup"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/rabbit_stew",
+      "sprite": "vintagedelight:item/ghostly_chili"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/suspicious_stew",
+      "sprite": "vintagedelight:item/overnight_oats"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/bread",
+      "sprite": "vintagedelight:item/stuffed_burrito"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/bread",
+      "sprite": "vintagedelight:item/deluxe_burger"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/bread",
+      "sprite": "vintagedelight:item/cheese_burger"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/pumpkin_pie",
+      "sprite": "vintagedelight:item/meat_pizza_slice"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/bread",
+      "sprite": "vintagedelight:item/pb_j"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/cookie",
+      "sprite": "vintagedelight:item/oatmeal_cookie"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/bread",
+      "sprite": "vintagedelight:item/oat_bread"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "vintagedelight:item/fruity_granola_bar"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "vintagedelight:item/deluxe_granola_bar"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dried_kelp",
+      "sprite": "vintagedelight:item/chocolate_nut_granola_bar"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "vintagedelight:item/nut_milk_bottle"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "vintagedelight:item/nut_mash_bottle"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "vintagedelight:item/apple_sauce_mason_jar"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dragon_breath",
+      "sprite": "vintagedelight:item/gearo_berry_mason_jar"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/experience_bottle",
+      "sprite": "vintagedelight:item/glow_berry_mason_jar"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "vintagedelight:item/honey_mason_jar"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "vintagedelight:item/nut_mash_mason_jar"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dragon_breath",
+      "sprite": "vintagedelight:item/pepper_jam_mason_jar"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/experience_bottle",
+      "sprite": "vintagedelight:item/relish_mason_jar"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dragon_breath",
+      "sprite": "vintagedelight:item/sweet_berry_mason_jar"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glass_bottle",
+      "sprite": "vintagedelight:item/mason_jar"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dragon_breath",
+      "sprite": "vintagedelight:item/vinegar_bottle"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/dragon_breath",
+      "sprite": "vintagedelight:item/vinegar_mason_jar"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/brown_dye",
+      "sprite": "vintagedelight:item/organic_mash"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/charcoal",
+      "sprite": "vintagedelight:item/ghost_charcoal"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/egg",
+      "sprite": "vintagedelight:item/golden_egg"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/pumpkin_pie",
+      "sprite": "vintagedelight:item/meat_pizza"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/melon_seeds",
+      "sprite": "vintagedelight:item/cucumber_seeds"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/pumpkin_seeds",
+      "sprite": "vintagedelight:item/ghost_pepper_seeds"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/calcite",
+      "sprite": "vintagedelight:block/salt_block"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/quartz_block_bottom",
+      "sprite": "vintagedelight:block/smooth_salt_block"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/quartz_bricks",
+      "sprite": "vintagedelight:block/salt_bricks"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/polished_diorite",
+      "sprite": "vintagedelight:block/mixed_salt_bricks"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/barrel_side",
+      "sprite": "vintagedelight:block/cucumber_crate"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/barrel_side",
+      "sprite": "vintagedelight:block/ghost_pepper_crate"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/barrel_side",
+      "sprite": "vintagedelight:block/peanut_crate"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/brown_wool",
+      "sprite": "vintagedelight:block/gearo_berry_bag"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/white_concrete_powder",
+      "sprite": "vintagedelight:block/salt"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/shroomlight",
+      "sprite": "vintagedelight:block/salt_lamp"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/shroomlight",
+      "sprite": "vintagedelight:block/salt_lamp_default"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/blue_stained_glass",
+      "sprite": "vintagedelight:block/salt_lamp_blue"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/gray_stained_glass",
+      "sprite": "vintagedelight:block/salt_lamp_gray"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/green_stained_glass",
+      "sprite": "vintagedelight:block/salt_lamp_green"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/light_blue_stained_glass",
+      "sprite": "vintagedelight:block/salt_lamp_light_blue"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/pink_stained_glass",
+      "sprite": "vintagedelight:block/salt_lamp_pink"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/purple_stained_glass",
+      "sprite": "vintagedelight:block/salt_lamp_purple"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/warped_stem",
+      "sprite": "vintagedelight:block/magic_vine"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/warped_stem_top",
+      "sprite": "vintagedelight:block/magic_vine_top"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/stripped_warped_stem",
+      "sprite": "vintagedelight:block/stripped_magic_vine"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/stripped_warped_stem_top",
+      "sprite": "vintagedelight:block/stripped_magic_vine_top"
+    },
+    {
       "type": "directory",
       "source": "item",
       "prefix": "item/"
+    },
+    {
+      "type": "directory",
+      "source": "block",
+      "prefix": "block/"
     }
   ]
 }

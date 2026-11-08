@@ -1,6 +1,5 @@
 console.info("[SOCIETY] farmingLoot.js loaded");
 
-// TODO: "vintagedelight:gearo_berry_bush"
 const cropCollectorDenied = [
   "pamhc2trees:pamapple",
   "pamhc2trees:pamcherry",
