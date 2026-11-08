@@ -32,8 +32,11 @@ ServerEvents.loaded((event) => {
     const alt = probeCandidates(id).filter(has);
     console.info(`[PROBE] missing ${id} -> ${alt.join(",") || "?"}`);
   });
-  ["red_petal", "red_mystical_petal", "rune_fire", "rune_of_fire", "quartz_red", "red_quartz", "flight_tiara", "flugel_tiara"].forEach((p) =>
+  ["red_petal", "red_mystical_petal", "rune_fire", "rune_of_fire", "quartz_red", "red_quartz", "flight_tiara", "flugel_tiara", "white_mystical_flower", "rune_of_mana", "mana_quartz", "mana_powder", "flugel_tiara"].forEach((p) =>
     console.info(`[PROBE] has botania:${p} = ${has("botania:" + p)}`)
+  );
+  ["society:blueberry_seed", "society:blueberry_seeds", "society:ancient_fruit_seed", "society:ancient_fruit_seeds", "society:potato_seed", "society:potato_seeds", "brewery:hop_trellis_seeds"].forEach((id) =>
+    console.info(`[PROBE] has ${id} = ${has(id)}`)
   );
   for (let i = 0; i < probeRecipes.length; i += 40) console.info(`[PROBE] recipes ${probeRecipes.slice(i, i + 40).join(" ")}`);
   console.info("[PORT-TEST] PHASE1 botaniaprobe");
