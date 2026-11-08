@@ -1,4 +1,4 @@
-// Priority: 1000
+// priority: 1000
 // Spring Fish
 global.springOcean = [
   { fish: "aquaculture:atlantic_herring", weight: 16 },

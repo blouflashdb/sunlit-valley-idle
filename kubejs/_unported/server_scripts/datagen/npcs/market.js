@@ -1,4 +1,4 @@
-// Priority: -100
+// priority: -100
 if (global.datagenDialog) {
   runNpcDatagen("market", {
     name: "Leon",

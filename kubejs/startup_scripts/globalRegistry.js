@@ -1,4 +1,5 @@
 // priority: -20
+console.info("[SOCIETY] globalRegistry.js loaded");
 const NUMISMATICS = Java.loadClass("dev.ithundxr.createnumismatics.Numismatics");
 const NUMISMATICS_CURIO_UTILS = Java.loadClass("io.github.chakyl.numismaticsutils.utils.CurioUtils");
 

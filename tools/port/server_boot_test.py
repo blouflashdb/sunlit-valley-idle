@@ -3,13 +3,18 @@
 
 Installs the NeoForge server from the lock's loader version, downloads the mods (checked against
 their sha1), copies the pack overrides, starts the server until it creates the world and stops it.
-Fails if the server never reaches "Done", crashes, or NeoForge reports missing dependencies.
+Fails if the server never reaches "Done", crashes, NeoForge reports missing dependencies, or KubeJS
+logs an error. With --kubejs-tests the scripts in that folder are added as server scripts and the server
+is booted twice; each test prints "[PORT-TEST] PHASE1 <name>" on the first boot and "[PORT-TEST] PASS <name>"
+on the second (or "[PORT-TEST] FAIL <name>: ..."), so tests can check that state survives a restart.
 Runs in GitHub Actions (needs Java 21); the cloud dev container cannot reach the mod CDN.
 
 Usage (from the repository root):
     python3 tools/port/server_boot_test.py --dir build/server [--extra-mod mod/build/libs/sunlitidle-0.2.0.jar]
+        [--kubejs-tests tools/port/kubejs_tests]
 """
 import argparse
+import re
 import concurrent.futures
 import hashlib
 import json
@@ -31,6 +36,8 @@ FAIL_MARKERS = (
     "Failed to start the minecraft server",
 )
 SKIP_OVERRIDES = ("kubejs/_unported", "config/_unported")
+TEST_MARKER = re.compile(r"\[PORT-TEST\] (PHASE1|PASS|FAIL) ([\w-]+)")
+KUBEJS_ERROR = "] [ERROR] "
 
 
 def download(url, dest, sha1=None):
@@ -66,6 +73,7 @@ def main():
     ap.add_argument("--dir", default="build/server")
     ap.add_argument("--timeout", type=int, default=900, help="seconds to wait for the world")
     ap.add_argument("--extra-mod", action="append", default=[], help="local mod jar to add, such as sunlitidle")
+    ap.add_argument("--kubejs-tests", help="folder of KubeJS server scripts that print [PORT-TEST] markers")
     args = ap.parse_args()
 
     lock = json.loads(pathlib.Path("pakku-lock.json").read_text())
@@ -94,21 +102,78 @@ def main():
     (server / "user_jvm_args.txt").write_text("-Xmx6G\n")
     os.chmod(server / "run.sh", 0o755)
 
+    tests = []
+    if args.kubejs_tests:
+        target = server / "kubejs" / "server_scripts" / "_ci"
+        target.mkdir(parents=True, exist_ok=True)
+        for script in sorted(pathlib.Path(args.kubejs_tests).glob("*.js")):
+            shutil.copy2(script, target / script.name)
+            tests.append(script.stem.removesuffix("Test").lower())
+
+    boots = 2 if tests else 1
+    results = []
+    errors = []
+    for boot in range(1, boots + 1):
+        print(f"=== Boot {boot} of {boots}", flush=True)
+        markers = run_server(server, args.timeout, wait_for=set(tests))
+        results.append(markers)
+        errors += kubejs_errors(server, boot)
+
+    if errors:
+        print("KubeJS errors:")
+        for line in errors:
+            print("  " + line)
+    failed = bool(errors)
+    for name in tests:
+        first = results[0].get(name, [])
+        second = results[1].get(name, [])
+        if first != ["PHASE1"] or second != ["PASS"]:
+            print(f"KubeJS test {name} failed: boot 1 {first}, boot 2 {second}")
+            failed = True
+        else:
+            print(f"KubeJS test {name} passed")
+    if failed:
+        raise SystemExit("KubeJS errors or failed KubeJS tests")
+    print("Server booted into a world and stopped cleanly.")
+
+
+def run_server(server, timeout, wait_for):
+    """Runs the server until it is up (and the KubeJS tests reported), stops it, returns test markers."""
     proc = subprocess.Popen(["./run.sh", "nogui"], cwd=server, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
                             stderr=subprocess.STDOUT, text=True, bufsize=1)
-    state = {"done": False, "fail": None}
-    timer = threading.Timer(args.timeout, proc.kill)
+    state = {"done": False, "fail": None, "stopped": False}
+    markers = {}
+    timer = threading.Timer(timeout, proc.kill)
     timer.start()
+
+    def stop():
+        if not state["stopped"]:
+            state["stopped"] = True
+            proc.stdin.write("stop\n")
+            proc.stdin.flush()
+
+    grace = None
     for line in proc.stdout:
         sys.stdout.write(line)
         if any(m in line for m in FAIL_MARKERS) and not state["fail"]:
             state["fail"] = line.strip()
+        m = TEST_MARKER.search(line)
+        if m:
+            markers.setdefault(m.group(2), []).append(m.group(1))
         if "Done (" in line and 'For help, type "help"' in line and not state["done"]:
             state["done"] = True
-            proc.stdin.write("stop\n")
-            proc.stdin.flush()
+            if wait_for:
+                # Tests run on ServerEvents.loaded, right after "Done"; give them a moment.
+                grace = threading.Timer(60, stop)
+                grace.start()
+            else:
+                stop()
+        if state["done"] and wait_for and wait_for <= markers.keys() and not state["stopped"]:
+            stop()
     proc.wait()
     timer.cancel()
+    if grace:
+        grace.cancel()
 
     log = server / "logs" / "latest.log"
     if log.exists():
@@ -118,7 +183,18 @@ def main():
                 state["fail"] = m
     if state["fail"] or not state["done"]:
         raise SystemExit(f"Server boot failed: {state['fail'] or 'never reached Done'}")
-    print("Server booted into a world and stopped cleanly.")
+    return markers
+
+
+def kubejs_errors(server, boot):
+    lines = []
+    for name in ("startup", "server"):
+        log = server / "logs" / "kubejs" / f"{name}.log"
+        if log.exists():
+            text = log.read_text(errors="replace")
+            shutil.copy2(log, log.with_name(f"{name}-boot{boot}.log"))
+            lines += [f"[{name}.log, boot {boot}] {l}" for l in text.splitlines() if KUBEJS_ERROR in l]
+    return lines
 
 
 if __name__ == "__main__":

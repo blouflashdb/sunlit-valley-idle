@@ -1,4 +1,4 @@
-// Priority: 0
+// priority: 0
 
 global.artisanMachineDefinitions = [
   {
