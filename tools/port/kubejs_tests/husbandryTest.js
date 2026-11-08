@@ -10,7 +10,6 @@ ServerEvents.loaded((event) => {
     if (!ok) throw new Error(message);
   };
   let saved = server.persistentData;
-  let UUID = Java.loadClass("java.util.UUID");
 
   if (!saved.contains("husbandryTestCow")) {
     try {
@@ -58,7 +57,12 @@ ServerEvents.loaded((event) => {
   // Entities load a little after the world, so look for the cow a few seconds later.
   server.scheduleInTicks(100, () => {
     try {
-      let cow = level.getEntity(UUID.fromString(saved.getString("husbandryTestCow")));
+      // level.getEntity(UUID) resolves to getEntity(int) in Rhino, so look through the loaded entities.
+      let cowId = saved.getString("husbandryTestCow");
+      let cow = null;
+      level.getAllEntities().forEach((entity) => {
+        if (String(entity.getUuid()) === cowId) cow = entity;
+      });
       check(cow !== null, "the test cow is gone after the restart");
       let data = cow.persistentData;
       check(global.animalInt(data, "affection") >= 900, `the cow has ${global.animalInt(data, "affection")} affection after the restart`);
