@@ -728,18 +728,6 @@ ItemEvents.tooltip((tooltip) => {
     Text.translatable("tooltip.society.slime_ticket").gray()
   );
   tooltip.add(
-    "splendid_slimes:slime_candy",
-    Text.translatable("tooltip.society.slime_candy").gray()
-  );
-  tooltip.add(
-    "splendid_slimes:slime_feeder",
-    Text.translatable("tooltip.society.slime_feeder").gray()
-  );
-  tooltip.add(
-    "splendid_slimes:slime_feeder",
-    Text.translatable("tooltip.society.area", `13x13x13`).green()
-  );
-  tooltip.add(
     "create:creative_blaze_cake",
     Text.translatable("tooltip.society.creative_blaze_cake").gray()
   );

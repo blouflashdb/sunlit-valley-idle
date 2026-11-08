@@ -54,7 +54,7 @@
     },
     {
       "request": { "count": 1, "item": "society:prismatic_shard" },
-      "offer": { "count": 4, "item": "splendid_slimes:slime_candy" },    
+      "offer": { "count": 4, "item": "splendid_slimes:slime_ticket" },    
       "trade_id": "wandering_baker_slime_candy"
     },
     {

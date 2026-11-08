@@ -1,17 +1,17 @@
 {
   "name": "Luminous",
   "category": "patchouli:slimes",
-  "icon": "splendid_slimes:plort{plort:{id:\"splendid_slimes:luminous\"}}",
+  "icon": "splendid_slimes:plort_luminous",
+  "sortnum": 6,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "$(l)Locations:$()$(li)Structure: Nether Slime Spawners$(li)Dig spots: Nether blocks$(br2)$(l)Risks:$()$(br)Causes the Glowing effect when upset."
+      "text": "$(l)Slime Ranching level:$() 3$(br2)$(l)Food:$() Pickled Beetroot$(br)$(l)Favorite food (double plorts):$() Pickle$(br2)Rip its plorts in a Plort Ripper, or press 16 into a Slime Heart."
     },
     {
-      "type": "patchouli:entity",
-      "name": "Luminous Slime",
-      "entity": "splendid_slimes:splendid_slime{Breed:\"splendid_slimes:luminous\"}",
-      "scale": 0.9
+      "type": "patchouli:spotlight",
+      "item": "splendid_slimes:plort_luminous,splendid_slimes:slime_heart_luminous",
+      "title": "Luminous Plort"
     }
   ]
 }

@@ -1,17 +1,17 @@
 {
   "name": "All-Seeing",
   "category": "patchouli:slimes",
-  "icon": "splendid_slimes:plort{plort:{id:\"splendid_slimes:all_seeing\"}}",
+  "icon": "splendid_slimes:plort_all_seeing",
+  "sortnum": 12,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "$(l)Locations:$()$(li)Heart fusion$(br2)$(l)Risks:$()$(br)Climbs walls and causes the Poison effect when upset."
+      "text": "$(l)Slime Ranching level:$() 6$(br2)$(l)Food:$() Potato$(br)$(l)Favorite food (double plorts):$() Golden Carrot$(br2)Rip its plorts in a Plort Ripper, or press 16 into a Slime Heart."
     },
     {
-      "type": "patchouli:entity",
-      "name": "All-Seeing Slime",
-      "entity": "splendid_slimes:splendid_slime{Breed:\"splendid_slimes:all_seeing\"}",
-      "scale": 0.9
+      "type": "patchouli:spotlight",
+      "item": "splendid_slimes:plort_all_seeing,splendid_slimes:slime_heart_all_seeing",
+      "title": "All-Seeing Plort"
     }
   ]
 }

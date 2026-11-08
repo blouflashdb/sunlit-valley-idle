@@ -87,36 +87,18 @@
         },
         {
           "type": "minecraft:item",
-          "name": "splendid_slimes:slime_heart",
-          "weight": 2,
-          "functions": [
-            {
-              "function": "minecraft:set_nbt",
-              "tag": "{slime:{id:\"splendid_slimes:dusty\"}}"
-            }
-          ]
+          "name": "splendid_slimes:slime_heart_dusty",
+          "weight": 2
         },
         {
           "type": "minecraft:item",
-          "name": "splendid_slimes:slime_heart",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "minecraft:set_nbt",
-              "tag": "{slime:{id:\"splendid_slimes:rotting\"}}"
-            }
-          ]
+          "name": "splendid_slimes:slime_heart_rotting",
+          "weight": 1
         },
         {
           "type": "minecraft:item",
-          "name": "splendid_slimes:slime_heart",
-          "weight": 1,
-          "functions": [
-            {
-              "function": "minecraft:set_nbt",
-              "tag": "{slime:{id:\"splendid_slimes:bony\"}}"
-            }
-          ]
+          "name": "splendid_slimes:slime_heart_bony",
+          "weight": 1
         },
         {
           "type": "minecraft:item",
@@ -169,7 +151,6 @@
           "weight": 1,
           "name": "simplehats:hatbag_uncommon"
         },
-
         {
           "type": "minecraft:item",
           "weight": 2,

@@ -1,17 +1,17 @@
 {
   "name": "Ender",
   "category": "patchouli:slimes",
-  "icon": "splendid_slimes:plort{plort:{id:\"splendid_slimes:ender\"}}",
+  "icon": "splendid_slimes:plort_ender",
+  "sortnum": 8,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "$(l)Locations:$()$(li)Structure: Umbra Barrens Slime Spawners (Skull Cavern)$(br2)$(l)Risks:$()$(br)Will teleport entities to itself and teleport itself to food sources."
+      "text": "$(l)Slime Ranching level:$() 4$(br2)$(l)Food:$() Lapis Lazuli$(br)$(l)Favorite food (double plorts):$() Amethyst Shard$(br2)Rip its plorts in a Plort Ripper, or press 16 into a Slime Heart."
     },
     {
-      "type": "patchouli:entity",
-      "name": "Ender Slime",
-      "entity": "splendid_slimes:splendid_slime{Breed:\"splendid_slimes:ender\"}",
-      "scale": 0.9
+      "type": "patchouli:spotlight",
+      "item": "splendid_slimes:plort_ender,splendid_slimes:slime_heart_ender",
+      "title": "Ender Plort"
     }
   ]
 }

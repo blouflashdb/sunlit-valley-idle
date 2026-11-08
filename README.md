@@ -10,7 +10,7 @@ All progression should be possible while AFK. Farming, animal husbandry, process
 
 - **Idle mechanics:** Automated production that keeps running without the player.
 - **Autobattler:** In the Adventuring tab of the idle skills window, a companion fights through dungeon tiers on its own. The player supplies gear and food; the companion consumes them and produces loot.
-- **Idle skills:** A window that opens with **I** from the first second. Twelve skills (Woodcutting, Mining, Digging, Foraging, Farming, Fishing, Hunting, Husbandry, Archaeology, Adventuring, Smelting, Cooking) run idle actions that roll the pack's real loot, level the same skill trees as manual play, and keep going while offline (up to 24 hours). The Adventuring tab holds a companion that clears dungeon tiers T1 to T5, Smelting and Cooking process the pack's furnace recipes, and storage sells at shipping bin prices. See [docs/idle-skills.md](docs/idle-skills.md).
+- **Idle skills:** A window that opens with **I** from the first second. Thirteen skills (Woodcutting, Mining, Digging, Foraging, Farming, Fishing, Hunting, Husbandry, Archaeology, Adventuring, Smelting, Cooking, Slime Ranching) run idle actions that roll the pack's real loot, level the same skill trees as manual play, and keep going while offline (up to 24 hours). The Adventuring tab holds a companion that clears dungeon tiers T1 to T5, Smelting and Cooking process the pack's furnace recipes, and storage sells at shipping bin prices. See [docs/idle-skills.md](docs/idle-skills.md).
 - **AFK progression:** Every progression step should be reachable without constant clicking. Crafting stays hands-on.
 
 ## Repository layout

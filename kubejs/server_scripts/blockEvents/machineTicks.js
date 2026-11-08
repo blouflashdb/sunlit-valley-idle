@@ -178,3 +178,12 @@ BlockEvents.blockEntityTick("society:ribbit_hut", (entity) => {
 BlockEvents.blockEntityTick("society:caterpillar_box", (entity) => {
   global.runCaterpillarBox(entity);
 });
+
+// Plort Ripper and Plort Press (#13): startup_scripts/slimes/plortMachines.js.
+BlockEvents.blockEntityTick("society:plort_ripper", (entity) => {
+  global.runPlortRipper(entity);
+});
+
+BlockEvents.blockEntityTick("society:plort_press", (entity) => {
+  global.runPlortPress(entity);
+});

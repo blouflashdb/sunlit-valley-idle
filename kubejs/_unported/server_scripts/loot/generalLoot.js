@@ -59,18 +59,12 @@ LootJS.modifiers((e) => {
   e.addLootTableModifier("minecraft:chests/abandoned_mineshaft")
     .randomChance(0.2)
     .addLoot(
-      Item.of(
-        "splendid_slimes:slime_heart",
-        '{slime:{id:"splendid_slimes:webby"}}'
-      )
+      Item.of("splendid_slimes:slime_heart_webby")
     );
   e.addLootTableModifier("minecraft:chests/simple_dungeon")
     .randomChance(0.1)
     .addLoot(
-      Item.of(
-        "splendid_slimes:slime_heart",
-        '{slime:{id:"splendid_slimes:webby"}}'
-      )
+      Item.of("splendid_slimes:slime_heart_webby")
     );
   e.addLootTableModifier("minecraft:chests/buried_treasure")
     .randomChance(0.9)
@@ -147,10 +141,7 @@ LootJS.modifiers((e) => {
   e.addLootTableModifier("minecraft:chests/ancient_city")
     .randomChance(0.2)
     .addLoot(
-      Item.of(
-        "splendid_slimes:slime_heart",
-        '{slime:{id:"splendid_slimes:orby"}}'
-      )
+      Item.of("splendid_slimes:slime_heart_orby")
     );
   e.addLootTableModifier("minecraft:chests/ancient_city")
     .randomChance(0.2)
@@ -183,18 +174,12 @@ LootJS.modifiers((e) => {
   e.addLootTableModifier("minecraft:chests/bastion_treasure")
     .randomChance(0.2)
     .addLoot(
-      Item.of(
-        "splendid_slimes:slime_heart",
-        '{slime:{id:"splendid_slimes:blazing"}}'
-      )
+      Item.of("splendid_slimes:slime_heart_blazing")
     );
   e.addLootTableModifier("minecraft:chests/bastion_treasure")
     .randomChance(0.6)
     .addLoot(
-      Item.of(
-        "splendid_slimes:slime_heart",
-        '{slime:{id:"splendid_slimes:weeping"}}'
-      )
+      Item.of("splendid_slimes:slime_heart_weeping")
     );
   e.addLootTableModifier("atmospheric:chests/arid_garden").removeLoot(
     "atmospheric:golden_dragon_fruit"
@@ -242,18 +227,12 @@ LootJS.modifiers((e) => {
   e.addLootTableModifier("minecraft:chests/end_city_treasure")
     .randomChance(0.2)
     .addLoot(
-      Item.of(
-        "splendid_slimes:slime_heart",
-        '{slime:{id:"splendid_slimes:shulking"}}'
-      )
+      Item.of("splendid_slimes:slime_heart_shulking")
     );
   e.addLootTableModifier("minecraft:chests/end_city_treasure")
     .randomChance(0.2)
     .addLoot(
-      Item.of(
-        "splendid_slimes:slime_heart",
-        '{slime:{id:"splendid_slimes:ender"}}'
-      )
+      Item.of("splendid_slimes:slime_heart_ender")
     );
 
   // Seeds

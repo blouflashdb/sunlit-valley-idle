@@ -117,20 +117,6 @@
     }
   },
   {
-    "mob": "splendid_slimes:splendid_slime",
-    "persecond": 0.1,
-    "attempts": 10,
-    "amount": {
-      "minimum": 2,
-      "maximum": 5,
-      "groupdistance": 3
-    },
-    "conditions": {
-      "dimension": "minecraft:the_nether",
-      "maxthis": 25
-    }
-  },
-  {
     "mob": "meadow:wooly_cow",
     "persecond": 0.1,
     "attempts": 10,

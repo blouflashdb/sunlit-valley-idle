@@ -510,9 +510,6 @@ ServerEvents.tags("item", (e) => {
   );
   e.add("create:crushed_raw_materials", "create:crushed_raw_bismuth");
   e.add("forge:raw_materials", "etcetera:raw_bismuth");
-  e.add("splendid_slimes:slime_vac_fireable", "#society:omni_geode_treasure");
-  e.add("splendid_slimes:slime_vac_fireable", "#society:preserves");
-  e.add("splendid_slimes:slime_vac_fireable", "minecraft:bone");
   e.add("aquaculture:bobber", "society:neptunium_bobber");
   e.add("herbalbrews:small_water_fill", 'herbalbrews:water_cup');
 
@@ -586,7 +583,6 @@ ServerEvents.tags("item", (e) => {
   smallMilks.forEach((item) => {
     e.add("society:small_milk", item);
   });
-  e.add("splendid_slimes:slime_vac_fireable", "#society:small_milk");
   const largeMilks = [
     "society:large_milk",
     "society:large_goat_milk",
@@ -612,18 +608,12 @@ ServerEvents.tags("item", (e) => {
   ].forEach((item) => {
     e.add("forge:gems", item);
   });
-  e.add("splendid_slimes:slime_vac_fireable", "#society:large_milk");
-  [
-    "snowpig:snow_pig_spawn_egg",
-    "untitledduckmod:duck_spawn_egg",
-    "untitledduckmod:goose_spawn_egg",
-  ].forEach((item) => {
-    e.add("splendid_slimes:animal_spawn_eggs", item);
+  global.plorts.forEach((plort) => {
+    ["plort", "slime_heart"].forEach((kind) => {
+      e.add("society:sellable", `splendid_slimes:${kind}_${plort.type}`);
+      e.add("society:farmer_product", `splendid_slimes:${kind}_${plort.type}`);
+    });
   });
-  e.add("society:sellable", "splendid_slimes:plort");
-  e.add("society:sellable", "splendid_slimes:slime_heart");
-  e.add("society:farmer_product", "splendid_slimes:plort");
-  e.add("society:farmer_product", "splendid_slimes:slime_heart");
   Array.from(global.trades.keys()).forEach((trade) => {
     if (!trade.includes("plort") && !trade.includes("slime_heart")) {
       let tradeDef = global.trades.get(trade);
@@ -655,7 +645,6 @@ ServerEvents.tags("block", (e) => {
     "cb_multipart:multipart",
     "translocators:fluid_translocator",
     "trials:trial_spawner",
-    "splendid_slimes:slime_spawner",
     "minecraft:spawner",
     "trials:trial_vault",
     "trials:trial_vault_ominous",

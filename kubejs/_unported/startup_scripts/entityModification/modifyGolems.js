@@ -91,7 +91,7 @@ global.handleSlimeGolem = (entity) => {
   const { level } = entity;
   const entities = level
     .getEntitiesWithin(entity.boundingBox.inflate(8))
-    .filter((e) => e.type == "splendid_slimes:splendid_slime");
+    .filter((e) => e.type == "minecraft:slime");
 
   const golems = level
     .getEntitiesWithin(entity.boundingBox.inflate(8))

@@ -121,8 +121,12 @@ tree("smelting", "minecraft:furnace", "textures/block/bricks.png",
 tree("cooking", "minecraft:smoker", "textures/block/smoker_top.png",
      [attr("sunlitidle:cooking_yield", 0.05)], "minecraft:campfire", "minecraft:cooked_beef", [])
 
+# Slime Ranching (#13) has no manual activity; like Smelting, its root perk raises the idle yield.
+tree("slime_ranching", "minecraft:slime_ball", "textures/block/slime_block.png",
+     [attr("sunlitidle:slime_ranching_yield", 0.05)], "minecraft:slime_block", "minecraft:slime_ball", [])
+
 with open(os.path.join(ROOT, "config.json"), "w") as f:
     json.dump({"version": 3, "categories": ["woodcutting", "foraging", "digging", "hunting", "archaeology",
-                                            "smelting", "cooking"]}, f, indent=2)
+                                            "smelting", "cooking", "slime_ranching"]}, f, indent=2)
     f.write("\n")
 print("ok")

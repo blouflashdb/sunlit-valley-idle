@@ -1883,31 +1883,32 @@ global.miscAdventurer = [
   { item: "gamediscs:game_disc_froggie", value: 3200 },
 ];
 
+// Plort prices by breed (#13: splendid_slimes:plort_<breed>; hearts are worth 16 plorts).
 global.plorts = [
-  { type: "splendid_slimes:slimy", value: 64 },
-  { type: "splendid_slimes:dusty", value: 64 },
-  { type: "splendid_slimes:bony", value: 72 },
-  { type: "splendid_slimes:rotting", value: 72 },
-  { type: "splendid_slimes:mechanic", value: 148 },
-  { type: "splendid_slimes:webby", value: 128 },
-  { type: "splendid_slimes:luminous", value: 132 },
-  { type: "splendid_slimes:juicy", value: 90 },
-  { type: "splendid_slimes:puddle", value: 224 },
-  { type: "splendid_slimes:boomcat", value: 200 },
-  { type: "splendid_slimes:bear", value: 256 },
-  { type: "splendid_slimes:all_seeing", value: 256 },
-  { type: "splendid_slimes:bitwise", value: 288 },
-  { type: "splendid_slimes:blazing", value: 256 },
-  { type: "splendid_slimes:weeping", value: 320 },
-  { type: "splendid_slimes:prisma", value: 400 },
-  { type: "splendid_slimes:phantom", value: 512 },
-  { type: "splendid_slimes:sweet", value: 256 },
-  { type: "splendid_slimes:shulking", value: 512 },
-  { type: "splendid_slimes:ender", value: 148 },
-  { type: "splendid_slimes:orby", value: 480 },
-  { type: "splendid_slimes:minty", value: 332 },
-  { type: "splendid_slimes:sparkcat", value: 1400 },
-  { type: "splendid_slimes:gold", value: 2048 },
+  { type: "slimy", value: 64 },
+  { type: "dusty", value: 64 },
+  { type: "bony", value: 72 },
+  { type: "rotting", value: 72 },
+  { type: "mechanic", value: 148 },
+  { type: "webby", value: 128 },
+  { type: "luminous", value: 132 },
+  { type: "juicy", value: 90 },
+  { type: "puddle", value: 224 },
+  { type: "boomcat", value: 200 },
+  { type: "bear", value: 256 },
+  { type: "all_seeing", value: 256 },
+  { type: "bitwise", value: 288 },
+  { type: "blazing", value: 256 },
+  { type: "weeping", value: 320 },
+  { type: "prisma", value: 400 },
+  { type: "phantom", value: 512 },
+  { type: "sweet", value: 256 },
+  { type: "shulking", value: 512 },
+  { type: "ender", value: 148 },
+  { type: "orby", value: 480 },
+  { type: "minty", value: 332 },
+  { type: "sparkcat", value: 1400 },
+  { type: "gold", value: 2048 },
 ];
 
 global.slimeHearts = [];
@@ -2219,14 +2220,14 @@ global.miscAdventurer.forEach((miscItem) => {
 });
 global.plorts.forEach((plort) => {
   const { type, value } = plort;
-  global.trades.set(`splendid_slimes:plort/${type}`, {
+  global.trades.set(`splendid_slimes:plort_${type}`, {
     value: global.getConfiguredValue(value, "crop"),
     multiplier: "shippingbin:crop_sell_multiplier",
   });
 });
 global.slimeHearts.forEach((heart) => {
   const { type, value } = heart;
-  global.trades.set(`splendid_slimes:slime_heart/${type}`, {
+  global.trades.set(`splendid_slimes:slime_heart_${type}`, {
     value: global.getConfiguredValue(value, "crop"),
     multiplier: "shippingbin:crop_sell_multiplier",
   });

@@ -5,6 +5,10 @@ Run: python3 tools/gen_idle_skills.py
 """
 import json
 import os
+import sys
+
+sys.dont_write_bytecode = True
+from slime_breeds import BREEDS  # noqa: E402
 
 OUT = os.path.join(os.path.dirname(__file__), "..", "src", "main", "resources", "data", "sunlitidle", "idle", "skills.json")
 
@@ -256,6 +260,22 @@ husbandry = [
 ]
 
 
+def slime(breed, level, food, treat):
+    """A pen of one breed: plorts for its food; its favorite food (treat) gives two."""
+    seconds = 12.0 + 2 * level
+    xp = 3 + round(level * 1.5)
+    plort = "splendid_slimes:plort_" + breed
+    return [
+        {"id": breed, "level": level, "seconds": seconds, "xp": xp, "icon": plort,
+         "inputs": [{"item": food, "count": 1}], "drops": [{"item": plort}]},
+        {"id": breed + "_treat", "level": level, "seconds": seconds, "xp": round(xp * 1.5), "icon": treat,
+         "inputs": [{"item": treat, "count": 1}], "drops": [{"item": plort, "count": 2}]},
+    ]
+
+
+slime_ranching = [a for breed, _, level, food, treat in BREEDS for a in slime(breed, level, food, treat)]
+
+
 def dig(id, level, seconds, xp, blocks, icon=None, chances=None):
     drops = []
     for i, b in enumerate(blocks):
@@ -364,6 +384,9 @@ skills = [
      "tool": "none", "recipes": ["minecraft:smelting", "minecraft:blasting"], "actions": []},
     {"id": "cooking", "category": "sunlitidle:cooking", "icon": "minecraft:smoker",
      "tool": "none", "recipes": ["minecraft:smoking", "minecraft:campfire_cooking"], "actions": []},
+    # Added on 1.21.1 (#13), last so the tool slots of saved players keep their skill.
+    {"id": "slime_ranching", "category": "sunlitidle:slime_ranching", "icon": "splendid_slimes:plort_slimy",
+     "tool": "none", "tool_required": False, "actions": slime_ranching},
 ]
 
 for skill in skills:

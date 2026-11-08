@@ -234,7 +234,6 @@ ItemEvents.tooltip((tooltip) => {
         Text.translatable("block.society.artisan_hopper"),
         Text.translatable("block.farmingforblockheads.chicken_nest"),
         Text.translatable("block.society.feeding_trough"),
-        Text.translatable("block.splendid_slimes.slime_feeder"),
         Text.translatable("block.society.snow_melter"),
         Text.translatable("block.society.fish_pond_basket"),
         Text.translatable("block.society.fish_pond_hatchery"),

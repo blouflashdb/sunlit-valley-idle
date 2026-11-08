@@ -1,17 +1,17 @@
 {
   "name": "Weeping",
   "category": "patchouli:slimes",
-  "icon": "splendid_slimes:plort{plort:{id:\"splendid_slimes:weeping\"}}",
+  "icon": "splendid_slimes:plort_weeping",
+  "sortnum": 16,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "$(l)Locations:$()$(li)Biomes: Nether biomes outside of Soul Sand Valley$(br2)$(l)Risks:$()$(br)Will periodically cry, filling the area with water."
+      "text": "$(l)Slime Ranching level:$() 8$(br2)$(l)Food:$() Glow Berries$(br)$(l)Favorite food (double plorts):$() Banana$(br2)Rip its plorts in a Plort Ripper, or press 16 into a Slime Heart."
     },
     {
-      "type": "patchouli:entity",
-      "name": "Weeping Slime",
-      "entity": "splendid_slimes:splendid_slime{Breed:\"splendid_slimes:weeping\"}",
-      "scale": 0.9
+      "type": "patchouli:spotlight",
+      "item": "splendid_slimes:plort_weeping,splendid_slimes:slime_heart_weeping",
+      "title": "Weeping Plort"
     }
   ]
 }

@@ -8,6 +8,7 @@ import dev.sunlitidle.farm.FarmRegistry;
 import dev.sunlitidle.idle.IdleAttributes;
 import dev.sunlitidle.idle.IdleService;
 import dev.sunlitidle.network.IdleNetwork;
+import dev.sunlitidle.slime.SlimeRegistry;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -25,6 +26,7 @@ public final class SunlitIdle {
     public SunlitIdle(IEventBus bus, ModContainer container) {
         ModRegistry.register(bus);
         FarmRegistry.register(bus);
+        SlimeRegistry.register(bus);
         DailyFarm.init();
         FarmEvents.init();
         IdleAttributes.register(bus);

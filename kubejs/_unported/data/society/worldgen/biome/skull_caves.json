@@ -74,12 +74,6 @@
         "minCount": 1,
         "maxCount": 4,
         "weight": 1
-      },
-      {
-        "type": "splendid_slimes:splendid_slime",
-        "weight": 10,
-        "minCount": 1,
-        "maxCount": 4
       }
     ],
     "underground_water_creature": [

@@ -1,17 +1,17 @@
 {
   "name": "Gold",
   "category": "patchouli:slimes",
-  "icon": "splendid_slimes:plort{plort:{id:\"splendid_slimes:gold\"}}",
+  "icon": "splendid_slimes:plort_gold",
+  "sortnum": 23,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "$(l)Locations:$()$(li)Heart fusion$(br2)$(l)Risks:$()$(br)Causes Bad Omen effect when upset and drains 512 :coin: from nearby players' bank accounts at a time. Extremely volatile moods."
+      "text": "$(l)Slime Ranching level:$() 12$(br2)$(l)Food:$() Carrot Preserves$(br)$(l)Favorite food (double plorts):$() Bell Pepper Preserves$(br2)Rip its plorts in a Plort Ripper, or press 16 into a Slime Heart."
     },
     {
-      "type": "patchouli:entity",
-      "name": "Gold Slime",
-      "entity": "splendid_slimes:splendid_slime{Breed:\"splendid_slimes:gold\"}",
-      "scale": 0.9
+      "type": "patchouli:spotlight",
+      "item": "splendid_slimes:plort_gold,splendid_slimes:slime_heart_gold",
+      "title": "Gold Plort"
     }
   ]
 }

@@ -488,7 +488,7 @@
 				""
 				"{ftbquests.chapter.iii__advanced_farming.quest139B02AFBCBBF350.description2}"
 			]
-			icon: "splendid_slimes:slime_incubator"
+			icon: "society:plort_press"
 			id: "139B02AFBCBBF350"
 			rewards: [{
 				id: "2BA89ACB2F811833"
@@ -498,12 +498,12 @@
 			tasks: [
 				{
 					id: "656F3AFA4D80C022"
-					item: "splendid_slimes:slime_incubator"
+					item: "society:plort_press"
 					type: "item"
 				}
 				{
 					id: "7FFDB09C606FA9A3"
-					item: "splendid_slimes:slime_heart"
+					item: "splendid_slimes:slime_heart_slimy"
 					type: "item"
 				}
 			]
@@ -520,7 +520,7 @@
 				""
 				"{ftbquests.chapter.iii__advanced_farming.quest41029F073ADDDC2F.description3}"
 			]
-			icon: "splendid_slimes:plort_rippit"
+			icon: "society:plort_ripper"
 			id: "41029F073ADDDC2F"
 			rewards: [{
 				id: "074853EA3D01718D"
@@ -530,12 +530,12 @@
 			tasks: [
 				{
 					id: "515FED7B43C70FE6"
-					item: "splendid_slimes:plort"
+					item: "splendid_slimes:plort_slimy"
 					type: "item"
 				}
 				{
 					id: "0C1A3A4EF0AE3856"
-					item: "splendid_slimes:plort_rippit"
+					item: "society:plort_ripper"
 					type: "item"
 				}
 			]
@@ -559,7 +559,7 @@
 			}]
 			tasks: [{
 				id: "3F72902171D6763F"
-				item: "splendid_slimes:corral_block"
+				item: "splendid_slimes:plort_slimy"
 				type: "item"
 			}]
 			x: 3.25d
@@ -603,21 +603,9 @@
 			size: 1.5d
 			subtitle: "{ftbquests.chapter.iii__advanced_farming.quest632578AFE8A0D12D.subtitle}"
 			tasks: [{
-				icon: {
-					Count: 1
-					id: "splendid_slimes:slime_item"
-					tag: {
-						slime: {
-							id: "splendid_slimes:slimy"
-						}
-					}
-				}
 				id: "65C4C6928BF2A227"
-				observe_type: 5
-				timer: 0L
-				title: "{ftbquests.chapter.iii__advanced_farming.quest632578AFE8A0D12D.task.7333204425981469223.title}"
-				to_observe: "splendid_slimes:splendid_slime"
-				type: "observation"
+				item: "splendid_slimes:plort_slimy"
+				type: "item"
 			}]
 			title: "{ftbquests.chapter.iii__advanced_farming.quest632578AFE8A0D12D.title}"
 			x: -1.5d
@@ -641,7 +629,7 @@
 			}]
 			tasks: [{
 				id: "5B3FC5C7783BB680"
-				item: "splendid_slimes:slime_vac"
+				item: "splendid_slimes:slime_ticket"
 				type: "item"
 			}]
 			title: "{ftbquests.chapter.iii__advanced_farming.quest5C9C7A5A88613109.title}"
@@ -659,12 +647,7 @@
 			]
 			icon: {
 				Count: 1
-				id: "splendid_slimes:slime_item"
-				tag: {
-					slime: {
-						id: "splendid_slimes:bitwise"
-					}
-				}
+				id: "splendid_slimes:plort_bitwise"
 			}
 			id: "07A551F04BB9A117"
 			min_required_dependencies: 1
@@ -723,7 +706,7 @@
 			rewards: [{
 				count: 8
 				id: "44E79EEB6DF983D7"
-				item: "splendid_slimes:rocket_pod"
+				item: "splendid_slimes:slime_ticket"
 				type: "item"
 			}]
 			tasks: [{
@@ -984,7 +967,7 @@
 			}]
 			tasks: [{
 				id: "1D4E38A68FEE0DC1"
-				item: "splendid_slimes:slime_feeder"
+				item: "splendid_slimes:plort_slimy"
 				type: "item"
 			}]
 			title: "{ftbquests.chapter.iii__advanced_farming.quest54E81642A0E67042.title}"
@@ -1005,14 +988,14 @@
 			min_required_dependencies: 1
 			rewards: [{
 				id: "79A4DD37EA638059"
-				item: "splendid_slimes:slime_candy"
+				item: "splendid_slimes:slime_ticket"
 				type: "item"
 			}]
 			tasks: [{
 				id: "2933B9035E879D0D"
 				item: {
 					Count: 1
-					id: "splendid_slimes:plort"
+					id: "splendid_slimes:plort_slimy"
 					tag: { }
 				}
 				match_nbt: false
@@ -1131,12 +1114,12 @@
 			id: "66C1440EFF12DC66"
 			rewards: [{
 				id: "47A229EC3B1CEBC8"
-				item: "splendid_slimes:slime_candy"
+				item: "splendid_slimes:slime_ticket"
 				type: "item"
 			}]
 			tasks: [{
 				id: "1D9713E05007CC59"
-				item: "splendid_slimes:slime_inspector"
+				item: "splendid_slimes:slime_ticket"
 				type: "item"
 			}]
 			x: 8.0d
