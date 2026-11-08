@@ -2526,6 +2526,16 @@
       "sprite": "vintagedelight:block/stripped_magic_vine_top"
     },
     {
+      "type": "single",
+      "resource": "minecraft:block/glass",
+      "sprite": "vintagedelight:block/fermenting_jar"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/smooth_stone",
+      "sprite": "vintagedelight:block/evaporator"
+    },
+    {
       "type": "directory",
       "source": "item",
       "prefix": "item/"

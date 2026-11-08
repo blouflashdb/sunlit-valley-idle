@@ -42,6 +42,7 @@ BLOCKS = {
     "salt_lamp_light_blue": "light_blue_stained_glass", "salt_lamp_pink": "pink_stained_glass",
     "salt_lamp_purple": "purple_stained_glass", "magic_vine": "warped_stem", "magic_vine_top": "warped_stem_top",
     "stripped_magic_vine": "stripped_warped_stem", "stripped_magic_vine_top": "stripped_warped_stem_top",
+    "fermenting_jar": "glass", "evaporator": "smooth_stone",
 }
 
 

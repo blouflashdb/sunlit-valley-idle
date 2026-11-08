@@ -357,12 +357,7 @@ ServerEvents.recipes((e) => {
     s: "supplementaries:jar",
     f: "meadow:fire_log",
   });
-  e.shaped("society:preserves_jar", ["LLL", "LbL", "CiC"], {
-    b: "minecraft:barrel",
-    L: "meadow:fire_log",
-    C: "#forge:storage_blocks/coal",
-    i: "minecraft:copper_block",
-  });
+  // society:preserves_jar is ported: kubejs/server_scripts/recipes/vintageDelightRecipes.js
   e.shaped("society:dehydrator", ["LGL", "pbp", "LfL"], {
     b: "minecraft:barrel",
     L: "meadow:fire_log",
@@ -395,13 +390,7 @@ ServerEvents.recipes((e) => {
     b: "society:battery",
     i: "create:zinc_ingot",
   });
-  e.shaped("society:pickling_can", ["zbz", "scs", "zlz"], {
-    l: "vintagedelight:salt_lamp_green",
-    c: "minecraft:cactus",
-    s: "oreganized:silver_ingot",
-    b: "society:battery",
-    z: "create:zinc_block",
-  });
+  // society:pickling_can is ported: kubejs/server_scripts/recipes/vintageDelightRecipes.js
   e.shaped("beachparty:mini_fridge", ["zlz", "ziz", "zbz"], {
     l: "minecraft:lime_dye",
     i: "minecraft:ice",

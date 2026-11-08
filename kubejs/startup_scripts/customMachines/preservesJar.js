@@ -1,4 +1,8 @@
 //priority: 100
+// Preserves Jar: fruit and vegetables become preserves (the Vintage Delight mason jars and the society:*_preserves),
+// fish roe becomes aged roe. Five of an input fill a jar, three once it is upgraded with a Stone Hand.
+// The morning tick is in server_scripts/blockEvents/machineTicks.js; recipes with items that are not in the pack
+// are dropped in server_scripts/blockEvents/pruneMachineRecipes.js.
 console.info("[SOCIETY] preservesJar.js loaded");
 
 const roeFish = [
@@ -158,39 +162,33 @@ roeFish.forEach((fish) => {
 StartupEvents.registry("block", (event) => {
   event
     .create("society:preserves_jar", "cardinal")
-    .property(booleanProperty.create("working"))
-    .property(booleanProperty.create("mature"))
-    .property(booleanProperty.create("upgraded"))
+    .property(workingProperty)
+    .property(matureProperty)
+    .property(upgradedProperty)
     .box(2, 0, 2, 14, 15, 14)
     .defaultCutout()
+    .soundType("glass")
     .tagBlock("minecraft:mineable/pickaxe")
     .tagBlock("minecraft:mineable/axe")
     .tagBlock("minecraft:needs_stone_tool")
+    // Blockstate: client_scripts/machineBlockstates.js. Models: tools/port/assets/make_machine_placeholder.py.
+    .parentModel("society:block/kubejs/preserves_jar/preserves_jar")
     .item((item) => {
       item.tooltip(Text.translatable("block.society.preserves_jar.description").gray());
-      item.modelJson({
-        parent: "society:block/kubejs/preserves_jar",
-      });
+      item.parentModel("society:block/kubejs/preserves_jar/preserves_jar");
     })
     .defaultState((state) => {
-      state
-        .set(booleanProperty.create("working"), false)
-        .set(booleanProperty.create("mature"), false)
-        .set(booleanProperty.create("upgraded"), false);
+      state.set(workingProperty, false).set(matureProperty, false).set(upgradedProperty, false);
     })
     .placementState((state) => {
-      state
-        .set(booleanProperty.create("working"), false)
-        .set(booleanProperty.create("mature"), false)
-        .set(booleanProperty.create("upgraded"), false);
+      state.set(workingProperty, false).set(matureProperty, false).set(upgradedProperty, false);
     })
     .rightClick((click) => {
       const { player, item, block, hand, level } = click;
       if (player.isFake()) return;
-      const upgraded = block.properties.get("upgraded").toLowerCase() == "true";
-
-      if (hand == "OFF_HAND") return;
-      if (hand == "MAIN_HAND" && !upgraded && item == "society:stone_hand") {
+      if (String(hand) !== "MAIN_HAND") return;
+      const upgraded = global.isBlockPropertyTrue(block, "upgraded");
+      if (!upgraded && String(item.id) === "society:stone_hand") {
         if (!player.isCreative()) item.count--;
         level.spawnParticles(
           "farmersdelight:star",
@@ -205,57 +203,24 @@ StartupEvents.registry("block", (event) => {
           0.01
         );
         block.set(block.id, {
-          facing: block.properties.get("facing"),
-          working: block.properties.get("working"),
-          mature: block.properties.get("mature"),
+          facing: global.getBlockProperty(block, "facing"),
+          working: global.getBlockProperty(block, "working"),
+          mature: global.getBlockProperty(block, "mature"),
           upgraded: true,
         });
       }
-
       global.handleBERightClick(
         "minecraft:block.wood.place",
         click,
         global.preservesJarRecipes,
-        upgraded ? 3 : 5,
+        global.isBlockPropertyTrue(block, "upgraded") ? 3 : 5,
         true,
         true
       );
     })
     .blockEntity((blockInfo) => {
       blockInfo.initialData({ stage: 0, recipe: "" });
-      blockInfo.serverTick(artMachineTickRate, 0, (entity) => {
-        global.handleBETick(entity, global.preservesJarRecipes, 3);
-      });
-    }).blockstateJson = {
-    multipart: [
-      {
-        when: { upgraded: false },
-        apply: { model: "society:block/kubejs/preserves_jar_base" },
-      },
-      {
-        when: { working: true },
-        apply: { model: "society:block/kubejs/preserves_jar_lid" },
-      },
-      {
-        when: { mature: true, working: false },
-        apply: { model: "society:block/kubejs/preserves_jar_lid_done" },
-      },
-      {
-        when: { upgraded: true },
-        apply: { model: "society:block/kubejs/preserves_jar_base_upgraded" },
-      },
-      {
-        when: { working: true, upgraded: false },
-        apply: { model: "society:block/kubejs/preserves_jar_base" },
-      },
-      {
-        when: { mature: true, upgraded: false },
-        apply: { model: "society:block/kubejs/preserves_jar_base" },
-      },
-      {
-        when: { mature: true },
-        apply: { model: "society:block/kubejs/machine_done" },
-      },
-    ],
-  };
+      blockInfo.serverTicking();
+      blockInfo.tickFrequency(artMachineTickRate);
+    });
 });

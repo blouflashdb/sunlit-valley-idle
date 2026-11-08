@@ -23,3 +23,23 @@ BlockEvents.blockEntityTick("shippingbin:smart_shipping_bin", (event) => {
 BlockEvents.blockEntityTick("society:shipping_bin_monitor", (event) => {
   global.runShippingBinMonitor(event.block, event.level);
 });
+
+BlockEvents.blockEntityTick("society:preserves_jar", (event) => {
+  global.handleBETick(event, global.preservesJarRecipes, 3);
+});
+
+// Pickling Can: every 600 ticks, one pickle into the inventory below.
+BlockEvents.blockEntityTick("society:pickling_can", (event) => {
+  global.handlePicklingCan(event.level, event.block);
+});
+
+// Fermenting Jar: every 100 ticks.
+BlockEvents.blockEntityTick("vintagedelight:fermenting_jar", (event) => {
+  global.handleFermentingJar(event.level, event.block);
+});
+
+// Evaporator: ticks every 200 ticks, makes salt once in the morning window.
+BlockEvents.blockEntityTick("vintagedelight:evaporator", (event) => {
+  const morning = Number(event.level.dayTime()) % 24000;
+  if (morning >= 20 && morning < 220) global.handleEvaporator(event.level, event.block);
+});

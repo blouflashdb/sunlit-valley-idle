@@ -1,6 +1,6 @@
 // Recipes for the Vintage Delight content rebuilt in KubeJS (startup_scripts/registration/registerVintageDelight.js).
 // Vintage Delight shipped most of these itself; the mason jars come from the Preserves Jar and the pickles from
-// the Fermenting Jar (both ported with the machines). A recipe whose items are missing is skipped, not an error.
+// the Fermenting Jar and Pickling Can (the machine scripts). A recipe whose items are missing is skipped, not an error.
 console.info("[SOCIETY] vintageDelightRecipes.js loaded");
 
 const $VDRegistries = Java.loadClass("net.minecraft.core.registries.BuiltInRegistries");
@@ -149,6 +149,34 @@ ServerEvents.recipes((e) => {
 
   // Cutting board
   cutting(`${VD}:cucumber`, `${VD}:cucumber_noodles`, 2);
+
+  // Machines (Preserves Jar and Pickling Can were Sunlit Valley recipes, the other two Vintage Delight ones)
+  shaped("society:preserves_jar", ["LLL", "LbL", "CiC"], {
+    b: "minecraft:barrel",
+    L: "meadow:fire_log",
+    C: "#c:storage_blocks/coal",
+    i: "minecraft:copper_block",
+  });
+  shaped("society:pickling_can", ["zbz", "scs", "zlz"], {
+    l: `${VD}:salt_lamp_green`,
+    c: "minecraft:cactus",
+    s: "oreganized:silver_ingot",
+    b: "society:battery",
+    z: "create:zinc_block",
+  });
+  // moreminecarts:glass_spines is not in the pack; glass panes take their place.
+  shaped(`${VD}:fermenting_jar`, [" S ", "gWg", "gig"], {
+    S: "etcetera:bismuth_ingot",
+    W: "supplementaries:jar",
+    i: "society:fire_quartz",
+    g: "minecraft:glass_pane",
+  });
+  shaped(`${VD}:evaporator`, [" # ", "mXm", "mbm"], {
+    "#": "society:fire_quartz",
+    X: `${VD}:salt_block`,
+    b: "society:battery",
+    m: "minecraft:magma_block",
+  });
 
   if (skipped.length > 0) console.info(`[SOCIETY] Vintage Delight recipes skipped, items missing: ${skipped.join(", ")}`);
 });

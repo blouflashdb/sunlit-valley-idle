@@ -2,6 +2,12 @@
 // the common namespace is c:.
 console.info("[SOCIETY] vintageDelightTags.js loaded");
 
+const vdPreserves = () =>
+  global.preserves
+    .map((p) => String(p.item))
+    .concat(Array.from(global.preservesJarRecipes.values()).map((r) => r.output[0]))
+    .filter((id, i, all) => all.indexOf(id) === i && global.itemExists(id));
+
 ServerEvents.tags("item", (e) => {
   e.add("c:salt", "vintagedelight:salt");
   e.add("c:seeds", ["vintagedelight:cucumber_seeds", "vintagedelight:ghost_pepper_seeds"]);
@@ -13,5 +19,7 @@ ServerEvents.tags("item", (e) => {
   e.add("c:foods/berry", "vintagedelight:gearo_berry");
   e.add("c:foods/nut", "vintagedelight:peanut");
   e.add("vintagedelight:raw_fish", "#c:foods/raw_fish");
+  // Vinegar in the Fermenting Jar takes any preserve (Society Tweaks used to ship this tag).
+  e.add("society:preserves", vdPreserves().filter((id) => !id.includes("_roe")));
   e.add("minecraft:logs_that_burn", ["vintagedelight:magic_vine", "vintagedelight:stripped_magic_vine"]);
 });
