@@ -176,6 +176,10 @@ mod that also runs on the server.
 - Server and client scripts cannot assign to `global` ("'global' cannot be assigned to"). Create the
   value in a startup script and change its contents from the server script.
 - Compare enums as strings: `String(hand) === "MAIN_HAND"`, not `hand == "MAIN_HAND"`.
+- A `LevelBlock` (`level.getBlock(...)`) caches its block state. After code that changed the block through
+  another `LevelBlock` (an Artisan Hopper, a Golden Clock), get the block again before reading its properties.
+  A `LevelBlock` also has a `.block` getter (the vanilla `Block`), so `x.block || x` does not tell an event from
+  a block; check for `getEntity` instead.
 - Compare items by id: `String(item.id) === "society:black_opal"`, not `item == "society:black_opal"`.
 - `player.isFake()`, `level.spawnParticles(...)`, `block.popItemFromFace(...)`, `block.set(id, props)`,
   `server.runCommandSilent(...)` are unchanged.

@@ -31,9 +31,8 @@ BlockEvents.placed("society:fish_pond", (e) => {
 });
 
 BlockEvents.placed(
+  // The two artisan hoppers are ported: kubejs/server_scripts/blockEvents/machineOwner.js
   [
-    "society:artisan_hopper",
-    "society:mini_artisan_hopper",
     "society:fish_pond_basket",
     "society:auto_grabber",
     "society:fish_pond_manager",

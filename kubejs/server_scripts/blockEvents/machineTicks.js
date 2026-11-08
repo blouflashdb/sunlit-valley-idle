@@ -112,3 +112,11 @@ BlockEvents.blockEntityTick("society:golden_clock", (entity) => {
 BlockEvents.blockEntityTick("society:iridium_clock", (entity) => {
   global.runIridiumClock(entity);
 });
+
+BlockEvents.blockEntityTick("society:artisan_hopper", (entity) => {
+  global.artisanHopperScan(entity, 3);
+});
+
+BlockEvents.blockEntityTick("society:mini_artisan_hopper", (entity) => {
+  global.artisanHopperScan(entity, 1);
+});
