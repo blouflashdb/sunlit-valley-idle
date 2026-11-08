@@ -1,0 +1,10 @@
+{
+  "parent": "society:block/kubejs/placeholder/machine",
+  "textures": {
+    "side": "minecraft:block/rooted_dirt",
+    "front": "minecraft:block/rooted_dirt",
+    "top": "minecraft:block/barrel_top",
+    "bottom": "minecraft:block/barrel_top",
+    "particle": "minecraft:block/barrel_side"
+  }
+}

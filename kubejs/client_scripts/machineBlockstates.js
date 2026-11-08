@@ -2,7 +2,7 @@
 // blockstate files are generated here; the after_mods pack overrides the blockstate KubeJS builds itself.
 console.info("[SOCIETY] machineBlockstates.js loaded");
 
-const multipartMachines = ["crystalarium", "preserves_jar", "wine_keg", "aging_cask", "ancient_cask", "bait_maker", "cheese_press", "dehydrator", "fish_smoker", "loom", "mayonnaise_machine", "oil_maker", "recycling_machine", "seed_maker"];
+const multipartMachines = ["crystalarium", "preserves_jar", "wine_keg", "aging_cask", "ancient_cask", "bait_maker", "cheese_press", "dehydrator", "fish_smoker", "loom", "mayonnaise_machine", "oil_maker", "recycling_machine", "seed_maker", "tapper", "mushroom_log", "espresso_machine", "charging_rod", "deluxe_worm_farm"];
 // Machines whose done state shows no exclamation mark (getCardinalMultipartJson's disableExclamation).
 const noExclamationMachines = ["fish_smoker"];
 

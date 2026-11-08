@@ -752,16 +752,7 @@ ServerEvents.tags("block", (e) => {
   ].forEach((wool) => {
     e.add("minecraft:mineable/axe", wool);
   });
-  Array.from(global.tapperRecipes.keys()).forEach((key) => {
-    e.add("society:tappable_blocks", key);
-  });
-  Array.from(global.mushroomLogRecipes.keys()).forEach((key) => {
-    e.add("society:mushroom_log_detects", key);
-  });
-  Array.from(global.dominantMushroomLogBlocks.keys()).forEach((key) => {
-    e.add("society:mushroom_log_detects", key);
-    e.add("society:mushroom_log_dominant", key);
-  });
+  // society:tappable_blocks and the mushroom log tags are ported: kubejs/server_scripts/tags/artisanMachineTags.js
   const immovableTags = [
     "buildinggadgets2:deny",
     "c:relocation_not_supported",

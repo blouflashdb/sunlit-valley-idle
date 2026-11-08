@@ -76,38 +76,37 @@ Array.from(global.dominantMushroomLogBlocks.keys()).forEach((recipe) => {
 StartupEvents.registry("block", (event) => {
   event
     .create("society:mushroom_log", "cardinal")
-    .property(booleanProperty.create("working"))
-    .property(booleanProperty.create("mature"))
-    .property(booleanProperty.create("upgraded"))
-    .property(booleanProperty.create("error"))
+    .property(workingProperty)
+    .property(matureProperty)
+    .property(upgradedProperty)
+    .property(errorProperty)
     .soundType("wood")
     .defaultCutout()
     .box(0, 0, 0, 16, 13, 16)
     .tagBlock("minecraft:mineable/pickaxe")
     .tagBlock("minecraft:mineable/axe")
     .tagBlock("minecraft:needs_stone_tool")
+    // Blockstate: client_scripts/machineBlockstates.js. Models: tools/port/assets/make_machine_placeholder.py.
+    .parentModel("society:block/kubejs/mushroom_log/mushroom_log_off")
     .item((item) => {
       item.tooltip(
         Text.translatable("block.society.mushroom_log.description").gray()
       );
-      item.modelJson({
-        parent: "society:block/kubejs/mushroom_log/mushroom_log_off",
-      });
+      item.parentModel("society:block/kubejs/mushroom_log/mushroom_log_off");
     })
     .defaultState((state) => {
       state
-        .set(booleanProperty.create("working"), false)
-        .set(booleanProperty.create("mature"), false)
-        .set(booleanProperty.create("upgraded"), false);
+        .set(workingProperty, false)
+        .set(matureProperty, false)
+        .set(upgradedProperty, false);
     })
     .placementState((state) => {
       state
-        .set(booleanProperty.create("working"), false)
-        .set(booleanProperty.create("mature"), false)
-        .set(booleanProperty.create("upgraded"), false);
+        .set(workingProperty, false)
+        .set(matureProperty, false)
+        .set(upgradedProperty, false);
     })
     .rightClick((click) => {
-      let nbt = click.block.getEntityData();
       global.handleBERightClick(
         "species:block.alphacene_moss.place",
         click,
@@ -115,7 +114,7 @@ StartupEvents.registry("block", (event) => {
         7,
         false,
         false,
-        nbt && nbt.data && nbt.data.baseCount ? nbt.data.baseCount : 1,
+        global.getMachineInt(click.block, "baseCount") || 1,
         true
       );
       global.handleMushroomLogRandomTick(click);
@@ -125,10 +124,8 @@ StartupEvents.registry("block", (event) => {
     })
     .blockEntity((blockInfo) => {
       blockInfo.initialData({ stage: 0, recipe: "", quality: 0 });
-      blockInfo.serverTick(artMachineTickRate, 0, (entity) => {
-          global.handleBETick(entity, global.mushroomLogRecipes, 4);
-      });
-    }).blockstateJson = {
-    multipart: getCardinalMultipartJson("mushroom_log"),
-  };
+      blockInfo.serverTicking();
+      blockInfo.tickFrequency(artMachineTickRate);
+    });
 });
+// Morning tick: server_scripts/blockEvents/machineTicks.js
