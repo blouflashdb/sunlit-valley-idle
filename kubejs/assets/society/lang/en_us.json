@@ -752,6 +752,8 @@
   "block.society.villager_home.description": "Transports the villager to your town and assigns them the nearby area as their home.\n Cannot be placed near other villagers.",
   "block.society.fish_pond_manager.description": "Submits quests for fish ponds at 7am every morning",
   "block.society.fish_pond_manager.clipboard": "Right click with a Clipboard to copy all requested items to it",
+  "block.society.fish_pond_manager.requests": "Sneak and right click with an empty hand to see all requested items",
+  "block.society.fish_pond_manager.no_requests": "No pond around here has a quest",
   "block.society.caterpillar_box.description": "Hatches Caterpillar Eggs placed inside every 5 minutes. Butterflies and Moths fly out of the box's top.",
 
   "item.society.froggy_helm.description": "There's a large tongue nestled inside",

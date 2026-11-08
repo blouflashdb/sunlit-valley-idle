@@ -200,5 +200,35 @@ ServerEvents.recipes((e) => {
     l: "meadow:fire_log",
   });
 
+  // Fish ponds (#12)
+  shaped("society:fish_pond", [" j ", "PwP", "rNr"], {
+    j: "society:river_jelly",
+    N: "aquaculture:neptunium_ingot",
+    P: "crabbersdelight:pearl",
+    r: "society:oak_resin",
+    w: "meadow:wooden_bucket",
+  });
+  shaped("society:fish_pond_basket", ["NaN", "bhb", "nsn"], {
+    a: "farmersdelight:safety_net",
+    n: "minecraft:netherite_ingot",
+    h: "minecraft:hopper",
+    b: "society:battery",
+    s: "society:sparkstone",
+    N: "aquaculture:neptunium_ingot",
+  });
+  shaped("society:fish_pond_hatchery", ["NSN", "sbs", "sss"], {
+    S: "society:sunlit_pearl",
+    b: "society:fish_pond_basket",
+    s: "oreganized:silver_ingot",
+    N: "aquaculture:algae",
+  });
+  shaped("society:fish_pond_manager", ["NCN", "ScS", "NbN"], {
+    c: "cozycafe:cafe_manager",
+    C: "minecraft:conduit",
+    b: "society:magic_bulb",
+    S: "society:sunlit_pearl",
+    N: "aquaculture:neptunium_ingot",
+  });
+
   if (skipped.length > 0) console.info(`[SOCIETY] Artisan machine recipes skipped: ${skipped.join("; ")}`);
 });
