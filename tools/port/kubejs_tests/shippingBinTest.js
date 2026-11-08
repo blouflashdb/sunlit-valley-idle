@@ -1,7 +1,7 @@
 // CI only: server_boot_test.py copies this into kubejs/server_scripts/_ci/ and boots the server twice.
 // Boot 1 places a Basic Shipping Bin, fills it with a crop (base and gold quality) and runs one sale.
 // Boot 2 checks that the coins survived the restart and that they add up to the sale value.
-// Prints "[PORT-TEST] PHASE1 shippingBin", "[PORT-TEST] PASS shippingBin" or "[PORT-TEST] FAIL shippingBin: ...".
+// Prints "[PORT-TEST] PHASE1 shippingbin", "[PORT-TEST] PASS shippingbin" or "[PORT-TEST] FAIL shippingbin: ...".
 
 ServerEvents.loaded((event) => {
   const server = event.server;
@@ -50,7 +50,7 @@ ServerEvents.loaded((event) => {
       inventory.setStackInSlot(6, Item.of("minecraft:air"));
       check(sumCoins(inventory) === expected, `coins ${sumCoins(inventory)} != ${expected}`);
       global.setMachineData(block, { expected: expected });
-      console.info("[PORT-TEST] PHASE1 shippingBin");
+      console.info("[PORT-TEST] PHASE1 shippingbin");
     } else {
       let inventory = global.getShippingBinInventory(block);
       let expected = global.getMachineInt(block, "expected");
@@ -58,9 +58,9 @@ ServerEvents.loaded((event) => {
       check(sumCoins(inventory) === expected, `coins after restart ${sumCoins(inventory)} != ${expected}`);
       for (let i = 0; i < inventory.getSlots(); i++) inventory.setStackInSlot(i, Item.of("minecraft:air"));
       block.set("minecraft:air");
-      console.info("[PORT-TEST] PASS shippingBin");
+      console.info("[PORT-TEST] PASS shippingbin");
     }
   } catch (e) {
-    console.error(`[PORT-TEST] FAIL shippingBin: ${e}`);
+    console.error(`[PORT-TEST] FAIL shippingbin: ${e}`);
   }
 });
