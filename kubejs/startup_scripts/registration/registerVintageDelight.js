@@ -95,6 +95,11 @@ global.vintageDelightSaltLamps = [
   "salt_lamp_purple",
 ];
 
+global.returnMasonJar = (entity) => {
+  if (entity.level.isClientSide() || !entity.isPlayer() || entity.isCreative()) return;
+  entity.give(Item.of(`${VD}:mason_jar`));
+};
+
 StartupEvents.registry("item", (e) => {
   global.vintageDelightFoods.forEach((entry) => {
     let id = entry[0];
@@ -109,7 +114,8 @@ StartupEvents.registry("item", (e) => {
       if (options.drink) food.alwaysEdible();
       if (options.bowl) food.usingConvertsTo(Item.of("minecraft:bowl"));
       if (options.bottle) food.usingConvertsTo(Item.of("minecraft:glass_bottle"));
-      if (options.jar) food.usingConvertsTo(Item.of(`${VD}:mason_jar`));
+      // usingConvertsTo needs an existing item stack, and the mason jar is registered in this same event.
+      if (options.jar) food.eaten((eaten) => global.returnMasonJar(eaten.entity));
     });
     if (options.bowl || options.jar) builder.maxStackSize(16);
     if (options.drink) builder.useAnimation("drink");
