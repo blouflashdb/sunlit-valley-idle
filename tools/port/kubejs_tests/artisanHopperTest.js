@@ -29,8 +29,11 @@ ServerEvents.loaded((event) => {
       hopper.set("society:artisan_hopper", { facing: "north" });
       level.getBlock(hx, 301, hz).set("minecraft:chest");
       level.getBlock(hx, 299, hz).set("minecraft:chest");
-      let keg = level.getBlock(hx + 1, 300, hz);
-      keg.set("society:wine_keg", { facing: "north" });
+      level.getBlock(hx + 1, 300, hz).set("society:wine_keg", { facing: "north" });
+      // A LevelBlock caches its block state, and the hopper changes the keg through its own LevelBlock,
+      // so read the keg again after each hopper run.
+      let kegPos = level.getBlock(hx + 1, 300, hz).getPos();
+      let keg = level.getBlock(kegPos);
 
       let fuel = hopper.getEntity().attachments.get("inventory");
       global.insertIntoHandler(fuel, Item.of("society:sparkstone", 10), false);
@@ -40,14 +43,15 @@ ServerEvents.loaded((event) => {
       check(above !== null, "the chest above the hopper has no item handler");
       global.insertIntoHandler(above, Item.of(grape, 16), false);
 
-      check(global.runArtisanHopper(level, hopper, keg.getPos(), null), `the hopper did nothing with ${grape} above`);
+      check(global.runArtisanHopper(level, hopper, kegPos, null), `the hopper did nothing with ${grape} above`);
+      keg = level.getBlock(kegPos);
       check(global.isBlockPropertyTrue(keg, "working"), `the hopper did not start the wine keg with ${grape}`);
       check(count(above, grape) < 16, "the hopper did not take the grapes from the chest above");
       for (let day = 0; day < 60 && !global.isBlockPropertyTrue(keg, "mature"); day++) {
         global.handleBETick({ level: level, block: keg }, global.wineKegRecipes, 6, false, true);
       }
       check(global.isBlockPropertyTrue(keg, "mature"), "the wine keg is not done after 60 mornings");
-      check(global.runArtisanHopper(level, hopper, keg.getPos(), null), "the hopper did not harvest the done wine keg");
+      check(global.runArtisanHopper(level, hopper, kegPos, null), "the hopper did not harvest the done wine keg");
       check(count(chestBelow(), null) > 0, "the chest below the hopper is empty after the harvest");
       check(count(fuel, "society:sparkstone") < 10, "the hopper used no sparkstone");
       console.info("[PORT-TEST] PHASE1 artisanhopper");
