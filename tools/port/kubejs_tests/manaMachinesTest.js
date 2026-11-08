@@ -24,6 +24,14 @@ ServerEvents.loaded((event) => {
       pool().set("botania:mana_pool");
       check(String(pool().id) === "botania:mana_pool", "there is no botania:mana_pool");
       let entity = pool().getEntity();
+      // A pool learns its capacity on its first server tick; run that tick now instead of waiting for it.
+      Java.loadClass("vazkii.botania.common.block.block_entity.mana.ManaPoolBlockEntity").serverTick(
+        level,
+        entity.getBlockPos(),
+        entity.getBlockState(),
+        entity
+      );
+      check(entity.getMaxMana() > 0, `the pool has no capacity (${entity.getMaxMana()})`);
       check(global.getPoolMana(entity) === 0, `the new pool reads ${global.getPoolMana(entity)} mana (${entity})`);
       entity.receiveMana(FULL);
       check(poolMana() === FULL, `the pool holds ${poolMana()} mana after a fill`);
