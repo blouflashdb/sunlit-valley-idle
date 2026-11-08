@@ -169,8 +169,9 @@ global.getManaFruitPips = (block) => {
   return "⬛".repeat(filled) + "⬜".repeat(10 - filled);
 };
 
-// One shared instance: block states only accept the property object they were built with.
+// Shared instances: block states only accept the property object they were built with.
 const manaFruitAgeProperty = integerProperty.create("age", 0, 7);
+const recyclerPoweredProperty = booleanProperty.create("powered");
 
 StartupEvents.registry("block", (event) => {
   const manaMachine = (id, tooltips, sound, mineable) => {
@@ -238,12 +239,12 @@ StartupEvents.registry("block", (event) => {
     "copper",
     "minecraft:mineable/pickaxe"
   )
-    .property(booleanProperty.create("powered"))
+    .property(recyclerPoweredProperty)
     .defaultState((state) => {
-      state.set(booleanProperty.create("powered"), false);
+      state.set(recyclerPoweredProperty, false);
     })
     .placementState((state) => {
-      state.set(booleanProperty.create("powered"), false);
+      state.set(recyclerPoweredProperty, false);
     })
     .blockEntity((blockInfo) => {
       blockInfo.serverTicking();
