@@ -798,10 +798,8 @@ StartupEvents.registry("item", (e) => {
   e.create("society:geode").texture("society:item/geode/geode");
 
   global.geodeList.forEach((geode) => {
-    if (geode.item !== "society:earth_crystal")
-      e.create(`society:${geode.item.path}`).texture(
-        `society:item/geode/${geode.item.path}`
-      );
+    // society:earth_crystal came from Society Tweaks on 1.20.1; it is registered here now.
+    e.create(`society:${geode.item.path}`).texture(`society:item/geode/${geode.item.path}`);
   });
 
   e.create("society:frozen_geode").texture(
@@ -818,10 +816,8 @@ StartupEvents.registry("item", (e) => {
   );
 
   global.magmaGeodeList.forEach((geode) => {
-    if (geode.item !== "society:fire_quartz")
-      e.create(`society:${geode.item.path}`).texture(
-        `society:item/magma_geode/${geode.item.path}`
-      );
+    // society:fire_quartz came from Society Tweaks on 1.20.1; it is registered here now.
+    e.create(`society:${geode.item.path}`).texture(`society:item/magma_geode/${geode.item.path}`);
   });
 
   global.gems.forEach((gem) => {
