@@ -131,7 +131,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "brewery:hop_trellis_seed",
+          "name": "brewery:hop_trellis_seeds",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -232,7 +232,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "society:ancient_fruit_seed",
+          "name": "society:ancient_fruit_seeds",
           "weight": 1
         }
       ]

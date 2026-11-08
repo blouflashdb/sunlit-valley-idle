@@ -179,7 +179,7 @@ global.prizeMachineRewards = [
   {
     hint: "ancient from the soil",
     possibleOutputs: [
-      "society:ancient_fruit_seed",
+      "society:ancient_fruit_seeds",
       "society:ancient_fruit",
       "society:ancient_fruit",
     ],

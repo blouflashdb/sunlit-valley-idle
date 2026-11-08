@@ -401,7 +401,7 @@
 			rewards: [{
 				count: 4
 				id: "4900391D1DA5BD16"
-				item: "brewery:hop_trellis_seed"
+				item: "brewery:hop_trellis_seeds"
 				type: "item"
 			}]
 			tasks: [

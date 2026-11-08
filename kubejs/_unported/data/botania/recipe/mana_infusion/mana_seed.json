@@ -1,7 +1,7 @@
 {
   "type": "botania:mana_infusion",
   "input": {
-    "item": "society:ancient_fruit_seed"
+    "item": "society:ancient_fruit_seeds"
   },
   "mana": 5000,
   "output": {

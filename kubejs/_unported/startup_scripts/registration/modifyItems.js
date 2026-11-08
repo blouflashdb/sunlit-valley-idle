@@ -39,7 +39,7 @@ ItemEvents.modification((e) => {
     [
       "numismatics:ancient_coin",
       "numismatics:prismatic_coin",
-      "society:ancient_fruit_seed",
+      "society:ancient_fruit_seeds",
       "society:ancient_fruit",
       "society:sunlit_crystal",
       "society:plushie_wand",
@@ -50,7 +50,7 @@ ItemEvents.modification((e) => {
       "society:net_bobber",
       "society:needle_bobber",
       "society:sparkpod",
-      "society:sparkpod_seed",
+      "society:sparkpod_seeds",
       "cluttered:willow_sapling",
       "cluttered:willow_log",
       "cluttered:flowering_willow_log",

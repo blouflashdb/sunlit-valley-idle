@@ -24,14 +24,14 @@
       }
     },
     {
-      "output": "society:blueberry_seed",
+      "output": "society:blueberry_seeds",
       "payment": {
         "item": "numismatics:spur",
         "count": 4
       }
     },
     {
-      "output": "society:onion_seed",
+      "output": "society:onion_seeds",
       "payment": {
         "item": "numismatics:spur",
         "count": 4
@@ -45,7 +45,7 @@
       }
     },
     {
-      "output": "society:potato_seed",
+      "output": "society:potato_seeds",
       "payment": {
         "item": "numismatics:spur",
         "count": 2
@@ -81,7 +81,7 @@
       }
     },
     {
-      "output": "society:eggplant_seed",
+      "output": "society:eggplant_seeds",
       "payment": {
         "item": "numismatics:bevel",
         "count": 1
@@ -134,7 +134,7 @@
     },
     
     {
-      "output": "society:carrot_seed",
+      "output": "society:carrot_seeds",
       "payment": {
         "item": "numismatics:spur",
         "count": 2

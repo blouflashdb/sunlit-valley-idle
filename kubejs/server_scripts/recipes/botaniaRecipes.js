@@ -12,5 +12,5 @@ ServerEvents.recipes((e) => {
     e.custom({ type: "botania:mana_infusion", input: { item: input }, mana: mana, output: { id: output, count: 1 } });
   };
   // Mana Fruit (#14): infuse an Ancient Fruit seed.
-  manaInfusion("society:ancient_fruit_seed", "society:mana_fruit_crop", 5000);
+  manaInfusion("society:ancient_fruit_seeds", "society:mana_fruit_crop", 5000);
 });

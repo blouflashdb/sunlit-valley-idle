@@ -1688,7 +1688,7 @@
      "icon": "minecraft:carrot",
      "inputs": [
       {
-       "item": "society:carrot_seed",
+       "item": "society:carrot_seeds",
        "count": 1
       }
      ],
@@ -1697,10 +1697,10 @@
        "block": "society:carrot"
       },
       {
-       "item": "society:carrot_seed"
+       "item": "society:carrot_seeds"
       },
       {
-       "item": "society:carrot_seed",
+       "item": "society:carrot_seeds",
        "chance": 0.25
       }
      ]
@@ -1713,7 +1713,7 @@
      "icon": "minecraft:potato",
      "inputs": [
       {
-       "item": "society:potato_seed",
+       "item": "society:potato_seeds",
        "count": 1
       }
      ],
@@ -1722,10 +1722,10 @@
        "block": "society:potato"
       },
       {
-       "item": "society:potato_seed"
+       "item": "society:potato_seeds"
       },
       {
-       "item": "society:potato_seed",
+       "item": "society:potato_seeds",
        "chance": 0.25
       }
      ]
@@ -1774,7 +1774,7 @@
      "icon": "farm_and_charm:onion",
      "inputs": [
       {
-       "item": "society:onion_seed",
+       "item": "society:onion_seeds",
        "count": 1
       }
      ],
@@ -1783,10 +1783,10 @@
        "block": "society:onion"
       },
       {
-       "item": "society:onion_seed"
+       "item": "society:onion_seeds"
       },
       {
-       "item": "society:onion_seed",
+       "item": "society:onion_seeds",
        "chance": 0.25
       }
      ]
@@ -1860,7 +1860,7 @@
      "icon": "society:blueberry",
      "inputs": [
       {
-       "item": "society:blueberry_seed",
+       "item": "society:blueberry_seeds",
        "count": 1
       }
      ],
@@ -1869,10 +1869,10 @@
        "block": "society:blueberry"
       },
       {
-       "item": "society:blueberry_seed"
+       "item": "society:blueberry_seeds"
       },
       {
-       "item": "society:blueberry_seed",
+       "item": "society:blueberry_seeds",
        "chance": 0.25
       }
      ]
@@ -2043,7 +2043,7 @@
      "icon": "veggiesdelight:sweet_potato",
      "inputs": [
       {
-       "item": "society:sweet_potato_seed",
+       "item": "society:sweet_potato_seeds",
        "count": 1
       }
      ],
@@ -2052,10 +2052,10 @@
        "block": "society:sweet_potato"
       },
       {
-       "item": "society:sweet_potato_seed"
+       "item": "society:sweet_potato_seeds"
       },
       {
-       "item": "society:sweet_potato_seed",
+       "item": "society:sweet_potato_seeds",
        "chance": 0.25
       }
      ]
@@ -2068,7 +2068,7 @@
      "icon": "vintagedelight:peanut",
      "inputs": [
       {
-       "item": "society:peanut_seed",
+       "item": "society:peanut_seeds",
        "count": 1
       }
      ],
@@ -2077,10 +2077,10 @@
        "block": "society:peanut"
       },
       {
-       "item": "society:peanut_seed"
+       "item": "society:peanut_seeds"
       },
       {
-       "item": "society:peanut_seed",
+       "item": "society:peanut_seeds",
        "chance": 0.25
       }
      ]
@@ -2111,7 +2111,7 @@
      "icon": "society:cranberry",
      "inputs": [
       {
-       "item": "society:cranberry_seed",
+       "item": "society:cranberry_seeds",
        "count": 1
       }
      ],
@@ -2120,10 +2120,10 @@
        "block": "society:cranberry"
       },
       {
-       "item": "society:cranberry_seed"
+       "item": "society:cranberry_seeds"
       },
       {
-       "item": "society:cranberry_seed",
+       "item": "society:cranberry_seeds",
        "chance": 0.25
       }
      ]
@@ -2136,7 +2136,7 @@
      "icon": "society:eggplant",
      "inputs": [
       {
-       "item": "society:eggplant_seed",
+       "item": "society:eggplant_seeds",
        "count": 1
       }
      ],
@@ -2145,10 +2145,10 @@
        "block": "society:eggplant"
       },
       {
-       "item": "society:eggplant_seed"
+       "item": "society:eggplant_seeds"
       },
       {
-       "item": "society:eggplant_seed",
+       "item": "society:eggplant_seeds",
        "chance": 0.25
       }
      ]
@@ -2204,7 +2204,7 @@
      "icon": "brewery:hops",
      "inputs": [
       {
-       "item": "brewery:hop_trellis_seed",
+       "item": "brewery:hop_trellis_seeds",
        "count": 1
       }
      ],
@@ -2213,10 +2213,10 @@
        "block": "brewery:hop_trellis"
       },
       {
-       "item": "brewery:hop_trellis_seed"
+       "item": "brewery:hop_trellis_seeds"
       },
       {
-       "item": "brewery:hop_trellis_seed",
+       "item": "brewery:hop_trellis_seeds",
        "chance": 0.25
       }
      ]
@@ -2283,7 +2283,7 @@
      "icon": "society:tubabacco_leaf",
      "inputs": [
       {
-       "item": "society:tubabacco_leaf_seed",
+       "item": "society:tubabacco_leaf_seeds",
        "count": 1
       }
      ],
@@ -2292,10 +2292,10 @@
        "block": "society:tubabacco_leaf"
       },
       {
-       "item": "society:tubabacco_leaf_seed"
+       "item": "society:tubabacco_leaf_seeds"
       },
       {
-       "item": "society:tubabacco_leaf_seed",
+       "item": "society:tubabacco_leaf_seeds",
        "chance": 0.25
       }
      ]
@@ -2308,7 +2308,7 @@
      "icon": "society:sparkpod",
      "inputs": [
       {
-       "item": "society:sparkpod_seed",
+       "item": "society:sparkpod_seeds",
        "count": 1
       }
      ],
@@ -2317,10 +2317,10 @@
        "block": "society:sparkpod"
       },
       {
-       "item": "society:sparkpod_seed"
+       "item": "society:sparkpod_seeds"
       },
       {
-       "item": "society:sparkpod_seed",
+       "item": "society:sparkpod_seeds",
        "chance": 0.25
       }
      ]
@@ -2358,7 +2358,7 @@
      "icon": "society:ancient_fruit",
      "inputs": [
       {
-       "item": "society:ancient_fruit_seed",
+       "item": "society:ancient_fruit_seeds",
        "count": 1
       }
      ],
@@ -2367,10 +2367,10 @@
        "block": "society:ancient_fruit"
       },
       {
-       "item": "society:ancient_fruit_seed"
+       "item": "society:ancient_fruit_seeds"
       },
       {
-       "item": "society:ancient_fruit_seed",
+       "item": "society:ancient_fruit_seeds",
        "chance": 0.25
       }
      ]

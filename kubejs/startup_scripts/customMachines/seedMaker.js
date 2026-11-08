@@ -11,10 +11,10 @@ global.seedMakerRecipes = new Map([
   ["minecraft:pumpkin", { output: ["6x minecraft:pumpkin_seeds"] }],
   ["minecraft:melon_slice", { output: ["6x minecraft:melon_seeds"] }],
   ["minecraft:beetroot", { output: ["6x minecraft:beetroot_seeds"] }],
-  ["brewery:hops", { output: ["6x brewery:hop_trellis_seed"] }],
+  ["brewery:hops", { output: ["6x brewery:hop_trellis_seeds"] }],
   ["farm_and_charm:lettuce", { output: ["6x farm_and_charm:lettuce_seeds"] }],
   ["supplementaries:flax", { output: ["6x supplementaries:flax_seeds"] }],
-  ["society:eggplant", { output: ["6x society:eggplant_seed"] }],
+  ["society:eggplant", { output: ["6x society:eggplant_seeds"] }],
   ["farm_and_charm:strawberry", { output: ["6x farm_and_charm:strawberry_seed"] }],
   ["farm_and_charm:oat", { output: ["6x farm_and_charm:oat_seeds"] }],
   ["farm_and_charm:barley", { output: ["6x farm_and_charm:barley_seeds"] }],
@@ -29,11 +29,11 @@ global.seedMakerRecipes = new Map([
   ["farmersdelight:cabbage", { output: ["6x farmersdelight:cabbage_seeds"] }],
   ["vintagedelight:cucumber", { output: ["6x vintagedelight:cucumber_seeds"] }],
   ["vintagedelight:ghost_pepper", { output: ["6x vintagedelight:ghost_pepper_seeds"] }],
-  ["society:ancient_fruit", { output: ["1x society:ancient_fruit_seed"] }],
+  ["society:ancient_fruit", { output: ["1x society:ancient_fruit_seeds"] }],
   ["farmersdelight:tomato", { output: ["6x farmersdelight:tomato_seeds"] }],
   ["etcetera:cotton_flower", { output: ["6x etcetera:cotton_seeds"] }],
-  ["society:tubabacco_leaf", { output: ["6x society:tubabacco_leaf_seed"] }],
-  ["society:blueberry", { output: ["6x society:blueberry_seed"] }],
+  ["society:tubabacco_leaf", { output: ["6x society:tubabacco_leaf_seeds"] }],
+  ["society:blueberry", { output: ["6x society:blueberry_seeds"] }],
   ["minecraft:pitcher_plant", { output: ["6x minecraft:pitcher_pod"] }],
   ["minecraft:torchflower", { output: ["6x minecraft:torchflower_seeds"] }],
   ["veggiesdelight:bellpepper", { output: ["6x veggiesdelight:bellpepper_seeds"] }],
@@ -65,18 +65,18 @@ global.seedMakerRecipes = new Map([
   ["botania:yellow_mystical_flower", { output: ["6x botania_seeds:yellow_mystical_flower_seed"] }],
   ["botania:lime_mystical_flower", { output: ["6x botania_seeds:lime_mystical_flower_seed"] }],
   ["farmersdelight:rice_panicle", { output: ["6x farmersdelight:rice"] }],
-  ["minecraft:potato", { output: ["6x society:potato_seed"] }],
-  ["minecraft:carrot", { output: ["6x society:carrot_seed"] }],
-  ["farm_and_charm:onion", { output: ["6x society:onion_seed"] }],
-  ["vintagedelight:peanut", { output: ["6x society:peanut_seed"] }],
-  ["veggiesdelight:sweet_potato", { output: ["6x society:sweet_potato_seed"] }],
+  ["minecraft:potato", { output: ["6x society:potato_seeds"] }],
+  ["minecraft:carrot", { output: ["6x society:carrot_seeds"] }],
+  ["farm_and_charm:onion", { output: ["6x society:onion_seeds"] }],
+  ["vintagedelight:peanut", { output: ["6x society:peanut_seeds"] }],
+  ["veggiesdelight:sweet_potato", { output: ["6x society:sweet_potato_seeds"] }],
   ["mysticaloaktree:wise_oak", { output: ["1x botania:overgrowth_seed"] }],
   ["atmospheric:currant", { output: ["6x atmospheric:currant_seedling"] }],
   ["atmospheric:aloe_leaves", { output: ["6x atmospheric:aloe_kernels"] }],
   ["veggiesdelight:turnip", { output: ["6x veggiesdelight:turnip_seeds"] }],
   ["veggiesdelight:broccoli", { output: ["6x veggiesdelight:broccoli_seeds"] }],
   ["veggiesdelight:zucchini", { output: ["6x veggiesdelight:zucchini_seeds"] }],
-  ["society:cranberry", { output: ["6x society:cranberry_seed"] }],
+  ["society:cranberry", { output: ["6x society:cranberry_seeds"] }],
   ["society:sparkpod", { output: ["16x society:sparkstone"] }],
 ]);
 
@@ -144,7 +144,7 @@ StartupEvents.registry("block", (event) => {
       }
 
       if (upgraded && global.isBlockPropertyTrue(block, "mature") && rnd5()) {
-        block.popItemFromFace("society:ancient_fruit_seed", facing);
+        block.popItemFromFace("society:ancient_fruit_seeds", facing);
       }
 
       global.handleBERightClick(

@@ -50,7 +50,7 @@ const extraOutputs = (artisanMachine, recipes, recipeId, upgraded, stages) => {
       return recipe.output.map((item) => `society:pristine_${String(Item.of(item).id).split(":")[1]}`).filter(global.itemExists);
     }
     case "society:seed_maker":
-      return upgraded && rnd5() ? ["society:ancient_fruit_seed"] : [];
+      return upgraded && rnd5() ? ["society:ancient_fruit_seeds"] : [];
     case "society:aging_cask":
       return stages.has("aged_prize") && rnd5() ? ["society:prize_ticket"] : [];
     case "society:wine_keg":

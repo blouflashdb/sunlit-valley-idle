@@ -157,9 +157,9 @@ foraging = [
 ]
 
 def kcrop(id, level, seconds, xp, block, output):
-    """A KubeJS crop from the pack: its seed is <block>_seed and it does not drop seeds itself."""
-    return crop(id, level, seconds, xp, block, block + "_seed", output,
-                extra=[{"item": block + "_seed"}, {"item": block + "_seed", "chance": 0.25}])
+    """A KubeJS crop from the pack: its seed is <block>_seeds (KubeJS 7) and it does not drop seeds itself."""
+    return crop(id, level, seconds, xp, block, block + "_seeds", output,
+                extra=[{"item": block + "_seeds"}, {"item": block + "_seeds", "chance": 0.25}])
 
 
 farming = [
@@ -171,7 +171,8 @@ farming = [
     kcrop("onion", 3, 7.0, 6, "society:onion", "farm_and_charm:onion"),
     crop("lettuce", 3, 7.0, 6, "farm_and_charm:lettuce_crop", "farm_and_charm:lettuce_seeds", "farm_and_charm:lettuce"),
     crop("tomato", 4, 7.0, 7, "farmersdelight:tomatoes", "farmersdelight:tomato_seeds", "farmersdelight:tomato"),
-    kcrop("strawberry", 4, 7.0, 7, "farm_and_charm:strawberry", "farm_and_charm:strawberry"),
+    crop("strawberry", 4, 7.0, 7, "farm_and_charm:strawberry", "farm_and_charm:strawberry_seed", "farm_and_charm:strawberry",
+         extra=[{"item": "farm_and_charm:strawberry_seed"}, {"item": "farm_and_charm:strawberry_seed", "chance": 0.25}]),
     kcrop("blueberry", 5, 7.5, 8, "society:blueberry", "society:blueberry"),
     crop("corn", 5, 7.5, 8, "farm_and_charm:corn_crop", "farm_and_charm:kernels", "farm_and_charm:corn"),
     crop("oat", 5, 7.5, 8, "farm_and_charm:oat_crop", "farm_and_charm:oat_seeds", "farm_and_charm:oat"),
