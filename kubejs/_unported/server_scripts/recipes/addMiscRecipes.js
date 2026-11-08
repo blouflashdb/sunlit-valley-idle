@@ -432,35 +432,9 @@ ServerEvents.recipes((e) => {
   // Sparkstone
   // society:auto_grabber, cornucopia and drum_cornucopia are ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   // society:artisan_hopper and society:mini_artisan_hopper are ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
-  e.shaped("society:fish_pond_basket", ["NaN", "bhb", "nsn"], {
-    a: "farmersdelight:safety_net",
-    n: "minecraft:netherite_ingot",
-    h: "minecraft:hopper",
-    b: "society:battery",
-    s: "society:sparkstone",
-    N: "aquaculture:neptunium_ingot",
-  });
-  e.shaped("society:fish_pond_hatchery", ["NSN", "sbs", "sss"], {
-    S: "society:sunlit_pearl",
-    b: "society:fish_pond_basket",
-    s: "oreganized:silver_ingot",
-    N: "aquaculture:algae",
-  });
-  e.shaped("society:fish_pond_manager", ["NCN", "ScS", "NbN"], {
-    c: "cozycafe:cafe_manager",
-    C: "minecraft:conduit",
-    b: "society:magic_bulb",
-    S: "society:sunlit_pearl",
-    N: "aquaculture:neptunium_ingot",
-  });
+  // society:fish_pond_basket, fish_pond_hatchery and fish_pond_manager are ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   // Fish
-  e.shaped("society:fish_pond", [" j ", "PwP", "rNr"], {
-    j: "society:river_jelly",
-    N: "aquaculture:neptunium_ingot",
-    P: "crabbersdelight:pearl",
-    r: "society:oak_resin",
-    w: "meadow:wooden_bucket",
-  });
+  // society:fish_pond is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   e.shaped("society:sunlit_pearl", [" n ", " p ", "r o"], {
     n: "society:nether_jelly",
     p: "crabbersdelight:pearl",

@@ -148,3 +148,24 @@ BlockEvents.blockEntityTick("society:feeding_trough", (entity) => {
 BlockEvents.blockEntityTick("society:drum_cornucopia", (entity) => {
   global.runDrumCornucopia(entity);
 });
+
+// Fish ponds (#12): startup_scripts/fishPonds/.
+BlockEvents.blockEntityTick("society:fish_pond", (entity) => {
+  global.handleFishPondTick(entity);
+});
+
+BlockEvents.blockEntityTick("society:fish_pond_basket", (entity) => {
+  global.runFishPondBaskets(entity, 1);
+});
+
+BlockEvents.blockEntityTick("society:fish_pond_hatchery", (entity) => {
+  global.runFishPondBaskets(entity, 3);
+});
+
+BlockEvents.blockEntityTick("society:fish_pond_manager", (entity) => {
+  global.runFishPondManager(entity, false);
+});
+
+BlockEvents.blockEntityTick("society:roe_recycler", (entity) => {
+  global.runRoeRecycler(entity, false);
+});

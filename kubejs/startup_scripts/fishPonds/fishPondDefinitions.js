@@ -1,7 +1,7 @@
 //priority: 100
 console.info("[SOCIETY] fishPondDefinitions.js loaded");
 
-const basicQuests = [
+const fishPondBasicQuests = [
   {
     population: 3,
     requestedItems: [
@@ -29,7 +29,7 @@ const basicQuests = [
     ],
   },
 ];
-const crabTrapQuests = [
+const fishPondCrabTrapQuests = [
   {
     population: 3,
     requestedItems: [
@@ -56,7 +56,7 @@ const crabTrapQuests = [
     ],
   },
 ];
-const crabTrapRewards = [
+const fishPondCrabTrapRewards = [
   {
     minPopulation: 2,
     item: "aquaculture:tin_can",
@@ -223,11 +223,11 @@ global.fishPondDefinitions = new Map([
       ],
     },
   ],
-  ["aquaculture:minnow", { quests: basicQuests }],
+  ["aquaculture:minnow", { quests: fishPondBasicQuests }],
   [
     "aquaculture:bluegill",
     {
-      quests: basicQuests,
+      quests: fishPondBasicQuests,
       additionalRewards: [
         {
           minPopulation: 4,
@@ -386,7 +386,7 @@ global.fishPondDefinitions = new Map([
       ],
     },
   ],
-  ["aquaculture:blackfish", { quests: basicQuests }],
+  ["aquaculture:blackfish", { quests: fishPondBasicQuests }],
   [
     "aquaculture:brown_trout",
     {
@@ -579,7 +579,7 @@ global.fishPondDefinitions = new Map([
   [
     "minecraft:cod",
     {
-      quests: basicQuests,
+      quests: fishPondBasicQuests,
       additionalRewards: [
         {
           minPopulation: 4,
@@ -2008,19 +2008,19 @@ global.fishPondDefinitions = new Map([
   ],
   [
     "crabbersdelight:shrimp",
-    { quests: crabTrapQuests, additionalRewards: crabTrapRewards },
+    { quests: fishPondCrabTrapQuests, additionalRewards: fishPondCrabTrapRewards },
   ],
   [
     "crabbersdelight:clawster",
-    { quests: crabTrapQuests, additionalRewards: crabTrapRewards },
+    { quests: fishPondCrabTrapQuests, additionalRewards: fishPondCrabTrapRewards },
   ],
   [
     "crabbersdelight:crab",
-    { quests: crabTrapQuests, additionalRewards: crabTrapRewards },
+    { quests: fishPondCrabTrapQuests, additionalRewards: fishPondCrabTrapRewards },
   ],
   [
     "crabbersdelight:clam",
-    { quests: crabTrapQuests, additionalRewards: crabTrapRewards },
+    { quests: fishPondCrabTrapQuests, additionalRewards: fishPondCrabTrapRewards },
   ],
   [
     "netherdepthsupgrade:searing_cod",

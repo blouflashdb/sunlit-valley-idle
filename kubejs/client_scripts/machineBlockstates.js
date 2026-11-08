@@ -17,6 +17,32 @@ ClientEvents.generateAssets("after_mods", (event) => {
   });
   event.json("society:blockstates/feeding_trough", { variants: troughVariants });
 
+  // Fish Pond (#12): pond by facing and upgrade, with the harvest, quest and invalid marks on top.
+  const pondFacings = { north: 0, east: 90, south: 180, west: -90 };
+  const pondParts = [{ apply: { model: "society:block/kubejs/fish_pond/fish_pond_particle" } }];
+  [false, true].forEach((upgraded) => {
+    Object.keys(pondFacings).forEach((facing) => {
+      pondParts.push({
+        when: { facing: facing, upgraded: upgraded },
+        apply: { model: `society:block/kubejs/fish_pond/fish_pond${upgraded ? "_upgraded" : ""}`, y: pondFacings[facing] },
+      });
+    });
+  });
+  pondParts.push({ when: { mature: true }, apply: { model: "society:block/kubejs/machine_done" } });
+  pondParts.push({ when: { quest: true, mature: false }, apply: { model: "society:block/kubejs/fish_pond/pond_quest" } });
+  pondParts.push({ when: { valid: false }, apply: { model: "society:block/kubejs/fish_pond/pond_error" } });
+  event.json("society:blockstates/fish_pond", { multipart: pondParts });
+
+  // Fish Pond Basket and Hatchery: a gold top when upgraded with a bucket.
+  ["fish_pond_basket", "fish_pond_hatchery"].forEach((name) => {
+    event.json(`society:blockstates/${name}`, {
+      multipart: [
+        { when: { upgraded: false }, apply: { model: `society:block/kubejs/${name}/${name}` } },
+        { when: { upgraded: true }, apply: { model: `society:block/kubejs/${name}/${name}_upgraded` } },
+      ],
+    });
+  });
+
   multipartMachines.forEach((name) => {
     event.json(`society:blockstates/${name}`, {
       multipart: global.getCardinalMultipartJson(name, noExclamationMachines.includes(name)),
