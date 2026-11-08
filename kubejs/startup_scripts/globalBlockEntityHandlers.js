@@ -109,13 +109,29 @@ global.isBlockPropertyTrue = (block, name) => global.getBlockProperty(block, nam
 /*
  * Item quality (Quality Food)
  *
- * On 1.20.1 the quality lived in the item NBT `{quality_food:{quality:N}}`. Quality Food for 1.21.1 stores it
- * in a data component instead. Until a slice that needs qualities (cheese press, mayonnaise machine, fish
- * smoker, seed maker) ports this, items count as base quality.
+ * On 1.20.1 the quality lived in the item NBT `{quality_food:{quality:N}}`. Quality Food for 1.21.1 stores a
+ * `quality_food:quality` data component ({type, level}); the levels are the same: 1 iron, 2 gold, 3 diamond.
  */
-global.getItemQuality = (item) => 0;
+const $QualityUtils = Java.loadClass("de.cadentem.quality_food.util.QualityUtils");
+const $Quality = Java.loadClass("de.cadentem.quality_food.core.codecs.Quality");
+const $QualityLevelData = Java.loadClass("de.cadentem.quality_food.core.attachments.LevelData");
+const $ResourceLocation = Java.loadClass("net.minecraft.resources.ResourceLocation");
+const $Optional = Java.loadClass("java.util.Optional");
+const qualityTypeNames = ["none", "iron", "gold", "diamond"];
 
-global.withItemQuality = (item, quality) => item;
+global.getItemQuality = (item) => Math.max(0, Number($QualityUtils.getQuality(item).level()));
+
+global.withItemQuality = (item, quality) => {
+  let level = Math.min(3, Math.floor(Number(quality) || 0));
+  if (level <= 0) return item;
+  let stack = item.copy();
+  let typeId = $ResourceLocation.fromNamespaceAndPath("quality_food", qualityTypeNames[level]);
+  $QualityUtils.applyQuality(stack, new $Quality(typeId, level, $Optional.empty()), true);
+  return stack;
+};
+
+/** The quality Quality Food rolled for the crop at a position when it was planted (0 when none). */
+global.getSeedQuality = (level, pos) => Math.max(0, Number($QualityLevelData.get(level, pos, true).level()));
 
 let increaseDataStage = (block, count) => {
   global.setMachineData(block, { stage: global.getMachineInt(block, "stage") + (count || 1) });
@@ -443,3 +459,112 @@ global.getCardinalMultipartJson = (name, disableExclamation) => {
 
 // The 1.20.1 machine scripts call this without `global.`.
 const getCardinalMultipartJson = global.getCardinalMultipartJson;
+
+/*
+ * Crops
+ *
+ * The farmland, fertilizers and the farm day are Java in the sunlitidle mod (dev.sunlitidle.farm) since 1.21.1;
+ * dev.sunlitidle.farm.FarmApi replaces cool.bot.dewdropfarmland.utils.CropHandlerUtils.
+ */
+const $FarmApi = Java.loadClass("dev.sunlitidle.farm.FarmApi");
+const $FarmBlock = Java.loadClass("net.minecraft.world.level.block.FarmBlock");
+
+global.surviveCheck = (level, pos) => level.getBlockState(pos.below()).block instanceof $FarmBlock;
+
+global.cropList = [
+  "minecraft:wheat",
+  "minecraft:pumpkin_stem",
+  "minecraft:melon_stem",
+  "minecraft:beetroots",
+  "snowyspirit:ginger",
+  "supplementaries:flax",
+  "herbalbrews:coffee_plant",
+  "herbalbrews:rooibos_plant",
+  "herbalbrews:tea_plant",
+  "herbalbrews:yerba_mate_plant",
+  "minecraft:sweet_berry_bush",
+  "farm_and_charm:tomato_crop",
+  "farm_and_charm:strawberry",
+  "farm_and_charm:lettuce_crop",
+  "farm_and_charm:barley_crop",
+  "farm_and_charm:onion_crop",
+  "farm_and_charm:tomato_crop_body",
+  "farm_and_charm:corn_crop",
+  "farm_and_charm:oat_crop",
+  "brewery:hops_crop",
+  "brewery:hops_crop_body",
+  "nethervinery:crimson_grape_bush",
+  "nethervinery:warped_grape_bush",
+  "vinery:savanna_grape_bush_white",
+  "vinery:jungle_grape_bush_red",
+  "vinery:savanna_grape_bush_red",
+  "vinery:white_grape_bush",
+  "vinery:red_grape_bush",
+  "vinery:taiga_grape_bush_red",
+  "vinery:taiga_grape_bush_white",
+  "vinery:jungle_grape_bush_white",
+  "vinery:jungle_grape_bush_red",
+  "vintagedelight:ghost_pepper_crop",
+  "vintagedelight:cucumber_crop",
+  "farmersdelight:cabbages",
+  "farmersdelight:budding_tomatoes",
+  "farmersdelight:tomatoes",
+  "farmersdelight:rice",
+  "farmersdelight:rice_panicles",
+  "society:ancient_fruit",
+  "society:cranberry",
+  "society:sparkpod",
+  "windswept:wild_berry_bush",
+  "society:mana_fruit",
+  "etcetera:cotton",
+  "society:tubabacco_leaf",
+  "brewery:hop_trellis",
+  "society:blueberry",
+  "veggiesdelight:cauliflower_crop",
+  "veggiesdelight:garlic_crop",
+  "veggiesdelight:bellpepper_crop",
+  "society:eggplant",
+  "society:potato",
+  "society:carrot",
+  "society:peanut",
+  "society:sweet_potato",
+  "society:onion",
+  "veggiesdelight:turnip_crop",
+  "veggiesdelight:zucchini_crop",
+  "veggiesdelight:broccoli_crop",
+];
+
+const getFertilizer = (crop) => {
+  let block = crop
+    .getLevel()
+    .getBlock(crop.getPos().below());
+  if (block.hasTag("dew_drop_farmland_growth:bountiful_fertilized_farmland"))
+    return -1;
+  if (block.hasTag("dew_drop_farmland_growth:low_quality_fertilized_farmland"))
+    return 1;
+  if (block.hasTag("dew_drop_farmland_growth:high_quality_fertilized_farmland"))
+    return 2;
+  if (
+    block.hasTag(
+      "dew_drop_farmland_growth:pristine_quality_fertilized_farmland"
+    )
+  )
+    return 3;
+  return 0;
+};
+
+// Chance of a quality crop from the seed quality (rolled by Quality Food on planting) and the quality fertilizer.
+global.getCropQualityAt = (level, pos, blockId) => {
+  let cropPos = String(blockId) === "farmersdelight:rice_panicles" ? pos.below() : pos;
+  const fertilizer = getFertilizer(level.getBlock(cropPos));
+  if (fertilizer == -1) return 0;
+  let seedQuality = global.getSeedQuality(level, cropPos);
+  if (fertilizer > 1 && seedQuality < 1) seedQuality = 1;
+  const goldChance = 0.2 * ((seedQuality * 4.6) / 10) + 0.2 * fertilizer * ((seedQuality * 4.6 + 2) / 12) + 0.01;
+  if (fertilizer >= 2 && Math.random() < goldChance / 2) return 3;
+  if (Math.random() < goldChance) return 2;
+  if (Math.random() < goldChance * 2) return 1;
+  return 0;
+};
+
+global.getCropQuality = (crop) => global.getCropQualityAt(crop.getLevel(), crop.getPos(), crop.id);

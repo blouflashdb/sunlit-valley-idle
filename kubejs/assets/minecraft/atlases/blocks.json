@@ -32,6 +32,11 @@
     },
     {
       "type": "single",
+      "resource": "minecraft:item/pumpkin_seeds",
+      "sprite": "society:item/ancient_seed"
+    },
+    {
+      "type": "single",
       "resource": "minecraft:item/cookie",
       "sprite": "society:item/animal_cracker"
     },
@@ -189,6 +194,11 @@
       "type": "single",
       "resource": "minecraft:item/snowball",
       "sprite": "society:item/blueberry_icecream"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/beetroot_seeds",
+      "sprite": "society:item/blueberry_seeds"
     },
     {
       "type": "single",
@@ -392,6 +402,11 @@
     },
     {
       "type": "single",
+      "resource": "minecraft:item/wheat_seeds",
+      "sprite": "society:item/carrot_seed"
+    },
+    {
+      "type": "single",
       "resource": "minecraft:item/pitcher_pod",
       "sprite": "society:item/caterpillar_eggs"
     },
@@ -439,6 +454,11 @@
       "type": "single",
       "resource": "minecraft:item/sweet_berries",
       "sprite": "society:item/cranberry"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/beetroot_seeds",
+      "sprite": "society:item/cranberry_seeds"
     },
     {
       "type": "single",
@@ -784,6 +804,11 @@
       "type": "single",
       "resource": "minecraft:item/beetroot",
       "sprite": "society:item/eggplant"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/melon_seeds",
+      "sprite": "society:item/eggplant_seeds"
     },
     {
       "type": "single",
@@ -1577,8 +1602,18 @@
     },
     {
       "type": "single",
+      "resource": "minecraft:item/wheat_seeds",
+      "sprite": "society:item/onion_seed"
+    },
+    {
+      "type": "single",
       "resource": "minecraft:item/emerald",
       "sprite": "society:item/overflow_token"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/cocoa_beans",
+      "sprite": "society:item/peanut_seed"
     },
     {
       "type": "single",
@@ -1604,6 +1639,11 @@
       "type": "single",
       "resource": "minecraft:item/blaze_rod",
       "sprite": "society:item/plushie_wand"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/wheat_seeds",
+      "sprite": "society:item/potato_seed"
     },
     {
       "type": "single",
@@ -2027,6 +2067,11 @@
     },
     {
       "type": "single",
+      "resource": "minecraft:item/glowstone_dust",
+      "sprite": "society:item/sparkpod_spores"
+    },
+    {
+      "type": "single",
       "resource": "minecraft:item/redstone",
       "sprite": "society:item/sparkstone"
     },
@@ -2057,6 +2102,11 @@
     },
     {
       "type": "single",
+      "resource": "minecraft:item/melon_seeds",
+      "sprite": "society:item/sweet_potato_seed"
+    },
+    {
+      "type": "single",
       "resource": "minecraft:item/totem_of_undying",
       "sprite": "society:item/thunder_totem"
     },
@@ -2074,6 +2124,11 @@
       "type": "single",
       "resource": "minecraft:item/kelp",
       "sprite": "society:item/tubabacco_leaf"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/torchflower_seeds",
+      "sprite": "society:item/tubabacco_seed"
     },
     {
       "type": "single",
