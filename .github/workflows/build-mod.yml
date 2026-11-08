@@ -17,10 +17,19 @@ jobs:
           distribution: temurin
           java-version: '21'
       - uses: gradle/actions/setup-gradle@v6
-      - name: Build mod and run unit tests
+      - name: Download Gradle
+        # The Gradle distribution host has outages; retry for a few minutes before giving up.
         working-directory: mod
         run: |
           chmod +x gradlew
+          for attempt in 1 2 3 4 5 6; do
+            ./gradlew --version --no-daemon && exit 0
+            echo "Gradle download failed (attempt $attempt), retrying in 60 s"; sleep 60
+          done
+          exit 1
+      - name: Build mod and run unit tests
+        working-directory: mod
+        run: |
           ./gradlew build --no-daemon
       - name: Run in-game tests
         working-directory: mod
