@@ -1,6 +1,6 @@
 console.info("[SOCIETY] harvestHandling.js loaded");
 // Yeah this filename has a typo. Fixing it would be more annoying than leaving it.
-// The mana fruit handlers are still in kubejs/_unported (slice 9, Botania).
+// The mana fruit handlers are in manaFruitEvents.js (#14).
 const $ExperienceOrb = Java.loadClass("net.minecraft.world.entity.ExperienceOrb");
 
 const deniedCrops = [

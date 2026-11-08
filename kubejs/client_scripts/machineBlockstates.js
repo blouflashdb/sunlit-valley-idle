@@ -43,6 +43,14 @@ ClientEvents.generateAssets("after_mods", (event) => {
     });
   });
 
+  // Sparkstone Recycler (#14): lit while its mana pool can pay for a recycle.
+  event.json("society:blockstates/sparkstone_recycler", {
+    variants: {
+      "powered=false": { model: "society:block/kubejs/sparkstone_recycler/sparkstone_recycler" },
+      "powered=true": { model: "society:block/kubejs/sparkstone_recycler/sparkstone_recycler_on" },
+    },
+  });
+
   multipartMachines.forEach((name) => {
     event.json(`society:blockstates/${name}`, {
       multipart: global.getCardinalMultipartJson(name, noExclamationMachines.includes(name)),
