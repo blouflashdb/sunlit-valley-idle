@@ -15,6 +15,11 @@ ServerEvents.recipes((e) => {
     if (missing.length > 0) return skipped.push(`${output} (missing ${missing.join(", ")})`);
     e.shaped(output, pattern, key);
   };
+  let shapeless = (output, inputs) => {
+    let missing = artisanMissing([output].concat(inputs));
+    if (missing.length > 0) return skipped.push(`${output} (missing ${missing.join(", ")})`);
+    e.shapeless(output, inputs);
+  };
 
   shaped("society:wine_keg", ["FoF", "IbI", "FfF"], {
     b: "minecraft:barrel",
@@ -123,6 +128,12 @@ ServerEvents.recipes((e) => {
     f: "society:fire_quartz",
     b: "quark:blaze_lantern",
   });
+
+  shaped("society:prize_machine", ["ttt", "tbt", "ttt"], {
+    b: "bountiful:bountyboard",
+    t: "society:prize_ticket",
+  });
+  shapeless("society:ancient_goddess_statue", ["paraglider:goddess_statue", "society:prismatic_shard"]);
 
   if (skipped.length > 0) console.info(`[SOCIETY] Artisan machine recipes skipped: ${skipped.join("; ")}`);
 });

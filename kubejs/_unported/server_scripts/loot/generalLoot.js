@@ -263,6 +263,7 @@ LootJS.modifiers((e) => {
   e.addBlockLootModifier("minecraft:tall_fern").removeLoot("#forge:seeds");
 
   // Artisan Machines that save nbt on drop
+  // society:prize_machine: the ported block has noDrops() and drops itself with its prize (prizeMachineEvents.js).
   e.addBlockLootModifier("society:prize_machine").removeLoot(
     "society:prize_machine"
   );

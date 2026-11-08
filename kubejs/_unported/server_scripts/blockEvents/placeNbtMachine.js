@@ -1,21 +1,6 @@
 console.info("[SOCIETY] placeNbtMachine.js loaded");
 
-BlockEvents.placed("society:prize_machine", (e) => {
-  let item = e.player.getHeldItem("main_hand");
-  let prizeNbt;
-  if (item.id !== "society:prize_machine") item = e.player.getHeldItem("off_hand");
-  if (item.id !== "society:prize_machine") return;
-  prizeNbt = item.getNbt();
-  if (!prizeNbt.isEmpty()) {
-    let nbt = e.block.getEntityData();
-    nbt.merge({
-      data: {
-        prize: Number(prizeNbt.get("prize")),
-      },
-    });
-    global.setBlockEntityData(e.block, nbt)
-  }
-});
+// society:prize_machine is ported: kubejs/server_scripts/blockEvents/prizeMachineEvents.js
 
 BlockEvents.placed("society:fish_pond", (e) => {
   const { block, player } = e;

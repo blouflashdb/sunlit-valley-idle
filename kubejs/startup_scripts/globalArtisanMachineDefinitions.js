@@ -1,4 +1,5 @@
 // priority: 0
+// Every artisan machine with its recipe map and stage count, for the Artisan Hopper, the Golden Clock and the tags.
 
 global.artisanMachineDefinitions = [
   {

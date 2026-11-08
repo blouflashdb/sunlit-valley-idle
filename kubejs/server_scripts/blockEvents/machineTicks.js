@@ -104,3 +104,11 @@ BlockEvents.blockEntityTick("society:mushroom_log", (entity) => {
 BlockEvents.blockEntityTick("society:charging_rod", (entity) => {
   global.handleBETick(entity, null, 5);
 });
+
+BlockEvents.blockEntityTick("society:golden_clock", (entity) => {
+  global.runGoldenClock(entity);
+});
+
+BlockEvents.blockEntityTick("society:iridium_clock", (entity) => {
+  global.runIridiumClock(entity);
+});
