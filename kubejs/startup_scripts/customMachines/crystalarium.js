@@ -146,7 +146,4 @@ StartupEvents.registry("block", (event) => {
       blockInfo.tickFrequency(artMachineTickRate);
     });
 });
-
-global.registerMachineTick("society:crystalarium", (event) => {
-  global.handleBETick(event, global.crystalariumCrystals, 5);
-});
+// Morning tick: server_scripts/blockEvents/machineTicks.js

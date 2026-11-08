@@ -390,14 +390,6 @@ global.handleBETick = (entity, recipes, stageCount, halveTime, forced) => {
   }
 };
 
-/**
- * Registers the morning tick of a machine. KubeJS 7 replaced `blockInfo.serverTick(rate, offset, fn)` with
- * `serverTicking()` + `tickFrequency()` on the block entity and a BlockEvents.blockEntityTick handler.
- */
-global.registerMachineTick = (blockId, handler) => {
-  BlockEvents.blockEntityTick(blockId, handler);
-};
-
 const getCardinalMultipartJsonBasic = (name) => {
   const path = `society:block/kubejs/${name}`;
   return [

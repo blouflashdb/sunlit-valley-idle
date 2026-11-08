@@ -63,17 +63,20 @@ global.isBlockPropertyTrue(block, "mature"); // instead of block.properties.get(
 
 ## Ticking
 
-`blockInfo.serverTick(rate, offset, fn)` is gone. Enable ticking on the block entity and handle the
-`BlockEvents.blockEntityTick` event (a common event, so the handler can sit in the same startup script):
+`blockInfo.serverTick(rate, offset, fn)` is gone. Enable ticking on the block entity in the startup script
+and handle `BlockEvents.blockEntityTick` in `server_scripts/blockEvents/machineTicks.js` (the event
+cannot be registered from startup scripts):
 
 ```js
+// startup_scripts/customMachines/crystalarium.js
 .blockEntity((blockInfo) => {
   blockInfo.initialData({ stage: 0, recipe: "" });
   blockInfo.serverTicking();
   blockInfo.tickFrequency(artMachineTickRate);
 });
 
-global.registerMachineTick("society:crystalarium", (event) => {
+// server_scripts/blockEvents/machineTicks.js
+BlockEvents.blockEntityTick("society:crystalarium", (event) => {
   global.handleBETick(event, global.crystalariumCrystals, 5); // event has .level and .block
 });
 ```
