@@ -112,7 +112,7 @@ mining = [
 ]
 
 foraging = [
-    forage("meadow", 0, 3.0, 2, ["minecraft:grass", "minecraft:dandelion", "minecraft:poppy"],
+    forage("meadow", 0, 3.0, 2, ["minecraft:short_grass", "minecraft:dandelion", "minecraft:poppy"],
            icon="minecraft:wheat_seeds"),
     forage("wildflowers", 1, 3.5, 3, ["minecraft:cornflower", "minecraft:azure_bluet", "minecraft:oxeye_daisy",
                                       "minecraft:allium", "minecraft:blue_orchid"], icon="minecraft:cornflower"),

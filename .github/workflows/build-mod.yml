@@ -63,8 +63,11 @@ jobs:
         run: |
           JAR=$(ls build/mod/sunlitidle-*.jar | grep -v -- '-sources' | head -n1)
           python3 tools/port/server_boot_test.py --dir build/server --extra-mod "$JAR"
-          # The mod must have loaded, and its Pufferfish skill categories must have been accepted.
+          # The mod must have loaded, and Pufferfish's Skills must have accepted its skill categories.
           grep -q "sunlitidle" build/server/logs/latest.log
+          if grep -q "Data pack \`sunlitidle\` could not be loaded" build/server/logs/latest.log; then
+            echo "Pufferfish's Skills rejected the sunlitidle skill categories"; exit 1
+          fi
       - name: Report Pufferfish's Skills config problems
         if: always()
         run: grep -n -i -E "puffish|skills.*(error|invalid)" build/server/logs/latest.log | head -50 || true
