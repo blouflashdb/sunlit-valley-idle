@@ -38,15 +38,21 @@ ServerEvents.loaded((event) => {
       let data = cow.persistentData;
       global.setAnimalInt(data, "affection", 600);
 
-      // Feeding Trough: the cow was last fed yesterday.
+      // Feeding Trough: the cow was fed today; run the trough tomorrow and put the time back. (On day 1 the cow's
+      // "yesterday" is day 0, which the trough reads as never fed, so the test does not use it.)
+      let time = Number(level.getDayTime());
+      global.setAnimalInt(data, "ageLastFed", day);
       global.insertIntoHandler(inv(trough), Item.of("society:animal_feed", 10), false);
+      level.setDayTime(time + 24000);
       global.runFeedingTrough({ level: level, block: trough });
-      check(global.animalInt(data, "ageLastFed") === day, "the feeding trough did not feed the cow");
+      level.setDayTime(time);
+      check(global.animalInt(data, "ageLastFed") === day + 1, "the feeding trough did not feed the cow");
+      // Back to fed today, so the cow is not "fed in the future" for the machines below.
+      global.setAnimalInt(data, "ageLastFed", day);
       check(global.countInHandler(inv(trough), "society:animal_feed") === 9, "the feeding trough did not use one feed");
       check(global.getBlockProperty(level.getBlock(trough.getPos()), "fill") === "1", "the feeding trough does not look filled");
 
       // Auto-Petter: only in the morning, so run it at 7:00 of today and put the time back.
-      let time = Number(level.getDayTime());
       level.setDayTime((day - 1) * 24000 + 1000);
       global.runAutoPetter({ level: level, block: petter });
       level.setDayTime(time);
