@@ -2,7 +2,7 @@
 // blockstate files are generated here; the after_mods pack overrides the blockstate KubeJS builds itself.
 console.info("[SOCIETY] machineBlockstates.js loaded");
 
-const multipartMachines = ["crystalarium"];
+const multipartMachines = ["crystalarium", "preserves_jar"];
 
 ClientEvents.generateAssets("after_mods", (event) => {
   multipartMachines.forEach((name) => {

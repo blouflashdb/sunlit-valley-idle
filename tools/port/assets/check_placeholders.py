@@ -173,6 +173,7 @@ def main():
             if not texture_ok(value):
                 errors.append(f"{where}: texture {rl(value)} ({key}) does not exist")
 
+    blocks = {rl(b["id"]): b for b in registered.get("blocks", [])}
     for item in registered["items"]:
         item_id = rl(item["id"])
         ns, path = item_id.split(":", 1)
@@ -182,6 +183,16 @@ def main():
             check_model(f"{ns}:item/{path}", where)
         elif item["parentModel"]:
             check_model(item["parentModel"], where)
+        elif item["type"] == "block_item" and not item["texture"] and not item["textures"]:
+            # KubeJS gives a block item the block's generated model, so the block's textures are what it uses.
+            block = blocks.get(item_id)
+            if block and block["parentModel"]:
+                check_model(block["parentModel"], where)
+            elif block:
+                layers = [block["texture"] or f"{ns}:block/{path}"] + list(block["textures"].values())
+                for tex in layers:
+                    if not texture_ok(tex):
+                        errors.append(f"{where}: block texture {rl(tex)} does not exist{res.similar(tex)}")
         else:
             layers = [item["texture"]] if item["texture"] else []
             layers += item["textures"].values()

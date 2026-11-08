@@ -182,6 +182,9 @@ def run_server(server, timeout, wait_for):
             if m in text and not state["fail"]:
                 state["fail"] = m
     if state["fail"] or not state["done"]:
+        # The crash report only says "See logs/kubejs/startup.log"; print the script errors here.
+        for line in kubejs_errors(server, "failed"):
+            print(line)
         raise SystemExit(f"Server boot failed: {state['fail'] or 'never reached Done'}")
     return markers
 

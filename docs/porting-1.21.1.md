@@ -169,6 +169,12 @@ mod that also runs on the server.
 
 - Prefer `let` over `const` inside blocks (`if`, `try`, loops). Rhino can reject a block-level `const` with
   "redeclaration of var".
+- Inside `StartupEvents.registry`, `Item.of("mod:item")` of an item registered in the same event fails
+  ("Item with ID ... does not exist") and stops the game from loading with "KubeJS startup script syntax
+  errors". Use an id-based setter (`containerItem("mod:item")`) or do it at runtime (`food.eaten(...)`).
+  `server_boot_test.py` prints the KubeJS error lines when the boot fails.
+- Server and client scripts cannot assign to `global` ("'global' cannot be assigned to"). Create the
+  value in a startup script and change its contents from the server script.
 - Compare enums as strings: `String(hand) === "MAIN_HAND"`, not `hand == "MAIN_HAND"`.
 - Compare items by id: `String(item.id) === "society:black_opal"`, not `item == "society:black_opal"`.
 - `player.isFake()`, `level.spawnParticles(...)`, `block.popItemFromFace(...)`, `block.set(id, props)`,
