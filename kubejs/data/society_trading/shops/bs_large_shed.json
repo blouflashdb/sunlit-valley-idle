@@ -1,0 +1,780 @@
+{
+  "shop_id": "bs_large_shed",
+  "name": {
+    "translate": "shop.society_trading.building_shop.large_shed"
+  },
+  "texture": "dialog:textures/portraits/carpenter",
+  "hidden_from_selector": true,
+  "display_type": "image",
+  "jei_catalyst": {
+    "id": "society:aging_cask",
+    "count": 1
+  },
+  "trades": [
+    {
+      "offer": {
+        "id": "portable_blueprints:worn_blueprint",
+        "count": 1,
+        "components": {
+          "minecraft:custom_name": {
+            "italic": false,
+            "color": "#FFFF00",
+            "translate": "portable_blueprints.worn_blueprint.basic_large_shed"
+          },
+          "minecraft:lore": [
+            {
+              "italic": false,
+              "color": "#FFFF00",
+              "translate": "portable_blueprints.worn_blueprint.basic_large_shed.author"
+            }
+          ],
+          "minecraft:custom_data": {
+            "allow_nbt": 1,
+            "altezza": 0,
+            "blueprint_name": "large_shed_basic",
+            "buildAnyway": 0,
+            "free_build": 1,
+            "inventari_blocco_selezionati": "",
+            "lunghezzaX": 0,
+            "lunghezzaZ": 0,
+            "mirrowX": 0,
+            "mirrowY": 0,
+            "mirrowZ": 0,
+            "nome": "large_shed_basic",
+            "owner": "worn",
+            "owner_name": "Ace",
+            "remaining_uses": 1,
+            "rotateValue": 0,
+            "skipObstructionBlock": 0,
+            "visualizeBuild": 1,
+            "wasHolding": 1,
+            "worn_set": 1
+          }
+        }
+      },
+      "request": {
+        "id": "society:building_supplies",
+        "count": 3
+      },
+      "image": "society:textures/gui/buildings/basic/large_shed_basic",
+      "image_description": {
+        "translate": "portable_blueprints.worn_blueprint.basic_large_shed.dimensions"
+      },
+      "trade_id": "bs_large_shed_basic"
+    },
+    {
+      "offer": {
+        "id": "portable_blueprints:worn_blueprint",
+        "count": 1,
+        "components": {
+          "minecraft:custom_name": {
+            "italic": false,
+            "color": "#FFFF00",
+            "translate": "portable_blueprints.worn_blueprint.alpine_large_shed"
+          },
+          "minecraft:lore": [
+            {
+              "italic": false,
+              "color": "#FFFF00",
+              "translate": "portable_blueprints.worn_blueprint.alpine_large_shed.author"
+            }
+          ],
+          "minecraft:custom_data": {
+            "allow_nbt": 1,
+            "altezza": 0,
+            "blueprint_name": "large_shed_alpine",
+            "buildAnyway": 0,
+            "free_build": 1,
+            "inventari_blocco_selezionati": "",
+            "lunghezzaX": 0,
+            "lunghezzaZ": 0,
+            "mirrowX": 0,
+            "mirrowY": 0,
+            "mirrowZ": 0,
+            "nome": "large_shed_alpine",
+            "owner": "worn",
+            "owner_name": "Ace",
+            "remaining_uses": 1,
+            "rotateValue": 0,
+            "skipObstructionBlock": 0,
+            "visualizeBuild": 1,
+            "wasHolding": 1,
+            "worn_set": 1
+          }
+        }
+      },
+      "request": {
+        "id": "society:building_supplies",
+        "count": 3
+      },
+      "image": "society:textures/gui/buildings/alpine/large_shed_alpine",
+      "image_description": {
+        "translate": "portable_blueprints.worn_blueprint.alpine_large_shed.dimensions"
+      },
+      "trade_id": "bs_large_shed_alpine"
+    },
+    {
+      "offer": {
+        "id": "portable_blueprints:worn_blueprint",
+        "count": 1,
+        "components": {
+          "minecraft:custom_name": {
+            "italic": false,
+            "color": "#FFFF00",
+            "translate": "portable_blueprints.worn_blueprint.arid_large_shed"
+          },
+          "minecraft:lore": [
+            {
+              "italic": false,
+              "color": "#FFFF00",
+              "translate": "portable_blueprints.worn_blueprint.arid_large_shed.author"
+            }
+          ],
+          "minecraft:custom_data": {
+            "allow_nbt": 1,
+            "altezza": 0,
+            "blueprint_name": "large_shed_arid",
+            "buildAnyway": 0,
+            "free_build": 1,
+            "inventari_blocco_selezionati": "",
+            "lunghezzaX": 0,
+            "lunghezzaZ": 0,
+            "mirrowX": 0,
+            "mirrowY": 0,
+            "mirrowZ": 0,
+            "nome": "large_shed_arid",
+            "owner": "worn",
+            "owner_name": "Ace",
+            "remaining_uses": 1,
+            "rotateValue": 0,
+            "skipObstructionBlock": 0,
+            "visualizeBuild": 1,
+            "wasHolding": 1,
+            "worn_set": 1
+          }
+        }
+      },
+      "request": {
+        "id": "society:building_supplies",
+        "count": 3
+      },
+      "image": "society:textures/gui/buildings/arid/large_shed_arid",
+      "image_description": {
+        "translate": "portable_blueprints.worn_blueprint.arid_large_shed.dimensions"
+      },
+      "trade_id": "bs_large_shed_arid"
+    },
+    {
+      "offer": {
+        "id": "portable_blueprints:worn_blueprint",
+        "count": 1,
+        "components": {
+          "minecraft:custom_name": {
+            "italic": false,
+            "color": "#FFFF00",
+            "translate": "portable_blueprints.worn_blueprint.bamboo_large_shed"
+          },
+          "minecraft:lore": [
+            {
+              "italic": false,
+              "color": "#FFFF00",
+              "translate": "portable_blueprints.worn_blueprint.bamboo_large_shed.author"
+            }
+          ],
+          "minecraft:custom_data": {
+            "allow_nbt": 1,
+            "altezza": 0,
+            "blueprint_name": "large_shed_bamboo",
+            "buildAnyway": 0,
+            "free_build": 1,
+            "inventari_blocco_selezionati": "",
+            "lunghezzaX": 0,
+            "lunghezzaZ": 0,
+            "mirrowX": 0,
+            "mirrowY": 0,
+            "mirrowZ": 0,
+            "nome": "large_shed_bamboo",
+            "owner": "worn",
+            "owner_name": "Ace",
+            "remaining_uses": 1,
+            "rotateValue": 0,
+            "skipObstructionBlock": 0,
+            "visualizeBuild": 1,
+            "wasHolding": 1,
+            "worn_set": 1
+          }
+        }
+      },
+      "request": {
+        "id": "society:building_supplies",
+        "count": 3
+      },
+      "image": "society:textures/gui/buildings/bamboo/large_shed_bamboo",
+      "image_description": {
+        "translate": "portable_blueprints.worn_blueprint.bamboo_large_shed.dimensions"
+      },
+      "trade_id": "bs_large_shed_bamboo"
+    },
+    {
+      "offer": {
+        "id": "portable_blueprints:worn_blueprint",
+        "count": 1,
+        "components": {
+          "minecraft:custom_name": {
+            "italic": false,
+            "color": "#FFFF00",
+            "translate": "portable_blueprints.worn_blueprint.bavarian_large_shed"
+          },
+          "minecraft:lore": [
+            {
+              "italic": false,
+              "color": "#FFFF00",
+              "translate": "portable_blueprints.worn_blueprint.bavarian_large_shed.author"
+            }
+          ],
+          "minecraft:custom_data": {
+            "allow_nbt": 1,
+            "altezza": 0,
+            "blueprint_name": "large_shed_bavarian",
+            "buildAnyway": 0,
+            "free_build": 1,
+            "inventari_blocco_selezionati": "",
+            "lunghezzaX": 0,
+            "lunghezzaZ": 0,
+            "mirrowX": 0,
+            "mirrowY": 0,
+            "mirrowZ": 0,
+            "nome": "large_shed_bavarian",
+            "owner": "worn",
+            "owner_name": "Ace",
+            "remaining_uses": 1,
+            "rotateValue": 0,
+            "skipObstructionBlock": 0,
+            "visualizeBuild": 1,
+            "wasHolding": 1,
+            "worn_set": 1
+          }
+        }
+      },
+      "request": {
+        "id": "society:building_supplies",
+        "count": 3
+      },
+      "image": "society:textures/gui/buildings/bavarian/large_shed_bavarian",
+      "image_description": {
+        "translate": "portable_blueprints.worn_blueprint.bavarian_large_shed.dimensions"
+      },
+      "trade_id": "bs_large_shed_bavarian"
+    },
+    {
+      "offer": {
+        "id": "portable_blueprints:worn_blueprint",
+        "count": 1,
+        "components": {
+          "minecraft:custom_name": {
+            "italic": false,
+            "color": "#FFFF00",
+            "translate": "portable_blueprints.worn_blueprint.cherry_large_shed"
+          },
+          "minecraft:lore": [
+            {
+              "italic": false,
+              "color": "#FFFF00",
+              "translate": "portable_blueprints.worn_blueprint.cherry_large_shed.author"
+            }
+          ],
+          "minecraft:custom_data": {
+            "allow_nbt": 1,
+            "altezza": 0,
+            "blueprint_name": "large_shed_cherry",
+            "buildAnyway": 0,
+            "free_build": 1,
+            "inventari_blocco_selezionati": "",
+            "lunghezzaX": 0,
+            "lunghezzaZ": 0,
+            "mirrowX": 0,
+            "mirrowY": 0,
+            "mirrowZ": 0,
+            "nome": "large_shed_cherry",
+            "owner": "worn",
+            "owner_name": "Ace",
+            "remaining_uses": 1,
+            "rotateValue": 0,
+            "skipObstructionBlock": 0,
+            "visualizeBuild": 1,
+            "wasHolding": 1,
+            "worn_set": 1
+          }
+        }
+      },
+      "request": {
+        "id": "society:building_supplies",
+        "count": 3
+      },
+      "image": "society:textures/gui/buildings/cherry/large_shed_cherry",
+      "image_description": {
+        "translate": "portable_blueprints.worn_blueprint.cherry_large_shed.dimensions"
+      },
+      "trade_id": "bs_large_shed_cherry"
+    },
+    {
+      "offer": {
+        "id": "portable_blueprints:worn_blueprint",
+        "count": 1,
+        "components": {
+          "minecraft:custom_name": {
+            "italic": false,
+            "color": "#FFFF00",
+            "translate": "portable_blueprints.worn_blueprint.entrana_large_shed"
+          },
+          "minecraft:lore": [
+            {
+              "italic": false,
+              "color": "#FFFF00",
+              "translate": "portable_blueprints.worn_blueprint.entrana_large_shed.author"
+            }
+          ],
+          "minecraft:custom_data": {
+            "allow_nbt": 1,
+            "altezza": 0,
+            "blueprint_name": "large_shed_entrana",
+            "buildAnyway": 0,
+            "free_build": 1,
+            "inventari_blocco_selezionati": "",
+            "lunghezzaX": 0,
+            "lunghezzaZ": 0,
+            "mirrowX": 0,
+            "mirrowY": 0,
+            "mirrowZ": 0,
+            "nome": "large_shed_entrana",
+            "owner": "worn",
+            "owner_name": "Ace",
+            "remaining_uses": 1,
+            "rotateValue": 0,
+            "skipObstructionBlock": 0,
+            "visualizeBuild": 1,
+            "wasHolding": 1,
+            "worn_set": 1
+          }
+        }
+      },
+      "request": {
+        "id": "society:building_supplies",
+        "count": 3
+      },
+      "image": "society:textures/gui/buildings/entrana/large_shed_entrana",
+      "image_description": {
+        "translate": "portable_blueprints.worn_blueprint.entrana_large_shed.dimensions"
+      },
+      "trade_id": "bs_large_shed_entrana"
+    },
+    {
+      "offer": {
+        "id": "portable_blueprints:worn_blueprint",
+        "count": 1,
+        "components": {
+          "minecraft:custom_name": {
+            "italic": false,
+            "color": "#FFFF00",
+            "translate": "portable_blueprints.worn_blueprint.floral_large_shed"
+          },
+          "minecraft:lore": [
+            {
+              "italic": false,
+              "color": "#FFFF00",
+              "translate": "portable_blueprints.worn_blueprint.floral_large_shed.author"
+            }
+          ],
+          "minecraft:custom_data": {
+            "allow_nbt": 1,
+            "altezza": 0,
+            "blueprint_name": "large_shed_floral",
+            "buildAnyway": 0,
+            "free_build": 1,
+            "inventari_blocco_selezionati": "",
+            "lunghezzaX": 0,
+            "lunghezzaZ": 0,
+            "mirrowX": 0,
+            "mirrowY": 0,
+            "mirrowZ": 0,
+            "nome": "large_shed_floral",
+            "owner": "worn",
+            "owner_name": "Ace",
+            "remaining_uses": 1,
+            "rotateValue": 0,
+            "skipObstructionBlock": 0,
+            "visualizeBuild": 1,
+            "wasHolding": 1,
+            "worn_set": 1
+          }
+        }
+      },
+      "request": {
+        "id": "society:building_supplies",
+        "count": 3
+      },
+      "image": "society:textures/gui/buildings/floral/large_shed_floral",
+      "image_description": {
+        "translate": "portable_blueprints.worn_blueprint.floral_large_shed.dimensions"
+      },
+      "trade_id": "bs_large_shed_floral"
+    },
+    {
+      "offer": {
+        "id": "portable_blueprints:worn_blueprint",
+        "count": 1,
+        "components": {
+          "minecraft:custom_name": {
+            "italic": false,
+            "color": "#FFFF00",
+            "translate": "portable_blueprints.worn_blueprint.mason_large_shed"
+          },
+          "minecraft:lore": [
+            {
+              "italic": false,
+              "color": "#FFFF00",
+              "translate": "portable_blueprints.worn_blueprint.mason_large_shed.author"
+            }
+          ],
+          "minecraft:custom_data": {
+            "allow_nbt": 1,
+            "altezza": 0,
+            "blueprint_name": "large_shed_mason",
+            "buildAnyway": 0,
+            "free_build": 1,
+            "inventari_blocco_selezionati": "",
+            "lunghezzaX": 0,
+            "lunghezzaZ": 0,
+            "mirrowX": 0,
+            "mirrowY": 0,
+            "mirrowZ": 0,
+            "nome": "large_shed_mason",
+            "owner": "worn",
+            "owner_name": "Ace",
+            "remaining_uses": 1,
+            "rotateValue": 0,
+            "skipObstructionBlock": 0,
+            "visualizeBuild": 1,
+            "wasHolding": 1,
+            "worn_set": 1
+          }
+        }
+      },
+      "request": {
+        "id": "society:building_supplies",
+        "count": 3
+      },
+      "image": "society:textures/gui/buildings/mason/large_shed_mason",
+      "image_description": {
+        "translate": "portable_blueprints.worn_blueprint.mason_large_shed.dimensions"
+      },
+      "trade_id": "bs_large_shed_mason"
+    },
+    {
+      "offer": {
+        "id": "portable_blueprints:worn_blueprint",
+        "count": 1,
+        "components": {
+          "minecraft:custom_name": {
+            "italic": false,
+            "color": "#FFFF00",
+            "translate": "portable_blueprints.worn_blueprint.prismarine_large_shed"
+          },
+          "minecraft:lore": [
+            {
+              "italic": false,
+              "color": "#FFFF00",
+              "translate": "portable_blueprints.worn_blueprint.prismarine_large_shed.author"
+            }
+          ],
+          "minecraft:custom_data": {
+            "allow_nbt": 1,
+            "altezza": 0,
+            "blueprint_name": "large_shed_prismarine",
+            "buildAnyway": 0,
+            "free_build": 1,
+            "inventari_blocco_selezionati": "",
+            "lunghezzaX": 0,
+            "lunghezzaZ": 0,
+            "mirrowX": 0,
+            "mirrowY": 0,
+            "mirrowZ": 0,
+            "nome": "large_shed_prismarine",
+            "owner": "worn",
+            "owner_name": "Ace",
+            "remaining_uses": 1,
+            "rotateValue": 0,
+            "skipObstructionBlock": 0,
+            "visualizeBuild": 1,
+            "wasHolding": 1,
+            "worn_set": 1
+          }
+        }
+      },
+      "request": {
+        "id": "society:building_supplies",
+        "count": 3
+      },
+      "image": "society:textures/gui/buildings/prismarine/large_shed_prismarine",
+      "image_description": {
+        "translate": "portable_blueprints.worn_blueprint.prismarine_large_shed.dimensions"
+      },
+      "trade_id": "bs_large_shed_prismarine"
+    },
+    {
+      "offer": {
+        "id": "portable_blueprints:worn_blueprint",
+        "count": 1,
+        "components": {
+          "minecraft:custom_name": {
+            "italic": false,
+            "color": "#FFFF00",
+            "translate": "portable_blueprints.worn_blueprint.rural_large_shed"
+          },
+          "minecraft:lore": [
+            {
+              "italic": false,
+              "color": "#FFFF00",
+              "translate": "portable_blueprints.worn_blueprint.rural_large_shed.author"
+            }
+          ],
+          "minecraft:custom_data": {
+            "allow_nbt": 1,
+            "altezza": 0,
+            "blueprint_name": "large_shed_rural",
+            "buildAnyway": 0,
+            "free_build": 1,
+            "inventari_blocco_selezionati": "",
+            "lunghezzaX": 0,
+            "lunghezzaZ": 0,
+            "mirrowX": 0,
+            "mirrowY": 0,
+            "mirrowZ": 0,
+            "nome": "large_shed_rural",
+            "owner": "worn",
+            "owner_name": "Ace",
+            "remaining_uses": 1,
+            "rotateValue": 0,
+            "skipObstructionBlock": 0,
+            "visualizeBuild": 1,
+            "wasHolding": 1,
+            "worn_set": 1
+          }
+        }
+      },
+      "request": {
+        "id": "society:building_supplies",
+        "count": 3
+      },
+      "image": "society:textures/gui/buildings/rural/large_shed_rural",
+      "image_description": {
+        "translate": "portable_blueprints.worn_blueprint.rural_large_shed.dimensions"
+      },
+      "trade_id": "bs_large_shed_rural"
+    },
+    {
+      "offer": {
+        "id": "portable_blueprints:worn_blueprint",
+        "count": 1,
+        "components": {
+          "minecraft:custom_name": {
+            "italic": false,
+            "color": "#FFFF00",
+            "translate": "portable_blueprints.worn_blueprint.sakura_large_shed"
+          },
+          "minecraft:lore": [
+            {
+              "italic": false,
+              "color": "#FFFF00",
+              "translate": "portable_blueprints.worn_blueprint.sakura_large_shed.author"
+            }
+          ],
+          "minecraft:custom_data": {
+            "allow_nbt": 1,
+            "altezza": 0,
+            "blueprint_name": "large_shed_sakura",
+            "buildAnyway": 0,
+            "free_build": 1,
+            "inventari_blocco_selezionati": "",
+            "lunghezzaX": 0,
+            "lunghezzaZ": 0,
+            "mirrowX": 0,
+            "mirrowY": 0,
+            "mirrowZ": 0,
+            "nome": "large_shed_sakura",
+            "owner": "worn",
+            "owner_name": "Ace",
+            "remaining_uses": 1,
+            "rotateValue": 0,
+            "skipObstructionBlock": 0,
+            "visualizeBuild": 1,
+            "wasHolding": 1,
+            "worn_set": 1
+          }
+        }
+      },
+      "request": {
+        "id": "society:building_supplies",
+        "count": 3
+      },
+      "image": "society:textures/gui/buildings/sakura/large_shed_sakura",
+      "image_description": {
+        "translate": "portable_blueprints.worn_blueprint.sakura_large_shed.dimensions"
+      },
+      "trade_id": "bs_large_shed_sakura"
+    },
+    {
+      "offer": {
+        "id": "portable_blueprints:worn_blueprint",
+        "count": 1,
+        "components": {
+          "minecraft:custom_name": {
+            "italic": false,
+            "color": "#FFFF00",
+            "translate": "portable_blueprints.worn_blueprint.siberian_large_shed"
+          },
+          "minecraft:lore": [
+            {
+              "italic": false,
+              "color": "#FFFF00",
+              "translate": "portable_blueprints.worn_blueprint.siberian_large_shed.author"
+            }
+          ],
+          "minecraft:custom_data": {
+            "allow_nbt": 1,
+            "altezza": 0,
+            "blueprint_name": "large_shed_siberian",
+            "buildAnyway": 0,
+            "free_build": 1,
+            "inventari_blocco_selezionati": "",
+            "lunghezzaX": 0,
+            "lunghezzaZ": 0,
+            "mirrowX": 0,
+            "mirrowY": 0,
+            "mirrowZ": 0,
+            "nome": "large_shed_siberian",
+            "owner": "worn",
+            "owner_name": "Ace",
+            "remaining_uses": 1,
+            "rotateValue": 0,
+            "skipObstructionBlock": 0,
+            "visualizeBuild": 1,
+            "wasHolding": 1,
+            "worn_set": 1
+          }
+        }
+      },
+      "request": {
+        "id": "society:building_supplies",
+        "count": 3
+      },
+      "image": "society:textures/gui/buildings/siberian/large_shed_siberian",
+      "image_description": {
+        "translate": "portable_blueprints.worn_blueprint.siberian_large_shed.dimensions"
+      },
+      "trade_id": "bs_large_shed_siberian"
+    },
+    {
+      "offer": {
+        "id": "portable_blueprints:worn_blueprint",
+        "count": 1,
+        "components": {
+          "minecraft:custom_name": {
+            "italic": false,
+            "color": "#FFFF00",
+            "translate": "portable_blueprints.worn_blueprint.tudor_large_shed"
+          },
+          "minecraft:lore": [
+            {
+              "italic": false,
+              "color": "#FFFF00",
+              "translate": "portable_blueprints.worn_blueprint.tudor_large_shed.author"
+            }
+          ],
+          "minecraft:custom_data": {
+            "allow_nbt": 1,
+            "altezza": 0,
+            "blueprint_name": "large_shed_tudor",
+            "buildAnyway": 0,
+            "free_build": 1,
+            "inventari_blocco_selezionati": "",
+            "lunghezzaX": 0,
+            "lunghezzaZ": 0,
+            "mirrowX": 0,
+            "mirrowY": 0,
+            "mirrowZ": 0,
+            "nome": "large_shed_tudor",
+            "owner": "worn",
+            "owner_name": "Ace",
+            "remaining_uses": 1,
+            "rotateValue": 0,
+            "skipObstructionBlock": 0,
+            "visualizeBuild": 1,
+            "wasHolding": 1,
+            "worn_set": 1
+          }
+        }
+      },
+      "request": {
+        "id": "society:building_supplies",
+        "count": 3
+      },
+      "image": "society:textures/gui/buildings/tudor/large_shed_tudor",
+      "image_description": {
+        "translate": "portable_blueprints.worn_blueprint.tudor_large_shed.dimensions"
+      },
+      "trade_id": "bs_large_shed_tudor"
+    },
+    {
+      "offer": {
+        "id": "portable_blueprints:worn_blueprint",
+        "count": 1,
+        "components": {
+          "minecraft:custom_name": {
+            "italic": false,
+            "color": "#FFFF00",
+            "translate": "portable_blueprints.worn_blueprint.vibrantown_large_shed"
+          },
+          "minecraft:lore": [
+            {
+              "italic": false,
+              "color": "#FFFF00",
+              "translate": "portable_blueprints.worn_blueprint.vibrantown_large_shed.author"
+            }
+          ],
+          "minecraft:custom_data": {
+            "allow_nbt": 1,
+            "altezza": 0,
+            "blueprint_name": "large_shed_vibrantown",
+            "buildAnyway": 0,
+            "free_build": 1,
+            "inventari_blocco_selezionati": "",
+            "lunghezzaX": 0,
+            "lunghezzaZ": 0,
+            "mirrowX": 0,
+            "mirrowY": 0,
+            "mirrowZ": 0,
+            "nome": "large_shed_vibrantown",
+            "owner": "worn",
+            "owner_name": "Ace",
+            "remaining_uses": 1,
+            "rotateValue": 0,
+            "skipObstructionBlock": 0,
+            "visualizeBuild": 1,
+            "wasHolding": 1,
+            "worn_set": 1
+          }
+        }
+      },
+      "request": {
+        "id": "society:building_supplies",
+        "count": 3
+      },
+      "image": "society:textures/gui/buildings/vibrantown/large_shed_vibrantown",
+      "image_description": {
+        "translate": "portable_blueprints.worn_blueprint.vibrantown_large_shed.dimensions"
+      },
+      "trade_id": "bs_large_shed_vibrantown"
+    }
+  ]
+}

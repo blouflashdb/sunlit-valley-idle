@@ -1,0 +1,157 @@
+{
+  "shop_id": "wandering_baker",
+  "name": {
+    "translate": "shop.society_trading.wandering_baker"
+  },
+  "texture": "bakery:textures/block/baker_station_1",
+  "entity": "bakery:wandering_baker",
+  "hidden_from_selector": true,
+  "trades": [
+    {
+      "request": {
+        "id": "numismatics:crown",
+        "count": 2
+      },
+      "offer": {
+        "id": "bakery:strawberry_cake",
+        "count": 1
+      },
+      "numismatics_cost": 1024,
+      "limit": 4,
+      "trade_id": "wandering_baker_strawberry_cake"
+    },
+    {
+      "request": {
+        "id": "numismatics:crown",
+        "count": 4
+      },
+      "offer": {
+        "id": "bakery:chocolate_cake",
+        "count": 1
+      },
+      "numismatics_cost": 2048,
+      "limit": 4,
+      "trade_id": "wandering_baker_chocolate_cake"
+    },
+    {
+      "request": {
+        "id": "numismatics:cog",
+        "count": 1
+      },
+      "offer": {
+        "id": "bakery:sweetberry_cake",
+        "count": 1
+      },
+      "numismatics_cost": 512,
+      "limit": 4,
+      "trade_id": "wandering_baker_sweetberry_cake"
+    },
+    {
+      "request": {
+        "id": "numismatics:crown",
+        "count": 4
+      },
+      "offer": {
+        "id": "atmospheric:yucca_gateau",
+        "count": 1
+      },
+      "numismatics_cost": 2048,
+      "limit": 4,
+      "trade_id": "wandering_baker_yucca_gateau"
+    },
+    {
+      "request": {
+        "id": "numismatics:cog",
+        "count": 4
+      },
+      "offer": {
+        "id": "bakery:chocolate_gateau",
+        "count": 1
+      },
+      "numismatics_cost": 256,
+      "limit": 4,
+      "trade_id": "wandering_baker_chocolate_gateau"
+    },
+    {
+      "request": {
+        "id": "society:prismatic_shard",
+        "count": 1
+      },
+      "offer": {
+        "id": "society:prize_ticket",
+        "count": 1
+      },
+      "trade_id": "wandering_baker_prize_ticket"
+    },
+    {
+      "request": {
+        "id": "society:prismatic_shard",
+        "count": 1
+      },
+      "offer": {
+        "id": "splendid_slimes:slime_ticket",
+        "count": 1
+      },
+      "trade_id": "wandering_baker_slime_ticket"
+    },
+    {
+      "request": {
+        "id": "society:prismatic_shard",
+        "count": 1
+      },
+      "offer": {
+        "id": "splendid_slimes:slime_ticket",
+        "count": 4
+      },
+      "trade_id": "wandering_baker_slime_candy"
+    },
+    {
+      "request": {
+        "id": "society:prismatic_shard",
+        "count": 2
+      },
+      "offer": {
+        "id": "pamhc2trees:cinnamon_sapling",
+        "count": 1
+      },
+      "limit": 1,
+      "trade_id": "wandering_baker_cinnamon_sapling"
+    },
+    {
+      "request": {
+        "id": "society:prismatic_shard",
+        "count": 3
+      },
+      "offer": {
+        "id": "pamhc2trees:pawpaw_sapling",
+        "count": 1
+      },
+      "limit": 1,
+      "trade_id": "wandering_baker_pawpaw_sapling"
+    },
+    {
+      "request": {
+        "id": "society:prismatic_shard",
+        "count": 3
+      },
+      "offer": {
+        "id": "pamhc2trees:hazelnut_sapling",
+        "count": 1
+      },
+      "limit": 1,
+      "trade_id": "wandering_baker_prismatic_shard"
+    },
+    {
+      "request": {
+        "id": "society:prismatic_shard",
+        "count": 8
+      },
+      "offer": {
+        "id": "pamhc2trees:lemon_sapling",
+        "count": 1
+      },
+      "limit": 1,
+      "trade_id": "wandering_lemon_sapling"
+    }
+  ]
+}
