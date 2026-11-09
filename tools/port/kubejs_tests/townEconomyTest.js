@@ -41,7 +41,8 @@ ServerEvents.loaded((event) => {
       let content = String(note.getComponents());
       check(content.indexOf("society.hospital_receipt.first_death") !== -1, `the note has no text: ${content}`);
 
-      check(global.formatPriceTruncated(1234567) === "1.2M" && global.formatPriceTruncated(512) === "512", "truncated prices");
+      let truncated = [String(global.formatPriceTruncated(1234567)), String(global.formatPriceTruncated(512))];
+      check(truncated[0] === "1.2M" && truncated[1] === "512", `truncated prices ${truncated}`);
       let ranking = global.getLeaderboardRanking(server);
       check(Array.isArray(ranking), "no ranking");
 

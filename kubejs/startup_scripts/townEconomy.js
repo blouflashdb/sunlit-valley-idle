@@ -93,17 +93,13 @@ global.getLeaderboardRanking = (server) => {
 
 /** "1.2M" style balances. */
 global.formatPriceTruncated = (number) => {
-  const value = Math.round(Number(number));
-  const units = [
-    [1e9, "B"],
-    [1e6, "M"],
-    [1e3, "K"],
-  ];
-  for (let i = 0; i < units.length; i++) {
-    const [size, unit] = units[i];
-    if (value >= size) {
-      const shown = Math.floor((value / size) * 10) / 10;
-      return `${shown % 1 === 0 ? shown.toFixed(0) : shown.toFixed(1)}${unit}`;
+  let value = Math.round(Number(number));
+  let sizes = [1e9, 1e6, 1e3];
+  let units = ["B", "M", "K"];
+  for (let i = 0; i < sizes.length; i++) {
+    if (value >= sizes[i]) {
+      let shown = Math.floor((value / sizes[i]) * 10) / 10;
+      return String(shown % 1 === 0 ? shown.toFixed(0) : shown.toFixed(1)) + units[i];
     }
   }
   return String(value);
