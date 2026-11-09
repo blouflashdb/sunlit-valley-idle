@@ -53,10 +53,11 @@ REMOVED = {
     "constructionwand:core_angel", "constructionwand:core_destruction",
     "farmlife:domestic_tribull_spawn_egg", "farmlife:galliraptor_spawn_egg",
     "species:alphacene_mushroom", "species:youth_potion", "verdantvibes:bracket_mushroom",
-    # Items the 1.21.1 builds of mods in the pack no longer have.
+    # Items the 1.21.1 builds of mods in the pack no longer have; the Fantasy Catalog went with Fantasy's
+    # Furniture (#15).
     "create_central_kitchen:cooking_guide", "create_enchantment_industry:disenchanter",
     "create_enchantment_industry:hyper_experience_bottle", "beachparty:chocolate_icecream",
-    "beachparty:sweetberry_milkshake", "candlelight:khinkali", "netherdepthsupgrade:baked_lava_pufferfish_stew",
+    "beachparty:sweetberry_milkshake", "society:fantasy_catalog", "candlelight:khinkali", "netherdepthsupgrade:baked_lava_pufferfish_stew",
     "relics:arrow_quiver", "relics:horse_flute", "relics:spatial_sign", "unusualfishmod:raw_snowflake",
 }
 # forge tags whose c tag has another name; every other forge:x becomes c:x.

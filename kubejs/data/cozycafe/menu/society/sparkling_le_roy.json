@@ -1,0 +1,9 @@
+{
+  "item": "society:sparkling_le_roy",
+  "category": "drink",
+  "price": 4308,
+  "bottle_drink": true,
+  "bottle": "vinery:wine_bottle",
+  "flavors": [],
+  "mult_attribute": "shippingbin:wood_sell_multiplier"
+}

@@ -1,0 +1,9 @@
+{
+  "item": "society:dewy_star",
+  "category": "drink",
+  "price": 4032,
+  "bottle_drink": true,
+  "bottle": "vinery:wine_bottle",
+  "flavors": [],
+  "mult_attribute": "shippingbin:wood_sell_multiplier"
+}

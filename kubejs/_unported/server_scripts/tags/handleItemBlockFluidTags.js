@@ -570,32 +570,7 @@ ServerEvents.tags("item", (e) => {
   skillBooks.forEach((item) => {
     e.add("society:skill_book", item);
   });
-  const smallMilks = [
-    "society:milk",
-    "society:goat_milk",
-    "society:sheep_milk",
-    "society:buffalo_milk",
-    "society:warped_milk",
-    "society:tri_bull_milk",
-    "society:amethyst_milk",
-    "society:grain_milk",
-  ];
-  smallMilks.forEach((item) => {
-    e.add("society:small_milk", item);
-  });
-  const largeMilks = [
-    "society:large_milk",
-    "society:large_goat_milk",
-    "society:large_buffalo_milk",
-    "society:large_sheep_milk",
-    "society:large_warped_milk",
-    "society:large_tri_bull_milk",
-    "society:large_amethyst_milk",
-    "society:large_grain_milk",
-  ];
-  largeMilks.forEach((item) => {
-    e.add("society:large_milk", item);
-  });
+  // society:small_milk and society:large_milk are ported: kubejs/server_scripts/tags/husbandryTags.js
   [
     "society:topaz",
     "society:amethyst_chunk",

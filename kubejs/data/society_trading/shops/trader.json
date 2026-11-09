@@ -229,6 +229,28 @@
     },
     {
       "offer": {
+        "id": "society:cordycep",
+        "count": 1
+      },
+      "request": {
+        "id": "society:truffle_tea",
+        "count": 8
+      },
+      "trade_id": "minecraft:cordycep_for_truffle_tea"
+    },
+    {
+      "offer": {
+        "id": "society:tiny_gnome",
+        "count": 1
+      },
+      "request": {
+        "id": "society:beer_london",
+        "count": 8
+      },
+      "trade_id": "minecraft:trader_tiny_gnome_for_beer_london"
+    },
+    {
+      "offer": {
         "id": "society:frosted_tip",
         "count": 1
       },

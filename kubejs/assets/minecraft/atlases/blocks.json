@@ -2816,6 +2816,56 @@
       "sprite": "society:block/omni_geode_node"
     },
     {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/drinks/mocha"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/drinks/latte"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/drinks/dirty_chai"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/mushroom_stew",
+      "sprite": "society:item/drinks/bowl_of_soul"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/honey_bottle",
+      "sprite": "society:item/drinks/truffle_tea"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/glass_bottle",
+      "sprite": "society:item/mayo/supreme_mayonnaise"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/diamond_sword",
+      "sprite": "society:item/galaxy_sword"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/netherite_axe",
+      "sprite": "society:item/dragontooth_axe"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/golden_sword",
+      "sprite": "society:item/meowmageddon"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/brush",
+      "sprite": "society:item/artifacts/princess_hairbrush"
+    },
+    {
       "type": "directory",
       "source": "item",
       "prefix": "item/"
