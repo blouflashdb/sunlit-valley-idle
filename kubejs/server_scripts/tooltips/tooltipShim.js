@@ -9,8 +9,8 @@ console.info("[SOCIETY] tooltipShim.js loaded");
 //   tooltip.addAdvanced(items, callback) for the callbacks that only check tooltip.shift: the callback runs once
 //                                        with shift held and once without, and its lines get the matching requirement.
 // Tooltips that read the stack (plushies, fish ponds, prices) are client scripts (client_scripts/tooltips).
-// Items that are not registered are skipped and kept in global.tooltipSkippedIds for the CI test.
-global.tooltipSkippedIds = [];
+// Items that are not registered are skipped and kept in global.tooltipSkippedIds (startup_scripts/globalTooltips.js)
+// for the CI test.
 
 /** A tooltip line from a component, a string or a list of parts joined into one line. */
 const tooltipLine = (parts) => {

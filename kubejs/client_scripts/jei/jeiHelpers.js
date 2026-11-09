@@ -6,7 +6,7 @@ const $JeiFluidRegistries = Java.loadClass("net.minecraft.core.registries.BuiltI
 const $JeiFluidResourceLocation = Java.loadClass("net.minecraft.resources.ResourceLocation");
 
 /** An item stack for "id" or "6x id", or null when the item is not registered. */
-global.jeiStack = (text) => {
+const jeiStack = (text) => {
   if (!text) return null;
   let counted = global.parseCountedId(text);
   if (!global.itemExists(counted.id)) return null;
@@ -14,14 +14,14 @@ global.jeiStack = (text) => {
 };
 
 /** The fluid with this id, or null. */
-global.jeiFluid = (id) => {
+const jeiFluid = (id) => {
   let location = $JeiFluidResourceLocation.parse(String(id));
   return $JeiFluidRegistries.FLUID.containsKey(location) ? $JeiFluidRegistries.FLUID.get(location) : null;
 };
 
 /** Adds a slot with a stack and JEI's slot background. Does nothing for a missing item. */
-global.jeiSlot = (builder, guiHelper, role, x, y, text, tooltip) => {
-  let stack = typeof text === "string" ? global.jeiStack(text) : text;
+const jeiSlot = (builder, guiHelper, role, x, y, text, tooltip) => {
+  let stack = typeof text === "string" ? jeiStack(text) : text;
   if (!stack) return null;
   let slot = builder.addSlot(role, x, y).addItemStack(stack).setBackground(guiHelper.getSlotDrawable(), -1, -1);
   if (tooltip) {
@@ -33,6 +33,6 @@ global.jeiSlot = (builder, guiHelper, role, x, y, text, tooltip) => {
 };
 
 /** Draws a line of text into a category, as the 1.20.1 categories did. */
-global.jeiText = (guiGraphics, text, x, y) => {
+const jeiText = (guiGraphics, text, x, y) => {
   guiGraphics.drawWordWrap(Client.font, text, x, y, 177, 0x404040);
 };

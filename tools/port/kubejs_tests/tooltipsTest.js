@@ -11,7 +11,7 @@ ServerEvents.loaded((event) => {
   let server = event.server;
   try {
     let problems = [];
-    global.tooltipSkippedIds = [];
+    global.tooltipSkippedIds.length = 0;
     let data = $TooltipsTestServerData.collect().itemTooltipData();
     let matching = (id, shift) => {
       let stack = Item.of(id);

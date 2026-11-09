@@ -16,7 +16,7 @@ const registerMachineCategory = (event, category) => {
       .isRecipeHandled((recipe) => recipe?.data?.output !== undefined)
       .setDrawHandler((recipe, slots, guiGraphics) => {
         guiHelper.getRecipeArrow().draw(guiGraphics, 74, 2);
-        global.jeiText(guiGraphics, workTimeText(recipe.getRecipeData().time || category.days), 72, 29);
+        jeiText(guiGraphics, workTimeText(recipe.getRecipeData().time || category.days), 72, 29);
       })
       .handleLookup((slots, recipe) => {
         const { input, output, fluidOutput } = recipe.data;
@@ -27,14 +27,14 @@ const registerMachineCategory = (event, category) => {
             .setBackground(guiHelper.getSlotDrawable(), -1, -1);
         } else if (input) {
           let count = output.length > 0 && String(output[0]).includes("steamed_milk") ? 1 : category.inputCount;
-          global.jeiSlot(slots, guiHelper, "INPUT", 2, 2, `${count}x ${input}`);
+          jeiSlot(slots, guiHelper, "INPUT", 2, 2, `${count}x ${input}`);
         }
-        global.jeiSlot(slots, guiHelper, "CATALYST", 52, 2, `society:${category.block}`);
-        let fluid = fluidOutput && category.id !== "tapping" ? global.jeiFluid(fluidOutput) : null;
+        jeiSlot(slots, guiHelper, "CATALYST", 52, 2, `society:${category.block}`);
+        let fluid = fluidOutput && category.id !== "tapping" ? jeiFluid(fluidOutput) : null;
         if (fluid) {
           slots.addSlot("OUTPUT", 104, 2).addFluidStack(fluid, 1000).setBackground(guiHelper.getSlotDrawable(), -1, -1);
         } else {
-          output.forEach((item, index) => global.jeiSlot(slots, guiHelper, "OUTPUT", 104 + index * 21, 2, item));
+          output.forEach((item, index) => jeiSlot(slots, guiHelper, "OUTPUT", 104 + index * 21, 2, item));
         }
       });
   });
@@ -50,19 +50,19 @@ const registerMushroomLogCategory = (event) => {
       .isRecipeHandled((recipe) => recipe?.data?.input !== undefined && recipe?.data?.output !== undefined)
       .setDrawHandler((recipe, slots, guiGraphics) => {
         guiHelper.getRecipeArrow().draw(guiGraphics, 74, 2);
-        global.jeiText(guiGraphics, Text.translatable("jei.society.working_block_entity.days", 4), 72, 29);
+        jeiText(guiGraphics, Text.translatable("jei.society.working_block_entity.days", 4), 72, 29);
       })
       .handleLookup((slots, recipe) => {
         const { input, output } = recipe.data;
         const strong = global.dominantMushroomLogBlocks.get(input) !== undefined;
-        global.jeiSlot(slots, guiHelper, "INPUT", 2, 2, input, () => [
+        jeiSlot(slots, guiHelper, "INPUT", 2, 2, input, () => [
           strong
             ? Text.translatable("jei.society.mushroom_growing.strong").darkGreen()
             : Text.translatable("jei.society.mushroom_growing.weak").aqua(),
         ]);
-        global.jeiSlot(slots, guiHelper, "CATALYST", 52, 2, "society:mushroom_log");
+        jeiSlot(slots, guiHelper, "CATALYST", 52, 2, "society:mushroom_log");
         output.forEach((item, index) =>
-          global.jeiSlot(slots, guiHelper, "OUTPUT", 104 + index * 21, 2, item, () => [
+          jeiSlot(slots, guiHelper, "OUTPUT", 104 + index * 21, 2, item, () => [
             Text.translatable("jei.society.mushroom_growing.mult").green(),
           ])
         );
@@ -79,15 +79,15 @@ const registerFishPondCategory = (event) => {
       .icon(guiHelper.createDrawableItemStack(Item.of("society:fish_pond")))
       .isRecipeHandled((recipe) => recipe?.data?.item !== undefined)
       .setDrawHandler((recipe, slots, guiGraphics) => {
-        global.jeiText(guiGraphics, Text.translatable("jei.society.working_block_entity.item"), 2, 49);
+        jeiText(guiGraphics, Text.translatable("jei.society.working_block_entity.item"), 2, 49);
       })
       .handleLookup((slots, recipe) => {
         const { item, additionalRewards } = recipe.data;
         const rewards = [{ item: global.getRoe(item), count: 1 }].concat(additionalRewards || []);
-        global.jeiSlot(slots, guiHelper, "CATALYST", 2, 28, "society:fish_pond");
-        global.jeiSlot(slots, guiHelper, "INPUT", 2, 2, item);
+        jeiSlot(slots, guiHelper, "CATALYST", 2, 28, "society:fish_pond");
+        jeiSlot(slots, guiHelper, "INPUT", 2, 2, item);
         rewards.forEach((reward, index) => {
-          global.jeiSlot(
+          jeiSlot(
             slots,
             guiHelper,
             "OUTPUT",
