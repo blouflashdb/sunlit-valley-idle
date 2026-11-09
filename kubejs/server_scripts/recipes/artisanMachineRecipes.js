@@ -160,6 +160,19 @@ ServerEvents.recipes((e) => {
     f: "society:fire_quartz",
     z: "create:zinc_ingot",
   });
+  shaped("society:auto_tapper", [" F ", "bTb", "fPf"], {
+    f: "create_factory_logistics:fluid_mechanism",
+    F: "create:fluid_tank",
+    T: "society:tapper",
+    b: "society:battery",
+    P: "create:precision_mechanism",
+  });
+  shaped("society:juice_inserter", ["fff", "rFb", "fff"], {
+    f: "meadow:fire_log",
+    F: "create:fluid_tank",
+    b: "minecraft:bamboo_block",
+    r: "society:rubber",
+  });
   shaped("society:auto_worm_farm", ["lpl", "asa", "CSC"], {
     s: "farmersdelight:rich_soil",
     S: "society:sunlit_pearl",

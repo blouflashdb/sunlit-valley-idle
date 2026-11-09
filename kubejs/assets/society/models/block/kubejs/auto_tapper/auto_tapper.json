@@ -1,0 +1,10 @@
+{
+  "parent": "society:block/kubejs/placeholder/machine",
+  "textures": {
+    "side": "minecraft:block/copper_block",
+    "front": "minecraft:block/copper_grate",
+    "top": "minecraft:block/cut_copper",
+    "bottom": "minecraft:block/cut_copper",
+    "particle": "minecraft:block/copper_block"
+  }
+}
