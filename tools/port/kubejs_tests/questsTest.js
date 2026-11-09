@@ -3,6 +3,7 @@
 // shows unknown ids as a "missing item"). Prints "[PORT-TEST] PHASE1 quests", "[PORT-TEST] PASS quests" or
 // "[PORT-TEST] FAIL quests: ...".
 const $QuestsTestFile = Java.loadClass("dev.ftb.mods.ftbquests.quest.ServerQuestFile");
+const $QuestsTestItems = Java.loadClass("net.minecraft.core.registries.BuiltInRegistries");
 const $QuestsTestComponents = Java.loadClass("dev.ftb.mods.ftbquests.registry.ModDataComponents");
 
 // FTB Quests loads the book after ServerEvents.loaded, so the check runs a few ticks later, on boot 2 only: a
@@ -68,7 +69,17 @@ const checkQuestBook = (server) => {
     let ids = Object.keys(missing).sort();
     console.info(`[PORT-TEST] quests: ${chapters} chapters, ${quests} quests, ${checked} items, ${ids.length} missing ids`);
     if (ids.length > 0) {
-      ids.forEach((id) => console.info(`[PORT-TEST] INFO quests missing ${id} ${missing[id].length}x (${missing[id].slice(0, 3).join(" ")})`));
+      let allIds = [];
+      $QuestsTestItems.ITEM.keySet().forEach((key) => allIds.push(String(key)));
+      ids.forEach((id) => {
+        let path = id.split(":")[1];
+        let words = path.split("_").filter((w) => w.length > 3);
+        let like = allIds.filter((other) => {
+          let otherPath = other.split(":")[1];
+          return otherPath === path || words.length > 0 && words.every((w) => otherPath.includes(w));
+        });
+        console.info(`[PORT-TEST] INFO quests missing ${id} ${missing[id].length}x (${missing[id].slice(0, 3).join(" ")}) like [${like.slice(0, 8).join(" ")}]`);
+      });
       throw new Error(`${ids.length} missing item ids: ${ids.join(" ")}`);
     }
     console.info("[PORT-TEST] PASS quests");
