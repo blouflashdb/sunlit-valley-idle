@@ -196,7 +196,7 @@
                     "type": "minecraft:inside_world_bounds",
                     "offset": [
                       0,
-                      -16,
+                      -15,
                       0
                     ]
                   },
@@ -213,7 +213,7 @@
                     "type": "minecraft:matching_blocks",
                     "offset": [
                       0,
-                      -16,
+                      -15,
                       0
                     ],
                     "blocks": "minecraft:air"

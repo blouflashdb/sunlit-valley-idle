@@ -155,16 +155,16 @@ BlockEvents.rightClicked("society:skull_cavern_teleporter", (e) => {
     let noteAuthor = global.translatableWithFallback("society.skull_cavern.intro.note.author", "someone...").getString();
     player.give(global.getNotePaperItem(noteAuthor, Text.translatable("society.skull_cavern.intro.note"), noteTitle));
   }
-  global.enterSkullCavern(player, server, block.x, block.z);
+  enterSkullCavern(player, server, block.x, block.z);
 });
 
 /** Sends a player into the cavern above x/z and puts the way back under their feet. */
-global.enterSkullCavern = (player, server, x, z) => {
+function enterSkullCavern(player, server, x, z) {
   let cavern = server.getLevel(global.skullCavernDimension);
   player.teleportTo(cavern, x + 0.5, 512, z + 0.5, [], 0.0, 0.0);
   player.persistentData.putInt("skullCavernEnterDay", global.getDay(cavern));
   cavern.getBlock(x, 511, z).set("society:skull_cavern_teleporter");
-};
+}
 
 const skullFaint = (player, server, offsetY) => {
   player.persistentData.putInt("skullCavernEnterDay", -1);

@@ -5,7 +5,8 @@
     cavern structure templates are copied;
   - int and float providers lose their "value" wrapper (1.20.2 codec change);
   - biome spawners of mobs from mods that are gone are dropped (the Trials breeze is vanilla now);
-  - blocks of mods that are gone are replaced in feature configs (REPLACED_BLOCKS);
+  - blocks of mods that are gone, and renamed vanilla blocks, are replaced in feature configs (REPLACED_BLOCKS);
+  - block predicate offsets are clamped to 15 blocks (the 1.21 codec limit);
   - forge biome modifiers become neoforge ones;
   - the loot tables of the cavern blocks get 1.21 tool predicates and lose entries with missing items;
   - block tags list the entries of other mods as optional, so a missing block does not break the tag.
@@ -23,6 +24,7 @@ WORLDGEN = ("biome", "configured_feature", "density_function", "noise", "noise_s
 GONE_NAMESPACES = {"species", "legendarycreatures", "trials", "moreminecarts", "extractinator"}
 REPLACED_ENTITIES = {"trials:breeze": "minecraft:breeze"}
 REPLACED_BLOCKS = {
+    "minecraft:grass": "minecraft:short_grass",
     "extractinator:slush": "minecraft:powder_snow",
     "moreminecarts:organic_glass": "minecraft:glass",
     "moreminecarts:chiseled_organic_glass": "minecraft:glass",
@@ -62,6 +64,12 @@ def upgrade(node):
     if isinstance(out.get("Name"), str) and out["Name"] in REPLACED_BLOCKS:
         out["Name"] = REPLACED_BLOCKS[out["Name"]]
         out.pop("Properties", None)
+    # 1.21 block predicate offsets must stay below 16 blocks.
+    offset = out.get("offset")
+    if isinstance(offset, list) and len(offset) == 3 and all(isinstance(v, int) for v in offset):
+        out["offset"] = [max(-15, min(15, v)) for v in offset]
+    if isinstance(out.get("blocks"), str):
+        out["blocks"] = REPLACED_BLOCKS.get(out["blocks"], out["blocks"])
     if isinstance(out.get("blocks"), list):
         out["blocks"] = [REPLACED_BLOCKS.get(b, b) for b in out["blocks"]]
     return out
