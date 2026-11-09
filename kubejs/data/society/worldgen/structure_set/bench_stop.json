@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "society:bench_stop",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1283246395,
+    "spacing": 25,
+    "separation": 13
+  }
+}
