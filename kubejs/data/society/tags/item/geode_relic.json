@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "relics:horse_flute",
+      "required": false
+    },
+    {
+      "id": "relics:hunter_belt",
+      "required": false
+    }
+  ]
+}
