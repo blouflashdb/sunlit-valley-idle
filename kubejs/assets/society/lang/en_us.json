@@ -321,6 +321,7 @@
   "society.planting_crop.infertile_biome": "This Biome cannot grow crops...",
   "society.skull_cavern.prevent_block_place": "A magical force prevents you from placing this...",
   "society.skull_cavern.too_late": "It's too late at night to enter the Skull Cavern...",
+  "society.skull_cavern.prevent_tool": "That does not work in the Skull Cavern.",
   "society.skull_cavern.late": "It's getting late...",
   "society.skull_cavern.concern": "I should really go home...",
   "society.skull_cavern.fainted": "You fainted in the Skull Cavern...",

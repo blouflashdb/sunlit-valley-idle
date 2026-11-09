@@ -307,22 +307,7 @@ global.handleFee = (server, player, reason) => {
   }
 };
 
-global.teleportHome = (player, server, level) => {
-  let respawnPosition = player.getRespawnPosition();
-  if (respawnPosition == null) {
-    respawnPosition = level.getSharedSpawnPos();
-  }
-  player.teleportTo(
-    server.getLevel(player.getRespawnDimension().location()),
-    respawnPosition.x,
-    respawnPosition.y,
-    respawnPosition.z,
-    [],
-    0.0,
-    0.0
-  );
-  server.runCommandSilent(`experience add ${player.username} 1`);
-};
+// global.teleportHome is ported: kubejs/startup_scripts/skullCavern/skullCavern.js
 
 /**
  * Normally this behaivor would be handled buy Pufferfish Skills, but it's broken with shippingbin attributes

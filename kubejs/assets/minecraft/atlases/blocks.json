@@ -2676,6 +2676,146 @@
       "sprite": "society:item/villager"
     },
     {
+      "type": "single",
+      "resource": "minecraft:block/respawn_anchor_top_off",
+      "sprite": "society:block/teleporter_top"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/crying_obsidian",
+      "sprite": "society:block/teleporter_bottom"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/respawn_anchor_side0",
+      "sprite": "society:block/teleporter_side"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/cobblestone",
+      "sprite": "society:block/stone_boulder"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/stone",
+      "sprite": "society:block/stone_boulder_top"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/packed_ice",
+      "sprite": "society:block/ice_boulder"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/blue_ice",
+      "sprite": "society:block/ice_boulder_top"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/sandstone",
+      "sprite": "society:block/sandstone_boulder"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/sandstone_top",
+      "sprite": "society:block/sandstone_boulder_top"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/blackstone",
+      "sprite": "society:block/blackstone_boulder"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/blackstone_top",
+      "sprite": "society:block/blackstone_boulder_top"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/end_stone_bricks",
+      "sprite": "society:block/end_stone_boulder"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/end_stone",
+      "sprite": "society:block/end_stone_boulder_top"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/barrel_side",
+      "sprite": "society:block/oak_supply_crate"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/barrel_top",
+      "sprite": "society:block/oak_supply_crate_top"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/spruce_planks",
+      "sprite": "society:block/spruce_supply_crate"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/barrel_top",
+      "sprite": "society:block/spruce_supply_crate_top"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/birch_planks",
+      "sprite": "society:block/palm_supply_crate"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/barrel_top",
+      "sprite": "society:block/palm_supply_crate_top"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/dark_oak_planks",
+      "sprite": "society:block/grimwood_supply_crate"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/barrel_top",
+      "sprite": "society:block/grimwood_supply_crate_top"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/ancient_debris_side",
+      "sprite": "society:block/iridium_ore"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/ancient_debris_top",
+      "sprite": "society:block/deepslate_iridium_ore"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/nether_gold_ore",
+      "sprite": "society:block/sparkstone_ore"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/deepslate_gold_ore",
+      "sprite": "society:block/deepslate_sparkstone_ore"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/tuff",
+      "sprite": "society:block/geode_node"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/magma",
+      "sprite": "society:block/magma_geode_node"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/amethyst_block",
+      "sprite": "society:block/omni_geode_node"
+    },
+    {
       "type": "directory",
       "source": "item",
       "prefix": "item/"
