@@ -6,6 +6,10 @@
   "hidden_from_selector": true,
   "display_type": "thin",
   "texture": "minecraft:textures/block/quartz_block_side",
+  "jei_catalyst": {
+    "id": "society:modern_catalog",
+    "count": 1
+  },
   "block_tag": "society:opens_modern_catalog",
   "trades": [
     {

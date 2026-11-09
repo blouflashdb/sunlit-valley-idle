@@ -4,6 +4,17 @@
     "translate": "shop.society_trading.carpenter"
   },
   "texture": "dialog:textures/portraits/carpenter",
+  "jei_catalyst": {
+    "id": "society:villager",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "type": {
+          "id": "society:carpenter"
+        }
+      }
+    }
+  },
   "selector_weight": -96,
   "trades": [
     {

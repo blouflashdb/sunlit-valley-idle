@@ -6,6 +6,17 @@
   "texture": "dialog:textures/portraits/witch",
   "stage_required": "invited_witch",
   "villager_profession": "weaponsmith",
+  "jei_catalyst": {
+    "id": "society:villager",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "type": {
+          "id": "society:witch"
+        }
+      }
+    }
+  },
   "trades": [
     {
       "offer": {
@@ -240,6 +251,30 @@
       },
       "numismatics_cost": 262144,
       "trade_id": "witch_overgrowth_seed_for_ancient_coin"
+    },
+    {
+      "offer": {
+        "id": "society:tanuki_catalog",
+        "count": 1
+      },
+      "request": {
+        "id": "numismatics:sun",
+        "count": 24
+      },
+      "numismatics_cost": 98304,
+      "trade_id": "witch_tanuki_catalog_for_sun"
+    },
+    {
+      "offer": {
+        "id": "society:modern_catalog",
+        "count": 1
+      },
+      "request": {
+        "id": "numismatics:ancient_coin",
+        "count": 3
+      },
+      "numismatics_cost": 262144,
+      "trade_id": "witch_modern_catalog_for_ancient_coin"
     },
     {
       "offer": {

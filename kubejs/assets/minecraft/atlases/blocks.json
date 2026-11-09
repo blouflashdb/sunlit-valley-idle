@@ -2666,6 +2666,16 @@
       "sprite": "society:block/treated_log_top"
     },
     {
+      "type": "single",
+      "resource": "minecraft:item/paper",
+      "sprite": "society:item/invitation"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:item/emerald",
+      "sprite": "society:item/villager"
+    },
+    {
       "type": "directory",
       "source": "item",
       "prefix": "item/"

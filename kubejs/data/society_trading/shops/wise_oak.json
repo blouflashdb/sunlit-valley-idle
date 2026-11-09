@@ -5,6 +5,17 @@
   },
   "texture": "mysticaloaktree:textures/block/wise_oak",
   "hidden_from_selector": true,
+  "jei_catalyst": {
+    "id": "society:villager",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "type": {
+          "id": "society:wise_oak"
+        }
+      }
+    }
+  },
   "trades": [
     {
       "offer": {

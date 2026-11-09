@@ -4,6 +4,17 @@
     "translate": "shop.society_trading.blacksmith"
   },
   "texture": "dialog:textures/portraits/blacksmith",
+  "jei_catalyst": {
+    "id": "society:villager",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "type": {
+          "id": "society:blacksmith"
+        }
+      }
+    }
+  },
   "selector_weight": -98,
   "villager_profession": "toolsmith",
   "stage_required": "invited_blacksmith",
