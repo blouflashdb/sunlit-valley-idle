@@ -1,0 +1,247 @@
+{
+  "id": "carpenter_choice_dialog_need_to_buy",
+  "title": "carpenter need_to_buy",
+  "description": "dialog.npc.carpenter.dialog.need_to_buy",
+  "entries": [
+    {
+      "id": "start",
+      "speaker": {
+        "translate": "dialog.npc.carpenter.name",
+        "color": "white"
+      },
+      "text": [
+        {
+          "translate": "dialog.npc.carpenter.dialog.need_to_buy.line_0"
+        }
+      ],
+      "portraits": [
+        {
+          "path": "carpenter.png",
+          "position": "INLINE",
+          "brightness": 1
+        }
+      ],
+      "options": [
+        {
+          "text": {
+            "translate": "dialog.npc.carpenter.dialog.need_to_buy.option_0"
+          },
+          "target": "end",
+          "command": [
+            "openshop @p carpenter"
+          ]
+        },
+        {
+          "text": {
+            "translate": "dialog.npc.carpenter.dialog.need_to_buy.option_1"
+          },
+          "target": "end",
+          "command": [
+            "openshop @p invitations"
+          ]
+        },
+        {
+          "text": {
+            "translate": "dialog.npc.carpenter.dialog.need_to_buy.option_2"
+          },
+          "target": "building_shop_shops"
+        },
+        {
+          "text": {
+            "translate": "dialog.npc.carpenter.dialog.need_to_buy.option_3"
+          },
+          "target": "town_building_shop_shops"
+        }
+      ]
+    },
+    {
+      "id": "building_shop_shops",
+      "speaker": {
+        "translate": "dialog.npc.carpenter.name",
+        "color": "white"
+      },
+      "text": [
+        {
+          "translate": "dialog.npc.carpenter.dialog.need_to_buy.option_2"
+        }
+      ],
+      "portraits": [
+        {
+          "path": "carpenter.png",
+          "position": "INLINE",
+          "brightness": 1
+        }
+      ],
+      "options": [
+        {
+          "text": {
+            "translate": "shop.society_trading.building_shop.home"
+          },
+          "target": "end",
+          "command": [
+            "openshop @p bs_home"
+          ]
+        },
+        {
+          "text": {
+            "translate": "shop.society_trading.building_shop.shed"
+          },
+          "target": "end",
+          "command": [
+            "openshop @p bs_shed"
+          ]
+        },
+        {
+          "text": {
+            "translate": "shop.society_trading.building_shop.large_shed"
+          },
+          "target": "end",
+          "command": [
+            "openshop @p bs_large_shed"
+          ]
+        },
+        {
+          "text": {
+            "translate": "shop.society_trading.building_shop.coop"
+          },
+          "target": "end",
+          "command": [
+            "openshop @p bs_coop"
+          ]
+        },
+        {
+          "text": {
+            "translate": "shop.society_trading.building_shop.barn"
+          },
+          "target": "end",
+          "command": [
+            "openshop @p bs_barn"
+          ]
+        },
+        {
+          "text": {
+            "translate": "shop.society_trading.building_shop.deluxe_barn"
+          },
+          "target": "end",
+          "command": [
+            "openshop @p bs_deluxe_barn"
+          ]
+        },
+        {
+          "text": {
+            "translate": "shop.society_trading.building_shop.greenhouse"
+          },
+          "target": "end",
+          "command": [
+            "openshop @p bs_greenhouse"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "town_building_shop_shops",
+      "speaker": {
+        "translate": "dialog.npc.carpenter.name",
+        "color": "white"
+      },
+      "text": [
+        {
+          "translate": "dialog.npc.carpenter.dialog.need_to_buy.option_3"
+        }
+      ],
+      "portraits": [
+        {
+          "path": "carpenter.png",
+          "position": "INLINE",
+          "brightness": 1
+        }
+      ],
+      "options": [
+        {
+          "text": {
+            "translate": "shop.society_trading.building_shop.carpenter"
+          },
+          "target": "end",
+          "command": [
+            "openshop @p bs_carpenter"
+          ]
+        },
+        {
+          "text": {
+            "translate": "shop.society_trading.building_shop.blacksmith"
+          },
+          "target": "end",
+          "command": [
+            "openshop @p bs_blacksmith"
+          ]
+        },
+        {
+          "text": {
+            "translate": "shop.society_trading.building_shop.shepherd"
+          },
+          "target": "end",
+          "command": [
+            "openshop @p bs_shepherd"
+          ]
+        },
+        {
+          "text": {
+            "translate": "shop.society_trading.building_shop.market"
+          },
+          "target": "end",
+          "command": [
+            "openshop @p bs_market"
+          ]
+        },
+        {
+          "text": {
+            "translate": "shop.society_trading.building_shop.fisher"
+          },
+          "target": "end",
+          "command": [
+            "openshop @p bs_fisher"
+          ]
+        },
+        {
+          "text": {
+            "translate": "shop.society_trading.building_shop.banker"
+          },
+          "target": "end",
+          "command": [
+            "openshop @p bs_banker"
+          ]
+        },
+        {
+          "text": {
+            "translate": "shop.society_trading.building_shop.librarian"
+          },
+          "target": "end",
+          "command": [
+            "openshop @p bs_librarian"
+          ]
+        },
+        {
+          "text": {
+            "translate": "shop.society_trading.building_shop.witch"
+          },
+          "target": "end",
+          "command": [
+            "openshop @p bs_witch"
+          ]
+        },
+        {
+          "text": {
+            "translate": "shop.society_trading.building_shop.trader"
+          },
+          "target": "end",
+          "command": [
+            "openshop @p bs_trader"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "end"
+    }
+  ]
+}

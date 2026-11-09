@@ -4,6 +4,17 @@
     "translate": "shop.society_trading.book_fair"
   },
   "texture": "dialog:textures/portraits/librarian",
+  "jei_catalyst": {
+    "id": "society:villager",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "type": {
+          "id": "society:librarian"
+        }
+      }
+    }
+  },
   "hidden_from_auto_trader": true,
   "selector_weight": -100,
   "seasons_required": [

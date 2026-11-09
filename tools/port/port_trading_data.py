@@ -61,6 +61,10 @@ def components(item, raw):
     if "Lore" in display:
         out["minecraft:lore"] = display["Lore"]
     tag.pop("Damage", None)
+    if item == "society:invitation":
+        # Which villager it invites, as global.townInvitation writes it (startup_scripts/npcs/townNpcs.js).
+        npc = tag["type"]["id"].split(":", 1)[1]
+        out["minecraft:lore"] = [json.dumps({"translate": f"dialog.npc.{npc}.name", "color": "gold"})]
     if tag:
         out["minecraft:custom_data"] = tag
     return out

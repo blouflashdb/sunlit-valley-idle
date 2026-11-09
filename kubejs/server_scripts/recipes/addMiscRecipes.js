@@ -16,4 +16,6 @@ ServerEvents.recipes((e) => {
     b: "society:battery",
   });
   e.shapeless("society:plushie_capsule", ["4x #society:plushies"]);
+  // The first villager: the Carpenter's invitation.
+  e.shapeless(global.townInvitation("carpenter"), ["minecraft:crafting_table", "minecraft:wooden_axe", "minecraft:cobblestone"]);
 });

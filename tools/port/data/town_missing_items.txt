@@ -390,12 +390,10 @@ society:gnome
 society:good_catawba
 society:hive_baseboard
 society:hive_wallpaper
-society:invitation
 society:laputa_franc
 society:latte
 society:mana_king
 society:mocha
-society:modern_catalog
 society:monocle
 society:nutty_basil
 society:pink_flower_baseboard
@@ -408,9 +406,7 @@ society:spiral_glasses
 society:star_coquito
 society:starcardi
 society:supreme_mayonnaise
-society:tanuki_catalog
 society:truffle_tea
-society:villager
 society:violet_moon
 species:birtday_cake
 species:birtday_cake_slice
