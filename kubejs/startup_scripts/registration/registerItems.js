@@ -965,27 +965,19 @@ StartupEvents.registry("item", (e) => {
     });
     if (splitProduct[0] === "society")
       texturePath = `${splitProduct[0]}:item/drinks/${splitProduct[1]}`;
+    // Name colors as on 1.20.1 (client tooltips/addAdvancedTooltips.js): the whiskeys gold, aged aqua, double-aged dark aqua.
+    const whiskey = product.item === "brewery:whiskey_maggoallan" || product.item === "brewery:whiskey_smokey_reverie";
     e.create(`society:aged_${splitProduct[1]}`)
       .texture(texturePath)
       .tag("society:aged_product")
-      .displayName(
-        product.item === "brewery:whiskey_maggoallan" ||
-          product.item === "brewery:whiskey_smokey_reverie"
-          ? `Double-${product.name}`
-          : `Aged ${product.name}`
-      )
+      .displayName(whiskey ? Text.of(`Double-${product.name}`).gold() : Text.of(`Aged ${product.name}`).aqua())
       .glow(true)
       .color(0, 0xcae9f4);
 
     e.create(`society:double_aged_${splitProduct[1]}`)
       .texture(texturePath)
       .tag("society:double_aged_product")
-      .displayName(
-        product.item === "brewery:whiskey_maggoallan" ||
-          product.item === "brewery:whiskey_smokey_reverie"
-          ? `Triple-${product.name}`
-          : `Double-Aged ${product.name}`
-      )
+      .displayName(whiskey ? Text.of(`Triple-${product.name}`).gold() : Text.of(`Double-Aged ${product.name}`).darkAqua())
       .glow(true)
       .color(0, 0x28adde);
   });
