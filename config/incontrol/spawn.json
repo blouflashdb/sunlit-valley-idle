@@ -17,7 +17,7 @@
       "minecraft:witch",
       "minecraft:husk",
       "minecraft:stray",
-      "trials:bogged",
+      "minecraft:bogged",
       "minecraft:slime",
       "minecraft:skeleton_horse",
       "species:limpet",
@@ -101,7 +101,7 @@
       "minecraft:slime",
       "minecraft:husk",
       "minecraft:stray",
-      "trials:bogged"
+      "minecraft:bogged"
     ],
     "dimension": "minecraft:overworld",
     "maxheight": 50,

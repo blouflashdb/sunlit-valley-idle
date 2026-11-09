@@ -54,14 +54,14 @@
 				}
 				{
 					id: "1BF1079BA4BB41FA"
-					item: "trials:ominous_bottle"
+					item: "minecraft:ominous_bottle"
 					type: "item"
 				}
 			]
 			tasks: [{
-				icon: "trials:trial_key_ominous"
+				icon: "minecraft:ominous_trial_key"
 				id: "238260076624C9BF"
-				structure: "trials:trials_chambers"
+				structure: "minecraft:trial_chambers"
 				title: "{ftbquests.chapter.iv__prismatic_farming.quest68915F617033BDF9.task.2558713123194587583.title}"
 				type: "structure"
 			}]

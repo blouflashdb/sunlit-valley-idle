@@ -1178,9 +1178,9 @@
       "x\u003d9,y\u003d5,z\u003d16": "\u003cbid\u003esupplementaries:sconce_wall\u003c/bid\u003e\u003cproperties\u003e\u003cpropertie\u003e\u003cname\u003efacing\u003c/name\u003e\u003cvalue\u003enorth\u003c/value\u003e\u003cclasse\u003enet.minecraft.core.Direction\u003c/classe\u003e\u003c/propertie\u003e;!v!;\u003cpropertie\u003e\u003cname\u003elit\u003c/name\u003e\u003cvalue\u003etrue\u003c/value\u003e\u003cclasse\u003ejava.lang.Boolean\u003c/classe\u003e\u003c/propertie\u003e;!v!;\u003cpropertie\u003e\u003cname\u003ewaterlogged\u003c/name\u003e\u003cvalue\u003efalse\u003c/value\u003e\u003cclasse\u003ejava.lang.Boolean\u003c/classe\u003e\u003c/propertie\u003e;!v!;\u003c/properties\u003e"
     },
     "7": {
-      "x\u003d10,y\u003d7,z\u003d5": "\u003cbid\u003eminecraft:grass\u003c/bid\u003enull",
-      "x\u003d10,y\u003d7,z\u003d4": "\u003cbid\u003eminecraft:grass\u003c/bid\u003enull",
-      "x\u003d10,y\u003d7,z\u003d6": "\u003cbid\u003eminecraft:grass\u003c/bid\u003enull"
+      "x\u003d10,y\u003d7,z\u003d5": "\u003cbid\u003eminecraft:short_grass\u003c/bid\u003enull",
+      "x\u003d10,y\u003d7,z\u003d4": "\u003cbid\u003eminecraft:short_grass\u003c/bid\u003enull",
+      "x\u003d10,y\u003d7,z\u003d6": "\u003cbid\u003eminecraft:short_grass\u003c/bid\u003enull"
     }
   },
   "BlocksNBT": {

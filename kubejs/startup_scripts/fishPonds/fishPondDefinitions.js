@@ -3105,9 +3105,9 @@ global.fishPondDefinitions = new Map([
         {
           population: 5,
           requestedItems: [
-            { item: "trials:breeze_rod", count: 4 },
+            { item: "minecraft:breeze_rod", count: 4 },
             { item: "create:asurine", count: 64 },
-            { item: "trials:trial_key_ominous", count: 4 },
+            { item: "minecraft:ominous_trial_key", count: 4 },
           ],
         },
         {
@@ -3124,7 +3124,7 @@ global.fishPondDefinitions = new Map([
         },
         {
           minPopulation: 6,
-          item: "trials:breeze_rod",
+          item: "minecraft:breeze_rod",
           count: 8,
           chance: 0.22,
         },
@@ -3255,15 +3255,15 @@ global.fishPondDefinitions = new Map([
         {
           population: 3,
           requestedItems: [
-            { item: "trials:trial_key", count: 8 },
-            { item: "trials:ominous_bottle", count: 4 },
-            { item: "trials:breeze_rod", count: 4 },
+            { item: "minecraft:trial_key", count: 8 },
+            { item: "minecraft:ominous_bottle", count: 4 },
+            { item: "minecraft:breeze_rod", count: 4 },
           ],
         },
         {
           population: 5,
           requestedItems: [
-            { item: "trials:trial_key_ominous", count: 4 },
+            { item: "minecraft:ominous_trial_key", count: 4 },
             { item: "minecraft:blaze_rod", count: 32 },
             { item: "society:holy_symbol", count: 1 },
           ],
@@ -3483,7 +3483,7 @@ global.fishPondDefinitions = new Map([
           population: 5,
           requestedItems: [
             { item: "minecraft:verdant_froglight", count: 8 },
-            { item: "trials:copper_bulb", count: 16 },
+            { item: "minecraft:copper_bulb", count: 16 },
           ],
         },
         {
