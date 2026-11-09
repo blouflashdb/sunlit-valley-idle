@@ -19,7 +19,7 @@ ServerEvents.loaded((event) => {
       let rl = $PonderTestRL.parse(s[0]);
       if (!$PonderTestRegistries.BLOCK.containsKey(rl)) return;
       let property = $PonderTestRegistries.BLOCK.get(rl).getStateDefinition().getProperty(s[1]);
-      if (property === null || property === undefined) problems.push(`${s[0]} has no ${s[1]}`);
+      if (property === null || property === undefined) problems.push(`${s[0]} has no ${s[1]} (${$PonderTestRegistries.BLOCK.get(rl).getStateDefinition().getProperties()})`);
       else if (!property.getValue(s[2]).isPresent()) problems.push(`${s[0]} ${s[1]} has no value ${s[2]} (${property.getPossibleValues()})`);
     });
     if (problems.length > 0) throw new Error(problems.join(", "));
