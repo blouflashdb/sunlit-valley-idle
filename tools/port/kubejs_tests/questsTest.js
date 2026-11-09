@@ -80,6 +80,8 @@ const checkQuestBook = (server) => {
       "supplementaries:jar"].forEach((id) => {
       if (!Item.exists(id)) console.info(`[PORT-TEST] INFO quests trophy item missing ${id}`);
     });
+    ['longwings:butterfly[longwings:variant="monarch"]', 'longwings:butterfly[longwings:variant="longwings:monarch"]',
+      'longwings:butterfly[longwings:variant=1]'].forEach((text) => probe(text, () => Item.of(text)));
     let componentTypes = [];
     $QuestsTestItems.DATA_COMPONENT_TYPE.keySet().forEach((key) => {
       let id = String(key);

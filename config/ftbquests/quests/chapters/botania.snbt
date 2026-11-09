@@ -715,7 +715,6 @@
 				""
 				"{ftbquests.chapter.botania.quest656E19A85C1146B4.description2}"
 			]
-			icon: "farmlife:galliraptor_spawn_egg"
 			id: "656E19A85C1146B4"
 			rewards: [{
 				id: "2ACF2741BA79BC87"
@@ -724,15 +723,7 @@
 			}]
 			tasks: [{
 				id: "7B98D183C624AEA4"
-				item: {
-					components: {
-						"ftbfiltersystem:filter": "or(item(farmlife:domestic_tribull_spawn_egg)item(farmlife:galliraptor_spawn_egg))"
-					}
-					count: 1
-					id: "ftbfiltersystem:smart_filter"
-				}
-				title: "{ftbquests.chapter.botania.quest656E19A85C1146B4.task.8906098627020369572.title}"
-				type: "item"
+				type: "checkmark"
 			}]
 			title: "{ftbquests.chapter.botania.quest656E19A85C1146B4.title}"
 			x: 15.5d

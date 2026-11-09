@@ -23,11 +23,17 @@ from ftb_snbt import Raw, quote  # noqa: E402
 
 QUESTS = pathlib.Path("config/ftbquests/quests")
 # Items of mods that are gone, with what the quests use instead.
-SUBSTITUTES = {}
+SUBSTITUTES = {
+    # Construction Wand is replaced by Building Gadgets (tools/port/mods-1.21.1.json).
+    "constructionwand:stone_wand": "buildinggadgets2:gadget_building",
+    "constructionwand:iron_wand": "buildinggadgets2:gadget_building",
+    "constructionwand:diamond_wand": "buildinggadgets2:gadget_building",
+    "constructionwand:infinity_wand": "buildinggadgets2:gadget_building",
+}
 # Items that are gone without a replacement: tasks and rewards with them are removed.
 REMOVED = {
-    # Automobility, Create Utilities, Domestication Innovation, More Minecarts, Nether Vinery, Refined Storage
-    # Addons, Species and Verdant Vibes have no 1.21.1 build in the pack (tools/port/mods-1.21.1.json).
+    # Automobility, Construction Wand, Create Utilities, Dracovita Farm Life (farmlife), Domestication Innovation,
+    # More Minecarts, Nether Vinery, Refined Storage Addons, Species and Verdant Vibes have no 1.21.1 build in the pack (tools/port/mods-1.21.1.json).
     "automobility:auto_mechanic_table", "automobility:automobile_assembler", "automobility:crowbar",
     "createutilities:void_motor", "createutilities:void_steel_ingot", "createutilities:void_tank",
     "domesticationinnovation:collar_tag", "domesticationinnovation:drum", "domesticationinnovation:pet_bed_white",
@@ -38,6 +44,8 @@ REMOVED = {
     "nethervinery:blazewine_pinot", "nethervinery:crimson_grape", "nethervinery:crimson_grape_juice_bucket",
     "nethervinery:ghastly_grenache", "nethervinery:improved_lava_fizz", "nethervinery:improved_nether_fizz",
     "nethervinery:lava_fizz", "nethervinery:nether_fizz", "nethervinery:netherite_nectar", "nethervinery:warped_grape",
+    "constructionwand:core_angel", "constructionwand:core_destruction",
+    "farmlife:domestic_tribull_spawn_egg", "farmlife:galliraptor_spawn_egg",
     "species:alphacene_mushroom", "species:youth_potion", "verdantvibes:bracket_mushroom",
     # Items the 1.21.1 builds of mods in the pack no longer have.
     "create_central_kitchen:cooking_guide", "create_enchantment_industry:disenchanter",
@@ -131,7 +139,11 @@ def smart_filter(item, nbt):
         expression = f"item_tag({tag(nbt['value'].text)})"
     elif item == "itemfilters:or":
         ids = [item_id(i["id"]) for i in nbt.get("items", [])]
-        ids = [i for i in ids if i not in REMOVED]
+        ids = list(dict.fromkeys(i for i in ids if i not in REMOVED))
+        if not ids:
+            return None
+        if len(ids) == 1:
+            return {"count": Raw("1"), "id": quote(ids[0])}
         expression = "or(" + "".join(f"item({i})" for i in ids) + ")"
     else:
         raise ValueError(f"unknown item filter {item}")
