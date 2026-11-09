@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
-"""Lists what the Patchouli books (patchouli_books/) reference, for the patchouli CI test (#18).
+"""Ports the Patchouli books (patchouli_books/) to 1.21.1 and lists what they reference for the CI test (#18).
+
+The books (Almanac, Fish Finder) are edited in every language:
+  - entries about animals, pets, crops and fish whose mod or 1.21.1 version no longer has them are deleted
+    (REMOVED_ENTRIES);
+  - ids that changed are replaced (SUBSTITUTES, exact text inside JSON strings);
+  - multiblock pages of crops the pack does not rebuild are dropped (NO_MULTIBLOCK).
+Running it again changes nothing.
 
 Patchouli renders the books on the client only, so a missing item, entity or block shows up only when a player
 opens the page. This collects every entry/category icon and spotlight item, every entity page and every multiblock
@@ -15,9 +22,56 @@ import re
 BOOKS = pathlib.Path("patchouli_books")
 OUT = pathlib.Path("tools/port/kubejs_tests/patchouliData.js")
 ID = re.compile(r"^[a-z0-9_.\-]+:[a-z0-9_./\-]+")
+# Entry files (relative to <book>/<language>/entries) deleted in every language.
+REMOVED_ENTRIES = {
+    # Species, Dracovita Farm Life, Hamsters and Nether Vinery are not in the 1.21.1 pack.
+    "almanac": ["animals/cruncher.json", "animals/goober.json", "animals/mammutilation.json", "animals/wraptor.json",
+                "animals/tri_bull.json", "animals/galliraptor.json", "pets/hamster.json", "crops/nether_grapes.json",
+                # Wilder Nature 1.21.1 has no flamingos, penguins, owls or red wolves; Meadow no wooly sheep;
+                # Beachparty no palm trees.
+                "animals/flamingo.json", "animals/penguin.json", "pets/owl.json", "pets/red_wolf.json",
+                "animals/wooly_sheep.json", "trees/letsdo/palm.json"],
+    # Unusual Fish Mod 1.21.1 has no Snowflake Tail.
+    "fish_finder": ["fish/frosty_fin.json"],
+}
+SUBSTITUTES = {
+    # Vintage Delight crops rebuilt in KubeJS (#10): the crop block is vintagedelight:<crop>, ages 0-5.
+    '"vintagedelight:cucumber_crop[age=7]"': '"vintagedelight:cucumber[age=5]"',
+    '"vintagedelight:ghost_pepper_crop[age=7]"': '"vintagedelight:ghost_pepper[age=5]"',
+    '"vintagedelight:gearo_berry_bush[age=4]"': '"vintagedelight:gearo_berry_bush[age=3]"',
+    # icons of items that are gone
+    '"candlelight:hearth"': '"minecraft:bone"',
+    '"relics:horse_flute"': '"minecraft:saddle"',
+    '"meadow:highland_wool"': '"minecraft:brown_wool"',
+}
+# Entries whose multiblock page shows a crop block the pack does not have (peanuts are not rebuilt).
+NO_MULTIBLOCK = {"almanac": ["crops/peanut.json"]}
+
+
+def edit_books():
+    for book, entries in REMOVED_ENTRIES.items():
+        for entry in entries:
+            for path in (BOOKS / book).glob(f"*/entries/{entry}"):
+                path.unlink()
+    for book, entries in NO_MULTIBLOCK.items():
+        for entry in entries:
+            for path in (BOOKS / book).glob(f"*/entries/{entry}"):
+                data = json.loads(path.read_text())
+                pages = [page for page in data["pages"] if page.get("type") != "patchouli:multiblock"]
+                if pages != data["pages"]:
+                    data["pages"] = pages
+                    path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+    for path in sorted(BOOKS.rglob("*.json")):
+        text = path.read_text()
+        edited = text
+        for old, new in SUBSTITUTES.items():
+            edited = edited.replace(old, new)
+        if edited != text:
+            path.write_text(edited)
 
 
 def main():
+    edit_books()
     items, entities, blocks, tags, states = set(), set(), set(), set(), set()
 
     def item(text):

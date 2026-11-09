@@ -17,7 +17,7 @@
           ["F"]
         ],
         "mapping": {
-          "0": "vintagedelight:cucumber_crop[age=7]",
+          "0": "vintagedelight:cucumber[age=5]",
           "F": "minecraft:farmland[moisture=7]"
         }
       }

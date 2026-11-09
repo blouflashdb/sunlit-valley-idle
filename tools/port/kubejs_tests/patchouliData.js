@@ -55,12 +55,10 @@ const patchouliItems = [
   "autumnity:snail_shell_piece",
   "autumnity:turkey_egg",
   "autumnity:yellow_maple_sapling",
-  "beachparty:palm_sapling",
   "beachparty:rubber_ring_axolotl",
   "betterarcheology:growth_totem",
   "brewery:hops",
   "buzzier_bees:honey_apple",
-  "candlelight:hearth",
   "crittersandcompanions:koi_fish",
   "etcetera:cotton_flower",
   "farm_and_charm:barley",
@@ -73,17 +71,13 @@ const patchouliItems = [
   "farmersdelight:cabbage",
   "farmersdelight:rice",
   "farmersdelight:tomato",
-  "farmlife:galliraptor_egg",
   "furniture:copper_fish_tank",
   "furniture:trash_bag",
-  "hamsters:hamster",
   "herbalbrews:coffee_beans",
   "herbalbrews:green_tea_leaf",
   "herbalbrews:rooibos_leaf",
   "herbalbrews:yerba_mate_leaf",
-  "meadow:highland_wool",
   "meadow:pine_sapling",
-  "meadow:rocky_wool",
   "minecraft:acacia_sapling",
   "minecraft:amethyst_shard",
   "minecraft:apple",
@@ -91,6 +85,7 @@ const patchouliItems = [
   "minecraft:beetroot",
   "minecraft:birch_sapling",
   "minecraft:bone",
+  "minecraft:brown_wool",
   "minecraft:carrot",
   "minecraft:cherry_sapling",
   "minecraft:coal",
@@ -109,6 +104,7 @@ const patchouliItems = [
   "minecraft:pufferfish",
   "minecraft:rabbit_foot",
   "minecraft:red_mushroom",
+  "minecraft:saddle",
   "minecraft:salmon",
   "minecraft:sniffer_egg",
   "minecraft:snowball",
@@ -130,7 +126,6 @@ const patchouliItems = [
   "netherdepthsupgrade:searing_cod",
   "netherdepthsupgrade:soulsucker",
   "netherdepthsupgrade:wither_bonefish",
-  "nethervinery:warped_grape",
   "pamhc2trees:apple_sapling",
   "pamhc2trees:banana_sapling",
   "pamhc2trees:bananaitem",
@@ -163,7 +158,6 @@ const patchouliItems = [
   "quark:red_blossom_sapling",
   "quark:yellow_blossom_sapling",
   "relics:elytra_booster",
-  "relics:horse_flute",
   "snowpig:frozen_porkchop",
   "snowyspirit:ginger",
   "snuffles:snuffle_fluff",
@@ -175,24 +169,16 @@ const patchouliItems = [
   "society:dried_foul_berries",
   "society:eggplant",
   "society:fine_wool",
-  "society:flamingo_egg",
   "society:large_buffalo_milk",
   "society:large_goat_milk",
   "society:large_milk",
   "society:large_sheep_milk",
-  "society:large_tri_bull_milk",
   "society:large_warped_milk",
-  "society:penguin_egg",
   "society:ribbit_gadget",
   "society:ruby",
   "society:sparkpod",
   "society:truffle",
   "society:tubabacco_leaf",
-  "species:cruncher_egg",
-  "species:ichor_bottle",
-  "species:petrified_egg",
-  "species:wicked_treat",
-  "species:wraptor_egg",
   "splendid_slimes:plort_all_seeing",
   "splendid_slimes:plort_bear",
   "splendid_slimes:plort_bitwise",
@@ -243,7 +229,6 @@ const patchouliItems = [
   "splendid_slimes:slime_heart_weeping",
   "supplementaries:bamboo_spikes",
   "supplementaries:flax",
-  "tanukidecor:owl_clock",
   "untitledduckmod:duck_egg",
   "untitledduckmod:goose_egg",
   "unusualfishmod:raw_aero_mono",
@@ -262,7 +247,6 @@ const patchouliItems = [
   "unusualfishmod:raw_picklefish",
   "unusualfishmod:raw_sailor_barb",
   "unusualfishmod:raw_sneep_snorp",
-  "unusualfishmod:raw_snowflake",
   "unusualfishmod:raw_spindlefish",
   "unusualfishmod:raw_triple_twirl_pleco",
   "veggiesdelight:bellpepper",
@@ -327,12 +311,8 @@ const patchouliEntities = [
   "crittersandcompanions:red_panda",
   "crittersandcompanions:shima_enaga",
   "etcetera:chapple",
-  "farmlife:domestic_tribull",
-  "farmlife:galliraptor",
-  "hamsters:hamster",
   "meadow:water_buffalo",
   "meadow:wooly_cow",
-  "meadow:wooly_sheep",
   "minecraft:allay",
   "minecraft:axolotl",
   "minecraft:bat",
@@ -372,10 +352,6 @@ const patchouliEntities = [
   "quark:shiba",
   "snowpig:snow_pig",
   "snuffles:snuffle",
-  "species:cruncher",
-  "species:goober",
-  "species:mammutilation",
-  "species:wraptor",
   "untitledduckmod:duck",
   "untitledduckmod:goose",
   "unusualfishmod:aero_mono",
@@ -394,19 +370,14 @@ const patchouliEntities = [
   "unusualfishmod:picklefish",
   "unusualfishmod:sailor_barb",
   "unusualfishmod:sneep_snorp",
-  "unusualfishmod:snowflaketail",
   "unusualfishmod:spindlefish",
   "unusualfishmod:triple_twirl_pleco",
   "wildernature:bison",
   "wildernature:deer",
   "wildernature:dog",
-  "wildernature:flamingo",
   "wildernature:hedgehog",
   "wildernature:minisheep",
-  "wildernature:owl",
-  "wildernature:penguin",
   "wildernature:raccoon",
-  "wildernature:red_wolf",
   "wildernature:squirrel",
   "windswept:frostbiter"
 ];
@@ -437,9 +408,6 @@ const patchouliBlocks = [
   "autumnity:red_maple_leaves",
   "autumnity:tall_foul_berry_bush",
   "autumnity:yellow_maple_leaves",
-  "beachparty:coconut_hanging",
-  "beachparty:palm_leaves",
-  "beachparty:palm_log",
   "brewery:hop_trellis",
   "etcetera:cotton",
   "farm_and_charm:barley_crop",
@@ -464,9 +432,7 @@ const patchouliBlocks = [
   "minecraft:beetroots",
   "minecraft:birch_leaves",
   "minecraft:birch_log",
-  "minecraft:bone_block",
   "minecraft:carrots",
-  "minecraft:carved_pumpkin",
   "minecraft:cherry_leaves",
   "minecraft:cherry_log",
   "minecraft:dark_oak_leaves",
@@ -475,7 +441,6 @@ const patchouliBlocks = [
   "minecraft:grass_block",
   "minecraft:jungle_leaves",
   "minecraft:jungle_log",
-  "minecraft:lightning_rod",
   "minecraft:oak_leaves",
   "minecraft:oak_log",
   "minecraft:pale_oak_leaves",
@@ -487,9 +452,7 @@ const patchouliBlocks = [
   "minecraft:spruce_log",
   "minecraft:sweet_berry_bush",
   "minecraft:torchflower",
-  "minecraft:warped_nylium",
   "minecraft:wheat",
-  "nethervinery:warped_grape_bush",
   "pamhc2trees:pamapple",
   "pamhc2trees:pambanana",
   "pamhc2trees:pamcherry",
@@ -534,15 +497,12 @@ const patchouliBlocks = [
   "vinery:dark_cherry_log",
   "vinery:grapevine_stem",
   "vinery:red_grape_bush",
-  "vintagedelight:cucumber_crop",
+  "vintagedelight:cucumber",
   "vintagedelight:gearo_berry_bush",
-  "vintagedelight:ghost_pepper_crop",
-  "vintagedelight:peanut_crop",
+  "vintagedelight:ghost_pepper",
   "windswept:wild_berry_bush"
 ];
-const patchouliBlockTags = [
-  "species:mammutilation_body_blocks"
-];
+const patchouliBlockTags = [];
 const patchouliStates = [
   [
     "atmospheric:aspen_log",
@@ -643,11 +603,6 @@ const patchouliStates = [
     "autumnity:tall_foul_berry_bush",
     "half",
     "upper"
-  ],
-  [
-    "beachparty:palm_log",
-    "axis",
-    "y"
   ],
   [
     "brewery:hop_trellis",
@@ -755,19 +710,9 @@ const patchouliStates = [
     "y"
   ],
   [
-    "minecraft:bone_block",
-    "axis",
-    "x"
-  ],
-  [
     "minecraft:carrots",
     "age",
     "7"
-  ],
-  [
-    "minecraft:carved_pumpkin",
-    "facing",
-    "east"
   ],
   [
     "minecraft:cherry_log",
@@ -793,16 +738,6 @@ const patchouliStates = [
     "minecraft:jungle_log",
     "axis",
     "y"
-  ],
-  [
-    "minecraft:lightning_rod",
-    "facing",
-    "north"
-  ],
-  [
-    "minecraft:lightning_rod",
-    "facing",
-    "south"
   ],
   [
     "minecraft:oak_log",
@@ -848,11 +783,6 @@ const patchouliStates = [
     "minecraft:wheat",
     "age",
     "7"
-  ],
-  [
-    "nethervinery:warped_grape_bush",
-    "age",
-    "3"
   ],
   [
     "pamhc2trees:pamapple",
@@ -1075,34 +1005,24 @@ const patchouliStates = [
     "red"
   ],
   [
-    "vinery:grapevine_stem",
-    "grape",
-    "warped"
-  ],
-  [
     "vinery:red_grape_bush",
     "age",
     "3"
   ],
   [
-    "vintagedelight:cucumber_crop",
+    "vintagedelight:cucumber",
     "age",
-    "7"
+    "5"
   ],
   [
     "vintagedelight:gearo_berry_bush",
     "age",
-    "4"
+    "3"
   ],
   [
-    "vintagedelight:ghost_pepper_crop",
+    "vintagedelight:ghost_pepper",
     "age",
-    "7"
-  ],
-  [
-    "vintagedelight:peanut_crop",
-    "age",
-    "7"
+    "5"
   ],
   [
     "windswept:wild_berry_bush",
