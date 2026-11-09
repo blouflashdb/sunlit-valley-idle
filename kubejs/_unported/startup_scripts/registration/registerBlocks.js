@@ -787,22 +787,6 @@ StartupEvents.registry("block", (e) => {
       item.useAnimation("drink");
     });
   // Catalogs
-  e.create("society:tanuki_catalog", "cardinal")
-    .box(2, 0, 3, 14, 1.025, 13)
-    .defaultCutout()
-    .resistance(1.0)
-    .requiresTool(false)
-    .model("society:block/kubejs/tanuki_catalog")
-    .displayName("♤ §aTanuki Catalog");
-
-  e.create("society:modern_catalog", "cardinal")
-    .box(2, 0, 3, 14, 1.025, 13)
-    .defaultCutout()
-    .resistance(1.0)
-    .requiresTool(false)
-    .model("society:block/kubejs/modern_catalog")
-    .displayName("♧ Modern Catalog");
-
   e.create("society:fantasy_catalog", "cardinal")
     .box(2, 0, 3, 14, 1.025, 13)
     .defaultCutout()
