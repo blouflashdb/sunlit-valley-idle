@@ -1,0 +1,30 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "etcetera:nether_bismuth_ore"
+    }
+  ],
+  "processingTime": 250,
+  "results": [
+    {
+      "id": "create:crushed_raw_bismuth",
+      "count": 1
+    },
+    {
+      "id": "create:crushed_raw_bismuth",
+      "count": 1,
+      "chance": 0.75
+    },
+    {
+      "id": "create:experience_nugget",
+      "count": 1,
+      "chance": 0.75
+    },
+    {
+      "id": "minecraft:netherrack",
+      "count": 1,
+      "chance": 0.125
+    }
+  ]
+}

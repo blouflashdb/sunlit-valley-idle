@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "oreganized:lead_ingot"
+    },
+    "P": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "pattern": [
+    "P",
+    "A",
+    "P"
+  ],
+  "result": {
+    "id": "create:piston_extension_pole",
+    "count": 8
+  },
+  "show_notification": true
+}

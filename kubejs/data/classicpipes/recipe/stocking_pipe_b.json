@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "O": {
+      "tag": "classicpipes:pipes/networked"
+    },
+    "W": {
+      "item": "society:battery"
+    }
+  },
+  "pattern": [
+    "OOO",
+    "OWO",
+    "OOO"
+  ],
+  "result": {
+    "id": "classicpipes:stocking_pipe",
+    "count": 8
+  }
+}

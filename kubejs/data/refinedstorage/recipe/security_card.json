@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EEE",
+    "ECE",
+    "EEE"
+  ],
+  "key": {
+    "E": {
+      "item": "etcetera:bismuth_ingot"
+    },
+    "C": {
+      "item": "refinedstorage:network_card"
+    }
+  },
+  "result": {
+    "id": "refinedstorage:security_card",
+    "count": 1
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "functionalstorage:custom_compacting",
+  "higher_input": {
+    "id": "society:sturdy_bamboo_block",
+    "count": 1
+  },
+  "lower_input": {
+    "id": "minecraft:bamboo_block",
+    "count": 9
+  }
+}

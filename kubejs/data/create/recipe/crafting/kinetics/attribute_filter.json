@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "c:nuggets/brass"
+    },
+    "S": {
+      "item": "society:canvas"
+    }
+  },
+  "pattern": [
+    "ASA"
+  ],
+  "result": {
+    "id": "create:attribute_filter",
+    "count": 1
+  },
+  "show_notification": true
+}

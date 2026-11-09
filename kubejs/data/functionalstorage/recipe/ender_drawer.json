@@ -1,0 +1,37 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "functionalstorage:ender_drawer"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "Z": {
+      "tag": "functionalstorage:drawer"
+    },
+    "X": {
+      "item": "createutilities:graviton_tube"
+    },
+    "Y": {
+      "item": "createutilities:void_casing"
+    },
+    "B": {
+      "item": "society:battery"
+    },
+    "C": {
+      "item": "numismatics:ancient_coin"
+    }
+  },
+  "pattern": [
+    "BCB",
+    "XYX",
+    "BZB"
+  ],
+  "result": {
+    "id": "functionalstorage:ender_drawer",
+    "count": 2
+  },
+  "show_notification": true
+}
