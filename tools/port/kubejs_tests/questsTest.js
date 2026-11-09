@@ -40,6 +40,16 @@ ServerEvents.loaded((event) => {
         if (reward.getItem) note(reward.getItem(), where);
       });
     });
+    // probe (removed once the quest port knows the formats)
+    try {
+      let reg = server.registryAccess();
+      [global.withItemQuality(Item.of("society:ancient_fruit"), 2), Item.of("vinery:red_wine"), Item.of("trofers:large_pillar"),
+        Item.of("bountiful:decree"), Item.of("relics:arrow_quiver")].forEach((s) => {
+        console.info(`[PORT-TEST] INFO quests item ${s.id} ${s.save(reg)}`);
+      });
+    } catch (probeError) {
+      console.info(`[PORT-TEST] INFO quests probe failed ${probeError}`);
+    }
     let ids = Object.keys(missing).sort();
     console.info(`[PORT-TEST] quests: ${chapters} chapters, ${quests} quests, ${checked} items, ${ids.length} missing ids`);
     if (ids.length > 0) {
