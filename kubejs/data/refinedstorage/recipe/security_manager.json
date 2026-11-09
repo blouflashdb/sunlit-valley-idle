@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ECE",
+    "SMS",
+    "ESE"
+  ],
+  "key": {
+    "E": {
+      "item": "etcetera:bismuth_ingot"
+    },
+    "C": {
+      "tag": "c:chests"
+    },
+    "S": {
+      "item": "refinedstorage:security_card"
+    },
+    "M": {
+      "item": "oreganized:lead_block"
+    }
+  },
+  "result": {
+    "id": "refinedstorage:security_manager",
+    "count": 1
+  }
+}

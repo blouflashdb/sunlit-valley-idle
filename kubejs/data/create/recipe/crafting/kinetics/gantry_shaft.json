@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "oreganized:lead_ingot"
+    },
+    "R": {
+      "tag": "c:dusts/redstone"
+    }
+  },
+  "pattern": [
+    "A",
+    "R",
+    "A"
+  ],
+  "result": {
+    "id": "create:gantry_shaft",
+    "count": 8
+  },
+  "show_notification": true
+}

@@ -1,0 +1,17 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "minecraft:andesite"
+    },
+    {
+      "item": "numismatics:sprocket"
+    }
+  ],
+  "results": [
+    {
+      "id": "create:andesite_alloy",
+      "count": 1
+    }
+  ]
+}

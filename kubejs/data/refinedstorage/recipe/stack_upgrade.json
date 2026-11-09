@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "USU",
+    "SUS",
+    "USU"
+  ],
+  "key": {
+    "U": {
+      "item": "create:electron_tube"
+    },
+    "S": {
+      "item": "refinedstorage:speed_upgrade"
+    }
+  },
+  "result": {
+    "id": "refinedstorage:stack_upgrade",
+    "count": 1
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "oreganized:silver_sheet"
+  },
+  "loops": 4,
+  "results": [
+    {
+      "id": "create:precision_mechanism",
+      "count": 1,
+      "chance": 120.0
+    },
+    {
+      "id": "oreganized:silver_ingot",
+      "count": 1,
+      "chance": 8.0
+    },
+    {
+      "id": "numismatics:cog",
+      "count": 1,
+      "chance": 8.0
+    },
+    {
+      "id": "numismatics:sprocket",
+      "count": 1,
+      "chance": 5.0
+    },
+    {
+      "id": "numismatics:crown",
+      "count": 1,
+      "chance": 3.0
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create:incomplete_precision_mechanism"
+        },
+        {
+          "item": "create:cogwheel"
+        }
+      ],
+      "results": [
+        {
+          "id": "create:incomplete_precision_mechanism",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create:incomplete_precision_mechanism"
+        },
+        {
+          "item": "create:large_cogwheel"
+        }
+      ],
+      "results": [
+        {
+          "id": "create:incomplete_precision_mechanism",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create:incomplete_precision_mechanism"
+        },
+        {
+          "item": "numismatics:crown"
+        }
+      ],
+      "results": [
+        {
+          "id": "create:incomplete_precision_mechanism",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "transitional_item": {
+    "id": "create:incomplete_precision_mechanism",
+    "count": 1
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "functionalstorage:custom_compacting",
+  "higher_input": {
+    "id": "numismatics:crown",
+    "count": 1
+  },
+  "lower_input": {
+    "id": "numismatics:cog",
+    "count": 8
+  }
+}
