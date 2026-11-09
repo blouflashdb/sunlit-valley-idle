@@ -38,9 +38,5 @@ ServerEvents.recipes((e) => {
   ["milk", "goat_milk", "buffalo_milk", "sheep_milk", "warped_milk", "grain_milk", "amethyst_milk", "tri_bull_milk"].forEach((milk) =>
     compact(`society:large_${milk}`, `society:${milk}`, 4)
   );
-  ["warped", "crimson"].forEach((grape) => {
-    let crate = `nethervinery:${grape}_grape_crate`;
-    let item = `nethervinery:${grape}_grape`;
-    addProcessingRecipe(e, "compacting_unpack", processingPath(crate), [crate, item], [], () => e.shapeless(`9x ${item}`, [crate]));
-  });
+
 });
