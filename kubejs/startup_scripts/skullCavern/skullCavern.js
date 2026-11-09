@@ -186,6 +186,12 @@ NativeEvents.onEvent($SkullSleep, (event) => {
   }
 });
 
+// Sets one texture on every side and the particle (KubeJS 7 block builders have no textureAll).
+const skullAllSides = (builder, texture) => {
+  ["up", "down", "north", "east", "south", "west", "particle"].forEach((side) => builder.texture(side, texture));
+  return builder;
+};
+
 StartupEvents.registry("block", (e) => {
   e.create("society:skull_cavern_teleporter")
     .texture("up", "society:block/teleporter_top")
@@ -227,10 +233,9 @@ StartupEvents.registry("block", (e) => {
     ["blackstone", "minecraft:block/blackstone"],
     ["end_stone", "minecraft:block/end_stone"],
   ].forEach(([type, path]) => {
-    e.create(`society:skull_${type}`)
+    skullAllSides(e.create(`society:skull_${type}`), path)
       .soundType("stone")
       .resistance(3600000)
-      .textureAll(path)
       .texture("particle", path)
       .unbreakable()
       .tagBlock("society:skull_block");
@@ -282,12 +287,11 @@ StartupEvents.registry("block", (e) => {
     ["sparkstone_ore", "minecraft:needs_diamond_tool"],
     ["deepslate_sparkstone_ore", "minecraft:needs_diamond_tool"],
   ].forEach(([ore, tool]) => {
-    e.create(`society:${ore}`)
+    skullAllSides(e.create(`society:${ore}`), `society:block/${ore}`)
       .soundType(ore.startsWith("deepslate") ? "deepslate" : "stone")
       .hardness(2.5)
       .resistance(1.0)
       .requiresTool(true)
-      .textureAll(`society:block/${ore}`)
       .tagBlock("minecraft:mineable/pickaxe")
       .tagBlock(tool)
       .tagBlock("society:skull_cavern_regens");
@@ -299,10 +303,9 @@ StartupEvents.registry("block", (e) => {
     ["magma_geode_node", 22.5, "minecraft:needs_iron_tool"],
     ["omni_geode_node", 30.0, "minecraft:needs_diamond_tool"],
   ].forEach(([node, hardness, tool]) => {
-    e.create(`society:${node}`)
+    skullAllSides(e.create(`society:${node}`), `society:block/${node}`)
       .box(4, 0, 4, 12, 9, 12)
       .defaultCutout()
-      .textureAll(`society:block/${node}`)
       .soundType("stone")
       .hardness(hardness)
       .resistance(9.0)
