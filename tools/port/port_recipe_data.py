@@ -11,7 +11,10 @@ Files keep their paths, so an override still replaces the mod's file of the same
   - Create fluid ingredients become {"type": "fluid_stack", "fluid": x, "amount": n};
   - forge biome modifiers move to neoforge/biome_modifier;
   - items that are gone on 1.21.1 are replaced (SUBSTITUTES);
-  - recipes that use the pack's own fluids wait for the fluids slice (DEFERRED_FLUID_NAMESPACES) and are skipped.
+  - Create 6 recipe keys are snake_case (RENAMED_KEYS);
+  - overrides of items or recipe types that are gone are not ported (SKIPPED);
+  - recipes that use the pack's own fluids or items of a later slice wait for it (DEFERRED_FLUID_NAMESPACES,
+    DEFERRED_ITEMS) and are skipped.
 
 Also writes tools/port/kubejs_tests/portedRecipesData.js: the recipe ids and the items of every ported group, which
 portedRecipesTest.js checks.
@@ -44,7 +47,29 @@ TAGS = {
     "forge:stripped_logs": "c:stripped_logs",
 }
 # Items that are gone on 1.21.1, with what the recipes use instead.
-SUBSTITUTES = {}
+SUBSTITUTES = {
+    "createutilities:graviton_tube": "minecraft:ender_eye",  # Create Utilities is gone
+    "createutilities:void_casing": "create:railway_casing",
+    "moreminecarts:hard_light_lens": "create:electron_tube",  # not in More Minecarts 1.21.1
+    "translocators:item_translocator": "create:brass_funnel",  # Translocators is gone
+}
+# Overrides that are not ported: the item or the recipe type is gone on 1.21.1.
+SKIPPED = {
+    "pipez:recipe/clear_upgrade.json",  # Pipez 1.21 has no clear_nbt / copy_nbt recipes; its own ones stay
+    "pipez:recipe/copy_upgrade_advanced.json",
+    "refinedstorage:recipe/filter.json",  # Refined Storage 2 has no filter or fluid grid
+    "refinedstorage:recipe/fluid_grid/fluid_grid.json",
+}
+# Recipes whose items a later slice registers.
+DEFERRED_ITEMS = {"society:sturdy_bamboo_block"}
+# Create 6 recipe keys are snake_case.
+RENAMED_KEYS = {
+    "acceptMirrored": "accept_mirrored",
+    "heatRequirement": "heat_requirement",
+    "keepHeldItem": "keep_held_item",
+    "processingTime": "processing_time",
+    "transitionalItem": "transitional_item",
+}
 DEFERRED_FLUID_NAMESPACES = {"society", "vinery", "nethervinery"}
 STACK_KEYS = ("result", "results", "transitionalItem", "higher_input", "lower_input", "output")
 
@@ -105,7 +130,7 @@ def convert_value(value):
             out[key] = [convert_recipe(step) for step in v]
         else:
             out[key] = convert_value(v)
-    return out
+    return {RENAMED_KEYS.get(k, k): v for k, v in out.items()}
 
 
 def convert_recipe(recipe):
@@ -168,7 +193,12 @@ def main():
                 rel = src.relative_to(src_root)
                 data = json.loads(src.read_text())
                 kind = rel.parts[0]
+                if f"{namespace}:{rel}" in SKIPPED:
+                    continue
                 if kind == "recipe":
+                    if items_in(data, set()) & DEFERRED_ITEMS:
+                        deferred.append(f"{namespace}:{rel}")
+                        continue
                     if any(f.split(":")[0] in DEFERRED_FLUID_NAMESPACES for f in fluids_in(data, set())):
                         deferred.append(f"{namespace}:{rel}")
                         continue
@@ -189,7 +219,7 @@ def main():
         f"const portedRecipeItems = {json.dumps(sorted(i for i in items if not i.startswith('#')))};\n"
     )
     for name in deferred:
-        print(f"  waits for the pack fluids: {name}")
+        print(f"  waits for the pack fluids or items: {name}")
     print(f"{len(recipe_ids)} recipes ported, {len(deferred)} deferred, {len(items)} items")
 
 

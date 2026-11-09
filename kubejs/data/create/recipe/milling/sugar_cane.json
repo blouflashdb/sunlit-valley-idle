@@ -5,7 +5,7 @@
       "item": "minecraft:sugar_cane"
     }
   ],
-  "processingTime": 50,
+  "processing_time": 50,
   "results": [
     {
       "id": "minecraft:sugar",

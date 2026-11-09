@@ -5,7 +5,7 @@
       "item": "etcetera:nether_bismuth_ore"
     }
   ],
-  "processingTime": 250,
+  "processing_time": 250,
   "results": [
     {
       "id": "create:crushed_raw_bismuth",

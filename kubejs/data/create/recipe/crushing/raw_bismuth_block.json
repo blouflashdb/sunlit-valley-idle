@@ -5,7 +5,7 @@
       "item": "etcetera:raw_bismuth_block"
     }
   ],
-  "processingTime": 400,
+  "processing_time": 400,
   "results": [
     {
       "id": "create:crushed_raw_bismuth",

@@ -12,10 +12,10 @@
       "tag": "functionalstorage:drawer"
     },
     "X": {
-      "item": "createutilities:graviton_tube"
+      "item": "minecraft:ender_eye"
     },
     "Y": {
-      "item": "createutilities:void_casing"
+      "item": "create:railway_casing"
     },
     "B": {
       "item": "society:battery"
