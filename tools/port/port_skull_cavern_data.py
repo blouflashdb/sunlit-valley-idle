@@ -9,7 +9,8 @@
   - block predicate offsets are clamped to 15 blocks (the 1.21 codec limit);
   - forge biome modifiers become neoforge ones;
   - the loot tables of the cavern blocks get 1.21 tool predicates and lose entries with missing items;
-  - block tags list the entries of other mods as optional, so a missing block does not break the tag.
+  - block tags list the entries of other mods as optional, so a missing block does not break the tag;
+  - the geode item tags (geode cracking) list the entries of other mods and missing items as optional.
 
 Run from the repository root: python3 tools/port/port_skull_cavern_data.py
 """
@@ -38,6 +39,9 @@ CAVERN_LOOT = (
     "iridium_ore", "deepslate_iridium_ore", "sparkstone_ore", "deepslate_sparkstone_ore",
 )
 CAVERN_TAGS = ("skull_cavern_bomb_denied", "skull_cavern_regens", "skull_cavern_unplacable")
+GEODE_TAGS = ("geodes", "geode_junk") + tuple(
+    f"{geode}_{kind}" for geode in ("geode", "frozen_geode", "magma_geode") for kind in ("bonus", "treasure", "relic")
+) + ("omni_geode_bonus", "omni_geode_treasure", "omni_geode_special")
 # Items that the ported startup scripts register but that the loot tables use before their own slice.
 NOT_YET_PORTED = {"society:gnome"}
 
@@ -110,12 +114,12 @@ def port_loot(node, missing):
     return out
 
 
-def optional_entries(values):
+def optional_entries(values, missing=frozenset()):
     out = []
     for value in values:
         entry = value if isinstance(value, str) else value["id"]
         namespace = entry.lstrip("#").split(":")[0]
-        if namespace in ("minecraft", "society"):
+        if namespace in ("minecraft", "society") and entry not in missing:
             out.append(value)
         else:
             out.append({"id": entry, "required": False})
@@ -153,6 +157,10 @@ def main():
         values = list(dict.fromkeys(json.dumps(v, sort_keys=True) for v in tag["values"]))
         tag["values"] = optional_entries([json.loads(v) for v in values])
         write(DST / "tags" / "block" / f"{name}.json", tag)
+    for name in GEODE_TAGS:
+        tag = json.loads((SRC / "tags" / "item" / f"{name}.json").read_text())
+        tag["values"] = optional_entries(tag["values"], missing)
+        write(DST / "tags" / "item" / f"{name}.json", tag)
     print("Skull Cavern data written to", DST)
 
 

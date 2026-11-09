@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "relics:bastion_ring",
+      "required": false
+    },
+    {
+      "id": "relics:magma_walker",
+      "required": false
+    }
+  ]
+}

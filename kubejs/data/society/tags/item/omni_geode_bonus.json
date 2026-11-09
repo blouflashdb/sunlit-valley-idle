@@ -1,0 +1,11 @@
+{
+  "values": [
+    "minecraft:raw_gold",
+    {
+      "id": "create:raw_zinc",
+      "required": false
+    },
+    "society:sparkstone",
+    "minecraft:netherite_scrap"
+  ]
+}
