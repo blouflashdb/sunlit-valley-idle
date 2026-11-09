@@ -5,497 +5,497 @@
 	rewards: [
 		{
 			item: {
-				Count: 1
-				id: "portable_blueprints:worn_blueprint"
-				tag: {
-					Damage: 1
-					allow_nbt: 1
-					altezza: 0
-					blueprint_name: "home_basic"
-					buildAnyway: 0b
-					display: {
-						Lore: ["{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.basic_home.author\"}"]
-						Name: "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.basic_home\"}"
+				components: {
+					"minecraft:damage": 1
+					"minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.basic_home\"}"
+					"minecraft:lore": ["{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.basic_home.author\"}"]
+					"minecraft:custom_data": {
+						allow_nbt: 1
+						altezza: 0
+						blueprint_name: "home_basic"
+						buildAnyway: 0b
+						free_build: 1
+						inventari_blocco_selezionati: ""
+						lunghezzaX: 0
+						lunghezzaZ: 0
+						mirrowX: 0b
+						mirrowY: 0b
+						mirrowZ: 0b
+						nome: "home_basic"
+						owner: "worn"
+						owner_name: "Ace"
+						remaining_uses: 1
+						rotateValue: 0s
+						skipObstructionBlock: 0b
+						visualizeBuild: 0b
+						wasHolding: 1b
+						worn_set: 1b
 					}
-					free_build: 1
-					inventari_blocco_selezionati: ""
-					lunghezzaX: 0
-					lunghezzaZ: 0
-					mirrowX: 0b
-					mirrowY: 0b
-					mirrowZ: 0b
-					nome: "home_basic"
-					owner: "worn"
-					owner_name: "Ace"
-					remaining_uses: 1
-					rotateValue: 0s
-					skipObstructionBlock: 0b
-					visualizeBuild: 0b
-					wasHolding: 1b
-					worn_set: 1b
 				}
+				count: 1
+				id: "portable_blueprints:worn_blueprint"
 			}
 		}
 		{
 			item: {
-				Count: 1
-				id: "portable_blueprints:worn_blueprint"
-				tag: {
-					Damage: 1
-					allow_nbt: 1
-					altezza: 0
-					blueprint_name: "home_alpine"
-					buildAnyway: 0b
-					display: {
-						Lore: ["{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.alpine_home.author\"}"]
-						Name: "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.alpine_home\"}"
+				components: {
+					"minecraft:damage": 1
+					"minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.alpine_home\"}"
+					"minecraft:lore": ["{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.alpine_home.author\"}"]
+					"minecraft:custom_data": {
+						allow_nbt: 1
+						altezza: 0
+						blueprint_name: "home_alpine"
+						buildAnyway: 0b
+						free_build: 1
+						inventari_blocco_selezionati: ""
+						lunghezzaX: 0
+						lunghezzaZ: 0
+						mirrowX: 0b
+						mirrowY: 0b
+						mirrowZ: 0b
+						nome: "home_alpine"
+						owner: "worn"
+						owner_name: "Ace"
+						remaining_uses: 1
+						rotateValue: 0s
+						skipObstructionBlock: 0b
+						visualizeBuild: 0b
+						wasHolding: 1b
+						worn_set: 1b
 					}
-					free_build: 1
-					inventari_blocco_selezionati: ""
-					lunghezzaX: 0
-					lunghezzaZ: 0
-					mirrowX: 0b
-					mirrowY: 0b
-					mirrowZ: 0b
-					nome: "home_alpine"
-					owner: "worn"
-					owner_name: "Ace"
-					remaining_uses: 1
-					rotateValue: 0s
-					skipObstructionBlock: 0b
-					visualizeBuild: 0b
-					wasHolding: 1b
-					worn_set: 1b
 				}
+				count: 1
+				id: "portable_blueprints:worn_blueprint"
 			}
 		}
 		{
 			item: {
-				Count: 1
-				id: "portable_blueprints:worn_blueprint"
-				tag: {
-					Damage: 1
-					allow_nbt: 1
-					altezza: 0
-					blueprint_name: "home_arid"
-					buildAnyway: 0b
-					display: {
-						Lore: ["{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.arid_home.author\"}"]
-						Name: "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.arid_home\"}"
+				components: {
+					"minecraft:damage": 1
+					"minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.arid_home\"}"
+					"minecraft:lore": ["{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.arid_home.author\"}"]
+					"minecraft:custom_data": {
+						allow_nbt: 1
+						altezza: 0
+						blueprint_name: "home_arid"
+						buildAnyway: 0b
+						free_build: 1
+						inventari_blocco_selezionati: ""
+						lunghezzaX: 0
+						lunghezzaZ: 0
+						mirrowX: 0b
+						mirrowY: 0b
+						mirrowZ: 0b
+						nome: "home_arid"
+						owner: "worn"
+						owner_name: "Ace"
+						remaining_uses: 1
+						rotateValue: 0s
+						skipObstructionBlock: 0b
+						visualizeBuild: 0b
+						wasHolding: 1b
+						worn_set: 1b
 					}
-					free_build: 1
-					inventari_blocco_selezionati: ""
-					lunghezzaX: 0
-					lunghezzaZ: 0
-					mirrowX: 0b
-					mirrowY: 0b
-					mirrowZ: 0b
-					nome: "home_arid"
-					owner: "worn"
-					owner_name: "Ace"
-					remaining_uses: 1
-					rotateValue: 0s
-					skipObstructionBlock: 0b
-					visualizeBuild: 0b
-					wasHolding: 1b
-					worn_set: 1b
 				}
+				count: 1
+				id: "portable_blueprints:worn_blueprint"
 			}
 		}
 		{
 			item: {
-				Count: 1
-				id: "portable_blueprints:worn_blueprint"
-				tag: {
-					Damage: 1
-					allow_nbt: 1
-					altezza: 0
-					blueprint_name: "home_bamboo"
-					buildAnyway: 0b
-					display: {
-						Lore: ["{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.bamboo_home.author\"}"]
-						Name: "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.bamboo_home\"}"
+				components: {
+					"minecraft:damage": 1
+					"minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.bamboo_home\"}"
+					"minecraft:lore": ["{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.bamboo_home.author\"}"]
+					"minecraft:custom_data": {
+						allow_nbt: 1
+						altezza: 0
+						blueprint_name: "home_bamboo"
+						buildAnyway: 0b
+						free_build: 1
+						inventari_blocco_selezionati: ""
+						lunghezzaX: 0
+						lunghezzaZ: 0
+						mirrowX: 0b
+						mirrowY: 0b
+						mirrowZ: 0b
+						nome: "home_bamboo"
+						owner: "worn"
+						owner_name: "Ace"
+						remaining_uses: 1
+						rotateValue: 0s
+						skipObstructionBlock: 0b
+						visualizeBuild: 0b
+						wasHolding: 1b
+						worn_set: 1b
 					}
-					free_build: 1
-					inventari_blocco_selezionati: ""
-					lunghezzaX: 0
-					lunghezzaZ: 0
-					mirrowX: 0b
-					mirrowY: 0b
-					mirrowZ: 0b
-					nome: "home_bamboo"
-					owner: "worn"
-					owner_name: "Ace"
-					remaining_uses: 1
-					rotateValue: 0s
-					skipObstructionBlock: 0b
-					visualizeBuild: 0b
-					wasHolding: 1b
-					worn_set: 1b
 				}
+				count: 1
+				id: "portable_blueprints:worn_blueprint"
 			}
 		}
 		{
 			item: {
-				Count: 1
-				id: "portable_blueprints:worn_blueprint"
-				tag: {
-					Damage: 1
-					allow_nbt: 1
-					altezza: 0
-					blueprint_name: "home_bavarian"
-					buildAnyway: 0b
-					display: {
-						Lore: ["{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.bavarian_home.author\"}"]
-						Name: "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.bavarian_home\"}"
+				components: {
+					"minecraft:damage": 1
+					"minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.bavarian_home\"}"
+					"minecraft:lore": ["{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.bavarian_home.author\"}"]
+					"minecraft:custom_data": {
+						allow_nbt: 1
+						altezza: 0
+						blueprint_name: "home_bavarian"
+						buildAnyway: 0b
+						free_build: 1
+						inventari_blocco_selezionati: ""
+						lunghezzaX: 0
+						lunghezzaZ: 0
+						mirrowX: 0b
+						mirrowY: 0b
+						mirrowZ: 0b
+						nome: "home_bavarian"
+						owner: "worn"
+						owner_name: "Ace"
+						remaining_uses: 1
+						rotateValue: 0s
+						skipObstructionBlock: 0b
+						visualizeBuild: 0b
+						wasHolding: 1b
+						worn_set: 1b
 					}
-					free_build: 1
-					inventari_blocco_selezionati: ""
-					lunghezzaX: 0
-					lunghezzaZ: 0
-					mirrowX: 0b
-					mirrowY: 0b
-					mirrowZ: 0b
-					nome: "home_bavarian"
-					owner: "worn"
-					owner_name: "Ace"
-					remaining_uses: 1
-					rotateValue: 0s
-					skipObstructionBlock: 0b
-					visualizeBuild: 0b
-					wasHolding: 1b
-					worn_set: 1b
 				}
+				count: 1
+				id: "portable_blueprints:worn_blueprint"
 			}
 		}
 		{
 			item: {
-				Count: 1
-				id: "portable_blueprints:worn_blueprint"
-				tag: {
-					Damage: 1
-					allow_nbt: 1
-					altezza: 0
-					blueprint_name: "home_cherry"
-					buildAnyway: 0b
-					display: {
-						Lore: ["{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.cherry_home.author\"}"]
-						Name: "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.cherry_home\"}"
+				components: {
+					"minecraft:damage": 1
+					"minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.cherry_home\"}"
+					"minecraft:lore": ["{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.cherry_home.author\"}"]
+					"minecraft:custom_data": {
+						allow_nbt: 1
+						altezza: 0
+						blueprint_name: "home_cherry"
+						buildAnyway: 0b
+						free_build: 1
+						inventari_blocco_selezionati: ""
+						lunghezzaX: 0
+						lunghezzaZ: 0
+						mirrowX: 0b
+						mirrowY: 0b
+						mirrowZ: 0b
+						nome: "home_cherry"
+						owner: "worn"
+						owner_name: "Ace"
+						remaining_uses: 1
+						rotateValue: 0s
+						skipObstructionBlock: 0b
+						visualizeBuild: 0b
+						wasHolding: 1b
+						worn_set: 1b
 					}
-					free_build: 1
-					inventari_blocco_selezionati: ""
-					lunghezzaX: 0
-					lunghezzaZ: 0
-					mirrowX: 0b
-					mirrowY: 0b
-					mirrowZ: 0b
-					nome: "home_cherry"
-					owner: "worn"
-					owner_name: "Ace"
-					remaining_uses: 1
-					rotateValue: 0s
-					skipObstructionBlock: 0b
-					visualizeBuild: 0b
-					wasHolding: 1b
-					worn_set: 1b
 				}
+				count: 1
+				id: "portable_blueprints:worn_blueprint"
 			}
 		}
 		{
 			item: {
-				Count: 1
-				id: "portable_blueprints:worn_blueprint"
-				tag: {
-					Damage: 1
-					allow_nbt: 1
-					altezza: 0
-					blueprint_name: "home_entrana"
-					buildAnyway: 0b
-					display: {
-						Lore: ["{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.entrana_home.author\"}"]
-						Name: "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.entrana_home\"}"
+				components: {
+					"minecraft:damage": 1
+					"minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.entrana_home\"}"
+					"minecraft:lore": ["{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.entrana_home.author\"}"]
+					"minecraft:custom_data": {
+						allow_nbt: 1
+						altezza: 0
+						blueprint_name: "home_entrana"
+						buildAnyway: 0b
+						free_build: 1
+						inventari_blocco_selezionati: ""
+						lunghezzaX: 0
+						lunghezzaZ: 0
+						mirrowX: 0b
+						mirrowY: 0b
+						mirrowZ: 0b
+						nome: "home_entrana"
+						owner: "worn"
+						owner_name: "Ace"
+						remaining_uses: 1
+						rotateValue: 0s
+						skipObstructionBlock: 0b
+						visualizeBuild: 0b
+						wasHolding: 1b
+						worn_set: 1b
 					}
-					free_build: 1
-					inventari_blocco_selezionati: ""
-					lunghezzaX: 0
-					lunghezzaZ: 0
-					mirrowX: 0b
-					mirrowY: 0b
-					mirrowZ: 0b
-					nome: "home_entrana"
-					owner: "worn"
-					owner_name: "Ace"
-					remaining_uses: 1
-					rotateValue: 0s
-					skipObstructionBlock: 0b
-					visualizeBuild: 0b
-					wasHolding: 1b
-					worn_set: 1b
 				}
+				count: 1
+				id: "portable_blueprints:worn_blueprint"
 			}
 		}
 		{
 			item: {
-				Count: 1
-				id: "portable_blueprints:worn_blueprint"
-				tag: {
-					Damage: 1
-					allow_nbt: 1
-					altezza: 0
-					blueprint_name: "home_mason"
-					buildAnyway: 0b
-					display: {
-						Lore: ["{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.mason_home.author\"}"]
-						Name: "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.mason_home\"}"
+				components: {
+					"minecraft:damage": 1
+					"minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.mason_home\"}"
+					"minecraft:lore": ["{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.mason_home.author\"}"]
+					"minecraft:custom_data": {
+						allow_nbt: 1
+						altezza: 0
+						blueprint_name: "home_mason"
+						buildAnyway: 0b
+						free_build: 1
+						inventari_blocco_selezionati: ""
+						lunghezzaX: 0
+						lunghezzaZ: 0
+						mirrowX: 0b
+						mirrowY: 0b
+						mirrowZ: 0b
+						nome: "home_mason"
+						owner: "worn"
+						owner_name: "Ace"
+						remaining_uses: 1
+						rotateValue: 0s
+						skipObstructionBlock: 0b
+						visualizeBuild: 0b
+						wasHolding: 1b
+						worn_set: 1b
 					}
-					free_build: 1
-					inventari_blocco_selezionati: ""
-					lunghezzaX: 0
-					lunghezzaZ: 0
-					mirrowX: 0b
-					mirrowY: 0b
-					mirrowZ: 0b
-					nome: "home_mason"
-					owner: "worn"
-					owner_name: "Ace"
-					remaining_uses: 1
-					rotateValue: 0s
-					skipObstructionBlock: 0b
-					visualizeBuild: 0b
-					wasHolding: 1b
-					worn_set: 1b
 				}
+				count: 1
+				id: "portable_blueprints:worn_blueprint"
 			}
 		}
 		{
 			item: {
-				Count: 1
-				id: "portable_blueprints:worn_blueprint"
-				tag: {
-					Damage: 1
-					allow_nbt: 1
-					altezza: 0
-					blueprint_name: "home_prismarine"
-					buildAnyway: 0b
-					display: {
-						Lore: ["{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.prismarine_home.author\"}"]
-						Name: "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.prismarine_home\"}"
+				components: {
+					"minecraft:damage": 1
+					"minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.prismarine_home\"}"
+					"minecraft:lore": ["{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.prismarine_home.author\"}"]
+					"minecraft:custom_data": {
+						allow_nbt: 1
+						altezza: 0
+						blueprint_name: "home_prismarine"
+						buildAnyway: 0b
+						free_build: 1
+						inventari_blocco_selezionati: ""
+						lunghezzaX: 0
+						lunghezzaZ: 0
+						mirrowX: 0b
+						mirrowY: 0b
+						mirrowZ: 0b
+						nome: "home_prismarine"
+						owner: "worn"
+						owner_name: "Ace"
+						remaining_uses: 1
+						rotateValue: 0s
+						skipObstructionBlock: 0b
+						visualizeBuild: 0b
+						wasHolding: 1b
+						worn_set: 1b
 					}
-					free_build: 1
-					inventari_blocco_selezionati: ""
-					lunghezzaX: 0
-					lunghezzaZ: 0
-					mirrowX: 0b
-					mirrowY: 0b
-					mirrowZ: 0b
-					nome: "home_prismarine"
-					owner: "worn"
-					owner_name: "Ace"
-					remaining_uses: 1
-					rotateValue: 0s
-					skipObstructionBlock: 0b
-					visualizeBuild: 0b
-					wasHolding: 1b
-					worn_set: 1b
 				}
+				count: 1
+				id: "portable_blueprints:worn_blueprint"
 			}
 		}
 		{
 			item: {
-				Count: 1
-				id: "portable_blueprints:worn_blueprint"
-				tag: {
-					Damage: 1
-					allow_nbt: 1
-					altezza: 0
-					blueprint_name: "home_rural"
-					buildAnyway: 0b
-					display: {
-						Lore: ["{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.rural_home.author\"}"]
-						Name: "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.rural_home\"}"
+				components: {
+					"minecraft:damage": 1
+					"minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.rural_home\"}"
+					"minecraft:lore": ["{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.rural_home.author\"}"]
+					"minecraft:custom_data": {
+						allow_nbt: 1
+						altezza: 0
+						blueprint_name: "home_rural"
+						buildAnyway: 0b
+						free_build: 1
+						inventari_blocco_selezionati: ""
+						lunghezzaX: 0
+						lunghezzaZ: 0
+						mirrowX: 0b
+						mirrowY: 0b
+						mirrowZ: 0b
+						nome: "home_rural"
+						owner: "worn"
+						owner_name: "Ace"
+						remaining_uses: 1
+						rotateValue: 0s
+						skipObstructionBlock: 0b
+						visualizeBuild: 0b
+						wasHolding: 1b
+						worn_set: 1b
 					}
-					free_build: 1
-					inventari_blocco_selezionati: ""
-					lunghezzaX: 0
-					lunghezzaZ: 0
-					mirrowX: 0b
-					mirrowY: 0b
-					mirrowZ: 0b
-					nome: "home_rural"
-					owner: "worn"
-					owner_name: "Ace"
-					remaining_uses: 1
-					rotateValue: 0s
-					skipObstructionBlock: 0b
-					visualizeBuild: 0b
-					wasHolding: 1b
-					worn_set: 1b
 				}
+				count: 1
+				id: "portable_blueprints:worn_blueprint"
 			}
 		}
 		{
 			item: {
-				Count: 1
-				id: "portable_blueprints:worn_blueprint"
-				tag: {
-					Damage: 1
-					allow_nbt: 1
-					altezza: 0
-					blueprint_name: "home_siberian"
-					buildAnyway: 0b
-					display: {
-						Lore: ["{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.siberian_home.author\"}"]
-						Name: "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.siberian_home\"}"
+				components: {
+					"minecraft:damage": 1
+					"minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.siberian_home\"}"
+					"minecraft:lore": ["{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.siberian_home.author\"}"]
+					"minecraft:custom_data": {
+						allow_nbt: 1
+						altezza: 0
+						blueprint_name: "home_siberian"
+						buildAnyway: 0b
+						free_build: 1
+						inventari_blocco_selezionati: ""
+						lunghezzaX: 0
+						lunghezzaZ: 0
+						mirrowX: 0b
+						mirrowY: 0b
+						mirrowZ: 0b
+						nome: "home_siberian"
+						owner: "worn"
+						owner_name: "Ace"
+						remaining_uses: 1
+						rotateValue: 0s
+						skipObstructionBlock: 0b
+						visualizeBuild: 0b
+						wasHolding: 1b
+						worn_set: 1b
 					}
-					free_build: 1
-					inventari_blocco_selezionati: ""
-					lunghezzaX: 0
-					lunghezzaZ: 0
-					mirrowX: 0b
-					mirrowY: 0b
-					mirrowZ: 0b
-					nome: "home_siberian"
-					owner: "worn"
-					owner_name: "Ace"
-					remaining_uses: 1
-					rotateValue: 0s
-					skipObstructionBlock: 0b
-					visualizeBuild: 0b
-					wasHolding: 1b
-					worn_set: 1b
 				}
+				count: 1
+				id: "portable_blueprints:worn_blueprint"
 			}
 		}
 		{
 			item: {
-				Count: 1
-				id: "portable_blueprints:worn_blueprint"
-				tag: {
-					Damage: 1
-					allow_nbt: 1
-					altezza: 0
-					blueprint_name: "home_tudor"
-					buildAnyway: 0b
-					display: {
-						Lore: ["{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.tudor_home.author\"}"]
-						Name: "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.tudor_home\"}"
+				components: {
+					"minecraft:damage": 1
+					"minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.tudor_home\"}"
+					"minecraft:lore": ["{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.tudor_home.author\"}"]
+					"minecraft:custom_data": {
+						allow_nbt: 1
+						altezza: 0
+						blueprint_name: "home_tudor"
+						buildAnyway: 0b
+						free_build: 1
+						inventari_blocco_selezionati: ""
+						lunghezzaX: 0
+						lunghezzaZ: 0
+						mirrowX: 0b
+						mirrowY: 0b
+						mirrowZ: 0b
+						nome: "home_tudor"
+						owner: "worn"
+						owner_name: "Ace"
+						remaining_uses: 1
+						rotateValue: 0s
+						skipObstructionBlock: 0b
+						visualizeBuild: 0b
+						wasHolding: 1b
+						worn_set: 1b
 					}
-					free_build: 1
-					inventari_blocco_selezionati: ""
-					lunghezzaX: 0
-					lunghezzaZ: 0
-					mirrowX: 0b
-					mirrowY: 0b
-					mirrowZ: 0b
-					nome: "home_tudor"
-					owner: "worn"
-					owner_name: "Ace"
-					remaining_uses: 1
-					rotateValue: 0s
-					skipObstructionBlock: 0b
-					visualizeBuild: 0b
-					wasHolding: 1b
-					worn_set: 1b
 				}
+				count: 1
+				id: "portable_blueprints:worn_blueprint"
 			}
 		}
 		{
 			item: {
-				Count: 1
-				id: "portable_blueprints:worn_blueprint"
-				tag: {
-					Damage: 1
-					allow_nbt: 1
-					altezza: 0
-					blueprint_name: "home_vibrantown"
-					buildAnyway: 0b
-					display: {
-						Lore: ["{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.vibrantown_home.author\"}"]
-						Name: "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.vibrantown_home\"}"
+				components: {
+					"minecraft:damage": 1
+					"minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.vibrantown_home\"}"
+					"minecraft:lore": ["{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.vibrantown_home.author\"}"]
+					"minecraft:custom_data": {
+						allow_nbt: 1
+						altezza: 0
+						blueprint_name: "home_vibrantown"
+						buildAnyway: 0b
+						free_build: 1
+						inventari_blocco_selezionati: ""
+						lunghezzaX: 0
+						lunghezzaZ: 0
+						mirrowX: 0b
+						mirrowY: 0b
+						mirrowZ: 0b
+						nome: "home_vibrantown"
+						owner: "worn"
+						owner_name: "Ace"
+						remaining_uses: 1
+						rotateValue: 0s
+						skipObstructionBlock: 0b
+						visualizeBuild: 0b
+						wasHolding: 1b
+						worn_set: 1b
 					}
-					free_build: 1
-					inventari_blocco_selezionati: ""
-					lunghezzaX: 0
-					lunghezzaZ: 0
-					mirrowX: 0b
-					mirrowY: 0b
-					mirrowZ: 0b
-					nome: "home_vibrantown"
-					owner: "worn"
-					owner_name: "Ace"
-					remaining_uses: 1
-					rotateValue: 0s
-					skipObstructionBlock: 0b
-					visualizeBuild: 0b
-					wasHolding: 1b
-					worn_set: 1b
 				}
+				count: 1
+				id: "portable_blueprints:worn_blueprint"
 			}
 		}
 		{
 			item: {
-				Count: 1
-				id: "portable_blueprints:worn_blueprint"
-				tag: {
-					Damage: 1
-					allow_nbt: 1
-					altezza: 0
-					blueprint_name: "home_floral"
-					buildAnyway: 0b
-					display: {
-						Lore: ["{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.floral_home.author\"}"]
-						Name: "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.floral_home\"}"
+				components: {
+					"minecraft:damage": 1
+					"minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.floral_home\"}"
+					"minecraft:lore": ["{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.floral_home.author\"}"]
+					"minecraft:custom_data": {
+						allow_nbt: 1
+						altezza: 0
+						blueprint_name: "home_floral"
+						buildAnyway: 0b
+						free_build: 1
+						inventari_blocco_selezionati: ""
+						lunghezzaX: 0
+						lunghezzaZ: 0
+						mirrowX: 0b
+						mirrowY: 0b
+						mirrowZ: 0b
+						nome: "home_floral"
+						owner: "worn"
+						owner_name: "Ace"
+						remaining_uses: 1
+						rotateValue: 0s
+						skipObstructionBlock: 0b
+						visualizeBuild: 0b
+						wasHolding: 1b
+						worn_set: 1b
 					}
-					free_build: 1
-					inventari_blocco_selezionati: ""
-					lunghezzaX: 0
-					lunghezzaZ: 0
-					mirrowX: 0b
-					mirrowY: 0b
-					mirrowZ: 0b
-					nome: "home_floral"
-					owner: "worn"
-					owner_name: "Ace"
-					remaining_uses: 1
-					rotateValue: 0s
-					skipObstructionBlock: 0b
-					visualizeBuild: 0b
-					wasHolding: 1b
-					worn_set: 1b
 				}
+				count: 1
+				id: "portable_blueprints:worn_blueprint"
 			}
 		}
 		{
 			item: {
-				Count: 1
-				id: "portable_blueprints:worn_blueprint"
-				tag: {
-					Damage: 1
-					allow_nbt: 1
-					altezza: 0
-					blueprint_name: "home_sakura"
-					buildAnyway: 0b
-					display: {
-						Lore: ["{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.sakura_home.author\"}"]
-						Name: "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.sakura_home\"}"
+				components: {
+					"minecraft:damage": 1
+					"minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.sakura_home\"}"
+					"minecraft:lore": ["{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.sakura_home.author\"}"]
+					"minecraft:custom_data": {
+						allow_nbt: 1
+						altezza: 0
+						blueprint_name: "home_sakura"
+						buildAnyway: 0b
+						free_build: 1
+						inventari_blocco_selezionati: ""
+						lunghezzaX: 0
+						lunghezzaZ: 0
+						mirrowX: 0b
+						mirrowY: 0b
+						mirrowZ: 0b
+						nome: "home_sakura"
+						owner: "worn"
+						owner_name: "Ace"
+						remaining_uses: 1
+						rotateValue: 0s
+						skipObstructionBlock: 0b
+						visualizeBuild: 0b
+						wasHolding: 1b
+						worn_set: 1b
 					}
-					free_build: 1
-					inventari_blocco_selezionati: ""
-					lunghezzaX: 0
-					lunghezzaZ: 0
-					mirrowX: 0b
-					mirrowY: 0b
-					mirrowZ: 0b
-					nome: "home_sakura"
-					owner: "worn"
-					owner_name: "Ace"
-					remaining_uses: 1
-					rotateValue: 0s
-					skipObstructionBlock: 0b
-					visualizeBuild: 0b
-					wasHolding: 1b
-					worn_set: 1b
 				}
+				count: 1
+				id: "portable_blueprints:worn_blueprint"
 			}
 		}
 	]

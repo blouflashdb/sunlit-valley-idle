@@ -4,11 +4,13 @@
 	filename: "longwings"
 	group: "15230846E14B6926"
 	icon: {
-		Count: 1
-		id: "longwings:butterfly"
-		tag: {
-			variant: "blue_morpho"
+		components: {
+			"minecraft:custom_data": {
+				variant: "blue_morpho"
+			}
 		}
+		count: 1
+		id: "longwings:butterfly"
 	}
 	id: "12867D0F2D4800BE"
 	images: [
@@ -946,13 +948,15 @@
 			tasks: [{
 				id: "4AF2E7F5FB3A8CA6"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "purple_king_shoemaker"
+					components: {
+						"minecraft:custom_data": {
+							variant: "purple_king_shoemaker"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -966,13 +970,15 @@
 			tasks: [{
 				id: "5EED9EA52A2E72AD"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "queen"
+					components: {
+						"minecraft:custom_data": {
+							variant: "queen"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -986,13 +992,15 @@
 			tasks: [{
 				id: "1CC4D54ED1834917"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "painted_lady"
+					components: {
+						"minecraft:custom_data": {
+							variant: "painted_lady"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1006,13 +1014,15 @@
 			tasks: [{
 				id: "63B7C31B0831D197"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "malabar_banded_peacock"
+					components: {
+						"minecraft:custom_data": {
+							variant: "malabar_banded_peacock"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1026,13 +1036,15 @@
 			tasks: [{
 				id: "370B4EF832716513"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "king_crow"
+					components: {
+						"minecraft:custom_data": {
+							variant: "king_crow"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1046,13 +1058,15 @@
 			tasks: [{
 				id: "2EF6EA7771A9788E"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "gold_banded_forester"
+					components: {
+						"minecraft:custom_data": {
+							variant: "gold_banded_forester"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1066,13 +1080,15 @@
 			tasks: [{
 				id: "3578C7DDB54DD603"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "blue_morpho"
+					components: {
+						"minecraft:custom_data": {
+							variant: "blue_morpho"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1086,13 +1102,15 @@
 			tasks: [{
 				id: "34BBFD9C4F1DF4AC"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "malachite"
+					components: {
+						"minecraft:custom_data": {
+							variant: "malachite"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1106,13 +1124,15 @@
 			tasks: [{
 				id: "17060EB4AB11610D"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "giant_swallowtail"
+					components: {
+						"minecraft:custom_data": {
+							variant: "giant_swallowtail"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1126,13 +1146,15 @@
 			tasks: [{
 				id: "09BCA772800C58A0"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "zebra_swallowtail"
+					components: {
+						"minecraft:custom_data": {
+							variant: "zebra_swallowtail"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1146,13 +1168,15 @@
 			tasks: [{
 				id: "56C161CFB4733E37"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "long_tailed_skipper"
+					components: {
+						"minecraft:custom_data": {
+							variant: "long_tailed_skipper"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1166,13 +1190,15 @@
 			tasks: [{
 				id: "10B8E8DB3A3419A2"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "common_blue"
+					components: {
+						"minecraft:custom_data": {
+							variant: "common_blue"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1186,13 +1212,15 @@
 			tasks: [{
 				id: "3C4C11D484C10D7C"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "common_leopard"
+					components: {
+						"minecraft:custom_data": {
+							variant: "common_leopard"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1206,13 +1234,15 @@
 			tasks: [{
 				id: "7BEB2E9FF77A4F55"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "tailed_jay"
+					components: {
+						"minecraft:custom_data": {
+							variant: "tailed_jay"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1226,13 +1256,15 @@
 			tasks: [{
 				id: "0BA5013D897FE795"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "malay_lacewing"
+					components: {
+						"minecraft:custom_data": {
+							variant: "malay_lacewing"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1246,13 +1278,15 @@
 			tasks: [{
 				id: "37201FF7A2F8DFDA"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "ruddy_daggerwing"
+					components: {
+						"minecraft:custom_data": {
+							variant: "ruddy_daggerwing"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1266,13 +1300,15 @@
 			tasks: [{
 				id: "4406803EE6A944DF"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "common_birdwing"
+					components: {
+						"minecraft:custom_data": {
+							variant: "common_birdwing"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1286,13 +1322,15 @@
 			tasks: [{
 				id: "4D33B25721544ECF"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "olivewing"
+					components: {
+						"minecraft:custom_data": {
+							variant: "olivewing"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1306,13 +1344,15 @@
 			tasks: [{
 				id: "2122C5BDA3904351"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "dark_blue_tiger"
+					components: {
+						"minecraft:custom_data": {
+							variant: "dark_blue_tiger"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1326,13 +1366,15 @@
 			tasks: [{
 				id: "2278EC4BB16FF7D4"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "statira"
+					components: {
+						"minecraft:custom_data": {
+							variant: "statira"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1346,13 +1388,15 @@
 			tasks: [{
 				id: "20DFD9884146C667"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "sleepy_orange"
+					components: {
+						"minecraft:custom_data": {
+							variant: "sleepy_orange"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1366,13 +1410,15 @@
 			tasks: [{
 				id: "3531999FD5C97F07"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "sulphur"
+					components: {
+						"minecraft:custom_data": {
+							variant: "sulphur"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1386,13 +1432,15 @@
 			tasks: [{
 				id: "4386A3D9FF265E58"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "cabbage_white"
+					components: {
+						"minecraft:custom_data": {
+							variant: "cabbage_white"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1406,13 +1454,15 @@
 			tasks: [{
 				id: "75735173F46152FB"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "glasswing"
+					components: {
+						"minecraft:custom_data": {
+							variant: "glasswing"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1426,13 +1476,15 @@
 			tasks: [{
 				id: "2BC39DA31C7DF1D8"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "archduke"
+					components: {
+						"minecraft:custom_data": {
+							variant: "archduke"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1446,13 +1498,15 @@
 			tasks: [{
 				id: "58541B4094DEFCB8"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "plum_judy"
+					components: {
+						"minecraft:custom_data": {
+							variant: "plum_judy"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1466,13 +1520,15 @@
 			tasks: [{
 				id: "799340AEE4805006"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "pearl_bordered_fritillary"
+					components: {
+						"minecraft:custom_data": {
+							variant: "pearl_bordered_fritillary"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1486,13 +1542,15 @@
 			tasks: [{
 				id: "4A39CF6F651B18D5"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "pink_spotted_cattleheart"
+					components: {
+						"minecraft:custom_data": {
+							variant: "pink_spotted_cattleheart"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1506,13 +1564,15 @@
 			tasks: [{
 				id: "376F46D6A6958BED"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "small_copper"
+					components: {
+						"minecraft:custom_data": {
+							variant: "small_copper"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1526,13 +1586,15 @@
 			tasks: [{
 				id: "4771ADC10ED6895E"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "sara_longwing"
+					components: {
+						"minecraft:custom_data": {
+							variant: "sara_longwing"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1546,13 +1608,15 @@
 			tasks: [{
 				id: "532194B2282D336C"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "comma"
+					components: {
+						"minecraft:custom_data": {
+							variant: "comma"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1566,13 +1630,15 @@
 			tasks: [{
 				id: "3B466F5DA9519120"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "giant_glasswing"
+					components: {
+						"minecraft:custom_data": {
+							variant: "giant_glasswing"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1586,13 +1652,15 @@
 			tasks: [{
 				id: "46A5193610CCC7C0"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "shoemaker"
+					components: {
+						"minecraft:custom_data": {
+							variant: "shoemaker"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1606,13 +1674,15 @@
 			tasks: [{
 				id: "34E88897AC5EC4CC"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "novice"
+					components: {
+						"minecraft:custom_data": {
+							variant: "novice"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1626,13 +1696,15 @@
 			tasks: [{
 				id: "61DD40445FC889C0"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "rajah_brookes_birdwing"
+					components: {
+						"minecraft:custom_data": {
+							variant: "rajah_brookes_birdwing"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1646,13 +1718,15 @@
 			tasks: [{
 				id: "7C12698181546781"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "monarch"
+					components: {
+						"minecraft:custom_data": {
+							variant: "monarch"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1666,13 +1740,15 @@
 			tasks: [{
 				id: "53A545D07178446E"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "monk_skipper"
+					components: {
+						"minecraft:custom_data": {
+							variant: "monk_skipper"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1686,13 +1762,15 @@
 			tasks: [{
 				id: "1E6B41C57BA1D2CC"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "plain_blue_crow"
+					components: {
+						"minecraft:custom_data": {
+							variant: "plain_blue_crow"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1706,13 +1784,15 @@
 			tasks: [{
 				id: "1A2B8291B419C34E"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "white_peacock"
+					components: {
+						"minecraft:custom_data": {
+							variant: "white_peacock"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1726,13 +1806,15 @@
 			tasks: [{
 				id: "5F175B48B8CB71B1"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "marble"
+					components: {
+						"minecraft:custom_data": {
+							variant: "marble"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1746,13 +1828,15 @@
 			tasks: [{
 				id: "0A1784C366D33580"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "queen_alexandra_birdwing"
+					components: {
+						"minecraft:custom_data": {
+							variant: "queen_alexandra_birdwing"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1766,13 +1850,15 @@
 			tasks: [{
 				id: "16C25802A1E52F19"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "julia"
+					components: {
+						"minecraft:custom_data": {
+							variant: "julia"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1786,13 +1872,15 @@
 			tasks: [{
 				id: "7C1D50635F91AFA9"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "postman"
+					components: {
+						"minecraft:custom_data": {
+							variant: "postman"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1806,13 +1894,15 @@
 			tasks: [{
 				id: "3B4B3E50AC35A157"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "zebra"
+					components: {
+						"minecraft:custom_data": {
+							variant: "zebra"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1826,13 +1916,15 @@
 			tasks: [{
 				id: "2220DDD5BEB082BE"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "swallowtail"
+					components: {
+						"minecraft:custom_data": {
+							variant: "swallowtail"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1846,13 +1938,15 @@
 			tasks: [{
 				id: "1C861A45D35D755F"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "peacock"
+					components: {
+						"minecraft:custom_data": {
+							variant: "peacock"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1866,13 +1960,15 @@
 			tasks: [{
 				id: "07019D3DF607D259"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "atala"
+					components: {
+						"minecraft:custom_data": {
+							variant: "atala"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1886,13 +1982,15 @@
 			tasks: [{
 				id: "53144CCF04DA326A"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "dart_skipper"
+					components: {
+						"minecraft:custom_data": {
+							variant: "dart_skipper"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1906,13 +2004,15 @@
 			tasks: [{
 				id: "138CC96E25ED583F"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "orange_tip"
+					components: {
+						"minecraft:custom_data": {
+							variant: "orange_tip"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1926,13 +2026,15 @@
 			tasks: [{
 				id: "4B124A4C3FE04941"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "red_spotted_purple"
+					components: {
+						"minecraft:custom_data": {
+							variant: "red_spotted_purple"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1946,13 +2048,15 @@
 			tasks: [{
 				id: "248EC6F5B54E7B5D"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "hebes_pink_forester"
+					components: {
+						"minecraft:custom_data": {
+							variant: "hebes_pink_forester"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1966,13 +2070,15 @@
 			tasks: [{
 				id: "0033B2C3AC56E0D5"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "large_tree_nymph"
+					components: {
+						"minecraft:custom_data": {
+							variant: "large_tree_nymph"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -1986,13 +2092,15 @@
 			tasks: [{
 				id: "0062639F3B454FC1"
 				item: {
-					Count: 1
-					id: "longwings:moth"
-					tag: {
-						variant: "small_white_wave"
+					components: {
+						"minecraft:custom_data": {
+							variant: "small_white_wave"
+						}
 					}
+					count: 1
+					id: "longwings:moth"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -2006,13 +2114,15 @@
 			tasks: [{
 				id: "6FE10D1A5627B8B9"
 				item: {
-					Count: 1
-					id: "longwings:moth"
-					tag: {
-						variant: "salt_marsh"
+					components: {
+						"minecraft:custom_data": {
+							variant: "salt_marsh"
+						}
 					}
+					count: 1
+					id: "longwings:moth"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -2026,13 +2136,15 @@
 			tasks: [{
 				id: "67C06E89E7E5861F"
 				item: {
-					Count: 1
-					id: "longwings:moth"
-					tag: {
-						variant: "tiger"
+					components: {
+						"minecraft:custom_data": {
+							variant: "tiger"
+						}
 					}
+					count: 1
+					id: "longwings:moth"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -2046,13 +2158,15 @@
 			tasks: [{
 				id: "28621E2200D728B7"
 				item: {
-					Count: 1
-					id: "longwings:moth"
-					tag: {
-						variant: "rosy_maple"
+					components: {
+						"minecraft:custom_data": {
+							variant: "rosy_maple"
+						}
 					}
+					count: 1
+					id: "longwings:moth"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -2066,13 +2180,15 @@
 			tasks: [{
 				id: "27A148EB2AC7FF2B"
 				item: {
-					Count: 1
-					id: "longwings:moth"
-					tag: {
-						variant: "scarlet_bodied_wasp"
+					components: {
+						"minecraft:custom_data": {
+							variant: "scarlet_bodied_wasp"
+						}
 					}
+					count: 1
+					id: "longwings:moth"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -2086,13 +2202,15 @@
 			tasks: [{
 				id: "126BD7791D494683"
 				item: {
-					Count: 1
-					id: "longwings:moth"
-					tag: {
-						variant: "luna"
+					components: {
+						"minecraft:custom_data": {
+							variant: "luna"
+						}
 					}
+					count: 1
+					id: "longwings:moth"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -2106,13 +2224,15 @@
 			tasks: [{
 				id: "1DF8BF44C8A83A83"
 				item: {
-					Count: 1
-					id: "longwings:moth"
-					tag: {
-						variant: "atlas"
+					components: {
+						"minecraft:custom_data": {
+							variant: "atlas"
+						}
 					}
+					count: 1
+					id: "longwings:moth"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -2126,13 +2246,15 @@
 			tasks: [{
 				id: "3A7BB15B575859DE"
 				item: {
-					Count: 1
-					id: "longwings:moth"
-					tag: {
-						variant: "madagascan_sunset"
+					components: {
+						"minecraft:custom_data": {
+							variant: "madagascan_sunset"
+						}
 					}
+					count: 1
+					id: "longwings:moth"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -2146,13 +2268,15 @@
 			tasks: [{
 				id: "4C2ACDE64A036144"
 				item: {
-					Count: 1
-					id: "longwings:moth"
-					tag: {
-						variant: "cecropia"
+					components: {
+						"minecraft:custom_data": {
+							variant: "cecropia"
+						}
 					}
+					count: 1
+					id: "longwings:moth"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -2166,13 +2290,15 @@
 			tasks: [{
 				id: "159EDDEEE97C9A19"
 				item: {
-					Count: 1
-					id: "longwings:moth"
-					tag: {
-						variant: "false_tiger"
+					components: {
+						"minecraft:custom_data": {
+							variant: "false_tiger"
+						}
 					}
+					count: 1
+					id: "longwings:moth"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -2186,13 +2312,15 @@
 			tasks: [{
 				id: "3A29DCCDDD662BA2"
 				item: {
-					Count: 1
-					id: "longwings:moth"
-					tag: {
-						variant: "hummingbird_clearwing"
+					components: {
+						"minecraft:custom_data": {
+							variant: "hummingbird_clearwing"
+						}
 					}
+					count: 1
+					id: "longwings:moth"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -2206,13 +2334,15 @@
 			tasks: [{
 				id: "7204A5E49DCF5D3C"
 				item: {
-					Count: 1
-					id: "longwings:moth"
-					tag: {
-						variant: "japanese_silk"
+					components: {
+						"minecraft:custom_data": {
+							variant: "japanese_silk"
+						}
 					}
+					count: 1
+					id: "longwings:moth"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -2226,13 +2356,15 @@
 			tasks: [{
 				id: "44CD9A1684B59066"
 				item: {
-					Count: 1
-					id: "longwings:moth"
-					tag: {
-						variant: "marbled_emperor"
+					components: {
+						"minecraft:custom_data": {
+							variant: "marbled_emperor"
+						}
 					}
+					count: 1
+					id: "longwings:moth"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -2246,13 +2378,15 @@
 			tasks: [{
 				id: "2E79989784882EC5"
 				item: {
-					Count: 1
-					id: "longwings:moth"
-					tag: {
-						variant: "imperial"
+					components: {
+						"minecraft:custom_data": {
+							variant: "imperial"
+						}
 					}
+					count: 1
+					id: "longwings:moth"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -2266,13 +2400,15 @@
 			tasks: [{
 				id: "23479F498F971CDE"
 				item: {
-					Count: 1
-					id: "longwings:moth"
-					tag: {
-						variant: "oak_beauty"
+					components: {
+						"minecraft:custom_data": {
+							variant: "oak_beauty"
+						}
 					}
+					count: 1
+					id: "longwings:moth"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -2286,13 +2422,15 @@
 			tasks: [{
 				id: "233B30030B61F7A8"
 				item: {
-					Count: 1
-					id: "longwings:moth"
-					tag: {
-						variant: "dark_bordered_beauty"
+					components: {
+						"minecraft:custom_data": {
+							variant: "dark_bordered_beauty"
+						}
 					}
+					count: 1
+					id: "longwings:moth"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -2306,13 +2444,15 @@
 			tasks: [{
 				id: "35ABBDFE0E0DEBF4"
 				item: {
-					Count: 1
-					id: "longwings:moth"
-					tag: {
-						variant: "silk"
+					components: {
+						"minecraft:custom_data": {
+							variant: "silk"
+						}
 					}
+					count: 1
+					id: "longwings:moth"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -2326,13 +2466,15 @@
 			tasks: [{
 				id: "164DD83FE1FE794C"
 				item: {
-					Count: 1
-					id: "longwings:moth"
-					tag: {
-						variant: "july_belle"
+					components: {
+						"minecraft:custom_data": {
+							variant: "july_belle"
+						}
 					}
+					count: 1
+					id: "longwings:moth"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -2428,37 +2570,35 @@
 			]
 			hide_dependency_lines: true
 			icon: {
-				Count: 1
-				id: "trofers:large_pillar"
-				tag: {
-					BlockEntityTag: {
-						Trophy: "trofers:butterfly_moth"
-					}
+				components: {
+					"trofers:trophy": "trofers:butterfly_moth"
 				}
+				count: 1
+				id: "trofers:large_pillar"
 			}
 			id: "0B0AC1BFF726E11E"
 			rewards: [
 				{
 					id: "741CB500AE30F56B"
 					item: {
-						Count: 1
-						id: "trofers:large_pillar"
-						tag: {
-							BlockEntityTag: {
-								Trophy: "trofers:butterfly_moth"
-							}
+						components: {
+							"trofers:trophy": "trofers:butterfly_moth"
 						}
+						count: 1
+						id: "trofers:large_pillar"
 					}
 					type: "item"
 				}
 				{
 					id: "499A7047BB0D8E66"
 					item: {
-						Count: 1
-						id: "botania:flight_tiara"
-						tag: {
-							variant: 1
+						components: {
+							"minecraft:custom_data": {
+								variant: 1
+							}
 						}
+						count: 1
+						id: "botania:flight_tiara"
 					}
 					type: "item"
 				}
@@ -2467,11 +2607,13 @@
 			size: 3.0d
 			tasks: [{
 				icon: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "monarch"
+					components: {
+						"minecraft:custom_data": {
+							variant: "monarch"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
 				id: "6918CC5C12ED241A"
 				stat: "minecraft:play_time"
@@ -2490,13 +2632,15 @@
 			tasks: [{
 				id: "06E19998D1BDBBD0"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "brimstone"
+					components: {
+						"minecraft:custom_data": {
+							variant: "brimstone"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -2510,13 +2654,15 @@
 			tasks: [{
 				id: "5D3B542BFBBB902C"
 				item: {
-					Count: 1
-					id: "longwings:moth"
-					tag: {
-						variant: "omiza"
+					components: {
+						"minecraft:custom_data": {
+							variant: "omiza"
+						}
 					}
+					count: 1
+					id: "longwings:moth"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -2530,13 +2676,15 @@
 			tasks: [{
 				id: "459500A92B64C383"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "great_purple_emperor"
+					components: {
+						"minecraft:custom_data": {
+							variant: "great_purple_emperor"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -2550,13 +2698,15 @@
 			tasks: [{
 				id: "209B86F7956F84E8"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "blue_pansy"
+					components: {
+						"minecraft:custom_data": {
+							variant: "blue_pansy"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -2570,13 +2720,15 @@
 			tasks: [{
 				id: "39C98C48CC09537D"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "mourning_cloak"
+					components: {
+						"minecraft:custom_data": {
+							variant: "mourning_cloak"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -2590,13 +2742,15 @@
 			tasks: [{
 				id: "761F430D0C654ED5"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "black_swallowtail"
+					components: {
+						"minecraft:custom_data": {
+							variant: "black_swallowtail"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -2610,13 +2764,15 @@
 			tasks: [{
 				id: "36714E58DE2BE38B"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "ludlows_bhutan_swallowtail"
+					components: {
+						"minecraft:custom_data": {
+							variant: "ludlows_bhutan_swallowtail"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -2630,13 +2786,15 @@
 			tasks: [{
 				id: "1313A9769C47450D"
 				item: {
-					Count: 1
-					id: "longwings:moth"
-					tag: {
-						variant: "small_emerald"
+					components: {
+						"minecraft:custom_data": {
+							variant: "small_emerald"
+						}
 					}
+					count: 1
+					id: "longwings:moth"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -2650,13 +2808,15 @@
 			tasks: [{
 				id: "30925BF903EE926E"
 				item: {
-					Count: 1
-					id: "longwings:moth"
-					tag: {
-						variant: "chickweed"
+					components: {
+						"minecraft:custom_data": {
+							variant: "chickweed"
+						}
 					}
+					count: 1
+					id: "longwings:moth"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -2670,13 +2830,15 @@
 			tasks: [{
 				id: "202EC3E5C0DF5CEE"
 				item: {
-					Count: 1
-					id: "longwings:moth"
-					tag: {
-						variant: "owl"
+					components: {
+						"minecraft:custom_data": {
+							variant: "owl"
+						}
 					}
+					count: 1
+					id: "longwings:moth"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -2714,13 +2876,15 @@
 			tasks: [{
 				id: "099FE25781585391"
 				item: {
-					Count: 1
-					id: "longwings:butterfly"
-					tag: {
-						variant: "tropical_leafwing"
+					components: {
+						"minecraft:custom_data": {
+							variant: "tropical_leafwing"
+						}
 					}
+					count: 1
+					id: "longwings:butterfly"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]
@@ -2734,13 +2898,15 @@
 			tasks: [{
 				id: "5F077954BC31F303"
 				item: {
-					Count: 1
-					id: "longwings:moth"
-					tag: {
-						variant: "comet"
+					components: {
+						"minecraft:custom_data": {
+							variant: "comet"
+						}
 					}
+					count: 1
+					id: "longwings:moth"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 				weak_nbt_match: true
 			}]

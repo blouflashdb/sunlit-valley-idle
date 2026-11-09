@@ -18,11 +18,13 @@
 			rewards: [{
 				id: "6FDF35ACBB9324CF"
 				item: {
-					Count: 1
-					id: "minecraft:potion"
-					tag: {
-						Potion: "minecraft:fire_resistance"
+					components: {
+						"minecraft:potion_contents": {
+							potion: "minecraft:fire_resistance"
+						}
 					}
+					count: 1
+					id: "minecraft:potion"
 				}
 				type: "item"
 			}]
@@ -77,11 +79,8 @@
 			tasks: [{
 				id: "379A2E074C1F6E72"
 				item: {
-					Count: 1
+					count: 1
 					id: "netherdepthsupgrade:lava_fishing_rod"
-					tag: {
-						Damage: 0
-					}
 				}
 				type: "item"
 			}]
@@ -256,11 +255,8 @@
 			rewards: [{
 				id: "38538EA8C9CD5981"
 				item: {
-					Count: 1
+					count: 1
 					id: "gag:escape_rope"
-					tag: {
-						Damage: 0
-					}
 				}
 				type: "item"
 			}]
@@ -415,20 +411,11 @@
 			tasks: [{
 				id: "38A2FC9B0D264BD2"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "dew_drop_farmland_growth:strong_fertilizer"
-							}
-							{
-								Count: 1b
-								id: "dew_drop_farmland_growth:high_quality_fertilizer"
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(dew_drop_farmland_growth:strong_fertilizer)item(dew_drop_farmland_growth:high_quality_fertilizer))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.iii__advanced_farming.quest1D21615AEE411491.task.4081101955221834706.title}"
 				type: "item"
@@ -646,7 +633,7 @@
 				"{ftbquests.chapter.iii__advanced_farming.quest7A551F04BB9A117.description3}"
 			]
 			icon: {
-				Count: 1
+				count: 1
 				id: "splendid_slimes:plort_bitwise"
 			}
 			id: "07A551F04BB9A117"
@@ -753,9 +740,8 @@
 			rewards: [{
 				id: "23B7515792CD7747"
 				item: {
-					Count: 1
+					count: 1
 					id: "longwings:butterfly_handbook"
-					tag: { }
 				}
 				type: "item"
 			}]
@@ -764,11 +750,8 @@
 			tasks: [{
 				id: "48EAD831424A0BC8"
 				item: {
-					Count: 1
+					count: 1
 					id: "longwings:catching_net"
-					tag: {
-						Damage: 0
-					}
 				}
 				type: "item"
 			}]
@@ -799,37 +782,11 @@
 				{
 					id: "14EDDD83CB99C1B4"
 					item: {
-						Count: 1
-						id: "itemfilters:or"
-						tag: {
-							items: [
-								{
-									Count: 1b
-									id: "longwings:berry_butterfly_brew_bottle"
-									tag: { }
-								}
-								{
-									Count: 1b
-									id: "longwings:apple_butterfly_brew_bottle"
-								}
-								{
-									Count: 1b
-									id: "longwings:melon_butterfly_brew_bottle"
-								}
-								{
-									Count: 1b
-									id: "longwings:melon_butterfly_brew_block"
-								}
-								{
-									Count: 1b
-									id: "longwings:apple_butterfly_brew_block"
-								}
-								{
-									Count: 1b
-									id: "longwings:berry_butterfly_brew_block"
-								}
-							]
+						components: {
+							"ftbfiltersystem:filter": "or(item(longwings:berry_butterfly_brew_bottle)item(longwings:apple_butterfly_brew_bottle)item(longwings:melon_butterfly_brew_bottle)item(longwings:melon_butterfly_brew_block)item(longwings:apple_butterfly_brew_block)item(longwings:berry_butterfly_brew_block))"
 						}
+						count: 1
+						id: "ftbfiltersystem:smart_filter"
 					}
 					title: "{ftbquests.chapter.iii__advanced_farming.quest7ADD57C8AF4092B2.task.1508105008365289908.title}"
 					type: "item"
@@ -851,9 +808,8 @@
 			tasks: [{
 				id: "75B8E4FE58AD10CB"
 				item: {
-					Count: 1
+					count: 1
 					id: "longwings:butterfly_bowl_feeder"
-					tag: { }
 				}
 				type: "item"
 			}]
@@ -870,9 +826,8 @@
 				"{ftbquests.chapter.iii__advanced_farming.quest4DC073ABF3D72467.description3}"
 			]
 			icon: {
-				Count: 1
+				count: 1
 				id: "longwings:butterfly_handbook"
-				tag: { }
 			}
 			id: "4DC073ABF3D72467"
 			rewards: [{
@@ -915,11 +870,13 @@
 				{
 					id: "49D77D37E419CD97"
 					item: {
-						Count: 1
-						id: "sophisticatedstorage:iron_barrel"
-						tag: {
-							woodType: "cherry"
+						components: {
+							"minecraft:custom_data": {
+								woodType: "cherry"
+							}
 						}
+						count: 1
+						id: "sophisticatedstorage:iron_barrel"
 					}
 					type: "item"
 				}
@@ -927,20 +884,11 @@
 			tasks: [{
 				id: "526CDEE7648DACB8"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "society:moth_pollen"
-							}
-							{
-								Count: 1b
-								id: "society:butterfly_amber"
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(society:moth_pollen)item(society:butterfly_amber))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.iii__advanced_farming.quest3B6640956F047EC8.task.5939367094000659640.title}"
 				type: "item"
@@ -994,11 +942,9 @@
 			tasks: [{
 				id: "2933B9035E879D0D"
 				item: {
-					Count: 1
+					count: 1
 					id: "splendid_slimes:plort_slimy"
-					tag: { }
 				}
-				match_nbt: false
 				type: "item"
 			}]
 			title: "{ftbquests.chapter.iii__advanced_farming.quest2C9C87690BD8E23B.title}"
@@ -1038,20 +984,11 @@
 				icon: "refurbished_furniture:light_electricity_generator"
 				id: "1554E7905CF741CC"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "refurbished_furniture:dark_electricity_generator"
-							}
-							{
-								Count: 1b
-								id: "refurbished_furniture:light_electricity_generator"
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(refurbished_furniture:dark_electricity_generator)item(refurbished_furniture:light_electricity_generator))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.iii__advanced_farming.quest462313FFAEC4054.task.1537107980061196748.title}"
 				type: "item"
@@ -1214,11 +1151,11 @@
 			tasks: [{
 				id: "6C184749905BE27F"
 				item: {
-					Count: 1
-					id: "itemfilters:tag"
-					tag: {
-						value: "classicpipes:pipes/item"
+					components: {
+						"ftbfiltersystem:filter": "item_tag(classicpipes:pipes/item)"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.iii__advanced_farming.quest6C95E6AEEC55CFA5.task.7789053936817398399.title}"
 				type: "item"
@@ -1317,26 +1254,30 @@
 				{
 					id: "2DA4C5918EDD2952"
 					item: {
-						Count: 1
-						id: "society:invitation"
-						tag: {
-							type: {
-								id: "society:witch"
+						components: {
+							"minecraft:custom_data": {
+								type: {
+									id: "society:witch"
+								}
 							}
 						}
+						count: 1
+						id: "society:invitation"
 					}
-					match_nbt: true
+					match_components: "fuzzy"
 					type: "item"
 				}
 				{
 					icon: {
-						Count: 1
-						id: "society:villager"
-						tag: {
-							type: {
-								id: "society:witch"
+						components: {
+							"minecraft:custom_data": {
+								type: {
+									id: "society:witch"
+								}
 							}
 						}
+						count: 1
+						id: "society:villager"
 					}
 					id: "47A5E6018A6FB99F"
 					stage: "invited_witch"

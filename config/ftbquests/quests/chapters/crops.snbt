@@ -1723,13 +1723,11 @@
 			]
 			hide_dependency_lines: true
 			icon: {
-				Count: 1
-				id: "trofers:large_pillar"
-				tag: {
-					BlockEntityTag: {
-						Trophy: "trofers:crops"
-					}
+				components: {
+					"trofers:trophy": "trofers:crops"
 				}
+				count: 1
+				id: "trofers:large_pillar"
 			}
 			id: "7E69F542D4EDE72B"
 			rewards: [
@@ -1741,13 +1739,11 @@
 				{
 					id: "1B80D91D335EE224"
 					item: {
-						Count: 1
-						id: "trofers:large_pillar"
-						tag: {
-							BlockEntityTag: {
-								Trophy: "trofers:crops"
-							}
+						components: {
+							"trofers:trophy": "trofers:crops"
 						}
+						count: 1
+						id: "trofers:large_pillar"
 					}
 					type: "item"
 				}
@@ -1756,11 +1752,8 @@
 			size: 3.0d
 			tasks: [{
 				icon: {
-					Count: 1
+					count: 1
 					id: "minecraft:netherite_hoe"
-					tag: {
-						Damage: 0
-					}
 				}
 				id: "14B9889CA24FCD78"
 				stat: "minecraft:play_time"
@@ -2091,9 +2084,8 @@
 			tasks: [{
 				id: "6BEEF3CC5BFC990F"
 				item: {
-					Count: 1
+					count: 1
 					id: "veggiesdelight:turnip"
-					tag: { }
 				}
 				type: "item"
 			}]

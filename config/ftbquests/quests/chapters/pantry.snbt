@@ -140,20 +140,11 @@
 				{
 					id: "6311F3FAC9E5755D"
 					item: {
-						Count: 1
-						id: "itemfilters:or"
-						tag: {
-							items: [
-								{
-									Count: 1b
-									id: "society:large_milk"
-								}
-								{
-									Count: 1b
-									id: "society:large_sheep_milk"
-								}
-							]
+						components: {
+							"ftbfiltersystem:filter": "or(item(society:large_milk)item(society:large_sheep_milk))"
 						}
+						count: 1
+						id: "ftbfiltersystem:smart_filter"
 					}
 					title: "{ftbquests.chapter.pantry.quest314D5DDD65659FDE.task.7138755142813578589.title}"
 					type: "item"
@@ -161,24 +152,11 @@
 				{
 					id: "13169DA529D1555A"
 					item: {
-						Count: 1
-						id: "itemfilters:or"
-						tag: {
-							items: [
-								{
-									Count: 1b
-									id: "society:large_buffalo_milk"
-								}
-								{
-									Count: 1b
-									id: "society:large_goat_milk"
-								}
-								{
-									Count: 1b
-									id: "society:large_warped_milk"
-								}
-							]
+						components: {
+							"ftbfiltersystem:filter": "or(item(society:large_buffalo_milk)item(society:large_goat_milk)item(society:large_warped_milk))"
 						}
+						count: 1
+						id: "ftbfiltersystem:smart_filter"
 					}
 					title: "{ftbquests.chapter.pantry.quest314D5DDD65659FDE.task.1375460068905014618.title}"
 					type: "item"
@@ -220,64 +198,64 @@
 					count: 5L
 					id: "499CB69BCD41BFE0"
 					item: {
-						Count: 1
-						id: "veggiesdelight:cauliflower"
-						tag: {
-							quality_food: {
-								effects: [ ]
-								quality: 2
+						components: {
+							"quality_food:quality": {
+								level: 2
+								type: "quality_food:gold"
 							}
 						}
+						count: 1
+						id: "veggiesdelight:cauliflower"
 					}
-					match_nbt: true
+					match_components: "fuzzy"
 					type: "item"
 				}
 				{
 					count: 5L
 					id: "6C57B3D989FFD624"
 					item: {
-						Count: 1
-						id: "veggiesdelight:bellpepper"
-						tag: {
-							quality_food: {
-								effects: [ ]
-								quality: 2
+						components: {
+							"quality_food:quality": {
+								level: 2
+								type: "quality_food:gold"
 							}
 						}
+						count: 1
+						id: "veggiesdelight:bellpepper"
 					}
-					match_nbt: true
+					match_components: "fuzzy"
 					type: "item"
 				}
 				{
 					count: 5L
 					id: "2068F0BB063AD8B7"
 					item: {
-						Count: 1
-						id: "society:eggplant"
-						tag: {
-							quality_food: {
-								effects: [ ]
-								quality: 2
+						components: {
+							"quality_food:quality": {
+								level: 2
+								type: "quality_food:gold"
 							}
 						}
+						count: 1
+						id: "society:eggplant"
 					}
-					match_nbt: true
+					match_components: "fuzzy"
 					type: "item"
 				}
 				{
 					count: 5L
 					id: "4101FC59B4F4D5FE"
 					item: {
-						Count: 1
-						id: "farm_and_charm:corn"
-						tag: {
-							quality_food: {
-								effects: [ ]
-								quality: 2
+						components: {
+							"quality_food:quality": {
+								level: 2
+								type: "quality_food:gold"
 							}
 						}
+						count: 1
+						id: "farm_and_charm:corn"
 					}
-					match_nbt: true
+					match_components: "fuzzy"
 					type: "item"
 				}
 			]
@@ -304,13 +282,11 @@
 				{
 					id: "4FC255BFC2126E9F"
 					item: {
-						Count: 1
-						id: "trofers:large_pillar"
-						tag: {
-							BlockEntityTag: {
-								Trophy: "trofers:pantry"
-							}
+						components: {
+							"trofers:trophy": "trofers:pantry"
 						}
+						count: 1
+						id: "trofers:large_pillar"
 					}
 					type: "item"
 				}

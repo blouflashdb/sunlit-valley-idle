@@ -3,11 +3,21 @@
 	loot_size: 1
 	order_index: 3
 	rewards: [
-		{ item: "society:yard_work_yearly" }
-		{ item: "society:husbandry_hourly" }
-		{ item: "society:mining_monthly" }
-		{ item: "society:wet_weekly" }
-		{ item: "society:combat_quarterly" }
+		{
+			item: "society:yard_work_yearly"
+		}
+		{
+			item: "society:husbandry_hourly"
+		}
+		{
+			item: "society:mining_monthly"
+		}
+		{
+			item: "society:wet_weekly"
+		}
+		{
+			item: "society:combat_quarterly"
+		}
 	]
 	title: "{ftbquests.loot_table.148309168996942632.title}"
 }

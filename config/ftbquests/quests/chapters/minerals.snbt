@@ -1154,13 +1154,11 @@
 			]
 			hide_dependency_lines: true
 			icon: {
-				Count: 1
-				id: "trofers:large_pillar"
-				tag: {
-					BlockEntityTag: {
-						Trophy: "trofers:minerals"
-					}
+				components: {
+					"trofers:trophy": "trofers:minerals"
 				}
+				count: 1
+				id: "trofers:large_pillar"
 			}
 			id: "7BA3A7D6D37CFA69"
 			rewards: [
@@ -1184,13 +1182,11 @@
 				{
 					id: "6184D21F24D7A1D1"
 					item: {
-						Count: 1
-						id: "trofers:large_pillar"
-						tag: {
-							BlockEntityTag: {
-								Trophy: "trofers:minerals"
-							}
+						components: {
+							"trofers:trophy": "trofers:minerals"
 						}
+						count: 1
+						id: "trofers:large_pillar"
 					}
 					type: "item"
 				}

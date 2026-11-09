@@ -194,56 +194,11 @@
 			tasks: [{
 				id: "67FE1BE1B3199D1B"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "society:sea_biscut"
-							}
-							{
-								Count: 1b
-								id: "society:broken_clock"
-							}
-							{
-								Count: 1b
-								id: "society:ancient_cog"
-							}
-							{
-								Count: 1b
-								id: "society:ancient_roe"
-							}
-							{
-								Count: 1b
-								id: "society:infinity_worm"
-							}
-							{
-								Count: 1b
-								id: "society:frosted_tip"
-							}
-							{
-								Count: 1b
-								id: "society:inserter"
-							}
-							{
-								Count: 1b
-								id: "society:cordycep"
-							}
-							{
-								Count: 1b
-								id: "society:black_opal"
-							}
-							{
-								Count: 1b
-								id: "society:stone_hand"
-							}
-							{
-								Count: 1b
-								id: "society:tiny_gnome"
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(society:sea_biscut)item(society:broken_clock)item(society:ancient_cog)item(society:ancient_roe)item(society:infinity_worm)item(society:frosted_tip)item(society:inserter)item(society:cordycep)item(society:black_opal)item(society:stone_hand)item(society:tiny_gnome))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.iv__prismatic_farming.quest41C453E806763C4F.task.7493457486177475867.title}"
 				type: "item"
@@ -714,9 +669,8 @@
 			rewards: [{
 				id: "3E34C59B31A159AD"
 				item: {
-					Count: 1
+					count: 1
 					id: "nethervinery:netherite_nectar"
-					tag: { }
 				}
 				type: "item"
 			}]
@@ -818,11 +772,8 @@
 			tasks: [{
 				id: "70219D7E929580DB"
 				item: {
-					Count: 1
+					count: 1
 					id: "oreganized:scribe"
-					tag: {
-						Damage: 0
-					}
 				}
 				type: "item"
 			}]
@@ -1056,32 +1007,11 @@
 			tasks: [{
 				id: "6F925B01C27987B2"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "vinery:white_grapejuice"
-							}
-							{
-								Count: 1b
-								id: "vinery:red_grapejuice"
-							}
-							{
-								Count: 1b
-								id: "nethervinery:warped_grapejuice"
-							}
-							{
-								Count: 1b
-								id: "nethervinery:crimson_grapejuice"
-							}
-							{
-								Count: 1b
-								id: "vinery:apple_juice"
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(vinery:white_grapejuice)item(vinery:red_grapejuice)item(nethervinery:warped_grapejuice)item(nethervinery:crimson_grapejuice)item(vinery:apple_juice))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.iv__prismatic_farming.quest94497558E9DB19C.task.8039588347925596082.title}"
 				type: "item"
@@ -1133,11 +1063,8 @@
 			size: 1.5d
 			tasks: [{
 				icon: {
-					Count: 1
+					count: 1
 					id: "aquaculture:neptunium_fishing_rod"
-					tag: {
-						Damage: 0
-					}
 				}
 				id: "7162E14466460F42"
 				stage: "fishing_mastery"
@@ -1164,20 +1091,11 @@
 			tasks: [{
 				id: "5102E21B6D44F962"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "society:needle_bobber"
-							}
-							{
-								Count: 1b
-								id: "society:net_bobber"
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(society:needle_bobber)item(society:net_bobber))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.iv__prismatic_farming.quest785F3754068D5C2D.task.5837476674450815330.title}"
 				type: "item"
@@ -1250,11 +1168,8 @@
 			size: 1.5d
 			tasks: [{
 				icon: {
-					Count: 1
+					count: 1
 					id: "minecraft:netherite_sword"
-					tag: {
-						Damage: 0
-					}
 				}
 				id: "60760AF29A6A1954"
 				secret: true
@@ -1272,14 +1187,15 @@
 			rewards: [{
 				id: "284F02BE3A8C125C"
 				item: {
-					Count: 1
-					id: "minecraft:enchanted_book"
-					tag: {
-						StoredEnchantments: [{
-							id: "domesticationinnovation:total_recall"
-							lvl: 1s
-						}]
+					components: {
+						"minecraft:stored_enchantments": {
+							levels: {
+								"domesticationinnovation:total_recall": 1
+							}
+						}
 					}
+					count: 1
+					id: "minecraft:enchanted_book"
 				}
 				type: "item"
 			}]
@@ -1395,11 +1311,8 @@
 			size: 1.5d
 			tasks: [{
 				icon: {
-					Count: 1
+					count: 1
 					id: "minecraft:netherite_hoe"
-					tag: {
-						Damage: 0
-					}
 				}
 				id: "224A29585E36B057"
 				stage: "farming_mastery"
@@ -1427,11 +1340,8 @@
 			size: 1.5d
 			tasks: [{
 				icon: {
-					Count: 1
+					count: 1
 					id: "minecraft:netherite_pickaxe"
-					tag: {
-						Damage: 0
-					}
 				}
 				id: "0AD01E5BA4169E25"
 				stage: "mining_mastery"
@@ -1481,14 +1391,15 @@
 			rewards: [{
 				id: "05B38EF7A3C4EC93"
 				item: {
-					Count: 1
-					id: "minecraft:enchanted_book"
-					tag: {
-						StoredEnchantments: [{
-							id: "domesticationinnovation:chain_lightning"
-							lvl: 1s
-						}]
+					components: {
+						"minecraft:stored_enchantments": {
+							levels: {
+								"domesticationinnovation:chain_lightning": 1
+							}
+						}
 					}
+					count: 1
+					id: "minecraft:enchanted_book"
 				}
 				type: "item"
 			}]
@@ -1707,11 +1618,8 @@
 			tasks: [{
 				id: "6DFADFB2FF71B6D0"
 				item: {
-					Count: 1
+					count: 1
 					id: "society:galaxy_sword"
-					tag: {
-						Damage: 0
-					}
 				}
 				type: "item"
 			}]
@@ -1813,26 +1721,30 @@
 				{
 					id: "0944E1D3F203821B"
 					item: {
-						Count: 1
-						id: "society:invitation"
-						tag: {
-							type: {
-								id: "society:trader"
+						components: {
+							"minecraft:custom_data": {
+								type: {
+									id: "society:trader"
+								}
 							}
 						}
+						count: 1
+						id: "society:invitation"
 					}
-					match_nbt: true
+					match_components: "fuzzy"
 					type: "item"
 				}
 				{
 					icon: {
-						Count: 1
-						id: "society:villager"
-						tag: {
-							type: {
-								id: "society:trader"
+						components: {
+							"minecraft:custom_data": {
+								type: {
+									id: "society:trader"
+								}
 							}
 						}
+						count: 1
+						id: "society:villager"
 					}
 					id: "48A5EF6D1BB8647A"
 					stage: "invited_trader"

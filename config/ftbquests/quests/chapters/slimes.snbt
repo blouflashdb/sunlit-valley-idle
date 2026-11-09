@@ -4,7 +4,7 @@
 	filename: "slimes"
 	group: "15230846E14B6926"
 	icon: {
-		Count: 1
+		count: 1
 		id: "splendid_slimes:plort_slimy"
 	}
 	id: "3F567CE7F8E7B185"
@@ -353,10 +353,9 @@
 			tasks: [{
 				id: "3C8848715FF6A9EF"
 				item: {
-					Count: 1
+					count: 1
 					id: "splendid_slimes:plort_slimy"
 				}
-				match_nbt: true
 				type: "item"
 			}]
 			x: -4.5d
@@ -370,10 +369,9 @@
 			tasks: [{
 				id: "189B2E46CB1A844B"
 				item: {
-					Count: 1
+					count: 1
 					id: "splendid_slimes:plort_rotting"
 				}
-				match_nbt: true
 				type: "item"
 			}]
 			x: 1.5d
@@ -386,10 +384,9 @@
 			tasks: [{
 				id: "38DE632DABC96425"
 				item: {
-					Count: 1
+					count: 1
 					id: "splendid_slimes:plort_webby"
 				}
-				match_nbt: true
 				type: "item"
 			}]
 			x: -1.5d
@@ -403,10 +400,9 @@
 			tasks: [{
 				id: "39586EAC1ADC9D89"
 				item: {
-					Count: 1
+					count: 1
 					id: "splendid_slimes:plort_bony"
 				}
-				match_nbt: true
 				type: "item"
 			}]
 			x: 0.0d
@@ -420,10 +416,9 @@
 			tasks: [{
 				id: "60AB50043188E773"
 				item: {
-					Count: 1
+					count: 1
 					id: "splendid_slimes:plort_puddle"
 				}
-				match_nbt: true
 				type: "item"
 			}]
 			x: -3.0d
@@ -437,10 +432,9 @@
 			tasks: [{
 				id: "7C967E14B224F31C"
 				item: {
-					Count: 1
+					count: 1
 					id: "splendid_slimes:plort_boomcat"
 				}
-				match_nbt: true
 				type: "item"
 			}]
 			x: -1.5d
@@ -454,10 +448,9 @@
 			tasks: [{
 				id: "7F41081FE7F5EB69"
 				item: {
-					Count: 1
+					count: 1
 					id: "splendid_slimes:plort_all_seeing"
 				}
-				match_nbt: true
 				type: "item"
 			}]
 			x: 1.5d
@@ -471,10 +464,9 @@
 			tasks: [{
 				id: "3195E71B7E4735F5"
 				item: {
-					Count: 1
+					count: 1
 					id: "splendid_slimes:plort_bitwise"
 				}
-				match_nbt: true
 				type: "item"
 			}]
 			x: 3.0d
@@ -488,10 +480,9 @@
 			tasks: [{
 				id: "3BA03FBF75A4E738"
 				item: {
-					Count: 1
+					count: 1
 					id: "splendid_slimes:plort_blazing"
 				}
-				match_nbt: true
 				type: "item"
 			}]
 			x: -4.5d
@@ -505,10 +496,9 @@
 			tasks: [{
 				id: "7ABBFD16E9C9DAC9"
 				item: {
-					Count: 1
+					count: 1
 					id: "splendid_slimes:plort_luminous"
 				}
-				match_nbt: true
 				type: "item"
 			}]
 			x: -3.0d
@@ -522,10 +512,9 @@
 			tasks: [{
 				id: "1DB8268DF62D3754"
 				item: {
-					Count: 1
+					count: 1
 					id: "splendid_slimes:plort_weeping"
 				}
-				match_nbt: true
 				type: "item"
 			}]
 			x: -1.5d
@@ -539,10 +528,9 @@
 			tasks: [{
 				id: "5CFBB6FF36DCF65F"
 				item: {
-					Count: 1
+					count: 1
 					id: "splendid_slimes:plort_prisma"
 				}
-				match_nbt: true
 				type: "item"
 			}]
 			x: 0.0d
@@ -556,10 +544,9 @@
 			tasks: [{
 				id: "16A6A34A03C52958"
 				item: {
-					Count: 1
+					count: 1
 					id: "splendid_slimes:plort_sweet"
 				}
-				match_nbt: true
 				type: "item"
 			}]
 			x: 1.5d
@@ -573,10 +560,9 @@
 			tasks: [{
 				id: "152C9F4BB76998D3"
 				item: {
-					Count: 1
+					count: 1
 					id: "splendid_slimes:plort_shulking"
 				}
-				match_nbt: true
 				type: "item"
 			}]
 			x: 3.0d
@@ -590,10 +576,9 @@
 			tasks: [{
 				id: "3EB935B020F083E1"
 				item: {
-					Count: 1
+					count: 1
 					id: "splendid_slimes:plort_ender"
 				}
-				match_nbt: true
 				type: "item"
 			}]
 			x: -4.5d
@@ -607,10 +592,9 @@
 			tasks: [{
 				id: "0060735E902D699C"
 				item: {
-					Count: 1
+					count: 1
 					id: "splendid_slimes:plort_phantom"
 				}
-				match_nbt: true
 				type: "item"
 			}]
 			x: -3.0d
@@ -624,10 +608,9 @@
 			tasks: [{
 				id: "0E5BC1F54CBF9552"
 				item: {
-					Count: 1
+					count: 1
 					id: "splendid_slimes:plort_orby"
 				}
-				match_nbt: true
 				type: "item"
 			}]
 			x: -1.5d
@@ -641,10 +624,9 @@
 			tasks: [{
 				id: "1B3679E9AAC4E287"
 				item: {
-					Count: 1
+					count: 1
 					id: "splendid_slimes:plort_minty"
 				}
-				match_nbt: true
 				type: "item"
 			}]
 			x: 0.0d
@@ -658,10 +640,9 @@
 			tasks: [{
 				id: "041C03FF59CD62FE"
 				item: {
-					Count: 1
+					count: 1
 					id: "splendid_slimes:plort_gold"
 				}
-				match_nbt: true
 				type: "item"
 			}]
 			x: 3.0d
@@ -675,10 +656,9 @@
 			tasks: [{
 				id: "2B7E0584A14479C0"
 				item: {
-					Count: 1
+					count: 1
 					id: "splendid_slimes:plort_dusty"
 				}
-				match_nbt: true
 				type: "item"
 			}]
 			x: -3.0d
@@ -713,33 +693,29 @@
 			]
 			hide_dependency_lines: true
 			icon: {
-				Count: 1
-				id: "trofers:large_pillar"
-				tag: {
-					BlockEntityTag: {
-						Trophy: "trofers:slimes"
-					}
+				components: {
+					"trofers:trophy": "trofers:slimes"
 				}
+				count: 1
+				id: "trofers:large_pillar"
 			}
 			id: "2E7D98DEB5012260"
 			rewards: [
 				{
 					id: "4DCD56859A360196"
 					item: {
-						Count: 1
-						id: "trofers:large_pillar"
-						tag: {
-							BlockEntityTag: {
-								Trophy: "trofers:slimes"
-							}
+						components: {
+							"trofers:trophy": "trofers:slimes"
 						}
+						count: 1
+						id: "trofers:large_pillar"
 					}
 					type: "item"
 				}
 				{
 					id: "655170786A0460BD"
 					item: {
-						Count: 1
+						count: 1
 						id: "splendid_slimes:slime_heart_gold"
 					}
 					type: "item"
@@ -766,10 +742,9 @@
 			tasks: [{
 				id: "1713E3078B9AC189"
 				item: {
-					Count: 1
+					count: 1
 					id: "splendid_slimes:plort_sparkcat"
 				}
-				match_nbt: true
 				type: "item"
 			}]
 			x: 1.5d
@@ -782,10 +757,9 @@
 			tasks: [{
 				id: "10D65BCB87FF83CC"
 				item: {
-					Count: 1
+					count: 1
 					id: "splendid_slimes:plort_juicy"
 				}
-				match_nbt: true
 				type: "item"
 			}]
 			x: -4.5d
@@ -799,10 +773,9 @@
 			tasks: [{
 				id: "540B77D4A0C02FBF"
 				item: {
-					Count: 1
+					count: 1
 					id: "splendid_slimes:plort_mechanic"
 				}
-				match_nbt: true
 				type: "item"
 			}]
 			x: 3.0d
@@ -816,10 +789,9 @@
 			tasks: [{
 				id: "7EB7C316D34FB01F"
 				item: {
-					Count: 1
+					count: 1
 					id: "splendid_slimes:plort_bear"
 				}
-				match_nbt: true
 				type: "item"
 			}]
 			x: 0.0d

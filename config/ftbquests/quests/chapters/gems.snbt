@@ -355,13 +355,11 @@
 			]
 			hide_dependency_lines: true
 			icon: {
-				Count: 1
-				id: "trofers:large_pillar"
-				tag: {
-					BlockEntityTag: {
-						Trophy: "trofers:gems"
-					}
+				components: {
+					"trofers:trophy": "trofers:gems"
 				}
+				count: 1
+				id: "trofers:large_pillar"
 			}
 			id: "21B62899C63D3C4B"
 			rewards: [
@@ -373,13 +371,11 @@
 				{
 					id: "0ECE63821053FD3B"
 					item: {
-						Count: 1
-						id: "trofers:large_pillar"
-						tag: {
-							BlockEntityTag: {
-								Trophy: "trofers:gems"
-							}
+						components: {
+							"trofers:trophy": "trofers:gems"
 						}
+						count: 1
+						id: "trofers:large_pillar"
 					}
 					type: "item"
 				}

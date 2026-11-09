@@ -47,11 +47,11 @@
 				{
 					id: "7A14BED1889FDFC6"
 					item: {
-						Count: 1
-						id: "itemfilters:tag"
-						tag: {
-							value: "society:preserves"
+						components: {
+							"ftbfiltersystem:filter": "item_tag(society:preserves)"
 						}
+						count: 1
+						id: "ftbfiltersystem:smart_filter"
 					}
 					title: "{ftbquests.chapter.crafts_room.quest403045A4DA7A770.task.8796865779311042502.title}"
 					type: "item"
@@ -59,11 +59,11 @@
 				{
 					id: "161E5A9AADD44F3D"
 					item: {
-						Count: 1
-						id: "itemfilters:tag"
-						tag: {
-							value: "society:large_mayonnaise"
+						components: {
+							"ftbfiltersystem:filter": "item_tag(society:large_mayonnaise)"
 						}
+						count: 1
+						id: "ftbfiltersystem:smart_filter"
 					}
 					title: "{ftbquests.chapter.crafts_room.quest403045A4DA7A770.task.1593810938523569981.title}"
 					type: "item"
@@ -81,42 +81,8 @@
 			rewards: [{
 				id: "490B15BEE84A932A"
 				item: {
-					Count: 1
+					count: 1
 					id: "relics:spore_sack"
-					tag: {
-						abilities: {
-							buffer: {
-								points: 0
-								stats: {
-									capacity: 4.22862d
-									chance: 0.02577d
-								}
-							}
-							explosion: {
-								points: 0
-								stats: {
-									size: 0.22587d
-								}
-							}
-							multiplying: {
-								points: 0
-								stats: {
-									amount: 0.12577d
-									chance: 0.08342d
-									size: 0.08699d
-								}
-							}
-							spore: {
-								points: 0
-								stats: {
-									cooldown: 13.95169d
-									damage: 0.36405d
-									duration: 3.67542d
-									size: 0.10392d
-								}
-							}
-						}
-					}
 				}
 				type: "item"
 			}]
@@ -140,11 +106,8 @@
 				{
 					id: "6C07D3AF35BC2D33"
 					item: {
-						Count: 1
+						count: 1
 						id: "candlelight:beef_wellington"
-						tag: {
-							StoredEffects: [ ]
-						}
 					}
 					type: "item"
 				}
@@ -213,7 +176,10 @@
 				{
 					count: 16L
 					id: "116A9CF43B613B8F"
-					item: { Count: 16, id: "meadow:fire_log" }
+					item: {
+						count: 16
+						id: "meadow:fire_log"
+					}
 					type: "item"
 				}
 				{
@@ -245,32 +211,19 @@
 				{
 					id: "3BEDCAAC8ECCCB29"
 					item: {
-						Count: 1
+						count: 1
 						id: "relics:magic_mirror"
-						tag: {
-							abilities: {
-								teleport: {
-									points: 0
-									stats: {
-										cooldown: 75.41472d
-										distance: 644.95883d
-									}
-								}
-							}
-						}
 					}
 					type: "item"
 				}
 				{
 					id: "40AD50A7154B8198"
 					item: {
-						Count: 1
-						id: "trofers:large_pillar"
-						tag: {
-							BlockEntityTag: {
-								Trophy: "trofers:crafts_room"
-							}
+						components: {
+							"trofers:trophy": "trofers:crafts_room"
 						}
+						count: 1
+						id: "trofers:large_pillar"
 					}
 					type: "item"
 				}
@@ -386,11 +339,11 @@
 				{
 					id: "7E48DF9E76F49A49"
 					item: {
-						Count: 1
-						id: "itemfilters:tag"
-						tag: {
-							value: "vinery:red_grape"
+						components: {
+							"ftbfiltersystem:filter": "item_tag(vinery:red_grape)"
 						}
+						count: 1
+						id: "ftbfiltersystem:smart_filter"
 					}
 					title: "{ftbquests.chapter.crafts_room.quest7466DCDD6C3CDDE8.task.9099768918795655753.title}"
 					type: "item"
@@ -398,11 +351,11 @@
 				{
 					id: "57B88B56E94E2933"
 					item: {
-						Count: 1
-						id: "itemfilters:tag"
-						tag: {
-							value: "vinery:white_grape"
+						components: {
+							"ftbfiltersystem:filter": "item_tag(vinery:white_grape)"
 						}
+						count: 1
+						id: "ftbfiltersystem:smart_filter"
 					}
 					title: "{ftbquests.chapter.crafts_room.quest7466DCDD6C3CDDE8.task.6320955282412153139.title}"
 					type: "item"

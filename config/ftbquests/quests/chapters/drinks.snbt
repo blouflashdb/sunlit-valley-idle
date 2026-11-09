@@ -5,11 +5,8 @@
 	filename: "drinks"
 	group: "15230846E14B6926"
 	icon: {
-		Count: 1
+		count: 1
 		id: "vinery:eiswein"
-		tag: {
-			Year: 0
-		}
 	}
 	id: "3DE5C3A5E424080B"
 	order_index: 7
@@ -20,11 +17,8 @@
 			tasks: [{
 				id: "096309B81126834C"
 				item: {
-					Count: 1
+					count: 1
 					id: "vinery:red_wine"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -36,11 +30,8 @@
 			tasks: [{
 				id: "4FEEAF99332683D9"
 				item: {
-					Count: 1
+					count: 1
 					id: "vinery:villagers_fright"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -52,11 +43,8 @@
 			tasks: [{
 				id: "50607FB4C505083F"
 				item: {
-					Count: 1
+					count: 1
 					id: "vinery:creepers_crush"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -68,11 +56,8 @@
 			tasks: [{
 				id: "6DC9C72B6F395462"
 				item: {
-					Count: 1
+					count: 1
 					id: "vinery:kelp_cider"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -84,11 +69,8 @@
 			tasks: [{
 				id: "27BDB1F4818B9156"
 				item: {
-					Count: 1
+					count: 1
 					id: "vinery:chorus_wine"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -100,11 +82,8 @@
 			tasks: [{
 				id: "5C201A00E15ED0FA"
 				item: {
-					Count: 1
+					count: 1
 					id: "vinery:strad_wine"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -116,11 +95,8 @@
 			tasks: [{
 				id: "6FC78DEC1D72076D"
 				item: {
-					Count: 1
+					count: 1
 					id: "vinery:stal_wine"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -132,11 +108,8 @@
 			tasks: [{
 				id: "677280102632A7BF"
 				item: {
-					Count: 1
+					count: 1
 					id: "vinery:chenet_wine"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -148,11 +121,8 @@
 			tasks: [{
 				id: "7D31E1BFCE4FD7EB"
 				item: {
-					Count: 1
+					count: 1
 					id: "vinery:lilitu_wine"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -164,11 +134,8 @@
 			tasks: [{
 				id: "1834512DB1478FFB"
 				item: {
-					Count: 1
+					count: 1
 					id: "vinery:apple_cider"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -180,11 +147,8 @@
 			tasks: [{
 				id: "00BC2D5D551D38AF"
 				item: {
-					Count: 1
+					count: 1
 					id: "nethervinery:blazewine_pinot"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -196,11 +160,8 @@
 			tasks: [{
 				id: "52A4E5C2F7B41CD1"
 				item: {
-					Count: 1
+					count: 1
 					id: "nethervinery:nether_fizz"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -212,11 +173,8 @@
 			tasks: [{
 				id: "396496F08B904288"
 				item: {
-					Count: 1
+					count: 1
 					id: "nethervinery:lava_fizz"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -228,11 +186,8 @@
 			tasks: [{
 				id: "00FC551AB851C0A2"
 				item: {
-					Count: 1
+					count: 1
 					id: "nethervinery:improved_lava_fizz"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -244,11 +199,8 @@
 			tasks: [{
 				id: "16AB10903AED2444"
 				item: {
-					Count: 1
+					count: 1
 					id: "nethervinery:improved_nether_fizz"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -260,11 +212,8 @@
 			tasks: [{
 				id: "5C1D68C390B1E664"
 				item: {
-					Count: 1
+					count: 1
 					id: "vinery:magnetic_wine"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -276,11 +225,8 @@
 			tasks: [{
 				id: "44BBC7116F9B7282"
 				item: {
-					Count: 1
+					count: 1
 					id: "vinery:apple_wine"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -293,11 +239,8 @@
 			tasks: [{
 				id: "36C8CCACAD0C7F54"
 				item: {
-					Count: 1
+					count: 1
 					id: "society:forks_of_blue"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -309,11 +252,8 @@
 			tasks: [{
 				id: "060391CEDFF28788"
 				item: {
-					Count: 1
+					count: 1
 					id: "nethervinery:ghastly_grenache"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -325,11 +265,8 @@
 			tasks: [{
 				id: "5C26E3B637BA8F65"
 				item: {
-					Count: 1
+					count: 1
 					id: "nethervinery:netherite_nectar"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -341,11 +278,8 @@
 			tasks: [{
 				id: "0F19DBE85C2F086D"
 				item: {
-					Count: 1
+					count: 1
 					id: "vinery:mead"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -357,11 +291,8 @@
 			tasks: [{
 				id: "16DFA433E671BCB8"
 				item: {
-					Count: 1
+					count: 1
 					id: "vinery:bolvar_wine"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -373,11 +304,8 @@
 			tasks: [{
 				id: "0F77FFDB94453B53"
 				item: {
-					Count: 1
+					count: 1
 					id: "vinery:cristel_wine"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -389,11 +317,8 @@
 			tasks: [{
 				id: "3B460A8459941E82"
 				item: {
-					Count: 1
+					count: 1
 					id: "vinery:clark_wine"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -405,11 +330,8 @@
 			tasks: [{
 				id: "7E628B0993B251B8"
 				item: {
-					Count: 1
+					count: 1
 					id: "vinery:solaris_wine"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -421,11 +343,8 @@
 			tasks: [{
 				id: "39B1A71B4840EC2A"
 				item: {
-					Count: 1
+					count: 1
 					id: "vinery:bottle_mojang_noir"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -437,11 +356,8 @@
 			tasks: [{
 				id: "2191385A360DF86B"
 				item: {
-					Count: 1
+					count: 1
 					id: "vinery:noir_wine"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -453,11 +369,8 @@
 			tasks: [{
 				id: "75FAF750C8632C0E"
 				item: {
-					Count: 1
+					count: 1
 					id: "vinery:cherry_wine"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -469,11 +382,8 @@
 			tasks: [{
 				id: "692A3C3060D3C713"
 				item: {
-					Count: 1
+					count: 1
 					id: "vinery:jo_special_mixture"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -485,11 +395,8 @@
 			tasks: [{
 				id: "27EEECCD481383A0"
 				item: {
-					Count: 1
+					count: 1
 					id: "vinery:mellohi_wine"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -501,11 +408,8 @@
 			tasks: [{
 				id: "0DCD3913B1DFB310"
 				item: {
-					Count: 1
+					count: 1
 					id: "vinery:glowing_wine"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -517,11 +421,8 @@
 			tasks: [{
 				id: "6DED75413A240E76"
 				item: {
-					Count: 1
+					count: 1
 					id: "vinery:aegis_wine"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -533,11 +434,8 @@
 			tasks: [{
 				id: "4600C9AF105244B6"
 				item: {
-					Count: 1
+					count: 1
 					id: "vinery:eiswein"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -549,11 +447,8 @@
 			tasks: [{
 				id: "227FA2A371449CD4"
 				item: {
-					Count: 1
+					count: 1
 					id: "vinery:jellie_wine"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -566,11 +461,8 @@
 			tasks: [{
 				id: "2460CAE307110F0E"
 				item: {
-					Count: 1
+					count: 1
 					id: "society:good_catawba"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]
@@ -1099,13 +991,11 @@
 			]
 			hide_dependency_lines: true
 			icon: {
-				Count: 1
-				id: "trofers:large_pillar"
-				tag: {
-					BlockEntityTag: {
-						Trophy: "trofers:brews"
-					}
+				components: {
+					"trofers:trophy": "trofers:brews"
 				}
+				count: 1
+				id: "trofers:large_pillar"
 			}
 			id: "19D2D00AC36C9049"
 			rewards: [
@@ -1118,13 +1008,11 @@
 				{
 					id: "6D01410786FF120F"
 					item: {
-						Count: 1
-						id: "trofers:large_pillar"
-						tag: {
-							BlockEntityTag: {
-								Trophy: "trofers:brews"
-							}
+						components: {
+							"trofers:trophy": "trofers:brews"
 						}
+						count: 1
+						id: "trofers:large_pillar"
 					}
 					type: "item"
 				}
@@ -1133,11 +1021,8 @@
 			size: 3.0d
 			tasks: [{
 				icon: {
-					Count: 1
+					count: 1
 					id: "vinery:jellie_wine"
-					tag: {
-						Year: 0
-					}
 				}
 				id: "66521C3EA4D8D1C9"
 				stat: "minecraft:play_time"
@@ -1188,11 +1073,8 @@
 			tasks: [{
 				id: "1A39CD674981C1E7"
 				item: {
-					Count: 1
+					count: 1
 					id: "society:nutty_basil"
-					tag: {
-						Year: 0
-					}
 				}
 				type: "item"
 			}]

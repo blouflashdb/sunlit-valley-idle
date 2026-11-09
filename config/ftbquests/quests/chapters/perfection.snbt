@@ -19,25 +19,21 @@
 		{
 			dependencies: ["7E69F542D4EDE72B"]
 			icon: {
-				Count: 1
-				id: "trofers:large_pillar"
-				tag: {
-					BlockEntityTag: {
-						Trophy: "trofers:crops"
-					}
+				components: {
+					"trofers:trophy": "trofers:crops"
 				}
+				count: 1
+				id: "trofers:large_pillar"
 			}
 			id: "531CCAEFB0498F98"
 			size: 1.0d
 			tasks: [{
 				icon: {
-					Count: 1
-					id: "trofers:large_pillar"
-					tag: {
-						BlockEntityTag: {
-							Trophy: "trofers:crops"
-						}
+					components: {
+						"trofers:trophy": "trofers:crops"
 					}
+					count: 1
+					id: "trofers:large_pillar"
 				}
 				id: "2C02508B4ADC5EF3"
 				stat: "minecraft:play_time"
@@ -52,25 +48,21 @@
 		{
 			dependencies: ["0C17CF9D782787BE"]
 			icon: {
-				Count: 1
-				id: "trofers:large_pillar"
-				tag: {
-					BlockEntityTag: {
-						Trophy: "trofers:fish"
-					}
+				components: {
+					"trofers:trophy": "trofers:fish"
 				}
+				count: 1
+				id: "trofers:large_pillar"
 			}
 			id: "2D9AD3D0C59E682B"
 			size: 1.0d
 			tasks: [{
 				icon: {
-					Count: 1
-					id: "trofers:large_pillar"
-					tag: {
-						BlockEntityTag: {
-							Trophy: "trofers:fish"
-						}
+					components: {
+						"trofers:trophy": "trofers:fish"
 					}
+					count: 1
+					id: "trofers:large_pillar"
 				}
 				id: "2F6745B71CE2EE40"
 				stat: "minecraft:play_time"
@@ -85,25 +77,21 @@
 		{
 			dependencies: ["7BA3A7D6D37CFA69"]
 			icon: {
-				Count: 1
-				id: "trofers:large_pillar"
-				tag: {
-					BlockEntityTag: {
-						Trophy: "trofers:minerals"
-					}
+				components: {
+					"trofers:trophy": "trofers:minerals"
 				}
+				count: 1
+				id: "trofers:large_pillar"
 			}
 			id: "17D1D7EDA66A95F4"
 			size: 1.0d
 			tasks: [{
 				icon: {
-					Count: 1
-					id: "trofers:large_pillar"
-					tag: {
-						BlockEntityTag: {
-							Trophy: "trofers:minerals"
-						}
+					components: {
+						"trofers:trophy": "trofers:minerals"
 					}
+					count: 1
+					id: "trofers:large_pillar"
 				}
 				id: "0F890C6BB5B2D327"
 				stat: "minecraft:play_time"
@@ -118,25 +106,21 @@
 		{
 			dependencies: ["21B62899C63D3C4B"]
 			icon: {
-				Count: 1
-				id: "trofers:large_pillar"
-				tag: {
-					BlockEntityTag: {
-						Trophy: "trofers:gems"
-					}
+				components: {
+					"trofers:trophy": "trofers:gems"
 				}
+				count: 1
+				id: "trofers:large_pillar"
 			}
 			id: "3B928722AC96C4B0"
 			size: 1.0d
 			tasks: [{
 				icon: {
-					Count: 1
-					id: "trofers:large_pillar"
-					tag: {
-						BlockEntityTag: {
-							Trophy: "trofers:gems"
-						}
+					components: {
+						"trofers:trophy": "trofers:gems"
 					}
+					count: 1
+					id: "trofers:large_pillar"
 				}
 				id: "3A37B10C5BC6FC29"
 				stat: "minecraft:play_time"
@@ -151,25 +135,21 @@
 		{
 			dependencies: ["2255D3F05F8B895A"]
 			icon: {
-				Count: 1
-				id: "trofers:large_pillar"
-				tag: {
-					BlockEntityTag: {
-						Trophy: "trofers:artifacts"
-					}
+				components: {
+					"trofers:trophy": "trofers:artifacts"
 				}
+				count: 1
+				id: "trofers:large_pillar"
 			}
 			id: "47CF88FE788DD872"
 			size: 1.0d
 			tasks: [{
 				icon: {
-					Count: 1
-					id: "trofers:large_pillar"
-					tag: {
-						BlockEntityTag: {
-							Trophy: "trofers:artifacts"
-						}
+					components: {
+						"trofers:trophy": "trofers:artifacts"
 					}
+					count: 1
+					id: "trofers:large_pillar"
 				}
 				id: "22040C7E30885D07"
 				stat: "minecraft:play_time"
@@ -184,25 +164,21 @@
 		{
 			dependencies: ["1B4C5FEECCEE1392"]
 			icon: {
-				Count: 1
-				id: "trofers:large_pillar"
-				tag: {
-					BlockEntityTag: {
-						Trophy: "trofers:relics"
-					}
+				components: {
+					"trofers:trophy": "trofers:relics"
 				}
+				count: 1
+				id: "trofers:large_pillar"
 			}
 			id: "771697176D1B54CD"
 			size: 1.0d
 			tasks: [{
 				icon: {
-					Count: 1
-					id: "trofers:large_pillar"
-					tag: {
-						BlockEntityTag: {
-							Trophy: "trofers:relics"
-						}
+					components: {
+						"trofers:trophy": "trofers:relics"
 					}
+					count: 1
+					id: "trofers:large_pillar"
 				}
 				id: "501BDACA22C4758C"
 				stat: "minecraft:play_time"
@@ -217,25 +193,21 @@
 		{
 			dependencies: ["19D2D00AC36C9049"]
 			icon: {
-				Count: 1
-				id: "trofers:large_pillar"
-				tag: {
-					BlockEntityTag: {
-						Trophy: "trofers:brews"
-					}
+				components: {
+					"trofers:trophy": "trofers:brews"
 				}
+				count: 1
+				id: "trofers:large_pillar"
 			}
 			id: "1F88FD241787720B"
 			size: 1.0d
 			tasks: [{
 				icon: {
-					Count: 1
-					id: "trofers:large_pillar"
-					tag: {
-						BlockEntityTag: {
-							Trophy: "trofers:brews"
-						}
+					components: {
+						"trofers:trophy": "trofers:brews"
 					}
+					count: 1
+					id: "trofers:large_pillar"
 				}
 				id: "2B09ED928759E57E"
 				stat: "minecraft:play_time"
@@ -250,25 +222,21 @@
 		{
 			dependencies: ["22E44CB981A4299B"]
 			icon: {
-				Count: 1
-				id: "trofers:medium_pillar"
-				tag: {
-					BlockEntityTag: {
-						Trophy: "trofers:cooking"
-					}
+				components: {
+					"trofers:trophy": "trofers:cooking"
 				}
+				count: 1
+				id: "trofers:medium_pillar"
 			}
 			id: "67F85F959DBBE0BD"
 			size: 1.0d
 			tasks: [{
 				icon: {
-					Count: 1
-					id: "trofers:medium_pillar"
-					tag: {
-						BlockEntityTag: {
-							Trophy: "trofers:cooking"
-						}
+					components: {
+						"trofers:trophy": "trofers:cooking"
 					}
+					count: 1
+					id: "trofers:medium_pillar"
 				}
 				id: "261A61CC96B6691E"
 				stat: "minecraft:play_time"
@@ -367,13 +335,11 @@
 			size: 1.0d
 			tasks: [{
 				icon: {
-					Count: 1
-					id: "trofers:large_pillar"
-					tag: {
-						BlockEntityTag: {
-							Trophy: "trofers:pantry"
-						}
+					components: {
+						"trofers:trophy": "trofers:pantry"
 					}
+					count: 1
+					id: "trofers:large_pillar"
 				}
 				id: "0A12C2A9D0646C09"
 				stat: "minecraft:play_time"
@@ -391,13 +357,11 @@
 			size: 1.0d
 			tasks: [{
 				icon: {
-					Count: 1
-					id: "trofers:large_pillar"
-					tag: {
-						BlockEntityTag: {
-							Trophy: "trofers:vault"
-						}
+					components: {
+						"trofers:trophy": "trofers:vault"
 					}
+					count: 1
+					id: "trofers:large_pillar"
 				}
 				id: "1D4B6399A99F53CB"
 				stat: "minecraft:play_time"
@@ -415,13 +379,11 @@
 			size: 1.0d
 			tasks: [{
 				icon: {
-					Count: 1
-					id: "trofers:large_pillar"
-					tag: {
-						BlockEntityTag: {
-							Trophy: "trofers:fish_tank"
-						}
+					components: {
+						"trofers:trophy": "trofers:fish_tank"
 					}
+					count: 1
+					id: "trofers:large_pillar"
 				}
 				id: "55DE40F8D224D72D"
 				stat: "minecraft:play_time"
@@ -439,13 +401,11 @@
 			size: 1.0d
 			tasks: [{
 				icon: {
-					Count: 1
-					id: "trofers:large_pillar"
-					tag: {
-						BlockEntityTag: {
-							Trophy: "trofers:boiler_room"
-						}
+					components: {
+						"trofers:trophy": "trofers:boiler_room"
 					}
+					count: 1
+					id: "trofers:large_pillar"
 				}
 				id: "7059824FCE38CB5A"
 				stat: "minecraft:play_time"
@@ -463,13 +423,11 @@
 			size: 1.0d
 			tasks: [{
 				icon: {
-					Count: 1
-					id: "trofers:large_pillar"
-					tag: {
-						BlockEntityTag: {
-							Trophy: "trofers:crafts_room"
-						}
+					components: {
+						"trofers:trophy": "trofers:crafts_room"
 					}
+					count: 1
+					id: "trofers:large_pillar"
 				}
 				id: "4CCED45B2E1CCFBA"
 				stat: "minecraft:play_time"
@@ -606,25 +564,21 @@
 				"{ftbquests.chapter.perfection.quest17064AEF4212B5FF.description3}"
 			]
 			icon: {
-				Count: 1
-				id: "trofers:large_pillar"
-				tag: {
-					BlockEntityTag: {
-						Trophy: "trofers:perfection"
-					}
+				components: {
+					"trofers:trophy": "trofers:perfection"
 				}
+				count: 1
+				id: "trofers:large_pillar"
 			}
 			id: "17064AEF4212B5FF"
 			rewards: [{
 				id: "7F09D6B4763C154A"
 				item: {
-					Count: 1
-					id: "trofers:large_pillar"
-					tag: {
-						BlockEntityTag: {
-							Trophy: "trofers:perfection"
-						}
+					components: {
+						"trofers:trophy": "trofers:perfection"
 					}
+					count: 1
+					id: "trofers:large_pillar"
 				}
 				type: "item"
 			}]
@@ -649,13 +603,11 @@
 			size: 2.0d
 			tasks: [{
 				icon: {
-					Count: 1
-					id: "trofers:large_pillar"
-					tag: {
-						BlockEntityTag: {
-							Trophy: "trofers:abandoned_farm"
-						}
+					components: {
+						"trofers:trophy": "trofers:abandoned_farm"
 					}
+					count: 1
+					id: "trofers:large_pillar"
 				}
 				id: "31D755B4F7304289"
 				stat: "minecraft:play_time"

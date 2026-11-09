@@ -41,13 +41,11 @@
 				{
 					id: "023AF0ABA5724F3A"
 					item: {
-						Count: 1
-						id: "trofers:large_pillar"
-						tag: {
-							BlockEntityTag: {
-								Trophy: "trofers:boiler_room"
-							}
+						components: {
+							"trofers:trophy": "trofers:boiler_room"
 						}
+						count: 1
+						id: "trofers:large_pillar"
 					}
 					type: "item"
 				}
@@ -155,24 +153,11 @@
 				{
 					id: "6359E72D652B83E1"
 					item: {
-						Count: 1
-						id: "itemfilters:or"
-						tag: {
-							items: [
-								{
-									Count: 1b
-									id: "society:mudstone"
-								}
-								{
-									Count: 1b
-									id: "society:sandstone_slate"
-								}
-								{
-									Count: 1b
-									id: "society:calcite_gem"
-								}
-							]
+						components: {
+							"ftbfiltersystem:filter": "or(item(society:mudstone)item(society:sandstone_slate)item(society:calcite_gem))"
 						}
+						count: 1
+						id: "ftbfiltersystem:smart_filter"
 					}
 					title: "{ftbquests.chapter.boiler_room.questB45A918213371FA.task.7159007264839009249.title}"
 					type: "item"
@@ -180,24 +165,11 @@
 				{
 					id: "753DE0AD1C863764"
 					item: {
-						Count: 1
-						id: "itemfilters:or"
-						tag: {
-							items: [
-								{
-									Count: 1b
-									id: "society:granite_slate"
-								}
-								{
-									Count: 1b
-									id: "society:malachite"
-								}
-								{
-									Count: 1b
-									id: "society:thunder_egg"
-								}
-							]
+						components: {
+							"ftbfiltersystem:filter": "or(item(society:granite_slate)item(society:malachite)item(society:thunder_egg))"
 						}
+						count: 1
+						id: "ftbfiltersystem:smart_filter"
 					}
 					title: "{ftbquests.chapter.boiler_room.questB45A918213371FA.task.8448155510129440612.title}"
 					type: "item"
@@ -205,24 +177,11 @@
 				{
 					id: "22C230033AC60FCC"
 					item: {
-						Count: 1
-						id: "itemfilters:or"
-						tag: {
-							items: [
-								{
-									Count: 1b
-									id: "society:esperite"
-								}
-								{
-									Count: 1b
-									id: "society:marble"
-								}
-								{
-									Count: 1b
-									id: "society:opal"
-								}
-							]
+						components: {
+							"ftbfiltersystem:filter": "or(item(society:esperite)item(society:marble)item(society:opal))"
 						}
+						count: 1
+						id: "ftbfiltersystem:smart_filter"
 					}
 					title: "{ftbquests.chapter.boiler_room.questB45A918213371FA.task.2504617133200510924.title}"
 					type: "item"
@@ -230,24 +189,11 @@
 				{
 					id: "22172FAFED68AEBC"
 					item: {
-						Count: 1
-						id: "itemfilters:or"
-						tag: {
-							items: [
-								{
-									Count: 1b
-									id: "society:aerinite"
-								}
-								{
-									Count: 1b
-									id: "society:fairy_stone"
-								}
-								{
-									Count: 1b
-									id: "society:kyanite"
-								}
-							]
+						components: {
+							"ftbfiltersystem:filter": "or(item(society:aerinite)item(society:fairy_stone)item(society:kyanite))"
 						}
+						count: 1
+						id: "ftbfiltersystem:smart_filter"
 					}
 					title: "{ftbquests.chapter.boiler_room.questB45A918213371FA.task.2456484554402737852.title}"
 					type: "item"
@@ -255,24 +201,11 @@
 				{
 					id: "3A3C41B464166327"
 					item: {
-						Count: 1
-						id: "itemfilters:or"
-						tag: {
-							items: [
-								{
-									Count: 1b
-									id: "society:baryte"
-								}
-								{
-									Count: 1b
-									id: "society:jasper"
-								}
-								{
-									Count: 1b
-									id: "society:basalt_shard"
-								}
-							]
+						components: {
+							"ftbfiltersystem:filter": "or(item(society:baryte)item(society:jasper)item(society:basalt_shard))"
 						}
+						count: 1
+						id: "ftbfiltersystem:smart_filter"
 					}
 					title: "{ftbquests.chapter.boiler_room.questB45A918213371FA.task.4196301195831567143.title}"
 					type: "item"
@@ -280,24 +213,11 @@
 				{
 					id: "698D277805B25AE9"
 					item: {
-						Count: 1
-						id: "itemfilters:or"
-						tag: {
-							items: [
-								{
-									Count: 1b
-									id: "society:neptunite"
-								}
-								{
-									Count: 1b
-									id: "society:star_shards"
-								}
-								{
-									Count: 1b
-									id: "society:helvite"
-								}
-							]
+						components: {
+							"ftbfiltersystem:filter": "or(item(society:neptunite)item(society:star_shards)item(society:helvite))"
 						}
+						count: 1
+						id: "ftbfiltersystem:smart_filter"
 					}
 					title: "{ftbquests.chapter.boiler_room.questB45A918213371FA.task.7605778742143769321.title}"
 					type: "item"
@@ -315,36 +235,8 @@
 			rewards: [{
 				id: "496273F8A86D642D"
 				item: {
-					Count: 1
+					count: 1
 					id: "relics:rage_glove"
-					tag: {
-						abilities: {
-							phlebotomy: {
-								points: 0
-								stats: {
-									attack_speed: 0.00981d
-									heal: 2.0E-4d
-									movement_speed: 0.01501d
-								}
-							}
-							rage: {
-								points: 0
-								stats: {
-									dealt_damage: 0.04615d
-									duration: 2.65473d
-									incoming_damage: 0.03639d
-								}
-							}
-							spurt: {
-								points: 0
-								stats: {
-									cooldown: 18.76162d
-									damage: 0.14556d
-									distance: 3.66219d
-								}
-							}
-						}
-					}
 				}
 				type: "item"
 			}]
@@ -353,25 +245,37 @@
 				{
 					count: 8L
 					id: "7D26469AFF62D8F7"
-					item: { Count: 4, id: "paraglider:spirit_orb" }
+					item: {
+						count: 4
+						id: "paraglider:spirit_orb"
+					}
 					type: "item"
 				}
 				{
 					count: 64L
 					id: "2B517CF9AC0EB6AA"
-					item: { Count: 64, id: "minecraft:rotten_flesh" }
+					item: {
+						count: 64
+						id: "minecraft:rotten_flesh"
+					}
 					type: "item"
 				}
 				{
 					count: 64L
 					id: "68A69AF7F1C0F0D8"
-					item: { Count: 64, id: "minecraft:bone" }
+					item: {
+						count: 64
+						id: "minecraft:bone"
+					}
 					type: "item"
 				}
 				{
 					count: 3L
 					id: "7FCA758588C563A4"
-					item: { Count: 3, id: "minecraft:wither_skeleton_skull" }
+					item: {
+						count: 3
+						id: "minecraft:wither_skeleton_skull"
+					}
 					type: "item"
 				}
 			]

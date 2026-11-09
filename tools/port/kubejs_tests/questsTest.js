@@ -34,6 +34,15 @@ const checkQuestBook = (server) => {
         let id = String(desc).replace(/^\d+x /, "");
         missing[id] = (missing[id] || []).concat([where]);
       }
+      // smart filters name their items in the filter expression: item(id) and item_tag(tag)
+      if (String(stack.id) === "ftbfiltersystem:smart_filter") {
+        let saved = String(stack.save(server.registryAccess()));
+        let re = /item\(([a-z0-9_.\-]+:[a-z0-9_./\-]+)\)/g;
+        let match;
+        while ((match = re.exec(saved)) !== null) {
+          if (!Item.exists(match[1])) missing[match[1]] = (missing[match[1]] || []).concat([`${where} (filter)`]);
+        }
+      }
     };
     let chapters = 0;
     let quests = 0;
@@ -64,8 +73,19 @@ const checkQuestBook = (server) => {
       }
     };
     probe("quality", () => global.withItemQuality(Item.of("society:ancient_fruit"), 2));
-    ["vinery:red_wine", "trofers:large_pillar", "bountiful:decree"].forEach((id) =>
-      probe(id, () => (Item.exists(id) ? Item.of(id) : Item.empty)));
+    ["aquaculture:neptunium_fishing_rod", "farm_and_charm:supply_cart", "furniture:cash_register", "furniture:explorers_box",
+      "furniture:iron_fish_tank", "furniture:sewing_kit", "furniture:tool_box", "longwings:butterfly", "paraglider:heart_container",
+      "railways:track_oak", "refurbished_furniture:spatula", "relics:shadow_glaive", "society:heart_of_neptunium",
+      "society:omni_geode", "society:pristine_spinel", "society:ruby", "splendid_slimes:plort_slimy", "vinery:jellie_wine",
+      "supplementaries:jar"].forEach((id) => {
+      if (!Item.exists(id)) console.info(`[PORT-TEST] INFO quests trophy item missing ${id}`);
+    });
+    let componentTypes = [];
+    $QuestsTestItems.DATA_COMPONENT_TYPE.keySet().forEach((key) => {
+      let id = String(key);
+      if (/^(longwings|supplementaries|relics|trofers|splendid_slimes|portable_blueprints|ftbfiltersystem):/.test(id)) componentTypes.push(id);
+    });
+    console.info(`[PORT-TEST] INFO quests components ${componentTypes.sort().join(" ")}`);
     let ids = Object.keys(missing).sort();
     console.info(`[PORT-TEST] quests: ${chapters} chapters, ${quests} quests, ${checked} items, ${ids.length} missing ids`);
     if (ids.length > 0) {

@@ -49,11 +49,11 @@
 			tasks: [{
 				id: "6E67A8406FEEE79B"
 				item: {
-					Count: 1
-					id: "itemfilters:tag"
-					tag: {
-						value: "society:botania_seeds"
+					components: {
+						"ftbfiltersystem:filter": "item_tag(society:botania_seeds)"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.botania.quest44C80D7C3D2B11E8.task.7955512261482571675.title}"
 				type: "item"
@@ -114,20 +114,11 @@
 			tasks: [{
 				id: "29D8E1DA592B300E"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "pamhc2trees:lemon_sapling"
-							}
-							{
-								Count: 1b
-								id: "vintagedelight:gearo_berry"
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(pamhc2trees:lemon_sapling)item(vintagedelight:gearo_berry))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.botania.quest42DA09B2A18E2ED1.task.3015408278439669774.title}"
 				type: "item"
@@ -157,7 +148,10 @@
 				{
 					count: 3L
 					id: "03E79E68D01D5CC3"
-					item: { Count: 3, id: "botania:glimmering_livingwood_log" }
+					item: {
+						count: 3
+						id: "botania:glimmering_livingwood_log"
+					}
 					type: "item"
 				}
 				{
@@ -168,7 +162,10 @@
 				{
 					count: 2L
 					id: "0BEA1274DF50CB4C"
-					item: { Count: 2, id: "botania:natura_pylon" }
+					item: {
+						count: 2
+						id: "botania:natura_pylon"
+					}
 					type: "item"
 				}
 			]
@@ -207,11 +204,8 @@
 				"{ftbquests.chapter.botania.quest1CC084C4F5E11C97.description2}"
 			]
 			icon: {
-				Count: 1
+				count: 1
 				id: "botania:terrasteel_helmet"
-				tag: {
-					Damage: 0
-				}
 			}
 			id: "1CC084C4F5E11C97"
 			rewards: [{
@@ -222,40 +216,11 @@
 			tasks: [{
 				id: "0E56D2F4735C48B6"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "botania:terrasteel_helmet"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "botania:terrasteel_chestplate"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "botania:terrasteel_leggings"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "botania:terrasteel_boots"
-								tag: {
-									Damage: 0
-								}
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(botania:terrasteel_helmet)item(botania:terrasteel_chestplate)item(botania:terrasteel_leggings)item(botania:terrasteel_boots))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.botania.quest1CC084C4F5E11C97.task.1033245111877388470.title}"
 				type: "item"
@@ -274,43 +239,18 @@
 				"{ftbquests.chapter.botania.quest4DE0F1BADE3F2F57.description4}"
 			]
 			icon: {
-				Count: 1
+				count: 1
 				id: "botania:terra_pick"
-				tag: {
-					Damage: 0
-				}
 			}
 			id: "4DE0F1BADE3F2F57"
 			tasks: [{
 				id: "3B466EBCDB361382"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "botania:terra_sword"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "botania:terra_axe"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "botania:terra_pick"
-								tag: {
-									Damage: 0
-								}
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(botania:terra_sword)item(botania:terra_axe)item(botania:terra_pick))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.botania.quest4DE0F1BADE3F2F57.task.4271223054018155394.title}"
 				type: "item"
@@ -363,12 +303,14 @@
 			rewards: [{
 				id: "55E27BBBAADBCCD7"
 				item: {
-					Count: 1
-					id: "botania:twig_wand"
-					tag: {
-						color1: 0
-						color2: 0
+					components: {
+						"minecraft:custom_data": {
+							color1: 0
+							color2: 0
+						}
 					}
+					count: 1
+					id: "botania:twig_wand"
 				}
 				type: "item"
 			}]
@@ -504,11 +446,8 @@
 				"{ftbquests.chapter.botania.quest7E6A0CF4C704430C.description3}"
 			]
 			icon: {
-				Count: 1
+				count: 1
 				id: "unusualfishmod:fluvial_shell"
-				tag: {
-					Damage: 0
-				}
 			}
 			id: "7E6A0CF4C704430C"
 			rewards: [{
@@ -520,37 +459,19 @@
 				{
 					id: "12F0CF1609125B85"
 					item: {
-						Count: 1
+						count: 1
 						id: "unusualfishmod:fluvial_shell"
-						tag: {
-							Damage: 0
-						}
 					}
 					type: "item"
 				}
 				{
 					id: "62CC063901572119"
 					item: {
-						Count: 1
-						id: "itemfilters:or"
-						tag: {
-							items: [
-								{
-									Count: 1b
-									id: "unusualfishmod:clement_shell"
-									tag: {
-										Damage: 0
-									}
-								}
-								{
-									Count: 1b
-									id: "unusualfishmod:thunderous_shell"
-									tag: {
-										Damage: 0
-									}
-								}
-							]
+						components: {
+							"ftbfiltersystem:filter": "or(item(unusualfishmod:clement_shell)item(unusualfishmod:thunderous_shell))"
 						}
+						count: 1
+						id: "ftbfiltersystem:smart_filter"
 					}
 					title: "{ftbquests.chapter.botania.quest7E6A0CF4C704430C.task.7119071952871301401.title}"
 					type: "item"
@@ -680,11 +601,11 @@
 			tasks: [{
 				id: "01ED68E2F47601EB"
 				item: {
-					Count: 1
-					id: "itemfilters:tag"
-					tag: {
-						value: "botania:functional_special_flowers"
+					components: {
+						"ftbfiltersystem:filter": "item_tag(botania:functional_special_flowers)"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.botania.quest137994A312B7CAEB.task.138882487491625451.title}"
 				type: "item"
@@ -734,11 +655,11 @@
 			tasks: [{
 				id: "6469A390C683349B"
 				item: {
-					Count: 1
-					id: "itemfilters:tag"
-					tag: {
-						value: "botania:generating_special_flowers"
+					components: {
+						"ftbfiltersystem:filter": "item_tag(botania:generating_special_flowers)"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.botania.quest27437A0F629AF989.task.7235494118548518043.title}"
 				type: "item"
@@ -804,20 +725,11 @@
 			tasks: [{
 				id: "7B98D183C624AEA4"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "farmlife:domestic_tribull_spawn_egg"
-							}
-							{
-								Count: 1b
-								id: "farmlife:galliraptor_spawn_egg"
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(farmlife:domestic_tribull_spawn_egg)item(farmlife:galliraptor_spawn_egg))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.botania.quest656E19A85C1146B4.task.8906098627020369572.title}"
 				type: "item"
@@ -844,9 +756,8 @@
 			tasks: [{
 				id: "485786DF564CFDD5"
 				item: {
-					Count: 1
+					count: 1
 					id: "society:sparkstone_recycler"
-					tag: { }
 				}
 				type: "item"
 			}]
@@ -871,11 +782,13 @@
 			tasks: [{
 				id: "2F3CC185B8FF80D3"
 				item: {
-					Count: 1
-					id: "botania:flight_tiara"
-					tag: {
-						variant: 1
+					components: {
+						"minecraft:custom_data": {
+							variant: 1
+						}
 					}
+					count: 1
+					id: "botania:flight_tiara"
 				}
 				type: "item"
 			}]
@@ -898,9 +811,8 @@
 			tasks: [{
 				id: "1DCA9053294233FF"
 				item: {
-					Count: 1
+					count: 1
 					id: "society:mana_clock"
-					tag: { }
 				}
 				type: "item"
 			}]

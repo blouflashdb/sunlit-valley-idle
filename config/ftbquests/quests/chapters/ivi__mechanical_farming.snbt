@@ -179,10 +179,7 @@
 			tasks: [{
 				id: "39F74BAD8C1FB0E9"
 				item: {
-					Count: 1
-					ForgeCaps: {
-						Parent: { }
-					}
+					count: 1
 					id: "create_central_kitchen:cooking_guide"
 				}
 				type: "item"
@@ -481,11 +478,8 @@
 				{
 					id: "1A646BB4B4EABED8"
 					item: {
-						Count: 1
+						count: 1
 						id: "create:super_glue"
-						tag: {
-							Damage: 0
-						}
 					}
 					type: "item"
 				}
@@ -521,38 +515,11 @@
 				{
 					id: "6A27CD5DC00C628C"
 					item: {
-						Count: 1
-						id: "itemfilters:or"
-						tag: {
-							items: [
-								{
-									Count: 1b
-									id: "create:extendo_grip"
-									tag: {
-										Damage: 0
-									}
-								}
-								{
-									Count: 1b
-									id: "create:potato_cannon"
-									tag: {
-										Damage: 0
-									}
-								}
-								{
-									Count: 1b
-									id: "create:crushing_wheel"
-								}
-								{
-									Count: 1b
-									id: "createrailwaysnavigator:navigator"
-								}
-								{
-									Count: 1b
-									id: "railways:locometal_boiler"
-								}
-							]
+						components: {
+							"ftbfiltersystem:filter": "or(item(create:extendo_grip)item(create:potato_cannon)item(create:crushing_wheel)item(createrailwaysnavigator:navigator)item(railways:locometal_boiler))"
 						}
+						count: 1
+						id: "ftbfiltersystem:smart_filter"
 					}
 					title: "{ftbquests.chapter.ivi__mechanical_farming.quest3D532DC93531B0D0.task.7649308294649766540.title}"
 					type: "item"
@@ -794,14 +761,15 @@
 				"{ftbquests.chapter.ivi__mechanical_farming.quest162C1DFB58132D45.description3}"
 			]
 			icon: {
-				Count: 1
-				id: "minecraft:enchanted_book"
-				tag: {
-					StoredEnchantments: [{
-						id: "minecraft:protection"
-						lvl: 1s
-					}]
+				components: {
+					"minecraft:stored_enchantments": {
+						levels: {
+							"minecraft:protection": 1
+						}
+					}
 				}
+				count: 1
+				id: "minecraft:enchanted_book"
 			}
 			id: "162C1DFB58132D45"
 			min_required_tasks: 1
@@ -930,9 +898,8 @@
 				{
 					id: "68C293A0255E3B25"
 					item: {
-						Count: 1
+						count: 1
 						id: "create_hypertube:hypertube"
-						tag: { }
 					}
 					type: "item"
 				}
@@ -967,11 +934,8 @@
 			tasks: [{
 				id: "140E1FEF8B3EC12D"
 				item: {
-					Count: 1
+					count: 1
 					id: "wildernature:blunderbuss"
-					tag: {
-						Damage: 0
-					}
 				}
 				type: "item"
 			}]
