@@ -1603,7 +1603,7 @@ global.fishPondDefinitions = new Map([
         },
         {
           minPopulation: 4,
-          item: "minecraft:scute",
+          item: "minecraft:turtle_scute",
           count: 1,
           chance: 0.14,
         },
@@ -1895,7 +1895,7 @@ global.fishPondDefinitions = new Map([
         },
         {
           minPopulation: 4,
-          item: "minecraft:scute",
+          item: "minecraft:turtle_scute",
           count: 1,
           chance: 0.16,
         },
