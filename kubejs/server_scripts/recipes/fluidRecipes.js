@@ -196,29 +196,6 @@ ServerEvents.recipes((e) => {
     type: "create:mixing",
     ingredients: [
       {
-        item: "minecraft:lapis_lazuli",
-      },
-      {
-        fluid: "society:ancient_fruit_juice",
-        amount: 100,
-      },
-      {
-        fluid: "create_enchantment_industry:experience",
-        amount: 100,
-      },
-    ],
-    results: [
-      {
-        fluid: "create_enchantment_industry:hyper_experience",
-        amount: 20,
-      },
-    ],
-    heatRequirement: "superheated",
-  });
-  addLegacyCreateRecipe(e, {
-    type: "create:mixing",
-    ingredients: [
-      {
         item: "society:pristine_star_shards",
       },
       {
@@ -243,9 +220,10 @@ ServerEvents.recipes((e) => {
       {
         item: "society:prismatic_shard",
       },
+      // Create: Enchantment Industry 1.21.1 has no hyper experience; plain experience instead (5x the amount)
       {
-        fluid: "create_enchantment_industry:hyper_experience",
-        amount: 20,
+        fluid: "create_enchantment_industry:experience",
+        amount: 100,
       },
     ],
     results: [
