@@ -31,32 +31,43 @@ ServerEvents.loaded((event) => {
     silkPickaxe.enchant(level.registryAccess().registryOrThrow($MiningTestKeys.ENCHANTMENT).getHolderOrThrow($MiningTestEnchantments.SILK_TOUCH), 1);
     check(hasSilkTouchTool(silkPickaxe) && !hasSilkTouchTool(pickaxe), "silk touch is not detected");
 
-    // Gold Rush: four raw gold blocks from gold ore, not with silk touch.
-    miner.stages.add("gold_rush");
+    // Breaking an ore with the fake player runs the rules through LootJS. Fake players keep no stages, so the
+    // stage rules are checked on a stand-in player below.
     let calls = miningLootLast.calls;
     let gold = drops($MiningTestBlocks.GOLD_ORE, pickaxe);
-    check(
-      gold["minecraft:raw_gold_block"] === 4,
-      `gold ore with gold_rush drops ${JSON.stringify(gold)}; stage ${miner.stages.has("gold_rush")}, ` +
-        `${miningLootLast.calls - calls} rule checks, last ${miningLootLast.state}`
-    );
-    let silkGold = drops($MiningTestBlocks.GOLD_ORE, silkPickaxe);
-    check(!silkGold["minecraft:raw_gold_block"], `silk touched gold ore drops ${JSON.stringify(silkGold)}`);
-    miner.stages.remove("gold_rush");
-    let plainGold = drops($MiningTestBlocks.GOLD_ORE, pickaxe);
-    check(!plainGold["minecraft:raw_gold_block"], `gold ore without the stage drops ${JSON.stringify(plainGold)}`);
+    check(gold["minecraft:raw_gold"] >= 1, `gold ore drops ${JSON.stringify(gold)}`);
+    check(miningLootLast.calls - calls >= 10, `breaking gold ore checked ${miningLootLast.calls - calls} rules`);
+    check(String(miningLootLast.state).indexOf("silk=false") !== -1, `the last break was ${miningLootLast.state}`);
+    drops($MiningTestBlocks.GOLD_ORE, silkPickaxe);
+    check(String(miningLootLast.state).indexOf("silk=true") !== -1, `the silk touch break was ${miningLootLast.state}`);
+
+    let stagePlayer = (stage) => ({ stages: { has: (name) => name === stage } });
+    let breakState = (stage, silk) => ({
+      level: level,
+      pos: pos,
+      player: stage === null ? null : stagePlayer(stage),
+      silk: silk,
+      dimension: "minecraft:overworld",
+    });
+    let rule = (stage, block) => miningLootRules.find((r) => r.stage === stage && r.blocks.indexOf(block) !== -1);
+    let goldRush = rule("gold_rush", "minecraft:gold_ore");
+    check(goldRush && goldRush.item === "minecraft:raw_gold_block" && goldRush.count === 4, "no Gold Rush rule");
+    check(miningRuleHolds(goldRush, breakState("gold_rush", false)), "Gold Rush does not hold with the stage");
+    check(!miningRuleHolds(goldRush, breakState("gold_rush", true)), "Gold Rush holds with silk touch");
+    check(!miningRuleHolds(goldRush, breakState("other", false)), "Gold Rush holds without the stage");
+    check(!miningRuleHolds(goldRush, breakState(null, false)), "Gold Rush holds without a player");
 
     if (!server.persistentData.contains("miningLootTest")) {
       check(miningLootRules.length >= 40, `only ${miningLootRules.length} mining loot rules`);
 
-      // The Spark Also Rises: a sparkstone from every ore; Moon Statue: one more raw iron.
-      miner.stages.add("the_spark_also_rises");
-      miner.stages.add("moon_extra_ore");
-      let iron = drops($MiningTestBlocks.IRON_ORE, pickaxe);
-      check(iron["society:sparkstone"] === 1, `iron ore with the_spark_also_rises drops ${JSON.stringify(iron)}`);
-      check(iron["minecraft:raw_iron"] === 2, `iron ore with moon_extra_ore drops ${JSON.stringify(iron)}`);
-      miner.stages.remove("the_spark_also_rises");
-      miner.stages.remove("moon_extra_ore");
+      let spark = rule("the_spark_also_rises", "minecraft:iron_ore");
+      check(spark && spark.item === "society:sparkstone" && miningRuleHolds(spark, breakState("the_spark_also_rises", false)), "no spark rule");
+      let moon = rule("moon_extra_ore", "minecraft:iron_ore");
+      let rawIron = moon.modify(Item.of("minecraft:raw_iron"));
+      check(rawIron.getCount() === 2, `moon_extra_ore makes ${rawIron.getCount()} raw iron`);
+      check(moon.modify(Item.of("minecraft:cobblestone")).getCount() === 1, "moon_extra_ore adds cobblestone");
+      let cold = miningLootRules.filter((r) => r.biome === "c:is_cold").length;
+      check(cold >= 4, `only ${cold} cold biome rules`);
 
       // Geode tags and cracking
       ["society:geode_junk", "society:geode_treasure", "society:frozen_geode_treasure", "society:magma_geode_treasure"].forEach(
