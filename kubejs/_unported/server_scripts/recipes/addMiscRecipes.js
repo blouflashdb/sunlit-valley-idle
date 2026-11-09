@@ -323,11 +323,7 @@ ServerEvents.recipes((e) => {
   // society:oil_maker is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   // society:preserves_jar is ported: kubejs/server_scripts/recipes/vintageDelightRecipes.js
   // society:dehydrator is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
-  e.shaped("society:snow_melter", [" f ", "fbf", " B "], {
-    b: "minecraft:blast_furnace",
-    B: "society:battery",
-    f: "society:fire_quartz",
-  });
+  // society:snow_melter is ported: kubejs/server_scripts/recipes/societyItemRecipes.js
   // society:recycling_machine is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   // society:mushroom_log is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   // Battery

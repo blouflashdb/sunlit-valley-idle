@@ -154,6 +154,17 @@
       },
       "unitWorth": 1536
     },
+    "artisan_supreme_mayonnaise": {
+      "type": "minecraft:item",
+      "content": "society:supreme_mayonnaise",
+      "rarity": "UNCOMMON",
+      "weightMult": 0.5,
+      "amount": {
+        "min": 1,
+        "max": 2
+      },
+      "unitWorth": 29997
+    },
     "artisan_golden_mayonnaise": {
       "type": "minecraft:item",
       "content": "society:golden_mayonnaise",
@@ -550,6 +561,17 @@
       },
       "unitWorth": 1920
     },
+    "artisan_forks_of_blue": {
+      "type": "minecraft:item",
+      "content": "society:forks_of_blue",
+      "rarity": "COMMON",
+      "weightMult": 1,
+      "amount": {
+        "min": 2,
+        "max": 4
+      },
+      "unitWorth": 1728
+    },
     "artisan_jo_special_mixture": {
       "type": "minecraft:item",
       "content": "vinery:jo_special_mixture",
@@ -825,6 +847,17 @@
       },
       "unitWorth": 1008
     },
+    "artisan_good_catawba": {
+      "type": "minecraft:item",
+      "content": "society:good_catawba",
+      "rarity": "COMMON",
+      "weightMult": 1,
+      "amount": {
+        "min": 2,
+        "max": 4
+      },
+      "unitWorth": 1512
+    },
     "artisan_jellie_wine": {
       "type": "minecraft:item",
       "content": "vinery:jellie_wine",
@@ -835,6 +868,94 @@
         "max": 2
       },
       "unitWorth": 18144
+    },
+    "artisan_dewy_star": {
+      "type": "minecraft:item",
+      "content": "society:dewy_star",
+      "rarity": "UNCOMMON",
+      "weightMult": 0.5,
+      "amount": {
+        "min": 1,
+        "max": 2
+      },
+      "unitWorth": 8064
+    },
+    "artisan_ancient_cider": {
+      "type": "minecraft:item",
+      "content": "society:ancient_cider",
+      "rarity": "UNCOMMON",
+      "weightMult": 0.5,
+      "amount": {
+        "min": 1,
+        "max": 2
+      },
+      "unitWorth": 10272
+    },
+    "artisan_star_coquito": {
+      "type": "minecraft:item",
+      "content": "society:star_coquito",
+      "rarity": "UNCOMMON",
+      "weightMult": 0.5,
+      "amount": {
+        "min": 1,
+        "max": 2
+      },
+      "unitWorth": 18000
+    },
+    "artisan_nutty_basil": {
+      "type": "minecraft:item",
+      "content": "society:nutty_basil",
+      "rarity": "COMMON",
+      "weightMult": 1,
+      "amount": {
+        "min": 2,
+        "max": 4
+      },
+      "unitWorth": 1872
+    },
+    "artisan_violet_moon": {
+      "type": "minecraft:item",
+      "content": "society:violet_moon",
+      "rarity": "COMMON",
+      "weightMult": 1,
+      "amount": {
+        "min": 2,
+        "max": 4
+      },
+      "unitWorth": 4464
+    },
+    "artisan_laputa_franc": {
+      "type": "minecraft:item",
+      "content": "society:laputa_franc",
+      "rarity": "UNCOMMON",
+      "weightMult": 0.5,
+      "amount": {
+        "min": 1,
+        "max": 2
+      },
+      "unitWorth": 10944
+    },
+    "artisan_sparkling_le_roy": {
+      "type": "minecraft:item",
+      "content": "society:sparkling_le_roy",
+      "rarity": "UNCOMMON",
+      "weightMult": 0.5,
+      "amount": {
+        "min": 1,
+        "max": 2
+      },
+      "unitWorth": 8616
+    },
+    "artisan_mana_king": {
+      "type": "minecraft:item",
+      "content": "society:mana_king",
+      "rarity": "UNCOMMON",
+      "weightMult": 0.5,
+      "amount": {
+        "min": 1,
+        "max": 2
+      },
+      "unitWorth": 9888
     },
     "artisan_beer_nettle": {
       "type": "minecraft:item",
@@ -901,6 +1022,28 @@
         "max": 4
       },
       "unitWorth": 441
+    },
+    "artisan_beer_london": {
+      "type": "minecraft:item",
+      "content": "society:beer_london",
+      "rarity": "COMMON",
+      "weightMult": 1,
+      "amount": {
+        "min": 2,
+        "max": 4
+      },
+      "unitWorth": 2700
+    },
+    "artisan_beer_attunecore": {
+      "type": "minecraft:item",
+      "content": "society:beer_attunecore",
+      "rarity": "COMMON",
+      "weightMult": 1,
+      "amount": {
+        "min": 2,
+        "max": 4
+      },
+      "unitWorth": 954
     },
     "artisan_whiskey_carrasconlabel": {
       "type": "minecraft:item",
@@ -1011,6 +1154,17 @@
         "max": 2
       },
       "unitWorth": 7290
+    },
+    "artisan_starcardi": {
+      "type": "minecraft:item",
+      "content": "society:starcardi",
+      "rarity": "COMMON",
+      "weightMult": 1,
+      "amount": {
+        "min": 2,
+        "max": 4
+      },
+      "unitWorth": 2052
     }
   }
 }

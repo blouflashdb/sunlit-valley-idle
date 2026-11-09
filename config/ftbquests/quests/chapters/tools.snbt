@@ -348,7 +348,7 @@
 				id: "3EF5A9EA750FC64D"
 				item: {
 					components: {
-						"ftbfiltersystem:filter": "or(item(society:tanuki_catalog)item(society:modern_catalog)item(society:fantasy_catalog))"
+						"ftbfiltersystem:filter": "or(item(society:tanuki_catalog)item(society:modern_catalog))"
 					}
 					count: 1
 					id: "ftbfiltersystem:smart_filter"
@@ -395,11 +395,6 @@
 				{
 					id: "596526D5A33D01E0"
 					item: "society:modern_catalog"
-					type: "item"
-				}
-				{
-					id: "03ED2ACF1F0B5B4D"
-					item: "society:fantasy_catalog"
 					type: "item"
 				}
 			]

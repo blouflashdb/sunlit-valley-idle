@@ -1,0 +1,9 @@
+{
+  "item": "society:nutty_basil",
+  "category": "drink",
+  "price": 936,
+  "bottle_drink": true,
+  "bottle": "vinery:wine_bottle",
+  "flavors": [],
+  "mult_attribute": "shippingbin:wood_sell_multiplier"
+}

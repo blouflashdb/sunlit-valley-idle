@@ -19,15 +19,6 @@ ServerEvents.loaded((event) => {
   server.scheduleInTicks(40, () => checkQuestBook(server));
 });
 
-// society items the quests use that are still in kubejs/_unported (drinks, weapons, catalog, snow melter): #18 part B
-// registers them and empties this list.
-const questsTestPending = ["society:ancient_cider", "society:ancient_vespertine", "society:beer_attunecore",
-  "society:beer_london", "society:bowl_of_soul", "society:dewy_star", "society:dirty_chai", "society:dragontooth_axe",
-  "society:fantasy_catalog", "society:forks_of_blue", "society:galaxy_sword", "society:good_catawba",
-  "society:laputa_franc", "society:latte", "society:mana_king", "society:meowmageddon", "society:mocha",
-  "society:nutty_basil", "society:princess_hairbrush", "society:snow_melter", "society:sparkling_le_roy",
-  "society:star_coquito", "society:starcardi", "society:truffle_tea", "society:violet_moon"];
-
 const checkQuestBook = (server) => {
   console.info("[PORT-TEST] INFO quests check started");
   try {
@@ -77,9 +68,7 @@ const checkQuestBook = (server) => {
         if (reward.getItem) note(reward.getItem(), where);
       });
     });
-    let pending = Object.keys(missing).filter((id) => questsTestPending.includes(id));
-    if (pending.length > 0) console.info(`[PORT-TEST] INFO quests ${pending.length} pending ids: ${pending.join(" ")}`);
-    let ids = Object.keys(missing).filter((id) => !questsTestPending.includes(id)).sort();
+    let ids = Object.keys(missing).sort();
     console.info(`[PORT-TEST] quests: ${chapters} chapters, ${quests} quests, ${checked} items, ${ids.length} missing ids`);
     if (ids.length > 0) {
       let allIds = [];

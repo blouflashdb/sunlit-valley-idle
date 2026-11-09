@@ -55,18 +55,8 @@ ServerEvents.recipes((e) => {
       );
     }
   };
-  e.smithing(
-    "society:galaxy_sword",
-    "minecraft:netherite_upgrade_smithing_template",
-    "minecraft:netherite_sword",
-    "society:prismatic_shard"
-  );
-  e.smithing(
-    "society:meowmageddon",
-    "simplehats:nekoears",
-    "society:galaxy_sword",
-    "society:prismatic_shard"
-  );
+  // society:galaxy_sword is ported: kubejs/server_scripts/recipes/societyItemRecipes.js
+  // society:meowmageddon is ported: kubejs/server_scripts/recipes/societyItemRecipes.js
 
   const manasteelUpgrades = (type) => {
     e.smithing(
@@ -214,12 +204,7 @@ ServerEvents.recipes((e) => {
   ].forEach((entry) => {
     upgradeWool(entry.wool, entry.upgrade);
   });
-  e.smithing(
-    "society:dragontooth_axe",
-    "minecraft:netherite_upgrade_smithing_template",
-    "minecraft:diamond_axe",
-    "minecraft:bone_block"
-  );
+  // society:dragontooth_axe is ported: kubejs/server_scripts/recipes/societyItemRecipes.js
   // Watering Cans
   e.smithing(
     "dew_drop_watering_cans:iron_watering_can",

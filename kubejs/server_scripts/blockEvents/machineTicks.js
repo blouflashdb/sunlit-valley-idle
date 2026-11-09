@@ -222,3 +222,8 @@ BlockEvents.blockEntityTick("society:auto_tapper", (entity) => {
 BlockEvents.blockEntityTick("society:juice_inserter", (entity) => {
   global.runJuiceInserter(entity);
 });
+
+// Snow Melter (#18): startup_scripts/powerfulMachines/snowMelter.js.
+BlockEvents.blockEntityTick("society:snow_melter", (entity) => {
+  global.runSnowMelter(entity);
+});
