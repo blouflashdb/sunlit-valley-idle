@@ -1,7 +1,7 @@
 {
   "name": "Vache laineuse",
   "category": "patchouli:animals",
-  "icon": "meadow:highland_wool",
+  "icon": "minecraft:brown_wool",
   "pages": [
     {
       "type": "patchouli:text",

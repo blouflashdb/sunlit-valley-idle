@@ -709,27 +709,6 @@
 			y: -1.5d
 		}
 		{
-			dependencies: ["3B0A3083FFE1416B"]
-			description: [
-				"{ftbquests.chapter.botania.quest656E19A85C1146B4.description1}"
-				""
-				"{ftbquests.chapter.botania.quest656E19A85C1146B4.description2}"
-			]
-			id: "656E19A85C1146B4"
-			rewards: [{
-				id: "2ACF2741BA79BC87"
-				item: "society:candied_animal_feed"
-				type: "item"
-			}]
-			tasks: [{
-				id: "7B98D183C624AEA4"
-				type: "checkmark"
-			}]
-			title: "{ftbquests.chapter.botania.quest656E19A85C1146B4.title}"
-			x: 15.5d
-			y: -1.5d
-		}
-		{
 			dependencies: ["13A0704DCABC95E9"]
 			description: [
 				"{ftbquests.chapter.botania.quest52AB7E364A737557.description1}"

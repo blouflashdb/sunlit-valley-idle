@@ -143,51 +143,6 @@
 			y: -1.0d
 		}
 		{
-			id: "11866E94580BCB30"
-			tasks: [{
-				id: "00BC2D5D551D38AF"
-				type: "checkmark"
-			}]
-			x: -7.5d
-			y: 8.0d
-		}
-		{
-			id: "45BF61F4FC6DE4FC"
-			tasks: [{
-				id: "52A4E5C2F7B41CD1"
-				type: "checkmark"
-			}]
-			x: -4.5d
-			y: 8.0d
-		}
-		{
-			id: "073591B2DEE7BCF4"
-			tasks: [{
-				id: "396496F08B904288"
-				type: "checkmark"
-			}]
-			x: -3.0d
-			y: 8.0d
-		}
-		{
-			id: "7E88CB60317AF577"
-			tasks: [{
-				id: "00FC551AB851C0A2"
-				type: "checkmark"
-			}]
-			x: 0.0d
-			y: 8.0d
-		}
-		{
-			id: "1A02D522BD4600F6"
-			tasks: [{
-				id: "16AB10903AED2444"
-				type: "checkmark"
-			}]
-			x: -1.5d
-			y: 8.0d
-		}
-		{
 			id: "40C1911E470C61D5"
 			tasks: [{
 				id: "5C1D68C390B1E664"
@@ -226,24 +181,6 @@
 			}]
 			x: -6.0d
 			y: 4.5d
-		}
-		{
-			id: "683266653D948DDB"
-			tasks: [{
-				id: "060391CEDFF28788"
-				type: "checkmark"
-			}]
-			x: -6.0d
-			y: 8.0d
-		}
-		{
-			id: "28A1326708436D22"
-			tasks: [{
-				id: "5C26E3B637BA8F65"
-				type: "checkmark"
-			}]
-			x: 1.5d
-			y: 8.0d
 		}
 		{
 			id: "51B9DA9C11B5FBAF"
@@ -453,7 +390,7 @@
 			y: 4.5d
 		}
 		{
-			description: [""]
+			description: [ ]
 			id: "5B2FC6D0E6C24D83"
 			subtitle: "{ftbquests.chapter.drinks.quest5B2FC6D0E6C24D83.subtitle}"
 			tasks: [{
@@ -813,27 +750,20 @@
 				"33BF5CA9DD893DD9"
 				"012EB2AD32690CED"
 				"7C913DEC84536867"
-				"1A02D522BD4600F6"
 				"70F7C8C8951CBDF1"
 				"4949D7040F1E46C7"
-				"073591B2DEE7BCF4"
 				"4A30CAAB557B2B37"
 				"48FC913F4C9DA449"
 				"5DFF5343D2945830"
-				"683266653D948DDB"
 				"20C3041DDF3590B2"
 				"0CD34DE703A9AC84"
-				"45BF61F4FC6DE4FC"
 				"7FC1972F74B32F80"
 				"13298D80ED38BE30"
 				"056219DA22E32F39"
 				"0BB56F0444E7EDF3"
-				"7E88CB60317AF577"
 				"7D9C83D14F72B75A"
 				"70E664D2389F628D"
-				"28A1326708436D22"
 				"0A795E2DE1DE906D"
-				"11866E94580BCB30"
 				"3438F13EB6D6FD3A"
 				"2256A02C7FF6F620"
 				"57A2D7AF344C74AF"

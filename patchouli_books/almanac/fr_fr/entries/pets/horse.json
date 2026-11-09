@@ -1,7 +1,7 @@
 {
   "name": "Cheval",
   "category": "patchouli:pets",
-  "icon": "relics:horse_flute",
+  "icon": "minecraft:saddle",
   "pages": [
     {
       "type": "patchouli:text",

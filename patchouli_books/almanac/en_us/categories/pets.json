@@ -1,6 +1,6 @@
 {
     "name": "Pets",
 	"description": "Companion animals that give unique gifts at maximum affection",
-    "icon": "candlelight:hearth",
+    "icon": "minecraft:bone",
     "category": "patchouli:pets"
 }

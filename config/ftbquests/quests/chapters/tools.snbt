@@ -141,27 +141,6 @@
 			y: 0.0d
 		}
 		{
-			dependencies: ["2193ACEC05CC5B07"]
-			description: [
-				"{ftbquests.chapter.tools.quest86A3F527E1A973E.description1}"
-				""
-				"{ftbquests.chapter.tools.quest86A3F527E1A973E.description2}"
-			]
-			id: "086A3F527E1A973E"
-			rewards: [{
-				id: "3651413BAA3324A2"
-				item: "numismatics:crown"
-				type: "item"
-			}]
-			tasks: [{
-				id: "7F0933DA244DC98F"
-				type: "checkmark"
-			}]
-			title: "{ftbquests.chapter.tools.quest86A3F527E1A973E.title}"
-			x: 2.5d
-			y: -1.0d
-		}
-		{
 			dependencies: ["31F6C5811A72396C"]
 			description: [
 				"{ftbquests.chapter.tools.quest6DAD35E264D3E056.description1}"
@@ -223,7 +202,6 @@
 			dependencies: ["31F6C5811A72396C"]
 			description: [
 				"{ftbquests.chapter.tools.quest6C1236C00210E5A7.description1}"
-				""
 				""
 				"{ftbquests.chapter.tools.quest6C1236C00210E5A7.description2}"
 			]

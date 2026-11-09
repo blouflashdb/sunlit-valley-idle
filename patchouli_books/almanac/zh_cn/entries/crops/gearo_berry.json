@@ -21,7 +21,7 @@
           ]
         ],
         "mapping": {
-          "0": "vintagedelight:gearo_berry_bush[age=4]",
+          "0": "vintagedelight:gearo_berry_bush[age=3]",
           "F": "minecraft:grass_block"
         }
       }

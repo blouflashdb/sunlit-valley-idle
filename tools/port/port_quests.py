@@ -7,7 +7,8 @@ FTB Quests 1.21.1 still reads 1.20.1 item stacks, but only their id and count: i
     or(item(...)...), itemfilters:tag becomes item_tag(...);
   - turns match_nbt into match_components ("fuzzy": the item must have the task's components);
   - replaces items of mods that are gone (SUBSTITUTES) and removes tasks and rewards whose item has no
-    replacement (REMOVED), along with icons of them;
+    replacement (REMOVED), along with icons of them; a quest that loses every task is removed with its texts
+    (kubejs/assets/ftbquestlocalizer/lang), and the quests after it depend on its dependencies instead;
   - renames forge tags to c tags.
 The tasks and rewards it removes are printed. questsTest.js checks in CI that no item of the book is missing.
 
@@ -15,6 +16,7 @@ Run from the repository root: python3 tools/port/port_quests.py
 """
 import json
 import pathlib
+import re
 import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
@@ -22,6 +24,9 @@ import ftb_snbt  # noqa: E402
 from ftb_snbt import Raw, quote  # noqa: E402
 
 QUESTS = pathlib.Path("config/ftbquests/quests")
+LANG = pathlib.Path("kubejs/assets/ftbquestlocalizer/lang")
+# Quests whose every task is gone, with their dependencies (filled by port()).
+REMOVED_QUESTS = {}
 # Items of mods that are gone, with what the quests use instead.
 SUBSTITUTES = {
     # Construction Wand is replaced by Building Gadgets (tools/port/mods-1.21.1.json).
@@ -57,8 +62,26 @@ REMOVED = {
     # Furniture (#15).
     "create_central_kitchen:cooking_guide", "create_enchantment_industry:disenchanter",
     "create_enchantment_industry:hyper_experience_bottle", "beachparty:chocolate_icecream",
-    "beachparty:sweetberry_milkshake", "society:fantasy_catalog", "candlelight:khinkali", "netherdepthsupgrade:baked_lava_pufferfish_stew",
+    "beachparty:sweetberry_milkshake", "society:fantasy_catalog",
+    "society:car_key",  # parks an Automobility car
+    "candlelight:khinkali", "netherdepthsupgrade:baked_lava_pufferfish_stew",
     "relics:arrow_quiver", "relics:horse_flute", "relics:spatial_sign", "unusualfishmod:raw_snowflake",
+}
+# Quest texts (en_us of kubejs/assets/ftbquestlocalizer/lang) that describe replaced content. The other languages
+# lose these keys, so they show the English text until they are translated again.
+TEXTS = {
+    "ftbquests.chapter.tools.quest2193ACEC05CC5B07.title": "Building Gadgets",
+    "ftbquests.chapter.tools.quest2193ACEC05CC5B07.description1": "The &6Building Gadget&r places blocks in a line, "
+    "a surface or a whole shape at once. It runs on energy instead of durability.",
+    "ftbquests.chapter.tools.quest2193ACEC05CC5B07.task.8111881249018882787.title": "Building Gadget",
+    "ftbquests.chapter.transportation.questE93089181D8EE7B.description1": "Minecarts can be linked using Create's "
+    "&6Minecart Coupling&r.",
+    "ftbquests.chapter.transportation.questE93089181D8EE7B.task.4800438316975324135.title": "Minecart Coupling",
+}
+# Quest description lines about removed content: dropped from the quest and from every language.
+DROPPED_TEXTS = {
+    "ftbquests.chapter.ivi__mechanical_farming.quest162C1DFB58132D45.description2",  # the CEI Disenchanter
+    "ftbquests.chapter.ivi__mechanical_farming.quest162C1DFB58132D45.description3",  # CEI Hyper Experience
 }
 # forge tags whose c tag has another name; every other forge:x becomes c:x.
 TAGS = {}
@@ -204,9 +227,16 @@ def port(value, where, removed):
         elif key == "tasks" and isinstance(v, list) and v:
             tasks = port(v, where, removed)
             if not tasks:
-                # every task's item is gone: a checkmark keeps the quest (and the quests that depend on it)
-                tasks = [{"id": v[0]["id"], "type": quote("checkmark")}]
+                # every task's item is gone: the quest goes, and the quests after it depend on its dependencies
+                REMOVED_QUESTS[value["id"].text] = [d.text for d in value.get("dependencies", [])]
+                removed.append(f"{where}: quest {value['id'].text}")
+                return None
             out[key] = tasks
+        elif key == "description" and isinstance(v, list):
+            lines = [line for line in v if line.text.strip("{}") not in DROPPED_TEXTS]
+            # no empty line left at the end or twice in a row
+            lines = [line for i, line in enumerate(lines) if line.text or (0 < i < len(lines) - 1 and lines[i + 1].text)]
+            out[key] = lines
         elif key == "match_nbt":
             if v == "true":
                 out["match_components"] = quote("fuzzy")
@@ -217,14 +247,74 @@ def port(value, where, removed):
     return out
 
 
+def dependencies(ids):
+    """The dependencies with every removed quest replaced by its own dependencies."""
+    out = []
+    for quest in ids:
+        for dep in dependencies(REMOVED_QUESTS[quest]) if quest in REMOVED_QUESTS else [quest]:
+            if dep not in out:
+                out.append(dep)
+    return out
+
+
+def rewire(value):
+    if isinstance(value, list):
+        for v in value:
+            rewire(v)
+    elif isinstance(value, dict):
+        if isinstance(value.get("dependencies"), list) and any(d.text in REMOVED_QUESTS for d in value["dependencies"]):
+            value["dependencies"] = [quote(d) for d in dependencies([d.text for d in value["dependencies"]])]
+        for v in value.values():
+            rewire(v)
+
+
+def edit_lang(removed_quests):
+    """Drops the texts of the removed quests and DROPPED_TEXTS from the quest lang files (FTB Quest Localizer keys)
+    and applies TEXTS to en_us (other languages lose those keys). Lines are edited in place, so the files keep their
+    layout and line endings."""
+    quests = "|".join(re.escape(i.lstrip("0")) for i in removed_quests) or "(?!)"
+    removed = re.compile(r'^\s*"[^"]*\.quest(' + quests + r')(\.[^"]*)?"\s*:')
+    key_of = re.compile(r'^\s*"([^"]*)"\s*:')
+    for path in sorted(LANG.glob("*.json")):
+        text = path.read_bytes().decode("utf-8")
+        lines = text.splitlines(keepends=True)
+        kept = []
+        for line in lines:
+            match = key_of.match(line)
+            key = match.group(1) if match else None
+            if removed.match(line) or key in DROPPED_TEXTS:
+                continue
+            if key in TEXTS:
+                if path.stem != "en_us":
+                    continue
+                ending = line[len(line.rstrip("\r\n")):]
+                comma = "," if line.rstrip("\r\n").endswith(",") else ""
+                line = line[:match.start(1) - 1] + json.dumps(key) + ": " + json.dumps(TEXTS[key], ensure_ascii=False) + comma + ending
+            kept.append(line)
+        if kept == lines:
+            continue
+        # the entry before the closing brace has no comma
+        for i in range(len(kept) - 1, -1, -1):
+            if kept[i].strip() and kept[i].strip() != "}":
+                body = kept[i].rstrip("\r\n")
+                kept[i] = body.rstrip(",") + kept[i][len(body):]
+                break
+        out = "".join(kept)
+        json.loads(out)
+        path.write_bytes(out.encode("utf-8"))
+
+
 def main():
     removed = []
+    files = {}
     for path in sorted(QUESTS.rglob("*.snbt")):
-        data = ftb_snbt.read(path.read_text())
-        ported = port(data, path.relative_to(QUESTS).as_posix(), removed)
+        files[path] = port(ftb_snbt.read(path.read_text()), path.relative_to(QUESTS).as_posix(), removed)
+    for path, ported in files.items():
+        rewire(ported)
         text = ftb_snbt.write(ported)
         if text != path.read_text():
             path.write_text(text)
+    edit_lang(REMOVED_QUESTS)
     for line in removed:
         print(f"  removed {line}")
     print(f"{len(removed)} tasks and rewards removed")

@@ -887,7 +887,6 @@
 				""
 				"{ftbquests.chapter.iv__prismatic_farming.quest53C771625381F8F8.description2}"
 				""
-				""
 				"[\"\",{\"translate\":\"ftbquests.chapter.iv__prismatic_farming.quest53C771625381F8F8.rich_description1\",\"clickEvent\":{\"action\":\"change_page\",\"value\":\"53836B96EE81A695\"}}]"
 			]
 			id: "53C771625381F8F8"
@@ -1168,52 +1167,6 @@
 			}]
 			x: -2.0d
 			y: 0.5d
-		}
-		{
-			dependencies: ["76A60EE6F3E0FF72"]
-			description: ["{ftbquests.chapter.iv__prismatic_farming.quest181794D54A635F81.description1}"]
-			id: "181794D54A635F81"
-			rewards: [{
-				id: "284F02BE3A8C125C"
-				item: {
-					components: {
-						"minecraft:stored_enchantments": {
-							levels: {
-								"domesticationinnovation:total_recall": 1
-							}
-						}
-					}
-					count: 1
-					id: "minecraft:enchanted_book"
-				}
-				type: "item"
-			}]
-			tasks: [{
-				id: "22F5A370A1A215F2"
-				type: "checkmark"
-			}]
-			title: "{ftbquests.chapter.iv__prismatic_farming.quest181794D54A635F81.title}"
-			x: -1.0d
-			y: -0.5d
-		}
-		{
-			dependencies: ["76A60EE6F3E0FF72"]
-			description: [
-				"{ftbquests.chapter.iv__prismatic_farming.quest40C8DC3C2A22F632.description1}"
-				""
-				"{ftbquests.chapter.iv__prismatic_farming.quest40C8DC3C2A22F632.description2}"
-				""
-				"{ftbquests.chapter.iv__prismatic_farming.quest40C8DC3C2A22F632.description3}"
-			]
-			id: "40C8DC3C2A22F632"
-			rewards: [ ]
-			tasks: [{
-				id: "571CF103F79F06DE"
-				type: "checkmark"
-			}]
-			title: "{ftbquests.chapter.iv__prismatic_farming.quest40C8DC3C2A22F632.title}"
-			x: -2.0d
-			y: -1.0d
 		}
 		{
 			dependencies: ["3979B0AD660A33D2"]
