@@ -380,7 +380,6 @@ society:bunny_baseboard
 society:bunny_wallpaper
 society:cloud_baseboard
 society:cloud_wallpaper
-society:coin_leaderboard
 society:dewy_star
 society:dirty_chai
 society:face_note

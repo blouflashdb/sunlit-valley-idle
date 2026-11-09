@@ -6,9 +6,7 @@ console.info("[SOCIETY] customBlockEntityBroken.js loaded");
 
 // society:prize_machine is ported: kubejs/server_scripts/blockEvents/prizeMachineEvents.js
 
-BlockEvents.broken("society:coin_leaderboard", (e) => {
-  global.clearOldTextDisplay(e.block, e.level, "leaderboard");
-});
+// society:coin_leaderboard is ported: kubejs/server_scripts/townEconomyEvents.js
 
 BlockEvents.broken("society:shipping_bin_monitor", (e) => {
   global.clearOldTextDisplay(e.block, e.level, "shipping_bin_monitor");
