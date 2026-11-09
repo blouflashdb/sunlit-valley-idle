@@ -137,7 +137,7 @@ LootJS.modifiers((e) => {
     }
   );
 
-  e.addTypeModifier(LootType.CHEST).customAction((context, loot) => {
+  e.addTableModifier(LootType.CHEST).customAction((context, loot) => {
     // Unstackable items in stacks would be voided.
     loot.modifyItems((stack) => {
       if (stack.getMaxStackSize() === 1 && stack.getCount() > 1) stack.setCount(1);

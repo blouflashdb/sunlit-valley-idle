@@ -62,7 +62,7 @@ ServerEvents.loaded((event) => {
         check(template.isPresent() && template.get().getSize().getX() > 0, `no template ${id}`);
         let resource = server.getResourceManager().getResource($StructTestRL.parse(`society:structure/${name}.nbt`));
         let stream = resource.get().open();
-        let nbt = $StructTestNbtIo.readCompressed(stream, $StructTestNbtAccounter.unlimitedHeap());
+        let nbt = $StructTestNbtIo["readCompressed(java.io.InputStream,net.minecraft.nbt.NbtAccounter)"](stream, $StructTestNbtAccounter.unlimitedHeap());
         stream.close();
         let palette = nbt.getList("palette", 10);
         for (let i = 0; i < palette.size(); i++) {
