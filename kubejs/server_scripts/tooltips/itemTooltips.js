@@ -1106,10 +1106,6 @@ ItemEvents.modifyTooltips((e) => {
     "gag:escape_rope",
     Text.translatable("tooltip.society.escape_rope_hold").red()
   );
-  tooltip.add(
-    "society:face_note",
-    Text.translatable("tooltip.society.face_note").green()
-  );
   // Refined
   tooltip.add(
     "refinedstorage:4k_storage_block",
@@ -1200,7 +1196,6 @@ ItemEvents.modifyTooltips((e) => {
     "society:treasure_totem",
     "society:sparkpod_seeds",
     "society:sparkpod",
-    "society:statue_of_cravings",
   ].forEach((item) => {
     getMasteryTooltip(item, "farming")
   });
