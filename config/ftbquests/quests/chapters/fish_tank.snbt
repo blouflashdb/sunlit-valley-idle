@@ -49,11 +49,6 @@
 					item: "unusualfishmod:raw_bark_angelfish"
 					type: "item"
 				}
-				{
-					id: "74203B5CCDDB8157"
-					item: "unusualfishmod:raw_snowflake"
-					type: "item"
-				}
 			]
 			title: "{ftbquests.chapter.fish_tank.quest3F3D0F74A5BC0C4.title}"
 			x: -3.085714285714289d

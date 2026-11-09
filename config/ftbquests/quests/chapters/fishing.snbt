@@ -1727,8 +1727,7 @@
 			shape: "none"
 			tasks: [{
 				id: "33BA7D18AEBE68FD"
-				item: "unusualfishmod:raw_snowflake"
-				type: "item"
+				type: "checkmark"
 			}]
 			x: 4.976190476190489d
 			y: -6.809523809523839d

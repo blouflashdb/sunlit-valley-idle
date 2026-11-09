@@ -71,11 +71,7 @@
 				"{ftbquests.chapter.iii__advanced_farming.quest11A36B05684D70A9.description3}"
 			]
 			id: "11A36B05684D70A9"
-			rewards: [{
-				id: "64B8C750A013A432"
-				item: "netherdepthsupgrade:baked_lava_pufferfish_stew"
-				type: "item"
-			}]
+			rewards: [ ]
 			tasks: [{
 				id: "379A2E074C1F6E72"
 				item: {

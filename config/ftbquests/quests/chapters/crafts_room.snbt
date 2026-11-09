@@ -127,11 +127,6 @@
 					type: "item"
 				}
 				{
-					id: "5A9C1A53C90D705D"
-					item: "beachparty:chocolate_icecream"
-					type: "item"
-				}
-				{
 					id: "11CA697D5632C4C6"
 					item: "bakery:chocolate_cake"
 					type: "item"

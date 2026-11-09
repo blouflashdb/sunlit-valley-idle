@@ -997,7 +997,7 @@
 				id: "6F925B01C27987B2"
 				item: {
 					components: {
-						"ftbfiltersystem:filter": "or(item(vinery:white_grapejuice)item(vinery:red_grapejuice)item(nethervinery:warped_grapejuice)item(nethervinery:crimson_grapejuice)item(vinery:apple_juice))"
+						"ftbfiltersystem:filter": "or(item(vinery:white_grapejuice)item(vinery:red_grapejuice)item(vinery:apple_juice))"
 					}
 					count: 1
 					id: "ftbfiltersystem:smart_filter"

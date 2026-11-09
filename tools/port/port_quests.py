@@ -29,6 +29,11 @@ SUBSTITUTES = {
     "constructionwand:iron_wand": "buildinggadgets2:gadget_building",
     "constructionwand:diamond_wand": "buildinggadgets2:gadget_building",
     "constructionwand:infinity_wand": "buildinggadgets2:gadget_building",
+    # Renamed on 1.21.1.
+    "crabbersdelight:frog_leg_kebob": "crabbersdelight:frog_leg_kebab",
+    "crabbersdelight:squid_kebob": "crabbersdelight:squid_kebab",
+    "smallships:sail": "smallships:cotton_sails",
+    "refinedstorageaddons:wireless_crafting_grid": "refinedstorage:wireless_grid",
 }
 # Items that are gone without a replacement: tasks and rewards with them are removed.
 REMOVED = {
@@ -40,16 +45,19 @@ REMOVED = {
     "domesticationinnovation:wayward_lantern",
     "moreminecarts:chiseled_organic_glass", "moreminecarts:glass_cactus", "moreminecarts:lightspeed_powered_rail",
     "moreminecarts:lightspeed_rail", "moreminecarts:maglev_powered_rail", "moreminecarts:maglev_rail",
-    "moreminecarts:wooden_cross_rail", "moreminecarts:wooden_rail", "moreminecarts:wooden_rail_turn",
+    "moreminecarts:wooden_cross_rail", "moreminecarts:coupler", "moreminecarts:maglev_projector_rail",
+    "moreminecarts:projector_rail", "moreminecarts:wooden_projector_rail", "moreminecarts:wooden_rail", "moreminecarts:wooden_rail_turn",
     "nethervinery:blazewine_pinot", "nethervinery:crimson_grape", "nethervinery:crimson_grape_juice_bucket",
     "nethervinery:ghastly_grenache", "nethervinery:improved_lava_fizz", "nethervinery:improved_nether_fizz",
-    "nethervinery:lava_fizz", "nethervinery:nether_fizz", "nethervinery:netherite_nectar", "nethervinery:warped_grape",
+    "nethervinery:crimson_grapejuice", "nethervinery:warped_grapejuice", "nethervinery:lava_fizz", "nethervinery:nether_fizz", "nethervinery:netherite_nectar", "nethervinery:warped_grape",
     "constructionwand:core_angel", "constructionwand:core_destruction",
     "farmlife:domestic_tribull_spawn_egg", "farmlife:galliraptor_spawn_egg",
     "species:alphacene_mushroom", "species:youth_potion", "verdantvibes:bracket_mushroom",
     # Items the 1.21.1 builds of mods in the pack no longer have.
     "create_central_kitchen:cooking_guide", "create_enchantment_industry:disenchanter",
-    "create_enchantment_industry:hyper_experience_bottle",
+    "create_enchantment_industry:hyper_experience_bottle", "beachparty:chocolate_icecream",
+    "beachparty:sweetberry_milkshake", "candlelight:khinkali", "netherdepthsupgrade:baked_lava_pufferfish_stew",
+    "relics:arrow_quiver", "relics:horse_flute", "relics:spatial_sign", "unusualfishmod:raw_snowflake",
 }
 # forge tags whose c tag has another name; every other forge:x becomes c:x.
 TAGS = {}

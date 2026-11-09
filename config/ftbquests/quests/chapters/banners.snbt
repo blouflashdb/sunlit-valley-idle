@@ -328,7 +328,7 @@
 			id: "1C7EA6EEE7885EB0"
 			tasks: [{
 				id: "37F7474DBC19B25A"
-				item: "crabbersdelight:frog_leg_kebob"
+				item: "crabbersdelight:frog_leg_kebab"
 				type: "item"
 			}]
 			x: -1.0d
@@ -338,7 +338,7 @@
 			id: "2492865EF15173BA"
 			tasks: [{
 				id: "367FB453D45D1900"
-				item: "crabbersdelight:squid_kebob"
+				item: "crabbersdelight:squid_kebab"
 				type: "item"
 			}]
 			x: -2.0d
@@ -2300,8 +2300,7 @@
 			id: "5088A974205886F5"
 			tasks: [{
 				id: "75AB1D0148550206"
-				item: "candlelight:khinkali"
-				type: "item"
+				type: "checkmark"
 			}]
 			x: -9.0d
 			y: -2.0d

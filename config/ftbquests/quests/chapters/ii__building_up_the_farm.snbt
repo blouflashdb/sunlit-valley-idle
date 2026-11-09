@@ -664,12 +664,7 @@
 			]
 			icon: "society:milk"
 			id: "5B5A764F0E02E5FF"
-			rewards: [{
-				count: 2
-				id: "561C516A119D916F"
-				item: "beachparty:sweetberry_milkshake"
-				type: "item"
-			}]
+			rewards: [ ]
 			tasks: [
 				{
 					id: "69F396F4D539C274"
@@ -1237,7 +1232,7 @@
 			}]
 			tasks: [{
 				id: "7BDB605D869BF845"
-				item: "smallships:sail"
+				item: "smallships:cotton_sails"
 				type: "item"
 			}]
 			title: "{ftbquests.chapter.ii__building_up_the_farm.quest4513A91DA55E8069.title}"
@@ -1618,7 +1613,7 @@
 			hide_until_deps_complete: true
 			icon: {
 				count: 1
-				id: "refinedstorageaddons:wireless_crafting_grid"
+				id: "refinedstorage:wireless_grid"
 			}
 			id: "55D658B5939D9DEB"
 			rewards: [{
@@ -1631,7 +1626,7 @@
 					id: "2C4975F5156BCFCC"
 					item: {
 						count: 1
-						id: "refinedstorageaddons:wireless_crafting_grid"
+						id: "refinedstorage:wireless_grid"
 					}
 					type: "item"
 				}
