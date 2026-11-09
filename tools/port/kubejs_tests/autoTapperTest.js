@@ -33,15 +33,13 @@ ServerEvents.loaded((event) => {
       barrel.set("vinery:fermentation_barrel");
       barrel = level.getBlock(bx + 3, y, bz + 1);
       let barrelEntity = barrel.getEntity();
-      console.info(`[PORT-TEST] INFO autotapper barrel ${barrelEntity ? barrelEntity.getClass().getName() : "no entity"}`);
-      if (barrelEntity) {
+      try {
         console.info(`[PORT-TEST] INFO autotapper barrel nbt ${barrelEntity.saveWithoutMetadata(level.registryAccess())}`);
-        let names = [];
-        barrelEntity.getClass().getMethods().forEach((m) => {
-          if (String(m.getDeclaringClass().getName()).indexOf("vinery") !== -1) names.push(`${m.getName()}(${m.getParameterCount()})`);
-        });
-        barrelEntity.getClass().getDeclaredFields().forEach((f) => names.push(`field ${f.getName()}:${f.getType().getSimpleName()}`));
-        console.info(`[PORT-TEST] INFO autotapper barrel members ${names.join(" ")}`);
+        let members = [];
+        for (let key in barrelEntity) members.push(key);
+        console.info(`[PORT-TEST] INFO autotapper barrel members ${members.join(" ")}`);
+      } catch (probeError) {
+        console.info(`[PORT-TEST] INFO autotapper barrel probe failed: ${probeError}`);
       }
       let vinery = [];
       Java.loadClass("net.minecraft.core.registries.BuiltInRegistries").ITEM.keySet().forEach((id) => {
