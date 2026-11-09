@@ -46,8 +46,13 @@ ServerEvents.loaded((event) => {
 
       check(Item.of("minecraft:oak_log").hasTag("society:raw_logs"), "oak logs are not raw logs");
       let recipe = server.getRecipeManager().byKey($TestCafeRL.parse("bountiful:bountyboard"));
-      check(recipe.isPresent() && String(recipe.get().value().getIngredients()).indexOf("numismatics:cog") !== -1,
-        "the bounty board recipe does not take a cog");
+      check(recipe.isPresent(), "no bounty board recipe");
+      let takesCog = false;
+      let cog = Item.of("numismatics:cog");
+      recipe.get().value().getIngredients().forEach((ingredient) => {
+        if (ingredient.test(cog)) takesCog = true;
+      });
+      check(takesCog, "the bounty board recipe does not take a cog");
 
       let season = global.getSeasonFromLevel(level);
       let other = global.seasonalDecrees.filter((s) => s !== season)[0];
