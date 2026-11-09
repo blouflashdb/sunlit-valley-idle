@@ -16,9 +16,11 @@ ServerEvents.loaded((event) => {
     if (ns.indexOf(String(k.getNamespace())) !== -1) console.info(`[PROBE] component ${k}`);
   });
   server.getCommands().getDispatcher().getRoot().getChildren().forEach((c) => console.info(`[PROBE] command ${c.getName()}`));
+  let $ProbeHashMap = Java.loadClass("java.util.HashMap");
   let rm = server.getResourceManager();
   ["dialogs", "dialog", "bounty_pools", "bounty_decrees", "menu", "shops", "selectors", "bountiful", "cozycafe"].forEach((dir) => {
-    let found = rm.listResources(dir, (p) => String(p).endsWith(".json")).entrySet();
+    // A TreeMap with ResourceLocation keys breaks Rhino property lookups; copy it into a HashMap.
+    let found = new $ProbeHashMap(rm.listResources(dir, (p) => String(p).endsWith(".json"))).entrySet();
     let shown = 0;
     found.forEach((entry) => {
       let loc = entry.getKey();
