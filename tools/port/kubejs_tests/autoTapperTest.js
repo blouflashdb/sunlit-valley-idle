@@ -1,6 +1,6 @@
 // CI only: server_boot_test.py copies this into kubejs/server_scripts/_ci/ and boots the server twice.
-// Boot 1 builds an Auto-Tapper on an oak log and a Juice Inserter on a fermentation barrel above spawn and runs each
-// once; boot 2 checks that the tank contents were saved. Prints "[PORT-TEST] PHASE1 autotapper",
+// Boot 1 builds an Auto-Tapper on an oak log and a Juice Inserter on a Vinery fermentation barrel above spawn and
+// runs them; boot 2 checks that the tank and the barrel kept their contents. Prints "[PORT-TEST] PHASE1 autotapper",
 // "[PORT-TEST] PASS autotapper" or "[PORT-TEST] FAIL autotapper: ...".
 ServerEvents.loaded((event) => {
   let server = event.server;
@@ -28,24 +28,25 @@ ServerEvents.loaded((event) => {
       check(fluidIn(tapper) === "2 society:oak_resin", `auto tapper tank after one run: ${fluidIn(tapper)}`);
       check(!global.isBlockPropertyTrue(level.getBlock(bx, y, bz), "error"), "the auto tapper shows an error on an oak log");
 
-      // Vinery 1.21.1 probe: what the fermentation barrel stores
-      let barrel = level.getBlock(bx + 3, y, bz + 1);
-      barrel.set("vinery:fermentation_barrel");
-      barrel = level.getBlock(bx + 3, y, bz + 1);
-      let barrelEntity = barrel.getEntity();
-      try {
-        console.info(`[PORT-TEST] INFO autotapper barrel nbt ${barrelEntity.saveWithoutMetadata(level.registryAccess())}`);
-        let members = [];
-        for (let key in barrelEntity) members.push(key);
-        console.info(`[PORT-TEST] INFO autotapper barrel members ${members.join(" ")}`);
-      } catch (probeError) {
-        console.info(`[PORT-TEST] INFO autotapper barrel probe failed: ${probeError}`);
-      }
-      let vinery = [];
-      Java.loadClass("net.minecraft.core.registries.BuiltInRegistries").ITEM.keySet().forEach((id) => {
-        if (String(id).indexOf("vinery:") === 0 && String(id).indexOf("juice") !== -1) vinery.push(String(id));
-      });
-      console.info(`[PORT-TEST] INFO autotapper vinery juice items ${vinery.join(" ")}`);
+      // Juice Inserter facing north into a fermentation barrel
+      let barrelPos = [bx + 3, y, bz - 1];
+      level.getBlock(barrelPos[0], barrelPos[1], barrelPos[2]).set("vinery:fermentation_barrel");
+      let inserter = level.getBlock(bx + 3, y, bz);
+      inserter.set("society:juice_inserter", { facing: "north" });
+      inserter = level.getBlock(bx + 3, y, bz);
+      check(global.fillMachineTank(inserter, "vinery:red_grape_juice", 1000) === 1000, "the juice inserter took no juice");
+      global.runJuiceInserter({ block: inserter, level: level });
+      global.runJuiceInserter({ block: inserter, level: level });
+      let barrel = level.getBlock(barrelPos[0], barrelPos[1], barrelPos[2]).getEntity();
+      check(
+        Number(barrel.getFluidLevel()) === 50 && String(barrel.getJuiceType()) === "red_general",
+        `barrel after two inserts: ${barrel.saveWithoutMetadata(level.registryAccess())}`
+      );
+      check(fluidIn(inserter) === "500 vinery:red_grape_juice", `juice inserter tank after two inserts: ${fluidIn(inserter)}`);
+      tankOf(inserter).drain(500, Java.loadClass("net.neoforged.neoforge.fluids.capability.IFluidHandler$FluidAction").EXECUTE);
+      global.fillMachineTank(inserter, "vinery:apple_juice", 250);
+      global.runJuiceInserter({ block: inserter, level: level });
+      check(Number(barrel.getFluidLevel()) === 50, "the barrel took apple juice into red grape juice");
 
       server.persistentData.putBoolean("autoTapperTest", true);
       console.info("[PORT-TEST] PHASE1 autotapper");
@@ -56,6 +57,8 @@ ServerEvents.loaded((event) => {
         !stack.isEmpty() && stack.getAmount() >= 2 && / society:oak_resin$/.test(fluidIn(tapper)),
         `auto tapper tank after the restart: ${fluidIn(tapper)}`
       );
+      let savedBarrel = level.getBlock(bx + 3, y, bz - 1).getEntity();
+      check(Number(savedBarrel.getFluidLevel()) === 50, `barrel after the restart: ${savedBarrel.getFluidLevel()}`);
       console.info("[PORT-TEST] PASS autotapper");
     }
   } catch (e) {

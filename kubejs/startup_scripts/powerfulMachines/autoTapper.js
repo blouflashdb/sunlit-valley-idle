@@ -73,5 +73,35 @@ StartupEvents.registry("block", (event) => {
     });
 });
 
-/** Moves 250 mB of juice from the tank into the fermentation barrel it faces. */
-global.runJuiceInserter = (entity) => {};
+// Juice fluids and the fermentation barrel's juice types. The Nether Vinery juices are gone on 1.21.1; the savanna,
+// taiga and jungle juices have no fluid in the pack (their grapes go into the barrel by hand).
+const juiceInserterJuices = {
+  "vinery:white_grape_juice": "white_general",
+  "vinery:red_grape_juice": "red_general",
+  "vinery:apple_juice": "apple",
+};
+
+/**
+ * Moves 250 mB of juice from the tank into the Vinery fermentation barrel it faces, which takes 25 juice levels per
+ * fill up to 100 and only one juice type at a time.
+ */
+global.runJuiceInserter = (entity) => {
+  const { block, level } = entity;
+  const tank = global.machineFluidTank(block);
+  if (!tank) return;
+  const stack = tank.getFluid();
+  if (stack.isEmpty() || stack.getAmount() < 250) return;
+  const juiceType = juiceInserterJuices[String(stack.getFluid().builtInRegistryHolder().key().location())];
+  if (!juiceType) return;
+  const barrelBlock = level.getBlock(global.getFacing(global.getBlockProperty(block, "facing"), block.getPos()));
+  if (String(barrelBlock.id) !== "vinery:fermentation_barrel") return;
+  const barrel = barrelBlock.getEntity();
+  if (!barrel || Number(barrel.getFluidLevel()) + 25 > 100) return;
+  if (Number(barrel.getFluidLevel()) === 0) barrel.setJuiceType(juiceType);
+  else if (String(barrel.getJuiceType()) !== juiceType) return;
+  tank.drain(250, $AutoTapperFluidAction.EXECUTE);
+  barrel.setFluidLevel(Number(barrel.getFluidLevel()) + 25);
+  barrel.setChanged();
+  level.sendBlockUpdated(barrelBlock.getPos(), barrelBlock.blockState, barrelBlock.blockState, 3);
+  level.server.runCommandSilent(`playsound create:spout block @a ${block.x} ${block.y} ${block.z}`);
+};
