@@ -22,9 +22,11 @@ ServerEvents.loaded((event) => {
   });
   let rm = server.getResourceManager();
   ["dialogs", "dialog", "bounty_pools", "bounty_decrees", "menu", "shops", "selectors", "bountiful", "cozycafe"].forEach((dir) => {
-    let found = rm.listResources(dir, (p) => String(p).endsWith(".json"));
+    let found = rm.listResources(dir, (p) => String(p).endsWith(".json")).entrySet();
     let shown = 0;
-    found.forEach((loc, res) => {
+    found.forEach((entry) => {
+      let loc = entry.getKey();
+      let res = entry.getValue();
       let n = String(loc.getNamespace());
       if (n !== "kubejs" && shown < 3) {
         shown++;
