@@ -25,7 +25,24 @@ QUESTS = pathlib.Path("config/ftbquests/quests")
 # Items of mods that are gone, with what the quests use instead.
 SUBSTITUTES = {}
 # Items that are gone without a replacement: tasks and rewards with them are removed.
-REMOVED = set()
+REMOVED = {
+    # Automobility, Create Utilities, Domestication Innovation, More Minecarts, Nether Vinery, Refined Storage
+    # Addons, Species and Verdant Vibes have no 1.21.1 build in the pack (tools/port/mods-1.21.1.json).
+    "automobility:auto_mechanic_table", "automobility:automobile_assembler", "automobility:crowbar",
+    "createutilities:void_motor", "createutilities:void_steel_ingot", "createutilities:void_tank",
+    "domesticationinnovation:collar_tag", "domesticationinnovation:drum", "domesticationinnovation:pet_bed_white",
+    "domesticationinnovation:wayward_lantern",
+    "moreminecarts:chiseled_organic_glass", "moreminecarts:glass_cactus", "moreminecarts:lightspeed_powered_rail",
+    "moreminecarts:lightspeed_rail", "moreminecarts:maglev_powered_rail", "moreminecarts:maglev_rail",
+    "moreminecarts:wooden_cross_rail", "moreminecarts:wooden_rail", "moreminecarts:wooden_rail_turn",
+    "nethervinery:blazewine_pinot", "nethervinery:crimson_grape", "nethervinery:crimson_grape_juice_bucket",
+    "nethervinery:ghastly_grenache", "nethervinery:improved_lava_fizz", "nethervinery:improved_nether_fizz",
+    "nethervinery:lava_fizz", "nethervinery:nether_fizz", "nethervinery:netherite_nectar", "nethervinery:warped_grape",
+    "species:alphacene_mushroom", "species:youth_potion", "verdantvibes:bracket_mushroom",
+    # Items the 1.21.1 builds of mods in the pack no longer have.
+    "create_central_kitchen:cooking_guide", "create_enchantment_industry:disenchanter",
+    "create_enchantment_industry:hyper_experience_bottle",
+}
 # forge tags whose c tag has another name; every other forge:x becomes c:x.
 TAGS = {}
 # Relic item data (Relics regenerates it on 1.21.1), dropped.
@@ -134,7 +151,7 @@ def stack(value, removed):
     if item.startswith("itemfilters:"):
         return smart_filter(item, nbt)
     out = {}
-    parts = components(item, nbt, removed)
+    parts = value["components"] if "components" in value else components(item, nbt, removed)
     if parts:
         out["components"] = parts
     count = number(value.get("Count", value.get("count", Raw("1"))))
@@ -161,6 +178,12 @@ def port(value, where, removed):
                 removed.append(f"{where}: {value.get('type', Raw('?')).text} {v if isinstance(v, Raw) else v['id']}")
                 return None
             out[key] = ported
+        elif key == "tasks" and isinstance(v, list) and v:
+            tasks = port(v, where, removed)
+            if not tasks:
+                # every task's item is gone: a checkmark keeps the quest (and the quests that depend on it)
+                tasks = [{"id": v[0]["id"], "type": quote("checkmark")}]
+            out[key] = tasks
         elif key == "match_nbt":
             if v == "true":
                 out["match_components"] = quote("fuzzy")

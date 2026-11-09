@@ -284,16 +284,6 @@
 					item: "farm_and_charm:wild_ribwort"
 					type: "item"
 				}
-				{
-					id: "4200D0173C703D78"
-					item: "verdantvibes:bracket_mushroom"
-					type: "item"
-				}
-				{
-					id: "36E3D64770E13C74"
-					item: "species:alphacene_mushroom"
-					type: "item"
-				}
 			]
 			title: "{ftbquests.chapter.crafts_room.quest174FBAB7BF83C049.title}"
 			x: -1.5428571428571445d

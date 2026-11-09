@@ -1179,8 +1179,7 @@
 			}]
 			tasks: [{
 				id: "61C5BAFB3E290916"
-				item: "moreminecarts:chiseled_organic_glass"
-				type: "item"
+				type: "checkmark"
 			}]
 			x: 10.5d
 			y: -0.5d

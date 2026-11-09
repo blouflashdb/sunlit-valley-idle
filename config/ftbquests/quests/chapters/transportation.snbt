@@ -52,24 +52,10 @@
 			dependencies: ["0C5B1C74E340882B"]
 			description: ["{ftbquests.chapter.transportation.questF77A3F0506C76B2.description1}"]
 			id: "0F77A3F0506C76B2"
-			rewards: [
-				{
-					count: 4
-					id: "167F24559313C221"
-					item: "moreminecarts:wooden_cross_rail"
-					type: "item"
-				}
-				{
-					count: 4
-					id: "027C9AFE9DD8BA7C"
-					item: "moreminecarts:wooden_rail_turn"
-					type: "item"
-				}
-			]
+			rewards: [ ]
 			tasks: [{
 				id: "1AE264A1C8F0B6DD"
-				item: "moreminecarts:wooden_rail"
-				type: "item"
+				type: "checkmark"
 			}]
 			x: -8.0d
 			y: -4.5d
@@ -78,16 +64,10 @@
 			dependencies: ["0C5B1C74E340882B"]
 			description: ["{ftbquests.chapter.transportation.quest1FE9F1AD269303B3.description1}"]
 			id: "1FE9F1AD269303B3"
-			rewards: [{
-				count: 4
-				id: "6E7B0A1EBC661ABD"
-				item: "moreminecarts:maglev_powered_rail"
-				type: "item"
-			}]
+			rewards: [ ]
 			tasks: [{
 				id: "2865E2F2301C7B3F"
-				item: "moreminecarts:maglev_rail"
-				type: "item"
+				type: "checkmark"
 			}]
 			x: -9.0d
 			y: -4.0d
@@ -96,16 +76,10 @@
 			dependencies: ["0C5B1C74E340882B"]
 			description: ["{ftbquests.chapter.transportation.quest6E7B80C8D3FD952D.description1}"]
 			id: "6E7B80C8D3FD952D"
-			rewards: [{
-				count: 2
-				id: "14AE849C3A196634"
-				item: "moreminecarts:lightspeed_powered_rail"
-				type: "item"
-			}]
+			rewards: [ ]
 			tasks: [{
 				id: "7F2B145BC739940B"
-				item: "moreminecarts:lightspeed_rail"
-				type: "item"
+				type: "checkmark"
 			}]
 			x: -9.5d
 			y: -3.0d
@@ -353,23 +327,11 @@
 				id: "automobility:automobile"
 			}
 			id: "5A0AA87EA971F13F"
-			rewards: [{
-				id: "492229A259CB9D08"
-				item: "automobility:crowbar"
-				type: "item"
+			rewards: [ ]
+			tasks: [{
+				id: "29CBF324286184CF"
+				type: "checkmark"
 			}]
-			tasks: [
-				{
-					id: "29CBF324286184CF"
-					item: "automobility:auto_mechanic_table"
-					type: "item"
-				}
-				{
-					id: "2941B038382A98EC"
-					item: "automobility:automobile_assembler"
-					type: "item"
-				}
-			]
 			title: "{ftbquests.chapter.transportation.quest5A0AA87EA971F13F.title}"
 			x: -2.5d
 			y: -1.0d

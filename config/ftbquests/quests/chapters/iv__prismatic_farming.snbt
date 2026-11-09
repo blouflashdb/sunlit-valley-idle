@@ -666,14 +666,7 @@
 				"{ftbquests.chapter.iv__prismatic_farming.quest38AC25E172172654.description2}"
 			]
 			id: "38AC25E172172654"
-			rewards: [{
-				id: "3E34C59B31A159AD"
-				item: {
-					count: 1
-					id: "nethervinery:netherite_nectar"
-				}
-				type: "item"
-			}]
+			rewards: [ ]
 			tasks: [{
 				id: "127ADEE09CA25855"
 				item: "minecraft:netherite_ingot"
@@ -764,11 +757,7 @@
 				"{ftbquests.chapter.iv__prismatic_farming.quest6C729A76F44E32D0.description2}"
 			]
 			id: "6C729A76F44E32D0"
-			rewards: [{
-				id: "61B2573C969032BE"
-				item: "moreminecarts:chiseled_organic_glass"
-				type: "item"
-			}]
+			rewards: [ ]
 			tasks: [{
 				id: "70219D7E929580DB"
 				item: {
@@ -1201,8 +1190,7 @@
 			}]
 			tasks: [{
 				id: "22F5A370A1A215F2"
-				item: "domesticationinnovation:collar_tag"
-				type: "item"
+				type: "checkmark"
 			}]
 			title: "{ftbquests.chapter.iv__prismatic_farming.quest181794D54A635F81.title}"
 			x: -1.0d
@@ -1217,30 +1205,12 @@
 				""
 				"{ftbquests.chapter.iv__prismatic_farming.quest40C8DC3C2A22F632.description3}"
 			]
-			icon: "domesticationinnovation:pet_bed_white"
 			id: "40C8DC3C2A22F632"
-			rewards: [{
-				id: "25201E8D8F8BD51B"
-				item: "domesticationinnovation:collar_tag"
-				type: "item"
+			rewards: [ ]
+			tasks: [{
+				id: "571CF103F79F06DE"
+				type: "checkmark"
 			}]
-			tasks: [
-				{
-					id: "571CF103F79F06DE"
-					item: "domesticationinnovation:pet_bed_white"
-					type: "item"
-				}
-				{
-					id: "134FB6AEE27347DC"
-					item: "domesticationinnovation:wayward_lantern"
-					type: "item"
-				}
-				{
-					id: "44F41EF1A2B25FE1"
-					item: "domesticationinnovation:drum"
-					type: "item"
-				}
-			]
 			title: "{ftbquests.chapter.iv__prismatic_farming.quest40C8DC3C2A22F632.title}"
 			x: -2.0d
 			y: -1.0d

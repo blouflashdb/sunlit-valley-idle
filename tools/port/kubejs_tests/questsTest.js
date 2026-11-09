@@ -93,12 +93,15 @@ const checkQuestBook = (server) => {
       $QuestsTestItems.ITEM.keySet().forEach((key) => allIds.push(String(key)));
       ids.forEach((id) => {
         let path = id.split(":")[1];
+        let namespace = id.split(":")[0];
         let words = path.split("_").filter((w) => w.length > 3);
         let like = allIds.filter((other) => {
-          let otherPath = other.split(":")[1];
-          return otherPath === path || words.length > 0 && words.every((w) => otherPath.includes(w));
+          let [otherNamespace, otherPath] = other.split(":");
+          if (otherPath === path) return true;
+          let shared = words.filter((w) => otherPath.includes(w)).length;
+          return otherNamespace === namespace ? shared > 0 : words.length > 0 && shared === words.length;
         });
-        console.info(`[PORT-TEST] INFO quests missing ${id} ${missing[id].length}x (${missing[id].slice(0, 3).join(" ")}) like [${like.slice(0, 8).join(" ")}]`);
+        console.info(`[PORT-TEST] INFO quests missing ${id} ${missing[id].length}x (${missing[id].slice(0, 3).join(" ")}) like [${like.slice(0, 12).join(" ")}]`);
       });
       throw new Error(`${ids.length} missing item ids: ${ids.join(" ")}`);
     }

@@ -991,8 +991,7 @@
 			shape: "none"
 			tasks: [{
 				id: "450365F766909E6E"
-				item: "nethervinery:warped_grape"
-				type: "item"
+				type: "checkmark"
 			}]
 			x: 2.2482993197278844d
 			y: 0.43367346938774176d
@@ -1002,8 +1001,7 @@
 			shape: "none"
 			tasks: [{
 				id: "1B4F950389A4CAF0"
-				item: "nethervinery:crimson_grape"
-				type: "item"
+				type: "checkmark"
 			}]
 			x: 3.6156462585033964d
 			y: 0.5969387755101891d
@@ -1376,8 +1374,7 @@
 			shape: "none"
 			tasks: [{
 				id: "322DF0546DB5AC71"
-				item: "moreminecarts:glass_cactus"
-				type: "item"
+				type: "checkmark"
 			}]
 			x: 13.966666666666669d
 			y: -1.8166666666666487d

@@ -146,11 +146,7 @@
 			id: "11866E94580BCB30"
 			tasks: [{
 				id: "00BC2D5D551D38AF"
-				item: {
-					count: 1
-					id: "nethervinery:blazewine_pinot"
-				}
-				type: "item"
+				type: "checkmark"
 			}]
 			x: -7.5d
 			y: 8.0d
@@ -159,11 +155,7 @@
 			id: "45BF61F4FC6DE4FC"
 			tasks: [{
 				id: "52A4E5C2F7B41CD1"
-				item: {
-					count: 1
-					id: "nethervinery:nether_fizz"
-				}
-				type: "item"
+				type: "checkmark"
 			}]
 			x: -4.5d
 			y: 8.0d
@@ -172,11 +164,7 @@
 			id: "073591B2DEE7BCF4"
 			tasks: [{
 				id: "396496F08B904288"
-				item: {
-					count: 1
-					id: "nethervinery:lava_fizz"
-				}
-				type: "item"
+				type: "checkmark"
 			}]
 			x: -3.0d
 			y: 8.0d
@@ -185,11 +173,7 @@
 			id: "7E88CB60317AF577"
 			tasks: [{
 				id: "00FC551AB851C0A2"
-				item: {
-					count: 1
-					id: "nethervinery:improved_lava_fizz"
-				}
-				type: "item"
+				type: "checkmark"
 			}]
 			x: 0.0d
 			y: 8.0d
@@ -198,11 +182,7 @@
 			id: "1A02D522BD4600F6"
 			tasks: [{
 				id: "16AB10903AED2444"
-				item: {
-					count: 1
-					id: "nethervinery:improved_nether_fizz"
-				}
-				type: "item"
+				type: "checkmark"
 			}]
 			x: -1.5d
 			y: 8.0d
@@ -251,11 +231,7 @@
 			id: "683266653D948DDB"
 			tasks: [{
 				id: "060391CEDFF28788"
-				item: {
-					count: 1
-					id: "nethervinery:ghastly_grenache"
-				}
-				type: "item"
+				type: "checkmark"
 			}]
 			x: -6.0d
 			y: 8.0d
@@ -264,11 +240,7 @@
 			id: "28A1326708436D22"
 			tasks: [{
 				id: "5C26E3B637BA8F65"
-				item: {
-					count: 1
-					id: "nethervinery:netherite_nectar"
-				}
-				type: "item"
+				type: "checkmark"
 			}]
 			x: 1.5d
 			y: 8.0d
