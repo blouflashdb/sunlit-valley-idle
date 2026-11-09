@@ -1,0 +1,150 @@
+{
+  "shop_id": "guild",
+  "name": {
+    "translate": "shop.society_trading.guild"
+  },
+  "texture": "create:textures/block/industrial_iron_block",
+  "jei_catalyst": {
+    "id": "minecraft:leather_boots",
+    "count": 1
+  },
+  "selector_weight": 1,
+  "trades": [
+    {
+      "offer": {
+        "id": "minecraft:leather_helmet",
+        "count": 1
+      },
+      "request": {
+        "id": "numismatics:cog",
+        "count": 1
+      },
+      "numismatics_cost": 64,
+      "trade_id": "guild_leather_helmet"
+    },
+    {
+      "offer": {
+        "id": "minecraft:leather_chestplate",
+        "count": 1
+      },
+      "request": {
+        "id": "numismatics:cog",
+        "count": 2
+      },
+      "numismatics_cost": 128,
+      "trade_id": "guild_leather_chestplate"
+    },
+    {
+      "offer": {
+        "id": "minecraft:leather_leggings",
+        "count": 1
+      },
+      "request": {
+        "id": "numismatics:cog",
+        "count": 2
+      },
+      "numismatics_cost": 128,
+      "trade_id": "guild_leather_leggings"
+    },
+    {
+      "offer": {
+        "id": "minecraft:leather_boots",
+        "count": 1
+      },
+      "request": {
+        "id": "numismatics:cog",
+        "count": 1
+      },
+      "numismatics_cost": 64,
+      "trade_id": "guild_leather_boots"
+    },
+    {
+      "offer": {
+        "id": "sophisticatedbackpacks:backpack",
+        "count": 1
+      },
+      "request": {
+        "id": "numismatics:crown",
+        "count": 2
+      },
+      "numismatics_cost": 1024,
+      "trade_id": "guild_backpack"
+    },
+    {
+      "offer": {
+        "id": "minecraft:arrow",
+        "count": 4
+      },
+      "request": {
+        "id": "numismatics:sprocket",
+        "count": 1
+      },
+      "numismatics_cost": 2,
+      "trade_id": "guild_arrow"
+    },
+    {
+      "offer": {
+        "id": "naturescompass:naturescompass",
+        "count": 1
+      },
+      "request": {
+        "id": "numismatics:sun",
+        "count": 6
+      },
+      "numismatics_cost": 24576,
+      "trade_id": "guild_naturescompass"
+    },
+    {
+      "offer": {
+        "id": "via_romana:charting_map",
+        "count": 1
+      },
+      "request": {
+        "id": "numismatics:crown",
+        "count": 2
+      },
+      "numismatics_cost": 1024,
+      "trade_id": "guild_charting_map"
+    },
+    {
+      "offer": {
+        "id": "rehooked:wood_hook",
+        "count": 1
+      },
+      "request": {
+        "id": "numismatics:sun",
+        "count": 4
+      },
+      "numismatics_cost": 16384,
+      "trade_id": "guild_wood_hook"
+    },
+    {
+      "offer": {
+        "id": "quark:pickarang",
+        "count": 1
+      },
+      "request": {
+        "id": "numismatics:sun",
+        "count": 16
+      },
+      "numismatics_cost": 64536,
+      "trade_id": "guild_pickarang"
+    },
+    {
+      "offer": {
+        "id": "moblassos:hostile_lasso",
+        "count": 1
+      },
+      "request": {
+        "id": "numismatics:neptunium_coin",
+        "count": 4
+      },
+      "second_request": {
+        "id": "society:prismatic_shard",
+        "count": 1
+      },
+      "numismatics_cost": 131072,
+      "trade_id": "guild_hostile_lasso"
+    }
+  ]
+}

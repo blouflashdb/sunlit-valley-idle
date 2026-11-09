@@ -1,0 +1,656 @@
+{
+  "shop_id": "bs_greenhouse",
+  "name": {
+    "translate": "shop.society_trading.building_shop.greenhouse"
+  },
+  "texture": "dialog:textures/portraits/carpenter",
+  "hidden_from_selector": true,
+  "display_type": "image",
+  "trades": [
+    {
+      "offer": {
+        "id": "portable_blueprints:worn_blueprint",
+        "count": 1,
+        "components": {
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.basic_greenhouse\"}",
+          "minecraft:lore": [
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.basic_greenhouse.author\"}"
+          ],
+          "minecraft:custom_data": {
+            "allow_nbt": 1,
+            "altezza": 0,
+            "blueprint_name": "greenhouse_basic",
+            "buildAnyway": 0,
+            "free_build": 1,
+            "inventari_blocco_selezionati": "",
+            "lunghezzaX": 0,
+            "lunghezzaZ": 0,
+            "mirrowX": 0,
+            "mirrowY": 0,
+            "mirrowZ": 0,
+            "nome": "greenhouse_basic",
+            "owner": "worn",
+            "owner_name": "Ace",
+            "remaining_uses": 1,
+            "rotateValue": 0,
+            "skipObstructionBlock": 0,
+            "visualizeBuild": 1,
+            "wasHolding": 1,
+            "worn_set": 1
+          }
+        }
+      },
+      "request": {
+        "id": "society:greenhouse_building_supplies",
+        "count": 2
+      },
+      "image": "society:textures/gui/buildings/basic/greenhouse_basic",
+      "image_description": {
+        "translate": "portable_blueprints.worn_blueprint.basic_greenhouse.dimensions"
+      },
+      "trade_id": "bs_greenhouse_basic"
+    },
+    {
+      "offer": {
+        "id": "portable_blueprints:worn_blueprint",
+        "count": 1,
+        "components": {
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.alpine_greenhouse\"}",
+          "minecraft:lore": [
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.alpine_greenhouse.author\"}"
+          ],
+          "minecraft:custom_data": {
+            "allow_nbt": 1,
+            "altezza": 0,
+            "blueprint_name": "greenhouse_alpine",
+            "buildAnyway": 0,
+            "free_build": 1,
+            "inventari_blocco_selezionati": "",
+            "lunghezzaX": 0,
+            "lunghezzaZ": 0,
+            "mirrowX": 0,
+            "mirrowY": 0,
+            "mirrowZ": 0,
+            "nome": "greenhouse_alpine",
+            "owner": "worn",
+            "owner_name": "Ace",
+            "remaining_uses": 1,
+            "rotateValue": 0,
+            "skipObstructionBlock": 0,
+            "visualizeBuild": 1,
+            "wasHolding": 1,
+            "worn_set": 1
+          }
+        }
+      },
+      "request": {
+        "id": "society:greenhouse_building_supplies",
+        "count": 2
+      },
+      "image": "society:textures/gui/buildings/alpine/greenhouse_alpine",
+      "image_description": {
+        "translate": "portable_blueprints.worn_blueprint.alpine_greenhouse.dimensions"
+      },
+      "trade_id": "bs_greenhouse_alpine"
+    },
+    {
+      "offer": {
+        "id": "portable_blueprints:worn_blueprint",
+        "count": 1,
+        "components": {
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.arid_greenhouse\"}",
+          "minecraft:lore": [
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.arid_greenhouse.author\"}"
+          ],
+          "minecraft:custom_data": {
+            "allow_nbt": 1,
+            "altezza": 0,
+            "blueprint_name": "greenhouse_arid",
+            "buildAnyway": 0,
+            "free_build": 1,
+            "inventari_blocco_selezionati": "",
+            "lunghezzaX": 0,
+            "lunghezzaZ": 0,
+            "mirrowX": 0,
+            "mirrowY": 0,
+            "mirrowZ": 0,
+            "nome": "greenhouse_arid",
+            "owner": "worn",
+            "owner_name": "Ace",
+            "remaining_uses": 1,
+            "rotateValue": 0,
+            "skipObstructionBlock": 0,
+            "visualizeBuild": 1,
+            "wasHolding": 1,
+            "worn_set": 1
+          }
+        }
+      },
+      "request": {
+        "id": "society:greenhouse_building_supplies",
+        "count": 2
+      },
+      "image": "society:textures/gui/buildings/arid/greenhouse_arid",
+      "image_description": {
+        "translate": "portable_blueprints.worn_blueprint.arid_greenhouse.dimensions"
+      },
+      "trade_id": "bs_greenhouse_arid"
+    },
+    {
+      "offer": {
+        "id": "portable_blueprints:worn_blueprint",
+        "count": 1,
+        "components": {
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.bamboo_greenhouse\"}",
+          "minecraft:lore": [
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.bamboo_greenhouse.author\"}"
+          ],
+          "minecraft:custom_data": {
+            "allow_nbt": 1,
+            "altezza": 0,
+            "blueprint_name": "greenhouse_bamboo",
+            "buildAnyway": 0,
+            "free_build": 1,
+            "inventari_blocco_selezionati": "",
+            "lunghezzaX": 0,
+            "lunghezzaZ": 0,
+            "mirrowX": 0,
+            "mirrowY": 0,
+            "mirrowZ": 0,
+            "nome": "greenhouse_bamboo",
+            "owner": "worn",
+            "owner_name": "Ace",
+            "remaining_uses": 1,
+            "rotateValue": 0,
+            "skipObstructionBlock": 0,
+            "visualizeBuild": 1,
+            "wasHolding": 1,
+            "worn_set": 1
+          }
+        }
+      },
+      "request": {
+        "id": "society:greenhouse_building_supplies",
+        "count": 2
+      },
+      "image": "society:textures/gui/buildings/bamboo/greenhouse_bamboo",
+      "image_description": {
+        "translate": "portable_blueprints.worn_blueprint.bamboo_greenhouse.dimensions"
+      },
+      "trade_id": "bs_greenhouse_bamboo"
+    },
+    {
+      "offer": {
+        "id": "portable_blueprints:worn_blueprint",
+        "count": 1,
+        "components": {
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.bavarian_greenhouse\"}",
+          "minecraft:lore": [
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.bavarian_greenhouse.author\"}"
+          ],
+          "minecraft:custom_data": {
+            "allow_nbt": 1,
+            "altezza": 0,
+            "blueprint_name": "greenhouse_bavarian",
+            "buildAnyway": 0,
+            "free_build": 1,
+            "inventari_blocco_selezionati": "",
+            "lunghezzaX": 0,
+            "lunghezzaZ": 0,
+            "mirrowX": 0,
+            "mirrowY": 0,
+            "mirrowZ": 0,
+            "nome": "greenhouse_bavarian",
+            "owner": "worn",
+            "owner_name": "Ace",
+            "remaining_uses": 1,
+            "rotateValue": 0,
+            "skipObstructionBlock": 0,
+            "visualizeBuild": 1,
+            "wasHolding": 1,
+            "worn_set": 1
+          }
+        }
+      },
+      "request": {
+        "id": "society:greenhouse_building_supplies",
+        "count": 2
+      },
+      "image": "society:textures/gui/buildings/bavarian/greenhouse_bavarian",
+      "image_description": {
+        "translate": "portable_blueprints.worn_blueprint.bavarian_greenhouse.dimensions"
+      },
+      "trade_id": "bs_greenhouse_bavarian"
+    },
+    {
+      "offer": {
+        "id": "portable_blueprints:worn_blueprint",
+        "count": 1,
+        "components": {
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.cherry_greenhouse\"}",
+          "minecraft:lore": [
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.cherry_greenhouse.author\"}"
+          ],
+          "minecraft:custom_data": {
+            "allow_nbt": 1,
+            "altezza": 0,
+            "blueprint_name": "greenhouse_cherry",
+            "buildAnyway": 0,
+            "free_build": 1,
+            "inventari_blocco_selezionati": "",
+            "lunghezzaX": 0,
+            "lunghezzaZ": 0,
+            "mirrowX": 0,
+            "mirrowY": 0,
+            "mirrowZ": 0,
+            "nome": "greenhouse_cherry",
+            "owner": "worn",
+            "owner_name": "Ace",
+            "remaining_uses": 1,
+            "rotateValue": 0,
+            "skipObstructionBlock": 0,
+            "visualizeBuild": 1,
+            "wasHolding": 1,
+            "worn_set": 1
+          }
+        }
+      },
+      "request": {
+        "id": "society:greenhouse_building_supplies",
+        "count": 2
+      },
+      "image": "society:textures/gui/buildings/cherry/greenhouse_cherry",
+      "image_description": {
+        "translate": "portable_blueprints.worn_blueprint.cherry_greenhouse.dimensions"
+      },
+      "trade_id": "bs_greenhouse_cherry"
+    },
+    {
+      "offer": {
+        "id": "portable_blueprints:worn_blueprint",
+        "count": 1,
+        "components": {
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.entrana_greenhouse\"}",
+          "minecraft:lore": [
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.entrana_greenhouse.author\"}"
+          ],
+          "minecraft:custom_data": {
+            "allow_nbt": 1,
+            "altezza": 0,
+            "blueprint_name": "greenhouse_entrana",
+            "buildAnyway": 0,
+            "free_build": 1,
+            "inventari_blocco_selezionati": "",
+            "lunghezzaX": 0,
+            "lunghezzaZ": 0,
+            "mirrowX": 0,
+            "mirrowY": 0,
+            "mirrowZ": 0,
+            "nome": "greenhouse_entrana",
+            "owner": "worn",
+            "owner_name": "Ace",
+            "remaining_uses": 1,
+            "rotateValue": 0,
+            "skipObstructionBlock": 0,
+            "visualizeBuild": 1,
+            "wasHolding": 1,
+            "worn_set": 1
+          }
+        }
+      },
+      "request": {
+        "id": "society:greenhouse_building_supplies",
+        "count": 2
+      },
+      "image": "society:textures/gui/buildings/entrana/greenhouse_entrana",
+      "image_description": {
+        "translate": "portable_blueprints.worn_blueprint.entrana_greenhouse.dimensions"
+      },
+      "trade_id": "bs_greenhouse_entrana"
+    },
+    {
+      "offer": {
+        "id": "portable_blueprints:worn_blueprint",
+        "count": 1,
+        "components": {
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.floral_greenhouse\"}",
+          "minecraft:lore": [
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.floral_greenhouse.author\"}"
+          ],
+          "minecraft:custom_data": {
+            "allow_nbt": 1,
+            "altezza": 0,
+            "blueprint_name": "greenhouse_floral",
+            "buildAnyway": 0,
+            "free_build": 1,
+            "inventari_blocco_selezionati": "",
+            "lunghezzaX": 0,
+            "lunghezzaZ": 0,
+            "mirrowX": 0,
+            "mirrowY": 0,
+            "mirrowZ": 0,
+            "nome": "greenhouse_floral",
+            "owner": "worn",
+            "owner_name": "Ace",
+            "remaining_uses": 1,
+            "rotateValue": 0,
+            "skipObstructionBlock": 0,
+            "visualizeBuild": 1,
+            "wasHolding": 1,
+            "worn_set": 1
+          }
+        }
+      },
+      "request": {
+        "id": "society:greenhouse_building_supplies",
+        "count": 2
+      },
+      "image": "society:textures/gui/buildings/floral/greenhouse_floral",
+      "image_description": {
+        "translate": "portable_blueprints.worn_blueprint.floral_greenhouse.dimensions"
+      },
+      "trade_id": "bs_greenhouse_floral"
+    },
+    {
+      "offer": {
+        "id": "portable_blueprints:worn_blueprint",
+        "count": 1,
+        "components": {
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.mason_greenhouse\"}",
+          "minecraft:lore": [
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.mason_greenhouse.author\"}"
+          ],
+          "minecraft:custom_data": {
+            "allow_nbt": 1,
+            "altezza": 0,
+            "blueprint_name": "greenhouse_mason",
+            "buildAnyway": 0,
+            "free_build": 1,
+            "inventari_blocco_selezionati": "",
+            "lunghezzaX": 0,
+            "lunghezzaZ": 0,
+            "mirrowX": 0,
+            "mirrowY": 0,
+            "mirrowZ": 0,
+            "nome": "greenhouse_mason",
+            "owner": "worn",
+            "owner_name": "Ace",
+            "remaining_uses": 1,
+            "rotateValue": 0,
+            "skipObstructionBlock": 0,
+            "visualizeBuild": 1,
+            "wasHolding": 1,
+            "worn_set": 1
+          }
+        }
+      },
+      "request": {
+        "id": "society:greenhouse_building_supplies",
+        "count": 2
+      },
+      "image": "society:textures/gui/buildings/mason/greenhouse_mason",
+      "image_description": {
+        "translate": "portable_blueprints.worn_blueprint.mason_greenhouse.dimensions"
+      },
+      "trade_id": "bs_greenhouse_mason"
+    },
+    {
+      "offer": {
+        "id": "portable_blueprints:worn_blueprint",
+        "count": 1,
+        "components": {
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.prismarine_greenhouse\"}",
+          "minecraft:lore": [
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.prismarine_greenhouse.author\"}"
+          ],
+          "minecraft:custom_data": {
+            "allow_nbt": 1,
+            "altezza": 0,
+            "blueprint_name": "greenhouse_prismarine",
+            "buildAnyway": 0,
+            "free_build": 1,
+            "inventari_blocco_selezionati": "",
+            "lunghezzaX": 0,
+            "lunghezzaZ": 0,
+            "mirrowX": 0,
+            "mirrowY": 0,
+            "mirrowZ": 0,
+            "nome": "greenhouse_prismarine",
+            "owner": "worn",
+            "owner_name": "Ace",
+            "remaining_uses": 1,
+            "rotateValue": 0,
+            "skipObstructionBlock": 0,
+            "visualizeBuild": 1,
+            "wasHolding": 1,
+            "worn_set": 1
+          }
+        }
+      },
+      "request": {
+        "id": "society:greenhouse_building_supplies",
+        "count": 2
+      },
+      "image": "society:textures/gui/buildings/prismarine/greenhouse_prismarine",
+      "image_description": {
+        "translate": "portable_blueprints.worn_blueprint.prismarine_greenhouse.dimensions"
+      },
+      "trade_id": "bs_greenhouse_prismarine"
+    },
+    {
+      "offer": {
+        "id": "portable_blueprints:worn_blueprint",
+        "count": 1,
+        "components": {
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.rural_greenhouse\"}",
+          "minecraft:lore": [
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.rural_greenhouse.author\"}"
+          ],
+          "minecraft:custom_data": {
+            "allow_nbt": 1,
+            "altezza": 0,
+            "blueprint_name": "greenhouse_rural",
+            "buildAnyway": 0,
+            "free_build": 1,
+            "inventari_blocco_selezionati": "",
+            "lunghezzaX": 0,
+            "lunghezzaZ": 0,
+            "mirrowX": 0,
+            "mirrowY": 0,
+            "mirrowZ": 0,
+            "nome": "greenhouse_rural",
+            "owner": "worn",
+            "owner_name": "Ace",
+            "remaining_uses": 1,
+            "rotateValue": 0,
+            "skipObstructionBlock": 0,
+            "visualizeBuild": 1,
+            "wasHolding": 1,
+            "worn_set": 1
+          }
+        }
+      },
+      "request": {
+        "id": "society:greenhouse_building_supplies",
+        "count": 2
+      },
+      "image": "society:textures/gui/buildings/rural/greenhouse_rural",
+      "image_description": {
+        "translate": "portable_blueprints.worn_blueprint.rural_greenhouse.dimensions"
+      },
+      "trade_id": "bs_greenhouse_rural"
+    },
+    {
+      "offer": {
+        "id": "portable_blueprints:worn_blueprint",
+        "count": 1,
+        "components": {
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.sakura_greenhouse\"}",
+          "minecraft:lore": [
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.sakura_greenhouse.author\"}"
+          ],
+          "minecraft:custom_data": {
+            "allow_nbt": 1,
+            "altezza": 0,
+            "blueprint_name": "greenhouse_sakura",
+            "buildAnyway": 0,
+            "free_build": 1,
+            "inventari_blocco_selezionati": "",
+            "lunghezzaX": 0,
+            "lunghezzaZ": 0,
+            "mirrowX": 0,
+            "mirrowY": 0,
+            "mirrowZ": 0,
+            "nome": "greenhouse_sakura",
+            "owner": "worn",
+            "owner_name": "Ace",
+            "remaining_uses": 1,
+            "rotateValue": 0,
+            "skipObstructionBlock": 0,
+            "visualizeBuild": 1,
+            "wasHolding": 1,
+            "worn_set": 1
+          }
+        }
+      },
+      "request": {
+        "id": "society:greenhouse_building_supplies",
+        "count": 2
+      },
+      "image": "society:textures/gui/buildings/sakura/greenhouse_sakura",
+      "image_description": {
+        "translate": "portable_blueprints.worn_blueprint.sakura_greenhouse.dimensions"
+      },
+      "trade_id": "bs_greenhouse_sakura"
+    },
+    {
+      "offer": {
+        "id": "portable_blueprints:worn_blueprint",
+        "count": 1,
+        "components": {
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.siberian_greenhouse\"}",
+          "minecraft:lore": [
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.siberian_greenhouse.author\"}"
+          ],
+          "minecraft:custom_data": {
+            "allow_nbt": 1,
+            "altezza": 0,
+            "blueprint_name": "greenhouse_siberian",
+            "buildAnyway": 0,
+            "free_build": 1,
+            "inventari_blocco_selezionati": "",
+            "lunghezzaX": 0,
+            "lunghezzaZ": 0,
+            "mirrowX": 0,
+            "mirrowY": 0,
+            "mirrowZ": 0,
+            "nome": "greenhouse_siberian",
+            "owner": "worn",
+            "owner_name": "Ace",
+            "remaining_uses": 1,
+            "rotateValue": 0,
+            "skipObstructionBlock": 0,
+            "visualizeBuild": 1,
+            "wasHolding": 1,
+            "worn_set": 1
+          }
+        }
+      },
+      "request": {
+        "id": "society:greenhouse_building_supplies",
+        "count": 2
+      },
+      "image": "society:textures/gui/buildings/siberian/greenhouse_siberian",
+      "image_description": {
+        "translate": "portable_blueprints.worn_blueprint.siberian_greenhouse.dimensions"
+      },
+      "trade_id": "bs_greenhouse_siberian"
+    },
+    {
+      "offer": {
+        "id": "portable_blueprints:worn_blueprint",
+        "count": 1,
+        "components": {
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.tudor_greenhouse\"}",
+          "minecraft:lore": [
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.tudor_greenhouse.author\"}"
+          ],
+          "minecraft:custom_data": {
+            "allow_nbt": 1,
+            "altezza": 0,
+            "blueprint_name": "greenhouse_tudor",
+            "buildAnyway": 0,
+            "free_build": 1,
+            "inventari_blocco_selezionati": "",
+            "lunghezzaX": 0,
+            "lunghezzaZ": 0,
+            "mirrowX": 0,
+            "mirrowY": 0,
+            "mirrowZ": 0,
+            "nome": "greenhouse_tudor",
+            "owner": "worn",
+            "owner_name": "Ace",
+            "remaining_uses": 1,
+            "rotateValue": 0,
+            "skipObstructionBlock": 0,
+            "visualizeBuild": 1,
+            "wasHolding": 1,
+            "worn_set": 1
+          }
+        }
+      },
+      "request": {
+        "id": "society:greenhouse_building_supplies",
+        "count": 2
+      },
+      "image": "society:textures/gui/buildings/tudor/greenhouse_tudor",
+      "image_description": {
+        "translate": "portable_blueprints.worn_blueprint.tudor_greenhouse.dimensions"
+      },
+      "trade_id": "bs_greenhouse_tudor"
+    },
+    {
+      "offer": {
+        "id": "portable_blueprints:worn_blueprint",
+        "count": 1,
+        "components": {
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.vibrantown_greenhouse\"}",
+          "minecraft:lore": [
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.vibrantown_greenhouse.author\"}"
+          ],
+          "minecraft:custom_data": {
+            "allow_nbt": 1,
+            "altezza": 0,
+            "blueprint_name": "greenhouse_vibrantown",
+            "buildAnyway": 0,
+            "free_build": 1,
+            "inventari_blocco_selezionati": "",
+            "lunghezzaX": 0,
+            "lunghezzaZ": 0,
+            "mirrowX": 0,
+            "mirrowY": 0,
+            "mirrowZ": 0,
+            "nome": "greenhouse_vibrantown",
+            "owner": "worn",
+            "owner_name": "Ace",
+            "remaining_uses": 1,
+            "rotateValue": 0,
+            "skipObstructionBlock": 0,
+            "visualizeBuild": 1,
+            "wasHolding": 1,
+            "worn_set": 1
+          }
+        }
+      },
+      "request": {
+        "id": "society:greenhouse_building_supplies",
+        "count": 2
+      },
+      "image": "society:textures/gui/buildings/vibrantown/greenhouse_vibrantown",
+      "image_description": {
+        "translate": "portable_blueprints.worn_blueprint.vibrantown_greenhouse.dimensions"
+      },
+      "trade_id": "bs_greenhouse_vibrantown"
+    }
+  ]
+}
