@@ -1,6 +1,7 @@
 console.info("[SOCIETY] globalFurniture.js loaded");
 
 // Furniture the Furniture Box gives (tags society:loot_furniture in server_scripts/tags/furnitureTags.js).
+// Beachparty's furniture, Candlelight's hearth and typewriter and the gnome are not in the 1.21.1 pack.
 global.lootFurniture = [
   "tanukidecor:antique_bookcase",
   "tanukidecor:wooden_block_stool",
@@ -241,19 +242,12 @@ global.lootFurniture = [
   "furniture:terrarium",
   "supplementaries:clock_block",
   "minecraft:painting",
-  "candlelight:typewriter_copper",
   "create:cuckoo_clock",
-  "beachparty:chair",
   "beachparty:beach_chair",
   "meadow:camera",
-  "beachparty:table",
   "meadow:wheelbarrow",
-  "beachparty:deck_chair",
-  "beachparty:hammock",
   "candlelight:typewriter_iron",
   "brewery:barrel_main",
-  "beachparty:lounge_chair",
-  "beachparty:tiki_chair",
   "beautify:warped_picture_frame",
   "beautify:birch_picture_frame",
   "beautify:jungle_picture_frame",
@@ -280,14 +274,12 @@ global.lootFurniture = [
   "candlelight:sofa",
   "candlelight:table",
   "candlelight:dinner_bell",
-  "candlelight:hearth",
   "candlelight:painting",
   "candlelight:jewelry_box",
   "candlelight:chair",
   "candlelight:lamp",
   "minecraft:bell",
   "furniture:coffer",
-  "society:gnome",
   "whimsy_deco:lucky_cat",
   "whimsy_deco:froggy_chair",
   "whimsy_deco:yellow_froggy_chair",

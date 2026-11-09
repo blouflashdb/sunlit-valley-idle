@@ -64,14 +64,23 @@ global.jeiMachineCategories = [
   },
 ];
 
-/** The recipes of one machine category: [{ input, output: ["2x id", ...], time, fluidOutput }]. */
-global.getJeiMachineRecipes = (category) => {
+/**
+ * The recipes of one machine category: [{ input, output: ["2x id", ...], time, fluidOutput }]. Recipes with an item
+ * of a mod that is not in the 1.21.1 pack are left out (the machines skip them too) unless all is true.
+ */
+global.getJeiMachineRecipes = (category, all) => {
   let recipes = category.recipes();
-  return Array.from(recipes.keys()).map((input) => {
-    let recipe = recipes.get(input);
-    return { input: input, output: recipe.output || [], time: recipe.time, fluidOutput: recipe.fluidOutput };
-  });
+  return Array.from(recipes.keys())
+    .map((input) => {
+      let recipe = recipes.get(input);
+      return { input: input, output: recipe.output || [], time: recipe.time, fluidOutput: recipe.fluidOutput };
+    })
+    .filter((recipe) => all || global.jeiItemsExist([recipe.input].concat(recipe.output)));
 };
+
+/** Whether every item ("id", "6x id"; "#tags" and "" count as present) is registered. */
+global.jeiItemsExist = (texts) =>
+  texts.every((text) => !text || String(text).startsWith("#") || global.itemExists(global.parseCountedId(text).id));
 
 // Loot boxes and the tags they draw from. Fantasy's Furniture is not in the 1.21.1 pack, so the Fantasy boxes
 // have no furniture tags and no category.

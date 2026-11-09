@@ -121,7 +121,8 @@ JEIAddedEvents.registerRecipes((e) => {
     global.getJeiMachineRecipes(category).forEach((recipe) => e.custom(`society:${category.id}`).add(recipe));
   });
   Array.from(global.mushroomLogRecipes.keys()).forEach((input) => {
-    e.custom("society:mushroom_growing").add({ input: input, output: global.mushroomLogRecipes.get(input).output });
+    let output = global.mushroomLogRecipes.get(input).output;
+    if (global.jeiItemsExist([input].concat(output))) e.custom("society:mushroom_growing").add({ input: input, output: output });
   });
   Array.from(global.fishPondDefinitions.keys())
     .filter((fish) => global.itemExists(fish))
