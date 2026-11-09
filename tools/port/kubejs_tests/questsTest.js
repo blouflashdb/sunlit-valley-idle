@@ -5,8 +5,12 @@
 const $QuestsTestFile = Java.loadClass("dev.ftb.mods.ftbquests.quest.ServerQuestFile");
 const $QuestsTestComponents = Java.loadClass("dev.ftb.mods.ftbquests.registry.ModDataComponents");
 
+// FTB Quests loads the book after ServerEvents.loaded, so the check runs a few ticks later.
 ServerEvents.loaded((event) => {
-  let server = event.server;
+  event.server.scheduleInTicks(40, () => checkQuestBook(event.server));
+});
+
+const checkQuestBook = (server) => {
   try {
     let file = $QuestsTestFile.INSTANCE;
     if (!file) throw new Error("no quest file loaded");
@@ -65,4 +69,4 @@ ServerEvents.loaded((event) => {
   } catch (e) {
     console.error(`[PORT-TEST] FAIL quests: ${e}`);
   }
-});
+};
