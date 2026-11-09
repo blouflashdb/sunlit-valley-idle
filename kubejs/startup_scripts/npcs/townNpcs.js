@@ -209,9 +209,9 @@ global.setTownNpcData = (player, npcId, data) => {
 
 global.newTownNpcData = () => ({ friendship: -1, dayLastChatted: -1, dayLastGifted: -4, dayLastPlaced: -10, maxGifted: false });
 
-/** Shows an SVDialog dialog to a player. */
+/** Shows an SVDialog dialog (by its "id") to a player. SVDialog 1.6 shows it to the player running the command. */
 global.showTownDialog = (server, player, dialogId) => {
-  server.runCommandSilent(`dialog ${player.username} show ${player.username} ${dialogId}`);
+  server.runCommandSilent(`execute as ${player.username} run dialog show ${dialogId}`);
 };
 
 const townSound = (server, sound, pos) => server.runCommandSilent(`playsound ${sound} block @a ${pos.x} ${pos.y} ${pos.z}`);
@@ -435,14 +435,14 @@ global.handleTownNpc = (player, npcId, target, item) => {
   if (!data.maxGifted && data.friendship >= 500 && npcId !== "wise_oak") {
     if (npcId === "banker" && player.stages.has("slouching_towards_artistry")) {
       player.give(Item.of("waystones:waystone", 2));
-      global.showTownDialog(server, player, "banker_unique_five_gift_read");
+      global.showTownDialog(server, player, "banker_unique_five_gift");
     } else if (npcId === "market" && player.stages.has("universal_methods_of_farming")) {
       player.give(Item.of("society:sparkpod_seeds", 16));
-      global.showTownDialog(server, player, "market_unique_five_gift_read");
+      global.showTownDialog(server, player, "market_unique_five_gift");
     } else if (npcId === "librarian" && player.stages.has("debt_caverns")) {
       player.give(Item.of("botania:diva_charm"));
       player.give(Item.of("botania:mana_ring"));
-      global.showTownDialog(server, player, "librarian_unique_five_gift_read");
+      global.showTownDialog(server, player, "librarian_unique_five_gift");
     } else if (npcId === "trader") {
       player.stages.add("trader_clothing");
       global.showTownDialog(server, player, "trader_unique_five_gift");

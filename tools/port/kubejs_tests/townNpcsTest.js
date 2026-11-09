@@ -1,6 +1,6 @@
 // CI only: server_boot_test.py copies this into kubejs/server_scripts/_ci/ and boots the server twice.
 // Boot 1 checks gift tastes, invitations and the dialogs, then lets the Carpenter move into a Villager Home.
-// Boot 2 checks the Carpenter is still bound to the home and lets it move out.
+// Boot 2 checks (after 5 seconds) the Carpenter is still bound to the home and lets it move out.
 // Prints "[PORT-TEST] PHASE1 townnpcs", "[PORT-TEST] PASS townnpcs" or "[PORT-TEST] FAIL townnpcs: ...".
 
 ServerEvents.loaded((event) => {
@@ -57,12 +57,19 @@ ServerEvents.loaded((event) => {
       console.info(`[PORT-TEST] townnpcs carpenter ${npc.type} ${npc.getCustomName().getString()}`);
       console.info("[PORT-TEST] PHASE1 townnpcs");
     } else {
-      let npc = global.getVillagerHomeBoundNpc(home());
-      check(npc !== null, "the Carpenter is gone after the restart");
-      check(global.getTownNpcKey(npc) === "carpenter", `the bound villager is "${global.getTownNpcKey(npc)}"`);
-      npc.discard();
-      home().set("minecraft:air");
-      console.info("[PORT-TEST] PASS townnpcs");
+      // Entities load after the chunk, so look for the villager a few seconds later.
+      server.scheduleInTicks(100, () => {
+        try {
+          let npc = global.getVillagerHomeBoundNpc(home());
+          check(npc !== null, "the Carpenter is gone after the restart");
+          check(global.getTownNpcKey(npc) === "carpenter", `the bound villager is "${global.getTownNpcKey(npc)}"`);
+          npc.discard();
+          home().set("minecraft:air");
+          console.info("[PORT-TEST] PASS townnpcs");
+        } catch (e) {
+          console.error(`[PORT-TEST] FAIL townnpcs: ${e}`);
+        }
+      });
     }
   } catch (e) {
     console.error(`[PORT-TEST] FAIL townnpcs: ${e}`);
