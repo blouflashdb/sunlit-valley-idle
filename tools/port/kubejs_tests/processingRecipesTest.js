@@ -28,6 +28,9 @@ const processingTestLaterItems = [
   "herbalbrews:rooibos_leaf_block",
   "herbalbrews:yerba_mate_leaf_block",
   "create_central_kitchen:sap",
+  "create_central_kitchen:aloe_gel",
+  // Species is not in the 1.21.1 pack
+  "species:cracked_wraptor_egg",
 ];
 
 ServerEvents.loaded((event) => {

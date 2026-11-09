@@ -1,0 +1,19 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:bread"
+    },
+    {
+      "type": "fluid_stack",
+      "fluid": "society:milk",
+      "amount": 250
+    }
+  ],
+  "results": [
+    {
+      "id": "create:sweet_roll",
+      "count": 1
+    }
+  ]
+}

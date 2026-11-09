@@ -1,0 +1,25 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "farmersdelight"
+    }
+  ],
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "type": "fluid_stack",
+      "fluid": "society:milk",
+      "amount": 250
+    }
+  ],
+  "results": [
+    {
+      "id": "farmersdelight:milk_bottle",
+      "count": 1
+    }
+  ]
+}

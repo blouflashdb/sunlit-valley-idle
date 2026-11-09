@@ -70,7 +70,7 @@ RENAMED_KEYS = {
     "processingTime": "processing_time",
     "transitionalItem": "transitional_item",
 }
-DEFERRED_FLUID_NAMESPACES = {"society", "vinery", "nethervinery"}
+DEFERRED_FLUID_NAMESPACES = {"nethervinery"}
 STACK_KEYS = ("result", "results", "transitionalItem", "higher_input", "lower_input", "output")
 
 
