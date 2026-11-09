@@ -26,27 +26,6 @@ ItemEvents.modifyTooltips((e) => {
             ]);
         }
     });
-    tooltip.addAdvanced(
-        "farm_and_charm:strawberry_seed",
-        (item, advanced, text) => {
-            if (tooltip.shift) {
-                text.add(1, [
-                    Text.white("")
-                        .append(Text.translatable("desc.sereneseasons.fertile_seasons"))
-                        .append(":"),
-                    Text.of(" "),
-                    Text.translatable("desc.sereneseasons.spring").green(),
-                ]);
-            } else {
-                text.add(1, [
-                    Text.translatable(
-                        "tooltip.society.hold_key",
-                        Text.translatable("key.keyboard.shift").gray()
-                    ).darkGray(),
-                ]);
-            }
-        }
-    );
 
     const magnifyingBlocks = [
         Text.translatable("block.society.auto_grabber"),

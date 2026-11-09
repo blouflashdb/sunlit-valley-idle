@@ -259,7 +259,6 @@ ItemEvents.modifyTooltips((e) => {
   tooltip.add("tanukidecor:diy_workbench", Text.translatable("tooltip.society.diy_workbench").gray());
   tooltip.add("society:tanuki_catalog", Text.translatable("tooltip.society.tanuki_catalog").gray());
   tooltip.add("society:modern_catalog", Text.translatable("tooltip.society.modern_catalog").gray());
-  tooltip.add("society:fantasy_catalog", Text.translatable("tooltip.society.fantasy_catalog").gray());
   global.lootFurniture.forEach((item) => {
     tooltip.add(
       item,
@@ -741,14 +740,6 @@ ItemEvents.modifyTooltips((e) => {
     Text.translatable("tooltip.society.slot_machine").gray()
   );
   tooltip.add(
-    "whimsy_deco:statue_endless_fortune",
-    Text.translatable("tooltip.society.statue_endless_fortune").gray()
-  );
-  tooltip.add(
-    "whimsy_deco:statue_endless_fortune",
-    Text.translatable("tooltip.society.statue_endless_fortune.warn").red()
-  );
-  tooltip.add(
     "whimsy_deco:gatcha_machine",
     Text.translatable(
       "tooltip.society.gatcha_machine",
@@ -976,7 +967,6 @@ ItemEvents.modifyTooltips((e) => {
     ],
     Text.translatable("tooltip.society.item_type.prize_machine_reward").gold()
   );
-  Item.of("farm_and_charm:barley", "{quality_food:{quality:3}}");
 
   const geodes = [
     "society:geode",
