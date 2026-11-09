@@ -2300,7 +2300,8 @@
 			id: "5088A974205886F5"
 			tasks: [{
 				id: "75AB1D0148550206"
-				type: "checkmark"
+				item: "candlelight:khinkali"
+				type: "item"
 			}]
 			x: -9.0d
 			y: -2.0d

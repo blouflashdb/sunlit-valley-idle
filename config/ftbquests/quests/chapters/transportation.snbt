@@ -49,42 +49,6 @@
 			y: -3.0d
 		}
 		{
-			dependencies: ["0C5B1C74E340882B"]
-			description: ["{ftbquests.chapter.transportation.questF77A3F0506C76B2.description1}"]
-			id: "0F77A3F0506C76B2"
-			rewards: [ ]
-			tasks: [{
-				id: "1AE264A1C8F0B6DD"
-				type: "checkmark"
-			}]
-			x: -8.0d
-			y: -4.5d
-		}
-		{
-			dependencies: ["0C5B1C74E340882B"]
-			description: ["{ftbquests.chapter.transportation.quest1FE9F1AD269303B3.description1}"]
-			id: "1FE9F1AD269303B3"
-			rewards: [ ]
-			tasks: [{
-				id: "2865E2F2301C7B3F"
-				type: "checkmark"
-			}]
-			x: -9.0d
-			y: -4.0d
-		}
-		{
-			dependencies: ["0C5B1C74E340882B"]
-			description: ["{ftbquests.chapter.transportation.quest6E7B80C8D3FD952D.description1}"]
-			id: "6E7B80C8D3FD952D"
-			rewards: [ ]
-			tasks: [{
-				id: "7F2B145BC739940B"
-				type: "checkmark"
-			}]
-			x: -9.5d
-			y: -3.0d
-		}
-		{
 			dependencies: ["71C32483EE2418CA"]
 			description: [
 				"{ftbquests.chapter.transportation.quest42A10CEE57513522.description1}"
@@ -183,29 +147,6 @@
 		}
 		{
 			dependencies: ["0C5B1C74E340882B"]
-			description: [
-				"{ftbquests.chapter.transportation.quest7BFB656868B2395C.description1}"
-				""
-				"{ftbquests.chapter.transportation.quest7BFB656868B2395C.description2}"
-				""
-				"{ftbquests.chapter.transportation.quest7BFB656868B2395C.description3}"
-			]
-			id: "7BFB656868B2395C"
-			rewards: [{
-				id: "763B6C31F1A72075"
-				item: "numismatics:bevel"
-				type: "item"
-			}]
-			tasks: [{
-				id: "353FE24F7CEA054C"
-				type: "checkmark"
-			}]
-			title: "{ftbquests.chapter.transportation.quest7BFB656868B2395C.title}"
-			x: -9.0d
-			y: -2.0d
-		}
-		{
-			dependencies: ["0C5B1C74E340882B"]
 			description: ["{ftbquests.chapter.transportation.questE93089181D8EE7B.description1}"]
 			id: "0E93089181D8EE7B"
 			rewards: [{
@@ -285,63 +226,6 @@
 			title: "{ftbquests.chapter.transportation.quest164AAAAD6433695A.title}"
 			x: -6.5d
 			y: -5.0d
-		}
-		{
-			dependencies: ["4622E3EC44CED1B6"]
-			description: [
-				"{ftbquests.chapter.transportation.quest5A0AA87EA971F13F.description1}"
-				""
-				"{ftbquests.chapter.transportation.quest5A0AA87EA971F13F.description2}"
-				""
-				"{ftbquests.chapter.transportation.quest5A0AA87EA971F13F.description3}"
-			]
-			icon: {
-				components: {
-					"minecraft:custom_name": "{\"translate\":\"prefab.automobility.wooden_motorcar\",\"italic\":\"false\"}"
-					"minecraft:custom_data": {
-						Automobile: {
-							engine: "automobility:stone"
-							frame: "automobility:wooden_motorcar"
-							isPrefab: 1b
-							wheels: "automobility:carriage"
-						}
-					}
-				}
-				count: 1
-				id: "automobility:automobile"
-			}
-			id: "5A0AA87EA971F13F"
-			rewards: [ ]
-			tasks: [{
-				id: "29CBF324286184CF"
-				type: "checkmark"
-			}]
-			title: "{ftbquests.chapter.transportation.quest5A0AA87EA971F13F.title}"
-			x: -2.5d
-			y: -1.0d
-		}
-		{
-			dependencies: ["5A0AA87EA971F13F"]
-			description: [
-				"{ftbquests.chapter.transportation.quest7EE92D71D7478FA4.description1}"
-				""
-				"{ftbquests.chapter.transportation.quest7EE92D71D7478FA4.description2}"
-			]
-			id: "7EE92D71D7478FA4"
-			rewards: [{
-				count: 4
-				id: "1A1E459CA9590744"
-				item: "numismatics:cog"
-				type: "item"
-			}]
-			tasks: [{
-				id: "432843CD0D8D95EB"
-				item: "society:car_key"
-				type: "item"
-			}]
-			title: "{ftbquests.chapter.transportation.quest7EE92D71D7478FA4.title}"
-			x: -1.5d
-			y: 0.0d
 		}
 		{
 			dependencies: ["71C32483EE2418CA"]

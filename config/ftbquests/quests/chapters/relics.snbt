@@ -12,15 +12,6 @@
 	quest_links: [ ]
 	quests: [
 		{
-			id: "5FDBDED97111F43B"
-			tasks: [{
-				id: "4275B723069F4C05"
-				type: "checkmark"
-			}]
-			x: -2.5d
-			y: -4.5d
-		}
-		{
 			id: "09650F360B653D98"
 			tasks: [{
 				id: "222DE8C9B99AD072"
@@ -268,24 +259,6 @@
 			y: 0.0d
 		}
 		{
-			id: "74DAEBEF604D17EA"
-			tasks: [{
-				id: "3637C05CA3E79DBC"
-				type: "checkmark"
-			}]
-			x: 0.5d
-			y: 0.0d
-		}
-		{
-			id: "601AF949E5E96321"
-			tasks: [{
-				id: "7542F8B879E6F226"
-				type: "checkmark"
-			}]
-			x: 2.0d
-			y: 0.0d
-		}
-		{
 			id: "112CDD1578C3E293"
 			tasks: [{
 				id: "5CAA2D652D6BDD81"
@@ -334,16 +307,13 @@
 				"54CB08353EFCB5CD"
 				"3DA56D0FAFDAF2FF"
 				"289E303899969461"
-				"74DAEBEF604D17EA"
 				"0C3DE2F95AD3DA0D"
 				"0BA55825757FB024"
-				"601AF949E5E96321"
 				"363C3FA4BEC4D2C0"
 				"19B466150B9315AE"
 				"44D54D2BCBE394B8"
 				"44EEBD490211E551"
 				"5698496F582D2D7D"
-				"5FDBDED97111F43B"
 				"112CDD1578C3E293"
 				"5166B97BE12645D1"
 				"09650F360B653D98"

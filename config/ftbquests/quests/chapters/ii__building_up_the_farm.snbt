@@ -1079,7 +1079,6 @@
 				"{ftbquests.chapter.ii__building_up_the_farm.quest6FE9F992ACD90629.description8}"
 				""
 				"{ftbquests.chapter.ii__building_up_the_farm.quest6FE9F992ACD90629.image0}"
-				""
 			]
 			hide_until_deps_complete: true
 			id: "6FE9F992ACD90629"
@@ -1265,7 +1264,6 @@
 		{
 			dependencies: ["429FEBEC239B975F"]
 			description: [
-				""
 				"{ftbquests.chapter.ii__building_up_the_farm.quest26315E4AC203348C.description1}"
 				""
 				"{ftbquests.chapter.ii__building_up_the_farm.quest26315E4AC203348C.description2}"
@@ -1546,8 +1544,6 @@
 				"{ftbquests.chapter.ii__building_up_the_farm.quest61501449BF31B773.description2}"
 				""
 				"{ftbquests.chapter.ii__building_up_the_farm.quest61501449BF31B773.description3}"
-				""
-				""
 			]
 			icon: "refinedstorage:crafting_grid"
 			id: "61501449BF31B773"

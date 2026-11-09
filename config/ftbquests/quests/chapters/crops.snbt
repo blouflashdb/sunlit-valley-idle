@@ -975,7 +975,7 @@
 			y: 0.16836734693875144d
 		}
 		{
-			description: [""]
+			description: [ ]
 			id: "63FE67406861C9B5"
 			shape: "none"
 			tasks: [{
@@ -985,26 +985,6 @@
 			}]
 			x: 0.9217687074829897d
 			y: 0.31122448979590445d
-		}
-		{
-			id: "0BB3F52A90719860"
-			shape: "none"
-			tasks: [{
-				id: "450365F766909E6E"
-				type: "checkmark"
-			}]
-			x: 2.2482993197278844d
-			y: 0.43367346938774176d
-		}
-		{
-			id: "4FFAC84EBFFB0ED3"
-			shape: "none"
-			tasks: [{
-				id: "1B4F950389A4CAF0"
-				type: "checkmark"
-			}]
-			x: 3.6156462585033964d
-			y: 0.5969387755101891d
 		}
 		{
 			id: "61366DE675746326"
@@ -1370,16 +1350,6 @@
 			y: -2.9595238095237946d
 		}
 		{
-			id: "5A54B95EF1CA2A60"
-			shape: "none"
-			tasks: [{
-				id: "322DF0546DB5AC71"
-				type: "checkmark"
-			}]
-			x: 13.966666666666669d
-			y: -1.8166666666666487d
-		}
-		{
 			id: "3759149843616EB9"
 			shape: "none"
 			tasks: [{
@@ -1481,7 +1451,7 @@
 			y: -0.6678571428571303d
 		}
 		{
-			description: [""]
+			description: [ ]
 			id: "267B2278B71805DD"
 			shape: "none"
 			tasks: [{
@@ -1634,7 +1604,6 @@
 				"61366DE675746326"
 				"071B9936A0F6425F"
 				"772C142CFDDFA059"
-				"0BB3F52A90719860"
 				"6C656EEBAD2B5DAF"
 				"2728EFA18B82FE07"
 				"182AFC574EF22382"
@@ -1646,11 +1615,9 @@
 				"61275A93612AE88A"
 				"7AB7A59F20160E2A"
 				"3759149843616EB9"
-				"4FFAC84EBFFB0ED3"
 				"7ED74D28362C25CE"
 				"505F16C948C5D64D"
 				"2131DCB6116F5148"
-				"5A54B95EF1CA2A60"
 				"330CA835E3875E1D"
 				"18E4EF841B0D1DC7"
 				"56865D2E8C786C7D"
