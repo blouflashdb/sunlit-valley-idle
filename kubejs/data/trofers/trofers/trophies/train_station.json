@@ -4,12 +4,12 @@
     "base": "#9ea7b5"
   },
   "display": {
-    "offset": { "x": 0, "y": 1, "z": 0 },
+    "offset": [
+      0,
+      1,
+      0
+    ],
     "scale": 2.0
-  },
-  "item": {
-    "item": "railways:track_oak",
-    "count": 1
   },
   "animation": {
     "type": "spinning",
@@ -17,11 +17,15 @@
   },
   "effects": {
     "sound": {
-      "soundEvent": "create:whistle_train_low"
+      "id": "create:whistle_train_low"
     }
   },
   "name": {
     "color": "#805c49",
     "translate": "society.trofers.train_station"
+  },
+  "item": {
+    "id": "railways:track_oak",
+    "count": 1
   }
 }

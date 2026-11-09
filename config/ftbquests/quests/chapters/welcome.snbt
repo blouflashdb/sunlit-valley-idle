@@ -195,11 +195,11 @@
 					command: "/gamerule doPatrolSpawning false"
 					elevate_perms: true
 					icon: {
-						Count: 1
-						id: "patchouli:guide_book"
-						tag: {
+						components: {
 							"patchouli:book": "via_romana:guide"
 						}
+						count: 1
+						id: "patchouli:guide_book"
 					}
 					id: "59471FAB210830B3"
 					ignore_reward_blocking: true

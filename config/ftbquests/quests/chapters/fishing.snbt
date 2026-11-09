@@ -5,11 +5,8 @@
 	filename: "fishing"
 	group: "15230846E14B6926"
 	icon: {
-		Count: 1
+		count: 1
 		id: "minecraft:fishing_rod"
-		tag: {
-			Damage: 0
-		}
 	}
 	id: "377D458757642E97"
 	images: [
@@ -797,11 +794,8 @@
 			tasks: [{
 				id: "3A999AE548F93448"
 				item: {
-					Count: 1
+					count: 1
 					id: "aquaculture:minnow"
-					tag: {
-						Damage: 0
-					}
 				}
 				type: "item"
 			}]
@@ -1094,11 +1088,8 @@
 			tasks: [{
 				id: "695AE9CF26A8F900"
 				item: {
-					Count: 1
+					count: 1
 					id: "aquaculture:leech"
-					tag: {
-						Damage: 0
-					}
 				}
 				type: "item"
 			}]
@@ -1489,25 +1480,21 @@
 			]
 			hide_dependency_lines: true
 			icon: {
-				Count: 1
-				id: "trofers:large_pillar"
-				tag: {
-					BlockEntityTag: {
-						Trophy: "trofers:fish"
-					}
+				components: {
+					"trofers:trophy": "trofers:fish"
 				}
+				count: 1
+				id: "trofers:large_pillar"
 			}
 			id: "0C17CF9D782787BE"
 			rewards: [{
 				id: "436CC95C4472006E"
 				item: {
-					Count: 1
-					id: "trofers:large_pillar"
-					tag: {
-						BlockEntityTag: {
-							Trophy: "trofers:fish"
-						}
+					components: {
+						"trofers:trophy": "trofers:fish"
 					}
+					count: 1
+					id: "trofers:large_pillar"
 				}
 				type: "item"
 			}]
@@ -1515,11 +1502,8 @@
 			size: 3.0d
 			tasks: [{
 				icon: {
-					Count: 1
+					count: 1
 					id: "aquaculture:neptunium_fishing_rod"
-					tag: {
-						Damage: 0
-					}
 				}
 				id: "13FE62BC8E043289"
 				stat: "minecraft:play_time"
@@ -1743,8 +1727,7 @@
 			shape: "none"
 			tasks: [{
 				id: "33BA7D18AEBE68FD"
-				item: "unusualfishmod:raw_snowflake"
-				type: "item"
+				type: "checkmark"
 			}]
 			x: 4.976190476190489d
 			y: -6.809523809523839d
@@ -1840,11 +1823,8 @@
 			tasks: [{
 				id: "19F152A183EE713A"
 				item: {
-					Count: 1
+					count: 1
 					id: "aquaculture:minnow"
-					tag: {
-						Damage: 0
-					}
 				}
 				type: "item"
 			}]

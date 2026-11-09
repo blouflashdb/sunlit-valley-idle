@@ -1,15 +1,15 @@
 {
   "colors": {
-    "accent": "#3b1e16",
+    "accent": "#349c4c",
     "base": "#bc6131"
   },
   "display": {
-    "offset": { "x": 0, "y": 1, "z": 0 },
+    "offset": [
+      0,
+      1,
+      0
+    ],
     "scale": 2.0
-  },
-  "item": {
-    "item": "furniture:tool_box",
-    "count": 1
   },
   "animation": {
     "type": "spinning",
@@ -17,6 +17,10 @@
   },
   "name": {
     "color": "#f6ba47",
-    "translate": "society.trofers.boiler_room"
+    "translate": "society.trofers.pantry"
+  },
+  "item": {
+    "id": "furniture:explorers_box",
+    "count": 1
   }
 }

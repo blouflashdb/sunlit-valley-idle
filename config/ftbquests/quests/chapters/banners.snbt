@@ -5,11 +5,8 @@
 	filename: "banners"
 	group: "15230846E14B6926"
 	icon: {
-		Count: 1
+		count: 1
 		id: "refurbished_furniture:spatula"
-		tag: {
-			Damage: 0
-		}
 	}
 	id: "5C67DA068D003A2D"
 	order_index: 8
@@ -331,7 +328,7 @@
 			id: "1C7EA6EEE7885EB0"
 			tasks: [{
 				id: "37F7474DBC19B25A"
-				item: "crabbersdelight:frog_leg_kebob"
+				item: "crabbersdelight:frog_leg_kebab"
 				type: "item"
 			}]
 			x: -1.0d
@@ -341,7 +338,7 @@
 			id: "2492865EF15173BA"
 			tasks: [{
 				id: "367FB453D45D1900"
-				item: "crabbersdelight:squid_kebob"
+				item: "crabbersdelight:squid_kebab"
 				type: "item"
 			}]
 			x: -2.0d
@@ -1079,11 +1076,8 @@
 			size: 2.0d
 			tasks: [{
 				icon: {
-					Count: 1
+					count: 1
 					id: "farmersdelight:netherite_knife"
-					tag: {
-						Damage: 0
-					}
 				}
 				id: "4DF65AF04FBBC65C"
 				stat: "minecraft:play_time"
@@ -1104,13 +1098,11 @@
 			]
 			hide_dependency_lines: true
 			icon: {
-				Count: 1
-				id: "trofers:large_pillar"
-				tag: {
-					BlockEntityTag: {
-						Trophy: "trofers:cooking"
-					}
+				components: {
+					"trofers:trophy": "trofers:cooking"
 				}
+				count: 1
+				id: "trofers:large_pillar"
 			}
 			id: "22E44CB981A4299B"
 			rewards: [
@@ -1123,13 +1115,11 @@
 				{
 					id: "176AA84C989BE690"
 					item: {
-						Count: 1
-						id: "trofers:large_pillar"
-						tag: {
-							BlockEntityTag: {
-								Trophy: "trofers:cooking"
-							}
+						components: {
+							"trofers:trophy": "trofers:cooking"
 						}
+						count: 1
+						id: "trofers:large_pillar"
 					}
 					type: "item"
 				}
@@ -1137,11 +1127,8 @@
 			size: 3.0d
 			tasks: [{
 				icon: {
-					Count: 1
+					count: 1
 					id: "refurbished_furniture:spatula"
-					tag: {
-						Damage: 0
-					}
 				}
 				id: "38C343FDC4F440C9"
 				stat: "minecraft:play_time"
@@ -1678,9 +1665,8 @@
 			tasks: [{
 				id: "4ACDF83042410619"
 				item: {
-					Count: 1
+					count: 1
 					id: "veggiesdelight:cauliflower_kuku"
-					tag: { }
 				}
 				type: "item"
 			}]
@@ -1712,9 +1698,8 @@
 			tasks: [{
 				id: "45548B66E7C582C9"
 				item: {
-					Count: 1
+					count: 1
 					id: "veggiesdelight:turnip_cake"
-					tag: { }
 				}
 				type: "item"
 			}]
@@ -1736,9 +1721,8 @@
 			tasks: [{
 				id: "08713DDC0FCF58A5"
 				item: {
-					Count: 1
+					count: 1
 					id: "veggiesdelight:pasta_with_broccoli"
-					tag: { }
 				}
 				type: "item"
 			}]
@@ -1750,9 +1734,8 @@
 			tasks: [{
 				id: "0219F98847EDB6A5"
 				item: {
-					Count: 1
+					count: 1
 					id: "veggiesdelight:zucchini_sandwich"
-					tag: { }
 				}
 				type: "item"
 			}]
@@ -2154,11 +2137,8 @@
 			tasks: [{
 				id: "3F3C1211B88ED11E"
 				item: {
-					Count: 1
+					count: 1
 					id: "candlelight:salmon_on_white_wine"
-					tag: {
-						StoredEffects: [ ]
-					}
 				}
 				type: "item"
 			}]
@@ -2170,11 +2150,8 @@
 			tasks: [{
 				id: "115F8E52A296C635"
 				item: {
-					Count: 1
+					count: 1
 					id: "candlelight:tropical_fish_supreme"
-					tag: {
-						StoredEffects: [ ]
-					}
 				}
 				type: "item"
 			}]
@@ -2206,11 +2183,8 @@
 			tasks: [{
 				id: "05A5E5798CCBEF77"
 				item: {
-					Count: 1
+					count: 1
 					id: "candlelight:lasagne"
-					tag: {
-						StoredEffects: [ ]
-					}
 				}
 				type: "item"
 			}]
@@ -2222,11 +2196,8 @@
 			tasks: [{
 				id: "57F37F9248474EF7"
 				item: {
-					Count: 1
+					count: 1
 					id: "candlelight:tomato_soup"
-					tag: {
-						StoredEffects: [ ]
-					}
 				}
 				type: "item"
 			}]
@@ -2238,11 +2209,8 @@
 			tasks: [{
 				id: "16984F5739AD3920"
 				item: {
-					Count: 1
+					count: 1
 					id: "candlelight:mushroom_soup"
-					tag: {
-						StoredEffects: [ ]
-					}
 				}
 				type: "item"
 			}]
@@ -2264,11 +2232,8 @@
 			tasks: [{
 				id: "5C84005EAA18461A"
 				item: {
-					Count: 1
+					count: 1
 					id: "candlelight:pasta_with_mozzarella"
-					tag: {
-						StoredEffects: [ ]
-					}
 				}
 				type: "item"
 			}]
@@ -2280,11 +2245,8 @@
 			tasks: [{
 				id: "3ADD46DEF4C5A56F"
 				item: {
-					Count: 1
+					count: 1
 					id: "candlelight:bolognese"
-					tag: {
-						StoredEffects: [ ]
-					}
 				}
 				type: "item"
 			}]
@@ -2326,11 +2288,8 @@
 			tasks: [{
 				id: "3E0E8B919FAC47F2"
 				item: {
-					Count: 1
+					count: 1
 					id: "candlelight:beef_wellington"
-					tag: {
-						StoredEffects: [ ]
-					}
 				}
 				type: "item"
 			}]
@@ -2341,8 +2300,7 @@
 			id: "5088A974205886F5"
 			tasks: [{
 				id: "75AB1D0148550206"
-				item: "candlelight:khinkali"
-				type: "item"
+				type: "checkmark"
 			}]
 			x: -9.0d
 			y: -2.0d
@@ -2352,11 +2310,8 @@
 			tasks: [{
 				id: "0A51B5424D702FF1"
 				item: {
-					Count: 1
+					count: 1
 					id: "candlelight:chicken_alfredo"
-					tag: {
-						StoredEffects: [ ]
-					}
 				}
 				type: "item"
 			}]
@@ -2368,11 +2323,8 @@
 			tasks: [{
 				id: "11D22BC12B3AA1D0"
 				item: {
-					Count: 1
+					count: 1
 					id: "candlelight:chicken_with_vegetables"
-					tag: {
-						StoredEffects: [ ]
-					}
 				}
 				type: "item"
 			}]
@@ -2384,11 +2336,8 @@
 			tasks: [{
 				id: "3F2570A2D648496B"
 				item: {
-					Count: 1
+					count: 1
 					id: "candlelight:pasta_with_bolognese"
-					tag: {
-						StoredEffects: [ ]
-					}
 				}
 				type: "item"
 			}]
@@ -2400,11 +2349,8 @@
 			tasks: [{
 				id: "3E95A0B07B3624C7"
 				item: {
-					Count: 1
+					count: 1
 					id: "candlelight:fillet_steak"
-					tag: {
-						StoredEffects: [ ]
-					}
 				}
 				type: "item"
 			}]
@@ -2416,11 +2362,8 @@
 			tasks: [{
 				id: "2E79BF5524A1281D"
 				item: {
-					Count: 1
+					count: 1
 					id: "candlelight:roasted_lamb_with_lettuce"
-					tag: {
-						StoredEffects: [ ]
-					}
 				}
 				type: "item"
 			}]
@@ -2432,11 +2375,8 @@
 			tasks: [{
 				id: "774E70F10C969972"
 				item: {
-					Count: 1
+					count: 1
 					id: "candlelight:roastbeef_with_glazed_carrots"
-					tag: {
-						StoredEffects: [ ]
-					}
 				}
 				type: "item"
 			}]
@@ -2458,11 +2398,8 @@
 			tasks: [{
 				id: "2CF4C1DAA8C7EDF5"
 				item: {
-					Count: 1
+					count: 1
 					id: "candlelight:beef_with_mushroom_in_wine_and_potatoes"
-					tag: {
-						StoredEffects: [ ]
-					}
 				}
 				type: "item"
 			}]
@@ -2474,11 +2411,8 @@
 			tasks: [{
 				id: "723DD2AD590B8497"
 				item: {
-					Count: 1
+					count: 1
 					id: "candlelight:pork_ribs"
-					tag: {
-						StoredEffects: [ ]
-					}
 				}
 				type: "item"
 			}]

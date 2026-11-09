@@ -178,14 +178,7 @@
 			}]
 			tasks: [{
 				id: "39F74BAD8C1FB0E9"
-				item: {
-					Count: 1
-					ForgeCaps: {
-						Parent: { }
-					}
-					id: "create_central_kitchen:cooking_guide"
-				}
-				type: "item"
+				type: "checkmark"
 			}]
 			title: "{ftbquests.chapter.ivi__mechanical_farming.quest174A6EE7CF7900F0.title}"
 			x: 9.5d
@@ -481,11 +474,8 @@
 				{
 					id: "1A646BB4B4EABED8"
 					item: {
-						Count: 1
+						count: 1
 						id: "create:super_glue"
-						tag: {
-							Damage: 0
-						}
 					}
 					type: "item"
 				}
@@ -521,38 +511,11 @@
 				{
 					id: "6A27CD5DC00C628C"
 					item: {
-						Count: 1
-						id: "itemfilters:or"
-						tag: {
-							items: [
-								{
-									Count: 1b
-									id: "create:extendo_grip"
-									tag: {
-										Damage: 0
-									}
-								}
-								{
-									Count: 1b
-									id: "create:potato_cannon"
-									tag: {
-										Damage: 0
-									}
-								}
-								{
-									Count: 1b
-									id: "create:crushing_wheel"
-								}
-								{
-									Count: 1b
-									id: "createrailwaysnavigator:navigator"
-								}
-								{
-									Count: 1b
-									id: "railways:locometal_boiler"
-								}
-							]
+						components: {
+							"ftbfiltersystem:filter": "or(item(create:extendo_grip)item(create:potato_cannon)item(create:crushing_wheel)item(createrailwaysnavigator:navigator)item(railways:locometal_boiler))"
 						}
+						count: 1
+						id: "ftbfiltersystem:smart_filter"
 					}
 					title: "{ftbquests.chapter.ivi__mechanical_farming.quest3D532DC93531B0D0.task.7649308294649766540.title}"
 					type: "item"
@@ -624,8 +587,7 @@
 			}]
 			tasks: [{
 				id: "44C86ADF6D9B94C6"
-				item: "createutilities:void_steel_ingot"
-				type: "item"
+				type: "checkmark"
 			}]
 			title: "{ftbquests.chapter.ivi__mechanical_farming.quest48C83D8D34DBFB4B.title}"
 			x: 5.0d
@@ -667,8 +629,7 @@
 			}]
 			tasks: [{
 				id: "011BF45FF0E93269"
-				item: "createutilities:void_motor"
-				type: "item"
+				type: "checkmark"
 			}]
 			x: 6.0d
 			y: 6.5d
@@ -688,8 +649,7 @@
 			}]
 			tasks: [{
 				id: "4447951952F3DBCC"
-				item: "createutilities:void_tank"
-				type: "item"
+				type: "checkmark"
 			}]
 			x: 4.0d
 			y: 6.5d
@@ -794,34 +754,24 @@
 				"{ftbquests.chapter.ivi__mechanical_farming.quest162C1DFB58132D45.description3}"
 			]
 			icon: {
-				Count: 1
-				id: "minecraft:enchanted_book"
-				tag: {
-					StoredEnchantments: [{
-						id: "minecraft:protection"
-						lvl: 1s
-					}]
+				components: {
+					"minecraft:stored_enchantments": {
+						levels: {
+							"minecraft:protection": 1
+						}
+					}
 				}
+				count: 1
+				id: "minecraft:enchanted_book"
 			}
 			id: "162C1DFB58132D45"
 			min_required_tasks: 1
-			rewards: [{
-				id: "1650A58F51D70C0D"
-				item: "create_enchantment_industry:hyper_experience_bottle"
+			rewards: [ ]
+			tasks: [{
+				id: "7532160A4EC7E86A"
+				item: "create_enchantment_industry:printer"
 				type: "item"
 			}]
-			tasks: [
-				{
-					id: "7532160A4EC7E86A"
-					item: "create_enchantment_industry:printer"
-					type: "item"
-				}
-				{
-					id: "2094449BF14679C1"
-					item: "create_enchantment_industry:disenchanter"
-					type: "item"
-				}
-			]
 			title: "{ftbquests.chapter.ivi__mechanical_farming.quest162C1DFB58132D45.title}"
 			x: 3.5d
 			y: -1.0d
@@ -930,9 +880,8 @@
 				{
 					id: "68C293A0255E3B25"
 					item: {
-						Count: 1
+						count: 1
 						id: "create_hypertube:hypertube"
-						tag: { }
 					}
 					type: "item"
 				}
@@ -967,11 +916,8 @@
 			tasks: [{
 				id: "140E1FEF8B3EC12D"
 				item: {
-					Count: 1
+					count: 1
 					id: "wildernature:blunderbuss"
-					tag: {
-						Damage: 0
-					}
 				}
 				type: "item"
 			}]
@@ -1012,11 +958,7 @@
 				"{ftbquests.chapter.ivi__mechanical_farming.quest5384CAC9635C71E5.description2}"
 			]
 			id: "5384CAC9635C71E5"
-			rewards: [{
-				id: "499721765F7F78CB"
-				item: "nethervinery:crimson_grape_juice_bucket"
-				type: "item"
-			}]
+			rewards: [ ]
 			tasks: [{
 				id: "7CEDED2175C3ACFD"
 				item: "society:juice_inserter"

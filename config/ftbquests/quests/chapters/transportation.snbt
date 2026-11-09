@@ -52,24 +52,10 @@
 			dependencies: ["0C5B1C74E340882B"]
 			description: ["{ftbquests.chapter.transportation.questF77A3F0506C76B2.description1}"]
 			id: "0F77A3F0506C76B2"
-			rewards: [
-				{
-					count: 4
-					id: "167F24559313C221"
-					item: "moreminecarts:wooden_cross_rail"
-					type: "item"
-				}
-				{
-					count: 4
-					id: "027C9AFE9DD8BA7C"
-					item: "moreminecarts:wooden_rail_turn"
-					type: "item"
-				}
-			]
+			rewards: [ ]
 			tasks: [{
 				id: "1AE264A1C8F0B6DD"
-				item: "moreminecarts:wooden_rail"
-				type: "item"
+				type: "checkmark"
 			}]
 			x: -8.0d
 			y: -4.5d
@@ -78,16 +64,10 @@
 			dependencies: ["0C5B1C74E340882B"]
 			description: ["{ftbquests.chapter.transportation.quest1FE9F1AD269303B3.description1}"]
 			id: "1FE9F1AD269303B3"
-			rewards: [{
-				count: 4
-				id: "6E7B0A1EBC661ABD"
-				item: "moreminecarts:maglev_powered_rail"
-				type: "item"
-			}]
+			rewards: [ ]
 			tasks: [{
 				id: "2865E2F2301C7B3F"
-				item: "moreminecarts:maglev_rail"
-				type: "item"
+				type: "checkmark"
 			}]
 			x: -9.0d
 			y: -4.0d
@@ -96,16 +76,10 @@
 			dependencies: ["0C5B1C74E340882B"]
 			description: ["{ftbquests.chapter.transportation.quest6E7B80C8D3FD952D.description1}"]
 			id: "6E7B80C8D3FD952D"
-			rewards: [{
-				count: 2
-				id: "14AE849C3A196634"
-				item: "moreminecarts:lightspeed_powered_rail"
-				type: "item"
-			}]
+			rewards: [ ]
 			tasks: [{
 				id: "7F2B145BC739940B"
-				item: "moreminecarts:lightspeed_rail"
-				type: "item"
+				type: "checkmark"
 			}]
 			x: -9.5d
 			y: -3.0d
@@ -194,11 +168,11 @@
 			tasks: [{
 				id: "31BD8DCF91D1BE89"
 				item: {
-					Count: 1
-					id: "itemfilters:tag"
-					tag: {
-						value: "smallships:ships"
+					components: {
+						"ftbfiltersystem:filter": "item_tag(smallships:ships)"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.transportation.quest3BC6467B02D74FAC.task.3584176801100971657.title}"
 				type: "item"
@@ -216,7 +190,6 @@
 				""
 				"{ftbquests.chapter.transportation.quest7BFB656868B2395C.description3}"
 			]
-			icon: "moreminecarts:wooden_projector_rail"
 			id: "7BFB656868B2395C"
 			rewards: [{
 				id: "763B6C31F1A72075"
@@ -225,28 +198,7 @@
 			}]
 			tasks: [{
 				id: "353FE24F7CEA054C"
-				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "moreminecarts:wooden_projector_rail"
-							}
-							{
-								Count: 1b
-								id: "moreminecarts:projector_rail"
-							}
-							{
-								Count: 1b
-								id: "moreminecarts:maglev_projector_rail"
-							}
-						]
-					}
-				}
-				title: "{ftbquests.chapter.transportation.quest7BFB656868B2395C.task.3837034238568957260.title}"
-				type: "item"
+				type: "checkmark"
 			}]
 			title: "{ftbquests.chapter.transportation.quest7BFB656868B2395C.title}"
 			x: -9.0d
@@ -255,11 +207,6 @@
 		{
 			dependencies: ["0C5B1C74E340882B"]
 			description: ["{ftbquests.chapter.transportation.questE93089181D8EE7B.description1}"]
-			icon: {
-				Count: 1
-				id: "moreminecarts:coupler"
-				tag: { }
-			}
 			id: "0E93089181D8EE7B"
 			rewards: [{
 				id: "06EF0D97322F3322"
@@ -269,21 +216,8 @@
 			tasks: [{
 				id: "429E9537297CFBE7"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "create:minecart_coupling"
-							}
-							{
-								Count: 1b
-								id: "moreminecarts:coupler"
-								tag: { }
-							}
-						]
-					}
+					count: 1
+					id: "create:minecart_coupling"
 				}
 				title: "{ftbquests.chapter.transportation.questE93089181D8EE7B.task.4800438316975324135.title}"
 				type: "item"
@@ -309,7 +243,10 @@
 			tasks: [
 				{
 					id: "095C6D74149C1AE7"
-					item: { Count: 2, id: "createrailwaysnavigator:advanced_display_block" }
+					item: {
+						count: 2
+						id: "createrailwaysnavigator:advanced_display_block"
+					}
 					type: "item"
 				}
 				{
@@ -340,11 +277,8 @@
 			tasks: [{
 				id: "3196A1C9052406E5"
 				item: {
-					Count: 1
+					count: 1
 					id: "minecraft:elytra"
-					tag: {
-						Damage: 0
-					}
 				}
 				type: "item"
 			}]
@@ -362,38 +296,26 @@
 				"{ftbquests.chapter.transportation.quest5A0AA87EA971F13F.description3}"
 			]
 			icon: {
-				Count: 1
-				id: "automobility:automobile"
-				tag: {
-					Automobile: {
-						engine: "automobility:stone"
-						frame: "automobility:wooden_motorcar"
-						isPrefab: 1b
-						wheels: "automobility:carriage"
-					}
-					display: {
-						Name: "{\"translate\":\"prefab.automobility.wooden_motorcar\",\"italic\":\"false\"}"
+				components: {
+					"minecraft:custom_name": "{\"translate\":\"prefab.automobility.wooden_motorcar\",\"italic\":\"false\"}"
+					"minecraft:custom_data": {
+						Automobile: {
+							engine: "automobility:stone"
+							frame: "automobility:wooden_motorcar"
+							isPrefab: 1b
+							wheels: "automobility:carriage"
+						}
 					}
 				}
+				count: 1
+				id: "automobility:automobile"
 			}
 			id: "5A0AA87EA971F13F"
-			rewards: [{
-				id: "492229A259CB9D08"
-				item: "automobility:crowbar"
-				type: "item"
+			rewards: [ ]
+			tasks: [{
+				id: "29CBF324286184CF"
+				type: "checkmark"
 			}]
-			tasks: [
-				{
-					id: "29CBF324286184CF"
-					item: "automobility:auto_mechanic_table"
-					type: "item"
-				}
-				{
-					id: "2941B038382A98EC"
-					item: "automobility:automobile_assembler"
-					type: "item"
-				}
-			]
 			title: "{ftbquests.chapter.transportation.quest5A0AA87EA971F13F.title}"
 			x: -2.5d
 			y: -1.0d
@@ -437,11 +359,8 @@
 			tasks: [{
 				id: "31E93CF7CC7A856C"
 				item: {
-					Count: 1
+					count: 1
 					id: "gag:hearthstone"
-					tag: {
-						Damage: 0
-					}
 				}
 				type: "item"
 			}]
@@ -465,11 +384,8 @@
 			tasks: [{
 				id: "30129B11B2BDBC67"
 				item: {
-					Count: 1
+					count: 1
 					id: "gag:energized_hearthstone"
-					tag: {
-						Damage: 0
-					}
 				}
 				type: "item"
 			}]
@@ -495,19 +411,8 @@
 			tasks: [{
 				id: "197B39D3BB77E368"
 				item: {
-					Count: 1
+					count: 1
 					id: "relics:magic_mirror"
-					tag: {
-						abilities: {
-							teleport: {
-								points: 0
-								stats: {
-									cooldown: 108.55966d
-									distance: 571.89865d
-								}
-							}
-						}
-					}
 				}
 				type: "item"
 			}]
@@ -552,28 +457,11 @@
 			tasks: [{
 				id: "03CB0C77931D1C07"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "waystones:red_sharestone"
-							}
-							{
-								Count: 1b
-								id: "waystones:purple_sharestone"
-							}
-							{
-								Count: 1b
-								id: "waystones:blue_sharestone"
-							}
-							{
-								Count: 1b
-								id: "waystones:green_sharestone"
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(waystones:red_sharestone)item(waystones:purple_sharestone)item(waystones:blue_sharestone)item(waystones:green_sharestone))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.transportation.quest693FFA0C3FD1A078.task.273325910094846983.title}"
 				type: "item"

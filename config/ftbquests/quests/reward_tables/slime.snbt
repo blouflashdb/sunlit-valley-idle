@@ -5,29 +5,31 @@
 	rewards: [
 		{
 			item: {
-				Count: 1
+				count: 1
 				id: "splendid_slimes:slime_heart_rotting"
 			}
 		}
 		{
 			item: {
-				Count: 1
+				count: 1
 				id: "splendid_slimes:slime_heart_dusty"
 			}
 		}
 		{
 			item: {
-				Count: 1
+				count: 1
 				id: "splendid_slimes:slime_heart_bony"
 			}
 		}
 		{
 			item: {
-				Count: 1
+				count: 1
 				id: "splendid_slimes:slime_heart_webby"
 			}
 		}
-		{ item: "splendid_slimes:slime_ticket" }
+		{
+			item: "splendid_slimes:slime_ticket"
+		}
 	]
 	title: "{ftbquests.loot_table.2207679701817321554.title}"
 }

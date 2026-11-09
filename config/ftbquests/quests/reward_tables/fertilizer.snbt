@@ -3,8 +3,14 @@
 	loot_size: 1
 	order_index: 5
 	rewards: [
-		{ count: 4, item: "dew_drop_farmland_growth:weak_fertilizer" }
-		{ count: 4, item: "dew_drop_farmland_growth:bountiful_fertilizer" }
+		{
+			count: 4
+			item: "dew_drop_farmland_growth:weak_fertilizer"
+		}
+		{
+			count: 4
+			item: "dew_drop_farmland_growth:bountiful_fertilizer"
+		}
 	]
 	title: "{ftbquests.loot_table.4698371000991631378.title}"
 }
