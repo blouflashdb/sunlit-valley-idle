@@ -33,8 +33,13 @@ ServerEvents.loaded((event) => {
 
     // Gold Rush: four raw gold blocks from gold ore, not with silk touch.
     miner.stages.add("gold_rush");
+    let calls = miningLootLast.calls;
     let gold = drops($MiningTestBlocks.GOLD_ORE, pickaxe);
-    check(gold["minecraft:raw_gold_block"] === 4, `gold ore with gold_rush drops ${JSON.stringify(gold)}`);
+    check(
+      gold["minecraft:raw_gold_block"] === 4,
+      `gold ore with gold_rush drops ${JSON.stringify(gold)}; stage ${miner.stages.has("gold_rush")}, ` +
+        `${miningLootLast.calls - calls} rule checks, last ${miningLootLast.state}`
+    );
     let silkGold = drops($MiningTestBlocks.GOLD_ORE, silkPickaxe);
     check(!silkGold["minecraft:raw_gold_block"], `silk touched gold ore drops ${JSON.stringify(silkGold)}`);
     miner.stages.remove("gold_rush");

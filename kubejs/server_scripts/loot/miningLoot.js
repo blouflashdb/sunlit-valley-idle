@@ -132,7 +132,8 @@ const miningRuleHolds = (rule, state) => {
   return rule.chance === undefined || Math.random() < rule.chance;
 };
 
-// The rules, for the CI test.
+// The rules and the last checked break, for the CI test.
+const miningLootLast = { calls: 0, state: null };
 const miningLootRules = [];
 
 const addMiningRule = (e, blocks, rule) => {
@@ -142,6 +143,8 @@ const addMiningRule = (e, blocks, rule) => {
   miningLootRules.push(rule);
   e.addBlockModifier(blocks).customAction((context, loot) => {
     let state = miningLootState(context);
+    miningLootLast.calls++;
+    miningLootLast.state = state ? `player=${state.player} silk=${state.silk} dimension=${state.dimension}` : "no origin";
     if (!state || !miningRuleHolds(rule, state)) return;
     if (rule.item) loot.addItem(Item.of(rule.item, rule.count || 1));
     if (rule.pick && rule.pick.length > 0) loot.addItem(Item.of(rule.pick[Math.floor(Math.random() * rule.pick.length)]));
