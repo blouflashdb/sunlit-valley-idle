@@ -1,3 +1,6 @@
+console.info("[SOCIETY] globalFurniture.js loaded");
+
+// Furniture the Furniture Box gives (tags society:loot_furniture in server_scripts/tags/furnitureTags.js).
 global.lootFurniture = [
   "tanukidecor:antique_bookcase",
   "tanukidecor:wooden_block_stool",
@@ -684,4 +687,3 @@ global.lootFurniture = [
   "cluttered:endtable_periwinkle",
   "cluttered:endtable_sunshine"
 ];
-// The plushie lists and traits moved to startup_scripts/plushies/plushies.js.
