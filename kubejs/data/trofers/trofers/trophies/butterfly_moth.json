@@ -4,13 +4,12 @@
     "base": "#55a6fc"
   },
   "display": {
-    "offset": { "x": 0, "y": 2, "z": 0 },
+    "offset": [
+      0,
+      2,
+      0
+    ],
     "scale": 1.0
-  },
-  "item": {
-    "item": "longwings:butterfly",
-    "nbt": "{variant: \"dark_blue_tiger\"}",
-    "count": 1
   },
   "animation": {
     "type": "spinning",
@@ -19,5 +18,9 @@
   "name": {
     "color": "#55a6fc",
     "translate": "society.trofers.butterfly_moth"
+  },
+  "item": {
+    "id": "longwings:butterfly",
+    "count": 1
   }
 }

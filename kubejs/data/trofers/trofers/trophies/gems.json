@@ -1,0 +1,26 @@
+{
+  "colors": {
+    "accent": "#7d0410",
+    "base": "#606060"
+  },
+  "display": {
+    "offset": [
+      0,
+      1,
+      0
+    ],
+    "scale": 2.0
+  },
+  "animation": {
+    "type": "spinning",
+    "speed": 0.1
+  },
+  "name": {
+    "color": "#f6ba47",
+    "translate": "society.trofers.gems"
+  },
+  "item": {
+    "id": "society:ruby",
+    "count": 1
+  }
+}

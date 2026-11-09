@@ -5,9 +5,7 @@
 	group: "15230846E14B6926"
 	icon: {
 		components: {
-			"minecraft:custom_data": {
-				variant: "blue_morpho"
-			}
+			"longwings:variant": "blue_morpho"
 		}
 		count: 1
 		id: "longwings:butterfly"
@@ -949,9 +947,7 @@
 				id: "4AF2E7F5FB3A8CA6"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "purple_king_shoemaker"
-						}
+						"longwings:variant": "purple_king_shoemaker"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -971,9 +967,7 @@
 				id: "5EED9EA52A2E72AD"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "queen"
-						}
+						"longwings:variant": "queen"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -993,9 +987,7 @@
 				id: "1CC4D54ED1834917"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "painted_lady"
-						}
+						"longwings:variant": "painted_lady"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1015,9 +1007,7 @@
 				id: "63B7C31B0831D197"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "malabar_banded_peacock"
-						}
+						"longwings:variant": "malabar_banded_peacock"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1037,9 +1027,7 @@
 				id: "370B4EF832716513"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "king_crow"
-						}
+						"longwings:variant": "king_crow"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1059,9 +1047,7 @@
 				id: "2EF6EA7771A9788E"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "gold_banded_forester"
-						}
+						"longwings:variant": "gold_banded_forester"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1081,9 +1067,7 @@
 				id: "3578C7DDB54DD603"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "blue_morpho"
-						}
+						"longwings:variant": "blue_morpho"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1103,9 +1087,7 @@
 				id: "34BBFD9C4F1DF4AC"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "malachite"
-						}
+						"longwings:variant": "malachite"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1125,9 +1107,7 @@
 				id: "17060EB4AB11610D"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "giant_swallowtail"
-						}
+						"longwings:variant": "giant_swallowtail"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1147,9 +1127,7 @@
 				id: "09BCA772800C58A0"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "zebra_swallowtail"
-						}
+						"longwings:variant": "zebra_swallowtail"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1169,9 +1147,7 @@
 				id: "56C161CFB4733E37"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "long_tailed_skipper"
-						}
+						"longwings:variant": "long_tailed_skipper"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1191,9 +1167,7 @@
 				id: "10B8E8DB3A3419A2"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "common_blue"
-						}
+						"longwings:variant": "common_blue"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1213,9 +1187,7 @@
 				id: "3C4C11D484C10D7C"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "common_leopard"
-						}
+						"longwings:variant": "common_leopard"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1235,9 +1207,7 @@
 				id: "7BEB2E9FF77A4F55"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "tailed_jay"
-						}
+						"longwings:variant": "tailed_jay"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1257,9 +1227,7 @@
 				id: "0BA5013D897FE795"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "malay_lacewing"
-						}
+						"longwings:variant": "malay_lacewing"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1279,9 +1247,7 @@
 				id: "37201FF7A2F8DFDA"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "ruddy_daggerwing"
-						}
+						"longwings:variant": "ruddy_daggerwing"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1301,9 +1267,7 @@
 				id: "4406803EE6A944DF"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "common_birdwing"
-						}
+						"longwings:variant": "common_birdwing"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1323,9 +1287,7 @@
 				id: "4D33B25721544ECF"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "olivewing"
-						}
+						"longwings:variant": "olivewing"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1345,9 +1307,7 @@
 				id: "2122C5BDA3904351"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "dark_blue_tiger"
-						}
+						"longwings:variant": "dark_blue_tiger"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1367,9 +1327,7 @@
 				id: "2278EC4BB16FF7D4"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "statira"
-						}
+						"longwings:variant": "statira"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1389,9 +1347,7 @@
 				id: "20DFD9884146C667"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "sleepy_orange"
-						}
+						"longwings:variant": "sleepy_orange"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1411,9 +1367,7 @@
 				id: "3531999FD5C97F07"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "sulphur"
-						}
+						"longwings:variant": "sulphur"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1433,9 +1387,7 @@
 				id: "4386A3D9FF265E58"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "cabbage_white"
-						}
+						"longwings:variant": "cabbage_white"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1455,9 +1407,7 @@
 				id: "75735173F46152FB"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "glasswing"
-						}
+						"longwings:variant": "glasswing"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1477,9 +1427,7 @@
 				id: "2BC39DA31C7DF1D8"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "archduke"
-						}
+						"longwings:variant": "archduke"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1499,9 +1447,7 @@
 				id: "58541B4094DEFCB8"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "plum_judy"
-						}
+						"longwings:variant": "plum_judy"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1521,9 +1467,7 @@
 				id: "799340AEE4805006"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "pearl_bordered_fritillary"
-						}
+						"longwings:variant": "pearl_bordered_fritillary"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1543,9 +1487,7 @@
 				id: "4A39CF6F651B18D5"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "pink_spotted_cattleheart"
-						}
+						"longwings:variant": "pink_spotted_cattleheart"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1565,9 +1507,7 @@
 				id: "376F46D6A6958BED"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "small_copper"
-						}
+						"longwings:variant": "small_copper"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1587,9 +1527,7 @@
 				id: "4771ADC10ED6895E"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "sara_longwing"
-						}
+						"longwings:variant": "sara_longwing"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1609,9 +1547,7 @@
 				id: "532194B2282D336C"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "comma"
-						}
+						"longwings:variant": "comma"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1631,9 +1567,7 @@
 				id: "3B466F5DA9519120"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "giant_glasswing"
-						}
+						"longwings:variant": "giant_glasswing"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1653,9 +1587,7 @@
 				id: "46A5193610CCC7C0"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "shoemaker"
-						}
+						"longwings:variant": "shoemaker"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1675,9 +1607,7 @@
 				id: "34E88897AC5EC4CC"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "novice"
-						}
+						"longwings:variant": "novice"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1697,9 +1627,7 @@
 				id: "61DD40445FC889C0"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "rajah_brookes_birdwing"
-						}
+						"longwings:variant": "rajah_brookes_birdwing"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1719,9 +1647,7 @@
 				id: "7C12698181546781"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "monarch"
-						}
+						"longwings:variant": "monarch"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1741,9 +1667,7 @@
 				id: "53A545D07178446E"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "monk_skipper"
-						}
+						"longwings:variant": "monk_skipper"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1763,9 +1687,7 @@
 				id: "1E6B41C57BA1D2CC"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "plain_blue_crow"
-						}
+						"longwings:variant": "plain_blue_crow"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1785,9 +1707,7 @@
 				id: "1A2B8291B419C34E"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "white_peacock"
-						}
+						"longwings:variant": "white_peacock"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1807,9 +1727,7 @@
 				id: "5F175B48B8CB71B1"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "marble"
-						}
+						"longwings:variant": "marble"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1829,9 +1747,7 @@
 				id: "0A1784C366D33580"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "queen_alexandra_birdwing"
-						}
+						"longwings:variant": "queen_alexandra_birdwing"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1851,9 +1767,7 @@
 				id: "16C25802A1E52F19"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "julia"
-						}
+						"longwings:variant": "julia"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1873,9 +1787,7 @@
 				id: "7C1D50635F91AFA9"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "postman"
-						}
+						"longwings:variant": "postman"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1895,9 +1807,7 @@
 				id: "3B4B3E50AC35A157"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "zebra"
-						}
+						"longwings:variant": "zebra"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1917,9 +1827,7 @@
 				id: "2220DDD5BEB082BE"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "swallowtail"
-						}
+						"longwings:variant": "swallowtail"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1939,9 +1847,7 @@
 				id: "1C861A45D35D755F"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "peacock"
-						}
+						"longwings:variant": "peacock"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1961,9 +1867,7 @@
 				id: "07019D3DF607D259"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "atala"
-						}
+						"longwings:variant": "atala"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -1983,9 +1887,7 @@
 				id: "53144CCF04DA326A"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "dart_skipper"
-						}
+						"longwings:variant": "dart_skipper"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -2005,9 +1907,7 @@
 				id: "138CC96E25ED583F"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "orange_tip"
-						}
+						"longwings:variant": "orange_tip"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -2027,9 +1927,7 @@
 				id: "4B124A4C3FE04941"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "red_spotted_purple"
-						}
+						"longwings:variant": "red_spotted_purple"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -2049,9 +1947,7 @@
 				id: "248EC6F5B54E7B5D"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "hebes_pink_forester"
-						}
+						"longwings:variant": "hebes_pink_forester"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -2071,9 +1967,7 @@
 				id: "0033B2C3AC56E0D5"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "large_tree_nymph"
-						}
+						"longwings:variant": "large_tree_nymph"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -2093,9 +1987,7 @@
 				id: "0062639F3B454FC1"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "small_white_wave"
-						}
+						"longwings:variant": "small_white_wave"
 					}
 					count: 1
 					id: "longwings:moth"
@@ -2115,9 +2007,7 @@
 				id: "6FE10D1A5627B8B9"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "salt_marsh"
-						}
+						"longwings:variant": "salt_marsh"
 					}
 					count: 1
 					id: "longwings:moth"
@@ -2137,9 +2027,7 @@
 				id: "67C06E89E7E5861F"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "tiger"
-						}
+						"longwings:variant": "tiger"
 					}
 					count: 1
 					id: "longwings:moth"
@@ -2159,9 +2047,7 @@
 				id: "28621E2200D728B7"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "rosy_maple"
-						}
+						"longwings:variant": "rosy_maple"
 					}
 					count: 1
 					id: "longwings:moth"
@@ -2181,9 +2067,7 @@
 				id: "27A148EB2AC7FF2B"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "scarlet_bodied_wasp"
-						}
+						"longwings:variant": "scarlet_bodied_wasp"
 					}
 					count: 1
 					id: "longwings:moth"
@@ -2203,9 +2087,7 @@
 				id: "126BD7791D494683"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "luna"
-						}
+						"longwings:variant": "luna"
 					}
 					count: 1
 					id: "longwings:moth"
@@ -2225,9 +2107,7 @@
 				id: "1DF8BF44C8A83A83"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "atlas"
-						}
+						"longwings:variant": "atlas"
 					}
 					count: 1
 					id: "longwings:moth"
@@ -2247,9 +2127,7 @@
 				id: "3A7BB15B575859DE"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "madagascan_sunset"
-						}
+						"longwings:variant": "madagascan_sunset"
 					}
 					count: 1
 					id: "longwings:moth"
@@ -2269,9 +2147,7 @@
 				id: "4C2ACDE64A036144"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "cecropia"
-						}
+						"longwings:variant": "cecropia"
 					}
 					count: 1
 					id: "longwings:moth"
@@ -2291,9 +2167,7 @@
 				id: "159EDDEEE97C9A19"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "false_tiger"
-						}
+						"longwings:variant": "false_tiger"
 					}
 					count: 1
 					id: "longwings:moth"
@@ -2313,9 +2187,7 @@
 				id: "3A29DCCDDD662BA2"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "hummingbird_clearwing"
-						}
+						"longwings:variant": "hummingbird_clearwing"
 					}
 					count: 1
 					id: "longwings:moth"
@@ -2335,9 +2207,7 @@
 				id: "7204A5E49DCF5D3C"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "japanese_silk"
-						}
+						"longwings:variant": "japanese_silk"
 					}
 					count: 1
 					id: "longwings:moth"
@@ -2357,9 +2227,7 @@
 				id: "44CD9A1684B59066"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "marbled_emperor"
-						}
+						"longwings:variant": "marbled_emperor"
 					}
 					count: 1
 					id: "longwings:moth"
@@ -2379,9 +2247,7 @@
 				id: "2E79989784882EC5"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "imperial"
-						}
+						"longwings:variant": "imperial"
 					}
 					count: 1
 					id: "longwings:moth"
@@ -2401,9 +2267,7 @@
 				id: "23479F498F971CDE"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "oak_beauty"
-						}
+						"longwings:variant": "oak_beauty"
 					}
 					count: 1
 					id: "longwings:moth"
@@ -2423,9 +2287,7 @@
 				id: "233B30030B61F7A8"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "dark_bordered_beauty"
-						}
+						"longwings:variant": "dark_bordered_beauty"
 					}
 					count: 1
 					id: "longwings:moth"
@@ -2445,9 +2307,7 @@
 				id: "35ABBDFE0E0DEBF4"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "silk"
-						}
+						"longwings:variant": "silk"
 					}
 					count: 1
 					id: "longwings:moth"
@@ -2467,9 +2327,7 @@
 				id: "164DD83FE1FE794C"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "july_belle"
-						}
+						"longwings:variant": "july_belle"
 					}
 					count: 1
 					id: "longwings:moth"
@@ -2608,9 +2466,7 @@
 			tasks: [{
 				icon: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "monarch"
-						}
+						"longwings:variant": "monarch"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -2633,9 +2489,7 @@
 				id: "06E19998D1BDBBD0"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "brimstone"
-						}
+						"longwings:variant": "brimstone"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -2655,9 +2509,7 @@
 				id: "5D3B542BFBBB902C"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "omiza"
-						}
+						"longwings:variant": "omiza"
 					}
 					count: 1
 					id: "longwings:moth"
@@ -2677,9 +2529,7 @@
 				id: "459500A92B64C383"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "great_purple_emperor"
-						}
+						"longwings:variant": "great_purple_emperor"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -2699,9 +2549,7 @@
 				id: "209B86F7956F84E8"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "blue_pansy"
-						}
+						"longwings:variant": "blue_pansy"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -2721,9 +2569,7 @@
 				id: "39C98C48CC09537D"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "mourning_cloak"
-						}
+						"longwings:variant": "mourning_cloak"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -2743,9 +2589,7 @@
 				id: "761F430D0C654ED5"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "black_swallowtail"
-						}
+						"longwings:variant": "black_swallowtail"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -2765,9 +2609,7 @@
 				id: "36714E58DE2BE38B"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "ludlows_bhutan_swallowtail"
-						}
+						"longwings:variant": "ludlows_bhutan_swallowtail"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -2787,9 +2629,7 @@
 				id: "1313A9769C47450D"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "small_emerald"
-						}
+						"longwings:variant": "small_emerald"
 					}
 					count: 1
 					id: "longwings:moth"
@@ -2809,9 +2649,7 @@
 				id: "30925BF903EE926E"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "chickweed"
-						}
+						"longwings:variant": "chickweed"
 					}
 					count: 1
 					id: "longwings:moth"
@@ -2831,9 +2669,7 @@
 				id: "202EC3E5C0DF5CEE"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "owl"
-						}
+						"longwings:variant": "owl"
 					}
 					count: 1
 					id: "longwings:moth"
@@ -2877,9 +2713,7 @@
 				id: "099FE25781585391"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "tropical_leafwing"
-						}
+						"longwings:variant": "tropical_leafwing"
 					}
 					count: 1
 					id: "longwings:butterfly"
@@ -2899,9 +2733,7 @@
 				id: "5F077954BC31F303"
 				item: {
 					components: {
-						"minecraft:custom_data": {
-							variant: "comet"
-						}
+						"longwings:variant": "comet"
 					}
 					count: 1
 					id: "longwings:moth"

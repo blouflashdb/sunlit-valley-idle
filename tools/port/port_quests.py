@@ -114,6 +114,8 @@ def components(item, nbt, removed):
         out["minecraft:entity_data"] = nbt.pop("EntityTag")
     if "BlockEntityTag" in nbt:
         out.update(block_entity_component(item, nbt.pop("BlockEntityTag")))
+    if item.startswith("longwings:") and "variant" in nbt:
+        out["longwings:variant"] = nbt.pop("variant")
     if "patchouli:book" in nbt:
         out["patchouli:book"] = nbt.pop("patchouli:book")
     if nbt:

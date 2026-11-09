@@ -4,6 +4,7 @@
 // "[PORT-TEST] FAIL quests: ...".
 const $QuestsTestFile = Java.loadClass("dev.ftb.mods.ftbquests.quest.ServerQuestFile");
 const $QuestsTestItems = Java.loadClass("net.minecraft.core.registries.BuiltInRegistries");
+const $QuestsTestTrophies = Java.loadClass("trofers.registry.ModRegistries");
 const $QuestsTestComponents = Java.loadClass("dev.ftb.mods.ftbquests.registry.ModDataComponents");
 
 // FTB Quests loads the book after ServerEvents.loaded, so the check runs a few ticks later, on boot 2 only: a
@@ -42,6 +43,11 @@ const checkQuestBook = (server) => {
       if (desc !== null && desc !== undefined) {
         let id = String(desc).replace(/^\d+x /, "");
         missing[id] = (missing[id] || []).concat([where]);
+      }
+      // trophy bases name a trophy of the trofers:trophies registry (kubejs/data/trofers/trofers/trophies)
+      let trophy = /"trofers:trophy":"([^"]+)"/.exec(String(stack.save(server.registryAccess())));
+      if (trophy && !$QuestsTestTrophies.get($QuestsTestTrophies.TROPHIES, trophy[1])) {
+        missing[`trophy ${trophy[1]}`] = (missing[`trophy ${trophy[1]}`] || []).concat([where]);
       }
       // smart filters name their items in the filter expression: item(id) and item_tag(tag)
       if (String(stack.id) === "ftbfiltersystem:smart_filter") {
