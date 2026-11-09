@@ -6,8 +6,29 @@
 const $ProcessingTestRL = Java.loadClass("net.minecraft.resources.ResourceLocation");
 const $ProcessingTestBlockPos = Java.loadClass("net.minecraft.core.BlockPos");
 
-// Items that later slices register; recipes with them are skipped until then.
-const processingTestLaterItems = [];
+// Items and fluids that are not there yet; recipes with them are skipped until then.
+const processingTestLaterItems = [
+  // Society blocks of startup_scripts/registration/registerBlocks.js (not ported yet)
+  "society:animal_feed_sack",
+  "society:sparkstone_block",
+  "society:ancient_fruit_crate",
+  "society:blueberry_crate",
+  "society:eggplant_crate",
+  "society:tubabacco_leaf_block",
+  "society:mana_fruit_crate",
+  "society:sparkpod_crate",
+  "society:prismatic_shard_block",
+  "society:sturdy_bamboo_block",
+  "society:salmonberry_crate",
+  "society:boysenberry_crate",
+  "society:cranberry_crate",
+  "society:crystalberry_crate",
+  // Not in HerbalBrews or Create: Central Kitchen for 1.21.1
+  "herbalbrews:coffee_beans_sack",
+  "herbalbrews:rooibos_leaf_block",
+  "herbalbrews:yerba_mate_leaf_block",
+  "create_central_kitchen:sap",
+];
 
 ServerEvents.loaded((event) => {
   let server = event.server;
