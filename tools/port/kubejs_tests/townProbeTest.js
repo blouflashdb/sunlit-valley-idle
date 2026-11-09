@@ -16,10 +16,6 @@ ServerEvents.loaded((event) => {
     if (ns.indexOf(String(k.getNamespace())) !== -1) console.info(`[PROBE] component ${k}`);
   });
   server.getCommands().getDispatcher().getRoot().getChildren().forEach((c) => console.info(`[PROBE] command ${c.getName()}`));
-  server.registryAccess().registries().forEach((e) => {
-    let k = String(e.key().location());
-    if (ns.some((n) => k.indexOf(n) !== -1)) console.info(`[PROBE] registry ${k}`);
-  });
   let rm = server.getResourceManager();
   ["dialogs", "dialog", "bounty_pools", "bounty_decrees", "menu", "shops", "selectors", "bountiful", "cozycafe"].forEach((dir) => {
     let found = rm.listResources(dir, (p) => String(p).endsWith(".json")).entrySet();
