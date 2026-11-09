@@ -4,17 +4,20 @@ console.info("[SOCIETY] miningLoot.js loaded");
 // LootJS 3 dropped the pool conditions, so the silk touch, stage, biome, dimension and season checks are JS.
 const $MiningLootParams = Java.loadClass("net.minecraft.world.level.storage.loot.parameters.LootContextParams");
 const $MiningLootRegistries = Java.loadClass("net.minecraft.core.registries.BuiltInRegistries");
-const $MiningLootKeys = Java.loadClass("net.minecraft.core.registries.Registries");
 const $MiningLootRL = Java.loadClass("net.minecraft.resources.ResourceLocation");
-const $MiningLootTagKey = Java.loadClass("net.minecraft.tags.TagKey");
 const $MiningLootBlockPos = Java.loadClass("net.minecraft.core.BlockPos");
 const $MiningLootComponents = Java.loadClass("net.minecraft.core.component.DataComponents");
 const $MiningLootEnchantments = Java.loadClass("net.minecraft.world.item.enchantment.ItemEnchantments");
 
 const miningBlocks = (ids) => ids.filter((id) => $MiningLootRegistries.BLOCK.containsKey($MiningLootRL.parse(id)));
-const miningBiomeTag = (id) => $MiningLootTagKey.create($MiningLootKeys.BIOME, $MiningLootRL.parse(id));
-const rawMaterialsTag = $MiningLootTagKey.create($MiningLootKeys.ITEM, $MiningLootRL.parse("c:raw_materials"));
-const silkTouchId = $MiningLootRL.parse("minecraft:silk_touch");
+// Rhino picks the wrong Holder.is overload for tag keys, so tags and ids are compared as strings.
+const holderHasTag = (holder, tag) => {
+  let found = false;
+  holder.tags().forEach((key) => {
+    if (String(key.location()) === tag) found = true;
+  });
+  return found;
+};
 
 const overworldOres = miningBlocks([
   "meadow:alpine_diamond_ore",
@@ -95,7 +98,7 @@ const hasSilkTouchTool = (tool) => {
   if (!tool || tool.isEmpty()) return false;
   let found = false;
   tool.getOrDefault($MiningLootComponents.ENCHANTMENTS, $MiningLootEnchantments.EMPTY).keySet().forEach((holder) => {
-    if (holder.is(silkTouchId)) found = true;
+    if (String(holder.unwrapKey().get().location()) === "minecraft:silk_touch") found = true;
   });
   return found;
 };
@@ -124,7 +127,7 @@ const miningRuleHolds = (rule, state) => {
   if ((rule.player || rule.stage) && !state.player) return false;
   if (rule.stage && !state.player.stages.has(rule.stage)) return false;
   if (rule.dimension && state.dimension !== rule.dimension) return false;
-  if (rule.biome && !state.level.getBiome(state.pos).is(rule.biomeKey)) return false;
+  if (rule.biome && !holderHasTag(state.level.getBiome(state.pos), rule.biome)) return false;
   if (rule.winter && global.getSeasonFromLevel(state.level) !== "winter") return false;
   return rule.chance === undefined || Math.random() < rule.chance;
 };
@@ -135,7 +138,6 @@ const miningLootRules = [];
 const addMiningRule = (e, blocks, rule) => {
   if (blocks.length === 0) return;
   if (rule.item && !global.itemExists(rule.item)) return;
-  if (rule.biome) rule.biomeKey = miningBiomeTag(rule.biome);
   rule.blocks = blocks;
   miningLootRules.push(rule);
   e.addBlockModifier(blocks).customAction((context, loot) => {
@@ -279,7 +281,7 @@ LootJS.modifiers((e) => {
   addMiningRule(e, overworldOres, {
     stage: "moon_extra_ore",
     modify: (stack) => {
-      if (stack.is(rawMaterialsTag)) stack.setCount(stack.getCount() + 1);
+      if (holderHasTag(stack.getItem().builtInRegistryHolder(), "c:raw_materials")) stack.setCount(stack.getCount() + 1);
       return stack;
     },
   });
