@@ -1,0 +1,8 @@
+{
+  "item": "farm_and_charm:chicken_wrapped_in_bacon",
+  "category": "main",
+  "price": 594,
+  "bowl_food": true,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

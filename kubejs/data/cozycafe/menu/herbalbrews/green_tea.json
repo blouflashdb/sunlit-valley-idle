@@ -1,0 +1,8 @@
+{
+  "item": "herbalbrews:green_tea",
+  "category": "drink",
+  "price": 216,
+  "bottle_drink": true,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

@@ -1,0 +1,9 @@
+{
+  "item": "vinery:jo_special_mixture",
+  "category": "drink",
+  "price": 2448,
+  "bottle_drink": true,
+  "bottle": "vinery:wine_bottle",
+  "flavors": [],
+  "mult_attribute": "shippingbin:wood_sell_multiplier"
+}

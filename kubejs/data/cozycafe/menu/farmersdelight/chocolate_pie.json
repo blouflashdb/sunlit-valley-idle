@@ -1,0 +1,7 @@
+{
+  "item": "farmersdelight:chocolate_pie",
+  "category": "dessert",
+  "price": 1385,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

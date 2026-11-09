@@ -1,0 +1,7 @@
+{
+  "item": "farmersdelight:egg_sandwich",
+  "category": "main",
+  "price": 59,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

@@ -1,0 +1,8 @@
+{
+  "item": "candlelight:pasta_with_mozzarella",
+  "category": "main",
+  "price": 288,
+  "bowl_food": true,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

@@ -1,0 +1,7 @@
+{
+  "item": "society:mana_energy_drink",
+  "category": "drink",
+  "price": 1151,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

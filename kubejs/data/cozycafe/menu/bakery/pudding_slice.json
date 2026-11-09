@@ -1,0 +1,7 @@
+{
+  "item": "bakery:pudding_slice",
+  "category": "dessert",
+  "price": 75,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

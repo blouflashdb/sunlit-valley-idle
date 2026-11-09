@@ -1,0 +1,7 @@
+{
+  "item": "bakery:toast",
+  "category": "main",
+  "price": 72,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

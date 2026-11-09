@@ -1,0 +1,7 @@
+{
+  "item": "farm_and_charm:ribwort_tea",
+  "category": "drink",
+  "price": 156,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

@@ -1,0 +1,7 @@
+{
+  "item": "veggiesdelight:turnip_water",
+  "category": "drink",
+  "price": 228,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PS ",
+    "SGS",
+    " SP"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:paper"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "G": {
+      "item": "numismatics:cog"
+    }
+  },
+  "result": {
+    "id": "bountiful:decree",
+    "count": 1
+  }
+}

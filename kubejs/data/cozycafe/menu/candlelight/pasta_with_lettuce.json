@@ -1,0 +1,8 @@
+{
+  "item": "candlelight:pasta_with_lettuce",
+  "category": "main",
+  "price": 396,
+  "bowl_food": true,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

@@ -1,0 +1,8 @@
+{
+  "item": "candlelight:chicken_with_vegetables",
+  "category": "main",
+  "price": 648,
+  "bowl_food": true,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

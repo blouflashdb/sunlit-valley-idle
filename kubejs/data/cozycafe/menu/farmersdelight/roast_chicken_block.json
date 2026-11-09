@@ -1,0 +1,7 @@
+{
+  "item": "farmersdelight:roast_chicken_block",
+  "category": "main",
+  "price": 510,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

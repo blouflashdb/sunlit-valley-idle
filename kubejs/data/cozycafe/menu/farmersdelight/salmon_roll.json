@@ -1,0 +1,7 @@
+{
+  "item": "farmersdelight:salmon_roll",
+  "category": "main",
+  "price": 75,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

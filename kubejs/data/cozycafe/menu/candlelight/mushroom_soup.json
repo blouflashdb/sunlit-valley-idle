@@ -1,0 +1,8 @@
+{
+  "item": "candlelight:mushroom_soup",
+  "category": "main",
+  "price": 1692,
+  "bowl_food": true,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

@@ -1,15 +1,30 @@
 {
-    "boardUpdateFrequency": 200,
-    "boardGenFrequency": 2,
-    "flatBonusTimePerBounty": 20000,
-    "shouldBountiesHaveTimersAndExpire": true,
-    "dataPackExclusions": [
-        "bounty_pools/bountiful/example_pool",
-        "bounty_pools/*/another_example",
-        "bounty_decrees/other/*",
-        "bounty_decrees/bountiful/*"
-    ],
-    "objectiveModifier": 0,
-    "maxNumRewards": 2,
-    "showCompletionToast": true
+    "board": {
+        "updateFrequencySecs": 200,
+        "villageGenFrequency": 2,
+        "canBreak": true
+    },
+    "bounty": {
+        "flatBonusTimePerBountyInSecs": 20000,
+        "shouldHaveTimersAndExpire": true,
+        "fillerDifficultyModifierPercent": 0,
+        "allowDecreeMixing": true,
+        "reverseMatchingAlgorithm": false,
+        "initialCountPreference": {"min": 1, "max": 2},
+        "fillerCountPreference": {"min": 1, "max": 2}
+    },
+    "client": {
+        "showCompletionToast": true
+    },
+    "general": {
+        "dataPathsToExclude": [
+            "bounty_pools/bountiful/example_pool",
+            "bounty_pools/*/another_example",
+            "bounty_decrees/other/*",
+            "bounty_decrees/bountiful/*"
+        ]
+    },
+    "dbg": {
+        "enabled": false
+    }
 }

@@ -1,0 +1,7 @@
+{
+  "item": "bakery:sweetberry_jam",
+  "category": "dessert",
+  "price": 21,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

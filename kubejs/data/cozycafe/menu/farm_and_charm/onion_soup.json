@@ -1,0 +1,8 @@
+{
+  "item": "farm_and_charm:onion_soup",
+  "category": "main",
+  "price": 96,
+  "bowl_food": true,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

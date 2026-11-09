@@ -1,0 +1,7 @@
+{
+  "item": "society:energy_drink",
+  "category": "drink",
+  "price": 581,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

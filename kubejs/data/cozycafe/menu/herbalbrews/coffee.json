@@ -1,0 +1,8 @@
+{
+  "item": "herbalbrews:coffee",
+  "category": "drink",
+  "price": 72,
+  "bottle_drink": true,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

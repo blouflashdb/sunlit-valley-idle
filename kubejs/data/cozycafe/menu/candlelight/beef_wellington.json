@@ -1,0 +1,8 @@
+{
+  "item": "candlelight:beef_wellington",
+  "category": "main",
+  "price": 5886,
+  "bowl_food": true,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

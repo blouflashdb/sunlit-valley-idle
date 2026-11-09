@@ -1,0 +1,8 @@
+{
+  "item": "farm_and_charm:cooked_salmon",
+  "category": "main",
+  "price": 729,
+  "bowl_food": true,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

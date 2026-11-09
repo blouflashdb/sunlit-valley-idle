@@ -1,0 +1,7 @@
+{
+  "item": "farm_and_charm:roasted_chicken",
+  "category": "main",
+  "price": 212,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

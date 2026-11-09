@@ -1,0 +1,7 @@
+{
+  "item": "farm_and_charm:grandmothers_strawberry_cake",
+  "category": "dessert",
+  "price": 81,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

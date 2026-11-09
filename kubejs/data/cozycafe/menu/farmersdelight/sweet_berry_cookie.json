@@ -1,0 +1,7 @@
+{
+  "item": "farmersdelight:sweet_berry_cookie",
+  "category": "dessert",
+  "price": 36,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

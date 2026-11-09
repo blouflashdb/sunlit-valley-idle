@@ -1,0 +1,7 @@
+{
+  "item": "brewery:dark_brew",
+  "category": "drink",
+  "price": 3645,
+  "flavors": [],
+  "mult_attribute": "shippingbin:wood_sell_multiplier"
+}

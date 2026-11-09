@@ -1,0 +1,7 @@
+{
+  "item": "bakery:apple_pie",
+  "category": "dessert",
+  "price": 396,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

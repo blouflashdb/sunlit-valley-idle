@@ -1,0 +1,8 @@
+{
+  "item": "candlelight:fresh_garden_salad",
+  "category": "main",
+  "price": 167,
+  "bowl_food": true,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

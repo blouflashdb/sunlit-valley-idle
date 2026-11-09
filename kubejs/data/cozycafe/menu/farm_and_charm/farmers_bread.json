@@ -1,0 +1,7 @@
+{
+  "item": "farm_and_charm:farmers_bread",
+  "category": "main",
+  "price": 54,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

@@ -1,0 +1,7 @@
+{
+  "item": "bakery:bundt_cake",
+  "category": "dessert",
+  "price": 468,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

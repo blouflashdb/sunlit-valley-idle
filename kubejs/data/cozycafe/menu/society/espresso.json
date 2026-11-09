@@ -1,0 +1,7 @@
+{
+  "item": "society:espresso",
+  "category": "drink",
+  "price": 192,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

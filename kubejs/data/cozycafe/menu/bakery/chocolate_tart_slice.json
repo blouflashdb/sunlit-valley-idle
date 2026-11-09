@@ -1,0 +1,7 @@
+{
+  "item": "bakery:chocolate_tart_slice",
+  "category": "dessert",
+  "price": 36,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

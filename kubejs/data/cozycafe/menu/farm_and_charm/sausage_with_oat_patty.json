@@ -1,0 +1,8 @@
+{
+  "item": "farm_and_charm:sausage_with_oat_patty",
+  "category": "main",
+  "price": 324,
+  "bowl_food": true,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

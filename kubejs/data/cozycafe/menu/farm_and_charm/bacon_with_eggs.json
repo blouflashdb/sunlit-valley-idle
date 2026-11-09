@@ -1,0 +1,8 @@
+{
+  "item": "farm_and_charm:bacon_with_eggs",
+  "category": "main",
+  "price": 153,
+  "bowl_food": true,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

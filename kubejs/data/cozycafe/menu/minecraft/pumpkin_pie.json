@@ -1,0 +1,7 @@
+{
+  "item": "minecraft:pumpkin_pie",
+  "category": "dessert",
+  "price": 182,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

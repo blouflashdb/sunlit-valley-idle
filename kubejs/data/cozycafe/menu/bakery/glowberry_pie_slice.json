@@ -1,0 +1,7 @@
+{
+  "item": "bakery:glowberry_pie_slice",
+  "category": "dessert",
+  "price": 36,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

@@ -1,0 +1,9 @@
+{
+  "item": "brewery:whiskey_jojannik",
+  "category": "drink",
+  "price": 171,
+  "bottle_drink": true,
+  "bottle": "brewery:beer_mug",
+  "flavors": [],
+  "mult_attribute": "shippingbin:wood_sell_multiplier"
+}

@@ -1,0 +1,7 @@
+{
+  "item": "bakery:hazelnut_ella",
+  "category": "main",
+  "price": 3000,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

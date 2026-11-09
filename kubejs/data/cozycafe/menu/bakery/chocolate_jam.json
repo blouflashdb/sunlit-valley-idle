@@ -1,0 +1,7 @@
+{
+  "item": "bakery:chocolate_jam",
+  "category": "dessert",
+  "price": 252,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}
