@@ -77,32 +77,6 @@ const checkQuestBook = (server) => {
         if (reward.getItem) note(reward.getItem(), where);
       });
     });
-    // probe (removed once the quest port knows the formats)
-    let reg = server.registryAccess();
-    let probe = (label, make) => {
-      try {
-        let s = make();
-        console.info(`[PORT-TEST] INFO quests item ${label} ${s.isEmpty() ? "empty" : String(s.save(reg))}`);
-      } catch (probeError) {
-        console.info(`[PORT-TEST] INFO quests probe ${label} failed ${probeError}`);
-      }
-    };
-    probe("quality", () => global.withItemQuality(Item.of("society:ancient_fruit"), 2));
-    ["aquaculture:neptunium_fishing_rod", "farm_and_charm:supply_cart", "furniture:cash_register", "furniture:explorers_box",
-      "furniture:iron_fish_tank", "furniture:sewing_kit", "furniture:tool_box", "longwings:butterfly", "paraglider:heart_container",
-      "railways:track_oak", "refurbished_furniture:spatula", "relics:shadow_glaive", "society:heart_of_neptunium",
-      "society:omni_geode", "society:pristine_spinel", "society:ruby", "splendid_slimes:plort_slimy", "vinery:jellie_wine",
-      "supplementaries:jar"].forEach((id) => {
-      if (!Item.exists(id)) console.info(`[PORT-TEST] INFO quests trophy item missing ${id}`);
-    });
-    ['longwings:butterfly[longwings:variant="monarch"]', 'longwings:butterfly[longwings:variant="longwings:monarch"]',
-      'longwings:butterfly[longwings:variant=1]'].forEach((text) => probe(text, () => Item.of(text)));
-    let componentTypes = [];
-    $QuestsTestItems.DATA_COMPONENT_TYPE.keySet().forEach((key) => {
-      let id = String(key);
-      if (/^(longwings|supplementaries|relics|trofers|splendid_slimes|portable_blueprints|ftbfiltersystem):/.test(id)) componentTypes.push(id);
-    });
-    console.info(`[PORT-TEST] INFO quests components ${componentTypes.sort().join(" ")}`);
     let pending = Object.keys(missing).filter((id) => questsTestPending.includes(id));
     if (pending.length > 0) console.info(`[PORT-TEST] INFO quests ${pending.length} pending ids: ${pending.join(" ")}`);
     let ids = Object.keys(missing).filter((id) => !questsTestPending.includes(id)).sort();
