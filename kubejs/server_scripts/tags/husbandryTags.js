@@ -42,3 +42,12 @@ ServerEvents.tags("block", (e) => {
     "minecraft:blue_ice",
   ]);
 });
+
+// Milk sizes (from the 1.20.1 handleItemBlockFluidTags.js): the cup recipes take #society:small_milk.
+ServerEvents.tags("item", (e) => {
+  const milks = ["milk", "goat_milk", "sheep_milk", "buffalo_milk", "warped_milk", "tri_bull_milk", "amethyst_milk", "grain_milk"];
+  milks.forEach((milk) => {
+    if (Item.exists(`society:${milk}`)) e.add("society:small_milk", `society:${milk}`);
+    if (Item.exists(`society:large_${milk}`)) e.add("society:large_milk", `society:large_${milk}`);
+  });
+});
