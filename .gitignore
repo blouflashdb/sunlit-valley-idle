@@ -75,3 +75,4 @@ config/controllable/radial_menu_items.json
 /FTBLang/
 /keybinding presets/
 /data/
+__pycache__/
