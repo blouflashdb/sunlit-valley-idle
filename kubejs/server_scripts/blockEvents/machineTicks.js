@@ -213,3 +213,12 @@ BlockEvents.blockEntityTick("society:sparkstone_recycler", (entity) => {
 BlockEvents.blockEntityTick("croptania:cropnolia", (entity) => {
   global.runCropnolia(entity.level, entity.block);
 });
+
+// Auto-Tapper and Juice Inserter (#17): startup_scripts/powerfulMachines/autoTapper.js.
+BlockEvents.blockEntityTick("society:auto_tapper", (entity) => {
+  global.runAutoTapper(entity);
+});
+
+BlockEvents.blockEntityTick("society:juice_inserter", (entity) => {
+  global.runJuiceInserter(entity);
+});

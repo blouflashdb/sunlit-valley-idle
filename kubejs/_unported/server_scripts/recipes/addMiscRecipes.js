@@ -457,19 +457,7 @@ ServerEvents.recipes((e) => {
 
   // Other
   // society:charging_rod is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
-  e.shaped("society:auto_tapper", [" F ", "bTb", "fPf"], {
-    f: "create_factory_logistics:fluid_mechanism",
-    F: "create:fluid_tank",
-    T: "society:tapper",
-    b: "society:battery",
-    P: "create:precision_mechanism",
-  });
-  e.shaped("society:juice_inserter", ["fff", "rFb", "fff"], {
-    f: "meadow:fire_log",
-    F: "create:fluid_tank",
-    b: "minecraft:bamboo_block",
-    r: "society:rubber",
-  });
+  // society:auto_tapper and society:juice_inserter are ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
   e.shapeless("society:furniture_box", ["4x #society:loot_furniture"]);
   e.smoking("pamhc2trees:roastedhazelnutitem", "pamhc2trees:hazelnutitem").xp(
     0.35
