@@ -32,29 +32,7 @@ ItemEvents.rightClicked(
   },
 );
 
-ItemEvents.rightClicked(
-  [
-    "buildinggadgets2:gadget_copy_paste",
-    "buildinggadgets2:gadget_exchanging",
-    "buildinggadgets2:gadget_copy_paste",
-    "buildinggadgets2:gadget_cut_paste",
-    "buildinggadgets2:gadget_destruction",
-    "botania:smelt_rod",
-    "supplementaries:wrench",
-    "society:red_wrench",
-    "portable_blueprints:blueprint",
-    "portable_blueprints:worn_blueprint",
-    "portable_blueprints:server_blueprint",
-    "portable_blueprints:scanner",
-    "portable_blueprints:tablet"],
-  (e) => {
-    if (e.player.level.dimension === "society:skull_cavern") {
-      // TODO: Dialog
-      e.player.tell(Text.red("Don't do that."))
-      e.cancel();
-    }
-  },
-);
+// The Skull Cavern tool ban is ported: kubejs/server_scripts/skullCavern/skullCavernEvents.js
 
 BlockEvents.rightClicked((e) => {
   if (e.player.getHeldItem("MAIN_HAND").hasTag("forge:tools/fishing_rods") && e.player.getHeldItem("OFF_HAND").hasTag("forge:tools/fishing_rods") && !e.block.id.equals("society:fish_pond")

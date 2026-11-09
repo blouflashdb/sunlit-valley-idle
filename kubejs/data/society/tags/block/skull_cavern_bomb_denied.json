@@ -1,0 +1,37 @@
+{
+  "values": [
+    {
+      "id": "atmospheric:arid_sand",
+      "required": false
+    },
+    {
+      "id": "atmospheric:red_arid_sand",
+      "required": false
+    },
+    "minecraft:sand",
+    "minecraft:basalt",
+    "minecraft:end_stone",
+    "minecraft:magma_block",
+    {
+      "id": "oreganized:glance",
+      "required": false
+    },
+    {
+      "id": "oreganized:glance_bricks",
+      "required": false
+    },
+    {
+      "id": "oreganized:polished_glance",
+      "required": false
+    },
+    "minecraft:moss_block",
+    "minecraft:pale_moss_block",
+    {
+      "id": "oreganized:spotted_glance",
+      "required": false
+    },
+    "minecraft:snow_block",
+    "minecraft:blue_ice",
+    "minecraft:packed_ice"
+  ]
+}

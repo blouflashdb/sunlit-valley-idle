@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cross",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "cross": "society:item/geode/earth_crystal",
+    "particle": "society:item/geode/earth_crystal"
+  }
+}
