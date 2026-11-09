@@ -63,7 +63,8 @@ REMOVED = {
     "create_central_kitchen:cooking_guide", "create_enchantment_industry:disenchanter",
     "create_enchantment_industry:hyper_experience_bottle", "beachparty:chocolate_icecream",
     "beachparty:sweetberry_milkshake", "society:fantasy_catalog",
-    "society:car_key",  # parks an Automobility car "candlelight:khinkali", "netherdepthsupgrade:baked_lava_pufferfish_stew",
+    "society:car_key",  # parks an Automobility car
+    "candlelight:khinkali", "netherdepthsupgrade:baked_lava_pufferfish_stew",
     "relics:arrow_quiver", "relics:horse_flute", "relics:spatial_sign", "unusualfishmod:raw_snowflake",
 }
 # Quest texts (en_us of kubejs/assets/ftbquestlocalizer/lang) that describe replaced content. The other languages
