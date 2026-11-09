@@ -13,7 +13,7 @@ ServerEvents.loaded((event) => {
     "bs_carpenter", "bs_coop", "bs_deluxe_barn", "bs_fisher", "bs_greenhouse", "bs_home", "bs_large_shed",
     "bs_librarian", "bs_market", "bs_shed", "bs_shepherd", "bs_trader", "bs_witch", "carpenter", "fisher", "guild",
     "invitations", "librarian", "market", "modern_catalog", "ribbit_fisher", "ribbit_merchant", "shepherd",
-    "tanuki_catalog", "trader", "wanderer", "wandering_baker", "wandering_winemaker", "wise_oak", "witch"];
+    "tanuki_catalog", "trader", "wanderer", "wandering_winemaker", "wise_oak", "witch"];
 
   try {
     let registry = Java.loadClass("io.github.chakyl.societytrading.data.ShopRegistry").INSTANCE;

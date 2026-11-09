@@ -7,6 +7,8 @@ Society Trading 1.21.1 reads shops with codecs, so:
   - names and descriptions are text components, so translation keys become {"translate": key};
   - one unknown item breaks the whole shop, so trades with an item from data/town_missing_items.txt are left out
     and a missing JEI catalyst falls back to the villager spawn egg (the mod default);
+  - item names and lore stay JSON strings (the item components use the flat text codec);
+  - a shop opened by an entity that is gone (MISSING_ENTITIES) is left out;
   - the Cartographer's Quill trade (a map to a Trials chamber) is left out: Trials is gone and Supplementaries
     stores the quill target as a data component now.
 
@@ -26,6 +28,8 @@ SUBSTITUTES = {
     "trials:trial_key_ominous": "minecraft:ominous_trial_key",  # vanilla since 1.21
 }
 DROPPED_ITEMS = {"supplementaries:cartographers_quill"}
+# Shops opened by an entity that is gone on 1.21.1 (Bakery has no Wandering Baker any more).
+MISSING_ENTITIES = {"bakery:wandering_baker"}
 TEXT_FIELDS = ("name", "unlock_description", "image_description")
 # Portable Blueprints keeps its own fields in custom data; these were vanilla 1.20.1 item tags.
 VANILLA_TAGS = {"display", "Damage"}
@@ -53,9 +57,9 @@ def components(item, raw):
         out["patchouli:book"] = tag.pop("patchouli:book")
     display = tag.pop("display", {})
     if "Name" in display:
-        out["minecraft:custom_name"] = json.loads(display["Name"])
+        out["minecraft:custom_name"] = display["Name"]
     if "Lore" in display:
-        out["minecraft:lore"] = [json.loads(line) for line in display["Lore"]]
+        out["minecraft:lore"] = display["Lore"]
     tag.pop("Damage", None)
     if tag:
         out["minecraft:custom_data"] = tag
@@ -128,7 +132,7 @@ def main():
     for path in sorted((SRC / "shops").glob("*.json")):
         shop, trade_count = port_shop(json.loads(path.read_text()), missing, dropped)
         target = DST / "shops" / path.name
-        if trade_count == 0:
+        if trade_count == 0 or shop.get("entity") in MISSING_ENTITIES:
             skipped.append(path.stem)
             target.unlink(missing_ok=True)
             continue
@@ -146,7 +150,7 @@ def main():
         target = DST / path.relative_to(SRC)
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(path.read_text())
-    print(f"{len(written)} shops written, without trades and skipped: {', '.join(skipped) or 'none'}")
+    print(f"{len(written)} shops written, skipped (no trades or entity): {', '.join(skipped) or 'none'}")
     print(f"{len(dropped)} missing items dropped trades")
 
 

@@ -16,17 +16,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.basic_market"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.basic_market\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.basic_market.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.basic_market.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -67,17 +59,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.pineconetown_market"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.pineconetown_market\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.pineconetown_market.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.pineconetown_market.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -118,17 +102,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.rural_market"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.rural_market\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.rural_market.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.rural_market.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,

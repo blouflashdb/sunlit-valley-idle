@@ -12,17 +12,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.basic_greenhouse"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.basic_greenhouse\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.basic_greenhouse.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.basic_greenhouse.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -63,17 +55,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.alpine_greenhouse"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.alpine_greenhouse\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.alpine_greenhouse.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.alpine_greenhouse.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -114,17 +98,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.arid_greenhouse"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.arid_greenhouse\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.arid_greenhouse.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.arid_greenhouse.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -165,17 +141,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.bamboo_greenhouse"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.bamboo_greenhouse\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.bamboo_greenhouse.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.bamboo_greenhouse.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -216,17 +184,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.bavarian_greenhouse"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.bavarian_greenhouse\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.bavarian_greenhouse.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.bavarian_greenhouse.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -267,17 +227,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.cherry_greenhouse"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.cherry_greenhouse\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.cherry_greenhouse.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.cherry_greenhouse.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -318,17 +270,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.entrana_greenhouse"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.entrana_greenhouse\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.entrana_greenhouse.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.entrana_greenhouse.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -369,17 +313,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.floral_greenhouse"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.floral_greenhouse\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.floral_greenhouse.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.floral_greenhouse.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -420,17 +356,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.mason_greenhouse"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.mason_greenhouse\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.mason_greenhouse.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.mason_greenhouse.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -471,17 +399,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.prismarine_greenhouse"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.prismarine_greenhouse\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.prismarine_greenhouse.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.prismarine_greenhouse.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -522,17 +442,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.rural_greenhouse"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.rural_greenhouse\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.rural_greenhouse.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.rural_greenhouse.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -573,17 +485,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.sakura_greenhouse"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.sakura_greenhouse\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.sakura_greenhouse.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.sakura_greenhouse.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -624,17 +528,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.siberian_greenhouse"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.siberian_greenhouse\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.siberian_greenhouse.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.siberian_greenhouse.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -675,17 +571,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.tudor_greenhouse"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.tudor_greenhouse\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.tudor_greenhouse.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.tudor_greenhouse.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -726,17 +614,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.vibrantown_greenhouse"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.vibrantown_greenhouse\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.vibrantown_greenhouse.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.vibrantown_greenhouse.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,

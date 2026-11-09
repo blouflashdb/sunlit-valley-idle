@@ -16,17 +16,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.basic_trader"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.basic_trader\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.basic_trader.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.basic_trader.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -67,17 +59,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.pineconetown_trader"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.pineconetown_trader\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.pineconetown_trader.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.pineconetown_trader.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -118,17 +102,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.rural_trader"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.rural_trader\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.rural_trader.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.rural_trader.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,

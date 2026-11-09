@@ -16,17 +16,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.basic_coop"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.basic_coop\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.basic_coop.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.basic_coop.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -67,17 +59,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.alpine_coop"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.alpine_coop\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.alpine_coop.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.alpine_coop.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -118,17 +102,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.arid_coop"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.arid_coop\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.arid_coop.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.arid_coop.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -169,17 +145,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.bamboo_coop"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.bamboo_coop\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.bamboo_coop.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.bamboo_coop.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -220,17 +188,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.bavarian_coop"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.bavarian_coop\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.bavarian_coop.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.bavarian_coop.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -271,17 +231,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.cherry_coop"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.cherry_coop\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.cherry_coop.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.cherry_coop.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -322,17 +274,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.entrana_coop"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.entrana_coop\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.entrana_coop.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.entrana_coop.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -373,17 +317,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.floral_coop"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.floral_coop\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.floral_coop.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.floral_coop.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -424,17 +360,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.mason_coop"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.mason_coop\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.mason_coop.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.mason_coop.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -475,17 +403,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.prismarine_coop"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.prismarine_coop\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.prismarine_coop.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.prismarine_coop.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -526,17 +446,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.rural_coop"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.rural_coop\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.rural_coop.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.rural_coop.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -577,17 +489,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.sakura_coop"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.sakura_coop\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.sakura_coop.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.sakura_coop.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -628,17 +532,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.siberian_coop"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.siberian_coop\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.siberian_coop.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.siberian_coop.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -679,17 +575,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.tudor_coop"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.tudor_coop\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.tudor_coop.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.tudor_coop.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
@@ -730,17 +618,9 @@
         "id": "portable_blueprints:worn_blueprint",
         "count": 1,
         "components": {
-          "minecraft:custom_name": {
-            "italic": false,
-            "color": "#FFFF00",
-            "translate": "portable_blueprints.worn_blueprint.vibrantown_coop"
-          },
+          "minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.vibrantown_coop\"}",
           "minecraft:lore": [
-            {
-              "italic": false,
-              "color": "#FFFF00",
-              "translate": "portable_blueprints.worn_blueprint.vibrantown_coop.author"
-            }
+            "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.vibrantown_coop.author\"}"
           ],
           "minecraft:custom_data": {
             "allow_nbt": 1,
