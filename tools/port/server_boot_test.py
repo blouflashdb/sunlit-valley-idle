@@ -108,7 +108,9 @@ def main():
         target.mkdir(parents=True, exist_ok=True)
         for script in sorted(pathlib.Path(args.kubejs_tests).glob("*.js")):
             shutil.copy2(script, target / script.name)
-            tests.append(script.stem.removesuffix("Test").lower())
+            # Other scripts (such as generated data) are copied but print no markers.
+            if script.stem.endswith("Test"):
+                tests.append(script.stem.removesuffix("Test").lower())
 
     boots = 2 if tests else 1
     results = []
