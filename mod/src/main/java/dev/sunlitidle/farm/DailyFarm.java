@@ -8,6 +8,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.FarmBlock;
@@ -152,11 +153,7 @@ public final class DailyFarm {
         }
         growing = true;
         try {
-            boolean allowed = CommonHooks.canCropGrow(level, pos, state, true) && SeasonFertility.isFertile(level, pos, state);
-            if (!allowed && soil.getBlock() instanceof GardenPotBlock && !level.canSeeSky(pos.above())) {
-                allowed = true;
-            }
-            if (!allowed) {
+            if (!canGrow(level, pos, state, soil)) {
                 return false;
             }
             IntegerProperty age = ageProperty(state);
@@ -181,6 +178,45 @@ public final class DailyFarm {
         } finally {
             growing = false;
         }
+    }
+
+    /** Whether the season (or greenhouse glass, or a roofed garden pot) and other mods let the crop grow. */
+    private static boolean canGrow(Level level, BlockPos pos, BlockState state, BlockState soil) {
+        if (CommonHooks.canCropGrow(level, pos, state, true) && SeasonFertility.isFertile(level, pos, state)) {
+            return true;
+        }
+        return soil.getBlock() instanceof GardenPotBlock && !level.canSeeSky(pos.above());
+    }
+
+    /** A daily crop's stage for Jade: its age, its last age, whether it may grow and whether its soil is wet. */
+    public record CropStatus(int age, int maxAge, boolean canGrow, boolean watered) {
+    }
+
+    /** The status of the daily crop at {@code pos}, or null when there is none on farm soil. */
+    public static CropStatus cropStatus(Level level, BlockPos pos) {
+        BlockState state = level.getBlockState(pos);
+        BlockState soil = level.getBlockState(pos.below());
+        if (!state.is(FarmTags.DAILY_CROPS) || !Watering.isWaterable(soil)) {
+            return null;
+        }
+        IntegerProperty age = ageProperty(state);
+        if (age == null) {
+            return null;
+        }
+        int current = state.getValue(age);
+        int max = maxOf(age);
+        if (state.getBlock() instanceof CropBlock crop) {
+            current = crop.getAge(state);
+            max = crop.getMaxAge();
+        }
+        boolean allowed;
+        growing = true;
+        try {
+            allowed = canGrow(level, pos, state, soil);
+        } finally {
+            growing = false;
+        }
+        return new CropStatus(current, max, allowed, Watering.isMoist(soil));
     }
 
     /** Stages a crop at {@code age} grows on {@code soil} in {@code days} days, without the max-age cap. */
