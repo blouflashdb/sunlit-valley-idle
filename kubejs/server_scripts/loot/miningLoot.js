@@ -111,7 +111,7 @@ const miningLootState = (context) => {
     pos: $MiningLootBlockPos.containing(origin),
     player: entity && entity.isPlayer() ? entity : null,
     silk: hasSilkTouchTool(context.getParamOrNull($MiningLootParams.TOOL)),
-    dimension: String(level.dimension().location()),
+    dimension: String(level.dimension),
   };
 };
 
