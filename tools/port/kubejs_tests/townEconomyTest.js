@@ -1,6 +1,6 @@
 // CI only: server_boot_test.py copies this into kubejs/server_scripts/_ci/ and boots the server twice.
 // Boot 1 checks hospital fees, debts, receipts and the leaderboard ranking, then places a Coin Leaderboard.
-// Boot 2 checks its text displays are still there and removes it.
+// Boot 2 checks its text displays are still there, that a redraw replaces them, and removes it.
 // Prints "[PORT-TEST] PHASE1 towneconomy", "[PORT-TEST] PASS towneconomy" or "[PORT-TEST] FAIL towneconomy: ...".
 
 ServerEvents.loaded((event) => {
@@ -54,7 +54,12 @@ ServerEvents.loaded((event) => {
     } else {
       server.scheduleInTicks(100, () => {
         try {
-          check(displays() === 3, `${displays()} text displays after the restart`);
+          // The board redraws itself every 600 ticks from the live ranking, so only check that displays are there
+          // and that a redraw replaces them instead of adding more.
+          check(displays() >= 1, "no text displays after the restart");
+          global.updateLeaderboard(board(), level);
+          let expected = global.coinLeaderboard.ranking.length + 1;
+          check(displays() === expected, `${displays()} text displays after a redraw instead of ${expected}`);
           global.clearLeaderboard(board(), level);
           check(displays() === 0, "the displays were not cleared");
           board().set("minecraft:air");
