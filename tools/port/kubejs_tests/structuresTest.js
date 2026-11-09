@@ -1,6 +1,6 @@
 // CI only: server_boot_test.py copies this into kubejs/server_scripts/_ci/ and boots the server twice.
 // Boot 1 checks the overworld structures (registries, templates, the stables loot table), lists the template
-// blocks that are not registered and checks the chest loot. Boot 2 checks the chest loot again.
+// blocks are all registered and checks the chest loot. Boot 2 checks the chest loot again.
 // Prints "[PORT-TEST] PHASE1 structures", "[PORT-TEST] PASS structures" or "[PORT-TEST] FAIL structures: ...".
 const $StructTestKeys = Java.loadClass("net.minecraft.core.registries.Registries");
 const $StructTestRegistries = Java.loadClass("net.minecraft.core.registries.BuiltInRegistries");
@@ -71,8 +71,7 @@ ServerEvents.loaded((event) => {
             missing.push(String(block));
         }
       });
-      // Not a failure: the port script turns these into air until they get a replacement.
-      console.info(`[PORT-TEST] INFO structures missing blocks: ${missing.sort().join(" ")}`);
+      check(missing.length === 0, `template blocks are not registered: ${missing.sort().join(" ")}`);
       check(lootTable("society:chests/stables") !== $StructTestLootTable.EMPTY, "the stables loot table did not load");
       check(rollChest("society:chests/stables").length > 0, "the stables chest is empty");
 

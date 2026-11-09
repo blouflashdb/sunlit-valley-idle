@@ -40,6 +40,8 @@ REMAPPED_BLOCKS = {
     "decorative_blocks:spruce_palisade": "minecraft:spruce_fence",
     "decorative_blocks:spruce_seat": "minecraft:spruce_slab",
     "verdantvibes:burnweed": "minecraft:short_grass",
+    "verdantvibes:ivy": "minecraft:vine",
+    "minecraft:grass": "minecraft:short_grass",
     "verdantvibes:bracket_mushroom": "minecraft:brown_mushroom",
 }
 REMAPPED_PATTERNS = (
@@ -54,6 +56,10 @@ REMAPPED_PATTERNS = (
     (re.compile(r"^quark:azalea_(log|planks)$"), r"minecraft:oak_\1"),
     (re.compile(r"^quark:blossom_planks_(slab|stairs)$"), r"minecraft:cherry_\1"),
     (re.compile(r"^fantasyfurniture:.+$"), r"minecraft:air"),
+    # Every Compat's Decorative Blocks variants of other mods' woods: db/<mod>/<wood>_<block>.
+    (re.compile(r"^everycomp:db/([a-z_]+)/(.+)_palisade$"), r"\1:\2_fence"),
+    (re.compile(r"^everycomp:db/([a-z_]+)/(.+)_(?:support|beam)$"), r"\1:\2_log"),
+    (re.compile(r"^everycomp:db/([a-z_]+)/(.+)_seat$"), r"\1:\2_slab"),
 )
 
 
@@ -110,9 +116,13 @@ def port_salt(salt):
     return abs(salt)
 
 
+# Items of the stables loot that 1.21.1 mods do not register.
+MISSING_LOOT = {"relics:horse_flute"}
+
+
 def main():
     missing = read_list("structure_missing_blocks.txt")
-    missing_items = read_list("town_missing_items.txt") | missing
+    missing_items = read_list("town_missing_items.txt") | missing | MISSING_LOOT
     for folder in ("structure", "structure_set", "template_pool"):
         for name in STRUCTURES:
             (DST / "worldgen" / folder / f"{name}.json").unlink(missing_ok=True)
@@ -139,6 +149,9 @@ def main():
     loot = json.loads((SRC / "loot_table" / "chests" / "stables.json").read_text())
     for pool in loot["pools"]:
         pool["entries"] = [e for e in pool["entries"] if e.get("name") not in missing_items]
+        for entry in pool["entries"]:
+            for function in entry.get("functions", []):
+                function.pop("treasure", None)  # 1.21 picks enchantments from a tag; the default fits
     write(DST / "loot_table" / "chests" / "stables.json", loot)
     for name, target in sorted(changed.items()):
         print(f"  {name} -> {target}")
