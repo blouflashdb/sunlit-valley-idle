@@ -61,6 +61,58 @@ const addCreateRecipe = (e, type, ingredients, results, extra) => {
   addProcessingRecipe(e, type, name, items, fluids, json);
 };
 
+// forge tags of the 1.20.1 recipes that have another c tag name; every other forge:x is c:x.
+const processingForgeTags = {
+  "forge:cheeses": "c:foods/cheese",
+  "forge:vegetables/cabbage": "c:crops/cabbage",
+  "forge:milk": "c:milk",
+};
+const processingTag = (tag) => processingForgeTags[tag] || tag.replace(/^forge:/, "c:");
+
+// Adds a Create recipe written in the 1.20.1 JSON format (item/tag/fluid/fluidTag ingredients, item/fluid results,
+// camelCase keys) in the Create 6 format; the id is society:processing/<type>/<first input>_to_<first output>_<hash>,
+// the hash of the recipe keeping ids of recipes with the same first input and output apart.
+const processingHash = (text) => {
+  let hash = 5381;
+  for (let i = 0; i < text.length; i++) hash = ((hash * 33) ^ text.charCodeAt(i)) >>> 0;
+  return hash.toString(36);
+};
+const addLegacyCreateRecipe = (e, json) => {
+  let items = [];
+  let fluids = [];
+  let ingredient = (i) => {
+    if (Array.isArray(i)) return i.map(ingredient);
+    if (i.fluid) {
+      fluids.push(i.fluid);
+      return { type: "fluid_stack", fluid: i.fluid, amount: i.amount };
+    }
+    if (i.fluidTag) return { type: "fluid_tag", fluid_tag: processingTag(i.fluidTag), amount: i.amount };
+    if (i.tag) return { tag: processingTag(i.tag) };
+    items.push(i.item);
+    return { item: i.item };
+  };
+  let result = (r) => {
+    if (r.fluid) {
+      fluids.push(r.fluid);
+      return { id: r.fluid, amount: r.amount };
+    }
+    items.push(r.item);
+    let out = { id: r.item, count: r.count || 1 };
+    if (r.chance !== undefined) out.chance = r.chance;
+    return out;
+  };
+  let out = { type: json.type, ingredients: json.ingredients.map(ingredient), results: json.results.map(result) };
+  if (json.heatRequirement) out.heat_requirement = json.heatRequirement;
+  if (json.processingTime) out.processing_time = json.processingTime;
+  let first = (i) => {
+    let one = Array.isArray(i) ? i[0] : i;
+    return processingPath(one.item || one.fluid || one.fluidTag || one.tag);
+  };
+  let type = json.type.split(":")[1];
+  let name = `${first(json.ingredients[0])}_to_${first(json.results[0])}_${processingHash(JSON.stringify(out))}`;
+  addProcessingRecipe(e, type, name, items, fluids, out);
+};
+
 const addCuttingRecipe = (e, input, tool, output, count) => {
   addProcessingRecipe(e, "cutting", `${processingPath(input.replace("#", ""))}_to_${processingPath(output)}`, [input, output], [], {
     type: "farmersdelight:cutting",

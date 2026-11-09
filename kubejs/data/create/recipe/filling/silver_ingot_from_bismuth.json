@@ -1,0 +1,19 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "etcetera:bismuth_ingot"
+    },
+    {
+      "type": "fluid_stack",
+      "fluid": "society:alchemical_varnish",
+      "amount": 200
+    }
+  ],
+  "results": [
+    {
+      "id": "oreganized:silver_ingot",
+      "count": 1
+    }
+  ]
+}

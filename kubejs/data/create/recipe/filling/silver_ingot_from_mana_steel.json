@@ -1,0 +1,19 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "botania:manasteel_ingot"
+    },
+    {
+      "type": "fluid_stack",
+      "fluid": "society:alchemical_varnish",
+      "amount": 50
+    }
+  ],
+  "results": [
+    {
+      "id": "oreganized:silver_ingot",
+      "count": 1
+    }
+  ]
+}
