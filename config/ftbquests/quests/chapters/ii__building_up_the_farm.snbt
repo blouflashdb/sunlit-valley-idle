@@ -1488,7 +1488,7 @@
 			rewards: [{
 				count: 8
 				id: "74A2DC6D33607337"
-				item: "extractinator:slush"
+				item: "minecraft:snow_block"
 				type: "item"
 			}]
 			tasks: [{
@@ -2075,7 +2075,7 @@
 			}]
 			tasks: [{
 				id: "028B7E5B8F2E9D1C"
-				item: "extractinator:extractinator"
+				item: "society:geode_buster"
 				type: "item"
 			}]
 			title: "{ftbquests.chapter.ii__building_up_the_farm.quest1F12BF72B966E0CC.title}"

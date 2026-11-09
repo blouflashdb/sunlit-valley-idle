@@ -79,7 +79,7 @@
 			id: "3889A9F0A1CF45FF"
 			rewards: [{
 				id: "4897B3F9C4577A1D"
-				item: "extractinator:extractinator"
+				item: "society:geode_buster"
 				type: "item"
 			}]
 			shape: "none"
