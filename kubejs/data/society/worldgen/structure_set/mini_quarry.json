@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "society:mini_quarry",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1577353691,
+    "spacing": 45,
+    "separation": 38
+  }
+}
