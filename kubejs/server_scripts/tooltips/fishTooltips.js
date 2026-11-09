@@ -1,4 +1,9 @@
-ItemEvents.tooltip((tooltip) => {
+console.info("[SOCIETY] fishTooltips.js loaded");
+
+// The seasons each fish bites in (ported from the 1.20.1 client script tooltips/addFishTooltips.js, #18; see
+// tooltipShim.js), from the season lists in startup_scripts/globalFish.js.
+ItemEvents.modifyTooltips((e) => {
+  const tooltip = createTooltipShim(e);
   const yearRound = ['aquaculture:minnow', 'aquaculture:carp', 'aquaculture:bluegill', 'society:neptuna']
   let springFish = [];
   let summerFish = [];

@@ -1,4 +1,9 @@
-ItemEvents.tooltip((tooltip) => {
+console.info("[SOCIETY] itemTooltips.js loaded");
+
+// Item tooltips (ported from the 1.20.1 client script tooltips/addTooltips.js, #18; see tooltipShim.js). The
+// Invitation and the Evaporator have their tooltip on the item builder now.
+ItemEvents.modifyTooltips((e) => {
+  const tooltip = createTooltipShim(e);
 
   const artifactTooltips = [
     {
@@ -94,7 +99,7 @@ ItemEvents.tooltip((tooltip) => {
       artifact.item,
       global
         .translatableWithFallback(
-          `item.society.${artifact.item.path}.description`,
+          `item.society.${artifact.item.split(":")[1]}.description`,
           artifact.description
         )
         .darkPurple()
@@ -216,7 +221,7 @@ ItemEvents.tooltip((tooltip) => {
       book.item,
       global
         .translatableWithFallback(
-          `item.society.${book.item.path}.description`,
+          `item.society.${book.item.split(":")[1]}.description`,
           book.description
         )
         .gray()
@@ -254,7 +259,6 @@ ItemEvents.tooltip((tooltip) => {
   tooltip.add("tanukidecor:diy_workbench", Text.translatable("tooltip.society.diy_workbench").gray());
   tooltip.add("society:tanuki_catalog", Text.translatable("tooltip.society.tanuki_catalog").gray());
   tooltip.add("society:modern_catalog", Text.translatable("tooltip.society.modern_catalog").gray());
-  tooltip.add("society:fantasy_catalog", Text.translatable("tooltip.society.fantasy_catalog").gray());
   global.lootFurniture.forEach((item) => {
     tooltip.add(
       item,
@@ -736,14 +740,6 @@ ItemEvents.tooltip((tooltip) => {
     Text.translatable("tooltip.society.slot_machine").gray()
   );
   tooltip.add(
-    "whimsy_deco:statue_endless_fortune",
-    Text.translatable("tooltip.society.statue_endless_fortune").gray()
-  );
-  tooltip.add(
-    "whimsy_deco:statue_endless_fortune",
-    Text.translatable("tooltip.society.statue_endless_fortune.warn").red()
-  );
-  tooltip.add(
     "whimsy_deco:gatcha_machine",
     Text.translatable(
       "tooltip.society.gatcha_machine",
@@ -917,10 +913,6 @@ ItemEvents.tooltip((tooltip) => {
     Text.translatable("tooltip.society.chunk_loader").red()
   );
   tooltip.add(
-    "vintagedelight:evaporator",
-    Text.translatable("tooltip.society.evaporator").gray()
-  );
-  tooltip.add(
     "farmersdelight:rich_soil",
     Text.translatable("tooltip.society.rich_soil").gray()
   );
@@ -928,10 +920,6 @@ ItemEvents.tooltip((tooltip) => {
   tooltip.add(
     "relics:jellyfish_necklace",
     Text.translatable("tooltip.society.jellyfish_necklace").red()
-  );
-  tooltip.add(
-    "society:invitation",
-    Text.translatable("tooltip.society.invitation").green()
   );
   tooltip.add(
     "unusualfishmod:ripper_tooth",
@@ -979,7 +967,6 @@ ItemEvents.tooltip((tooltip) => {
     ],
     Text.translatable("tooltip.society.item_type.prize_machine_reward").gold()
   );
-  Item.of("farm_and_charm:barley", "{quality_food:{quality:3}}");
 
   const geodes = [
     "society:geode",
@@ -1119,10 +1106,6 @@ ItemEvents.tooltip((tooltip) => {
     "gag:escape_rope",
     Text.translatable("tooltip.society.escape_rope_hold").red()
   );
-  tooltip.add(
-    "society:face_note",
-    Text.translatable("tooltip.society.face_note").green()
-  );
   // Refined
   tooltip.add(
     "refinedstorage:4k_storage_block",
@@ -1213,7 +1196,6 @@ ItemEvents.tooltip((tooltip) => {
     "society:treasure_totem",
     "society:sparkpod_seeds",
     "society:sparkpod",
-    "society:statue_of_cravings",
   ].forEach((item) => {
     getMasteryTooltip(item, "farming")
   });

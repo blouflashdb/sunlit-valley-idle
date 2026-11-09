@@ -2,7 +2,7 @@
 // Animals are shown by their spawn egg; animals of mods that are not in the 1.21.1 pack are left out.
 const animalSlot = (slots, guiHelper, x, y, animal) => {
   let egg = global.getSpawnEggId(animal);
-  return egg ? global.jeiSlot(slots, guiHelper, "INPUT", x, y, egg) : null;
+  return egg ? jeiSlot(slots, guiHelper, "INPUT", x, y, egg) : null;
 };
 
 const hearts = (key, value) => Text.translatable(`jei.society.husbandry.affection.${key}`, `${value}`).lightPurple();
@@ -18,7 +18,7 @@ JEIAddedEvents.registerCategories((e) => {
       .setDrawHandler((recipe, slots, guiGraphics) => {
         let cooldown = recipe.getRecipeData().cooldown;
         guiHelper.getRecipeArrow().draw(guiGraphics, 74, 2);
-        global.jeiText(
+        jeiText(
           guiGraphics,
           Text.translatable(
             "jei.society.husbandry.cooldown",
@@ -31,9 +31,9 @@ JEIAddedEvents.registerCategories((e) => {
       .handleLookup((slots, recipe) => {
         const { animal, milk } = recipe.data;
         animalSlot(slots, guiHelper, 2, 2, animal);
-        global.jeiSlot(slots, guiHelper, "CATALYST", 48, 2, "society:milk_pail");
-        global.jeiSlot(slots, guiHelper, "OUTPUT", 104, 2, milk.sm, () => [hearts("range", "1-5")]);
-        global.jeiSlot(slots, guiHelper, "OUTPUT", 125, 2, milk.lg, () => [hearts("over", 6)]);
+        jeiSlot(slots, guiHelper, "CATALYST", 48, 2, "society:milk_pail");
+        jeiSlot(slots, guiHelper, "OUTPUT", 104, 2, milk.sm, () => [hearts("range", "1-5")]);
+        jeiSlot(slots, guiHelper, "OUTPUT", 125, 2, milk.lg, () => [hearts("over", 6)]);
       });
   });
 
@@ -45,7 +45,7 @@ JEIAddedEvents.registerCategories((e) => {
       .icon(guiHelper.createDrawableItemStack(Item.of("society:truffle")))
       .isRecipeHandled((recipe) => recipe?.data?.forages !== undefined)
       .setDrawHandler((recipe, slots, guiGraphics) => {
-        global.jeiText(guiGraphics, Text.translatable("jei.society.working_block_entity.item"), 2, 28);
+        jeiText(guiGraphics, Text.translatable("jei.society.working_block_entity.item"), 2, 28);
       })
       .handleLookup((slots, recipe) => {
         const { animal, forages } = recipe.data;
@@ -56,7 +56,7 @@ JEIAddedEvents.registerCategories((e) => {
           if (forage.itemPool) {
             // Pool items stay at the end, as on 1.20.1.
             forage.itemPool.forEach((poolItem) => {
-              global.jeiSlot(slots, guiHelper, "OUTPUT", 50 + column++ * 21, 2, `${forage.countMult}x ${poolItem}`, () =>
+              jeiSlot(slots, guiHelper, "OUTPUT", 50 + column++ * 21, 2, `${forage.countMult}x ${poolItem}`, () =>
                 [
                   hearts("over", forage.minHearts),
                   Text.translatable("jei.society.husbandry.pool").gold(),
@@ -66,7 +66,7 @@ JEIAddedEvents.registerCategories((e) => {
               );
             });
           } else {
-            global.jeiSlot(slots, guiHelper, "OUTPUT", 50 + column++ * 21, 2, `${forage.countMult}x ${forage.item}`, () =>
+            jeiSlot(slots, guiHelper, "OUTPUT", 50 + column++ * 21, 2, `${forage.countMult}x ${forage.item}`, () =>
               [
                 hearts("over", forage.minHearts),
                 Text.translatable("jei.society.husbandry.chance", `${Math.round(forage.chance * 100)}`).gold(),
@@ -85,13 +85,13 @@ JEIAddedEvents.registerCategories((e) => {
       .icon(guiHelper.createDrawableItemStack(Item.of("supplementaries:present_magenta")))
       .isRecipeHandled((recipe) => recipe?.data?.gifts !== undefined)
       .setDrawHandler((recipe, slots, guiGraphics) => {
-        global.jeiText(guiGraphics, Text.translatable("jei.society.working_block_entity.item"), 2, 28);
+        jeiText(guiGraphics, Text.translatable("jei.society.working_block_entity.item"), 2, 28);
       })
       .handleLookup((slots, recipe) => {
         const { animal, gifts } = recipe.data;
         animalSlot(slots, guiHelper, 2, 2, animal);
         gifts.forEach((gift, index) => {
-          global.jeiSlot(slots, guiHelper, "OUTPUT", 50 + index * 21, 2, gift, () => [
+          jeiSlot(slots, guiHelper, "OUTPUT", 50 + index * 21, 2, gift, () => [
             hearts("at", 10),
             Text.translatable("jei.society.husbandry.pool.select", `${Math.round((1 / gifts.length) * 100)}`).gold(),
           ]);

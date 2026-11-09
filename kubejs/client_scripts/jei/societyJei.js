@@ -24,23 +24,23 @@ JEIAddedEvents.registerCategories((e) => {
       .isRecipeHandled((recipe) => recipe?.data?.input !== undefined && recipe?.data?.outputs !== undefined)
       .handleLookup((slots, recipe) => {
         const { input, outputs } = recipe.data;
-        global.jeiSlot(slots, guiHelper, "INPUT", 73, 2, input);
+        jeiSlot(slots, guiHelper, "INPUT", 73, 2, input);
         outputs.forEach((output, index) => {
-          global.jeiSlot(slots, guiHelper, "OUTPUT", (index % 8) * 18 + 1, Math.floor(index / 8) * 18 + 21, output);
+          jeiSlot(slots, guiHelper, "OUTPUT", (index % 8) * 18 + 1, Math.floor(index / 8) * 18 + 21, output);
         });
       });
   });
 
   simpleCategory(e, "society:enriched_bone_mealing", "jei.society.category.enriched_bone_mealing", "society:enriched_bone_meal", 20, (slots, guiHelper, data) => {
-    global.jeiSlot(slots, guiHelper, "INPUT", 27, 2, data.bonemealTarget);
-    global.jeiSlot(slots, guiHelper, "INPUT", 63, 2, "society:enriched_bone_meal");
-    global.jeiSlot(slots, guiHelper, "OUTPUT", 132, 2, data.crop);
+    jeiSlot(slots, guiHelper, "INPUT", 27, 2, data.bonemealTarget);
+    jeiSlot(slots, guiHelper, "INPUT", 63, 2, "society:enriched_bone_meal");
+    jeiSlot(slots, guiHelper, "OUTPUT", 132, 2, data.crop);
   });
 
   simpleCategory(e, "society:furniture_catalog", "jei.society.category.block_purchasing", "whimsy_deco:gatcha_machine", 20, (slots, guiHelper, data) => {
-    global.jeiSlot(slots, guiHelper, "INPUT", 27, 2, data.catalog);
-    global.jeiSlot(slots, guiHelper, "INPUT", 63, 2, data.cost);
-    global.jeiSlot(slots, guiHelper, "OUTPUT", 132, 2, data.output);
+    jeiSlot(slots, guiHelper, "INPUT", 27, 2, data.catalog);
+    jeiSlot(slots, guiHelper, "INPUT", 63, 2, data.cost);
+    jeiSlot(slots, guiHelper, "OUTPUT", 132, 2, data.output);
   });
 
   e.custom("herbalbrews:tea_drying", (builder) => {
@@ -52,11 +52,11 @@ JEIAddedEvents.registerCategories((e) => {
       .isRecipeHandled(() => true)
       .setDrawHandler((recipe, slots, guiGraphics) => {
         guiHelper.getRecipeArrow().draw(guiGraphics, 46, 14);
-        global.jeiText(guiGraphics, Text.translatable("jei.society.tea_drying"), 2, 36);
+        jeiText(guiGraphics, Text.translatable("jei.society.tea_drying"), 2, 36);
       })
       .handleLookup((slots, recipe) => {
-        global.jeiSlot(slots, guiHelper, "INPUT", 20, 14, recipe.data.input);
-        global.jeiSlot(slots, guiHelper, "OUTPUT", 84, 14, recipe.data.output);
+        jeiSlot(slots, guiHelper, "INPUT", 20, 14, recipe.data.input);
+        jeiSlot(slots, guiHelper, "OUTPUT", 84, 14, recipe.data.output);
       });
   });
 });
