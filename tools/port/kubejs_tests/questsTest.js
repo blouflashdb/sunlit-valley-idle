@@ -5,9 +5,16 @@
 const $QuestsTestFile = Java.loadClass("dev.ftb.mods.ftbquests.quest.ServerQuestFile");
 const $QuestsTestComponents = Java.loadClass("dev.ftb.mods.ftbquests.registry.ModDataComponents");
 
-// FTB Quests loads the book after ServerEvents.loaded, so the check runs a few ticks later.
+// FTB Quests loads the book after ServerEvents.loaded, so the check runs a few ticks later, on boot 2 only: a
+// boot 1 that does not end right after the other tests breaks their restart checks.
 ServerEvents.loaded((event) => {
-  event.server.scheduleInTicks(40, () => checkQuestBook(event.server));
+  let server = event.server;
+  if (!server.persistentData.contains("questsTest")) {
+    server.persistentData.putBoolean("questsTest", true);
+    console.info("[PORT-TEST] PHASE1 quests");
+    return;
+  }
+  server.scheduleInTicks(40, () => checkQuestBook(server));
 });
 
 const checkQuestBook = (server) => {
@@ -30,11 +37,11 @@ const checkQuestBook = (server) => {
     let quests = 0;
     file.forAllChapters((chapter) => {
       chapters++;
-      note(chapter.getRawIcon ? chapter.getRawIcon() : null, `chapter ${chapter.getFilename()}`);
+      note(chapter.getRawIcon ? chapter.getRawIcon() : null, `chapter ${chapter}`);
     });
     file.forAllQuests((quest) => {
       quests++;
-      let where = `${quest.getChapter().getFilename()}/${quest.getCodeString()}`;
+      let where = `${quest.getChapter()}/${quest}`;
       if (quest.getRawIcon) note(quest.getRawIcon(), where);
       quest.getTasks().forEach((task) => {
         if (task.getItemStack) note(task.getItemStack(), where);
@@ -60,12 +67,7 @@ const checkQuestBook = (server) => {
       ids.forEach((id) => console.info(`[PORT-TEST] INFO quests missing ${id} ${missing[id].length}x (${missing[id].slice(0, 3).join(" ")})`));
       throw new Error(`${ids.length} missing item ids: ${ids.join(" ")}`);
     }
-    if (!server.persistentData.contains("questsTest")) {
-      server.persistentData.putBoolean("questsTest", true);
-      console.info("[PORT-TEST] PHASE1 quests");
-    } else {
-      console.info("[PORT-TEST] PASS quests");
-    }
+    console.info("[PORT-TEST] PASS quests");
   } catch (e) {
     console.error(`[PORT-TEST] FAIL quests: ${e}`);
   }
