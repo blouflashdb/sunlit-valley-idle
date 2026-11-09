@@ -1,0 +1,9 @@
+{
+  "item": "vinery:creepers_crush",
+  "category": "drink",
+  "price": 504,
+  "bottle_drink": true,
+  "bottle": "vinery:wine_bottle",
+  "flavors": [],
+  "mult_attribute": "shippingbin:wood_sell_multiplier"
+}

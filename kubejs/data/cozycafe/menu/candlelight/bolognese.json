@@ -1,0 +1,8 @@
+{
+  "item": "candlelight:bolognese",
+  "category": "main",
+  "price": 855,
+  "bowl_food": true,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

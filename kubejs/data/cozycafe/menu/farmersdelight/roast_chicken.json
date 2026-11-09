@@ -1,0 +1,7 @@
+{
+  "item": "farmersdelight:roast_chicken",
+  "category": "main",
+  "price": 126,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

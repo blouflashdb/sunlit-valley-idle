@@ -1,0 +1,9 @@
+{
+  "item": "brewery:whiskey_cristelwalker",
+  "category": "drink",
+  "price": 396,
+  "bottle_drink": true,
+  "bottle": "brewery:beer_mug",
+  "flavors": [],
+  "mult_attribute": "shippingbin:wood_sell_multiplier"
+}

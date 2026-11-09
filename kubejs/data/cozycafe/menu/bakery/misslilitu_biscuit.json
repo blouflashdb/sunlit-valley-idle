@@ -1,0 +1,7 @@
+{
+  "item": "bakery:misslilitu_biscuit",
+  "category": "dessert",
+  "price": 18,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

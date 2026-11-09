@@ -1,0 +1,8 @@
+{
+  "item": "farm_and_charm:farmers_breakfast",
+  "category": "main",
+  "price": 819,
+  "bowl_food": true,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

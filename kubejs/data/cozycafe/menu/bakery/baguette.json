@@ -1,0 +1,7 @@
+{
+  "item": "bakery:baguette",
+  "category": "main",
+  "price": 41,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

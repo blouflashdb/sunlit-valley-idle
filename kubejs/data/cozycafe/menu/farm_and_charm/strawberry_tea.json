@@ -1,0 +1,7 @@
+{
+  "item": "farm_and_charm:strawberry_tea",
+  "category": "drink",
+  "price": 120,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

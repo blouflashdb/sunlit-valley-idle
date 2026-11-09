@@ -1,0 +1,7 @@
+{
+  "item": "minecraft:cookie",
+  "category": "dessert",
+  "price": 24,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

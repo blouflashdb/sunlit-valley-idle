@@ -1,0 +1,9 @@
+{
+  "item": "brewery:whiskey_ak",
+  "category": "drink",
+  "price": 437,
+  "bottle_drink": true,
+  "bottle": "brewery:beer_mug",
+  "flavors": [],
+  "mult_attribute": "shippingbin:wood_sell_multiplier"
+}

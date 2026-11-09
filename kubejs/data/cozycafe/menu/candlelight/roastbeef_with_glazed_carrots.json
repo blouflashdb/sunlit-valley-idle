@@ -1,0 +1,8 @@
+{
+  "item": "candlelight:roastbeef_with_glazed_carrots",
+  "category": "main",
+  "price": 324,
+  "bowl_food": true,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

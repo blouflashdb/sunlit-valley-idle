@@ -1,0 +1,8 @@
+{
+  "item": "candlelight:fillet_steak",
+  "category": "main",
+  "price": 1224,
+  "bowl_food": true,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

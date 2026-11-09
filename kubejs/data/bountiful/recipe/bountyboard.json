@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PLP",
+    "DDD",
+    "PLP"
+  ],
+  "key": {
+    "P": {
+      "tag": "minecraft:planks"
+    },
+    "L": {
+      "tag": "society:raw_logs"
+    },
+    "D": {
+      "item": "numismatics:cog"
+    }
+  },
+  "result": {
+    "id": "bountiful:bountyboard",
+    "count": 1
+  }
+}

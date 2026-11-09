@@ -1,0 +1,9 @@
+{
+  "item": "vinery:jellie_wine",
+  "category": "drink",
+  "price": 9072,
+  "bottle_drink": true,
+  "bottle": "vinery:wine_bottle",
+  "flavors": [],
+  "mult_attribute": "shippingbin:wood_sell_multiplier"
+}

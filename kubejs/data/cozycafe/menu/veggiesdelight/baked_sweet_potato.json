@@ -1,0 +1,7 @@
+{
+  "item": "veggiesdelight:baked_sweet_potato",
+  "category": "dessert",
+  "price": 45,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

@@ -1,0 +1,7 @@
+{
+  "item": "bakery:bread",
+  "category": "main",
+  "price": 36,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

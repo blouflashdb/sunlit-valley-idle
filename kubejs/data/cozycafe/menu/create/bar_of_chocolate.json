@@ -1,0 +1,7 @@
+{
+  "item": "create:bar_of_chocolate",
+  "category": "dessert",
+  "price": 63,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

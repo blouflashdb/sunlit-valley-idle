@@ -1,0 +1,8 @@
+{
+  "item": "farm_and_charm:lamb_with_corn",
+  "category": "main",
+  "price": 666,
+  "bowl_food": true,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

@@ -1,0 +1,7 @@
+{
+  "item": "farm_and_charm:roasted_corn",
+  "category": "main",
+  "price": 396,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

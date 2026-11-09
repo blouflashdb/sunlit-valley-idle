@@ -1,0 +1,7 @@
+{
+  "item": "society:pickled_pumpkin_slice",
+  "category": "main",
+  "price": 90,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

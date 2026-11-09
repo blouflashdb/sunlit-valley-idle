@@ -1,0 +1,7 @@
+{
+  "item": "supplementaries:candy",
+  "category": "dessert",
+  "price": 50,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

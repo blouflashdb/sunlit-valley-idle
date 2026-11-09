@@ -1,0 +1,7 @@
+{
+  "item": "bakery:chocolate_gateau",
+  "category": "dessert",
+  "price": 150,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

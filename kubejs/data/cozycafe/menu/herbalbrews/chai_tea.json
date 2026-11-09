@@ -1,0 +1,8 @@
+{
+  "item": "herbalbrews:chai_tea",
+  "category": "drink",
+  "price": 3965,
+  "bottle_drink": true,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

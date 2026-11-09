@@ -1,0 +1,8 @@
+{
+  "item": "candlelight:omelet",
+  "category": "main",
+  "price": 99,
+  "bowl_food": true,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

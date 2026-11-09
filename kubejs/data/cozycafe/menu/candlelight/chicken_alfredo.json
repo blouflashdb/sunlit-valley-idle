@@ -1,0 +1,8 @@
+{
+  "item": "candlelight:chicken_alfredo",
+  "category": "main",
+  "price": 504,
+  "bowl_food": true,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

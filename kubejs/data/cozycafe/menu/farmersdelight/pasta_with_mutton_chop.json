@@ -1,0 +1,7 @@
+{
+  "item": "farmersdelight:pasta_with_mutton_chop",
+  "category": "main",
+  "price": 330,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

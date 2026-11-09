@@ -1,0 +1,7 @@
+{
+  "item": "brewery:mashed_potatoes",
+  "category": "main",
+  "price": 63,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

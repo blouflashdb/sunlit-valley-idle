@@ -1,0 +1,7 @@
+{
+  "item": "farmersdelight:cooked_rice",
+  "category": "main",
+  "price": 48,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

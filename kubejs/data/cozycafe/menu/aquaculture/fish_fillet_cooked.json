@@ -1,0 +1,7 @@
+{
+  "item": "aquaculture:fish_fillet_cooked",
+  "category": "main",
+  "price": 18,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

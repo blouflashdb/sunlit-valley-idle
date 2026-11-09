@@ -1,0 +1,9 @@
+{
+  "item": "brewery:whiskey_maggoallan",
+  "category": "drink",
+  "price": 639,
+  "bottle_drink": true,
+  "bottle": "brewery:beer_mug",
+  "flavors": [],
+  "mult_attribute": "shippingbin:wood_sell_multiplier"
+}

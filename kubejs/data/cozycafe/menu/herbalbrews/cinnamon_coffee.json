@@ -1,0 +1,8 @@
+{
+  "item": "herbalbrews:cinnamon_coffee",
+  "category": "drink",
+  "price": 207,
+  "bottle_drink": true,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

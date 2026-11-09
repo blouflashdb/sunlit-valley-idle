@@ -1,0 +1,7 @@
+{
+  "item": "society:blueberry_icecream",
+  "category": "dessert",
+  "price": 96,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

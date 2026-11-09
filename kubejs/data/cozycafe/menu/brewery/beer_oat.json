@@ -1,0 +1,9 @@
+{
+  "item": "brewery:beer_oat",
+  "category": "drink",
+  "price": 342,
+  "bottle_drink": true,
+  "bottle": "brewery:beer_mug",
+  "flavors": [],
+  "mult_attribute": "shippingbin:wood_sell_multiplier"
+}

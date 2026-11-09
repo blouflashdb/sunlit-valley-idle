@@ -1,0 +1,8 @@
+{
+  "item": "candlelight:lasagne",
+  "category": "main",
+  "price": 333,
+  "bowl_food": true,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

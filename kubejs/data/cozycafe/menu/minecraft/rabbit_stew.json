@@ -1,0 +1,7 @@
+{
+  "item": "minecraft:rabbit_stew",
+  "category": "main",
+  "price": 501,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

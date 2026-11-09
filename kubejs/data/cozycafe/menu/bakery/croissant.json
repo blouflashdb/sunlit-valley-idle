@@ -1,0 +1,7 @@
+{
+  "item": "bakery:croissant",
+  "category": "main",
+  "price": 9,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

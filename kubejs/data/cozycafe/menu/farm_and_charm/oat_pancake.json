@@ -1,0 +1,8 @@
+{
+  "item": "farm_and_charm:oat_pancake",
+  "category": "main",
+  "price": 378,
+  "bowl_food": true,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}

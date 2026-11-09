@@ -1,0 +1,7 @@
+{
+  "item": "minecraft:cake",
+  "category": "dessert",
+  "price": 668,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
+}
