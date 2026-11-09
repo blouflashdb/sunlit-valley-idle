@@ -99,7 +99,7 @@ global.runJuiceInserter = (entity) => {
   if (!barrel || Number(barrel.getFluidLevel()) + 25 > 100) return;
   if (Number(barrel.getFluidLevel()) === 0) barrel.setJuiceType(juiceType);
   else if (String(barrel.getJuiceType()) !== juiceType) return;
-  tank.drain(250, $AutoTapperFluidAction.EXECUTE);
+  tank.drain(stack.copyWithAmount(250), $AutoTapperFluidAction.EXECUTE);
   barrel.setFluidLevel(Number(barrel.getFluidLevel()) + 25);
   barrel.setChanged();
   level.sendBlockUpdated(barrelBlock.getPos(), barrelBlock.blockState, barrelBlock.blockState, 3);

@@ -43,7 +43,7 @@ ServerEvents.loaded((event) => {
         `barrel after two inserts: ${barrel.saveWithoutMetadata(level.registryAccess())}`
       );
       check(fluidIn(inserter) === "500 vinery:red_grape_juice", `juice inserter tank after two inserts: ${fluidIn(inserter)}`);
-      tankOf(inserter).drain(500, Java.loadClass("net.neoforged.neoforge.fluids.capability.IFluidHandler$FluidAction").EXECUTE);
+      tankOf(inserter).drain(tankOf(inserter).getFluid().copy(), Java.loadClass("net.neoforged.neoforge.fluids.capability.IFluidHandler$FluidAction").EXECUTE);
       global.fillMachineTank(inserter, "vinery:apple_juice", 250);
       global.runJuiceInserter({ block: inserter, level: level });
       check(Number(barrel.getFluidLevel()) === 50, "the barrel took apple juice into red grape juice");
