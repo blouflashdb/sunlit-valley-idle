@@ -20,7 +20,6 @@
       "minecraft:bogged",
       "minecraft:slime",
       "minecraft:skeleton_horse",
-      "species:limpet",
       "windswept:chilled"
     ],
     "dimension": "minecraft:overworld",
@@ -75,7 +74,6 @@
       "1=simplehats:hatscraps_halloween",
       "1=simplehats:hatbag_halloween",
       "3=farmersdelight:iron_knife",
-      "3=vinery:basket",
       "4=minecraft:apple",
       "1=pamhc2trees:cinnamon_sapling",
       "4=supplementaries:candy"
@@ -112,14 +110,8 @@
       "minecraft:zombie_villager",
       "crittersandcompanions:dragonfly",
       "crittersandcompanions:jumping_spider",
-      "minecraft:villager",
-      "species:treeper"
+      "minecraft:villager"
     ],
-    "result": "deny"
-  },
-  {
-    "mod": "legendarycreatures",
-    "dimension": "minecraft:overworld",
     "result": "deny"
   },
   {
@@ -147,10 +139,6 @@
     "result": "deny"
   },
   {
-    "mob": "wildernature:flamingo",
-    "result": "deny"
-  },
-  {
     "mob": "crittersandcompanions:leaf_insect",
     "mincount": 3,
     "result": "deny"
@@ -163,15 +151,6 @@
   {
     "mob": "golemoverhaul:slime_golem",
     "mincount": 6,
-    "result": "deny"
-  },
-  {
-    "mob": "balloonbox:balloonbox",
-    "mincount": {
-      "amount": 1,
-      "perplayer": false,
-      "mob": "balloonbox:balloonbox"
-    },
     "result": "deny"
   },
   {
@@ -199,36 +178,6 @@
     "damagemultiply": 1.2
   },
   {
-    "mob": "legendarycreatures:corpse_eater",
-    "dimension": "society:skull_cavern",
-    "structure": [
-      "hopo:mineshaft/acacia_mineshaft",
-      "hopo:mineshaft/bamboo_mineshaft",
-      "hopo:mineshaft/birch_mineshaft",
-      "hopo:mineshaft/cherry_mineshaft",
-      "hopo:mineshaft/dark_oak_mineshaft",
-      "hopo:mineshaft/deepslate_mineshaft",
-      "hopo:mineshaft/jungle_mineshaft",
-      "hopo:mineshaft/mangrove_mineshaft",
-      "hopo:mineshaft/mud_mineshaft",
-      "hopo:mineshaft/oak_mineshaft",
-      "hopo:mineshaft/spruce_mineshaft",
-      "hopo:mineshaft/stone_mineshaft"
-    ],
-    "healthmultiply": 7,
-    "damagemultiply": 3,
-    "armoradd": 5,
-    "speedmultiply": 0.4,
-    "when": "onjoin",
-    "result": "default"
-  },
-  {
-    "mob": "legendarycreatures:corpse_eater",
-    "dimension": "society:skull_cavern",
-    "when": "onjoin",
-    "result": "deny"
-  },
-  {
     "mob": "meadow:wooly_cow",
     "dimension": "minecraft:overworld",
     "when": "onjoin",
@@ -240,17 +189,5 @@
     "biome": "minecraft:warped_forest",
     "when": "onjoin",
     "result": "default"
-  },
-  {
-    "mob": "meadow:wooly_cow",
-    "dimension": "society:the_nether",
-    "when": "onjoin",
-    "result": "deny"
-  },
-  {
-    "mob": "legendarycreatures:corpse_eater",
-    "dimension": "society:skull_cavern",
-    "when": "onjoin",
-    "result": "deny"
   }
 ]

@@ -1,36 +1,5 @@
 [
   {
-    "phase": "balloonsummon",
-    "mob": "balloonbox:balloonbox",
-    "amount": {
-      "minimum": 1,
-      "maximum": 1
-    },
-    "conditions": {
-      "dimension": "minecraft:overworld",
-      "mindist": 20,
-      "maxdist": 40,
-      "minheight": 45,
-      "maxheight": 175,
-      "maxthis": 20
-    }
-  },
-  {
-    "phase": "balloonsummon2",
-    "mob": "balloonbox:balloonbox",
-    "amount": {
-      "minimum": 1,
-      "maximum": 1
-    },
-    "conditions": {
-      "dimension": "minecraft:overworld",
-      "mindist": 35,
-      "minheight": 45,
-      "maxheight": 175,
-      "maxthis": 20
-    }
-  },
-  {
     "mobsfrombiome": "monster",
     "persecond": 0.15,
     "attempts": 10,
@@ -100,20 +69,6 @@
       "minverticaldist": 10,
       "maxheight": 142,
       "minheight": 0
-    }
-  },
-  {
-    "mob": "legendarycreatures:corpse_eater",
-    "persecond": 0.5,
-    "attempts": 20,
-    "amount": {
-      "minimum": 2,
-      "maximum": 5
-    },
-    "conditions": {
-      "norestrictions": true,
-      "dimension": "society:skull_cavern",
-      "maxthis": 10
     }
   },
   {

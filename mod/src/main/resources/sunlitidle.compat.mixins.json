@@ -1,0 +1,12 @@
+{
+  "required": false,
+  "minVersion": "0.8",
+  "package": "dev.sunlitidle.mixin.compat",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "ArchitecturyEventImplMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 0
+  }
+}

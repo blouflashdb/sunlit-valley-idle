@@ -325,6 +325,9 @@
 	[management.quick_armor_swapping]
 		"Swap Off Hand" = true
 
+	[management.hotbar_changer]
+		"Animation Time" = 7.0
+
 [tools]
 	Abacus = true
 	"Ambient Discs" = true

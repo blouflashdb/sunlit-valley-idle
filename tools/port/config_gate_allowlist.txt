@@ -1,0 +1,4 @@
+# Known mod config errors of the boot tests (tools/port/config_gate.py): InControl rule errors in logs/latest.log
+# and configs that a mod archived or backed up during a boot. Only real upstream problems belong here.
+# Format: <owner> | <python regex searched in the message>
+upstream Quark: the client-only module "hotbar_changer" adds its keys to quark-common.toml on the client only, so the server drops them again (and the client adds them back) | config/quark-common(-1\.toml\.bak|\.toml was corrected)

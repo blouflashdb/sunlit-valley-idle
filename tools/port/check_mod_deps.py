@@ -10,6 +10,9 @@ are printed as warnings.
 
 Usage (from the repository root):
     python3 tools/port/check_mod_deps.py [--extra-mod mod/build/libs/sunlitidle-x.jar] [--side CLIENT|SERVER]
+        [--mod-ids-out build/mod-ids-client.json]
+With --mod-ids-out the ids of every mod of the install (with jar-in-jar mods) are written to that JSON file;
+tools/port/check_config_ids.py reads it to know the client-only mods, which a server registry dump does not list.
 """
 import argparse
 import concurrent.futures
@@ -216,6 +219,7 @@ def main():
     ap.add_argument("--extra-mod", action="append", default=[], help="local mod jar to add")
     ap.add_argument("--side", choices=["CLIENT", "SERVER"], default="CLIENT",
                     help="which install to check (SERVER leaves out client-only mods)")
+    ap.add_argument("--mod-ids-out", help="write the mod ids of the install to this JSON file")
     args = ap.parse_args()
 
     lock = json.loads(pathlib.Path("pakku-lock.json").read_text())
@@ -229,6 +233,11 @@ def main():
         read_mods(data, name, found)
     for jar in args.extra_mod:
         read_mods(pathlib.Path(jar).read_bytes(), pathlib.Path(jar).name, found)
+
+    if args.mod_ids_out:
+        out = pathlib.Path(args.mod_ids_out)
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(json.dumps(sorted(m for m in found if m != "java"), indent=1) + "\n")
 
     errors, warnings = [], []
     side = args.side
