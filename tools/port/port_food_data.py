@@ -239,11 +239,46 @@ TAGS = {
     "forge:slimeballs": "c:slime_balls",
     "forge:stone": "c:stones",
     "letsdo_addon_compat:tools/knives": "c:tools/knife",
+    "forge:shears": "c:tools/shear",
+    "forge:cooked_eggs": "c:foods/cooked_egg",
+    "forge:cooked_fishes/cod": "c:foods/cooked_cod",
+    "forge:salad_ingredients": "c:foods/leafy_green",
+    # Let's Do tags that are gone on 1.21: the c tag they used to include.
+    "candlelight:butter": "c:butter",
+    "farm_and_charm:strawberries": "c:crops/strawberry",
+    "meadow:egg": "c:eggs",
+    "meadow:water_bottles": "c:water_bottles",
+    "meadow:wheat": "c:crops/wheat",
 }
+MEADOW_CHEESES = ("", "amethyst_", "buffalo_", "goat_", "grain_", "sheep_", "warped_")
 # Items (and fluids) renamed on 1.21.1.
-ITEMS = {}
+ITEMS = {
+    **{f"meadow:{x}cheese_block": f"meadow:{x}cheese_wheel" for x in MEADOW_CHEESES},
+    **{f"meadow:piece_of_{x}cheese": f"meadow:{x}cheese_slice" for x in MEADOW_CHEESES},
+    "meadow:roasted_ham": "meadow:roasted_buffalo_ham",
+    "meadow:climbing_rope_topmount": "meadow:climbing_rope",
+    "crabbersdelight:frog_leg_kebob": "crabbersdelight:frog_leg_kebab",
+    "crabbersdelight:squid_kebob": "crabbersdelight:squid_kebab",
+    "farm_and_charm:strawberry_seed": "farm_and_charm:strawberry_seeds",
+    # Let's Do moved the dough and yeast from Bakery to Farm & Charm.
+    "bakery:dough": "farm_and_charm:dough",
+    "bakery:yeast": "farm_and_charm:yeast",
+    "species:wraptor_egg": "minecraft:sniffer_egg",  # Species is gone; another rare ancient egg
+}
 # Items, tags and fluids that are not registered on 1.21.1.
-GONE_ITEMS = set()
+NETHER_FISH = ("blazefish", "glowdine", "lava_pufferfish", "magmacubefish", "obsidianfish", "searing_cod", "soulsucker")
+GONE_ITEMS = {
+    "automobility:crowbar", "constructionwand:stone_wand", "constructionwand:iron_wand",
+    "constructionwand:diamond_wand", "constructionwand:infinity_wand",
+    "farmlife:tribull_cheese_wheel", "farmlife:tribull_cheese_wedge",
+    "beachparty:chocolate_icecream", "beachparty:chocolate_milkshake", "beachparty:coconut_icecream",
+    "beachparty:coconut_milkshake", "beachparty:sweetberry_icecream", "beachparty:sweetberry_milkshake",
+    "beachparty:refreshing_drink", "beachparty:floaty", "beachparty:hammock", "beachparty:cabinet",
+    "candlelight:khinkali", "meadow:fire_log",
+    "veggiesdelight:cauliflower_burger", "veggiesdelight:cooked_cauliflower_patty",
+    *(f"netherdepthsupgrade:{fish}_slice" for fish in NETHER_FISH),
+    *(f"netherdepthsupgrade:baked_{fish}_stew" for fish in NETHER_FISH),
+}
 GONE_TAGS = set()
 
 # Recipe types renamed on 1.21.1, with keys the new type needs.

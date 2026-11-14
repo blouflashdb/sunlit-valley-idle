@@ -241,20 +241,17 @@ ServerEvents.tags("item", (e) => {
   e.add("c:plates/silver", "oreganized:silver_sheet");
   e.add("c:plates", ["oreganized:lead_sheet", "oreganized:silver_sheet"]);
   e.add("c:salt", "meadow:alpine_salt");
-  e.add("c:crops", ["society:tubabbaco", "society:eggplant", "farm_and_charm:strawberry", "herbalbrews:green_tea_leaf"]);
+  e.add("c:crops", ["society:tubabacco_leaf", "society:eggplant", "farm_and_charm:strawberry", "herbalbrews:green_tea_leaf"]);
   e.add("c:crops/cabbage", "farm_and_charm:lettuce");
   e.add("c:crops/eggplant", "society:eggplant");
   e.add("c:foods/vegetable", "society:eggplant");
-  e.add("meadow:water_bottles", "herbalbrews:water_cup");
   e.add("farm_and_charm:water_bottles", "herbalbrews:water_cup");
   e.add("c:water_bottles", "herbalbrews:water_cup");
-  e.add("c:foods/raw_pasta", "farm_and_charm:raw_pasta");
-  e.add("c:seeds", "farm_and_charm:strawberry_seed");
-  e.add("c:salad_ingredients", "farm_and_charm:lettuce");
+  e.add("c:foods/pasta", "farm_and_charm:raw_pasta");
+  e.add("c:seeds", "farm_and_charm:strawberry_seeds");
   e.add("c:crops/corn", "farm_and_charm:corn");
-  e.add("candlelight:butter", "farm_and_charm:butter");
   e.add("meadow:cheese_blocks", "meadow:amethyst_cheese_wheel");
-  e.add("c:ropes", "brewery:rope");
+  e.add("c:ropes", "farm_and_charm:rope");
   e.add("c:cobblestones", "meadow:cobbled_limestone");
   e.remove("c:chests/ender", "minecraft:ender_chest");
   e.remove("c:chests", "minecraft:ender_chest");
@@ -309,7 +306,6 @@ ServerEvents.tags("item", (e) => {
     "meadow:raw_buffalo_meat",
     "untitledduckmod:raw_duck",
     "untitledduckmod:raw_goose",
-    "wildernature:pelican_meat",
   ]);
   e.add("c:foods/cooked_meat", [
     "minecraft:cooked_rabbit",
@@ -322,7 +318,6 @@ ServerEvents.tags("item", (e) => {
     "meadow:cooked_buffalo_meat",
     "untitledduckmod:cooked_goose",
     "untitledduckmod:cooked_duck",
-    "wildernature:cooked_pelican_meat",
   ]);
   e.add("c:milks", "meadow:wooden_grain_milk_bucket");
   e.add("farm_and_charm:milk", "meadow:wooden_grain_milk_bucket");
@@ -377,7 +372,6 @@ ServerEvents.tags("item", (e) => {
   e.add("create:upright_on_belt", ["society:oak_resin", "society:maple_syrup", "society:pine_tar"]);
   e.add("create:crushed_raw_materials", "create:crushed_raw_bismuth");
   e.add("c:raw_materials", "etcetera:raw_bismuth");
-  e.add("aquaculture:bobber", "society:neptunium_bobber");
   e.add("herbalbrews:small_water_fill", "herbalbrews:water_cup");
   global.cooking.filter((meal) => global.itemExists(meal.item)).forEach((meal) => e.add("society:dish", meal.item));
   e.add("minecraft:fishes", [
@@ -427,7 +421,6 @@ ServerEvents.tags("block", (e) => {
   e.add("buildinggadgets2:deny", [
     "society:coin_leaderboard",
     "society:prize_machine",
-    "cb_multipart:multipart",
     "minecraft:trial_spawner",
     "minecraft:spawner",
     "minecraft:vault",
@@ -443,13 +436,10 @@ ServerEvents.tags("block", (e) => {
     "waystones:blue_sharestone",
     "waystones:green_sharestone",
     "waystones:red_sharestone",
-    "waystones:white_sharestone",
     "waystones:deepslate_waystone",
     "waystones:waystone",
   ]);
   const refinedStorageBlocks = [
-    "refinedstorage:hollow_cover",
-    "refinedstorage:cover",
     "refinedstorage:wireless_transmitter",
     "refinedstorage:network_transmitter",
     "refinedstorage:security_manager",
@@ -469,7 +459,7 @@ ServerEvents.tags("block", (e) => {
   ];
   e.add("create:wrench_pickup", refinedStorageBlocks);
   e.add("oreganized:mineable/scribe", refinedStorageBlocks);
-  global.plushies.filter(itemBlockTagBlockExists).forEach((block) => e.add("quality_foods:quality_blocks", block));
+  global.plushies.filter(itemBlockTagBlockExists).forEach((block) => e.add("quality_food:quality_blocks", block));
   e.add("c:ores", itemBlockTagOres);
   e.add("c:stripped_logs", itemBlockTagStrippedLogs);
   e.add("minecraft:beacon_base_blocks", [
@@ -534,7 +524,7 @@ ServerEvents.tags("block", (e) => {
     "society:skull_end_stone",
   ].forEach((block) => unbreakableTags.forEach((tag) => e.add(tag, block)));
   [
-    "meadow:eriophorum_tall",
+    "meadow:tall_eriophorum",
     "meadow:alpine_poppy",
     "meadow:delphinium",
     "meadow:saxifrage",
@@ -544,7 +534,7 @@ ServerEvents.tags("block", (e) => {
     "meadow:small_fir",
   ].forEach((flower) => {
     e.add("minecraft:flowers", flower);
-    e.add(flower !== "meadow:eriophorum_tall" ? "minecraft:small_flowers" : "minecraft:tall_flowers", flower);
+    e.add(flower !== "meadow:tall_eriophorum" ? "minecraft:small_flowers" : "minecraft:tall_flowers", flower);
   });
   // Sails
   e.remove("create:windmill_sails", "#minecraft:wool");
@@ -560,7 +550,6 @@ ServerEvents.tags("block", (e) => {
   e.add("society:artisan_machine", ["society:charging_rod", "society:espresso_machine"]);
   e.remove("minecraft:leaves", "beachparty:palm_leaves");
   e.add("society:palm_leaves", "beachparty:palm_leaves");
-  e.add("minecraft:leaves", "meadow:pine_leaves_2");
   e.add("society:opens_tanuki_catalog", "society:tanuki_catalog");
   e.add("society:opens_modern_catalog", "society:modern_catalog");
   e.add("ftbchunks:interact_whitelist", [
@@ -587,7 +576,7 @@ ServerEvents.tags("block", (e) => {
     "lootr:lootr_barrel",
     "lootr:lootr_trapped_chest",
   ]);
-  e.add("minecraft:mineable/axe", "beachparty:cabinet");
+  e.add("minecraft:mineable/axe", "beachparty:palm_cabinet");
   e.add("minecraft:mineable/pickaxe", "bakery:iron_bench");
   e.add("minecraft:mineable/shovel", "vinery:dirt_path_slab");
 });
