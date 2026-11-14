@@ -27,6 +27,7 @@ import signal
 import subprocess
 import sys
 import time
+import urllib.parse
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 import kubejs_log_gate  # noqa: E402
@@ -53,8 +54,10 @@ def install_client(game, extra_mods):
     for folder in folders.values():
         (game / folder).mkdir(parents=True, exist_ok=True)
     print(f"Downloading {len(files)} client files", flush=True)
+    # Resource pack file names can contain spaces, which urllib does not encode.
     with concurrent.futures.ThreadPoolExecutor(8) as pool:
-        list(pool.map(lambda f: boot.download(f[0]["url"], f[1], f[0]["hashes"].get("sha1")), files))
+        list(pool.map(lambda f: boot.download(urllib.parse.quote(f[0]["url"], safe=":/%+"), f[1],
+                                              f[0]["hashes"].get("sha1")), files))
     for jar in extra_mods:
         shutil.copy2(jar, game / "mods" / pathlib.Path(jar).name)
     boot.copy_overrides(pakku, game)
