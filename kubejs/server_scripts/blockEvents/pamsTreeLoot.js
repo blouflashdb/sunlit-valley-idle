@@ -17,8 +17,9 @@ BlockEvents.rightClicked(pamFruitBlocks, (e) => {
     return;
   if (Number(global.getBlockProperty(block, "age")) < 7) return;
   const id = String(block.id);
-  // pamhc2trees:pamapple -> pamhc2trees:appleitem
-  const fruitItem = `pamhc2trees:${id.substring(id.indexOf(":") + 4)}item`;
+  // pamhc2trees:pamcherry -> pamhc2trees:cherryitem; Pam's apple trees drop the vanilla apple on 1.21.1.
+  const fruitItem =
+    id === "pamhc2trees:pamapple" ? "minecraft:apple" : `pamhc2trees:${id.substring(id.indexOf(":") + 4)}item`;
   if (player.stages.has("tree_whisperer")) block.popItem(Item.of(pamWeirdFruits[id] || fruitItem, 2));
   if (id === "pamhc2trees:pambanana" && player.stages.has("banana_karenina")) {
     block.popItem(Item.of(fruitItem, player.stages.has("tree_whisperer") ? 5 : 3));

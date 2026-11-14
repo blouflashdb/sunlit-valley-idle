@@ -24,7 +24,7 @@ ServerEvents.loaded((event) => {
       "society:book_of_stars", "society:yard_work_yearly", "society:crystal_of_regret_farming",
       "society:the_metamorphosize", "meadow:firewood", "meadow:wooden_bucket", "furniture:blueprints",
       "ftbquests:book", "waystones:light_gray_sharestone", "moblassos:diamond_lasso", "pamhc2trees:pawpawitem",
-      "pamhc2trees:appleitem", "vinery:cherry", "atmospheric:orange", "atmospheric:passion_fruit",
+      "pamhc2trees:cherryitem", "pamhc2trees:bananaitem", "vinery:cherry", "atmospheric:orange", "atmospheric:passion_fruit",
       "brewery:dark_brew", "farm_and_charm:fertilizer", "numismatics:prismatic_coin", "create:creative_blaze_cake",
       "autumnity:turkey_egg", "untitledduckmod:duck_egg", "refinedstorage:4k_storage_block",
     ].forEach((id) => check(Item.exists(id), `item ${id} is not registered`));
@@ -48,6 +48,10 @@ ServerEvents.loaded((event) => {
       Block.getBlock(id).defaultBlockState().getProperties().forEach((p) => names.push(String(p.getName())));
       properties.forEach((p) => check(names.includes(p), `block ${id} has no ${p} property (${names})`));
     });
+    // Every Pam's fruit block except the apple has a <fruit>item (pamsTreeLoot.js).
+    pamFruitBlocks
+      .filter((id) => id !== "pamhc2trees:pamapple")
+      .forEach((id) => check(Item.exists(`pamhc2trees:${id.substring(16)}item`), `no fruit item for ${id}`));
     Object.keys(global.goldenClockMachines).forEach((id) => check(blockExists(id), `fairy dust machine ${id} is missing`));
 
     let spawn = level.getSharedSpawnPos();
