@@ -19,7 +19,7 @@ inputLibrary = "SDL2"
 	paperDoll = true
 	# If enabled, hotbar will render closer to the center of the screen like on console.
 	# Valid values: true, false
-	consoleHotbar = false
+	consoleHotbar = true
 	# The image to use for the cursor. This only applies if virtual mouse is enabled!
 	# Valid values: LIGHT, DARK, CONSOLE, CONSOLE_PLUS, LEGACY_LIGHT, LEGACY_DARK
 	cursorType = "CONSOLE"
@@ -40,7 +40,7 @@ inputLibrary = "SDL2"
 	triggerDeadZone = 0.05
 	# The speed which the camera turns in game
 	# Valid range: 0 to 150 (inclusive)
-	rotationSpeed = 25.0
+	rotationSpeed = 50.0
 	# The sensitivity of the camera's pitch rotation when applying the rotation speed. Setting to 1.0 would mean applying 100% of the rotation speed.
 	# Valid range: 0 to 1 (inclusive)
 	pitchSensitivity = 0.75
