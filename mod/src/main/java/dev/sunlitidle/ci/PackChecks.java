@@ -45,7 +45,8 @@ import java.util.TreeSet;
  */
 final class PackChecks {
     private static final String[] SEASONS = {"spring", "summer", "autumn", "winter"};
-    private static final int MAX_CROPS = 64;
+    private static final int MAX_CROPS = 256;
+    private static final int ROW = 16;
     /** Crops that grew in each recorded season, by season name. */
     private static final Map<String, Set<String>> GREW = new LinkedHashMap<>();
     private static final Map<String, Set<String>> IDLE_FARMING = new LinkedHashMap<>();
@@ -212,16 +213,18 @@ final class PackChecks {
             check(false, "season", "Serene Seasons reports no season");
             return;
         }
+        // Crops tagged for a season first, so the limit never drops one of them.
         List<Block> crops = BuiltInRegistries.BLOCK.stream()
                 .filter(block -> block instanceof CropBlock)
-                .sorted(Comparator.comparing(block -> BuiltInRegistries.BLOCK.getKey(block).toString()))
+                .sorted(Comparator.comparing((Block block) -> !isSeasonal(block))
+                        .thenComparing(block -> BuiltInRegistries.BLOCK.getKey(block).toString()))
                 .limit(MAX_CROPS)
                 .toList();
         BlockPos origin = level.getSharedSpawnPos().offset(-64, 0, -64).atY(310);
         List<BlockPos> soils = new ArrayList<>();
         Map<BlockPos, BlockState> planted = new LinkedHashMap<>();
         for (int i = 0; i < crops.size(); i++) {
-            BlockPos soil = origin.offset((i % 8) * 2, 0, (i / 8) * 2);
+            BlockPos soil = origin.offset((i % ROW) * 2, 0, (i / ROW) * 2);
             level.setBlock(soil, Blocks.FARMLAND.defaultBlockState().setValue(FarmBlock.MOISTURE, 7), 3);
             BlockState crop = crops.get(i).defaultBlockState();
             level.setBlock(soil.above(), crop, 3);
@@ -300,6 +303,15 @@ final class PackChecks {
                 idleFarmingSeen.size() + " of " + idleTotal + " idle Farming actions were in season at some point");
         String now = Seasons.current(server.overworld());
         check("spring".equals(now), "year_wraps_to_spring", "season after one year: " + now);
+    }
+
+    private static boolean isSeasonal(Block block) {
+        for (String season : SEASONS) {
+            if (block.defaultBlockState().is(seasonTag(season))) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private static TagKey<Block> seasonTag(String season) {
