@@ -46,8 +46,8 @@ const setArmorProtection = (item, armor) => {
     console.warn(`[SOCIETY] modifyItems.js: ${item.item()} has no armor modifier`);
     return;
   }
-  // setAttributeModifiers is overloaded (a list or ItemAttributeModifiers), so it has no property setter.
-  item.setAttributeModifiers(new $ModifyItemAttributeModifiers(list, modifiers.showInTooltip()));
+  // setAttributeModifiers is overloaded and Rhino picks the List one, which hides the tooltip; this keeps it.
+  item.setAttributeModifiersWithTooltip(list);
 };
 
 const setRarity = (item, rarity) => item.set($ModifyDataComponents.RARITY, rarity);
