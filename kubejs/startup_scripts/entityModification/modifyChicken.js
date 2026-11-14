@@ -6,7 +6,11 @@ console.info("[SOCIETY] modifyChicken.js loaded");
 const updateLayTime = (entity, key, update) => {
   const current = entity.nbt.getInt(key);
   const next = update(current);
-  if (next !== current) entity.mergeNbt({ [key]: NBT.i(next) });
+  if (next === current) return;
+  // Rhino has no computed property names ({ [key]: ... }).
+  const tag = {};
+  tag[key] = NBT.i(next);
+  entity.mergeNbt(tag);
 };
 
 const starvationPrevention = (entity, affectionPenaltyMult) => {
