@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAB",
+    "A  ",
+    "AAD"
+  ],
+  "key": {
+    "A": {
+      "tag": "c:ingots/zinc"
+    },
+    "B": {
+      "tag": "c:gems/lapis"
+    },
+    "D": {
+      "item": "society:fire_quartz"
+    }
+  },
+  "result": {
+    "id": "simplemagnets:basicmagnet",
+    "count": 1
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 2.0,
+  "ingredients": [
+    {
+      "tag": "brewery:wheat"
+    },
+    {
+      "tag": "brewery:wheat"
+    },
+    {
+      "tag": "brewery:wheat"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "id": "society:large_grain_milk",
+    "count": 1
+  }
+}

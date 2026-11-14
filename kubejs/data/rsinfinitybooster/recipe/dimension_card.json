@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "rsinfinitybooster:infinity_card"
+    },
+    {
+      "item": "society:prismatic_shard"
+    }
+  ],
+  "result": {
+    "id": "rsinfinitybooster:dimension_card",
+    "count": 1
+  },
+  "show_notification": true
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PP",
+    "PP"
+  ],
+  "key": {
+    "P": {
+      "item": "society:canvas"
+    }
+  },
+  "result": {
+    "id": "zetter:canvas",
+    "count": 1
+  }
+}

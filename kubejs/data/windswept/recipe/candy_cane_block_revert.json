@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "windswept:candy_cane_block"
+    }
+  ],
+  "result": {
+    "id": "snowyspirit:candy_cane",
+    "count": 9
+  }
+}

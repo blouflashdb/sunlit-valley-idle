@@ -1,0 +1,21 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "bakery:chocolate_jam"
+    },
+    {
+      "item": "society:hazelnut_mash"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "id": "bakery:hazelnut_ella",
+    "count": 1
+  }
+}

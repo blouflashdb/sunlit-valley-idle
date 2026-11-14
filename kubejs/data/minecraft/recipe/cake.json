@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "society:large_milk"
+    },
+    "B": {
+      "item": "minecraft:sugar"
+    },
+    "C": {
+      "item": "minecraft:wheat"
+    },
+    "E": {
+      "tag": "meadow:egg"
+    }
+  },
+  "pattern": [
+    " A ",
+    "BEB",
+    "CCC"
+  ],
+  "result": {
+    "id": "minecraft:cake",
+    "count": 1
+  },
+  "show_notification": true
+}

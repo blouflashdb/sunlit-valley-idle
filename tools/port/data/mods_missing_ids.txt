@@ -1,0 +1,31 @@
+# Ids referenced by the 1.20.1 mod data overrides (tools/port/port_mods_data.py) that are not registered on 1.21.1.
+# From the 1.21.1 registry dump of the pack (slice 14). Entries using them are dropped; remove an id once something
+# registers it, then rerun the port script.
+atmospheric:aloe_kernels
+create_enchantment_industry:ink
+everycomp:q/rainbowoaks/rainbow_hedge
+everycomp:q/rainbowoaks/rainbow_leaf_carpet
+everycomp:q/vanillabackport/hollow_pale_oak_log
+everycomp:q/vinery/apple_hedge
+everycomp:rfm/beachparty/palm_chair
+everycomp:rfm/beachparty/palm_table
+everycomp:rfm/meadow/pine_chair
+everycomp:rfm/meadow/pine_table
+everycomp:rfm/rainbowoaks/rainbow_hedge
+meadow:fire_log
+moreminecarts:glass_cactus
+moreminecarts:greenhouse_glass_slab
+moreminecarts:greenhouse_glass_stairs
+nethervinery:crimson_grape_bush
+nethervinery:crimson_grape_seeds
+nethervinery:obsidian_stem
+nethervinery:warped_grape_bush
+nethervinery:warped_grape_seeds
+quart:vertical_cobblestone_slab
+relics:arrow_quiver
+smallships:sail
+species:springling_egg
+supplementaries:bomb_spiky
+suppsquared:copper_lantern
+tide:apple_fishing_bobber
+verdantvibes:bracket_mushroom

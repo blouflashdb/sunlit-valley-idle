@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:iron_block"
+    },
+    "C": {
+      "item": "minecraft:barrel"
+    },
+    "D": {
+      "item": "minecraft:blue_dye"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "DID",
+    "ICI",
+    "IBI"
+  ],
+  "result": {
+    "id": "refurbished_furniture:post_box",
+    "count": 1
+  },
+  "show_notification": true
+}

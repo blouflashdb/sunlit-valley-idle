@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "aba",
+    "aca",
+    "ada"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:iron_block"
+    },
+    "b": {
+      "tag": "c:glass_blocks"
+    },
+    "c": {
+      "item": "minecraft:ender_eye"
+    },
+    "d": {
+      "item": "society:battery"
+    }
+  },
+  "result": {
+    "id": "portable_blueprints:scanner",
+    "count": 1
+  }
+}

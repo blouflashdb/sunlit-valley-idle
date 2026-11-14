@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "pamhc2trees:bananaitem"
+    },
+    {
+      "item": "pamhc2trees:bananaitem"
+    },
+    {
+      "tag": "c:berries"
+    },
+    {
+      "tag": "c:berries"
+    },
+    {
+      "item": "farmersdelight:pumpkin_slice"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "id": "farmersdelight:fruit_salad",
+    "count": 1
+  }
+}

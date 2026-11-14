@@ -1,0 +1,25 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 2.0,
+  "ingredients": [
+    {
+      "item": "candlelight:bolognese"
+    },
+    {
+      "tag": "farm_and_charm:pasta"
+    },
+    {
+      "tag": "candlelight:cheeses"
+    }
+  ],
+  "container": {
+    "id": "minecraft:bowl",
+    "count": 1
+  },
+  "recipe_book_tab": "meals",
+  "result": {
+    "id": "candlelight:lasagne",
+    "count": 6
+  }
+}

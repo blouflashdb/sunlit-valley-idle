@@ -1,0 +1,24 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 2.0,
+  "container": {
+    "id": "minecraft:glass_bottle",
+    "count": 1
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "tag": "society:small_milk"
+    }
+  ],
+  "result": {
+    "id": "veggiesdelight:carrot_juice",
+    "count": 1
+  }
+}

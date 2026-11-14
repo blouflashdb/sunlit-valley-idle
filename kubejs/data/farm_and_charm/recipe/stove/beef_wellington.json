@@ -1,0 +1,25 @@
+{
+  "type": "farm_and_charm:stove",
+  "ingredients": [
+    [
+      {
+        "item": "minecraft:beef"
+      },
+      {
+        "item": "farm_and_charm:lamb_ham"
+      }
+    ],
+    {
+      "tag": "farm_and_charm:dough"
+    },
+    {
+      "item": "candlelight:mushroom_soup"
+    }
+  ],
+  "experience": 1,
+  "result": {
+    "id": "candlelight:beef_wellington",
+    "count": 1
+  },
+  "requiresLearning": false
+}

@@ -1,0 +1,23 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "zeta:flag",
+      "flag": "variant_furnaces"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "# #",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:polished_deepslate"
+    }
+  },
+  "result": {
+    "id": "quark:deepslate_furnace",
+    "count": 1
+  }
+}

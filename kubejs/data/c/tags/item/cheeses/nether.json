@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "meadow:warped_cheese_slice",
+      "required": false
+    }
+  ]
+}

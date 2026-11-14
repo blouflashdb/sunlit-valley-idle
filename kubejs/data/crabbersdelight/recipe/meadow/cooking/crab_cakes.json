@@ -1,0 +1,34 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "crabbersdelight"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "meadow"
+    }
+  ],
+  "type": "meadow:cooking",
+  "result": {
+    "id": "crabbersdelight:crab_cakes",
+    "count": 1
+  },
+  "ingredients": [
+    {
+      "item": "crabbersdelight:crab"
+    },
+    {
+      "item": "farmersdelight:wheat_dough"
+    },
+    {
+      "tag": "society:small_milk"
+    },
+    {
+      "tag": "c:eggs"
+    },
+    {
+      "item": "farm_and_charm:onion"
+    }
+  ]
+}

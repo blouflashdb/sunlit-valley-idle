@@ -1,0 +1,15 @@
+{
+  "type": "refurbished_furniture:cutting_board_combining",
+  "ingredients": [
+    {
+      "item": "refurbished_furniture:toast"
+    },
+    {
+      "item": "bakery:sweetberry_jam"
+    }
+  ],
+  "result": {
+    "id": "refurbished_furniture:sweet_berry_jam_toast",
+    "count": 1
+  }
+}

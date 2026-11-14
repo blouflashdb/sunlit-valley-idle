@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 2.0,
+  "result": {
+    "id": "meadow:alpine_salt",
+    "count": 4
+  },
+  "ingredients": [
+    {
+      "item": "meadow:limestone"
+    },
+    {
+      "tag": "c:water_bottles"
+    }
+  ]
+}
