@@ -1,6 +1,10 @@
-# Known KubeJS errors that CI tolerates for now (tools/port/kubejs_log_gate.py).
+# Known errors that CI tolerates for now: KubeJS logs (tools/port/kubejs_log_gate.py) and the gated client
+# latest.log lines (tools/port/client_boot_test.py).
 # One entry per line: <owner> | <python regex searched in the error line, without the time stamp>
 # The owner is the slice issue or pull request that will fix the error, for example:
 #   #18 | townEconomyEvents\.js#\d+: .*coinLeaderboard
 # Keep this file short: every entry hides a real error from the gate. The orchestrator removes entries
 # when their slice lands; CI prints entries that matched nothing as "stale".
+# Client latest.log (client_boot_test.py uses the same list):
+# Longwings 0.9.5 ships a texture with a space in its file name; the game rejects it. Upstream bug, harmless.
+upstream Longwings 0.9.5 | Invalid path in pack: longwings:textures/entity/moth/hummingbird _clearwing\.png
