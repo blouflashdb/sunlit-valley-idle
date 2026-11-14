@@ -24,7 +24,7 @@ const multiplyMaxDamage = (item, factor) => {
 
 /** Replaces the armor points of an armor item. ArmorItem keeps them in its default modifiers, not in a component. */
 const setArmorProtection = (item, armor) => {
-  const modifiers = item.item.getDefaultInstance().getAttributeModifiers();
+  const modifiers = item.item().getDefaultInstance().getAttributeModifiers();
   const list = new $ModifyArrayList();
   let found = false;
   modifiers.modifiers().forEach((entry) => {
@@ -43,7 +43,7 @@ const setArmorProtection = (item, armor) => {
     }
   });
   if (!found) {
-    console.warn(`[SOCIETY] modifyItems.js: ${item.item} has no armor modifier`);
+    console.warn(`[SOCIETY] modifyItems.js: ${item.item()} has no armor modifier`);
     return;
   }
   item.attributeModifiers = new $ModifyItemAttributeModifiers(list, modifiers.showInTooltip());
