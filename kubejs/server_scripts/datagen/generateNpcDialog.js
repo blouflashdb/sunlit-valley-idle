@@ -20,7 +20,8 @@ const generateDialogEntries = (npcId, dialogType, dialogIndex, dialogLines, port
       queuedEntry.text = [{ translate: lineTranslationKey }];
       queuedEntry.portraits = [
         {
-          path: `${portraitPath}.png`,
+          // Portraits ship in kubejs/assets/sunlitidle/textures/portraits (tools/port/port_dialog_portraits.py).
+          path: `sunlitidle:${portraitPath}.png`,
           position: "INLINE",
           brightness: 1.0
         },

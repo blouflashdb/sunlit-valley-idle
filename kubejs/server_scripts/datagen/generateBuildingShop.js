@@ -69,7 +69,7 @@
 //         shopJson = {
 //             shop_id: `bs_${type}`,
 //             name: `shop.society_trading.building_shop.${type}`,
-//             texture: "dialog:textures/portraits/carpenter",
+//             texture: "sunlitidle:textures/portraits/carpenter",
 //             hidden_from_selector: true,
 //             display_type: "image",
 //             jei_catalyst: {
