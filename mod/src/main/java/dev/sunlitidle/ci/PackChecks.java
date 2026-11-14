@@ -51,6 +51,8 @@ final class PackChecks {
     private static final Map<String, Set<String>> GREW = new LinkedHashMap<>();
     private static final Map<String, Set<String>> IDLE_FARMING = new LinkedHashMap<>();
     private static final Set<String> CROPS = new TreeSet<>();
+    /** Crops that cannot stand on plain farmland (rice, rope and trellis crops); planted elsewhere in the pack. */
+    private static final Set<String> NOT_ON_FARMLAND = new TreeSet<>();
 
     private PackChecks() {
     }
@@ -226,15 +228,22 @@ final class PackChecks {
         List<BlockPos> soils = new ArrayList<>();
         Map<BlockPos, BlockState> planted = new LinkedHashMap<>();
         Map<BlockPos, BlockState> previous = new LinkedHashMap<>();
-        for (int i = 0; i < crops.size(); i++) {
-            BlockPos soil = origin.offset((i % ROW) * 2, 0, (i / ROW) * 2);
-            previous.put(soil, level.getBlockState(soil));
-            previous.put(soil.above(), level.getBlockState(soil.above()));
+        int slot = 0;
+        for (Block block : crops) {
+            BlockPos soil = origin.offset((slot % ROW) * 2, 0, (slot / ROW) * 2);
+            previous.putIfAbsent(soil, level.getBlockState(soil));
+            previous.putIfAbsent(soil.above(), level.getBlockState(soil.above()));
             level.setBlock(soil, Blocks.FARMLAND.defaultBlockState().setValue(FarmBlock.MOISTURE, 7), 2);
-            BlockState crop = crops.get(i).defaultBlockState();
+            level.setBlock(soil.above(), Blocks.AIR.defaultBlockState(), 2);
+            BlockState crop = block.defaultBlockState();
+            if (!crop.canSurvive(level, soil.above())) {
+                NOT_ON_FARMLAND.add(BuiltInRegistries.BLOCK.getKey(block).toString());
+                continue;
+            }
             level.setBlock(soil.above(), crop, 2);
             soils.add(soil);
             planted.put(soil.above(), crop);
+            slot++;
         }
         boolean warm = level.getBiome(origin.above()).value().warmEnoughToRain(origin.above());
         String biome = level.getBiome(origin.above()).unwrapKey().map(k -> k.location().toString()).orElse("?");
@@ -300,6 +309,9 @@ final class PackChecks {
             if (!tagged.isEmpty() && !grewOnce) {
                 neverGrew.put(id, tagged);
             }
+        }
+        if (!NOT_ON_FARMLAND.isEmpty()) {
+            CiHarness.log("INFO", "crops_not_on_farmland", "not checked: " + NOT_ON_FARMLAND);
         }
         check(neverGrew.isEmpty(), "seasonal_crops_grow", neverGrew.isEmpty()
                 ? CROPS.size() + " crops checked" : "never grew in their seasons: " + neverGrew);

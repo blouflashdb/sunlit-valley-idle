@@ -334,13 +334,14 @@ def simulate_year(server, timeout):
         sprint(srv, 400)
         command("sunlitidle_ci check idle", 600)
         started = time.monotonic()
-        for day in range(1, 4 * DAYS_PER_SEASON + 1):
+        # One day more than a year: the first jump only reaches the morning of the current day.
+        for day in range(1, 4 * DAYS_PER_SEASON + 2):
             command("sunlitidle_ci nextday")
             sprint(srv, MORNING_SPRINT)
             if day % DAYS_PER_SEASON == DAYS_PER_SEASON // 2:
                 command("sunlitidle_ci season", 600)
             if day % 10 == 0:
-                print(f"=== Day {day} of {4 * DAYS_PER_SEASON} after {time.monotonic() - started:.0f} s", flush=True)
+                print(f"=== Day {day} of {4 * DAYS_PER_SEASON + 1} after {time.monotonic() - started:.0f} s", flush=True)
         command("sunlitidle_ci check year")
         command("save-all flush", 0)
         srv.wait_for(r"Saved the game", 300)
