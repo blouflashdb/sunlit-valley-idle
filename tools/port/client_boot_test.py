@@ -46,6 +46,9 @@ DISPLAY = ":99"
 FOCUS = re.compile(r"iris|sodium|fancymenu|drippy|konkrete|melody|journeymap|resource ?pack|PackRepository|"
                    r"ResourceManager|shader|texture|colorwheel", re.IGNORECASE)
 LOADED = re.compile(r"Sound engine started|OpenAL initialized")
+# NeoForge shows an error screen and keeps running when mods fail to load; a crash report is written.
+LOAD_FAILED = re.compile(r"Error during pre-loading phase|Mod loading has failed|Failed to load mod|"
+                         r"This crash report has been saved to")
 PACK_DROPPED = re.compile(r"Removed resource pack .* from options because")
 LOG_ERROR = re.compile(r"^\[[^\]]+\] \[[^\]]+/(ERROR|FATAL)\] \[([^\]]+)\]: (.*)$")
 
@@ -143,8 +146,12 @@ def title_screen(root, main_dir, game, neoforge, timeout, problems):
                 time.sleep(20)
                 if frame < 6 and screenshot(root / f"loading-{frame}.png"):
                     frame += 1
-                if log.exists() and LOADED.search(log.read_text(errors="replace")):
+                text = log.read_text(errors="replace") if log.exists() else ""
+                if LOADED.search(text):
                     loaded = time.monotonic() - started
+                    break
+                if LOAD_FAILED.search(text) or list((game / "crash-reports").glob("*.txt")):
+                    time.sleep(20)  # let the error screen draw, for the screenshot below
                     break
             if loaded is None:
                 problems.append("the client did not finish loading" if client.poll() is None
@@ -290,7 +297,11 @@ def main():
     crash_reports = sorted((game / "crash-reports").glob("*.txt")) if (game / "crash-reports").exists() else []
     if crash_reports:
         problems.append(f"client crash report: {crash_reports[-1].name}")
-        print(crash_reports[-1].read_text(errors="replace")[:4000])
+        report = crash_reports[-1].read_text(errors="replace")
+        failures = sorted({line.strip() for line in report.splitlines() if "Failure message:" in line})
+        print("=== Client crash report " + crash_reports[-1].name)
+        for line in failures or report.splitlines()[:60]:
+            print("  " + line)
 
     kubejs = kubejs_log_gate.error_lines(game / "logs" / "kubejs" / "client.log", "client.log")
     kubejs += kubejs_log_gate.error_lines(game / "logs" / "kubejs" / "startup.log", "client startup.log")
