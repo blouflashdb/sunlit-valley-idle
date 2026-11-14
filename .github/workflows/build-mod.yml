@@ -39,6 +39,12 @@ jobs:
           grep -E "All [0-9]+ required tests passed" gametest.log
       - name: Check loading screen tips (#18)
         run: python3 tools/port/check_tips.py
+      - name: Check resource packs and shader pack (#19)
+        # Fails on stale pack names, a wrong pack format, Oculus/Embeddium configs or a shader that Colorwheel
+        # Patcher cannot patch; the per-pack coverage table in the job summary is only a report.
+        run: |
+          python3 tools/port/check_resourcepacks.py --download-client 1.21.1 --jars-from-lock \
+            --summary "$GITHUB_STEP_SUMMARY"
       - name: Export CurseForge pack
         run: |
           JAR=$(ls mod/build/libs/sunlitidle-*.jar | grep -v -- '-sources' | head -n1)

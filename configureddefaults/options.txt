@@ -1,4 +1,4 @@
-version:3465
+version:3955
 autoJump:false
 operatorItemsTab:false
 autoSuggestions:true
@@ -42,8 +42,8 @@ ao:true
 prioritizeChunkUpdates:0
 biomeBlendRadius:2
 renderClouds:"true"
-resourcePacks:["file/Lopy-Create-Pipez.zip","file/Icon Journey 1.1.zip","file/JourneyMap Extended Mob Icons v2.0.zip","file/updated_aquaculture-1.1.zip","file/MobCrates_1.20.1_v1.zip","file/JadeStardewValleyTheme.zip","file/Stardew_plaques v1.0.zip","file/CreateSophisticatedBackpacks.zip","file/Fairy Wings Elytra.zip"]
-incompatibleResourcePacks:["file/Lopy-Create-Pipez.zip","file/Icon Journey 1.1.zip","file/JourneyMap Extended Mob Icons v2.0.zip","file/updated_aquaculture-1.1.zip","file/CreateSophisticatedBackpacks.zip","file/Create Simple Storage 2.1.zip","file/Fairy Wings Elytra.zip"]
+resourcePacks:["file/Lopy-Create-Pipez.zip","file/Icon Journey 1.1.zip","file/JourneyMap Extended Mob Icons v2.0.zip","file/updated_aquaculture-1.1.zip","file/MobCrates_1.21_v1.zip","file/JadeStardewValleyTheme.zip","file/stardew_plaques-2.0.zip","file/CreateSophBackpacks.zip","file/Fairy Wings Elytra.zip"]
+incompatibleResourcePacks:["file/Lopy-Create-Pipez.zip","file/Icon Journey 1.1.zip","file/JourneyMap Extended Mob Icons v2.0.zip","file/updated_aquaculture-1.1.zip","file/CreateSophBackpacks.zip","file/Fairy Wings Elytra.zip"]
 lastServer:
 lang:en_us
 soundDevice:""
