@@ -226,4 +226,6 @@ jobs:
             build/client/game/logs/
             build/client/game/crash-reports/
             build/client/server/logs/
+            build/client/game/config/
+            build/client/server/config/
           if-no-files-found: ignore
