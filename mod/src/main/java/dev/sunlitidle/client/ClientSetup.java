@@ -2,6 +2,7 @@ package dev.sunlitidle.client;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import dev.sunlitidle.ModRegistry;
+import dev.sunlitidle.SunlitIdle;
 import dev.sunlitidle.idle.RecipeActions;
 import dev.sunlitidle.network.IdleActionPacket;
 import dev.sunlitidle.network.IdleNetwork;
@@ -22,7 +23,22 @@ public final class ClientSetup {
     public static final KeyMapping OPEN_IDLE = new KeyMapping("key.sunlitidle.open_idle", InputConstants.Type.KEYSYM,
             GLFW.GLFW_KEY_I, "key.categories.sunlitidle");
 
+    /**
+     * CI only (client-boot job): seconds in the world after which the client opens the idle window on the
+     * Adventuring tab, so the job can take a screenshot of it. Unset in normal play.
+     */
+    private static final String CI_SCREEN_ENV = "SUNLITIDLE_CI_IDLE_SCREEN";
+    private static int ciScreenTicks = -1;
+    private static String ciTab;
+
     private ClientSetup() {
+    }
+
+    /** The tab the idle window should open on once, set by the CI screenshot hook; null in normal play. */
+    public static String consumeCiTab() {
+        String tab = ciTab;
+        ciTab = null;
+        return tab;
     }
 
     public static void init(IEventBus bus) {
@@ -30,7 +46,16 @@ public final class ClientSetup {
         bus.addListener(ClientSetup::onKeys);
         bus.addListener(ClientSetup::onScreens);
         bus.addListener(ClientSetup::onItemColors);
+        String ciScreen = System.getenv(CI_SCREEN_ENV);
+        if (ciScreen != null && !ciScreen.isBlank()) {
+            try {
+                ciScreenTicks = Integer.parseInt(ciScreen.trim()) * 20;
+            } catch (NumberFormatException e) {
+                ciScreenTicks = -1;
+            }
+        }
         NeoForge.EVENT_BUS.addListener(ClientSetup::onClientTick);
+        TitleScreenButtonIds.init();
     }
 
     private static void onClientSetup(FMLClientSetupEvent event) {
@@ -69,6 +94,14 @@ public final class ClientSetup {
             if (mc.player != null && mc.screen == null) {
                 IdleNetwork.sendToServer(IdleActionPacket.open());
             }
+        }
+        if (ciScreenTicks >= 0 && mc.player != null && mc.level != null && --ciScreenTicks < 0) {
+            if (mc.screen != null) {
+                mc.setScreen(null);
+            }
+            ciTab = "adventuring";
+            SunlitIdle.LOGGER.info("CI: opening the idle skills window for the client-boot screenshot");
+            IdleNetwork.sendToServer(IdleActionPacket.open());
         }
     }
 }

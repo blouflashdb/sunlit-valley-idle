@@ -4,7 +4,10 @@ import dev.sunlitidle.SunlitIdle;
 import dev.sunlitidle.idle.IdleCatalog;
 import dev.sunlitidle.idle.IdleEngine;
 import dev.sunlitidle.idle.IdleAction;
+import dev.sunlitidle.idle.IdleMenu;
 import dev.sunlitidle.idle.IdleSkill;
+import dev.sunlitidle.idle.PlaceholderSlot;
+import dev.sunlitidle.idle.SlotPlaceholder;
 import dev.sunlitidle.idle.RecipeActions;
 import dev.sunlitidle.idle.PlayerIdleState;
 import dev.sunlitidle.idle.SkillLevels;
@@ -212,6 +215,56 @@ public final class IdleGameTests {
         helper.assertTrue(loaded.tools().getStackInSlot(fishing).isEmpty(), "pickaxe stayed in the fishing slot");
         helper.assertTrue(loaded.tools().getStackInSlot(IdleCatalog.skill("mining").index()).is(Items.IRON_PICKAXE),
                 "pickaxe not moved to mining");
+        helper.succeed();
+    }
+
+    /** Each empty slot's placeholder icon and tooltip match what the slot accepts. */
+    @GameTest(template = "empty")
+    public static void slotPlaceholdersMatchAcceptedItems(GameTestHelper helper) {
+        ServerPlayer player = player(helper);
+        IdleMenu menu = new IdleMenu(0, player.getInventory(), new PlayerIdleState());
+        java.util.Map<SlotPlaceholder, ItemStack> examples = new java.util.EnumMap<>(SlotPlaceholder.class);
+        examples.put(SlotPlaceholder.AXE, new ItemStack(Items.IRON_AXE));
+        examples.put(SlotPlaceholder.PICKAXE, new ItemStack(Items.IRON_PICKAXE));
+        examples.put(SlotPlaceholder.SHOVEL, new ItemStack(Items.IRON_SHOVEL));
+        examples.put(SlotPlaceholder.HOE, new ItemStack(Items.IRON_HOE));
+        examples.put(SlotPlaceholder.ROD, new ItemStack(Items.FISHING_ROD));
+        examples.put(SlotPlaceholder.SHEARS, new ItemStack(Items.SHEARS));
+        examples.put(SlotPlaceholder.WEAPON, new ItemStack(Items.IRON_SWORD));
+        examples.put(SlotPlaceholder.BRUSH, new ItemStack(Items.BRUSH));
+        examples.put(SlotPlaceholder.HELMET, new ItemStack(Items.IRON_HELMET));
+        examples.put(SlotPlaceholder.CHESTPLATE, new ItemStack(Items.IRON_CHESTPLATE));
+        examples.put(SlotPlaceholder.LEGGINGS, new ItemStack(Items.IRON_LEGGINGS));
+        examples.put(SlotPlaceholder.BOOTS, new ItemStack(Items.IRON_BOOTS));
+        examples.put(SlotPlaceholder.FOOD, new ItemStack(Items.BREAD));
+        java.util.Set<SlotPlaceholder> seen = java.util.EnumSet.noneOf(SlotPlaceholder.class);
+        for (net.minecraft.world.inventory.Slot slot : menu.slots) {
+            if (!(slot instanceof PlaceholderSlot placeholderSlot)) {
+                continue;
+            }
+            SlotPlaceholder placeholder = placeholderSlot.placeholder();
+            if (slot.index < IdleCatalog.skills().size()) {
+                IdleSkill skill = IdleCatalog.skill(slot.index);
+                helper.assertTrue(placeholder == SlotPlaceholder.forTool(skill.tool()),
+                        "wrong placeholder for the tool slot of " + skill.id() + ": " + placeholder);
+            }
+            if (placeholder == null) {
+                continue;
+            }
+            seen.add(placeholder);
+            helper.assertTrue(placeholderSlot.getNoItemIcon() != null, "no icon for " + placeholder);
+            helper.assertTrue(slot.mayPlace(examples.get(placeholder)),
+                    placeholder + " slot rejects " + examples.get(placeholder));
+            helper.assertTrue(!slot.mayPlace(new ItemStack(Items.DIRT)), placeholder + " slot accepts dirt");
+            for (java.util.Map.Entry<SlotPlaceholder, ItemStack> other : examples.entrySet()) {
+                // Axes are weapons too, so only check the companion slots against each other's examples.
+                if (!placeholder.isTool() && !other.getKey().isTool() && other.getKey() != placeholder) {
+                    helper.assertTrue(!slot.mayPlace(other.getValue()), placeholder + " slot accepts " + other.getValue());
+                }
+            }
+        }
+        helper.assertTrue(seen.size() == SlotPlaceholder.values().length,
+                "placeholders without a slot: " + java.util.EnumSet.complementOf(java.util.EnumSet.copyOf(seen)));
         helper.succeed();
     }
 }

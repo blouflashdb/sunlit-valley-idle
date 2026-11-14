@@ -9,7 +9,8 @@ waits for the world to render, takes a screenshot of the display and checks the 
 
 The client starts twice: first without quick play, to take screenshots of the Drippy loading screen and the
 FancyMenu title screen; then with quick play into the server, for an in-game screenshot (JourneyMap minimap,
-HUD). Checks:
+HUD), and then of the idle skills window, which the sunlitidle mod opens by itself (env
+SUNLITIDLE_CI_IDLE_SCREEN; not gated). Checks:
 - the client must not crash, must reach the title screen and must join the server,
 - the shader pack that config/iris.properties selects must exist in shaderpacks/ after the first start
   (Colorwheel Patcher writes the patched Complementary copy there),
@@ -21,7 +22,11 @@ HUD). Checks:
 - logs/latest.log must have no errors from the renderer (Iris, Sodium), FancyMenu / Drippy Loading Screen or
   resource pack loading (same allowlist). Other client errors are listed but do not fail the test.
 
-Needs Java 21, Xvfb, ImageMagick (import), Mesa and portablemc (pip install portablemc==4.4.1).
+After the title screen screenshot, the game window is resized with xdotool and the title screen is captured
+again at each size in TITLE_SIZES (each size gives another automatic GUI scale), so layout problems that only
+show at one scale are visible in the artifact.
+
+Needs Java 21, Xvfb, ImageMagick (import), xdotool, Mesa and portablemc (pip install portablemc==4.4.1).
 
 Usage (from the repository root):
     python3 tools/port/client_boot_test.py --dir build/client --extra-mod mod/build/libs/sunlitidle-1.0.0.jar
@@ -104,11 +109,14 @@ def start_display():
     return xvfb
 
 
-def start_client(main_dir, game, neoforge, log_file, join=True):
+def start_client(main_dir, game, neoforge, log_file, join=True, idle_screen_after=None):
     env = dict(os.environ, DISPLAY=DISPLAY, LIBGL_ALWAYS_SOFTWARE="1", GALLIUM_DRIVER="llvmpipe",
                MESA_GL_VERSION_OVERRIDE="4.5", MESA_GLSL_VERSION_OVERRIDE="450")
+    if idle_screen_after is not None:
+        # The sunlitidle mod opens its idle skills window this many seconds after joining (ClientSetup).
+        env["SUNLITIDLE_CI_IDLE_SCREEN"] = str(idle_screen_after)
     cmd = ["portablemc", "--main-dir", str(main_dir), "--work-dir", str(game), "--output", "human",
-           "start", "--jvm", shutil.which("java"), "--jvm-args", "-Xmx5G -XX:+UseG1GC",
+           "start", "--jvm", shutil.which("java"), "--jvm-args", "-Xmx5G -XX:+UseG1GC -Dsunlitidle.ci=true",
            f"neoforge:{neoforge}", "-u", USERNAME]
     if join:
         cmd += ["-s", "localhost", "-p", "25565"]
@@ -126,9 +134,48 @@ def stop_process_group(proc):
             proc.wait()
 
 
+# Window sizes for the extra title screen screenshots; the automatic GUI scale is 3 and 2.
+TITLE_SIZES = ((1280, 720), (854, 480))
+
+
+def game_window():
+    """The X window id of the game (the only visible top-level window without a window manager)."""
+    out = subprocess.run(["xdotool", "search", "--onlyvisible", "--name", "."], env=dict(os.environ, DISPLAY=DISPLAY),
+                         capture_output=True, text=True, check=False).stdout.split()
+    return out[-1] if out else None
+
+
+def title_screen_sizes(root):
+    """Resizes the game window to each of TITLE_SIZES and captures the window."""
+    window = game_window()
+    if not window:
+        print("No game window found for the resized title screen screenshots", flush=True)
+        return
+    for width, height in TITLE_SIZES:
+        subprocess.run(["xdotool", "windowmove", window, "0", "0", "windowsize", window, str(width), str(height)],
+                       env=dict(os.environ, DISPLAY=DISPLAY), check=False)
+        time.sleep(15)
+        path = root / f"title-screen-{width}x{height}.png"
+        subprocess.run(["import", "-display", DISPLAY, "-window", window, str(path)], check=False)
+        if path.exists() and path.stat().st_size > 0:
+            print(f"Screenshot: {path}", flush=True)
+
+
 def screenshot(path):
     subprocess.run(["import", "-display", DISPLAY, "-window", "root", str(path)], check=False)
     return path.exists() and path.stat().st_size > 0
+
+
+def idle_screenshot(root, client, wait=60):
+    """Screenshot of the idle skills window, which the mod opens on its own in CI. Not gated: only a note."""
+    deadline = time.monotonic() + wait
+    while time.monotonic() < deadline and client.poll() is None:
+        time.sleep(5)
+    shot = root / "idle-window.png"
+    if client.poll() is None and screenshot(shot):
+        print(f"Screenshot: {shot}", flush=True)
+    else:
+        print("No idle window screenshot (not gated)", flush=True)
 
 
 def log_errors(log):
@@ -175,6 +222,7 @@ def title_screen(root, main_dir, game, neoforge, timeout, problems):
                 return copy_log(game), False
             if screenshot(root / "title-screen.png"):
                 print(f"Screenshot: {root / 'title-screen.png'}", flush=True)
+            title_screen_sizes(root)
         finally:
             stop_process_group(client)
     return copy_log(game), True
@@ -288,7 +336,7 @@ def main():
         if not loaded:
             raise ClientFailed()
         with open(root / "client-console.log", "w") as console:
-            client = start_client(main_dir, game, neoforge, console)
+            client = start_client(main_dir, game, neoforge, console, idle_screen_after=args.render_wait + 20)
             started = time.monotonic()
             joined = wait_for_join(server, client, game, args.join_timeout)
             print(f"Server saw: {joined.strip() if joined else 'nothing'} after {time.monotonic() - started:.0f} s",
@@ -306,6 +354,7 @@ def main():
                     problems.append("no screenshot")
                 else:
                     print(f"Screenshot: {shot}", flush=True)
+                    idle_screenshot(root, client)
     except ClientFailed:
         print("The client did not load; the join is skipped", flush=True)
     finally:

@@ -71,6 +71,10 @@ jobs:
       - name: Check client defaults (#19)
         # configureddefaults/options.txt must parse line by line and enable only resource packs the pack ships.
         run: python3 tools/port/check_client_defaults.py
+      - name: Check the FancyMenu and Drippy layouts (#19)
+        # Every vanilla widget and deep element the layouts target must exist on 1.21.1; FancyMenu silently
+        # ignores the rest, and the widget stays at its vanilla place.
+        run: python3 tools/port/check_fancymenu_layouts.py
       - name: Export CurseForge pack
         run: |
           JAR=$(ls mod/build/libs/sunlitidle-*.jar | grep -v -- '-sources' | head -n1)
@@ -194,10 +198,10 @@ jobs:
         with:
           name: sunlitidle-mod
           path: build/mod
-      - name: Install Xvfb, Mesa, ImageMagick and portablemc
+      - name: Install Xvfb, Mesa, ImageMagick, xdotool and portablemc
         run: |
           sudo apt-get update -q
-          sudo apt-get install -y -q --no-install-recommends xvfb imagemagick libgl1-mesa-dri libglx-mesa0 libegl1 \
+          sudo apt-get install -y -q --no-install-recommends xvfb imagemagick xdotool libgl1-mesa-dri libglx-mesa0 libegl1 \
             libgl1 libxrandr2 libxxf86vm1 libxcursor1 libxi6 libxtst6
           pip install portablemc==4.4.1
       - name: Boot the client into a pack server
