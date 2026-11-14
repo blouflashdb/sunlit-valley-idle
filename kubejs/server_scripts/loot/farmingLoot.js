@@ -91,6 +91,13 @@ LootJS.modifiers((e) => {
       });
     });
 
+  // Brine and Punishment skill book: 1 in 500 from a grown cucumber, as the 1.20.1 Vintage Delight loot table had it.
+  if ($BuiltInRegistries.BLOCK.containsKey($ResourceLocationLoot.parse("vintagedelight:cucumber"))) {
+    e.addBlockModifier("vintagedelight:cucumber").customAction((context, loot) => {
+      if (checkMaxGrownWithChance(context, 0.002)) loot.addItem(Item.of("society:brine_and_punishment"));
+    });
+  }
+
   // Mastery
   addCropChanceLoot("husbandry_mastery", 0.005, "society:plushie_capsule")(e);
   addCropChanceLoot("husbandry_mastery", 0.003, "society:animal_cracker")(e);
