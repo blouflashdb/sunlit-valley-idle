@@ -797,19 +797,20 @@ ServerEvents.recipes((e) => {
   removeById.forEach((item) => {
     e.remove({ id: item });
   });
+  // Farming for Blockheads market entries are recipes on 1.21; removing by output must not empty the market.
   removeByOutput.forEach((item) => {
-    e.remove({ output: item });
+    e.remove({ output: item, not: { type: "farmingforblockheads:market" } });
   });
   // A filter naming an unregistered item is an error in KubeJS 7, so the global lists are checked first.
   global.removedItems
     .filter((item) => global.itemExists(item))
     .forEach((item) => {
-      e.remove({ output: item });
+      e.remove({ output: item, not: { type: "farmingforblockheads:market" } });
     });
   global.lootFurniture
     .filter((item) => global.itemExists(item))
     .forEach((item) => {
-      e.remove({ output: item });
+      e.remove({ output: item, not: { type: "farmingforblockheads:market" } });
     });
   removeByInput.forEach((item) => {
     e.remove({ input: item });
