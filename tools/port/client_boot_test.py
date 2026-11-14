@@ -108,7 +108,7 @@ def start_client(main_dir, game, neoforge, log_file, join=True):
     env = dict(os.environ, DISPLAY=DISPLAY, LIBGL_ALWAYS_SOFTWARE="1", GALLIUM_DRIVER="llvmpipe",
                MESA_GL_VERSION_OVERRIDE="4.5", MESA_GLSL_VERSION_OVERRIDE="450")
     cmd = ["portablemc", "--main-dir", str(main_dir), "--work-dir", str(game), "--output", "human",
-           "start", "--jvm", shutil.which("java"), "--jvm-args", "-Xmx5G -XX:+UseG1GC",
+           "start", "--jvm", shutil.which("java"), "--jvm-args", "-Xmx5G -XX:+UseG1GC -Dsunlitidle.ci=true",
            f"neoforge:{neoforge}", "-u", USERNAME]
     if join:
         cmd += ["-s", "localhost", "-p", "25565"]
