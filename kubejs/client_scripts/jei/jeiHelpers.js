@@ -13,6 +13,13 @@ const jeiStack = (text) => {
   return Item.of(counted.id, counted.count);
 };
 
+/** The item ids of a tag ("#c:x") as a JS array. Array.from on Ingredient.itemIds fails in Rhino (JavaIteratorWrapper). */
+const jeiTagItemIds = (tag) => {
+  let ids = [];
+  Ingredient.of(tag).itemIds.forEach((id) => ids.push(String(id)));
+  return ids;
+};
+
 /** The fluid with this id, or null. */
 const jeiFluid = (id) => {
   let location = $JeiFluidResourceLocation.parse(String(id));

@@ -64,7 +64,7 @@ JEIAddedEvents.registerCategories((e) => {
 JEIAddedEvents.registerRecipes((e) => {
   // 56 outputs per page, as on 1.20.1.
   global.jeiLootBoxes.forEach((box) => {
-    let outputs = Array.from(Ingredient.of(`#${box.tag}`).itemIds);
+    let outputs = jeiTagItemIds(`#${box.tag}`);
     for (let start = 0; start < outputs.length; start += 56) {
       e.custom("society:loot_box").add({ input: box.input, outputs: outputs.slice(start, start + 56) });
     }

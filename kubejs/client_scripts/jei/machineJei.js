@@ -23,7 +23,7 @@ const registerMachineCategory = (event, category) => {
         if (input.startsWith("#")) {
           slots
             .addSlot("INPUT", 2, 2)
-            .addItemStacks(Array.from(Ingredient.of(input).itemIds).map((id) => Item.of(id, 2)))
+            .addItemStacks(jeiTagItemIds(input).map((id) => Item.of(id, 2)))
             .setBackground(guiHelper.getSlotDrawable(), -1, -1);
         } else if (input) {
           let count = output.length > 0 && String(output[0]).includes("steamed_milk") ? 1 : category.inputCount;
