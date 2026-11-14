@@ -28,8 +28,10 @@ import tomllib
 
 DEFAULT_ALLOWLIST = pathlib.Path(__file__).with_name("config_keys_allowlist.txt")
 # Instance folders that the defaults instance links to (large and read-only); other folders are copied, except
-# the configs and what a start writes.
-LINKED = {"libraries", "mods", "versions", "assets", "resourcepacks", "shaderpacks"}
+# the configs and what a start writes. mods/ is a real folder of hard links: Sodium's mod locator does not find
+# its jar through a symlinked mods folder.
+LINKED = {"libraries", "versions", "assets", "resourcepacks", "shaderpacks"}
+HARD_LINKED = {"mods"}
 SKIPPED = {"config", "defaultconfigs", "world", "saves", "logs", "crash-reports", "screenshots", "backups", "local",
            "journeymap", "data", "dynamic-data-pack-cache", "moonlight-global-datapacks", "easy_npc",
            "configureddefaults", "options.txt"}
@@ -46,11 +48,20 @@ def defaults_instance(instance, dest):
             continue
         if entry.name in LINKED:
             os.symlink(entry, dest / entry.name)
+        elif entry.name in HARD_LINKED:
+            shutil.copytree(entry, dest / entry.name, copy_function=_link_or_copy)
         elif entry.is_dir():
             shutil.copytree(entry, dest / entry.name, symlinks=True, ignore=shutil.ignore_patterns("_ci"))
         else:
             shutil.copy2(entry, dest / entry.name)
     return dest
+
+
+def _link_or_copy(src, dst):
+    try:
+        os.link(src, dst)
+    except OSError:
+        shutil.copy2(src, dst)
 
 
 def _toml_keys(table, prefix=""):
