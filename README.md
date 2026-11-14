@@ -45,4 +45,4 @@ Society: Sunlit Valley is made by Chakyl and contributors and is licensed under 
 
 ## Status
 
-The 1.21.1 port (5.0.0) is released. It is tested by automated server and client tests in CI, not by a manual playthrough. Expect bugs; please report them as issues.
+The 1.21.1 port (5.0.0) is released. It is tested by automated server and client tests in CI, not by a manual playthrough. [docs/port/playthrough-checklist.md](docs/port/playthrough-checklist.md) lists what the tests cover and what is not automated. Expect bugs; please report them as issues.

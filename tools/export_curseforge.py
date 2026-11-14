@@ -6,7 +6,7 @@ overrides listed in pakku.json and adds the sunlitidle mod jar under overrides/m
 given. Paths listed in EXCLUDE (work-in-progress content that the game must not load) are skipped.
 
 Usage (from the repository root):
-    python3 tools/export_curseforge.py --mod-jar mod/build/libs/sunlitidle-0.1.0.jar --version 0.1.0 --out build/pack.zip
+    python3 tools/export_curseforge.py --mod-jar mod/build/libs/sunlitidle-1.0.0.jar --version 5.0.0 --out build/pack.zip
 """
 import argparse
 import json
