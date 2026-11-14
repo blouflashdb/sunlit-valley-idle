@@ -3,7 +3,7 @@ console.info("[SOCIETY] recyclingMachine.js loaded");
 
 global.recyclingMachineRecipes = new Map([
   ["aquaculture:tin_can", { output: ["3x numismatics:cog"] }],
-  ["aquaculture:driftwood", { output: ["1x meadow:fire_log"] }],
+  ["aquaculture:driftwood", { output: ["1x meadow:firewood"] }],
   ["furniture:trash_bag", { output: ["4x society:bouquet_bag"] }],
   ["society:fire_quartz", { output: ["24x minecraft:quartz"] }],
   ["betterarcheology:artifact_shards", { output: ["6x society:sparkstone"] }],

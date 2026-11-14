@@ -27,7 +27,7 @@
         "count": 1
       },
       "request": {
-        "id": "meadow:fire_log",
+        "id": "meadow:firewood",
         "count": 4
       },
       "stage_required": "invited_market",
@@ -52,7 +52,7 @@
         }
       },
       "request": {
-        "id": "meadow:fire_log",
+        "id": "meadow:firewood",
         "count": 4
       },
       "trade_id": "village_management_market"
@@ -73,7 +73,7 @@
         }
       },
       "request": {
-        "id": "meadow:fire_log",
+        "id": "meadow:firewood",
         "count": 4
       },
       "trade_id": "village_management_blacksmith"
@@ -94,7 +94,7 @@
         }
       },
       "request": {
-        "id": "meadow:fire_log",
+        "id": "meadow:firewood",
         "count": 4
       },
       "trade_id": "village_management_shepherd"
@@ -115,7 +115,7 @@
         }
       },
       "request": {
-        "id": "meadow:fire_log",
+        "id": "meadow:firewood",
         "count": 8
       },
       "stage_required": "invited_market",
@@ -140,7 +140,7 @@
         }
       },
       "request": {
-        "id": "meadow:fire_log",
+        "id": "meadow:firewood",
         "count": 16
       },
       "stage_required": "invited_market",
@@ -165,7 +165,7 @@
         }
       },
       "request": {
-        "id": "meadow:fire_log",
+        "id": "meadow:firewood",
         "count": 16
       },
       "stage_required": "invited_market",
@@ -190,7 +190,7 @@
         }
       },
       "request": {
-        "id": "meadow:fire_log",
+        "id": "meadow:firewood",
         "count": 24
       },
       "stage_required": "entered_nether",
@@ -215,7 +215,7 @@
         }
       },
       "request": {
-        "id": "meadow:fire_log",
+        "id": "meadow:firewood",
         "count": 24
       },
       "stage_required": "entered_skull_cavern",
