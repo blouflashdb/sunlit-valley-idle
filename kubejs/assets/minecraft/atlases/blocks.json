@@ -397,11 +397,6 @@
     },
     {
       "type": "single",
-      "resource": "minecraft:item/trial_key",
-      "sprite": "society:item/car_key"
-    },
-    {
-      "type": "single",
       "resource": "minecraft:item/wheat_seeds",
       "sprite": "society:item/carrot_seed"
     },
