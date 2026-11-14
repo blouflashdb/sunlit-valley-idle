@@ -1,8 +1,7 @@
 {
-	"item": "veggiesdelight:dandelion_and_eggs",
-	"category": "main",
-	"price": 122,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "veggiesdelight:dandelion_and_eggs",
+  "category": "main",
+  "price": 122,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

@@ -1,0 +1,29 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "sophisticatedcore:item_enabled",
+      "itemRegistryName": "sophisticatedbackpacks:magnet_upgrade"
+    }
+  ],
+  "type": "sophisticatedcore:upgrade_next_tier",
+  "key": {
+    "M": {
+      "item": "simplemagnets:basicmagnet"
+    },
+    "I": {
+      "tag": "c:ingots/iron"
+    },
+    "P": {
+      "item": "sophisticatedbackpacks:upgrade_base"
+    }
+  },
+  "pattern": [
+    "III",
+    "IPI",
+    "IMI"
+  ],
+  "result": {
+    "id": "sophisticatedbackpacks:magnet_upgrade",
+    "count": 1
+  }
+}

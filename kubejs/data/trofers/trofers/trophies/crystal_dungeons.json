@@ -1,0 +1,31 @@
+{
+  "colors": {
+    "accent": "#69B7CE",
+    "base": "#3F6F76"
+  },
+  "display": {
+    "offset": [
+      0,
+      1,
+      0
+    ],
+    "scale": 2.0
+  },
+  "animation": {
+    "type": "spinning",
+    "speed": 0.1
+  },
+  "effects": {
+    "sound": {
+      "id": "minecraft:block.amethyst_block.resonate"
+    }
+  },
+  "name": {
+    "color": "#69B7CE",
+    "translate": "Building Contest Trophy - Crystal Dungeons"
+  },
+  "item": {
+    "id": "society:pristine_spinel",
+    "count": 1
+  }
+}

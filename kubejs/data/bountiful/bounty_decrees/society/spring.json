@@ -1,8 +1,8 @@
 {
-	"objectives": [
-		"spring_objs"
-	],
-	"rewards": [
-		"coin_rews"
-	]
+  "objectives": [
+    "spring_objs"
+  ],
+  "rewards": [
+    "coin_rews"
+  ]
 }

@@ -8,41 +8,40 @@ global.deluxeWormFarmRecipes = new Map([
 StartupEvents.registry("block", (event) => {
   event
     .create("society:deluxe_worm_farm", "cardinal")
-    .property(booleanProperty.create("working"))
-    .property(booleanProperty.create("mature"))
-    .property(booleanProperty.create("upgraded"))
+    .property(workingProperty)
+    .property(matureProperty)
+    .property(upgradedProperty)
     .soundType("copper")
     .box(2, 0, 2, 14, 15, 14)
     .defaultCutout()
     .tagBlock("minecraft:mineable/pickaxe")
     .tagBlock("minecraft:needs_stone_tool")
-    .model("society:block/kubejs/deluxe_worm_farm")
+    // Blockstate: client_scripts/machineBlockstates.js. Models: tools/port/assets/make_machine_placeholder.py.
+    .parentModel("society:block/kubejs/deluxe_worm_farm/deluxe_worm_farm_off")
     .item((item) => {
       item.tooltip(Text.translatable("block.society.deluxe_worm_farm.description").gray());
-      item.modelJson({
-        parent: "society:block/kubejs/deluxe_worm_farm",
-      });
+      item.parentModel("society:block/kubejs/deluxe_worm_farm/deluxe_worm_farm_off");
     })
     .defaultState((state) => {
       state
-        .set(booleanProperty.create("working"), false)
-        .set(booleanProperty.create("mature"), false)
-        .set(booleanProperty.create("upgraded"), false);
+        .set(workingProperty, false)
+        .set(matureProperty, false)
+        .set(upgradedProperty, false);
     })
     .placementState((state) => {
       state
-        .set(booleanProperty.create("working"), false)
-        .set(booleanProperty.create("mature"), false)
-        .set(booleanProperty.create("upgraded"), false);
+        .set(workingProperty, false)
+        .set(matureProperty, false)
+        .set(upgradedProperty, false);
     })
     .rightClick((click) => {
-      const { player, item, block, hand, level } = click;
+      let { player, item, block, hand, level } = click;
       if (player.isFake()) return;
-      const upgraded = block.properties.get("upgraded").toLowerCase() == "true";
+      let upgraded = global.isBlockPropertyTrue(block, "upgraded");
 
-      if (hand == "OFF_HAND") return;
-      if (hand == "MAIN_HAND") {
-        if (!upgraded && item == "society:infinity_worm") {
+      if (String(hand) === "OFF_HAND") return;
+      if (String(hand) === "MAIN_HAND") {
+        if (!upgraded && String(item.id) === "society:infinity_worm") {
           if (!player.isCreative()) item.count--;
           level.spawnParticles(
             "farmersdelight:star",
@@ -56,12 +55,7 @@ StartupEvents.registry("block", (event) => {
             3,
             0.01
           );
-          block.set(block.id, {
-            facing: block.properties.get("facing"),
-            working: block.properties.get("working"),
-            mature: block.properties.get("mature"),
-            upgraded: true,
-          });
+          global.setBlockProperties(block, { upgraded: true });
         }
       }
 
@@ -73,16 +67,9 @@ StartupEvents.registry("block", (event) => {
         true
       );
 
-      if (upgraded && block.properties.get("working") === "false") {
-        let nbt = block.getEntityData();
-        nbt.merge({ data: { recipe: "crabbersdelight:crab_trap_bait", stage: 0 } });
-        global.setBlockEntityData(block, nbt)
-        block.set(block.id, {
-          facing: block.properties.get("facing"),
-          working: true,
-          mature: false,
-          upgraded: upgraded,
-        });
+      if (upgraded && !global.isBlockPropertyTrue(block, "working")) {
+        global.setMachineData(block, { recipe: "crabbersdelight:crab_trap_bait", stage: 0 });
+        global.setBlockProperties(block, { working: true, mature: false });
       }
     })
     .randomTick((tick) => {
@@ -90,36 +77,6 @@ StartupEvents.registry("block", (event) => {
     })
     .blockEntity((blockInfo) => {
       blockInfo.initialData({ stage: 0, recipe: "" });
-    }).blockstateJson = {
-    multipart: [
-      {
-        when: { upgraded: false },
-        apply: { model: "society:block/kubejs/deluxe_worm_farm_base" },
-      },
-      {
-        when: { upgraded: true },
-        apply: { model: "society:block/kubejs/deluxe_worm_farm_base_upgraded" },
-      },
-      {
-        when: { working: true, upgraded: false },
-        apply: { model: "society:block/kubejs/deluxe_worm_farm" },
-      },
-      {
-        when: { mature: true, upgraded: false },
-        apply: { model: "society:block/kubejs/deluxe_worm_farm" },
-      },
-      {
-        when: { working: true, upgraded: true },
-        apply: { model: "society:block/kubejs/deluxe_worm_farm_upgraded" },
-      },
-      {
-        when: { mature: true, upgraded: true },
-        apply: { model: "society:block/kubejs/deluxe_worm_farm_upgraded" },
-      },
-      {
-        when: { mature: true },
-        apply: { model: "society:block/kubejs/machine_done" },
-      },
-    ],
-  };
+    });
 });
+// Morning tick or random tick: see the block entity above and server_scripts/blockEvents/machineTicks.js

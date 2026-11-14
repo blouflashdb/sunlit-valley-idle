@@ -1,17 +1,14 @@
+// priority: 100
 const SeasonHelper = Java.loadClass("sereneseasons.api.season.SeasonHelper")
-const Season = Java.loadClass("sereneseasons.api.season.Season")
 
+// Season is a Java enum; compare by name (see docs/porting-1.21.1.md).
 const seasonName = (seasonObj) => {
-  if (seasonObj == Season.SPRING) {
-    return 'spring'
-  } else if (seasonObj == Season.SUMMER) {
-    return 'summer'
-  } else if (seasonObj == Season.AUTUMN) {
-    return 'autumn'
-  } else {
-    return 'winter'
-  }
-}
+  let name = String(seasonObj);
+  if (name === "SPRING") return "spring";
+  if (name === "SUMMER") return "summer";
+  if (name === "AUTUMN") return "autumn";
+  return "winter";
+};
 
 global.getSeasonFromLevel = (level) => {
   return seasonName(SeasonHelper.getSeasonState(level).getSeason())
@@ -26,7 +23,7 @@ global.getSeasonFromBiome = (level, pos) => {
     return "summer"
   }
   if (
-    Number(biome.get().getTemperature(pos)) < 0.15
+    Number(biome.value().getTemperature(pos)) < 0.15
   ) {
     return "winter"
   }

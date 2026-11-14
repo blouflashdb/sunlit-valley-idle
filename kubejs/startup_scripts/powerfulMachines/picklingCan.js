@@ -1,5 +1,13 @@
 // priority: -21
+// Pickling Can: every 600 ticks it pickles one vegetable or egg from its 9 slots into the inventory below,
+// as long as a salt crust (vintagedelight:salt) lies within one block. Each pickle uses the salt up with a
+// 1 in 16 chance (the 1.20.1 salt had layers; the KubeJS salt crust has none). Quality is kept.
+// The tick is in server_scripts/blockEvents/machineTicks.js.
 console.info("[SOCIETY] picklingCan.js loaded");
+
+const $PicklingItemHandlerHelper = Java.loadClass("net.neoforged.neoforge.items.ItemHandlerHelper");
+const $PicklingCapabilities = Java.loadClass("net.neoforged.neoforge.capabilities.Capabilities");
+const $PicklingDirection = Java.loadClass("net.minecraft.core.Direction");
 
 global.picklingRecipes = new Map([
   ["vintagedelight:ghost_pepper", { pickle: "vintagedelight:pickled_pepper" }],
@@ -24,52 +32,49 @@ global.picklableVegetables.forEach((pickle) => {
     pickle: `society:pickled_${pickle.item.split(":")[1]}`,
   });
 });
-global.handlePicklingCan = (e) => {
-  const { inventory, level, block } = e;
-  const { x, y, z } = block;
-  let radius = 1;
-  let slots = inventory.getSlots();
-  let slotItem;
-  const belowPos = block.getPos().below();
-  const belowBlock = level.getBlock(belowPos.x, belowPos.y, belowPos.z);
-  if (belowBlock.inventory && !inventory.isEmpty()) {
-    for (let i = 0; i < slots; i++) {
-      slotItem = inventory.getStackInSlot(i);
-      if (
-        slotItem !== Item.of("minecraft:air") &&
-        global.picklingRecipes.get(`${slotItem.id}`)
-      ) {
-        let pickle = global.picklingRecipes.get(`${slotItem.id}`).pickle;
-        let pickleItem = Item.of(`1x ${pickle}`, slotItem.nbt);
-        if (global.inventoryBelowHasRoom(level, block, pickleItem)) {
-          let scanBlock;
-          for (let pos of BlockPos.betweenClosed(
-            new BlockPos(x - radius, y - radius, z - radius),
-            [x + radius, y + radius, z + radius]
-          )) {
-            if (!level.isLoaded(pos)) continue;
-            scanBlock = level.getBlock(pos);
-            if (scanBlock.id === "vintagedelight:salt") {
-              let saltProperties = scanBlock.getProperties();
-              if (rnd50()) {
-                if (Number(saltProperties.get("layers")) > 1) {
-                  saltProperties.layers = `${Number(saltProperties.get("layers")) - 1
-                    }`;
-                  scanBlock.set(scanBlock.id, saltProperties);
-                } else {
-                  scanBlock.set("minecraft:air");
-                }
-              }
 
-              global.insertBelow(level, block, pickleItem);
-              slotItem.count--;
-              return;
-            }
-          }
-        }
+/** The item handler of the block below, seen from its top face, or null. */
+global.getInventoryBelow = (level, block) =>
+  level.getCapability($PicklingCapabilities.ItemHandler.BLOCK, block.getPos().below(), $PicklingDirection.UP);
+
+/** Inserts a stack into a handler; returns what did not fit. With simulate nothing changes. */
+global.insertIntoHandler = (handler, stack, simulate) =>
+  $PicklingItemHandlerHelper.insertItemStacked(handler, stack, simulate);
+
+const findSaltNear = (level, block) => {
+  for (let dx = -1; dx <= 1; dx++) {
+    for (let dy = -1; dy <= 1; dy++) {
+      for (let dz = -1; dz <= 1; dz++) {
+        let scan = level.getBlock(block.x + dx, block.y + dy, block.z + dz);
+        if (String(scan.id) === "vintagedelight:salt") return scan;
       }
     }
   }
+  return null;
+};
+
+/** One pickling step. Returns the pickle it made, or null. */
+global.handlePicklingCan = (level, block) => {
+  let entity = block.getEntity();
+  let inventory = entity && entity.attachments ? entity.attachments.get("inventory") : null;
+  if (!inventory) return null;
+  let below = global.getInventoryBelow(level, block);
+  if (!below) return null;
+  for (let i = 0; i < inventory.getSlots(); i++) {
+    let slotItem = inventory.getStackInSlot(i);
+    if (slotItem.isEmpty()) continue;
+    let recipe = global.picklingRecipes.get(String(slotItem.id));
+    if (!recipe || !global.itemExists(recipe.pickle)) continue;
+    let pickle = global.withItemQuality(Item.of(recipe.pickle), global.getItemQuality(slotItem));
+    if (!global.insertIntoHandler(below, pickle.copy(), true).isEmpty()) continue;
+    let salt = findSaltNear(level, block);
+    if (!salt) return null;
+    if (Math.random() < 1 / 16) salt.set("minecraft:air");
+    global.insertIntoHandler(below, pickle.copy(), false);
+    inventory.extractItem(i, 1, false);
+    return pickle;
+  }
+  return null;
 };
 
 StartupEvents.registry("block", (event) => {
@@ -80,34 +85,19 @@ StartupEvents.registry("block", (event) => {
     .soundType("copper")
     .box(1, 0, 1, 15, 15, 15)
     .defaultCutout()
+    // A parent model together with .box() would get our box elements added, so the model is set directly.
+    .modelGenerator((model) => model.parent("etcetera:block/prickly_can"))
     .item((item) => {
       item.tooltip(Text.translatable("block.society.prickly_can.description").gray());
       item.tooltip(Text.translatable("block.society.prickly_can.description.warn").red());
       item.tooltip(Text.translatable("society.working_block_entity.can_use_hopper").green());
       item.tooltip(Text.translatable("society.working_block_entity.preserve_quality").green());
-      item.modelJson({
-        parent: "etcetera:block/prickly_can",
-      });
+      item.parentModel("etcetera:block/prickly_can");
     })
-    .model("etcetera:block/prickly_can")
     .blockEntity((blockInfo) => {
-      blockInfo.inventory(9, 1);
-      blockInfo.serverTick(600, 0, (entity) => {
-        global.handlePicklingCan(entity);
-      }),
-        blockInfo.rightClickOpensInventory();
-      blockInfo.attachCapability(
-        CapabilityBuilder.ITEM.blockEntity()
-          .insertItem((blockEntity, slot, stack, simulate) =>
-            blockEntity.inventory.insertItem(slot, stack, simulate)
-          )
-          .getSlotLimit((blockEntity, slot) =>
-            blockEntity.inventory.getSlotLimit(slot)
-          )
-          .getSlots((blockEntity) => blockEntity.inventory.slots)
-          .getStackInSlot((blockEntity, slot) =>
-            blockEntity.inventory.getStackInSlot(slot)
-          )
-      );
+      blockInfo.inventory("inventory", [], 9, 1);
+      blockInfo.rightClickOpensInventory("inventory");
+      blockInfo.serverTicking();
+      blockInfo.tickFrequency(600);
     });
 });

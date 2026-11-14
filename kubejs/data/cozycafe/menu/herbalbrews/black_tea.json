@@ -1,9 +1,8 @@
 {
-	"item": "herbalbrews:black_tea",
-	"category": "drink",
-	"price": 1944,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": [],
-	"bottle_drink": true
+  "item": "herbalbrews:black_tea",
+  "category": "drink",
+  "price": 1944,
+  "bottle_drink": true,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

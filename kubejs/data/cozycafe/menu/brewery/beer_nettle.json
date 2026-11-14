@@ -1,10 +1,9 @@
 {
-	"item": "brewery:beer_nettle",
-	"category": "drink",
-	"price": 221,
-	"product_type": "shippingbin:wood_sell_multiplier",
-	"flavors": [],
-	"themes": [],
-	"bottle_drink": true,
-	"bottle": "brewery:beer_mug"
+  "item": "brewery:beer_nettle",
+  "category": "drink",
+  "price": 221,
+  "bottle_drink": true,
+  "bottle": "brewery:beer_mug",
+  "flavors": [],
+  "mult_attribute": "shippingbin:wood_sell_multiplier"
 }

@@ -1,0 +1,24 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "pamhc2trees:dragonfruit_sapling"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "pamhc2trees:lemon_sapling"
+    }
+  ],
+  "type": "botania:elven_trade",
+  "ingredients": [
+    {
+      "item": "pamhc2trees:dragonfruit_sapling"
+    }
+  ],
+  "output": [
+    {
+      "count": 1,
+      "id": "pamhc2trees:lemon_sapling"
+    }
+  ]
+}

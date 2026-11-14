@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "relics:wool_mitten",
+      "required": false
+    },
+    {
+      "id": "relics:ice_skates",
+      "required": false
+    }
+  ]
+}

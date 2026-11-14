@@ -1,5 +1,5 @@
 //priority: 100
-console.info("[SOCIETY] preservesJar.js loaded");
+console.info("[SOCIETY] prizeMachine.js loaded");
 
 global.prizeMachineRewards = [
   {
@@ -179,7 +179,7 @@ global.prizeMachineRewards = [
   {
     hint: "ancient from the soil",
     possibleOutputs: [
-      "society:ancient_fruit_seed",
+      "society:ancient_fruit_seeds",
       "society:ancient_fruit",
       "society:ancient_fruit",
     ],
@@ -374,131 +374,76 @@ global.prizeMachineRewards = [
     ],
   },
 ];
+
+const $PrizeDataComponents = Java.loadClass("net.minecraft.core.component.DataComponents");
+const $PrizeCustomData = Java.loadClass("net.minecraft.world.item.component.CustomData");
+const $PrizeCompoundTag = Java.loadClass("net.minecraft.nbt.CompoundTag");
+
+/** The prize index stored on a Prize Machine item (custom data "prize"), 0 when there is none. */
+global.getPrizeMachineItemPrize = (stack) => {
+  const data = stack.get($PrizeDataComponents.CUSTOM_DATA);
+  return data ? Number(data.copyTag().getInt("prize")) : 0;
+};
+
+global.prizeMachineItem = (prize) => {
+  let stack = Item.of("society:prize_machine");
+  let tag = new $PrizeCompoundTag();
+  tag.putInt("prize", Number(prize));
+  stack.set($PrizeDataComponents.CUSTOM_DATA, $PrizeCustomData.of(tag));
+  return stack;
+};
+
+/** Redeems a prize ticket for the machine's current prize and moves it to the next one. */
+global.handlePrizeMachineClick = (click) => {
+  let { item, block, hand, player, level } = click;
+  const server = level.server;
+  if (String(hand) !== "MAIN_HAND") return;
+  const prizeNumber = global.getMachineInt(block, "prize");
+  const reward = global.prizeMachineRewards[prizeNumber] || global.prizeMachineRewards[0];
+  if (String(item.id) !== "society:prize_ticket") {
+    player.tell(
+      Text.translatable(
+        "block.society.prize_machine.next",
+        global.translatableWithFallback(`society.prize_machine.hint.${prizeNumber}`, `Something §6${reward.hint}§r...`)
+      ).gray()
+    );
+    return;
+  }
+  if (!player.isCreative()) item.count--;
+  successParticles(level, block);
+  const outputs = reward.possibleOutputs.filter(global.itemExists);
+  const prize = outputs.length > 0 ? outputs[rnd(0, outputs.length - 1)] : "society:prize_ticket";
+  const facing = global.getBlockProperty(block, "facing");
+  block.popItemFromFace(prize, facing);
+  if (player.stages.has("frogs_bounty_bazaar")) block.popItemFromFace(prize, facing);
+  // After the last prize the machine cycles through the prizes from index 8 on, as on 1.20.1.
+  global.setMachineData(block, {
+    prize: prizeNumber >= global.prizeMachineRewards.length - 1 ? 8 : prizeNumber + 1,
+  });
+  server.runCommandSilent(`playsound stardew_fishing:complete block @a ${player.x} ${player.y} ${player.z}`);
+  ["farming", "husbandry", "mining", "adventuring", "fishing"].forEach((category) =>
+    global.giveExperience(server, player, category, 100)
+  );
+};
+
 StartupEvents.registry("block", (event) => {
   event
     .create("society:prize_machine", "cardinal")
-    .property(
-      integerProperty.create("prize", 0, global.prizeMachineRewards.length)
-    )
     .box(0, 0, 6, 16, 28, 16)
     .defaultCutout()
     .soundType("copper")
+    // The machine drops itself with its prize in server_scripts/blockEvents/prizeMachineEvents.js.
+    .noDrops()
     .tagBlock("minecraft:mineable/pickaxe")
     .tagBlock("minecraft:needs_stone_tool")
+    // Placeholder model: tools/port/assets/make_machine_placeholder.py --single.
+    .modelGenerator((m) => m.parent("society:block/kubejs/prize_machine/prize_machine"))
     .item((item) => {
       item.tooltip(Text.translatable("block.society.prize_machine.description").gray());
-      item.modelJson({
-        parent: "society:block/kubejs/prize_machine",
-      });
+      item.parentModel("society:block/kubejs/prize_machine/prize_machine");
     })
-    .defaultState((state) => {
-      state.set(
-        integerProperty.create("prize", 0, global.prizeMachineRewards.length),
-        0
-      );
-    })
-    .placementState((state) => {
-      state.set(
-        integerProperty.create("prize", 0, global.prizeMachineRewards.length),
-        0
-      );
-    })
-    .rightClick((click) => {
-      const { item, block, hand, player, level, server } = click;
-      const { x, y, z } = block;
-      let nbt = block.getEntityData();
-      const prizeNumber = nbt.data.prize;
-      const prizeOutput =
-        global.prizeMachineRewards[Number(prizeNumber)].possibleOutputs;
-      const prizeHint = global.prizeMachineRewards[Number(prizeNumber)].hint;
-      if (hand == "OFF_HAND") return;
-      if (hand == "MAIN_HAND" && item === "society:prize_ticket") {
-        if (!player.isCreative()) item.count--;
-        level.spawnParticles(
-          "minecraft:happy_villager",
-          true,
-          x + 0.5,
-          y + 0.5,
-          z + 0.5,
-          0.1 * rnd(1, 4),
-          0.1 * rnd(1, 4),
-          0.1 * rnd(1, 4),
-          10,
-          0.1
-        );
-        const prize = prizeOutput[rnd(0, prizeOutput.length - 1)];
-        block.popItemFromFace(prize, block.properties.get("facing"));
-        if (player.stages.has("frogs_bounty_bazaar")) {
-          block.popItemFromFace(prize, block.properties.get("facing"));
-        }
-        nbt.merge({
-          data: {
-            prize:
-              Number(prizeNumber) === global.prizeMachineRewards.length - 1
-                ? 8
-                : (nbt.data.prize += 1),
-          },
-        });
-        global.setBlockEntityData(block, nbt)
-        click.server.runCommandSilent(
-          `playsound stardew_fishing:complete block @a ${player.x} ${player.y} ${player.z}`
-        );
-        global.giveExperience(server, player, "farming", 100);
-        global.giveExperience(server, player, "husbandry", 100);
-        global.giveExperience(server, player, "mining", 100);
-        global.giveExperience(server, player, "adventuring", 100);
-        global.giveExperience(server, player, "fishing", 100);
-      } else {
-        player.tell(
-          Text.translatable(
-            "block.society.prize_machine.next",
-            global.translatableWithFallback(
-              `society.prize_machine.hint.${prizeNumber}`,
-              `Something §6${prizeHint}§r...`
-            )
-          ).gray()
-        );
-      }
-    })
+    .rightClick((click) => global.handlePrizeMachineClick(click))
     .blockEntity((blockInfo) => {
       blockInfo.initialData({ prize: 0 });
-    }).blockstateJson = {
-    multipart: [
-      {
-        apply: { model: "society:block/kubejs/prize_machine_particle" },
-      },
-      {
-        when: { facing: "north" },
-        apply: {
-          model: "society:block/kubejs/prize_machine",
-          y: 0,
-          uvlock: false,
-        },
-      },
-      {
-        when: { facing: "east" },
-        apply: {
-          model: "society:block/kubejs/prize_machine",
-          y: 90,
-          uvlock: false,
-        },
-      },
-      {
-        when: { facing: "south" },
-        apply: {
-          model: "society:block/kubejs/prize_machine",
-          y: 180,
-          uvlock: false,
-        },
-      },
-      {
-        when: { facing: "west" },
-        apply: {
-          model: "society:block/kubejs/prize_machine",
-          y: -90,
-          uvlock: false,
-        },
-      },
-    ],
-  };
+    });
 });

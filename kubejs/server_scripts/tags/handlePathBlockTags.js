@@ -1,5 +1,10 @@
 console.info("[SOCIETY] handlePathBlockTags.js loaded");
-const createBlockTypes = [
+
+// Blocks that count as road for Via Romana (via_romana:path_block), ported from the 1.20.1 handlePathBlockTags.js.
+// Trials tuff blocks are vanilla since 1.21; blocks missing on 1.21.1 (Copycats+ box and catwalk, two Meadow
+// limestone bricks) and the Decorative Blocks beams are left out. Windswept names its stairs "_stairs" and its brick
+// blocks "_bricks".
+const pathCreateBlockTypes = [
   "andesite",
   "granite",
   "diorite",
@@ -15,7 +20,7 @@ const createBlockTypes = [
   "scoria",
   "scorchia",
 ];
-const createVariants = (type) => [
+const pathCreateVariants = (type) => [
   `create:small_${type}_bricks`,
   `create:small_${type}_brick_wall`,
   `create:cut_${type}`,
@@ -27,7 +32,7 @@ const createVariants = (type) => [
   `create:cut_${type}_bricks`,
   `create:cut_${type}_brick_wall`,
 ];
-const windsweptBlockTypes = [
+const pathWindsweptBlockTypes = [
   "dry_mossy_cobblestone",
   "dry_mossy_stone_brick",
   "shale",
@@ -40,16 +45,16 @@ const windsweptBlockTypes = [
   "gingerbread_brick",
   "packed_ice_brick",
   "blue_ice_brick",
-  "packed_ice_brick",
   "snow_brick",
 ];
-const basicVariants = (mod, type) => [
-  `${mod}:${type}`,
-  `${mod}:${type}_stair`,
-  `${mod}:${type}_slab`,
-  `${mod}:${type}_wall`,
-];
-let pathBlocks = [
+const pathWindsweptVariants = (type) =>
+  [
+    `windswept:${type.endsWith("brick") ? `${type}s` : type}`,
+    `windswept:${type}_stairs`,
+    `windswept:${type}_slab`,
+    `windswept:${type}_wall`,
+  ].filter((id) => id !== "windswept:smooth_lunalite_wall");
+const pathBlocks = [
   "minecraft:obsidian",
   "windswept:pinecone_block",
   "windswept:pinecone_shingles",
@@ -179,8 +184,6 @@ let pathBlocks = [
   "quark:cobblestone_bricks_stairs",
   "quark:cobblestone_bricks_slab",
   "copycats:copycat_board",
-  "copycats:copycat_box",
-  "copycats:copycat_catwalk",
   "copycats:copycat_stairs",
   "copycats:copycat_slab",
   "create:copycat_step",
@@ -240,23 +243,20 @@ let pathBlocks = [
   "meadow:mossy_limestone_brick_stairs",
   "meadow:mossy_limestone_brick_slab",
   "meadow:cracked_limestone_bricks",
-  "meadow:polished_limestone_bricks",
   "meadow:cobbled_limestone",
   "meadow:cobbled_limestone_stairs",
   "meadow:cobbled_limestone_slab",
-  "meadow:chiseled_limestone_bricks",
   "meadow:limestone_bricks",
   "meadow:limestone_brick_stairs",
   "meadow:limestone_brick_slab",
-  "trials:polished_tuff",
-  "trials:polished_tuff_stairs",
-  "trials:chiseled_tuff",
-  "trials:tuff_bricks",
-  "trials:tuff_brick_stairs",
-  "trials:tuff_brick_slab",
-  "trials:polished_tuff_stairs",
-  "trials:polished_tuff_slab",
-  "trials:chiseled_tuff_bricks",
+  "minecraft:polished_tuff",
+  "minecraft:polished_tuff_stairs",
+  "minecraft:chiseled_tuff",
+  "minecraft:tuff_bricks",
+  "minecraft:tuff_brick_stairs",
+  "minecraft:tuff_brick_slab",
+  "minecraft:polished_tuff_slab",
+  "minecraft:chiseled_tuff_bricks",
   "twigs:chiseled_smooth_basalt_bricks",
   "twigs:weeping_polished_blackstone_bricks",
   "twigs:smooth_basalt_bricks",
@@ -280,26 +280,19 @@ let pathBlocks = [
   "twigs:packed_silt",
   "twigs:silt_shingles",
   "twigs:polished_basalt_bricks",
-  "twigs:gravel_bricks",
 ];
 
 ServerEvents.tags("block", (e) => {
-  createBlockTypes.forEach((type) => {
-    pathBlocks.push(createVariants(type));
-  });
-  windsweptBlockTypes.forEach((type) => {
-    pathBlocks.push(basicVariants("windswept", type));
-  });
-  pathBlocks.forEach((block) => {
-    e.add("via_romana:path_block", block);
-  });
-
-  e.add("via_romana:path_block", "#minecraft:stairs");
-  e.add("via_romana:path_block", "#minecraft:slabs");
-  e.add("via_romana:path_block", "#minecraft:logs");
-  e.add("via_romana:path_block", "#minecraft:combination_step_sound_blocks");
-  e.add("via_romana:path_block", "#minecraft:planks");
-  e.add("via_romana:path_block", "#railways:locometal");
-  e.add("via_romana:path_block", "#decorative_blocks:beams");
-  e.add("via_romana:path_block", "#twigs:packed_silt");
+  e.add("via_romana:path_block", pathBlocks);
+  pathCreateBlockTypes.forEach((type) => e.add("via_romana:path_block", pathCreateVariants(type)));
+  pathWindsweptBlockTypes.forEach((type) => e.add("via_romana:path_block", pathWindsweptVariants(type)));
+  e.add("via_romana:path_block", [
+    "#minecraft:stairs",
+    "#minecraft:slabs",
+    "#minecraft:logs",
+    "#minecraft:combination_step_sound_blocks",
+    "#minecraft:planks",
+    "#railways:locometal",
+    "#twigs:packed_silt",
+  ]);
 });

@@ -1,5 +1,6 @@
 {
-	"tip": {
-		"translate": "society_tips.tip.crab_traps"
-	}
+  "type": "tipsmod:simple",
+  "text": {
+    "translate": "society_tips.tip.crab_traps"
+  }
 }

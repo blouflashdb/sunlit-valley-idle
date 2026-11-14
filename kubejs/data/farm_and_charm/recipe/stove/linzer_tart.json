@@ -1,0 +1,20 @@
+{
+  "type": "farm_and_charm:stove",
+  "ingredients": [
+    {
+      "item": "society:peach_preserves"
+    },
+    {
+      "item": "bakery:sweet_dough"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "experience": 0.35,
+  "result": {
+    "id": "bakery:linzer_tart",
+    "count": 1
+  },
+  "requiresLearning": false
+}

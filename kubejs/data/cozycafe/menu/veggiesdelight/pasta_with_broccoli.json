@@ -1,8 +1,7 @@
 {
-	"item": "veggiesdelight:pasta_with_broccoli",
-	"category": "main",
-	"price": 444,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "veggiesdelight:pasta_with_broccoli",
+  "category": "main",
+  "price": 444,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

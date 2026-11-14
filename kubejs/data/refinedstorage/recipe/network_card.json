@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EEE",
+    "PAP",
+    "EEE"
+  ],
+  "key": {
+    "E": {
+      "item": "etcetera:bismuth_ingot"
+    },
+    "P": {
+      "item": "minecraft:paper"
+    },
+    "A": {
+      "item": "minecraft:diamond_block"
+    }
+  },
+  "result": {
+    "id": "refinedstorage:network_card",
+    "count": 1
+  }
+}

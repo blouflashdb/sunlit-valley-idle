@@ -1,0 +1,35 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "society:ancient_fruit"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "society:fine_wool"
+    }
+  ],
+  "type": "botania:runic_altar",
+  "ingredients": [
+    {
+      "tag": "botania:mana_dusts"
+    },
+    {
+      "tag": "botania:manasteel_ingots"
+    },
+    {
+      "item": "society:ancient_fruit"
+    },
+    {
+      "tag": "meadow:cheese_blocks"
+    },
+    {
+      "item": "society:fine_wool"
+    }
+  ],
+  "mana": 5200,
+  "output": {
+    "count": 2,
+    "id": "botania:rune_earth"
+  }
+}

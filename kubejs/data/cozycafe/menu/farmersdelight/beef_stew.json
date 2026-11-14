@@ -1,8 +1,7 @@
 {
-	"item": "farmersdelight:beef_stew",
-	"category": "main",
-	"price": 192,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "farmersdelight:beef_stew",
+  "category": "main",
+  "price": 192,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

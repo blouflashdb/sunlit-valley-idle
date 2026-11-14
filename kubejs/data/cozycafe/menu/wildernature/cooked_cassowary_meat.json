@@ -1,8 +1,7 @@
 {
-	"item": "wildernature:cooked_cassowary_meat",
-	"category": "main",
-	"price": 203,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "wildernature:cooked_cassowary_meat",
+  "category": "main",
+  "price": 203,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

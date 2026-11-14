@@ -1,0 +1,25 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 2.0,
+  "ingredients": [
+    {
+      "tag": "society:large_milk"
+    },
+    {
+      "tag": "bakery:chocolate"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "container": {
+    "id": "bakery:jar",
+    "count": 1
+  },
+  "recipe_book_tab": "meals",
+  "result": {
+    "id": "bakery:chocolate_jam",
+    "count": 1
+  }
+}

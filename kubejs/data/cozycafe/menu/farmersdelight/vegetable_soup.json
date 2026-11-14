@@ -1,8 +1,7 @@
 {
-	"item": "farmersdelight:vegetable_soup",
-	"category": "main",
-	"price": 432,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "farmersdelight:vegetable_soup",
+  "category": "main",
+  "price": 432,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

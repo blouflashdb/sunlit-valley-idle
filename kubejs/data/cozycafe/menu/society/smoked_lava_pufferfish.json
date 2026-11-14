@@ -1,8 +1,7 @@
 {
-	"item": "society:smoked_lava_pufferfish",
-	"category": "main",
-	"price": 1632,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "society:smoked_lava_pufferfish",
+  "category": "main",
+  "price": 1632,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

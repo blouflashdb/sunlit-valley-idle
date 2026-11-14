@@ -1,4 +1,4 @@
-console.info("[SOCIETY] neptuniumHoe.js loaded");
+console.info("[SOCIETY] fertilizerDigging.js loaded");
 
 BlockEvents.rightClicked(
   [
@@ -12,7 +12,7 @@ BlockEvents.rightClicked(
   ],
   (e) => {
     const { item, player, server, block } = e;
-    if (item.id === "farm_and_charm:pitchfork") {
+    if (String(item.id) === "farm_and_charm:pitchfork") {
       const blockId = String(block.getId());
       if (0.5 < Math.random()) {
         block.popItemFromFace(

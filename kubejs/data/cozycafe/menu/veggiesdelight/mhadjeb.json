@@ -1,8 +1,7 @@
 {
-	"item": "veggiesdelight:mhadjeb",
-	"category": "main",
-	"price": 210,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "veggiesdelight:mhadjeb",
+  "category": "main",
+  "price": 210,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

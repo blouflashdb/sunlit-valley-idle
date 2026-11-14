@@ -9,7 +9,6 @@
       "avg_distance": 50,
       "move_variation": 5
     },
-
     "aquaculture:atlantic_halibut": {
       "idle_time": 30,
       "top_speed": 7,
@@ -18,7 +17,6 @@
       "avg_distance": 50,
       "move_variation": 5
     },
-
     "aquaculture:pacific_halibut": {
       "idle_time": 30,
       "top_speed": 7,
@@ -27,7 +25,6 @@
       "avg_distance": 50,
       "move_variation": 5
     },
-
     "aquaculture:arapaima": {
       "idle_time": 30,
       "top_speed": 7,
@@ -36,7 +33,6 @@
       "avg_distance": 50,
       "move_variation": 5
     },
-
     "aquaculture:capitaine": {
       "idle_time": 30,
       "top_speed": 7,
@@ -45,7 +41,6 @@
       "avg_distance": 50,
       "move_variation": 10
     },
-
     "aquaculture:red_grouper": {
       "idle_time": 30,
       "top_speed": 5,
@@ -54,7 +49,6 @@
       "avg_distance": 50,
       "move_variation": 15
     },
-
     "aquaculture:minnow": {
       "idle_time": 30,
       "top_speed": 2,
@@ -63,7 +57,6 @@
       "avg_distance": 25,
       "move_variation": 10
     },
-
     "aquaculture:boulti": {
       "idle_time": 1,
       "top_speed": 2,
@@ -72,7 +65,6 @@
       "avg_distance": 25,
       "move_variation": 10
     },
-
     "aquaculture:pollock": {
       "idle_time": 1,
       "top_speed": 1.5,
@@ -81,7 +73,6 @@
       "avg_distance": 55,
       "move_variation": 10
     },
-
     "aquaculture:brown_trout": {
       "idle_time": 1,
       "top_speed": 1.5,
@@ -90,7 +81,6 @@
       "avg_distance": 55,
       "move_variation": 10
     },
-
     "aquaculture:bluegill": {
       "idle_time": 5,
       "top_speed": 1.5,
@@ -99,7 +89,6 @@
       "avg_distance": 55,
       "move_variation": 10
     },
-
     "aquaculture:blackfish": {
       "idle_time": 10,
       "top_speed": 1.5,
@@ -108,7 +97,6 @@
       "avg_distance": 55,
       "move_variation": 10
     },
-
     "aquaculture:atlantic_herring": {
       "idle_time": 10,
       "top_speed": 1.5,
@@ -117,7 +105,6 @@
       "avg_distance": 55,
       "move_variation": 10
     },
-
     "aquaculture:pink_salmon": {
       "idle_time": 10,
       "top_speed": 1.5,
@@ -126,7 +113,6 @@
       "avg_distance": 55,
       "move_variation": 10
     },
-
     "salmon": {
       "idle_time": 10,
       "top_speed": 1.5,
@@ -135,7 +121,6 @@
       "avg_distance": 55,
       "move_variation": 10
     },
-
     "pufferfish": {
       "idle_time": 50,
       "top_speed": 1.5,
@@ -144,7 +129,6 @@
       "avg_distance": 65,
       "move_variation": 10
     },
-
     "aquaculture:perch": {
       "idle_time": 10,
       "top_speed": 1.5,
@@ -153,7 +137,6 @@
       "avg_distance": 55,
       "move_variation": 10
     },
-
     "aquaculture:carp": {
       "idle_time": 10,
       "top_speed": 2,
@@ -162,7 +145,6 @@
       "avg_distance": 55,
       "move_variation": 10
     },
-
     "aquaculture:smallmouth_bass": {
       "idle_time": 10,
       "top_speed": 2,
@@ -171,7 +153,6 @@
       "avg_distance": 55,
       "move_variation": 10
     },
-
     "aquaculture:gar": {
       "idle_time": 20,
       "top_speed": 4,
@@ -180,7 +161,6 @@
       "avg_distance": 50,
       "move_variation": 15
     },
-
     "aquaculture:tambaqui": {
       "idle_time": 20,
       "top_speed": 4,
@@ -189,7 +169,6 @@
       "avg_distance": 50,
       "move_variation": 15
     },
-
     "aquaculture:synodontis": {
       "idle_time": 20,
       "top_speed": 4,
@@ -198,7 +177,6 @@
       "avg_distance": 70,
       "move_variation": 15
     },
-
     "cod": {
       "idle_time": 10,
       "top_speed": 1.5,
@@ -207,7 +185,6 @@
       "avg_distance": 55,
       "move_variation": 10
     },
-
     "tropical_fish": {
       "idle_time": 20,
       "top_speed": 4,
@@ -216,7 +193,6 @@
       "avg_distance": 50,
       "move_variation": 15
     },
-
     "aquaculture:rainbow_trout": {
       "idle_time": 16,
       "top_speed": 5,
@@ -225,7 +201,6 @@
       "avg_distance": 50,
       "move_variation": 15
     },
-
     "aquaculture:piranha": {
       "idle_time": 10,
       "top_speed": 6,
@@ -234,7 +209,6 @@
       "avg_distance": 30,
       "move_variation": 15
     },
-
     "aquaculture:jellyfish": {
       "idle_time": 30,
       "top_speed": 7,
@@ -243,7 +217,6 @@
       "avg_distance": 50,
       "move_variation": 10
     },
-
     "aquaculture:box_turtle": {
       "idle_time": 30,
       "top_speed": 7,
@@ -252,7 +225,6 @@
       "avg_distance": 50,
       "move_variation": 10
     },
-
     "aquaculture:starshell_turtle": {
       "idle_time": 30,
       "top_speed": 7,
@@ -261,7 +233,6 @@
       "avg_distance": 50,
       "move_variation": 10
     },
-
     "aquaculture:arrau_turtle": {
       "idle_time": 30,
       "top_speed": 7,
@@ -270,7 +241,6 @@
       "avg_distance": 50,
       "move_variation": 10
     },
-
     "aquaculture:red_shrooma": {
       "idle_time": 30,
       "top_speed": 7,
@@ -279,7 +249,6 @@
       "avg_distance": 50,
       "move_variation": 10
     },
-
     "aquaculture:brown_shrooma": {
       "idle_time": 30,
       "top_speed": 7,
@@ -288,7 +257,6 @@
       "avg_distance": 50,
       "move_variation": 10
     },
-
     "aquaculture:catfish": {
       "idle_time": 25,
       "top_speed": 8,
@@ -297,7 +265,6 @@
       "avg_distance": 50,
       "move_variation": 35
     },
-
     "aquaculture:bayad": {
       "idle_time": 25,
       "top_speed": 8,
@@ -306,7 +273,6 @@
       "avg_distance": 50,
       "move_variation": 35
     },
-
     "aquaculture:atlantic_cod": {
       "idle_time": 25,
       "top_speed": 8,
@@ -315,7 +281,6 @@
       "avg_distance": 50,
       "move_variation": 35
     },
-
     "aquaculture:muskellunge": {
       "idle_time": 25,
       "top_speed": 8,
@@ -324,7 +289,6 @@
       "avg_distance": 50,
       "move_variation": 35
     },
-
     "aquaculture:goldfish": {
       "idle_time": 1,
       "top_speed": 8,
@@ -333,7 +297,6 @@
       "avg_distance": 15,
       "move_variation": 5
     },
-
     "aquaculture:leech": {
       "idle_time": 10,
       "top_speed": 5,
@@ -342,7 +305,6 @@
       "avg_distance": 10,
       "move_variation": 5
     },
-
     "crittersandcompanions:koi_fish": {
       "idle_time": 25,
       "top_speed": 8,
@@ -351,7 +313,6 @@
       "avg_distance": 50,
       "move_variation": 35
     },
-
     "unusualfishmod:raw_drooping_gourami": {
       "idle_time": 50,
       "top_speed": 7,
@@ -360,7 +321,6 @@
       "avg_distance": 100,
       "move_variation": 1
     },
-
     "unusualfishmod:raw_blind_sailfin": {
       "idle_time": 30,
       "top_speed": 7,
@@ -369,7 +329,6 @@
       "avg_distance": 50,
       "move_variation": 20
     },
-
     "unusualfishmod:raw_beaked_herring": {
       "idle_time": 10,
       "top_speed": 3,
@@ -378,7 +337,6 @@
       "avg_distance": 10,
       "move_variation": 5
     },
-
     "unusualfishmod:raw_sneep_snorp": {
       "idle_time": 200,
       "top_speed": 2,
@@ -387,7 +345,6 @@
       "avg_distance": 85,
       "move_variation": 10
     },
-
     "unusualfishmod:raw_circus_fish": {
       "idle_time": 10,
       "top_speed": 8,
@@ -396,7 +353,6 @@
       "avg_distance": 15,
       "move_variation": 10
     },
-
     "unusualfishmod:raw_picklefish": {
       "idle_time": 16,
       "top_speed": 5,
@@ -405,7 +361,6 @@
       "avg_distance": 120,
       "move_variation": 15
     },
-
     "unusualfishmod:raw_bark_angelfish": {
       "idle_time": 20,
       "top_speed": 4,
@@ -414,7 +369,6 @@
       "avg_distance": 75,
       "move_variation": 15
     },
-
     "unusualfishmod:raw_triple_twirl_pleco": {
       "idle_time": 30,
       "top_speed": 7,
@@ -423,7 +377,6 @@
       "avg_distance": 50,
       "move_variation": 0
     },
-
     "unusualfishmod:raw_duality_damselfish": {
       "idle_time": 10,
       "top_speed": 15,
@@ -432,7 +385,6 @@
       "avg_distance": 15,
       "move_variation": 0
     },
-
     "unusualfishmod:raw_spindlefish": {
       "idle_time": 2,
       "top_speed": 12,
@@ -441,7 +393,6 @@
       "avg_distance": 15,
       "move_variation": 10
     },
-
     "unusualfishmod:raw_eyelash": {
       "idle_time": 10,
       "top_speed": 10,
@@ -450,7 +401,6 @@
       "avg_distance": 15,
       "move_variation": 50
     },
-
     "unusualfishmod:raw_forkfish": {
       "idle_time": 5,
       "top_speed": 1.5,
@@ -459,7 +409,6 @@
       "avg_distance": 55,
       "move_variation": 10
     },
-
     "unusualfishmod:raw_amber_goby": {
       "idle_time": 20,
       "top_speed": 7,
@@ -468,7 +417,6 @@
       "avg_distance": 50,
       "move_variation": 10
     },
-
     "unusualfishmod:raw_copperflame_anthias": {
       "idle_time": 50,
       "top_speed": 10,
@@ -477,7 +425,6 @@
       "avg_distance": 10,
       "move_variation": 15
     },
-
     "unusualfishmod:raw_hatchetfish": {
       "idle_time": 10,
       "top_speed": 15,
@@ -486,7 +433,6 @@
       "avg_distance": 20,
       "move_variation": 62
     },
-
     "unusualfishmod:raw_aero_mono": {
       "idle_time": 10,
       "top_speed": 15,
@@ -495,7 +441,6 @@
       "avg_distance": 20,
       "move_variation": 62
     },
-
     "unusualfishmod:raw_demon_herring": {
       "idle_time": 30,
       "top_speed": 15,
@@ -504,7 +449,6 @@
       "avg_distance": 40,
       "move_variation": 62
     },
-
     "society:neptuna": {
       "idle_time": 4,
       "top_speed": 6,
@@ -513,7 +457,6 @@
       "avg_distance": 50,
       "move_variation": 15
     },
-
     "stardew_fishing:goliath_grouper": {
       "idle_time": 7,
       "top_speed": 3,
@@ -594,7 +537,6 @@
       "avg_distance": 15,
       "move_variation": 10
     }
-    
   },
   "defaultBehavior": {
     "idle_time": 10,

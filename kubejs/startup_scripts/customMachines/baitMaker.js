@@ -1,7 +1,7 @@
 //priority: 100
 console.info("[SOCIETY] baitMaker.js loaded");
 
-const baitFish = [
+let baitFish = [
   "aquaculture:atlantic_herring",
   "minecraft:pufferfish",
   "aquaculture:minnow",
@@ -79,7 +79,7 @@ const baitFish = [
 ];
 global.baitMakerRecipes = new Map([]);
 baitFish.forEach((fish) => {
-  const splitFish = fish.split(":");
+  let splitFish = fish.split(":");
   let fishId = splitFish[1];
   if (!["barrel", "roe", "meat"].some((denied) => splitFish[1].includes(denied))) {
     if (fishId.includes("raw_")) {
@@ -94,41 +94,39 @@ baitFish.forEach((fish) => {
 StartupEvents.registry("block", (event) => {
   event
     .create("society:bait_maker", "cardinal")
-    .property(booleanProperty.create("working"))
-    .property(booleanProperty.create("mature"))
-    .property(booleanProperty.create("upgraded"))
+    .property(workingProperty)
+    .property(matureProperty)
+    .property(upgradedProperty)
     .box(2, 0, 2, 14, 19, 14)
     .defaultCutout()
     .soundType("copper")
     .tagBlock("minecraft:mineable/pickaxe")
     .tagBlock("minecraft:needs_stone_tool")
+    // Blockstate: client_scripts/machineBlockstates.js. Models: tools/port/assets/make_machine_placeholder.py.
+    .parentModel("society:block/kubejs/bait_maker/bait_maker_off")
     .item((item) => {
       item.tooltip(Text.translatable("block.society.bait_maker.description").gray());
-      item.modelJson({
-        parent: "society:block/kubejs/bait_maker/bait_maker_off",
-      });
+      item.parentModel("society:block/kubejs/bait_maker/bait_maker_off");
     })
     .defaultState((state) => {
       state
-        .set(booleanProperty.create("working"), false)
-        .set(booleanProperty.create("mature"), false)
-        .set(booleanProperty.create("upgraded"), false)
+        .set(workingProperty, false)
+        .set(matureProperty, false)
+        .set(upgradedProperty, false)
     })
     .placementState((state) => {
       state
-        .set(booleanProperty.create("working"), false)
-        .set(booleanProperty.create("mature"), false)
-        .set(booleanProperty.create("upgraded"), false)
+        .set(workingProperty, false)
+        .set(matureProperty, false)
+        .set(upgradedProperty, false)
     })
     .rightClick((click) => {
       global.handleBERightClick("aquaculture:fish_death", click, global.baitMakerRecipes, 1);
     })
     .blockEntity((blockInfo) => {
       blockInfo.initialData({ stage: 0, recipe: "" });
-      blockInfo.serverTick(artMachineTickRate, 0, (entity) => {
-        global.handleBETick(entity, global.baitMakerRecipes, 1);
-      });
-    }).blockstateJson = {
-    multipart: getCardinalMultipartJson("bait_maker"),
-  };
+      blockInfo.serverTicking();
+      blockInfo.tickFrequency(artMachineTickRate);
+    });
 });
+// Morning tick: server_scripts/blockEvents/machineTicks.js

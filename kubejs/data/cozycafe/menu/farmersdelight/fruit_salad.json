@@ -1,8 +1,7 @@
 {
-	"item": "farmersdelight:fruit_salad",
-	"category": "main",
-	"price": 344,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "farmersdelight:fruit_salad",
+  "category": "main",
+  "price": 344,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

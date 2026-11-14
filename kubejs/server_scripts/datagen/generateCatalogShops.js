@@ -1,29 +1,7 @@
-// const fantasySortOrder = [
-//     "decorations",
-//     "dunmer",
-//     "necrolord",
-//     "venthyr",
-//     "nordic",
-//     "bone/skeleton",
-//     "bone/wither",
-//     "royal"
-// ];
-// const fantasyCompariator = (id) => {
-//     const itemName = id.includes(':') ? id.split(':')[1] : id;
-//     const parts = itemName.split('_');
-//     const lastWord = parts[parts.length - 1].toLowerCase();
-
-//     for (let i = 0; i < fantasySortOrder.length; i++) {
-//         let keyword = fantasySortOrder[i];
-//         if (keyword.includes('/')) {
-//             if (keyword.split('/').some(part => lastWord.includes(part))) return i;
-//         } else if (lastWord.includes(keyword)) {
-//             return i;
-//         }
-//     }
-//     return fantasySortOrder.length;
-// };
-
+// Dev-only generator of the Tanuki and Modern catalog shops (kubejs/data/society_trading/shops/*_catalog.json).
+// Uncomment and reload once to regenerate. It writes the 1.20.1 shop format: on 1.21.1 the stacks need the
+// changes of tools/port/port_trading_data.py ({"id"} stacks, translatable names, items missing on 1.21.1 left out).
+// The Fantasy catalog is gone with Fantasy Furniture (not in the 1.21.1 pack).
 // const priceKeywordTable = [
 //     { keyword: "froggy_chair", price: 8 },
 //     { keyword: "gorgeous", price: 12 },
@@ -44,7 +22,6 @@
 //     { keyword: "chair", price: 1 },
 //     { keyword: "stool", price: 1 },
 //     { keyword: "/wool", price: 1 },
-//     { keyword: "royal/wool", price: 2 },
 //     { keyword: "streamer", price: 1 },
 //     { keyword: "garland", price: 1 },
 //     { keyword: "tarp", price: 2 },
@@ -112,12 +89,7 @@
 //     let shopJson = {};
 //     let shopTrades = [];
 
-//     if (catalog === "fantasy") {
-//         Ingredient.of("@fantasyfurniture").stacks.forEach((item) => {
-//             shopTrades.push(createTrade(item.id, catalog, defaultPrice));
-//         });
-//         shopTrades.sort((a, b) => fantasyCompariator(a.offer.item) - fantasyCompariator(b.offer.item));
-//     } else {
+//     {
 //         global.lootFurniture.forEach((item) => {
 //             if ((catalog == "tanuki" && (item.includes("tanukidecor") || item.includes("whimsy_deco"))) ||
 //                 (catalog != "tanuki" && !(item.includes("tanukidecor") || item.includes("whimsy_deco")))) {
@@ -154,6 +126,5 @@
 
 // if (true) {
 //     catalogGenerationFunction("tanuki", 4);
-//     catalogGenerationFunction("fantasy", 6);
 //     catalogGenerationFunction("modern", 8);
 // }

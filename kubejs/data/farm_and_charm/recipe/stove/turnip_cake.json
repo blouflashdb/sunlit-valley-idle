@@ -1,0 +1,37 @@
+{
+  "type": "farm_and_charm:stove",
+  "ingredients": [
+    {
+      "tag": "c:crops/turnip"
+    },
+    [
+      {
+        "tag": "c:raw_beef"
+      },
+      {
+        "tag": "c:raw_bacon"
+      },
+      {
+        "tag": "c:raw_chicken"
+      },
+      {
+        "tag": "c:raw_fishes"
+      },
+      {
+        "tag": "c:raw_mutton"
+      },
+      {
+        "tag": "c:raw_pork"
+      }
+    ],
+    {
+      "tag": "bakery:dough"
+    }
+  ],
+  "experience": 0.35,
+  "result": {
+    "id": "veggiesdelight:turnip_cake",
+    "count": 1
+  },
+  "requiresLearning": false
+}

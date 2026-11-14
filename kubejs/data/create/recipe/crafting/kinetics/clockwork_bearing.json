@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "society:kinetic_blueprint"
+    },
+    "C": {
+      "item": "create:brass_casing"
+    },
+    "S": {
+      "item": "create:electron_tube"
+    }
+  },
+  "pattern": [
+    "B",
+    "C",
+    "S"
+  ],
+  "result": {
+    "id": "create:clockwork_bearing",
+    "count": 1
+  },
+  "show_notification": true
+}

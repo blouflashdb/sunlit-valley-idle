@@ -1,81 +1,48 @@
-/**
- * wrapper so that arbitrary stage data can be read using the has() method same as player.stages
- * @param {string[]} stages
- * @return {object}
- */
+// priority: 900
+// Machines that apply their owner's skills (Artisan Hopper, Auto-Grabber, Fish Pond Basket) store the owner's
+// UUID in their block entity data ("owner", set when placed) and cache the owner's stages there ("stages").
+console.info("[SOCIETY] globalMachineOwnerUtils.js loaded");
+
+/** Wraps a list of stage names so it can be read with has(), like player.stages. */
 function SocietyStages(stages) {
   return {
     value: stages,
     has: function (x) {
-      return this.value.toString().includes(String(x));
+      return this.value.indexOf(String(x)) !== -1;
     },
   };
 }
 
 global.NO_STAGES = SocietyStages([]);
 
-const TAG_STRING = Java.loadClass("net.minecraft.nbt.Tag").TAG_STRING;
-
 /**
- * reads stages set in block entity NBT data by global.cacheOwner()
- * @param {Internal.BlockEntityJS} blockEntity
- * @return {SocietyStages}
+ * The owner's stages cached by global.cacheOwner. Takes a block (LevelBlock) or a block entity tick event.
+ * A LevelBlock also has a `.block` (the vanilla Block), so tell them apart by getEntity.
  */
-global.getBlockEntityStages = (blockEntity) => {
-  return SocietyStages(
-    blockEntity.data.getList("stages", TAG_STRING).toArray().map((x) => x.toString())
-  );
-}
-
-/**
- * cache the stages of a block entity's owner in the block entity's NBT data
- * cache the existence of the block entity's owner's attributes, regardless of attribute value
- * if the owner is online, that player is returned, else null is returned
- * if nothing has ever been cached before, and the owner is not online, stages=[] attributes=[]
- * @param {Internal.BlockEntityJS} entity
- * @param {string[]|null|undefined} stagesToFind
- * @param {string[]|null|undefined} attributesToFind
- * @return {Internal.Player|null} owner
- */
-global.cacheOwner = (entity, stagesToFind, attributesToFind) => {
-  const { level, block } = entity;
-  let binPlayer = null;
-  level.getServer().players.forEach((p) => {
-    if (p.getUuid().toString() === block.getEntityData().data.owner) {
-      binPlayer = p; 
-    }
-  });
-  let nbt = block.getEntityData();
-  if (binPlayer) {
-    if (attributesToFind) {
-      let newAttributes = [];
-      attributesToFind.forEach((attr) => {
-        newAttributes.push({
-          Base: Number(
-            binPlayer.nbt.Attributes.filter((obj) => {
-              return obj.Name === attr;
-            })[0]?.Base
-          ),
-          Name: attr,
-        });
-      });
-      nbt.data.attributes = newAttributes;
-    }
-    if (stagesToFind) {
-      let stages = [];
-      stagesToFind.forEach((stage) => {
-        if (binPlayer.stages.has(stage)) stages.push(stage);
-      });
-      nbt.data.stages = stages;
-    }
-  } else {
-    if ((attributesToFind !== null) && !nbt.data.contains("attributes")) {
-      nbt.data.attributes = [];
-    }
-    if ((stagesToFind !== null) && !nbt.data.contains("stages")) {
-      nbt.data.stages = [];
-    }
+global.getBlockEntityStages = (entityOrBlock) => {
+  const block = entityOrBlock.getEntity ? entityOrBlock : entityOrBlock.block;
+  const raw = global.getMachineString(block, "stages");
+  if (raw === "") return global.NO_STAGES;
+  try {
+    return SocietyStages(JSON.parse(raw));
+  } catch (e) {
+    return global.NO_STAGES;
   }
-  global.setBlockEntityData(block, nbt);
-  return binPlayer;
+};
+
+/**
+ * Caches which of stagesToFind the owner has. Returns the owner when online, else null (the cached stages
+ * stay as they were). On 1.20.1 this also cached attributes; no ported machine reads them yet.
+ */
+global.cacheOwner = (entity, stagesToFind) => {
+  const { level, block } = entity;
+  const owner = global.getMachineString(block, "owner");
+  let ownerPlayer = null;
+  level.getServer().players.forEach((p) => {
+    if (String(p.getUuid()) === owner) ownerPlayer = p;
+  });
+  if (ownerPlayer && stagesToFind) {
+    global.setMachineData(block, { stages: stagesToFind.filter((stage) => ownerPlayer.stages.has(stage)) });
+  }
+  return ownerPlayer;
 };

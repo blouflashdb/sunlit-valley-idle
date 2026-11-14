@@ -26,38 +26,37 @@ global.espressoMachineRecipes = new Map([
 StartupEvents.registry("block", (event) => {
   event
     .create("society:espresso_machine", "cardinal")
-    .property(booleanProperty.create("working"))
-    .property(booleanProperty.create("mature"))
-    .property(booleanProperty.create("upgraded"))
+    .property(workingProperty)
+    .property(matureProperty)
+    .property(upgradedProperty)
     .box(4, 0, 2, 12, 14, 14)
     .defaultCutout()
-    .model("society:block/kubejs/espresso_machine")
     .tagBlock("minecraft:mineable/pickaxe")
     .tagBlock("minecraft:needs_stone_tool")
+    // Blockstate: client_scripts/machineBlockstates.js. Models: tools/port/assets/make_machine_placeholder.py.
+    .parentModel("society:block/kubejs/espresso_machine/espresso_machine_off")
     .item((item) => {
       item.tooltip(Text.translatable("block.society.espresso_machine.description").gray());
-      item.modelJson({
-        parent: "society:block/kubejs/espresso_machine",
-      });
+      item.parentModel("society:block/kubejs/espresso_machine/espresso_machine_off");
     })
     .defaultState((state) => {
       state
-        .set(booleanProperty.create("working"), false)
-        .set(booleanProperty.create("mature"), false)
-        .set(booleanProperty.create("upgraded"), false);
+        .set(workingProperty, false)
+        .set(matureProperty, false)
+        .set(upgradedProperty, false);
     })
     .placementState((state) => {
       state
-        .set(booleanProperty.create("working"), false)
-        .set(booleanProperty.create("mature"), false)
-        .set(booleanProperty.create("upgraded"), false);
+        .set(workingProperty, false)
+        .set(matureProperty, false)
+        .set(upgradedProperty, false);
     })
     .rightClick((click) => {
-      const { item, block, hand, player, server } = click;
+      let { item, block, hand, player, server } = click;
 
       if (player.isFake()) return;
-      if (hand == "OFF_HAND") return;
-      if (hand == "MAIN_HAND") {
+      if (String(hand) === "OFF_HAND") return;
+      if (String(hand) === "MAIN_HAND") {
         let recipe = global.espressoMachineRecipes.get(`${item.id}`);
         // Handle steamed milk
         if (recipe && recipe.output[0].includes("steamed_milk")) {
@@ -67,7 +66,7 @@ StartupEvents.registry("block", (event) => {
           );
           global.giveExperience(server, player, "farming", 10);
           recipe.output.forEach((e) => {
-            block.popItemFromFace(e, block.properties.get("facing"));
+            block.popItemFromFace(e, global.getBlockProperty(block, "facing"));
           });
         }
       }
@@ -85,111 +84,6 @@ StartupEvents.registry("block", (event) => {
     })
     .blockEntity((blockInfo) => {
       blockInfo.initialData({ stage: 0, recipe: "" });
-    }).blockstateJson = {
-    multipart: [
-      {
-        apply: { model: "society:block/kubejs/espresso_machine_particle" },
-      },
-      {
-        when: { mature: true },
-        apply: { model: "society:block/kubejs/machine_done" },
-      },
-      {
-        when: { working: false, mature: true, facing: "north" },
-        apply: {
-          model: "society:block/kubejs/espresso_cup_full",
-          y: 0,
-          uvlock: false,
-        },
-      },
-      {
-        when: { working: false, mature: true, facing: "east" },
-        apply: {
-          model: "society:block/kubejs/espresso_cup_full",
-          y: 90,
-          uvlock: false,
-        },
-      },
-      {
-        when: { working: false, mature: true, facing: "south" },
-        apply: {
-          model: "society:block/kubejs/espresso_cup_full",
-          y: 180,
-          uvlock: false,
-        },
-      },
-      {
-        when: { working: false, mature: true, facing: "west" },
-        apply: {
-          model: "society:block/kubejs/espresso_cup_full",
-          y: -90,
-          uvlock: false,
-        },
-      },
-      {
-        when: { working: true, mature: false, facing: "north" },
-        apply: {
-          model: "society:block/kubejs/espresso_cup_empty",
-          y: 0,
-          uvlock: false,
-        },
-      },
-      {
-        when: { working: true, mature: false, facing: "east" },
-        apply: {
-          model: "society:block/kubejs/espresso_cup_empty",
-          y: 90,
-          uvlock: false,
-        },
-      },
-      {
-        when: { working: true, mature: false, facing: "south" },
-        apply: {
-          model: "society:block/kubejs/espresso_cup_empty",
-          y: 180,
-          uvlock: false,
-        },
-      },
-      {
-        when: { working: true, mature: false, facing: "west" },
-        apply: {
-          model: "society:block/kubejs/espresso_cup_empty",
-          y: -90,
-          uvlock: false,
-        },
-      },
-      {
-        when: { facing: "north" },
-        apply: {
-          model: "society:block/kubejs/espresso_machine",
-          y: 0,
-          uvlock: false,
-        },
-      },
-      {
-        when: { facing: "east" },
-        apply: {
-          model: "society:block/kubejs/espresso_machine",
-          y: 90,
-          uvlock: false,
-        },
-      },
-      {
-        when: { facing: "south" },
-        apply: {
-          model: "society:block/kubejs/espresso_machine",
-          y: 180,
-          uvlock: false,
-        },
-      },
-      {
-        when: { facing: "west" },
-        apply: {
-          model: "society:block/kubejs/espresso_machine",
-          y: -90,
-          uvlock: false,
-        },
-      },
-    ],
-  };
+    });
 });
+// Morning tick or random tick: see the block entity above and server_scripts/blockEvents/machineTicks.js

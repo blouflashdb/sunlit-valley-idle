@@ -1,8 +1,7 @@
 {
-	"item": "brewery:mashed_potatoes",
-	"category": "main",
-	"price": 63,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "brewery:mashed_potatoes",
+  "category": "main",
+  "price": 63,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

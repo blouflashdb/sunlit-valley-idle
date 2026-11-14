@@ -1,5 +1,5 @@
-// Priority: -100
-if (global.datagenDialog) {
+// priority: -100
+if (datagenDialog) {
   runNpcDatagen("librarian", {
     name: "Veronica",
     intro: [

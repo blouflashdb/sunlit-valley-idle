@@ -17,7 +17,7 @@
       "minecraft:witch",
       "minecraft:husk",
       "minecraft:stray",
-      "trials:bogged",
+      "minecraft:bogged",
       "minecraft:slime",
       "minecraft:skeleton_horse",
       "species:limpet",
@@ -101,7 +101,7 @@
       "minecraft:slime",
       "minecraft:husk",
       "minecraft:stray",
-      "trials:bogged"
+      "minecraft:bogged"
     ],
     "dimension": "minecraft:overworld",
     "maxheight": 50,
@@ -248,157 +248,9 @@
     "result": "deny"
   },
   {
-    "mob": "splendid_slimes:splendid_slime",
-    "dimension": "minecraft:the_nether",
-    "block": "minecraft:nether_bricks",
-    "structure": "minecraft:fortress",
-    "when": "finalize",
-    "nbt": {
-      "Breed": "splendid_slimes:blazing",
-      "Happiness": 500,
-      "Size": 1
-    }
-  },
-  {
-    "mob": "splendid_slimes:splendid_slime",
-    "dimension": "minecraft:the_nether",
-    "biome": "minecraft:soul_sand_valley",
-    "block": "tag:minecraft:soul_fire_base_blocks",
-    "when": "finalize",
-    "nbt": {
-      "Breed": "splendid_slimes:bony",
-      "Happiness": 500,
-      "Size": 1
-    }
-  },
-  {
-    "mob": "splendid_slimes:splendid_slime",
-    "dimension": "minecraft:the_nether",
-    "when": "finalize",
-    "nbt": {
-      "Breed": "splendid_slimes:weeping",
-      "Happiness": 500,
-      "Size": 1
-    }
-  },
-  {
     "mob": "legendarycreatures:corpse_eater",
     "dimension": "society:skull_cavern",
     "when": "onjoin",
     "result": "deny"
-  },
-  {
-    "mob": "splendid_slimes:splendid_slime",
-    "dimension": "society:skull_cavern",
-    "structure": [
-      "hopo:mineshaft/acacia_mineshaft",
-      "hopo:mineshaft/bamboo_mineshaft",
-      "hopo:mineshaft/birch_mineshaft",
-      "hopo:mineshaft/cherry_mineshaft",
-      "hopo:mineshaft/dark_oak_mineshaft",
-      "hopo:mineshaft/deepslate_mineshaft",
-      "hopo:mineshaft/jungle_mineshaft",
-      "hopo:mineshaft/mangrove_mineshaft",
-      "hopo:mineshaft/mud_mineshaft",
-      "hopo:mineshaft/oak_mineshaft",
-      "hopo:mineshaft/spruce_mineshaft",
-      "hopo:mineshaft/stone_mineshaft"
-    ],
-    "when": "finalize",
-    "nbt": {
-      "Breed": "splendid_slimes:webby",
-      "Happiness": 500,
-      "Size": 1
-    }
-  },
-  {
-    "mob": "splendid_slimes:splendid_slime",
-    "dimension": "society:skull_cavern",
-    "biome": "society:skull_caves",
-    "when": "finalize",
-    "nbt": {
-      "Breed": "splendid_slimes:boomcat",
-      "Happiness": 500,
-      "Size": 1
-    }
-  },
-  {
-    "mob": "splendid_slimes:splendid_slime",
-    "dimension": "society:skull_cavern",
-    "biome": "society:lush_caverns",
-    "when": "finalize",
-    "nbt": {
-      "Breed": "splendid_slimes:juicy",
-      "Happiness": 500,
-      "Size": 1
-    }
-  },
-  {
-    "mob": "splendid_slimes:splendid_slime",
-    "dimension": "society:skull_cavern",
-    "biome": "society:frozen_caves",
-    "when": "finalize",
-    "nbt": {
-      "Breed": "splendid_slimes:rotting",
-      "Happiness": 500,
-      "Size": 1
-    }
-  },
-  {
-    "mob": "splendid_slimes:splendid_slime",
-    "dimension": "society:skull_cavern",
-    "biome": "society:frozen_maelstrom",
-    "when": "finalize",
-    "nbt": {
-      "Breed": "splendid_slimes:bitwise",
-      "Happiness": 500,
-      "Size": 1
-    }
-  },
-  {
-    "mob": "splendid_slimes:splendid_slime",
-    "dimension": "society:skull_cavern",
-    "biome": [
-      "society:desert_caves",
-      "society:desert_fault"
-    ],
-    "when": "finalize",
-    "nbt": {
-      "Breed": "splendid_slimes:dusty",
-      "Happiness": 500,
-      "Size": 1
-    }
-  },
-  {
-    "mob": "splendid_slimes:splendid_slime",
-    "dimension": "society:skull_cavern",
-    "biome": "society:blackstone_caves",
-    "when": "finalize",
-    "nbt": {
-      "Breed": "splendid_slimes:blazing",
-      "Happiness": 500,
-      "Size": 1
-    }
-  },
-  {
-    "mob": "splendid_slimes:splendid_slime",
-    "dimension": "society:skull_cavern",
-    "biome": "society:umbra_barrens",
-    "when": "finalize",
-    "nbt": {
-      "Breed": "splendid_slimes:phantom",
-      "Happiness": 500,
-      "Size": 1
-    }
-  },
-  {
-    "mob": "splendid_slimes:splendid_slime",
-    "dimension": "society:skull_cavern",
-    "when": "finalize",
-    "nbt": {
-      "Breed": "splendid_slimes:bitwise",
-      "Happiness": 500,
-      "Size": 1
-    }
   }
 ]

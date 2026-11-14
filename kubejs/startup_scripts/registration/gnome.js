@@ -1,110 +1,54 @@
 console.info("[SOCIETY] gnome.js loaded");
 
-const getGnomeState = (name, type) => {
-  const path = `society:block/kubejs/gnome/${name}`;
-  let cardianal = [
-    {
-      when: { type: type, facing: "north" },
-      apply: { model: path, y: 0, uvlock: false },
-    },
-    {
-      when: { type: type, facing: "east" },
-      apply: { model: path, y: 90, uvlock: false },
-    },
-    {
-      when: { type: type, facing: "south" },
-      apply: { model: path, y: 180, uvlock: false },
-    },
-    {
-      when: { type: type, facing: "west" },
-      apply: { model: path, y: -90, uvlock: false },
-    },
-  ];
-  return cardianal;
+// Garden gnomes. Right-clicking cycles the pose ("type" 0-3); a gnome right-clicked with a lantern becomes a
+// Lantern Gnome. The 1.20.1 pose models came from Society Tweaks (ARR), so every pose uses one placeholder model
+// (tools/port/assets/make_machine_placeholder.py --single) for now.
+
+const gnomeTypeProperty = integerProperty.create("type", 0, 3);
+
+const nextGnomeType = (block) => {
+  const type = Number(global.getBlockProperty(block, "type"));
+  return String(type === 3 ? 0 : type + 1);
 };
-StartupEvents.registry("block", (e) => {
+
+const createGnome = (e, id, model) =>
   e
-    .create("society:gnome", "cardinal")
-    .property(integerProperty.create("type", 0, 3))
+    .create(id, "cardinal")
+    .property(gnomeTypeProperty)
     .defaultCutout()
+    .soundType("stone")
+    .hardness(1.0)
+    .tagBlock("minecraft:mineable/pickaxe")
+    .parentModel(model)
+    .defaultState((state) => state.set(gnomeTypeProperty, 0))
+    .placementState((state) => state.set(gnomeTypeProperty, 0));
+
+StartupEvents.registry("block", (e) => {
+  createGnome(e, "society:gnome", "society:block/kubejs/gnome/gnome")
     .item((item) => {
       item.tooltip(Text.translatable("block.society.gnome.description").gray());
-      item.modelJson({
-        parent: "society:block/kubejs/gnome/base",
-      });
-    })
-    .defaultState((state) => {
-      state.set(integerProperty.create("type", 0, 3), 0);
-    })
-    .placementState((state) => {
-      state.set(integerProperty.create("type", 0, 3), 0);
+      item.parentModel("society:block/kubejs/gnome/gnome");
     })
     .rightClick((click) => {
-      const { block, item, hand } = click;
-      const type = Number(block.properties.get("type"));
-      const facing = block.properties.get("facing");
-
-      if (hand == "OFF_HAND") return;
-      if (hand == "MAIN_HAND") {
-        if (item == "minecraft:lantern") {
-          block.set("society:lantern_gnome", {
-            facing: facing,
-          });
-        } else {
-          block.set(block.id, {
-            facing: facing,
-            type: type == 3 ? "0" : String(type + 1),
-          });
-        }
+      const { block, item, hand, level } = click;
+      if (level.isClientSide() || String(hand) !== "MAIN_HAND") return;
+      const facing = global.getBlockProperty(block, "facing");
+      if (String(item.id) === "minecraft:lantern") {
+        block.set("society:lantern_gnome", { facing: facing });
+      } else {
+        block.set(block.id, { facing: facing, type: nextGnomeType(block) });
       }
-    }).blockstateJson = {
-    multipart: []
-      .concat(getGnomeState("base", 0))
-      .concat(getGnomeState("fish", 1))
-      .concat(getGnomeState("twig", 2))
-      .concat(getGnomeState("swing", 3)),
-  };
-  e
-    .create("society:lantern_gnome", "cardinal")
-    .property(integerProperty.create("type", 0, 3))
-    .defaultCutout()
+    });
+
+  createGnome(e, "society:lantern_gnome", "society:block/kubejs/lantern_gnome/lantern_gnome")
     .item((item) => {
       item.tooltip(Text.translatable("block.society.lantern_gnome.description").gray());
-      item.modelJson({
-        parent: "society:block/kubejs/gnome/lantern",
-      });
+      item.parentModel("society:block/kubejs/lantern_gnome/lantern_gnome");
     })
     .lightLevel(0.8)
     .rightClick((click) => {
-      const { block, hand } = click;
-      const type = Number(block.properties.get("type"));
-      const facing = block.properties.get("facing");
-
-      if (hand == "OFF_HAND") return;
-      if (hand == "MAIN_HAND") {
-        block.set(block.id, {
-          facing: facing,
-          type: type == 3 ? "0" : String(type + 1),
-        });
-      }
-    }).blockstateJson = {
-    multipart: [
-      {
-        when: { facing: "north" },
-        apply: { model: "society:block/kubejs/gnome/lantern", y: 0, uvlock: false },
-      },
-      {
-        when: { facing: "east" },
-        apply: { model: "society:block/kubejs/gnome/lantern", y: 90, uvlock: false },
-      },
-      {
-        when: { facing: "south" },
-        apply: { model: "society:block/kubejs/gnome/lantern", y: 180, uvlock: false },
-      },
-      {
-        when: { facing: "west" },
-        apply: { model: "society:block/kubejs/gnome/lantern", y: -90, uvlock: false },
-      },
-    ],
-  };
+      const { block, hand, level } = click;
+      if (level.isClientSide() || String(hand) !== "MAIN_HAND") return;
+      block.set(block.id, { facing: global.getBlockProperty(block, "facing"), type: nextGnomeType(block) });
+    });
 });

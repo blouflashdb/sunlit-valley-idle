@@ -1,8 +1,7 @@
 {
-	"item": "veggiesdelight:garlic_chicken_stew",
-	"category": "main",
-	"price": 411,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "veggiesdelight:garlic_chicken_stew",
+  "category": "main",
+  "price": 411,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

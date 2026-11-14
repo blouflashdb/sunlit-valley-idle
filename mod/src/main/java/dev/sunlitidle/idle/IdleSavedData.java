@@ -1,5 +1,6 @@
 package dev.sunlitidle.idle;
 
+import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.level.saveddata.SavedData;
@@ -14,7 +15,8 @@ public final class IdleSavedData extends SavedData {
     private final Map<UUID, PlayerIdleState> players = new HashMap<>();
 
     public static IdleSavedData get(MinecraftServer server) {
-        return server.overworld().getDataStorage().computeIfAbsent(IdleSavedData::load, IdleSavedData::new, NAME);
+        return server.overworld().getDataStorage().computeIfAbsent(
+                new SavedData.Factory<>(IdleSavedData::new, IdleSavedData::load, null), NAME);
     }
 
     public PlayerIdleState state(UUID player) {
@@ -26,12 +28,12 @@ public final class IdleSavedData extends SavedData {
         return state;
     }
 
-    private static IdleSavedData load(CompoundTag tag) {
+    private static IdleSavedData load(CompoundTag tag, HolderLookup.Provider registries) {
         IdleSavedData data = new IdleSavedData();
         CompoundTag players = tag.getCompound("Players");
         for (String key : players.getAllKeys()) {
             try {
-                data.players.put(UUID.fromString(key), data.attach(PlayerIdleState.load(players.getCompound(key))));
+                data.players.put(UUID.fromString(key), data.attach(PlayerIdleState.load(players.getCompound(key), registries)));
             } catch (IllegalArgumentException ignored) {
                 // Skip entries with a broken key.
             }
@@ -40,9 +42,9 @@ public final class IdleSavedData extends SavedData {
     }
 
     @Override
-    public CompoundTag save(CompoundTag tag) {
+    public CompoundTag save(CompoundTag tag, HolderLookup.Provider registries) {
         CompoundTag players = new CompoundTag();
-        this.players.forEach((id, state) -> players.put(id.toString(), state.save()));
+        this.players.forEach((id, state) -> players.put(id.toString(), state.save(registries)));
         tag.put("Players", players);
         return tag;
     }

@@ -1,0 +1,21 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "oreganized:electrum_block"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "oreganized:silver_block"
+    }
+  ],
+  "type": "botania:mana_infusion",
+  "input": {
+    "item": "oreganized:silver_block"
+  },
+  "mana": 35000,
+  "output": {
+    "count": 1,
+    "id": "oreganized:electrum_block"
+  }
+}

@@ -1,8 +1,7 @@
 {
-	"item": "vintagedelight:pickle_soup",
-	"category": "main",
-	"price": 1398,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "vintagedelight:pickle_soup",
+  "category": "main",
+  "price": 1398,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

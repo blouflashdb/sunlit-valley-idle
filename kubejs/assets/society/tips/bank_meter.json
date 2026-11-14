@@ -1,5 +1,6 @@
 {
-	"tip": {
-		"translate": "society_tips.tip.bank_meter"
-	}
+  "type": "tipsmod:simple",
+  "text": {
+    "translate": "society_tips.tip.bank_meter"
+  }
 }

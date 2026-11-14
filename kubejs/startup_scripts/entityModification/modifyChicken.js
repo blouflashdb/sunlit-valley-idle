@@ -1,53 +1,51 @@
+console.info("[SOCIETY] modifyChicken.js loaded");
+
+// Egg layers only lay when they were fed yesterday or today, and low affection slows them down.
+
+/** Reads an int from the entity's saved data, changes it and writes it back. */
+const updateLayTime = (entity, key, update) => {
+  const current = entity.nbt.getInt(key);
+  const next = update(current);
+  if (next === current) return;
+  // Rhino has no computed property names ({ [key]: ... }).
+  const tag = {};
+  tag[key] = NBT.i(next);
+  entity.mergeNbt(tag);
+};
+
 const starvationPrevention = (entity, affectionPenaltyMult) => {
-  let entityNbt = entity.getNbt();
+  const data = entity.persistentData;
   const day = global.getDay(entity.level);
-  if (day - entity.persistentData.getInt("ageLastFed") > 1) {
-    entityNbt.EggLayTime = 20400;
-  } else if (Math.random() > entity.persistentData.getInt("affection") / 1000) {
-    entityNbt.EggLayTime = entityNbt.EggLayTime + 1000 * affectionPenaltyMult;
-  } else if (entityNbt.EggLayTime > 12000) entityNbt.EggLayTime = 10240;
-  entity.setNbt(entityNbt);
+  updateLayTime(entity, "EggLayTime", (time) => {
+    if (day - data.getInt("ageLastFed") > 1) return 20400;
+    if (Math.random() > data.getInt("affection") / 1000) return time + 1000 * affectionPenaltyMult;
+    if (time > 12000) return 10240;
+    return time;
+  });
+};
+
+const everyThousandTicks = (fn) => (entity) => {
+  if (entity.level.isClientSide() || entity.level.time % 1000 !== 0) return;
+  fn(entity);
 };
 
 EntityJSEvents.modifyEntity((event) => {
-  event.modify("minecraft:chicken", (modifyBuilder) => {
-    modifyBuilder.tick((entity) => {
-      if (entity.level.time % 1000 === 0) {
-        starvationPrevention(entity, 1);
-      }
-    });
+  ["minecraft:chicken", "untitledduckmod:duck", "untitledduckmod:goose"].forEach((type) => {
+    event.modify(type, (builder) => builder.tick(everyThousandTicks((entity) => starvationPrevention(entity, 1))));
   });
-  event.modify("untitledduckmod:duck", (modifyBuilder) => {
-    modifyBuilder.tick((entity) => {
-      if (entity.level.time % 1000 === 0) {
-        starvationPrevention(entity, 1);
-      }
-    });
-  });
-  event.modify("untitledduckmod:goose", (modifyBuilder) => {
-    modifyBuilder.tick((entity) => {
-      if (entity.level.time % 1000 === 0) {
-        starvationPrevention(entity, 1);
-      }
-    });
-  });
-  event.modify("autumnity:turkey", (modifyBuilder) => {
-    modifyBuilder.tick((entity) => {
-      if (entity.level.time % 1000 === 0) {
-        starvationPrevention(entity, 2);
-      }
-    });
-  });
-  event.modify("etcetera:chapple", (modifyBuilder) => {
-    modifyBuilder.tick((entity) => {
-      if (entity.level.time % 1000 === 0) {
-        let entityNbt = entity.getNbt();
+  event.modify("autumnity:turkey", (builder) =>
+    builder.tick(everyThousandTicks((entity) => starvationPrevention(entity, 2)))
+  );
+  event.modify("etcetera:chapple", (builder) =>
+    builder.tick(
+      everyThousandTicks((entity) => {
         const day = global.getDay(entity.level);
-        if (day - entity.persistentData.getInt("ageLastFed") > 1) {
-          entityNbt.AppleLayTime = 20400;
-        } else if (entityNbt.AppleLayTime > 12000) entityNbt.AppleLayTime = 10240;
-        entity.setNbt(entityNbt);
-      }
-    });
-  });
+        updateLayTime(entity, "AppleLayTime", (time) => {
+          if (day - entity.persistentData.getInt("ageLastFed") > 1) return 20400;
+          if (time > 12000) return 10240;
+          return time;
+        });
+      })
+    )
+  );
 });

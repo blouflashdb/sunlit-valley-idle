@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "create:andesite_alloy"
+    },
+    "K": {
+      "item": "society:rubber"
+    }
+  },
+  "pattern": [
+    "AA",
+    "KK"
+  ],
+  "result": {
+    "id": "create:andesite_tunnel",
+    "count": 2
+  },
+  "show_notification": true
+}

@@ -1,8 +1,7 @@
 {
-	"item": "society:truffle_tea",
-	"category": "drink",
-	"price": 3092,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "society:truffle_tea",
+  "category": "drink",
+  "price": 3092,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "society:fine_wool"
+    }
+  ],
+  "type": "botania:mana_infusion",
+  "input": {
+    "item": "society:fine_wool"
+  },
+  "mana": 1250,
+  "output": {
+    "count": 2,
+    "id": "botania:mana_string"
+  }
+}

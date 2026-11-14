@@ -1,8 +1,7 @@
 {
-	"item": "veggiesdelight:shakshouka",
-	"category": "main",
-	"price": 495,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "veggiesdelight:shakshouka",
+  "category": "main",
+  "price": 495,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

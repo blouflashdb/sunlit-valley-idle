@@ -1,8 +1,7 @@
 {
-	"item": "bakery:grilled_salmon_sandwich",
-	"category": "main",
-	"price": 144,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "bakery:grilled_salmon_sandwich",
+  "category": "main",
+  "price": 144,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

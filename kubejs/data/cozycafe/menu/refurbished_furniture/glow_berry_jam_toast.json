@@ -1,8 +1,7 @@
 {
-	"item": "refurbished_furniture:glow_berry_jam_toast",
-	"category": "dessert",
-	"price": 102,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "refurbished_furniture:glow_berry_jam_toast",
+  "category": "dessert",
+  "price": 102,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

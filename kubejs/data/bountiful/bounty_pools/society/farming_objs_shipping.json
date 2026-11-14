@@ -472,15 +472,15 @@
       "unitWorth": 2048
     },
     "farmer_obj_espresso": {
-        "type": "minecraft:item",
-        "rarity": "EPIC",
-        "content": "society:espresso",
-        "amount": {
-          "min": 1,
-          "max": 4
-        },
-        "unitWorth": 512
+      "type": "minecraft:item",
+      "rarity": "EPIC",
+      "content": "society:espresso",
+      "amount": {
+        "min": 1,
+        "max": 4
       },
+      "unitWorth": 512
+    },
     "farmer_obj_lycheeitem": {
       "type": "minecraft:item",
       "rarity": "UNCOMMON",

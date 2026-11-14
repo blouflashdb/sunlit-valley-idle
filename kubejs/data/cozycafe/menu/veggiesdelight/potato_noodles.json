@@ -1,8 +1,7 @@
 {
-	"item": "veggiesdelight:potato_noodles",
-	"category": "main",
-	"price": 132,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "veggiesdelight:potato_noodles",
+  "category": "main",
+  "price": 132,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

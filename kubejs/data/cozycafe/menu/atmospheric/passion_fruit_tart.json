@@ -1,8 +1,7 @@
 {
-	"item": "atmospheric:passion_fruit_tart",
-	"category": "dessert",
-	"price": 269,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "atmospheric:passion_fruit_tart",
+  "category": "dessert",
+  "price": 269,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

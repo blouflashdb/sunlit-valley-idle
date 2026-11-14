@@ -1,6 +1,8 @@
 console.info("[SOCIETY] addSewingRecipes.js loaded");
 
 ServerEvents.recipes((e) => {
+  // 1.21.1 Sewing Kit: the tool is an ingredient; any needle (the 1.20.1 "sewingkit_sew" tool type).
+  const sewingTool = { tag: "sewingkit:needles/wood_or_higher" };
   const createSewingRecipe = (material, result, additionalItem, resultCount) => {
     let sewingInputs = [
       {
@@ -23,12 +25,9 @@ ServerEvents.recipes((e) => {
       materials: sewingInputs,
       result: {
         count: resultCount || 1,
-        item: result,
+        id: result,
       },
-      tool: {
-        type: "sewingkit:tool_ingredient",
-        tool_type: "sewingkit_sew",
-      },
+      tool: sewingTool,
     });
   };
 
@@ -40,7 +39,7 @@ ServerEvents.recipes((e) => {
     ["purple", "society:amethyst_chunk"],
     ["magenta", "pamhc2trees:plumitem"],
     ["pink", "brewery:whiskey_lilitusinglemalt"],
-    ["white", "beachparty:coconut_milkshake"],
+    ["white", "beachparty:coconut_cocktail"],
     ["light_gray", "supplementaries:ash_brick"],
     ["gray", "society:truffle"],
     ["black", "society:smoked_wither_bonefish"],
@@ -141,7 +140,11 @@ ServerEvents.recipes((e) => {
   ].forEach((item) => {
     createSewingRecipe("farmersdelight:cooking_pot", item);
   });
+  // Hat materials come from the global lists; entries whose item is not registered are left out.
+  const hatFish = global.fish.filter((entry) => global.itemExists(entry.item));
+  const hatAdventurer = global.miscAdventurer.filter((entry) => global.itemExists(entry.item));
   const createHatSewingRecipe = (index, materials, coinCount, result) => {
+    if (materials.length === 0) return;
     e.custom({
       type: "sewingkit:sewing",
       materials: [
@@ -168,12 +171,10 @@ ServerEvents.recipes((e) => {
         },
       ],
       result: {
-        item: `simplehats:${result}`,
+        count: 1,
+        id: `simplehats:${result}`,
       },
-      tool: {
-        type: "sewingkit:tool_ingredient",
-        tool_type: "sewingkit_sew",
-      },
+      tool: sewingTool,
     });
   };
   [
@@ -250,12 +251,11 @@ ServerEvents.recipes((e) => {
     "villagernose",
     "worm_hat",
   ].forEach((hat, index) => {
-    createHatSewingRecipe(index, global.fish, 1, hat);
+    createHatSewingRecipe(index, hatFish, 1, hat);
   });
-  const geodeMinerals = [];
-  Array.prototype.push.apply(geodeMinerals, global.geodeList);
-  Array.prototype.push.apply(geodeMinerals, global.frozenGeodeList);
-  Array.prototype.push.apply(geodeMinerals, global.magmaGeodeList);
+  const geodeMinerals = global.geodeList
+    .concat(global.frozenGeodeList, global.magmaGeodeList)
+    .filter((entry) => global.itemExists(entry.item));
 
   [
     "angrymask",
@@ -382,7 +382,7 @@ ServerEvents.recipes((e) => {
     "vikinghatbeard",
     "winghat",
   ].forEach((hat, index) => {
-    createHatSewingRecipe(index, global.miscAdventurer, 4, hat);
+    createHatSewingRecipe(index, hatAdventurer, 4, hat);
   });
 
   [

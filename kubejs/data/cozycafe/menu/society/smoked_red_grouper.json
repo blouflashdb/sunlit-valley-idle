@@ -1,8 +1,7 @@
 {
-	"item": "society:smoked_red_grouper",
-	"category": "main",
-	"price": 480,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "society:smoked_red_grouper",
+  "category": "main",
+  "price": 480,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

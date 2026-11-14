@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "society:maple_syrup"
+    },
+    {
+      "item": "autumnity:stripped_maple_wood"
+    }
+  ],
+  "result": {
+    "id": "autumnity:sappy_maple_wood",
+    "count": 1
+  }
+}

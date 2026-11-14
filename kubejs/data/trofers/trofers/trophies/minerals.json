@@ -1,0 +1,26 @@
+{
+  "colors": {
+    "accent": "#4d4847",
+    "base": "#606060"
+  },
+  "display": {
+    "offset": [
+      0,
+      1,
+      0
+    ],
+    "scale": 2.0
+  },
+  "animation": {
+    "type": "spinning",
+    "speed": 0.1
+  },
+  "name": {
+    "color": "#f6ba47",
+    "translate": "society.trofers.minerals"
+  },
+  "item": {
+    "id": "society:omni_geode",
+    "count": 1
+  }
+}

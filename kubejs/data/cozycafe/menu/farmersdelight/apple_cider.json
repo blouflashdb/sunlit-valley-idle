@@ -1,8 +1,7 @@
 {
-	"item": "farmersdelight:apple_cider",
-	"category": "drink",
-	"price": 537,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "farmersdelight:apple_cider",
+  "category": "drink",
+  "price": 537,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

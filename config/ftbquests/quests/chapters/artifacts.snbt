@@ -63,11 +63,8 @@
 			tasks: [{
 				id: "394CEFE8531A3137"
 				item: {
-					Count: 1
+					count: 1
 					id: "society:princess_hairbrush"
-					tag: {
-						Damage: 0
-					}
 				}
 				type: "item"
 			}]
@@ -149,11 +146,8 @@
 			tasks: [{
 				id: "7D6D95EEC87B8D1C"
 				item: {
-					Count: 1
+					count: 1
 					id: "quark:forgotten_hat"
-					tag: {
-						Damage: 0
-					}
 				}
 				type: "item"
 			}]
@@ -202,13 +196,11 @@
 			]
 			hide_dependency_lines: true
 			icon: {
-				Count: 1
-				id: "trofers:large_pillar"
-				tag: {
-					BlockEntityTag: {
-						Trophy: "trofers:artifacts"
-					}
+				components: {
+					"trofers:trophy": "trofers:artifacts"
 				}
+				count: 1
+				id: "trofers:large_pillar"
 			}
 			id: "2255D3F05F8B895A"
 			rewards: [
@@ -221,13 +213,11 @@
 				{
 					id: "1DF65182BF1AAB62"
 					item: {
-						Count: 1
-						id: "trofers:large_pillar"
-						tag: {
-							BlockEntityTag: {
-								Trophy: "trofers:artifacts"
-							}
+						components: {
+							"trofers:trophy": "trofers:artifacts"
 						}
+						count: 1
+						id: "trofers:large_pillar"
 					}
 					type: "item"
 				}

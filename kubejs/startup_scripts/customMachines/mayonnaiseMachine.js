@@ -35,41 +35,41 @@ global.mayonnaiseMachineRecipes = new Map([
 StartupEvents.registry("block", (event) => {
   event
     .create("society:mayonnaise_machine", "cardinal")
-    .property(booleanProperty.create("working"))
-    .property(booleanProperty.create("mature"))
-    .property(booleanProperty.create("upgraded"))
+    .property(workingProperty)
+    .property(matureProperty)
+    .property(upgradedProperty)
     .soundType("copper")
     .box(2, 0, 2, 14, 19, 14)
     .defaultCutout()
     .tagBlock("minecraft:mineable/pickaxe")
     .tagBlock("minecraft:mineable/axe")
     .tagBlock("minecraft:needs_stone_tool")
+    // Blockstate: client_scripts/machineBlockstates.js. Models: tools/port/assets/make_machine_placeholder.py.
+    .parentModel("society:block/kubejs/mayonnaise_machine/mayonnaise_machine_off")
     .item((item) => {
       item.tooltip(Text.translatable("block.society.mayonnaise_machine.description").gray());
       item.tooltip(Text.translatable("society.working_block_entity.preserve_quality").green());
-      item.modelJson({
-        parent: "society:block/kubejs/mayonnaise_machine/mayonnaise_machine_off",
-      });
+      item.parentModel("society:block/kubejs/mayonnaise_machine/mayonnaise_machine_off");
     })
     .defaultState((state) => {
       state
-        .set(booleanProperty.create("working"), false)
-        .set(booleanProperty.create("mature"), false)
-        .set(booleanProperty.create("upgraded"), false)
+        .set(workingProperty, false)
+        .set(matureProperty, false)
+        .set(upgradedProperty, false)
     })
     .placementState((state) => {
       state
-        .set(booleanProperty.create("working"), false)
-        .set(booleanProperty.create("mature"), false)
-        .set(booleanProperty.create("upgraded"), false)
+        .set(workingProperty, false)
+        .set(matureProperty, false)
+        .set(upgradedProperty, false)
     })
     .rightClick((click) => {
-      const { player, item, block, hand, level } = click;
+      let { player, item, block, hand, level } = click;
       if (player.isFake()) return;
-      const upgraded = block.properties.get("upgraded").toLowerCase() == "true";
-      if (hand == "OFF_HAND") return;
-      if (hand == "MAIN_HAND") {
-        if (!upgraded && item == "society:enkephalin") {
+      let upgraded = global.isBlockPropertyTrue(block, "upgraded");
+      if (String(hand) === "OFF_HAND") return;
+      if (String(hand) === "MAIN_HAND") {
+        if (!upgraded && String(item.id) === "society:enkephalin") {
           if (!player.isCreative()) item.count--;
           level.spawnParticles(
             "farmersdelight:star",
@@ -84,17 +84,17 @@ StartupEvents.registry("block", (event) => {
             0.01
           );
           block.set(block.id, {
-            facing: block.properties.get("facing"),
-            working: block.properties.get("working"),
-            mature: block.properties.get("mature"),
+            facing: global.getBlockProperty(block, "facing"),
+            working: global.getBlockProperty(block, "working"),
+            mature: global.getBlockProperty(block, "mature"),
             upgraded: true,
           });
         }
       }
-      if (upgraded && block.properties.get("mature") === "true" && rnd5()) {
+      if (upgraded && global.isBlockPropertyTrue(block, "mature") && rnd5()) {
         block.popItemFromFace(
           "society:supreme_mayonnaise",
-          block.properties.get("facing").toLowerCase()
+          global.getBlockProperty(block, "facing")
         );
       }
       let outputCount = 1;
@@ -113,10 +113,8 @@ StartupEvents.registry("block", (event) => {
     })
     .blockEntity((blockInfo) => {
       blockInfo.initialData({ stage: 0, recipe: "", quality: 0 });
-      blockInfo.serverTick(artMachineTickRate, 0, (entity) => {
-        global.handleBETick(entity, global.mayonnaiseMachineRecipes, 1);
-      });
-    }).blockstateJson = {
-    multipart: getCardinalMultipartJson("mayonnaise_machine"),
-  };
+      blockInfo.serverTicking();
+      blockInfo.tickFrequency(artMachineTickRate);
+    });
 });
+// Morning tick: server_scripts/blockEvents/machineTicks.js

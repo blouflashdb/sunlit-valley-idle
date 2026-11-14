@@ -1,7 +1,11 @@
 {
   "farming_mastery": {
-    "title": {"translate": "society_skills.mastery.farming_mastery"},
-    "description": {"translate": "society_skills.mastery.farming_mastery.description"},
+    "title": {
+      "translate": "society_skills.mastery.farming_mastery"
+    },
+    "description": {
+      "translate": "society_skills.mastery.farming_mastery.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -25,8 +29,12 @@
     ]
   },
   "husbandry_mastery": {
-    "title": {"translate": "society_skills.mastery.husbandry_mastery"},
-    "description": {"translate": "society_skills.mastery.husbandry_mastery.description"},
+    "title": {
+      "translate": "society_skills.mastery.husbandry_mastery"
+    },
+    "description": {
+      "translate": "society_skills.mastery.husbandry_mastery.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -50,8 +58,12 @@
     ]
   },
   "mining_mastery": {
-    "title": {"translate": "society_skills.mastery.mining_mastery"},
-    "description": {"translate": "society_skills.mastery.mining_mastery.description"},
+    "title": {
+      "translate": "society_skills.mastery.mining_mastery"
+    },
+    "description": {
+      "translate": "society_skills.mastery.mining_mastery.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -75,8 +87,12 @@
     ]
   },
   "fishing_mastery": {
-    "title": {"translate": "society_skills.mastery.fishing_mastery"},
-    "description": {"translate": "society_skills.mastery.fishing_mastery.description"},
+    "title": {
+      "translate": "society_skills.mastery.fishing_mastery"
+    },
+    "description": {
+      "translate": "society_skills.mastery.fishing_mastery.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -100,8 +116,12 @@
     ]
   },
   "adventuring_mastery": {
-    "title": {"translate": "society_skills.mastery.adventuring_mastery"},
-    "description": {"translate": "society_skills.mastery.adventuring_mastery.description"},
+    "title": {
+      "translate": "society_skills.mastery.adventuring_mastery"
+    },
+    "description": {
+      "translate": "society_skills.mastery.adventuring_mastery.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {

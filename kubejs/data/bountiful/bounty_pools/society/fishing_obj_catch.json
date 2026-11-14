@@ -6,8 +6,9 @@
       "name": "Fish up anything",
       "content": "minecraft:fishing_rod_hooked",
       "conditions": {
-        "type_specific": {
-          "fishing_hook": {
+        "entity": {
+          "type_specific": {
+            "type": "minecraft:fishing_hook",
             "in_open_water": true
           }
         }

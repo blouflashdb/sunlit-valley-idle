@@ -1,0 +1,21 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "betterarcheology:artifact_shards"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "society:sparkstone"
+    }
+  ],
+  "type": "botania:mana_infusion",
+  "input": {
+    "item": "betterarcheology:artifact_shards"
+  },
+  "mana": 10000,
+  "output": {
+    "count": 6,
+    "id": "society:sparkstone"
+  }
+}

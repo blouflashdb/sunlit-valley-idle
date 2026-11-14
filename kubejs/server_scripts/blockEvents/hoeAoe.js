@@ -19,7 +19,7 @@ const hoeFarmland = new Map([
 
 const tryTill = (level, player, pos, farmland) => {
   if (!level.getBlock(pos).hasTag("minecraft:dirt")) return false;
-  const above = level.getBlock(pos.above()).id;
+  const above = String(level.getBlock(pos.above()).id);
   if (
     above !== "minecraft:air" &&
     above !== "minecraft:water" &&
@@ -61,7 +61,7 @@ BlockEvents.rightClicked(
       let pos = block.pos;
       for (let i = 0; i < distance; i++) {
         tryTill(level, player, pos, farmland);
-        pos = global.getFacing(player.facing, pos);
+        pos = pos.relative(player.getDirection());
       }
     } else {
       const { x, y, z } = block;
@@ -72,6 +72,6 @@ BlockEvents.rightClicked(
         tryTill(level, player, pos, farmland);
       }
     }
-    global.addItemCooldown(player, item, 40);
+    if (!player.isFake()) player.addItemCooldown(item.item, 40);
   }
 );

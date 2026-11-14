@@ -1,8 +1,7 @@
 {
-	"item": "vintagedelight:meat_pizza",
-	"category": "main",
-	"price": 1175,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "vintagedelight:meat_pizza",
+  "category": "main",
+  "price": 1175,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

@@ -1,68 +1,59 @@
 console.info("[SOCIETY] fishingRodLeveling.js loaded");
 
-let maxLureLevel = 4;
-let maxLuckOfTheSeaLevel = 6;
+// Fishing with an upgraded rod sometimes raises its Lure (up to IV) or Luck of the Sea (up to VI) by one level.
 
-ForgeEvents.onEvent(
-  "net.minecraftforge.event.entity.player.ItemFishedEvent",
-  (e) => {
-    let randCap = 40;
-    const player = e.getEntity();
-    const mainHandItem = player.getHeldItem("main_hand");
-    const mainHandItemId = mainHandItem.getId();
-    const enchantmentTags = mainHandItem.enchantmentTags;
-    const validRods = [
-      "aquaculture:iron_fishing_rod",
-      "aquaculture:gold_fishing_rod",
-      "aquaculture:diamond_fishing_rod",
-      "aquaculture:neptunium_fishing_rod",
-      "netherdepthsupgrade:lava_fishing_rod",
-    ];
-    if (!validRods.includes(mainHandItemId)) return;
+const $RodRegistries = Java.loadClass("net.minecraft.core.registries.Registries");
+const $RodResourceKey = Java.loadClass("net.minecraft.resources.ResourceKey");
+const $RodResourceLocation = Java.loadClass("net.minecraft.resources.ResourceLocation");
 
-    if (player.level.isRaining()) {
-      randCap = randCap - 10;
-    }
-    switch (mainHandItemId) {
-      case "aquaculture:gold_fishing_rod":
-        randCap -= 5;
-        break;
-      case "aquaculture:diamond_fishing_rod":
-        randCap -= 10;
-        break;
-      case "aquaculture:neptunium_fishing_rod":
-        randCap -= 20;
-        break;
-      default:
-    }
-    const randomNum = Math.floor(Math.random() * randCap);
-    if (randomNum == 0) {
-      const lureLevel = mainHandItem.getEnchantmentLevel("minecraft:lure");
-      const luckOfTheSeaLevel = mainHandItem.getEnchantmentLevel(
-        "minecraft:luck_of_the_sea"
-      );
-      if (lureLevel < maxLureLevel && Math.floor(Math.random() * 2) == 0) {
-        for (let i = 0; i < enchantmentTags.size(); i++) {
-          let enchantment = enchantmentTags.get(i);
-          if (enchantment.get("id") == "minecraft:lure") {
-            enchantmentTags.remove(i);
-          }
-        }
-        mainHandItem.enchantStack("minecraft:lure", lureLevel + 1);
-        player.tell(Text.translatable("society.fishing_rod.level_up.lure").gold());
-      } else if (luckOfTheSeaLevel < maxLuckOfTheSeaLevel) {
-        for (let i = 0; i < enchantmentTags.size(); i++) {
-          let enchantment = enchantmentTags.get(i);
-          if (enchantment.get("id") == "minecraft:luck_of_the_sea") {
-            enchantmentTags.remove(i);
-          }
-        }
-        mainHandItem.enchantStack(
-          "minecraft:luck_of_the_sea",
-          luckOfTheSeaLevel + 1
-        );
-        player.tell(Text.translatable("society.fishing_rod.level_up.lots").gold());
-      }
-    }
+const rodMaxLureLevel = 4;
+const rodMaxLuckOfTheSeaLevel = 6;
+const levelingRods = [
+  "aquaculture:iron_fishing_rod",
+  "aquaculture:gold_fishing_rod",
+  "aquaculture:diamond_fishing_rod",
+  "aquaculture:neptunium_fishing_rod",
+  "netherdepthsupgrade:lava_fishing_rod",
+];
+
+const getRodEnchantmentLevel = (rod, id) => {
+  let found = 0;
+  rod.getEnchantments().entrySet().forEach((entry) => {
+    if (String(entry.getKey().getRegisteredName()) === id) found = entry.getIntValue();
+  });
+  return found;
+};
+
+/** Sets the enchantment to `level` (ItemStack.enchant keeps the higher of the old and the new level). */
+const raiseRodEnchantment = (level, rod, id, newLevel) => {
+  const holder = level
+    .registryAccess()
+    .registryOrThrow($RodRegistries.ENCHANTMENT)
+    .getHolderOrThrow($RodResourceKey.create($RodRegistries.ENCHANTMENT, $RodResourceLocation.parse(id)));
+  rod.enchant(holder, newLevel);
+};
+
+NativeEvents.onEvent(Java.loadClass("net.neoforged.neoforge.event.entity.player.ItemFishedEvent"), (event) => {
+  const player = event.getEntity();
+  const level = player.level;
+  const rod = player.getMainHandItem();
+  const rodId = String(rod.id);
+  if (!levelingRods.includes(rodId)) return;
+
+  let randCap = 40;
+  if (level.isRaining()) randCap -= 10;
+  if (rodId === "aquaculture:gold_fishing_rod") randCap -= 5;
+  if (rodId === "aquaculture:diamond_fishing_rod") randCap -= 10;
+  if (rodId === "aquaculture:neptunium_fishing_rod") randCap -= 20;
+  if (Math.floor(Math.random() * randCap) !== 0) return;
+
+  const lureLevel = getRodEnchantmentLevel(rod, "minecraft:lure");
+  const luckOfTheSeaLevel = getRodEnchantmentLevel(rod, "minecraft:luck_of_the_sea");
+  if (lureLevel < rodMaxLureLevel && Math.random() < 0.5) {
+    raiseRodEnchantment(level, rod, "minecraft:lure", lureLevel + 1);
+    player.tell(Text.translatable("society.fishing_rod.level_up.lure").gold());
+  } else if (luckOfTheSeaLevel < rodMaxLuckOfTheSeaLevel) {
+    raiseRodEnchantment(level, rod, "minecraft:luck_of_the_sea", luckOfTheSeaLevel + 1);
+    player.tell(Text.translatable("society.fishing_rod.level_up.lots").gold());
   }
-);
+});

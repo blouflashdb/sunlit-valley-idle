@@ -1,8 +1,7 @@
 {
-	"item": "veggiesdelight:turnip_salad",
-	"category": "main",
-	"price": 126,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "veggiesdelight:turnip_salad",
+  "category": "main",
+  "price": 126,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

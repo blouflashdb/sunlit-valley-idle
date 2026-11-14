@@ -5,6 +5,10 @@ Run: python3 tools/gen_idle_skills.py
 """
 import json
 import os
+import sys
+
+sys.dont_write_bytecode = True
+from slime_breeds import BREEDS  # noqa: E402
 
 OUT = os.path.join(os.path.dirname(__file__), "..", "src", "main", "resources", "data", "sunlitidle", "idle", "skills.json")
 
@@ -112,7 +116,7 @@ mining = [
 ]
 
 foraging = [
-    forage("meadow", 0, 3.0, 2, ["minecraft:grass", "minecraft:dandelion", "minecraft:poppy"],
+    forage("meadow", 0, 3.0, 2, ["minecraft:short_grass", "minecraft:dandelion", "minecraft:poppy"],
            icon="minecraft:wheat_seeds"),
     forage("wildflowers", 1, 3.5, 3, ["minecraft:cornflower", "minecraft:azure_bluet", "minecraft:oxeye_daisy",
                                       "minecraft:allium", "minecraft:blue_orchid"], icon="minecraft:cornflower"),
@@ -153,9 +157,9 @@ foraging = [
 ]
 
 def kcrop(id, level, seconds, xp, block, output):
-    """A KubeJS crop from the pack: its seed is <block>_seed and it does not drop seeds itself."""
-    return crop(id, level, seconds, xp, block, block + "_seed", output,
-                extra=[{"item": block + "_seed"}, {"item": block + "_seed", "chance": 0.25}])
+    """A KubeJS crop from the pack: its seed is <block>_seeds (KubeJS 7) and it does not drop seeds itself."""
+    return crop(id, level, seconds, xp, block, block + "_seeds", output,
+                extra=[{"item": block + "_seeds"}, {"item": block + "_seeds", "chance": 0.25}])
 
 
 farming = [
@@ -167,7 +171,8 @@ farming = [
     kcrop("onion", 3, 7.0, 6, "society:onion", "farm_and_charm:onion"),
     crop("lettuce", 3, 7.0, 6, "farm_and_charm:lettuce_crop", "farm_and_charm:lettuce_seeds", "farm_and_charm:lettuce"),
     crop("tomato", 4, 7.0, 7, "farmersdelight:tomatoes", "farmersdelight:tomato_seeds", "farmersdelight:tomato"),
-    kcrop("strawberry", 4, 7.0, 7, "farm_and_charm:strawberry", "farm_and_charm:strawberry"),
+    crop("strawberry", 4, 7.0, 7, "farm_and_charm:strawberry", "farm_and_charm:strawberry_seed", "farm_and_charm:strawberry",
+         extra=[{"item": "farm_and_charm:strawberry_seed"}, {"item": "farm_and_charm:strawberry_seed", "chance": 0.25}]),
     kcrop("blueberry", 5, 7.5, 8, "society:blueberry", "society:blueberry"),
     crop("corn", 5, 7.5, 8, "farm_and_charm:corn_crop", "farm_and_charm:kernels", "farm_and_charm:corn"),
     crop("oat", 5, 7.5, 8, "farm_and_charm:oat_crop", "farm_and_charm:oat_seeds", "farm_and_charm:oat"),
@@ -254,6 +259,22 @@ husbandry = [
     animal("truffle_hunt", 12, 18.0, 18, "society:truffle", ["minecraft:carrot"],
            [{"item": "society:truffle"}, {"item": "society:truffle", "chance": 0.25}]),
 ]
+
+
+def slime(breed, level, food, treat):
+    """A pen of one breed: plorts for its food; its favorite food (treat) gives two."""
+    seconds = 12.0 + 2 * level
+    xp = 3 + round(level * 1.5)
+    plort = "splendid_slimes:plort_" + breed
+    return [
+        {"id": breed, "level": level, "seconds": seconds, "xp": xp, "icon": plort,
+         "inputs": [{"item": food, "count": 1}], "drops": [{"item": plort}]},
+        {"id": breed + "_treat", "level": level, "seconds": seconds, "xp": round(xp * 1.5), "icon": treat,
+         "inputs": [{"item": treat, "count": 1}], "drops": [{"item": plort, "count": 2}]},
+    ]
+
+
+slime_ranching = [a for breed, _, level, food, treat in BREEDS for a in slime(breed, level, food, treat)]
 
 
 def dig(id, level, seconds, xp, blocks, icon=None, chances=None):
@@ -364,6 +385,9 @@ skills = [
      "tool": "none", "recipes": ["minecraft:smelting", "minecraft:blasting"], "actions": []},
     {"id": "cooking", "category": "sunlitidle:cooking", "icon": "minecraft:smoker",
      "tool": "none", "recipes": ["minecraft:smoking", "minecraft:campfire_cooking"], "actions": []},
+    # Added on 1.21.1 (#13), last so the tool slots of saved players keep their skill.
+    {"id": "slime_ranching", "category": "sunlitidle:slime_ranching", "icon": "splendid_slimes:plort_slimy",
+     "tool": "none", "tool_required": False, "actions": slime_ranching},
 ]
 
 for skill in skills:

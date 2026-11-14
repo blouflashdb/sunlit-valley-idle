@@ -12,36 +12,36 @@ global.oilMakerRecipes = new Map([
 StartupEvents.registry("block", (event) => {
   event
     .create("society:oil_maker", "cardinal")
-    .property(booleanProperty.create("working"))
-    .property(booleanProperty.create("mature"))
-    .property(booleanProperty.create("upgraded"))
+    .property(workingProperty)
+    .property(matureProperty)
+    .property(upgradedProperty)
     .defaultCutout()
     .tagBlock("minecraft:mineable/pickaxe")
     .tagBlock("minecraft:mineable/axe")
     .tagBlock("minecraft:needs_stone_tool")
+    // Blockstate: client_scripts/machineBlockstates.js. Models: tools/port/assets/make_machine_placeholder.py.
+    .parentModel("society:block/kubejs/oil_maker/oil_maker_off")
     .item((item) => {
       item.tooltip(
         Text.translatable("block.society.oil_maker.description").gray()
       );
-      item.modelJson({
-        parent: "society:block/kubejs/oil_maker/oil_maker_off",
-      });
+      item.parentModel("society:block/kubejs/oil_maker/oil_maker_off");
     })
     .defaultState((state) => {
       state
-        .set(booleanProperty.create("working"), false)
-        .set(booleanProperty.create("mature"), false)
-        .set(booleanProperty.create("upgraded"), false);
+        .set(workingProperty, false)
+        .set(matureProperty, false)
+        .set(upgradedProperty, false);
     })
     .placementState((state) => {
       state
-        .set(booleanProperty.create("working"), false)
-        .set(booleanProperty.create("mature"), false)
-        .set(booleanProperty.create("upgraded"), false);
+        .set(workingProperty, false)
+        .set(matureProperty, false)
+        .set(upgradedProperty, false);
     })
     .rightClick((click) => {
-      const { block } = click;
-      const upgraded = block.properties.get("upgraded").toLowerCase() == "true";
+      let { block } = click;
+      let upgraded = global.isBlockPropertyTrue(block, "upgraded");
       global.handleBERightClick(
         "supplementaries:block.jar.place",
         click,
@@ -54,10 +54,8 @@ StartupEvents.registry("block", (event) => {
     })
     .blockEntity((blockInfo) => {
       blockInfo.initialData({ stage: 0, recipe: "" });
-      blockInfo.serverTick(artMachineTickRate, 0, (entity) => {
-        global.handleBETick(entity, global.oilMakerRecipes, 1);
-      });
-    }).blockstateJson = {
-    multipart: getCardinalMultipartJson("oil_maker"),
-  };
+      blockInfo.serverTicking();
+      blockInfo.tickFrequency(artMachineTickRate);
+    });
 });
+// Morning tick: server_scripts/blockEvents/machineTicks.js

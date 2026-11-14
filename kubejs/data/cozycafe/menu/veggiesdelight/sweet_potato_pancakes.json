@@ -1,8 +1,7 @@
 {
-	"item": "veggiesdelight:sweet_potato_pancakes",
-	"category": "main",
-	"price": 1008,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "veggiesdelight:sweet_potato_pancakes",
+  "category": "main",
+  "price": 1008,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

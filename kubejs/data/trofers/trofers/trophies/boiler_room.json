@@ -1,0 +1,26 @@
+{
+  "colors": {
+    "accent": "#3b1e16",
+    "base": "#bc6131"
+  },
+  "display": {
+    "offset": [
+      0,
+      1,
+      0
+    ],
+    "scale": 2.0
+  },
+  "animation": {
+    "type": "spinning",
+    "speed": 0.1
+  },
+  "name": {
+    "color": "#f6ba47",
+    "translate": "society.trofers.boiler_room"
+  },
+  "item": {
+    "id": "furniture:tool_box",
+    "count": 1
+  }
+}

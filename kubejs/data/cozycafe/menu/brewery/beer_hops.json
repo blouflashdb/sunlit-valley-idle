@@ -1,10 +1,9 @@
 {
-	"item": "brewery:beer_hops",
-	"category": "drink",
-	"price": 207,
-	"product_type": "shippingbin:wood_sell_multiplier",
-	"flavors": [],
-	"themes": [],
-	"bottle_drink": true,
-	"bottle": "brewery:beer_mug"
+  "item": "brewery:beer_hops",
+  "category": "drink",
+  "price": 207,
+  "bottle_drink": true,
+  "bottle": "brewery:beer_mug",
+  "flavors": [],
+  "mult_attribute": "shippingbin:wood_sell_multiplier"
 }

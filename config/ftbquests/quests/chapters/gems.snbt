@@ -7,17 +7,8 @@
 	id: "52FC1CA43F502926"
 	images: [
 		{
-			height: 13.0d
-			image: "society:textures/gui/gem.png"
-			order: 1
-			rotation: 0.0d
-			width: 15.0d
-			x: -0.6428571428571033d
-			y: -2.327380952380935d
-		}
-		{
 			height: 1.25d
-			image: "society:textures/gui/circle_white.png"
+			image: "sunlitidle:textures/gui/quests/circle_white.png"
 			order: 5
 			rotation: 0.0d
 			width: 1.25d
@@ -26,7 +17,7 @@
 		}
 		{
 			height: 1.25d
-			image: "society:textures/gui/circle_white.png"
+			image: "sunlitidle:textures/gui/quests/circle_white.png"
 			order: 5
 			rotation: 0.0d
 			width: 1.25d
@@ -35,7 +26,7 @@
 		}
 		{
 			height: 1.25d
-			image: "society:textures/gui/circle_white.png"
+			image: "sunlitidle:textures/gui/quests/circle_white.png"
 			order: 5
 			rotation: 0.0d
 			width: 1.25d
@@ -44,7 +35,7 @@
 		}
 		{
 			height: 1.25d
-			image: "society:textures/gui/circle_white.png"
+			image: "sunlitidle:textures/gui/quests/circle_white.png"
 			order: 5
 			rotation: 0.0d
 			width: 1.25d
@@ -53,7 +44,7 @@
 		}
 		{
 			height: 1.25d
-			image: "society:textures/gui/circle_white.png"
+			image: "sunlitidle:textures/gui/quests/circle_white.png"
 			order: 5
 			rotation: 0.0d
 			width: 1.25d
@@ -62,7 +53,7 @@
 		}
 		{
 			height: 1.25d
-			image: "society:textures/gui/circle_white.png"
+			image: "sunlitidle:textures/gui/quests/circle_white.png"
 			order: 5
 			rotation: 0.0d
 			width: 1.25d
@@ -71,7 +62,7 @@
 		}
 		{
 			height: 1.25d
-			image: "society:textures/gui/circle_white.png"
+			image: "sunlitidle:textures/gui/quests/circle_white.png"
 			order: 2
 			rotation: 0.0d
 			width: 1.25d
@@ -80,7 +71,7 @@
 		}
 		{
 			height: 1.25d
-			image: "society:textures/gui/circle_white.png"
+			image: "sunlitidle:textures/gui/quests/circle_white.png"
 			order: 2
 			rotation: 0.0d
 			width: 1.25d
@@ -89,7 +80,7 @@
 		}
 		{
 			height: 1.25d
-			image: "society:textures/gui/circle_white.png"
+			image: "sunlitidle:textures/gui/quests/circle_white.png"
 			order: 2
 			rotation: 0.0d
 			width: 1.25d
@@ -98,7 +89,7 @@
 		}
 		{
 			height: 1.25d
-			image: "society:textures/gui/circle_white.png"
+			image: "sunlitidle:textures/gui/quests/circle_white.png"
 			order: 2
 			rotation: 0.0d
 			width: 1.25d
@@ -107,7 +98,7 @@
 		}
 		{
 			height: 1.25d
-			image: "society:textures/gui/circle_white.png"
+			image: "sunlitidle:textures/gui/quests/circle_white.png"
 			order: 2
 			rotation: 0.0d
 			width: 1.25d
@@ -116,7 +107,7 @@
 		}
 		{
 			height: 1.25d
-			image: "society:textures/gui/circle_white.png"
+			image: "sunlitidle:textures/gui/quests/circle_white.png"
 			order: 2
 			rotation: 0.0d
 			width: 1.25d
@@ -125,7 +116,7 @@
 		}
 		{
 			height: 2.0d
-			image: "society:textures/gui/circle_white.png"
+			image: "sunlitidle:textures/gui/quests/circle_white.png"
 			order: 2
 			rotation: 0.0d
 			width: 2.0d
@@ -134,7 +125,7 @@
 		}
 		{
 			height: 4.0d
-			image: "society:textures/gui/sheet.png"
+			image: "sunlitidle:textures/gui/quests/sheet.png"
 			order: 1
 			rotation: 12.0d
 			width: 4.0d
@@ -143,7 +134,7 @@
 		}
 		{
 			height: 3.0d
-			image: "society:textures/gui/seal_red.png"
+			image: "sunlitidle:textures/gui/quests/seal_red.png"
 			order: 2
 			rotation: 0.0d
 			width: 3.0d
@@ -152,7 +143,7 @@
 		}
 		{
 			height: 1.25d
-			image: "society:textures/gui/circle_white.png"
+			image: "sunlitidle:textures/gui/quests/circle_white.png"
 			order: 2
 			rotation: 0.0d
 			width: 1.25d
@@ -160,56 +151,12 @@
 			y: 0.4940476190476275d
 		}
 		{
-			dependency: "632FF55CE6BAB39A"
-			height: 6.3d
-			image: "society:textures/gui/prismatic_flower.png"
-			order: 1
-			rotation: 0.0d
-			width: 6.0d
-			x: -7.440476190476197d
-			y: 0.7083333333333428d
-		}
-		{
 			height: 17.0d
-			image: "society:textures/gui/boards1.png"
+			image: "sunlitidle:textures/gui/quests/boards1.png"
 			rotation: 0.0d
 			width: 30.0d
 			x: 0.523809523809561d
 			y: -2.0292517006802484d
-		}
-		{
-			height: 6.0d
-			image: "society:textures/gui/magnifying_glass.png"
-			order: 3
-			rotation: 0.0d
-			width: 6.0d
-			x: 6.357142857142875d
-			y: -3.9047619047619193d
-		}
-		{
-			height: 9.5d
-			image: "society:textures/gui/main_gem.png"
-			order: 1
-			rotation: 0.0d
-			width: 11.0d
-			x: -0.46428571428567267d
-			y: -2.4702380952380736d
-		}
-		{
-			height: 3.8d
-			image: "society:textures/gui/shard_ruby.png"
-			rotation: 0.0d
-			width: 4.3d
-			x: -2.7499999999999574d
-			y: -3.9416666666666345d
-		}
-		{
-			height: 4.0d
-			image: "society:textures/gui/shard_amethyst.png"
-			rotation: 0.0d
-			width: 4.0d
-			x: -0.5d
-			y: 0.0d
 		}
 	]
 	order_index: 4
@@ -355,13 +302,11 @@
 			]
 			hide_dependency_lines: true
 			icon: {
-				Count: 1
-				id: "trofers:large_pillar"
-				tag: {
-					BlockEntityTag: {
-						Trophy: "trofers:gems"
-					}
+				components: {
+					"trofers:trophy": "trofers:gems"
 				}
+				count: 1
+				id: "trofers:large_pillar"
 			}
 			id: "21B62899C63D3C4B"
 			rewards: [
@@ -373,13 +318,11 @@
 				{
 					id: "0ECE63821053FD3B"
 					item: {
-						Count: 1
-						id: "trofers:large_pillar"
-						tag: {
-							BlockEntityTag: {
-								Trophy: "trofers:gems"
-							}
+						components: {
+							"trofers:trophy": "trofers:gems"
 						}
+						count: 1
+						id: "trofers:large_pillar"
 					}
 					type: "item"
 				}

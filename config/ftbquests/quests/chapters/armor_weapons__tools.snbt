@@ -18,78 +18,18 @@
 				"{ftbquests.chapter.armor_weapons__tools.quest48F1059FC059D3E5.description2}"
 			]
 			icon: {
-				Count: 1
+				count: 1
 				id: "minecraft:leather_chestplate"
-				tag: {
-					Damage: 0
-				}
 			}
 			id: "48F1059FC059D3E5"
 			tasks: [{
 				id: "3CE6113B51970AC2"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "sewingkit:wool_shirt"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "sewingkit:wool_hat"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "sewingkit:wool_pants"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "sewingkit:wool_shoes"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:leather_helmet"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:leather_chestplate"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:leather_leggings"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:leather_boots"
-								tag: {
-									Damage: 0
-								}
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(sewingkit:wool_shirt)item(sewingkit:wool_hat)item(sewingkit:wool_pants)item(sewingkit:wool_shoes)item(minecraft:leather_helmet)item(minecraft:leather_chestplate)item(minecraft:leather_leggings)item(minecraft:leather_boots))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.armor_weapons__tools.quest48F1059FC059D3E5.task.4388213833388722882.title}"
 				type: "item"
@@ -101,50 +41,18 @@
 		{
 			dependencies: ["48F1059FC059D3E5"]
 			icon: {
-				Count: 1
+				count: 1
 				id: "minecraft:chainmail_chestplate"
-				tag: {
-					Damage: 0
-				}
 			}
 			id: "21FD7614E314BA14"
 			tasks: [{
 				id: "7D036618EBB21410"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "minecraft:chainmail_helmet"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:chainmail_chestplate"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:chainmail_leggings"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:chainmail_boots"
-								tag: {
-									Damage: 0
-								}
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(minecraft:chainmail_helmet)item(minecraft:chainmail_chestplate)item(minecraft:chainmail_leggings)item(minecraft:chainmail_boots))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.armor_weapons__tools.quest21FD7614E314BA14.task.9008155936890688528.title}"
 				type: "item"
@@ -157,50 +65,18 @@
 			dependencies: ["0ACB2E342421B74E"]
 			description: ["{ftbquests.chapter.armor_weapons__tools.quest7A5974D470C5AA9C.description1}"]
 			icon: {
-				Count: 1
+				count: 1
 				id: "minecraft:golden_chestplate"
-				tag: {
-					Damage: 0
-				}
 			}
 			id: "7A5974D470C5AA9C"
 			tasks: [{
 				id: "6E8880D4D8EB4DF5"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "minecraft:golden_helmet"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:golden_chestplate"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:golden_leggings"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:golden_boots"
-								tag: {
-									Damage: 0
-								}
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(minecraft:golden_helmet)item(minecraft:golden_chestplate)item(minecraft:golden_leggings)item(minecraft:golden_boots))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.armor_weapons__tools.quest7A5974D470C5AA9C.task.7964757592665443829.title}"
 				type: "item"
@@ -212,50 +88,18 @@
 		{
 			dependencies: ["21FD7614E314BA14"]
 			icon: {
-				Count: 1
+				count: 1
 				id: "minecraft:iron_chestplate"
-				tag: {
-					Damage: 0
-				}
 			}
 			id: "0ACB2E342421B74E"
 			tasks: [{
 				id: "487C30F04C7295E0"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "minecraft:iron_helmet"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:iron_chestplate"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:iron_leggings"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:iron_boots"
-								tag: {
-									Damage: 0
-								}
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(minecraft:iron_helmet)item(minecraft:iron_chestplate)item(minecraft:iron_leggings)item(minecraft:iron_boots))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.armor_weapons__tools.questACB2E342421B74E.task.5223103476475794912.title}"
 				type: "item"
@@ -267,50 +111,18 @@
 		{
 			dependencies: ["7A5974D470C5AA9C"]
 			icon: {
-				Count: 1
+				count: 1
 				id: "minecraft:diamond_chestplate"
-				tag: {
-					Damage: 0
-				}
 			}
 			id: "38A0B8D54F85B846"
 			tasks: [{
 				id: "3E0453D9C60A9B8C"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "minecraft:diamond_helmet"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:diamond_chestplate"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:diamond_leggings"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:diamond_boots"
-								tag: {
-									Damage: 0
-								}
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(minecraft:diamond_helmet)item(minecraft:diamond_chestplate)item(minecraft:diamond_leggings)item(minecraft:diamond_boots))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.armor_weapons__tools.quest38A0B8D54F85B846.task.4468788925053967244.title}"
 				type: "item"
@@ -323,50 +135,18 @@
 			dependencies: ["38A0B8D54F85B846"]
 			description: ["{ftbquests.chapter.armor_weapons__tools.quest4C2120EC29BE0E64.description1}"]
 			icon: {
-				Count: 1
+				count: 1
 				id: "minecraft:netherite_chestplate"
-				tag: {
-					Damage: 0
-				}
 			}
 			id: "4C2120EC29BE0E64"
 			tasks: [{
 				id: "5E760A955BFF6876"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "minecraft:netherite_helmet"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:netherite_chestplate"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:netherite_leggings"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:netherite_boots"
-								tag: {
-									Damage: 0
-								}
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(minecraft:netherite_helmet)item(minecraft:netherite_chestplate)item(minecraft:netherite_leggings)item(minecraft:netherite_boots))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.armor_weapons__tools.quest4C2120EC29BE0E64.task.6806639523426953334.title}"
 				type: "item"
@@ -383,50 +163,18 @@
 				"{ftbquests.chapter.armor_weapons__tools.quest33FD69B12C21E495.description2}"
 			]
 			icon: {
-				Count: 1
+				count: 1
 				id: "aquaculture:neptunium_chestplate"
-				tag: {
-					Damage: 0
-				}
 			}
 			id: "33FD69B12C21E495"
 			tasks: [{
 				id: "2ED9B316F07C51F3"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "aquaculture:neptunium_helmet"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "aquaculture:neptunium_chestplate"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "aquaculture:neptunium_leggings"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "aquaculture:neptunium_boots"
-								tag: {
-									Damage: 0
-								}
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(aquaculture:neptunium_helmet)item(aquaculture:neptunium_chestplate)item(aquaculture:neptunium_leggings)item(aquaculture:neptunium_boots))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.armor_weapons__tools.quest33FD69B12C21E495.task.3375926306796229107.title}"
 				type: "item"
@@ -438,57 +186,18 @@
 		{
 			dependencies: ["617AC2E80908BFD7"]
 			icon: {
-				Count: 1
+				count: 1
 				id: "minecraft:wooden_pickaxe"
-				tag: {
-					Damage: 0
-				}
 			}
 			id: "1B614E9E38B45BD0"
 			tasks: [{
 				id: "7972CE0709D02D49"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "minecraft:wooden_shovel"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:wooden_pickaxe"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:wooden_axe"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:wooden_hoe"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:wooden_sword"
-								tag: {
-									Damage: 0
-								}
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(minecraft:wooden_shovel)item(minecraft:wooden_pickaxe)item(minecraft:wooden_axe)item(minecraft:wooden_hoe)item(minecraft:wooden_sword))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.armor_weapons__tools.quest1B614E9E38B45BD0.task.8751283555559025993.title}"
 				type: "item"
@@ -500,57 +209,18 @@
 		{
 			dependencies: ["1B614E9E38B45BD0"]
 			icon: {
-				Count: 1
+				count: 1
 				id: "minecraft:stone_pickaxe"
-				tag: {
-					Damage: 0
-				}
 			}
 			id: "43C52E202277C5AA"
 			tasks: [{
 				id: "0E5D7529339C2A99"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "minecraft:stone_shovel"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:stone_pickaxe"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:stone_axe"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:stone_hoe"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:stone_sword"
-								tag: {
-									Damage: 0
-								}
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(minecraft:stone_shovel)item(minecraft:stone_pickaxe)item(minecraft:stone_axe)item(minecraft:stone_hoe)item(minecraft:stone_sword))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.armor_weapons__tools.quest43C52E202277C5AA.task.1035112309185063577.title}"
 				type: "item"
@@ -563,57 +233,18 @@
 			dependencies: ["08241E18191275AE"]
 			description: ["{ftbquests.chapter.armor_weapons__tools.quest32FE1F4EF913EADA.description1}"]
 			icon: {
-				Count: 1
+				count: 1
 				id: "minecraft:golden_pickaxe"
-				tag: {
-					Damage: 0
-				}
 			}
 			id: "32FE1F4EF913EADA"
 			tasks: [{
 				id: "4D916A97F18FCE61"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "minecraft:golden_shovel"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:golden_pickaxe"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:golden_axe"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:golden_hoe"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:golden_sword"
-								tag: {
-									Damage: 0
-								}
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(minecraft:golden_shovel)item(minecraft:golden_pickaxe)item(minecraft:golden_axe)item(minecraft:golden_hoe)item(minecraft:golden_sword))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.armor_weapons__tools.quest32FE1F4EF913EADA.task.5589365813368835681.title}"
 				type: "item"
@@ -625,57 +256,18 @@
 		{
 			dependencies: ["43C52E202277C5AA"]
 			icon: {
-				Count: 1
+				count: 1
 				id: "minecraft:iron_pickaxe"
-				tag: {
-					Damage: 0
-				}
 			}
 			id: "08241E18191275AE"
 			tasks: [{
 				id: "18CE25FAB2D5E7FE"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "minecraft:iron_shovel"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:iron_pickaxe"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:iron_axe"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:iron_hoe"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:iron_sword"
-								tag: {
-									Damage: 0
-								}
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(minecraft:iron_shovel)item(minecraft:iron_pickaxe)item(minecraft:iron_axe)item(minecraft:iron_hoe)item(minecraft:iron_sword))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.armor_weapons__tools.quest8241E18191275AE.task.1787407860785080318.title}"
 				type: "item"
@@ -687,57 +279,18 @@
 		{
 			dependencies: ["32FE1F4EF913EADA"]
 			icon: {
-				Count: 1
+				count: 1
 				id: "minecraft:diamond_pickaxe"
-				tag: {
-					Damage: 0
-				}
 			}
 			id: "54301E900FFA56D7"
 			tasks: [{
 				id: "0A266FA5E2FD2103"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "minecraft:diamond_shovel"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:diamond_pickaxe"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:diamond_axe"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:diamond_hoe"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:diamond_sword"
-								tag: {
-									Damage: 0
-								}
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(minecraft:diamond_shovel)item(minecraft:diamond_pickaxe)item(minecraft:diamond_axe)item(minecraft:diamond_hoe)item(minecraft:diamond_sword))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.armor_weapons__tools.quest54301E900FFA56D7.task.731394747762811139.title}"
 				type: "item"
@@ -750,57 +303,18 @@
 			dependencies: ["54301E900FFA56D7"]
 			description: ["{ftbquests.chapter.armor_weapons__tools.quest319129CE8210964A.description1}"]
 			icon: {
-				Count: 1
+				count: 1
 				id: "minecraft:netherite_pickaxe"
-				tag: {
-					Damage: 0
-				}
 			}
 			id: "319129CE8210964A"
 			tasks: [{
 				id: "6D157C77899A7115"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "minecraft:netherite_shovel"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:netherite_pickaxe"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:netherite_axe"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:netherite_hoe"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:netherite_sword"
-								tag: {
-									Damage: 0
-								}
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(minecraft:netherite_shovel)item(minecraft:netherite_pickaxe)item(minecraft:netherite_axe)item(minecraft:netherite_hoe)item(minecraft:netherite_sword))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.armor_weapons__tools.quest319129CE8210964A.task.7860325577496621333.title}"
 				type: "item"
@@ -817,59 +331,23 @@
 				"{ftbquests.chapter.armor_weapons__tools.quest4EA02089CD02F7C0.description2}"
 			]
 			icon: {
-				Count: 1
-				id: "aquaculture:neptunium_pickaxe"
-				tag: {
-					Damage: 0
-					inWater: 0b
+				components: {
+					"minecraft:custom_data": {
+						inWater: 0b
+					}
 				}
+				count: 1
+				id: "aquaculture:neptunium_pickaxe"
 			}
 			id: "4EA02089CD02F7C0"
 			tasks: [{
 				id: "1756A4BFB7D46C3B"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "aquaculture:neptunium_shovel"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "aquaculture:neptunium_pickaxe"
-								tag: {
-									Damage: 0
-									inWater: 0b
-								}
-							}
-							{
-								Count: 1b
-								id: "aquaculture:neptunium_axe"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "aquaculture:neptunium_hoe"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "aquaculture:neptunium_sword"
-								tag: {
-									Damage: 0
-								}
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(aquaculture:neptunium_shovel)item(aquaculture:neptunium_pickaxe)item(aquaculture:neptunium_axe)item(aquaculture:neptunium_hoe)item(aquaculture:neptunium_sword))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.armor_weapons__tools.quest4EA02089CD02F7C0.task.1681712654199319611.title}"
 				type: "item"
@@ -890,11 +368,8 @@
 			tasks: [{
 				id: "25726DD0405094ED"
 				item: {
-					Count: 1
+					count: 1
 					id: "society:galaxy_sword"
-					tag: {
-						Damage: 0
-					}
 				}
 				type: "item"
 			}]
@@ -917,11 +392,8 @@
 			tasks: [{
 				id: "516842080F2C3202"
 				item: {
-					Count: 1
+					count: 1
 					id: "quark:flamerang"
-					tag: {
-						Damage: 0
-					}
 				}
 				type: "item"
 			}]
@@ -940,11 +412,8 @@
 			size: 2.0d
 			tasks: [{
 				icon: {
-					Count: 1
+					count: 1
 					id: "minecraft:wooden_pickaxe"
-					tag: {
-						Damage: 0
-					}
 				}
 				id: "531DADCAC7BBB3D6"
 				stat: "minecraft:play_time"
@@ -972,11 +441,8 @@
 			tasks: [{
 				id: "436D7FA36BB7DBC7"
 				item: {
-					Count: 1
+					count: 1
 					id: "quark:pickarang"
-					tag: {
-						Damage: 0
-					}
 				}
 				type: "item"
 			}]
@@ -1017,11 +483,8 @@
 			tasks: [{
 				id: "679F77AC09496A00"
 				item: {
-					Count: 1
+					count: 1
 					id: "society:dragontooth_axe"
-					tag: {
-						Damage: 0
-					}
 				}
 				type: "item"
 			}]
@@ -1124,11 +587,13 @@
 			dependencies: ["617AC2E80908BFD7"]
 			description: ["{ftbquests.chapter.armor_weapons__tools.quest4EFD1F876D69591E.description1}"]
 			icon: {
-				Count: 1
-				id: "create:copper_backtank"
-				tag: {
-					Air: 900
+				components: {
+					"minecraft:custom_data": {
+						Air: 900
+					}
 				}
+				count: 1
+				id: "create:copper_backtank"
 			}
 			id: "4EFD1F876D69591E"
 			rewards: [{
@@ -1141,22 +606,21 @@
 				{
 					id: "683268C23DA4539C"
 					item: {
-						Count: 1
-						id: "create:copper_backtank"
-						tag: {
-							Air: 900
+						components: {
+							"minecraft:custom_data": {
+								Air: 900
+							}
 						}
+						count: 1
+						id: "create:copper_backtank"
 					}
 					type: "item"
 				}
 				{
 					id: "52BC953CDF066443"
 					item: {
-						Count: 1
+						count: 1
 						id: "create:copper_diving_helmet"
-						tag: {
-							Damage: 0
-						}
 					}
 					type: "item"
 				}
@@ -1173,11 +637,8 @@
 				"{ftbquests.chapter.armor_weapons__tools.quest1BA73EA72B471270.description2}"
 			]
 			icon: {
-				Count: 1
+				count: 1
 				id: "create:netherite_diving_helmet"
-				tag: {
-					Damage: 0
-				}
 			}
 			id: "1BA73EA72B471270"
 			rewards: [{
@@ -1190,44 +651,37 @@
 				{
 					id: "428FFD2A753C865A"
 					item: {
-						Count: 1
-						id: "create:netherite_backtank"
-						tag: {
-							Air: 900
+						components: {
+							"minecraft:custom_data": {
+								Air: 900
+							}
 						}
+						count: 1
+						id: "create:netherite_backtank"
 					}
 					type: "item"
 				}
 				{
 					id: "601DC64B900C2727"
 					item: {
-						Count: 1
+						count: 1
 						id: "create:netherite_diving_helmet"
-						tag: {
-							Damage: 0
-						}
 					}
 					type: "item"
 				}
 				{
 					id: "51B5C2C1EE615EDD"
 					item: {
-						Count: 1
+						count: 1
 						id: "minecraft:netherite_leggings"
-						tag: {
-							Damage: 0
-						}
 					}
 					type: "item"
 				}
 				{
 					id: "6860BA052E0FC30C"
 					item: {
-						Count: 1
+						count: 1
 						id: "create:netherite_diving_boots"
-						tag: {
-							Damage: 0
-						}
 					}
 					type: "item"
 				}
@@ -1248,11 +702,8 @@
 			tasks: [{
 				id: "3FABAD861E31703F"
 				item: {
-					Count: 1
+					count: 1
 					id: "create:potato_cannon"
-					tag: {
-						Damage: 0
-					}
 				}
 				type: "item"
 			}]
@@ -1272,11 +723,8 @@
 			tasks: [{
 				id: "64F4D6DFFD587DC0"
 				item: {
-					Count: 1
+					count: 1
 					id: "create:extendo_grip"
-					tag: {
-						Damage: 0
-					}
 				}
 				type: "item"
 			}]
@@ -1287,11 +735,8 @@
 			dependencies: ["617AC2E80908BFD7"]
 			description: ["{ftbquests.chapter.armor_weapons__tools.quest34206688082CCC57.description1}"]
 			icon: {
-				Count: 1
+				count: 1
 				id: "justhammers:netherite_reinforced_hammer"
-				tag: {
-					Damage: 0
-				}
 			}
 			id: "34206688082CCC57"
 			tasks: [{
@@ -1329,11 +774,8 @@
 				"{ftbquests.chapter.armor_weapons__tools.quest66510F15A69EBAED.description3}"
 			]
 			icon: {
-				Count: 1
+				count: 1
 				id: "justhammers:diamond_hammer"
-				tag: {
-					Damage: 0
-				}
 			}
 			id: "66510F15A69EBAED"
 			rewards: [{
@@ -1344,23 +786,11 @@
 			tasks: [{
 				id: "5BC87C4D31D9CEB1"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "justhammers:small_core"
-							}
-							{
-								Count: 1b
-								id: "justhammers:impact_core"
-								tag: {
-									Damage: 0
-								}
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(justhammers:small_core)item(justhammers:impact_core))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.armor_weapons__tools.quest66510F15A69EBAED.task.6613672723784257201.title}"
 				type: "item"
@@ -1372,51 +802,19 @@
 		{
 			dependencies: ["7A5974D470C5AA9C"]
 			icon: {
-				Count: 1
+				count: 1
 				id: "botania:manasteel_chestplate"
-				tag: {
-					Damage: 0
-				}
 			}
 			id: "6080E8F9B0DDAE72"
 			subtitle: "{ftbquests.chapter.armor_weapons__tools.quest6080E8F9B0DDAE72.subtitle}"
 			tasks: [{
 				id: "12DAF95F0B50680C"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "botania:manasteel_leggings"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "botania:manasteel_chestplate"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "botania:manasteel_helmet"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "botania:manasteel_boots"
-								tag: {
-									Damage: 0
-								}
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(botania:manasteel_leggings)item(botania:manasteel_chestplate)item(botania:manasteel_helmet)item(botania:manasteel_boots))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.armor_weapons__tools.quest6080E8F9B0DDAE72.task.1358672424212654092.title}"
 				type: "item"
@@ -1428,50 +826,18 @@
 		{
 			dependencies: ["6080E8F9B0DDAE72"]
 			icon: {
-				Count: 1
+				count: 1
 				id: "botania:terrasteel_chestplate"
-				tag: {
-					Damage: 0
-				}
 			}
 			id: "6E4CC63B8CF1EDAF"
 			tasks: [{
 				id: "7EDA5896186979D5"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "botania:terrasteel_boots"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "botania:terrasteel_leggings"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "botania:terrasteel_chestplate"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "botania:terrasteel_helmet"
-								tag: {
-									Damage: 0
-								}
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(botania:terrasteel_boots)item(botania:terrasteel_leggings)item(botania:terrasteel_chestplate)item(botania:terrasteel_helmet))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.armor_weapons__tools.quest6E4CC63B8CF1EDAF.task.9140715795379747285.title}"
 				type: "item"
@@ -1483,50 +849,18 @@
 		{
 			dependencies: ["6080E8F9B0DDAE72"]
 			icon: {
-				Count: 1
+				count: 1
 				id: "botania:elementium_chestplate"
-				tag: {
-					Damage: 0
-				}
 			}
 			id: "3FC4155A11F14663"
 			tasks: [{
 				id: "033A4317987E15C2"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "botania:elementium_helmet"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "botania:elementium_chestplate"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "botania:elementium_boots"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "botania:elementium_leggings"
-								tag: {
-									Damage: 0
-								}
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(botania:elementium_helmet)item(botania:elementium_chestplate)item(botania:elementium_boots)item(botania:elementium_leggings))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.armor_weapons__tools.quest3FC4155A11F14663.task.232572099384710594.title}"
 				type: "item"
@@ -1539,51 +873,19 @@
 			dependencies: ["38A0B8D54F85B846"]
 			description: ["{ftbquests.chapter.armor_weapons__tools.quest6FDA9C1E5D681CDA.description1}"]
 			icon: {
-				Count: 1
+				count: 1
 				id: "oreganized:electrum_chestplate"
-				tag: {
-					Damage: 0
-				}
 			}
 			id: "6FDA9C1E5D681CDA"
 			subtitle: "{ftbquests.chapter.armor_weapons__tools.quest6FDA9C1E5D681CDA.subtitle}"
 			tasks: [{
 				id: "652F7B6F053D1586"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "oreganized:electrum_helmet"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "oreganized:electrum_chestplate"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "oreganized:electrum_leggings"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "oreganized:electrum_boots"
-								tag: {
-									Damage: 0
-								}
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(oreganized:electrum_helmet)item(oreganized:electrum_chestplate)item(oreganized:electrum_leggings)item(oreganized:electrum_boots))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.armor_weapons__tools.quest6FDA9C1E5D681CDA.task.7291182038495597958.title}"
 				type: "item"
@@ -1600,58 +902,19 @@
 				"{ftbquests.chapter.armor_weapons__tools.quest11207C347FC407E1.description2}"
 			]
 			icon: {
-				Count: 1
+				count: 1
 				id: "oreganized:electrum_pickaxe"
-				tag: {
-					Damage: 0
-				}
 			}
 			id: "11207C347FC407E1"
 			subtitle: "{ftbquests.chapter.armor_weapons__tools.quest11207C347FC407E1.subtitle}"
 			tasks: [{
 				id: "2712211EC08C9471"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "oreganized:electrum_shovel"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "oreganized:electrum_pickaxe"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "oreganized:electrum_axe"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "oreganized:electrum_hoe"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "oreganized:electrum_sword"
-								tag: {
-									Damage: 0
-								}
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(oreganized:electrum_shovel)item(oreganized:electrum_pickaxe)item(oreganized:electrum_axe)item(oreganized:electrum_hoe)item(oreganized:electrum_sword))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.armor_weapons__tools.quest11207C347FC407E1.task.2815349133023155313.title}"
 				type: "item"
@@ -1664,7 +927,6 @@
 			dependencies: ["0B85DF081F75ECA7"]
 			description: [
 				""
-				""
 				"{ftbquests.chapter.armor_weapons__tools.quest62C9E95DF7C987D.description1}"
 			]
 			id: "062C9E95DF7C987D"
@@ -1676,11 +938,8 @@
 			tasks: [{
 				id: "2176C463AE27D165"
 				item: {
-					Count: 1
+					count: 1
 					id: "society:meowmageddon"
-					tag: {
-						Damage: 0
-					}
 				}
 				type: "item"
 			}]

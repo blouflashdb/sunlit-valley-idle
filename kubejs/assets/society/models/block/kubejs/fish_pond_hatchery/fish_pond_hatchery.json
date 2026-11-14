@@ -1,0 +1,10 @@
+{
+  "parent": "society:block/kubejs/placeholder/machine",
+  "textures": {
+    "side": "minecraft:block/dark_prismarine",
+    "front": "minecraft:block/prismarine_bricks",
+    "top": "minecraft:block/barrel_top",
+    "bottom": "minecraft:block/barrel_top",
+    "particle": "minecraft:block/dark_prismarine"
+  }
+}

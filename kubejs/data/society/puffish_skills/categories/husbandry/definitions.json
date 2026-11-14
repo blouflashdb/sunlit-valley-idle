@@ -1,7 +1,11 @@
 {
   "healing+5%": {
-    "title": {"translate": "society_skills.husbandry.healing"},
-    "description": {"translate": "society_skills.husbandry.healing.description"},
+    "title": {
+      "translate": "society_skills.husbandry.healing"
+    },
+    "description": {
+      "translate": "society_skills.husbandry.healing.description"
+    },
     "icon": {
       "type": "effect",
       "data": {
@@ -20,8 +24,12 @@
     ]
   },
   "stamina+5%": {
-    "title": {"translate": "society_skills.husbandry.stamina"},
-    "description": {"translate": "society_skills.husbandry.stamina.description"},
+    "title": {
+      "translate": "society_skills.husbandry.stamina"
+    },
+    "description": {
+      "translate": "society_skills.husbandry.stamina.description"
+    },
     "icon": {
       "type": "effect",
       "data": {
@@ -32,7 +40,7 @@
       {
         "type": "puffish_skills:attribute",
         "data": {
-          "attribute": "puffish_skills:stamina",
+          "attribute": "puffish_attributes:stamina",
           "value": 0.05,
           "operation": "multiply_total"
         }
@@ -40,8 +48,12 @@
     ]
   },
   "bribery": {
-    "title": {"translate": "society_skills.husbandry.bribery"},
-    "description": {"translate": "society_skills.husbandry.bribery.description"},
+    "title": {
+      "translate": "society_skills.husbandry.bribery"
+    },
+    "description": {
+      "translate": "society_skills.husbandry.bribery.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -65,8 +77,12 @@
     ]
   },
   "mana_hand": {
-    "title": {"translate": "society_skills.husbandry.mana_hand"},
-    "description": {"translate": "society_skills.husbandry.mana_hand.description"},
+    "title": {
+      "translate": "society_skills.husbandry.mana_hand"
+    },
+    "description": {
+      "translate": "society_skills.husbandry.mana_hand.description"
+    },
     "icon": {
       "type": "item",
       "data": {
@@ -84,8 +100,12 @@
     ]
   },
   "biomancer": {
-    "title": {"translate": "society_skills.husbandry.biomancer"},
-    "description": {"translate": "society_skills.husbandry.biomancer.description"},
+    "title": {
+      "translate": "society_skills.husbandry.biomancer"
+    },
+    "description": {
+      "translate": "society_skills.husbandry.biomancer.description"
+    },
     "icon": {
       "type": "item",
       "data": {
@@ -103,8 +123,12 @@
     ]
   },
   "animal_whisperer": {
-    "title": {"translate": "society_skills.husbandry.animal_whisperer"},
-    "description": {"translate": "society_skills.husbandry.animal_whisperer.description"},
+    "title": {
+      "translate": "society_skills.husbandry.animal_whisperer"
+    },
+    "description": {
+      "translate": "society_skills.husbandry.animal_whisperer.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -128,8 +152,12 @@
     ]
   },
   "triple_truffle": {
-    "title": {"translate": "society_skills.husbandry.triple_truffle"},
-    "description": {"translate": "society_skills.husbandry.triple_truffle.description"},
+    "title": {
+      "translate": "society_skills.husbandry.triple_truffle"
+    },
+    "description": {
+      "translate": "society_skills.husbandry.triple_truffle.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -153,8 +181,12 @@
     ]
   },
   "sacrificial_lamb": {
-    "title": {"translate": "society_skills.husbandry.sacrificial_lamb"},
-    "description": {"translate": "society_skills.husbandry.sacrificial_lamb.description"},
+    "title": {
+      "translate": "society_skills.husbandry.sacrificial_lamb"
+    },
+    "description": {
+      "translate": "society_skills.husbandry.sacrificial_lamb.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -178,8 +210,12 @@
     ]
   },
   "transplanting": {
-    "title": {"translate": "society_skills.husbandry.transplanting"},
-    "description": {"translate": "society_skills.husbandry.transplanting.description"},
+    "title": {
+      "translate": "society_skills.husbandry.transplanting"
+    },
+    "description": {
+      "translate": "society_skills.husbandry.transplanting.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -203,8 +239,12 @@
     ]
   },
   "shepherd": {
-    "title": {"translate": "society_skills.husbandry.shepherd"},
-    "description": {"translate": "society_skills.husbandry.shepherd.description"},
+    "title": {
+      "translate": "society_skills.husbandry.shepherd"
+    },
+    "description": {
+      "translate": "society_skills.husbandry.shepherd.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -228,8 +268,12 @@
     ]
   },
   "coopmaster": {
-    "title": {"translate": "society_skills.husbandry.coopmaster"},
-    "description": {"translate": "society_skills.husbandry.coopmaster.description"},
+    "title": {
+      "translate": "society_skills.husbandry.coopmaster"
+    },
+    "description": {
+      "translate": "society_skills.husbandry.coopmaster.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -253,8 +297,12 @@
     ]
   },
   "bff": {
-    "title": {"translate": "society_skills.husbandry.bff"},
-    "description": {"translate": "society_skills.husbandry.bff.description"},
+    "title": {
+      "translate": "society_skills.husbandry.bff"
+    },
+    "description": {
+      "translate": "society_skills.husbandry.bff.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -278,8 +326,12 @@
     ]
   },
   "clockwork": {
-    "title": {"translate": "society_skills.husbandry.clockwork"},
-    "description": {"translate": "society_skills.husbandry.clockwork.description"},
+    "title": {
+      "translate": "society_skills.husbandry.clockwork"
+    },
+    "description": {
+      "translate": "society_skills.husbandry.clockwork.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -303,8 +355,12 @@
     ]
   },
   "heretic": {
-    "title": {"translate": "society_skills.husbandry.heretic"},
-    "description": {"translate": "society_skills.husbandry.heretic.description"},
+    "title": {
+      "translate": "society_skills.husbandry.heretic"
+    },
+    "description": {
+      "translate": "society_skills.husbandry.heretic.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {

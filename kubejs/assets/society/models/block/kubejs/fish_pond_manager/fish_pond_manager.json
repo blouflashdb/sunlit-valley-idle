@@ -1,0 +1,10 @@
+{
+  "parent": "society:block/kubejs/placeholder/machine",
+  "textures": {
+    "side": "minecraft:block/cartography_table_side1",
+    "front": "minecraft:block/cartography_table_side3",
+    "top": "minecraft:block/cartography_table_top",
+    "bottom": "minecraft:block/cartography_table_top",
+    "particle": "minecraft:block/cartography_table_side1"
+  }
+}

@@ -1,8 +1,7 @@
 {
-	"item": "minecraft:baked_potato",
-	"category": "main",
-	"price": 54,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "minecraft:baked_potato",
+  "category": "main",
+  "price": 54,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

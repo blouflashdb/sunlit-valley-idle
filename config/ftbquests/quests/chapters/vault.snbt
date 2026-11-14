@@ -7,14 +7,7 @@
 	group: "106AD9AA3ADDE3AE"
 	icon: "furniture:cash_register"
 	id: "24DD5AA13FB04D9B"
-	images: [{
-		height: 10.0d
-		image: "society:textures/gui/community_center_vault.png"
-		rotation: 0.0d
-		width: 17.77777777777778d
-		x: 0.0d
-		y: 0.0d
-	}]
+	images: [ ]
 	order_index: 2
 	quest_links: [ ]
 	quests: [
@@ -30,7 +23,10 @@
 			tasks: [{
 				count: 4L
 				id: "22FC2E88EA6ABB6A"
-				item: { Count: 4, id: "numismatics:crown" }
+				item: {
+					count: 4
+					id: "numismatics:crown"
+				}
 				type: "item"
 			}]
 			title: "{ftbquests.chapter.vault.quest7CE6C320CC9F9B87.title}"
@@ -120,13 +116,11 @@
 				{
 					id: "56E23AC06D59CFB7"
 					item: {
-						Count: 1
-						id: "trofers:large_pillar"
-						tag: {
-							BlockEntityTag: {
-								Trophy: "trofers:vault"
-							}
+						components: {
+							"trofers:trophy": "trofers:vault"
 						}
+						count: 1
+						id: "trofers:large_pillar"
 					}
 					type: "item"
 				}

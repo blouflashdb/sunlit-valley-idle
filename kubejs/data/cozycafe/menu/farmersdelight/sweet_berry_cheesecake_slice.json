@@ -1,8 +1,7 @@
 {
-	"item": "farmersdelight:sweet_berry_cheesecake_slice",
-	"category": "dessert",
-	"price": 239,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "farmersdelight:sweet_berry_cheesecake_slice",
+  "category": "dessert",
+  "price": 239,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

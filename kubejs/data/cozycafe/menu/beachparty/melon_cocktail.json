@@ -1,8 +1,7 @@
 {
-	"item": "beachparty:melon_cocktail",
-	"category": "drink",
-	"price": 42,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "beachparty:melon_cocktail",
+  "category": "drink",
+  "price": 42,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

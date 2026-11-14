@@ -1,0 +1,68 @@
+{
+  "root": {
+    "definition": "manual",
+    "x": -256,
+    "y": 0,
+    "root": true
+  },
+  "s1": {
+    "definition": "speed",
+    "x": -192,
+    "y": 0,
+    "root": false
+  },
+  "y1": {
+    "definition": "yield",
+    "x": -128,
+    "y": -48,
+    "root": false
+  },
+  "y2": {
+    "definition": "yield",
+    "x": -64,
+    "y": -48,
+    "root": false
+  },
+  "y3": {
+    "definition": "yield",
+    "x": 0,
+    "y": -48,
+    "root": false
+  },
+  "yc": {
+    "definition": "yield_cap",
+    "x": 64,
+    "y": -48,
+    "root": false
+  },
+  "p1": {
+    "definition": "speed",
+    "x": -128,
+    "y": 48,
+    "root": false
+  },
+  "p2": {
+    "definition": "manual",
+    "x": -64,
+    "y": 48,
+    "root": false
+  },
+  "p3": {
+    "definition": "speed",
+    "x": 0,
+    "y": 48,
+    "root": false
+  },
+  "pc": {
+    "definition": "speed_cap",
+    "x": 64,
+    "y": 48,
+    "root": false
+  },
+  "m": {
+    "definition": "master",
+    "x": 128,
+    "y": 0,
+    "root": false
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "comforts:sleeping_bag",
+  "pattern": [
+    "aaa"
+  ],
+  "key": {
+    "a": {
+      "item": "society:canvas"
+    }
+  },
+  "result": {
+    "id": "comforts:sleeping_bag_white",
+    "count": 1
+  }
+}

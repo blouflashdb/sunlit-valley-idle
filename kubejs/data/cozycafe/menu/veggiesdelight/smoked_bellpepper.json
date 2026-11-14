@@ -1,8 +1,7 @@
 {
-	"item": "veggiesdelight:smoked_bellpepper",
-	"category": "main",
-	"price": 72,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "veggiesdelight:smoked_bellpepper",
+  "category": "main",
+  "price": 72,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

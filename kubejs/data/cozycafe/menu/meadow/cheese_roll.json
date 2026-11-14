@@ -1,8 +1,7 @@
 {
-	"item": "meadow:cheese_roll",
-	"category": "main",
-	"price": 29,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "meadow:cheese_roll",
+  "category": "main",
+  "price": 29,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "buildinggadgets2",
+  "key": {
+    "i": {
+      "tag": "c:ingots/zinc"
+    },
+    "p": {
+      "item": "society:prismatic_shard"
+    },
+    "c": {
+      "item": "buildinggadgets2:gadget_core"
+    },
+    "b": {
+      "item": "society:battery"
+    },
+    "s": {
+      "item": "minecraft:shears"
+    }
+  },
+  "pattern": [
+    "ipi",
+    "bcb",
+    "isi"
+  ],
+  "result": {
+    "id": "buildinggadgets2:gadget_cut_paste",
+    "count": 1
+  },
+  "show_notification": true
+}

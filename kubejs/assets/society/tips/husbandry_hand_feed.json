@@ -1,5 +1,6 @@
 {
-	"tip": {
-		"translate": "society_tips.tip.husbandry_hand_feed"
-	}
+  "type": "tipsmod:simple",
+  "text": {
+    "translate": "society_tips.tip.husbandry_hand_feed"
+  }
 }

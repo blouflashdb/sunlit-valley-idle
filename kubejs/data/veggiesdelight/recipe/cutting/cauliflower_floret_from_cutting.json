@@ -1,0 +1,19 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "veggiesdelight:cauliflower"
+    }
+  ],
+  "result": [
+    {
+      "item": {
+        "id": "veggiesdelight:cauliflower_floret",
+        "count": 4
+      }
+    }
+  ],
+  "tool": {
+    "tag": "c:tools/knives"
+  }
+}

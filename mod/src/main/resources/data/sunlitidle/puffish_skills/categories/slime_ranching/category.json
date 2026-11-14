@@ -1,0 +1,14 @@
+{
+  "unlocked_by_default": true,
+  "title": {
+    "translate": "sunlitidle.skills.slime_ranching.category.title"
+  },
+  "icon": {
+    "type": "item",
+    "data": {
+      "item": "minecraft:slime_ball"
+    }
+  },
+  "background": "textures/block/slime_block.png",
+  "spent_points_limit": 12
+}

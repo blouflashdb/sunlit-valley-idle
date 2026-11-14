@@ -1,49 +1,44 @@
 console.info("[SOCIETY] snowMelter.js loaded");
 
-global.handleSnowMelter = (entity) => {
+// Snow Melter (#18): every 600 ticks, unless powered by redstone, it removes snow layers and melts ice into water
+// in a 21x5x21 area around itself. server_scripts/blockEvents/machineTicks.js calls global.runSnowMelter.
+// Snow Real Magic (snow on plants) is not in the 1.21.1 pack, so only vanilla snow and ice are handled.
+const $SnowMelterBlockPos = Java.loadClass("net.minecraft.core.BlockPos");
+const snowMelterRadius = 10;
+const snowMelterHeight = 2;
+
+global.runSnowMelter = (entity) => {
   const { block, level } = entity;
-  if (block.level.hasNeighborSignal(block.pos)) return;
+  if (level.hasNeighborSignal(block.pos)) return;
   const { x, y, z } = block;
-  const radius = 10;
-  const verticalRadius = 2;
-  let scanBlock;
-  if (global.susFunctionLogging) console.log('[SOCIETY-SUSFN] snowMelter.js')
-  for (let pos of BlockPos.betweenClosed(new BlockPos(x - radius, y - verticalRadius, z - radius), [
-    x + radius,
-    y + verticalRadius,
-    z + radius,
-  ])) {
+  const from = new $SnowMelterBlockPos(x - snowMelterRadius, y - snowMelterHeight, z - snowMelterRadius);
+  const to = new $SnowMelterBlockPos(x + snowMelterRadius, y + snowMelterHeight, z + snowMelterRadius);
+  for (let pos of $SnowMelterBlockPos.betweenClosed(from, to)) {
     if (!level.isLoaded(pos)) continue;
-    scanBlock = level.getBlock(pos);
-    if (scanBlock.id === "minecraft:snow") {
-      scanBlock.set("minecraft:air");
-    }
-    if (scanBlock.id === "snowrealmagic:snow") {
-      scanBlock.set(scanBlock.getEntityData().Block);
-    }
-    if (scanBlock.id === "minecraft:ice") {
-      scanBlock.set("minecraft:water");
-    }
+    let scanBlock = level.getBlock(pos);
+    if (scanBlock.id === "minecraft:snow") scanBlock.set("minecraft:air");
+    else if (scanBlock.id === "minecraft:ice") scanBlock.set("minecraft:water");
   }
 };
 
-StartupEvents.registry("block", (e) => {
-  e.create("society:snow_melter", "cardinal")
+StartupEvents.registry("block", (event) => {
+  event
+    .create("society:snow_melter", "cardinal")
+    .displayName("Snow Melter")
+    .soundType("stone")
+    .hardness(2.0)
     .tagBlock("minecraft:mineable/pickaxe")
     .tagBlock("minecraft:needs_stone_tool")
+    .requiresTool(true)
     .box(0, 0, 0, 16, 16, 16)
-    .defaultCutout()
+    .parentModel("society:block/kubejs/snow_melter/snow_melter")
     .item((item) => {
       item.tooltip(Text.translatable("block.society.snow_melter.description").gray());
-      item.tooltip(Text.translatable("tooltip.society.area", `19x5x19`).green());
-      item.modelJson({
-        parent: "society:block/kubejs/snow_melter",
-      });
+      item.tooltip(Text.translatable("tooltip.society.area", "21x5x21").green());
+      item.parentModel("society:block/kubejs/snow_melter/snow_melter");
     })
-    .model("society:block/kubejs/snow_melter")
     .blockEntity((blockInfo) => {
-      blockInfo.serverTick(600, 0, (entity) => {
-        global.handleSnowMelter(entity);
-      });
+      blockInfo.serverTicking();
+      blockInfo.tickFrequency(600);
     });
 });

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "O": {
+      "item": "classicpipes:warped_pipe"
+    },
+    "W": {
+      "item": "society:oak_resin"
+    }
+  },
+  "pattern": [
+    "OOO",
+    "OWO",
+    "OOO"
+  ],
+  "result": {
+    "id": "classicpipes:warped_fluid_pipe",
+    "count": 8
+  }
+}

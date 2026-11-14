@@ -1,8 +1,7 @@
 {
-	"item": "veggiesdelight:chicken_fajitas_wrap",
-	"category": "main",
-	"price": 188,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "veggiesdelight:chicken_fajitas_wrap",
+  "category": "main",
+  "price": 188,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

@@ -1,8 +1,7 @@
 {
-	"item": "society:white_energy_drink",
-	"category": "drink",
-	"price": 906,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "society:white_energy_drink",
+  "category": "drink",
+  "price": 906,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

@@ -1,46 +1,24 @@
 console.info("[SOCIETY] experienceBooks.js loaded");
 
-const addExperience = (player, server, item, type) => {
-  global.giveExperience(server, player, type, 1000);
-  server.runCommandSilent(
-    `playsound minecraft:block.enchantment_table.use block @a ${player.x} ${player.y} ${player.z}`
-  );
-  item.count--;
+// Experience books give 1000 experience in their skill; the Book of Stars gives 750 in every skill.
+const experienceBookUse = (e, skills, xp) => {
+  const { server, player, item } = e;
+  skills.forEach((skill) => global.giveExperience(server, player, skill, xp));
+  societyPlaySound(server, "minecraft:block.enchantment_table.use", player);
   global.addItemCooldown(player, item, 2);
+  item.shrink(1);
 };
-ItemEvents.rightClicked("society:yard_work_yearly", (e) => {
-  const { server, player, item } = e;
-  addExperience(player, server, item, "farming");
-});
-ItemEvents.rightClicked("society:husbandry_hourly", (e) => {
-  const { server, player, item } = e;
-  addExperience(player, server, item, "husbandry");
-});
-ItemEvents.rightClicked("society:mining_monthly", (e) => {
-  const { server, player, item } = e;
-  addExperience(player, server, item, "mining");
+
+[
+  ["society:yard_work_yearly", "farming"],
+  ["society:husbandry_hourly", "husbandry"],
+  ["society:mining_monthly", "mining"],
+  ["society:combat_quarterly", "adventuring"],
+  ["society:wet_weekly", "fishing"],
+].forEach((entry) => {
+  ItemEvents.rightClicked(entry[0], (e) => experienceBookUse(e, [entry[1]], 1000));
 });
 
-ItemEvents.rightClicked("society:combat_quarterly", (e) => {
-  const { server, player, item } = e;
-  addExperience(player, server, item, "adventuring");
-});
-
-ItemEvents.rightClicked("society:wet_weekly", (e) => {
-  const { server, player, item } = e;
-  addExperience(player, server, item, "fishing");
-});
-
-ItemEvents.rightClicked("society:book_of_stars", (e) => {
-  const { server, player, item } = e;
-  global.giveExperience(server, player, "farming", 750);
-  global.giveExperience(server, player, "husbandry", 750);
-  global.giveExperience(server, player, "mining", 750);
-  global.giveExperience(server, player, "adventuring", 750);
-  global.giveExperience(server, player, "fishing", 750);
-  server.runCommandSilent(
-    `playsound minecraft:block.enchantment_table.use block @a ${player.x} ${player.y} ${player.z}`
-  );
-  item.count--;
-  global.addItemCooldown(player, item, 2);
-});
+ItemEvents.rightClicked("society:book_of_stars", (e) =>
+  experienceBookUse(e, ["farming", "husbandry", "mining", "adventuring", "fishing"], 750)
+);

@@ -7,14 +7,7 @@
 	group: "106AD9AA3ADDE3AE"
 	icon: "furniture:iron_fish_tank"
 	id: "4ACD2216D1602749"
-	images: [{
-		height: 10.0d
-		image: "society:textures/gui/community_center_fish_tank.png"
-		rotation: 0.0d
-		width: 17.77777777777778d
-		x: 0.0d
-		y: 0.0d
-	}]
+	images: [ ]
 	order_index: 4
 	quest_links: [ ]
 	quests: [
@@ -24,11 +17,8 @@
 			rewards: [{
 				id: "765B2BAE7BB2EFCC"
 				item: {
-					Count: 1
+					count: 1
 					id: "minecraft:trident"
-					tag: {
-						Damage: 0
-					}
 				}
 				type: "item"
 			}]
@@ -42,22 +32,14 @@
 				{
 					id: "5D36A5EF7FA6EF6C"
 					item: {
-						Count: 1
+						count: 1
 						id: "aquaculture:leech"
-						tag: {
-							Damage: 0
-						}
 					}
 					type: "item"
 				}
 				{
 					id: "4066FD502914ABAF"
 					item: "unusualfishmod:raw_bark_angelfish"
-					type: "item"
-				}
-				{
-					id: "74203B5CCDDB8157"
-					item: "unusualfishmod:raw_snowflake"
 					type: "item"
 				}
 			]
@@ -148,17 +130,8 @@
 					count: 4
 					id: "03EFDD129AC331F7"
 					item: {
-						Count: 1
+						count: 1
 						id: "supplementaries:jar"
-						tag: {
-							BlockEntityTag: {
-								FluidHolder: {
-									count: 12b
-									id: "moonlight:lava"
-								}
-								Items: [ ]
-							}
-						}
 					}
 					type: "item"
 				}
@@ -183,40 +156,11 @@
 				{
 					id: "543787D85D98DB01"
 					item: {
-						Count: 1
-						id: "itemfilters:or"
-						tag: {
-							items: [
-								{
-									Count: 1b
-									id: "netherdepthsupgrade:fortress_grouper"
-								}
-								{
-									Count: 1b
-									id: "netherdepthsupgrade:obsidianfish"
-								}
-								{
-									Count: 1b
-									id: "netherdepthsupgrade:wither_bonefish"
-								}
-								{
-									Count: 1b
-									id: "netherdepthsupgrade:eyeball_fish"
-								}
-								{
-									Count: 1b
-									id: "netherdepthsupgrade:magmacubefish"
-								}
-								{
-									Count: 1b
-									id: "netherdepthsupgrade:blazefish"
-								}
-								{
-									Count: 1b
-									id: "netherdepthsupgrade:soulsucker"
-								}
-							]
+						components: {
+							"ftbfiltersystem:filter": "or(item(netherdepthsupgrade:fortress_grouper)item(netherdepthsupgrade:obsidianfish)item(netherdepthsupgrade:wither_bonefish)item(netherdepthsupgrade:eyeball_fish)item(netherdepthsupgrade:magmacubefish)item(netherdepthsupgrade:blazefish)item(netherdepthsupgrade:soulsucker))"
 						}
+						count: 1
+						id: "ftbfiltersystem:smart_filter"
 					}
 					title: "{ftbquests.chapter.fish_tank.quest610AB8B499859791.task.6068468386258017025.title}"
 					type: "item"
@@ -282,13 +226,11 @@
 				{
 					id: "15F6440B8123801C"
 					item: {
-						Count: 1
-						id: "trofers:large_pillar"
-						tag: {
-							BlockEntityTag: {
-								Trophy: "trofers:fish_tank"
-							}
+						components: {
+							"trofers:trophy": "trofers:fish_tank"
 						}
+						count: 1
+						id: "trofers:large_pillar"
 					}
 					type: "item"
 				}

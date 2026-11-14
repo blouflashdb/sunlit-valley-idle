@@ -1,6 +1,6 @@
-
+// Writes an English lang template with every society item key. Uncomment and reload once to regenerate it.
 // let objs = {};
-// let societyItems = Ingredient.of("@society").getStacks();
+// let societyItems = Ingredient.of("@society").getItems();
 // societyItems.forEach((item) => {
 //   objs[`${item.getDescriptionId()}`] = "";
 // });

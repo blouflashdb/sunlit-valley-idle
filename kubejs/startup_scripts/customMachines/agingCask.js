@@ -135,8 +135,12 @@ global.ageableProductInputs = [
   { item: "society:sparkling_le_roy", name: "Sparkling Le Roy", time: 5 },
   { item: "society:mana_king", name: "Mana King", time: 10 },
 ];
+// Let's Do Nethervinery and Farm Life are not in the 1.21.1 pack, so their drinks and cheese get no aged items.
+global.ageableProductInputs = global.ageableProductInputs.filter(
+  (product) => !["nethervinery", "farmlife"].includes(product.item.split(":")[0])
+);
 global.ageableProductInputs.forEach((product) => {
-  const splitProduct = product.item.split(":");
+  let splitProduct = product.item.split(":");
   global.agingCaskRecipes.set(product.item, {
     output: [`1x society:aged_${splitProduct[1]}`],
     time: product.time,
@@ -145,46 +149,45 @@ global.ageableProductInputs.forEach((product) => {
 StartupEvents.registry("block", (event) => {
   event
     .create("society:aging_cask", "cardinal")
-    .property(booleanProperty.create("working"))
-    .property(booleanProperty.create("mature"))
-    .property(booleanProperty.create("upgraded"))
+    .property(workingProperty)
+    .property(matureProperty)
+    .property(upgradedProperty)
     .defaultCutout()
     .tagBlock("minecraft:mineable/pickaxe")
     .tagBlock("minecraft:mineable/axe")
     .tagBlock("minecraft:needs_stone_tool")
+    // Blockstate: client_scripts/machineBlockstates.js. Models: tools/port/assets/make_machine_placeholder.py.
+    .parentModel("society:block/kubejs/aging_cask/aging_cask")
     .item((item) => {
       item.tooltip(
         Text.translatable("block.society.aging_cask.description").gray()
       );
-      item.modelJson({
-        parent: "society:block/kubejs/aging_cask/aging_cask",
-      });
+      item.parentModel("society:block/kubejs/aging_cask/aging_cask");
     })
     .defaultState((state) => {
       state
-        .set(booleanProperty.create("working"), false)
-        .set(booleanProperty.create("mature"), false)
-        .set(booleanProperty.create("upgraded"), false);
+        .set(workingProperty, false)
+        .set(matureProperty, false)
+        .set(upgradedProperty, false);
     })
     .placementState((state) => {
       state
-        .set(booleanProperty.create("working"), false)
-        .set(booleanProperty.create("mature"), false)
-        .set(booleanProperty.create("upgraded"), false);
+        .set(workingProperty, false)
+        .set(matureProperty, false)
+        .set(upgradedProperty, false);
     })
     .rightClick((click) => {
-      const { player, item, block, hand, level } = click;
+      let { player, item, block, hand, level } = click;
       if (player.isFake()) return;
-      const upgraded = block.properties.get("upgraded").toLowerCase() == "true";
-      const facing = block.properties.get("facing").toLowerCase();
-      const nbt = block.getEntityData();
+      let upgraded = global.isBlockPropertyTrue(block, "upgraded");
+      let facing = global.getBlockProperty(block, "facing");
 
-      if (hand == "OFF_HAND") return;
-      if (hand == "MAIN_HAND") {
+      if (String(hand) === "OFF_HAND") return;
+      if (String(hand) === "MAIN_HAND") {
         if (
           !upgraded &&
-          block.properties.get("working").toLowerCase() == "false" &&
-          item == "society:broken_clock"
+          !global.isBlockPropertyTrue(block, "working") &&
+          String(item.id) === "society:broken_clock"
         ) {
           if (!player.isCreative()) item.count--;
           level.spawnParticles(
@@ -201,11 +204,11 @@ StartupEvents.registry("block", (event) => {
           );
           block.set(block.id, {
             facing: facing,
-            working: block.properties.get("working"),
-            mature: block.properties.get("mature"),
+            working: global.getBlockProperty(block, "working"),
+            mature: global.getBlockProperty(block, "mature"),
             upgraded: true,
           });
-        } else if (!upgraded && item == "society:broken_clock") {
+        } else if (!upgraded && String(item.id) === "society:broken_clock") {
           player.tell(
             Text.translatable(
               "society.working_block_entity.cannot_upgrade"
@@ -216,20 +219,20 @@ StartupEvents.registry("block", (event) => {
 
       if (
         player.stages.has("aged_prize") &&
-        block.properties.get("mature") === "true" &&
+        global.isBlockPropertyTrue(block, "mature") &&
         rnd5()
       ) {
         block.popItemFromFace("society:prize_ticket", facing);
       }
       if (
         !player.stages.has("slouching_towards_artistry") &&
-        block.properties.get("mature") === "true" &&
-        Number(nbt.data.stage) > 5 &&
+        global.isBlockPropertyTrue(block, "mature") &&
+        global.getMachineInt(block, "stage") > 5 &&
         Math.random() <= 0.01
       ) {
         block.popItemFromFace(
           "society:slouching_towards_artistry",
-          block.properties.get("facing")
+          global.getBlockProperty(block, "facing")
         );
       }
       global.handleBERightClick(
@@ -241,10 +244,8 @@ StartupEvents.registry("block", (event) => {
     })
     .blockEntity((blockInfo) => {
       blockInfo.initialData({ stage: 0, recipe: "" });
-      blockInfo.serverTick(artMachineTickRate, 0, (entity) => {
-        global.handleBETick(entity, global.agingCaskRecipes, 10, true);
-      });
-    }).blockstateJson = {
-    multipart: getCardinalMultipartJson("aging_cask"),
-  };
+      blockInfo.serverTicking();
+      blockInfo.tickFrequency(artMachineTickRate);
+    });
 });
+// Morning tick: server_scripts/blockEvents/machineTicks.js

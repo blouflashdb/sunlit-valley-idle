@@ -91,43 +91,43 @@ smokableFish.forEach((fish) => {
 StartupEvents.registry("block", (event) => {
   event
     .create("society:fish_smoker", "cardinal")
-    .property(booleanProperty.create("working"))
-    .property(booleanProperty.create("mature"))
-    .property(booleanProperty.create("upgraded"))
+    .property(workingProperty)
+    .property(matureProperty)
+    .property(upgradedProperty)
     .box(1, 0, 4, 15, 28, 12)
     .defaultCutout()
     .tagBlock("minecraft:mineable/pickaxe")
     .tagBlock("minecraft:mineable/axe")
     .tagBlock("minecraft:needs_stone_tool")
+    // Blockstate: client_scripts/machineBlockstates.js. Models: tools/port/assets/make_machine_placeholder.py.
+    .parentModel("society:block/kubejs/fish_smoker/fish_smoker_off")
     .item((item) => {
       item.tooltip(Text.translatable("block.society.fish_smoker.description").gray());
       item.tooltip(Text.translatable("society.working_block_entity.preserve_quality").green());
-      item.modelJson({
-        parent: "society:block/kubejs/fish_smoker/fish_smoker_off",
-      });
+      item.parentModel("society:block/kubejs/fish_smoker/fish_smoker_off");
     })
     .defaultState((state) => {
       state
-        .set(booleanProperty.create("working"), false)
-        .set(booleanProperty.create("mature"), false)
-        .set(booleanProperty.create("upgraded"), false)
+        .set(workingProperty, false)
+        .set(matureProperty, false)
+        .set(upgradedProperty, false)
     })
     .placementState((state) => {
       state
-        .set(booleanProperty.create("working"), false)
-        .set(booleanProperty.create("mature"), false)
-        .set(booleanProperty.create("upgraded"), false)
+        .set(workingProperty, false)
+        .set(matureProperty, false)
+        .set(upgradedProperty, false)
     })
     .rightClick((click) => {
-      const { player, item, block, hand, level } = click;
+      let { player, item, block, hand, level } = click;
       if (player.isFake()) return;
-      const upgraded = block.properties.get("upgraded").toLowerCase() == "true";
-      const quality = block.properties.get("quality");
-      const facing = block.properties.get("facing");
+      let upgraded = global.isBlockPropertyTrue(block, "upgraded");
+      let quality = global.getBlockProperty(block, "quality");
+      let facing = global.getBlockProperty(block, "facing");
 
-      if (hand == "OFF_HAND") return;
-      if (hand == "MAIN_HAND") {
-        if (!upgraded && item == "society:ancient_roe") {
+      if (String(hand) === "OFF_HAND") return;
+      if (String(hand) === "MAIN_HAND") {
+        if (!upgraded && String(item.id) === "society:ancient_roe") {
           if (!player.isCreative()) item.count--;
           level.spawnParticles(
             "farmersdelight:star",
@@ -143,8 +143,8 @@ StartupEvents.registry("block", (event) => {
           );
           block.set(block.id, {
             facing: facing,
-            working: block.properties.get("working"),
-            mature: block.properties.get("mature"),
+            working: global.getBlockProperty(block, "working"),
+            mature: global.getBlockProperty(block, "mature"),
             upgraded: true,
           });
         }
@@ -162,10 +162,8 @@ StartupEvents.registry("block", (event) => {
     })
     .blockEntity((blockInfo) => {
       blockInfo.initialData({ stage: 0, recipe: "", quality: 0 });
-      blockInfo.serverTick(artMachineTickRate, 0, (entity) => {
-        global.handleBETick(entity, global.fishSmokerRecipes, 2);
-      });
-    }).blockstateJson = {
-    multipart: getCardinalMultipartJson("fish_smoker", true),
-  };
+      blockInfo.serverTicking();
+      blockInfo.tickFrequency(artMachineTickRate);
+    });
 });
+// Morning tick: server_scripts/blockEvents/machineTicks.js

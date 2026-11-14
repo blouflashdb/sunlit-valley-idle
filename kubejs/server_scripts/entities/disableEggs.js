@@ -1,14 +1,12 @@
 console.info("[SOCIETY] disableEggs.js loaded");
 
-const eggs = [
-  "minecraft:egg",
-  "autumnity:turkey_egg",
-  "untitledduckmod:goose_egg",
-  "untitledduckmod:duck_egg",
-  "farmlife:galliraptor_egg",
-];
-EntityEvents.spawned(eggs, (e) => e.cancel());
+// Thrown eggs never hatch; eggs are only thrown while crouching.
+const disabledEggs = ["minecraft:egg", "autumnity:turkey_egg", "untitledduckmod:goose_egg", "untitledduckmod:duck_egg"];
 
-ItemEvents.rightClicked(eggs, (e) => {
+EntityEvents.spawned((e) => {
+  if (disabledEggs.includes(global.entityTypeId(e.entity))) e.cancel();
+});
+
+ItemEvents.rightClicked(disabledEggs, (e) => {
   if (!e.player.isCrouching()) e.cancel();
 });

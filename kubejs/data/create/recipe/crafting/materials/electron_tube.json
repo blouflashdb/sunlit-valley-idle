@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": {
+      "item": "create:polished_rose_quartz"
+    },
+    "N": {
+      "tag": "c:plates/silver"
+    }
+  },
+  "pattern": [
+    "L",
+    "N"
+  ],
+  "result": {
+    "id": "create:electron_tube",
+    "count": 1
+  },
+  "show_notification": true
+}

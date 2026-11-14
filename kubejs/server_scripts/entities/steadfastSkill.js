@@ -1,37 +1,25 @@
-console.info("[SOCIETY] steadFastSkill.js loaded");
+console.info("[SOCIETY] steadfastSkill.js loaded");
 
-const steadfastThrottle = ((temp) => (entity, tick, identifier) => {
-  const { age, uuid } = entity;
-  const key = `${uuid}${identifier}`;
-  const now = temp[key];
-  if (!now || age - now >= tick) {
-    temp[key] = age;
-    return false;
-  }
-  return true;
-})({});
+// Steadfast: a hurt player has a 20 percent chance (at most once a second) to heal one heart.
+// Also caps the freezing of players (Windswept's deep snow froze players to death).
+const steadfastThrottle = societyThrottle();
 
-EntityEvents.hurt((e) => {
+EntityEvents.afterHurt("minecraft:player", (e) => {
   const { server, level, entity } = e;
-  // Fix windswept bug
-  if (entity.isPlayer() && entity.getTicksFrozen() > 140) entity.setTicksFrozen(140);
-  if (!entity.isPlayer() || steadfastThrottle(entity, 20, "steadfast_throttle")) return;
-  if (entity.isPlayer() && Math.random() < 0.2 && entity.stages.has("steadfast")) {
-    entity.heal(2);
-    level.spawnParticles(
-      "minecraft:heart",
-      true,
-      entity.x,
-      entity.y + 1.5,
-      entity.z,
-      0.1 * rnd(1, 4),
-      0.1 * rnd(1, 4),
-      0.1 * rnd(1, 4),
-      5,
-      0.01
-    );
-    server.runCommandSilent(
-      `playsound species:item.wicked_treat.apply block @a ${entity.x} ${entity.y} ${entity.z}`
-    );
-  }
+  if (entity.getTicksFrozen() > 140) entity.setTicksFrozen(140);
+  if (steadfastThrottle(entity, 20, "steadfast") || !entity.stages.has("steadfast") || Math.random() >= 0.2) return;
+  entity.heal(2);
+  level.spawnParticles(
+    "minecraft:heart",
+    true,
+    entity.x,
+    entity.y + 1.5,
+    entity.z,
+    0.1 * societyRnd(1, 4),
+    0.1 * societyRnd(1, 4),
+    0.1 * societyRnd(1, 4),
+    5,
+    0.01
+  );
+  societyPlaySound(server, "minecraft:entity.player.levelup", entity, "0.4 1.6");
 });

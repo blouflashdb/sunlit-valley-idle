@@ -1,4 +1,6 @@
 {
   "replace": true,
-  "values": ["society:lush_caverns"]
+  "values": [
+    "society:lush_caverns"
+  ]
 }

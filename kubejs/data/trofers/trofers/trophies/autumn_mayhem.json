@@ -1,0 +1,31 @@
+{
+  "colors": {
+    "accent": "#FFAA00",
+    "base": "#FFAA00"
+  },
+  "display": {
+    "offset": [
+      0,
+      1,
+      0
+    ],
+    "scale": 2.0
+  },
+  "animation": {
+    "type": "spinning",
+    "speed": 0.1
+  },
+  "effects": {
+    "sound": {
+      "id": "autumnity:entity.turkey.aggro"
+    }
+  },
+  "name": {
+    "color": "#FFAA00",
+    "translate": "society.trofers.autumn_mayhem"
+  },
+  "item": {
+    "id": "minecraft:pumpkin",
+    "count": 1
+  }
+}

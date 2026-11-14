@@ -1,5 +1,6 @@
 {
-	"tip": {
-		"translate": "society_tips.tip.tubasmoke_stick"
-	}
+  "type": "tipsmod:simple",
+  "text": {
+    "translate": "society_tips.tip.tubasmoke_stick"
+  }
 }

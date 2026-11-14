@@ -1,331 +1,152 @@
 console.info("[SOCIETY] generalLoot.js loaded");
 
-const fixedStackSize = (itemStack) => {
-  if (itemStack.maxStackSize == 1) {
-    itemStack.setCount(1);
-    return itemStack;
-  }
-  return itemStack;
+// Mob drops, chest loot and grass seeds from the 1.20.1 generalLoot.js and adventurerLoot.js, as LootJS 3 custom
+// actions. Items of mods that are not in the pack (Splendid Slimes hearts, ...) are left out.
+const $GeneralLootParams = Java.loadClass("net.minecraft.world.level.storage.loot.parameters.LootContextParams");
+
+
+// Extra loot of single tables: { table, chance, item, count: [min, max] }.
+const generalTableLoot = [
+  { table: "rottencreatures:entities/zap", chance: 0.03, item: "society:glitched_vhs" },
+  { table: "minecraft:entities/witch", chance: 0.1, item: "society:holy_symbol" },
+  { table: "minecraft:entities/shulker", chance: 0.1, item: "society:production_science_pack" },
+  { table: "minecraft:entities/blaze", chance: 0.05, item: "society:ember_crystal_cluster" },
+  { table: "minecraft:entities/spider", chance: 0.05, item: "society:spider_silk" },
+  { table: "minecraft:entities/creeper", chance: 0.05, item: "society:green_tea_honeycomb" },
+  { table: "legendarycreatures:entities/corpse_eater", chance: 0.05, item: "society:wheel_of_adaptation" },
+  { table: "minecraft:entities/wither", chance: 0.8, item: "society:amulet_of_light" },
+  { table: "minecraft:entities/enderman", chance: 0.05, item: "minecraft:eye_armor_trim_smithing_template" },
+  { table: "minecraft:entities/pig", chance: 0.05, item: "society:living_flesh" },
+  { table: "minecraft:chests/simple_dungeon", chance: 0.3, item: "numismatics:bevel", count: [1, 4] },
+  { table: "minecraft:chests/simple_dungeon", chance: 0.1, item: "society:source_gem" },
+  { table: "minecraft:chests/abandoned_mineshaft", chance: 0.2, item: "numismatics:bevel", count: [1, 4] },
+  { table: "minecraft:chests/buried_treasure", chance: 0.9, item: "numismatics:cog", count: [1, 4] },
+  { table: "minecraft:chests/buried_treasure", chance: 1, item: "numismatics:crown", count: [1, 2] },
+  { table: "minecraft:chests/underwater_ruin_small", chance: 0.5, item: "numismatics:cog", count: [1, 4] },
+  { table: "minecraft:chests/underwater_ruin_small", chance: 0.2, item: "numismatics:cog", count: [1, 2] },
+  { table: "minecraft:chests/underwater_ruin_big", chance: 0.6, item: "numismatics:cog", count: [1, 4] },
+  { table: "minecraft:chests/underwater_ruin_big", chance: 0.3, item: "numismatics:cog", count: [1, 2] },
+  { table: "minecraft:chests/shipwreck_supply", chance: 0.5, item: "numismatics:bevel", count: [1, 4] },
+  { table: "minecraft:chests/shipwreck_supply", chance: 0.1, item: "numismatics:sprocket", count: [1, 2] },
+  { table: "minecraft:chests/shipwreck_treasure", chance: 0.9, item: "numismatics:bevel", count: [1, 4] },
+  { table: "minecraft:chests/shipwreck_treasure", chance: 0.4, item: "numismatics:cog", count: [1, 2] },
+  { table: "minecraft:chests/woodland_mansion", chance: 0.2, item: "numismatics:crown", count: [1, 2] },
+  { table: "minecraft:chests/jungle_temple", chance: 0.3, item: "numismatics:crown", count: [1, 4] },
+  { table: "minecraft:chests/jungle_temple", chance: 0.1, item: "numismatics:crown", count: [1, 2] },
+  { table: "minecraft:chests/desert_pyramid", chance: 0.3, item: "numismatics:crown", count: [1, 4] },
+  { table: "minecraft:chests/desert_pyramid", chance: 0.1, item: "numismatics:crown", count: [1, 2] },
+  { table: "minecraft:chests/pillager_outpost", chance: 0.3, item: "numismatics:cog", count: [1, 4] },
+  { table: "minecraft:chests/ancient_city", chance: 0.6, item: "numismatics:cog", count: [1, 4] },
+  { table: "minecraft:chests/ancient_city", chance: 0.3, item: "numismatics:crown", count: [1, 2] },
+  { table: "minecraft:chests/ancient_city", chance: 0.2, item: "numismatics:sun" },
+  { table: "minecraft:chests/ruined_portal", chance: 0.7, item: "numismatics:sprocket", count: [1, 2] },
+  { table: "minecraft:chests/nether_bridge", chance: 0.3, item: "numismatics:sprocket", count: [1, 4] },
+  { table: "minecraft:chests/bastion_bridge", chance: 0.9, item: "numismatics:sprocket", count: [1, 4] },
+  { table: "minecraft:chests/bastion_hoglin_stable", chance: 0.3, item: "numismatics:sprocket", count: [1, 4] },
+  { table: "minecraft:chests/bastion_other", chance: 0.5, item: "numismatics:sprocket", count: [1, 4] },
+  { table: "minecraft:chests/bastion_treasure", chance: 0.6, item: "numismatics:sprocket", count: [1, 4] },
+  { table: "minecraft:chests/stronghold_corridor", chance: 0.9, item: "numismatics:bevel", count: [1, 4] },
+  { table: "minecraft:chests/stronghold_corridor", chance: 0.4, item: "numismatics:sprocket", count: [1, 2] },
+  { table: "minecraft:chests/stronghold_crossing", chance: 0.9, item: "numismatics:bevel", count: [1, 4] },
+  { table: "minecraft:chests/stronghold_crossing", chance: 0.4, item: "numismatics:sprocket", count: [1, 2] },
+  { table: "minecraft:chests/end_city_treasure", chance: 0.7, item: "numismatics:sprocket", count: [1, 4] },
+  { table: "minecraft:chests/end_city_treasure", chance: 0.4, item: "numismatics:cog" },
+  { table: "minecraft:chests/end_city_treasure", chance: 0.2, item: "numismatics:cog" },
+].filter((entry) => global.itemExists(entry.item));
+
+// The player a loot context belongs to: the one who opened the chest or killed the mob.
+const generalLootPlayer = (context) => {
+  let entity = context.getParamOrNull($GeneralLootParams.THIS_ENTITY);
+  if (entity && entity.isPlayer()) return entity;
+  let killer = context.getParamOrNull($GeneralLootParams.LAST_DAMAGE_PLAYER);
+  return killer || null;
 };
+
+const generalLootId = (stack) => String(stack.getItem().builtInRegistryHolder().key().location());
+const rollGeneralCount = (count) => (count ? count[0] + Math.floor(Math.random() * (count[1] - count[0] + 1)) : 1);
+
+// Chest loot of every chest: { chance, item, stage }.
+const generalChestLoot = [
+  { chance: 0.05, item: "society:recall_potion" },
+  { chance: 0.1, item: "society:relic_trove", stage: "relic_hunter" },
+  { chance: 0.1, item: "society:artifact_trove", stage: "artifact_hunter" },
+  { chance: 0.05, item: "society:prismatic_shard", stage: "prismatic_realm" },
+  { chance: 0.1, item: "society:plushie_capsule", stage: "husbandry_mastery" },
+  { chance: 0.05, item: "society:animal_cracker", stage: "husbandry_mastery" },
+].filter((entry) => global.itemExists(entry.item));
+
+// Items that chests give instead of others: { tables, from, to, chance }.
+const generalReplacedLoot = [
+  { tables: ["minecraft:chests/pillager_outpost"], from: "etcetera:eggple", to: "numismatics:cog", chance: 0.65 },
+  { tables: ["minecraft:chests/village/village_plains_house"], from: "etcetera:eggple", to: "numismatics:cog", chance: 0.85 },
+  { tables: ["minecraft:chests/bastion_treasure"], from: "etcetera:golden_eggple", to: "numismatics:crown", chance: 0.85 },
+  { tables: ["minecraft:chests/ruined_portal"], from: "minecraft:flint_and_steel", to: "numismatics:cog", chance: 1 },
+  {
+    tables: [
+      "minecraft:chests/simple_dungeon",
+      "minecraft:chests/spawn_bonus_chest",
+      "minecraft:chests/abandoned_mineshaft",
+      "minecraft:chests/shipwreck_supply",
+      "minecraft:chests/village/village_plains_house",
+      "minecraft:chests/village/village_taiga_house",
+      "minecraft:chests/village/village_desert_house",
+      "minecraft:chests/village/village_snowy_house",
+    ],
+    from: "cluttered:willow_sapling",
+    to: "numismatics:cog",
+    chance: 1,
+  },
+].filter((entry) => global.itemExists(entry.to));
+
+const generalRemovedLoot = [
+  { table: "atmospheric:chests/arid_garden", items: ["atmospheric:golden_dragon_fruit"] },
+  {
+    table: "minecraft:chests/bastion_treasure",
+    items: ["minecraft:diamond_sword", "minecraft:diamond_helmet", "minecraft:diamond_chestplate", "minecraft:diamond_leggings"],
+  },
+];
+
 LootJS.modifiers((e) => {
-  // Entities
-  e.addLootTableModifier("rottencreatures:entities/zap")
-    .randomChance(0.03)
-    .addLoot("society:glitched_vhs");
-  e.addLootTableModifier("minecraft:entities/witch")
-    .randomChance(0.1)
-    .addLoot("society:holy_symbol");
-  e.addLootTableModifier("minecraft:entities/shulker")
-    .randomChance(0.1)
-    .addLoot("society:production_science_pack");
-  e.addLootTableModifier("minecraft:entities/blaze")
-    .randomChance(0.05)
-    .addLoot("society:ember_crystal_cluster");
-  e.addLootTableModifier("minecraft:entities/spider")
-    .randomChance(0.05)
-    .addLoot("society:spider_silk");
-  e.addLootTableModifier("minecraft:entities/creeper")
-    .randomChance(0.05)
-    .addLoot("society:green_tea_honeycomb");
-  e.addLootTableModifier("legendarycreatures:entities/corpse_eater")
-    .randomChance(0.05)
-    .addLoot("society:wheel_of_adaptation");
-  e.addLootTableModifier("minecraft:entities/wither")
-    .randomChance(0.8)
-    .addLoot("society:amulet_of_light");
-  e.addLootTableModifier("minecraft:entities/enderman")
-    .randomChance(0.05)
-    .addLoot("minecraft:eye_armor_trim_smithing_template");
-  e.addLootTableModifier("minecraft:entities/pig")
-    .randomChance(0.05)
-    .addLoot("society:living_flesh");
-  e.addLootTableModifier("minecraft:entities/hoglin").replaceLoot(
-    "*",
-    "minecraft:rotten_flesh",
-    true
-  );
-  // Chest Loot tables
-  e.addLootTableModifier("minecraft:chests/simple_dungeon")
-    .randomChance(0.3)
-    .addLoot("numismatics:bevel")
-    .limitCount([1, 4], [5, 9]);
-  e.addLootTableModifier("minecraft:chests/simple_dungeon")
-    .randomChance(0.1)
-    .addLoot("society:source_gem");
-  e.addLootTableModifier("minecraft:chests/abandoned_mineshaft")
-    .randomChance(0.2)
-    .addLoot("numismatics:bevel")
-    .limitCount([1, 4], [5, 9]);
-  e.addLootTableModifier("minecraft:chests/abandoned_mineshaft")
-    .randomChance(0.2)
-    .addLoot(
-      Item.of(
-        "splendid_slimes:slime_heart",
-        '{slime:{id:"splendid_slimes:webby"}}'
-      )
-    );
-  e.addLootTableModifier("minecraft:chests/simple_dungeon")
-    .randomChance(0.1)
-    .addLoot(
-      Item.of(
-        "splendid_slimes:slime_heart",
-        '{slime:{id:"splendid_slimes:webby"}}'
-      )
-    );
-  e.addLootTableModifier("minecraft:chests/buried_treasure")
-    .randomChance(0.9)
-    .addLoot("numismatics:cog")
-    .limitCount([1, 4], [5, 9]);
-  e.addLootTableModifier("minecraft:chests/buried_treasure")
-    .randomChance(1)
-    .addLoot("numismatics:crown")
-    .limitCount([1, 2]);
-  e.addLootTableModifier("minecraft:chests/underwater_ruin_small")
-    .randomChance(0.5)
-    .addLoot("numismatics:cog")
-    .limitCount([1, 4], [5, 9]);
-  e.addLootTableModifier("minecraft:chests/underwater_ruin_small")
-    .randomChance(0.2)
-    .addLoot("numismatics:cog")
-    .limitCount([1, 2]);
-  e.addLootTableModifier("minecraft:chests/underwater_ruin_big")
-    .randomChance(0.6)
-    .addLoot("numismatics:cog")
-    .limitCount([1, 4], [5, 9]);
-  e.addLootTableModifier("minecraft:chests/underwater_ruin_big")
-    .randomChance(0.3)
-    .addLoot("numismatics:cog")
-    .limitCount([1, 2]);
-  e.addLootTableModifier("minecraft:chests/shipwreck_supply")
-    .randomChance(0.5)
-    .addLoot("numismatics:bevel")
-    .limitCount([1, 4], [5, 9]);
-  e.addLootTableModifier("minecraft:chests/shipwreck_supply")
-    .randomChance(0.1)
-    .addLoot("numismatics:sprocket")
-    .limitCount([1, 2]);
-  e.addLootTableModifier("minecraft:chests/shipwreck_treasure")
-    .randomChance(0.9)
-    .addLoot("numismatics:bevel")
-    .limitCount([1, 4], [5, 9]);
-  e.addLootTableModifier("minecraft:chests/shipwreck_treasure")
-    .randomChance(0.4)
-    .addLoot("numismatics:cog")
-    .limitCount([1, 2]);
-  e.addLootTableModifier("minecraft:chests/woodland_mansion")
-    .randomChance(0.2)
-    .addLoot("numismatics:crown")
-    .limitCount([1, 2]);
-  e.addLootTableModifier("minecraft:chests/jungle_temple")
-    .randomChance(0.3)
-    .addLoot("numismatics:crown")
-    .limitCount([1, 4], [5, 9]);
-  e.addLootTableModifier("minecraft:chests/jungle_temple")
-    .randomChance(0.1)
-    .addLoot("numismatics:crown")
-    .limitCount([1, 2]);
-  e.addLootTableModifier("minecraft:chests/desert_pyramid")
-    .randomChance(0.3)
-    .addLoot("numismatics:crown")
-    .limitCount([1, 4], [5, 9]);
-  e.addLootTableModifier("minecraft:chests/desert_pyramid")
-    .randomChance(0.1)
-    .addLoot("numismatics:crown")
-    .limitCount([1, 2]);
-  e.addLootTableModifier("minecraft:chests/pillager_outpost")
-    .randomChance(0.3)
-    .addLoot("numismatics:cog")
-    .limitCount([1, 4], [5, 9]);
-  e.addLootTableModifier("minecraft:chests/ancient_city")
-    .randomChance(0.6)
-    .addLoot("numismatics:cog")
-    .limitCount([1, 4], [5, 9]);
-  e.addLootTableModifier("minecraft:chests/ancient_city")
-    .randomChance(0.3)
-    .addLoot("numismatics:crown")
-    .limitCount([1, 2]);
-  e.addLootTableModifier("minecraft:chests/ancient_city")
-    .randomChance(0.2)
-    .addLoot(
-      Item.of(
-        "splendid_slimes:slime_heart",
-        '{slime:{id:"splendid_slimes:orby"}}'
-      )
-    );
-  e.addLootTableModifier("minecraft:chests/ancient_city")
-    .randomChance(0.2)
-    .addLoot("numismatics:sun")
-    .limitCount([1, 1]);
-  e.addLootTableModifier("minecraft:chests/ruined_portal")
-    .randomChance(0.7)
-    .addLoot("numismatics:sprocket")
-    .limitCount([1, 2]);
-  e.addLootTableModifier("minecraft:chests/nether_bridge")
-    .randomChance(0.3)
-    .addLoot("numismatics:sprocket")
-    .limitCount([1, 4], [5, 9]);
-  e.addLootTableModifier("minecraft:chests/bastion_bridge")
-    .randomChance(0.9)
-    .addLoot("numismatics:sprocket")
-    .limitCount([1, 4], [5, 9]);
-  e.addLootTableModifier("minecraft:chests/bastion_hoglin_stable")
-    .randomChance(0.3)
-    .addLoot("numismatics:sprocket")
-    .limitCount([1, 4], [5, 9]);
-  e.addLootTableModifier("minecraft:chests/bastion_other")
-    .randomChance(0.5)
-    .addLoot("numismatics:sprocket")
-    .limitCount([1, 4], [5, 9]);
-  e.addLootTableModifier("minecraft:chests/bastion_treasure")
-    .randomChance(0.6)
-    .addLoot("numismatics:sprocket")
-    .limitCount([1, 4], [5, 9]);
-  e.addLootTableModifier("minecraft:chests/bastion_treasure")
-    .randomChance(0.2)
-    .addLoot(
-      Item.of(
-        "splendid_slimes:slime_heart",
-        '{slime:{id:"splendid_slimes:blazing"}}'
-      )
-    );
-  e.addLootTableModifier("minecraft:chests/bastion_treasure")
-    .randomChance(0.6)
-    .addLoot(
-      Item.of(
-        "splendid_slimes:slime_heart",
-        '{slime:{id:"splendid_slimes:weeping"}}'
-      )
-    );
-  e.addLootTableModifier("atmospheric:chests/arid_garden").removeLoot(
-    "atmospheric:golden_dragon_fruit"
-  );
-  e.addLootTableModifier("minecraft:chests/bastion_treasure").removeLoot(
-    "minecraft:diamond_sword"
-  );
-  e.addLootTableModifier("minecraft:chests/bastion_treasure").removeLoot(
-    "minecraft:diamond_helmet"
-  );
-  e.addLootTableModifier("minecraft:chests/bastion_treasure").removeLoot(
-    "minecraft:diamond_chestplate"
-  );
-  e.addLootTableModifier("minecraft:chests/bastion_treasure").removeLoot(
-    "minecraft:diamond_leggings"
-  );
-  e.addLootTableModifier("minecraft:chests/stronghold_corridor")
-    .randomChance(0.9)
-    .addLoot("numismatics:bevel")
-    .limitCount([1, 4], [5, 9]);
-  e.addLootTableModifier("minecraft:chests/stronghold_corridor")
-    .randomChance(0.4)
-    .addLoot("numismatics:sprocket")
-    .limitCount([1, 2]);
-  e.addLootTableModifier("minecraft:chests/stronghold_crossing")
-    .randomChance(0.9)
-    .addLoot("numismatics:bevel")
-    .limitCount([1, 4], [5, 9]);
-  e.addLootTableModifier("minecraft:chests/stronghold_crossing")
-    .randomChance(0.4)
-    .addLoot("numismatics:sprocket")
-    .limitCount([1, 2]);
-  e.addLootTableModifier("minecraft:chests/end_city_treasure")
-    .randomChance(0.7)
-    .addLoot("numismatics:sprocket")
-    .limitCount([1, 4], [5, 9]);
-  e.addLootTableModifier("minecraft:chests/end_city_treasure")
-    .randomChance(0.4)
-    .addLoot("numismatics:cog")
-    .limitCount([1, 1]);
-  e.addLootTableModifier("minecraft:chests/end_city_treasure")
-    .randomChance(0.2)
-    .addLoot("numismatics:cog")
-    .limitCount([1, 1]);
-  e.addLootTableModifier("minecraft:chests/end_city_treasure")
-    .randomChance(0.2)
-    .addLoot(
-      Item.of(
-        "splendid_slimes:slime_heart",
-        '{slime:{id:"splendid_slimes:shulking"}}'
-      )
-    );
-  e.addLootTableModifier("minecraft:chests/end_city_treasure")
-    .randomChance(0.2)
-    .addLoot(
-      Item.of(
-        "splendid_slimes:slime_heart",
-        '{slime:{id:"splendid_slimes:ender"}}'
-      )
-    );
+  generalTableLoot.forEach((entry) => {
+    e.addTableModifier(entry.table).customAction((context, loot) => {
+      if (Math.random() < entry.chance) loot.addItem(Item.of(entry.item, rollGeneralCount(entry.count)));
+    });
+  });
+  generalRemovedLoot.forEach((entry) => {
+    e.addTableModifier(entry.table).customAction((context, loot) => {
+      loot.modifyItems((stack) => (entry.items.indexOf(generalLootId(stack)) !== -1 ? null : stack));
+    });
+  });
+  generalReplacedLoot.forEach((entry) => {
+    entry.tables.forEach((table) => {
+      e.addTableModifier(table).customAction((context, loot) => {
+        if (Math.random() >= entry.chance) return;
+        loot.modifyItems((stack) => (generalLootId(stack) === entry.from ? Item.of(entry.to, stack.getCount()) : stack));
+      });
+    });
+  });
+  // Hoglins drop rotten flesh instead of pork.
+  e.addTableModifier("minecraft:entities/hoglin").customAction((context, loot) => {
+    loot.modifyItems((stack) => Item.of("minecraft:rotten_flesh", stack.getCount()));
+  });
 
-  // Seeds
-  e.addBlockLootModifier("minecraft:grass").removeLoot("#forge:seeds");
-  e.addBlockLootModifier("minecraft:tall_grass").removeLoot("#forge:seeds");
-  e.addBlockLootModifier("minecraft:fern").removeLoot("#forge:seeds");
-  e.addBlockLootModifier("minecraft:tall_fern").removeLoot("#forge:seeds");
-
-  // Artisan Machines that save nbt on drop
-  e.addBlockLootModifier("society:prize_machine").removeLoot(
-    "society:prize_machine"
-  );
-  e.addBlockLootModifier("society:villager_home").removeLoot(
-    "society:villager_home"
-  );
-  e.addBlockLootModifier("whimsy_deco:sunlit_singing_frog").removeLoot(
-    "whimsy_deco:sunlit_singing_frog"
-  );
-  e.addBlockLootModifier("society:fish_pond").removeLoot("society:fish_pond");
-  e.addBlockLootModifier("shippingbin:basic_shipping_bin").removeLoot(
-    "shippingbin:basic_shipping_bin"
-  );
-  e.addBlockLootModifier("shippingbin:smart_shipping_bin").removeLoot(
-    "shippingbin:smart_shipping_bin"
-  );
-  e.addBlockLootModifier("society:mana_fruit_crop").removeLoot(
-    "society:mana_fruit_crop"
-  );
-
-  e.addBlockLootModifier(global.plushies).removeLoot("*");
-
-  // Replace Loot
-  e.addLootTableModifier("minecraft:chests/pillager_outpost")
-    .randomChance(0.65)
-    .replaceLoot("etcetera:eggple", "numismatics:cog", true);
-  e.addLootTableModifier("minecraft:chests/village/village_plains_house")
-    .randomChance(0.85)
-    .replaceLoot("etcetera:eggple", "numismatics:cog", true);
-  e.addLootTableModifier("minecraft:chests/bastion_treasure")
-    .randomChance(0.85)
-    .replaceLoot("etcetera:golden_eggple", "numismatics:crown", true);
-  e.addLootTableModifier("minecraft:chests/bastion_treasure")
-    .randomChance(0.85)
-    .replaceLoot("etcetera:golden_eggple", "numismatics:crown", true);
-  e.addLootTableModifier("minecraft:chests/ruined_portal")
-    .randomChance(1)
-    .replaceLoot("minecraft:flint_and_steel", "numismatics:cog", true);
-
-  // Fix unstackable item voiding bug
-  e.addLootTypeModifier(LootType.CHEST).modifyLoot(
-    Ingredient.all,
-    (itemStack) => {
-      return fixedStackSize(itemStack);
+  // Seeds come from the seed maker and shops, not from grass.
+  e.addBlockModifier(["minecraft:short_grass", "minecraft:tall_grass", "minecraft:fern", "minecraft:large_fern"]).customAction(
+    (context, loot) => {
+      loot.modifyItems((stack) => (holderHasTag(stack.getItem().builtInRegistryHolder(), "c:seeds") ? null : stack));
     }
   );
 
-  e.addLootTypeModifier(LootType.CHEST).pool((p) => {
-    p.randomChance(0.05).addLoot("society:recall_potion");
-  });
-  e.addLootTableModifier("minecraft:chests/simple_dungeon").replaceLoot("cluttered:willow_sapling", "numismatics:cog", true);
-  e.addLootTableModifier("minecraft:chests/spawn_bonus_chest").replaceLoot("cluttered:willow_sapling", "numismatics:cog", true);
-  e.addLootTableModifier("minecraft:chests/abandoned_mineshaft").replaceLoot("cluttered:willow_sapling", "numismatics:cog", true);
-  e.addLootTableModifier("minecraft:chests/shipwreck_supply").replaceLoot("cluttered:willow_sapling", "numismatics:cog", true);
-  e.addLootTableModifier("minecraft:chests/village/village_plains_house").replaceLoot("cluttered:willow_sapling", "numismatics:cog", true);
-  e.addLootTableModifier("minecraft:chests/village/village_taiga_house").replaceLoot("cluttered:willow_sapling", "numismatics:cog", true);
-  e.addLootTableModifier("minecraft:chests/village/village_desert_house").replaceLoot("cluttered:willow_sapling", "numismatics:cog", true);
-  e.addLootTableModifier("minecraft:chests/village/village_snowy_house").replaceLoot("cluttered:willow_sapling", "numismatics:cog", true);
-  // Mastery
-  e.addLootTypeModifier(LootType.CHEST)
-    .hasAnyStage("husbandry_mastery")
-    .pool((p) => {
-      p.randomChance(0.1).addLoot("society:plushie_capsule");
-      p.randomChance(0.05).addLoot("society:animal_cracker");
+  e.addTableModifier(LootType.CHEST).customAction((context, loot) => {
+    // Unstackable items in stacks would be voided.
+    loot.modifyItems((stack) => {
+      if (stack.getMaxStackSize() === 1 && stack.getCount() > 1) stack.setCount(1);
+      return stack;
     });
+    let player = generalLootPlayer(context);
+    generalChestLoot.forEach((entry) => {
+      if (entry.stage && (!player || !player.stages.has(entry.stage))) return;
+      if (Math.random() < entry.chance) loot.addItem(Item.of(entry.item));
+    });
+  });
 });

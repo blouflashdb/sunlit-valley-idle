@@ -1,9 +1,8 @@
 {
-	"item": "snowyspirit:eggnog",
-	"category": "drink",
-	"price": 92,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": [],
-	"bottle_drink": true
+  "item": "snowyspirit:eggnog",
+  "category": "drink",
+  "price": 92,
+  "bottle_drink": true,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

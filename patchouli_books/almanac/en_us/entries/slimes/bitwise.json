@@ -1,0 +1,17 @@
+{
+  "name": "Bitwise",
+  "category": "patchouli:slimes",
+  "icon": "splendid_slimes:plort_bitwise",
+  "sortnum": 15,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(l)Slime Ranching level:$() 7$(br2)$(l)Food:$() Quartz$(br)$(l)Favorite food (double plorts):$() Fire Opal$(br2)Rip its plorts in a Plort Ripper, or press 16 into a Slime Heart."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "splendid_slimes:plort_bitwise,splendid_slimes:slime_heart_bitwise",
+      "title": "Bitwise Plort"
+    }
+  ]
+}

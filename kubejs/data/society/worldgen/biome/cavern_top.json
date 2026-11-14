@@ -9,10 +9,19 @@
   },
   "features": [
     [],
-    ["society:ladder_top"],
-    ["minecraft:lake_lava_underground"],
-    ["minecraft:amethyst_geode"],
-    ["minecraft:monster_room", "minecraft:monster_room_deep"],
+    [
+      "society:ladder_top"
+    ],
+    [
+      "minecraft:lake_lava_underground"
+    ],
+    [
+      "minecraft:amethyst_geode"
+    ],
+    [
+      "minecraft:monster_room",
+      "minecraft:monster_room_deep"
+    ],
     [],
     [],
     [
@@ -32,9 +41,19 @@
       "minecraft:flower_pale_garden",
       "minecraft:patch_grass_forest"
     ],
-    ["society:patch_glow_shroom", "society:glow_shrooms_extra"],
-    ["minecraft:spring_water", "minecraft:spring_lava"],
-    ["society:glow_lichen", "minecraft:brown_mushroom_normal", "minecraft:red_mushroom_normal"],
+    [
+      "society:patch_glow_shroom",
+      "society:glow_shrooms_extra"
+    ],
+    [
+      "minecraft:spring_water",
+      "minecraft:spring_lava"
+    ],
+    [
+      "society:glow_lichen",
+      "minecraft:brown_mushroom_normal",
+      "minecraft:red_mushroom_normal"
+    ],
     []
   ],
   "has_precipitation": true,

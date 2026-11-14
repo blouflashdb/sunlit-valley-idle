@@ -1,17 +1,17 @@
 package dev.sunlitidle;
 
-import net.minecraftforge.common.ForgeConfigSpec;
+import net.neoforged.neoforge.common.ModConfigSpec;
 
 public final class Config {
-    public static final ForgeConfigSpec SPEC;
+    public static final ModConfigSpec SPEC;
     private static final TierConfig[] TIERS = new TierConfig[5];
-    public static final ForgeConfigSpec.IntValue RETREAT_SECONDS;
-    public static final ForgeConfigSpec.DoubleValue SKILL_XP_FACTOR;
-    public static final ForgeConfigSpec.DoubleValue MAX_OFFLINE_HOURS;
-    public static final ForgeConfigSpec.IntValue CATCH_UP_SECONDS_PER_TICK;
+    public static final ModConfigSpec.IntValue RETREAT_SECONDS;
+    public static final ModConfigSpec.DoubleValue SKILL_XP_FACTOR;
+    public static final ModConfigSpec.DoubleValue MAX_OFFLINE_HOURS;
+    public static final ModConfigSpec.IntValue CATCH_UP_SECONDS_PER_TICK;
 
     static {
-        ForgeConfigSpec.Builder b = new ForgeConfigSpec.Builder();
+        ModConfigSpec.Builder b = new ModConfigSpec.Builder();
         b.push("companion");
         RETREAT_SECONDS = b.comment("Seconds the companion rests after losing a fight")
                 .defineInRange("retreatSeconds", 60, 0, 3600);
@@ -40,12 +40,12 @@ public final class Config {
     }
 
     public static final class TierConfig {
-        public final ForgeConfigSpec.DoubleValue enemyHealth;
-        public final ForgeConfigSpec.DoubleValue enemyDamage;
-        public final ForgeConfigSpec.DoubleValue baseFood;
-        public final ForgeConfigSpec.DoubleValue power;
+        public final ModConfigSpec.DoubleValue enemyHealth;
+        public final ModConfigSpec.DoubleValue enemyDamage;
+        public final ModConfigSpec.DoubleValue baseFood;
+        public final ModConfigSpec.DoubleValue power;
 
-        TierConfig(ForgeConfigSpec.Builder b, int n, double hp, double dmg, double food, double power) {
+        TierConfig(ModConfigSpec.Builder b, int n, double hp, double dmg, double food, double power) {
             b.push("tier" + n);
             enemyHealth = b.defineInRange("enemyHealth", hp, 1.0, 100000.0);
             enemyDamage = b.defineInRange("enemyDamage", dmg, 0.0, 10000.0);

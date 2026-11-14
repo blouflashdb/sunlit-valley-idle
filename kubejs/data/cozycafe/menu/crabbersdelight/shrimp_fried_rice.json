@@ -1,8 +1,7 @@
 {
-	"item": "crabbersdelight:shrimp_fried_rice",
-	"category": "main",
-	"price": 285,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "crabbersdelight:shrimp_fried_rice",
+  "category": "main",
+  "price": 285,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

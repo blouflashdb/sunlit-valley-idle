@@ -1,8 +1,7 @@
 {
-	"item": "minecraft:bread",
-	"category": "main",
-	"price": 33,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "minecraft:bread",
+  "category": "main",
+  "price": 33,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

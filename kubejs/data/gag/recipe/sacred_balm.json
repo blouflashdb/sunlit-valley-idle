@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "society:ancient_fruit"
+    },
+    {
+      "item": "minecraft:phantom_membrane"
+    },
+    {
+      "item": "gag:sacred_salt"
+    },
+    {
+      "item": "gag:sacred_salt"
+    },
+    {
+      "item": "gag:sacred_salt"
+    },
+    {
+      "item": "gag:sacred_salt"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "id": "gag:sacred_balm",
+    "count": 1
+  }
+}

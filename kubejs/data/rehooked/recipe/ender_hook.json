@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": {
+      "item": "minecraft:ender_eye"
+    },
+    "H": {
+      "item": "rehooked:diamond_hook"
+    },
+    "W": {
+      "item": "numismatics:prismatic_coin"
+    },
+    "P": {
+      "item": "minecraft:ender_pearl"
+    }
+  },
+  "pattern": [
+    "EEH",
+    " WE",
+    "P E"
+  ],
+  "result": {
+    "id": "rehooked:ender_hook",
+    "count": 1
+  },
+  "show_notification": true
+}

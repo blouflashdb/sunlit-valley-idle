@@ -1,8 +1,7 @@
 {
-	"item": "society:latte",
-	"category": "drink",
-	"price": 864,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "society:latte",
+  "category": "drink",
+  "price": 864,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

@@ -1,21 +1,30 @@
 {
   "shop_id": "librarian",
-  "name": "shop.society_trading.librarian",
-  "texture": "dialog:textures/portraits/librarian",
+  "name": {
+    "translate": "shop.society_trading.librarian"
+  },
+  "texture": "sunlitidle:textures/portraits/librarian",
   "villager_profession": "weaponsmith",
   "stage_required": "invited_librarian",
   "jei_catalyst": {
-    "item": "society:villager",
-    "nbt": "{type:{id:\"society:librarian\"}}"
+    "id": "society:villager",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "type": {
+          "id": "society:librarian"
+        }
+      }
+    }
   },
   "trades": [
     {
       "offer": {
-        "item": "labels:label",
+        "id": "labels:label",
         "count": 1
       },
       "request": {
-        "item": "numismatics:spur",
+        "id": "numismatics:spur",
         "count": 3
       },
       "numismatics_cost": 3,
@@ -23,11 +32,11 @@
     },
     {
       "offer": {
-        "item": "minecraft:name_tag",
+        "id": "minecraft:name_tag",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 4
       },
       "numismatics_cost": 256,
@@ -35,11 +44,11 @@
     },
     {
       "offer": {
-        "item": "gag:labeling_tool",
+        "id": "gag:labeling_tool",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 2
       },
       "numismatics_cost": 1024,
@@ -47,11 +56,11 @@
     },
     {
       "offer": {
-        "item": "minecraft:book",
+        "id": "minecraft:book",
         "count": 1
       },
       "request": {
-        "item": "numismatics:bevel",
+        "id": "numismatics:bevel",
         "count": 3
       },
       "numismatics_cost": 24,
@@ -59,11 +68,11 @@
     },
     {
       "offer": {
-        "item": "supplementaries:safe",
+        "id": "supplementaries:safe",
         "count": 1
       },
       "request": {
-        "item": "numismatics:crown",
+        "id": "numismatics:crown",
         "count": 3
       },
       "numismatics_cost": 1536,
@@ -71,11 +80,11 @@
     },
     {
       "offer": {
-        "item": "functionalstorage:storage_controller",
+        "id": "functionalstorage:storage_controller",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 1
       },
       "numismatics_cost": 4096,
@@ -83,11 +92,11 @@
     },
     {
       "offer": {
-        "item": "functionalstorage:controller_extension",
+        "id": "functionalstorage:controller_extension",
         "count": 1
       },
       "request": {
-        "item": "numismatics:crown",
+        "id": "numismatics:crown",
         "count": 4
       },
       "numismatics_cost": 2048,
@@ -95,11 +104,11 @@
     },
     {
       "offer": {
-        "item": "functionalstorage:simple_compacting_drawer",
+        "id": "functionalstorage:simple_compacting_drawer",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 2
       },
       "numismatics_cost": 128,
@@ -107,11 +116,11 @@
     },
     {
       "offer": {
-        "item": "functionalstorage:compacting_drawer",
+        "id": "functionalstorage:compacting_drawer",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 4
       },
       "numismatics_cost": 256,
@@ -119,11 +128,11 @@
     },
     {
       "offer": {
-        "item": "functionalstorage:configuration_tool",
+        "id": "functionalstorage:configuration_tool",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sprocket",
+        "id": "numismatics:sprocket",
         "count": 1
       },
       "numismatics_cost": 16,
@@ -131,11 +140,11 @@
     },
     {
       "offer": {
-        "item": "functionalstorage:linking_tool",
+        "id": "functionalstorage:linking_tool",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sprocket",
+        "id": "numismatics:sprocket",
         "count": 1
       },
       "numismatics_cost": 16,
@@ -143,11 +152,11 @@
     },
     {
       "offer": {
-        "item": "functionalstorage:copper_upgrade",
+        "id": "functionalstorage:copper_upgrade",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 2
       },
       "numismatics_cost": 8192,
@@ -155,11 +164,11 @@
     },
     {
       "offer": {
-        "item": "functionalstorage:gold_upgrade",
+        "id": "functionalstorage:gold_upgrade",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 6
       },
       "numismatics_cost": 24576,
@@ -167,11 +176,11 @@
     },
     {
       "offer": {
-        "item": "functionalstorage:diamond_upgrade",
+        "id": "functionalstorage:diamond_upgrade",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 10
       },
       "numismatics_cost": 40960,
@@ -179,11 +188,11 @@
     },
     {
       "offer": {
-        "item": "functionalstorage:netherite_upgrade",
+        "id": "functionalstorage:netherite_upgrade",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 14
       },
       "numismatics_cost": 57344,
@@ -191,11 +200,11 @@
     },
     {
       "offer": {
-        "item": "functionalstorage:void_upgrade",
+        "id": "functionalstorage:void_upgrade",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 3
       },
       "numismatics_cost": 192,
@@ -203,11 +212,11 @@
     },
     {
       "offer": {
-        "item": "create:wrench",
+        "id": "create:wrench",
         "count": 1
       },
       "request": {
-        "item": "numismatics:crown",
+        "id": "numismatics:crown",
         "count": 4
       },
       "numismatics_cost": 2048,
@@ -215,11 +224,11 @@
     },
     {
       "offer": {
-        "item": "refinedstorage:controller",
+        "id": "refinedstorage:controller",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 2
       },
       "numismatics_cost": 8192,
@@ -227,11 +236,11 @@
     },
     {
       "offer": {
-        "item": "refinedstorage:4k_storage_block",
+        "id": "refinedstorage:4k_storage_block",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 1
       },
       "numismatics_cost": 4096,
@@ -239,11 +248,11 @@
     },
     {
       "offer": {
-        "item": "refinedstorage:64k_storage_block",
+        "id": "refinedstorage:64k_storage_block",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 16
       },
       "numismatics_cost": 65536,
@@ -251,11 +260,11 @@
     },
     {
       "offer": {
-        "item": "refinedstorage:cable",
+        "id": "refinedstorage:cable",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 1
       },
       "numismatics_cost": 64,
@@ -263,11 +272,11 @@
     },
     {
       "offer": {
-        "item": "refinedstorage:external_storage",
+        "id": "refinedstorage:external_storage",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 4
       },
       "numismatics_cost": 2048,
@@ -275,11 +284,11 @@
     },
     {
       "offer": {
-        "item": "refinedstorage:crafting_grid",
+        "id": "refinedstorage:crafting_grid",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 2
       },
       "numismatics_cost": 8192,
@@ -287,23 +296,11 @@
     },
     {
       "offer": {
-        "item": "refinedstorageaddons:wireless_crafting_grid",
+        "id": "refinedstorage:wireless_transmitter",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
-        "count": 12
-      },
-      "numismatics_cost": 49152,
-      "trade_id": "librarian_wireless_crafting_grid_for_sun"
-    },
-    {
-      "offer": {
-        "item": "refinedstorage:wireless_transmitter",
-        "count": 1
-      },
-      "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 4
       },
       "numismatics_cost": 16384,
@@ -311,11 +308,11 @@
     },
     {
       "offer": {
-        "item": "sophisticatedstorage:basic_tier_upgrade",
+        "id": "sophisticatedstorage:basic_tier_upgrade",
         "count": 1
       },
       "request": {
-        "item": "numismatics:spur",
+        "id": "numismatics:spur",
         "count": 4
       },
       "numismatics_cost": 4,
@@ -323,11 +320,11 @@
     },
     {
       "offer": {
-        "item": "sophisticatedstorage:basic_to_copper_tier_upgrade",
+        "id": "sophisticatedstorage:basic_to_copper_tier_upgrade",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 4
       },
       "numismatics_cost": 256,
@@ -335,11 +332,11 @@
     },
     {
       "offer": {
-        "item": "sophisticatedstorage:copper_to_iron_tier_upgrade",
+        "id": "sophisticatedstorage:copper_to_iron_tier_upgrade",
         "count": 1
       },
       "request": {
-        "item": "numismatics:crown",
+        "id": "numismatics:crown",
         "count": 2
       },
       "numismatics_cost": 1024,
@@ -347,11 +344,11 @@
     },
     {
       "offer": {
-        "item": "sophisticatedstorage:iron_to_gold_tier_upgrade",
+        "id": "sophisticatedstorage:iron_to_gold_tier_upgrade",
         "count": 1
       },
       "request": {
-        "item": "numismatics:crown",
+        "id": "numismatics:crown",
         "count": 4
       },
       "numismatics_cost": 2048,
@@ -359,11 +356,11 @@
     },
     {
       "offer": {
-        "item": "sophisticatedstorage:gold_to_diamond_tier_upgrade",
+        "id": "sophisticatedstorage:gold_to_diamond_tier_upgrade",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 2
       },
       "numismatics_cost": 8192,
@@ -371,11 +368,11 @@
     },
     {
       "offer": {
-        "item": "sophisticatedstorage:diamond_to_netherite_tier_upgrade",
+        "id": "sophisticatedstorage:diamond_to_netherite_tier_upgrade",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 4
       },
       "numismatics_cost": 16384,
@@ -383,11 +380,11 @@
     },
     {
       "offer": {
-        "item": "sophisticatedstorage:upgrade_base",
+        "id": "sophisticatedstorage:upgrade_base",
         "count": 1
       },
       "request": {
-        "item": "numismatics:crown",
+        "id": "numismatics:crown",
         "count": 1
       },
       "numismatics_cost": 512,
@@ -395,11 +392,11 @@
     },
     {
       "offer": {
-        "item": "sophisticatedstorage:stack_upgrade_tier_1",
+        "id": "sophisticatedstorage:stack_upgrade_tier_1",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 4
       },
       "numismatics_cost": 16384,
@@ -407,11 +404,11 @@
     },
     {
       "offer": {
-        "item": "sophisticatedstorage:stack_upgrade_tier_1_plus",
+        "id": "sophisticatedstorage:stack_upgrade_tier_1_plus",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 6
       },
       "numismatics_cost": 24576,
@@ -419,11 +416,11 @@
     },
     {
       "offer": {
-        "item": "sophisticatedstorage:stack_upgrade_tier_2",
+        "id": "sophisticatedstorage:stack_upgrade_tier_2",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 8
       },
       "numismatics_cost": 32768,
@@ -431,11 +428,11 @@
     },
     {
       "offer": {
-        "item": "sophisticatedstorage:stack_upgrade_tier_3",
+        "id": "sophisticatedstorage:stack_upgrade_tier_3",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 16
       },
       "numismatics_cost": 65536,
@@ -443,11 +440,11 @@
     },
     {
       "offer": {
-        "item": "sophisticatedstorage:stack_upgrade_tier_4",
+        "id": "sophisticatedstorage:stack_upgrade_tier_4",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 32
       },
       "numismatics_cost": 131072,
@@ -455,11 +452,11 @@
     },
     {
       "offer": {
-        "item": "sophisticatedstorage:stack_upgrade_tier_5",
+        "id": "sophisticatedstorage:stack_upgrade_tier_5",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 64
       },
       "numismatics_cost": 262144,
@@ -467,11 +464,11 @@
     },
     {
       "offer": {
-        "item": "sophisticatedstorage:stack_upgrade_omega_tier",
+        "id": "sophisticatedstorage:stack_upgrade_omega_tier",
         "count": 1
       },
       "request": {
-        "item": "numismatics:ancient_coin",
+        "id": "numismatics:ancient_coin",
         "count": 4
       },
       "numismatics_cost": 1048576,
@@ -479,11 +476,11 @@
     },
     {
       "offer": {
-        "item": "sophisticatedstorage:packing_tape",
+        "id": "sophisticatedstorage:packing_tape",
         "count": 1
       },
       "request": {
-        "item": "numismatics:crown",
+        "id": "numismatics:crown",
         "count": 3
       },
       "numismatics_cost": 1536,
@@ -491,11 +488,11 @@
     },
     {
       "offer": {
-        "item": "sophisticatedstorage:decoration_table",
+        "id": "sophisticatedstorage:decoration_table",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 1
       },
       "numismatics_cost": 4096,
@@ -503,11 +500,11 @@
     },
     {
       "offer": {
-        "item": "sophisticatedstorage:paintbrush",
+        "id": "sophisticatedstorage:paintbrush",
         "count": 1
       },
       "request": {
-        "item": "numismatics:crown",
+        "id": "numismatics:crown",
         "count": 3
       },
       "numismatics_cost": 1536,
@@ -515,11 +512,11 @@
     },
     {
       "offer": {
-        "item": "sophisticatedbackpacks:upgrade_base",
+        "id": "sophisticatedbackpacks:upgrade_base",
         "count": 1
       },
       "request": {
-        "item": "numismatics:crown",
+        "id": "numismatics:crown",
         "count": 1
       },
       "numismatics_cost": 512,
@@ -527,11 +524,11 @@
     },
     {
       "offer": {
-        "item": "sophisticatedbackpacks:stack_upgrade_starter_tier",
+        "id": "sophisticatedbackpacks:stack_upgrade_starter_tier",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 8
       },
       "numismatics_cost": 32768,
@@ -539,11 +536,11 @@
     },
     {
       "offer": {
-        "item": "sophisticatedbackpacks:stack_upgrade_tier_1",
+        "id": "sophisticatedbackpacks:stack_upgrade_tier_1",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 16
       },
       "numismatics_cost": 65536,
@@ -551,11 +548,11 @@
     },
     {
       "offer": {
-        "item": "sophisticatedbackpacks:stack_upgrade_tier_2",
+        "id": "sophisticatedbackpacks:stack_upgrade_tier_2",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 32
       },
       "numismatics_cost": 131072,
@@ -563,11 +560,11 @@
     },
     {
       "offer": {
-        "item": "sophisticatedbackpacks:stack_upgrade_tier_3",
+        "id": "sophisticatedbackpacks:stack_upgrade_tier_3",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 64
       },
       "numismatics_cost": 262144,
@@ -575,15 +572,15 @@
     },
     {
       "offer": {
-        "item": "sophisticatedbackpacks:stack_upgrade_tier_4",
+        "id": "sophisticatedbackpacks:stack_upgrade_tier_4",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 64
       },
       "second_request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 64
       },
       "numismatics_cost": 524288,
@@ -591,11 +588,11 @@
     },
     {
       "offer": {
-        "item": "sophisticatedbackpacks:stack_upgrade_omega_tier",
+        "id": "sophisticatedbackpacks:stack_upgrade_omega_tier",
         "count": 1
       },
       "request": {
-        "item": "numismatics:ancient_coin",
+        "id": "numismatics:ancient_coin",
         "count": 8
       },
       "numismatics_cost": 2097152,
@@ -603,11 +600,11 @@
     },
     {
       "offer": {
-        "item": "sophisticatedbackpacks:inception_upgrade",
+        "id": "sophisticatedbackpacks:inception_upgrade",
         "count": 1
       },
       "request": {
-        "item": "numismatics:prismatic_coin",
+        "id": "numismatics:prismatic_coin",
         "count": 4
       },
       "numismatics_cost": 67108864,

@@ -1,10 +1,9 @@
 {
-	"item": "society:star_coquito",
-	"category": "drink",
-	"price": 9000,
-	"product_type": "shippingbin:wood_sell_multiplier",
-	"flavors": [],
-	"themes": [],
-	"bottle_drink": true,
-	"bottle": "vinery:wine_bottle"
+  "item": "society:star_coquito",
+  "category": "drink",
+  "price": 9000,
+  "bottle_drink": true,
+  "bottle": "vinery:wine_bottle",
+  "flavors": [],
+  "mult_attribute": "shippingbin:wood_sell_multiplier"
 }

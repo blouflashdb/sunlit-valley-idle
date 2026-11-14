@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "G": {
+      "item": "quark:gunpowder_sack"
+    },
+    "I": {
+      "item": "create:zinc_ingot"
+    }
+  },
+  "pattern": [
+    "III",
+    "IGI",
+    "III"
+  ],
+  "result": {
+    "id": "betterarcheology:bomb",
+    "count": 1
+  },
+  "show_notification": true
+}

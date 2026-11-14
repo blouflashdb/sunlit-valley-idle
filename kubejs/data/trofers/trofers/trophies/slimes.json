@@ -1,0 +1,26 @@
+{
+  "colors": {
+    "accent": "#ff7d9d",
+    "base": "#e35275"
+  },
+  "display": {
+    "offset": [
+      0,
+      1,
+      0
+    ],
+    "scale": 2.0
+  },
+  "animation": {
+    "type": "spinning",
+    "speed": 0.1
+  },
+  "name": {
+    "color": "#ff7d9d",
+    "translate": "society.trofers.slimes"
+  },
+  "item": {
+    "id": "splendid_slimes:plort_slimy",
+    "count": 1
+  }
+}

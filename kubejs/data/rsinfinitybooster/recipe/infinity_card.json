@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "N": {
+      "item": "numismatics:sun"
+    },
+    "R": {
+      "item": "refinedstorage:range_upgrade"
+    },
+    "S": {
+      "item": "minecraft:beacon"
+    }
+  },
+  "pattern": [
+    " N ",
+    "NRN",
+    " S "
+  ],
+  "result": {
+    "id": "rsinfinitybooster:infinity_card",
+    "count": 1
+  },
+  "show_notification": true
+}

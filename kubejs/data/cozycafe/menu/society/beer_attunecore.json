@@ -1,8 +1,7 @@
 {
-	"item": "society:beer_attunecore",
-	"category": "drink",
-	"price": 477,
-	"product_type": "shippingbin:wood_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "society:beer_attunecore",
+  "category": "drink",
+  "price": 477,
+  "flavors": [],
+  "mult_attribute": "shippingbin:wood_sell_multiplier"
 }

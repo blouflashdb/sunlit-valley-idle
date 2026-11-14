@@ -10,8 +10,9 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.server.ServerLifecycleHooks;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.item.crafting.RecipeHolder;
+import net.neoforged.neoforge.server.ServerLifecycleHooks;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -79,19 +80,20 @@ public final class RecipeActions {
             // One action per input and output pair: the fastest recipe wins.
             Map<String, IdleAction> unique = new LinkedHashMap<>();
             for (ResourceLocation typeId : skill.recipeTypes()) {
-                RecipeType<?> type = ForgeRegistries.RECIPE_TYPES.getValue(typeId);
+                RecipeType<?> type = BuiltInRegistries.RECIPE_TYPE.getOptional(typeId).orElse(null);
                 if (type == null) {
                     continue;
                 }
-                for (Recipe<?> recipe : recipes.getRecipes()) {
+                for (RecipeHolder<?> holder : recipes.getRecipes()) {
+                    Recipe<?> recipe = holder.value();
                     if (recipe.getType() != type || !(recipe instanceof AbstractCookingRecipe cooking)) {
                         continue;
                     }
-                    IdleAction action = toAction(skill, cooking, registries);
+                    IdleAction action = toAction(skill, holder.id(), cooking, registries);
                     if (action == null) {
                         continue;
                     }
-                    String pair = firstInput(cooking.getIngredients().get(0)) + ">" + ForgeRegistries.ITEMS.getKey(action.recipe().output().getItem());
+                    String pair = firstInput(cooking.getIngredients().get(0)) + ">" + BuiltInRegistries.ITEM.getKey(action.recipe().output().getItem());
                     IdleAction old = unique.get(pair);
                     if (old == null || action.seconds() < old.seconds()) {
                         unique.put(pair, action);
@@ -109,10 +111,11 @@ public final class RecipeActions {
 
     private static String firstInput(Ingredient ingredient) {
         ItemStack[] items = ingredient.getItems();
-        return items.length == 0 ? "?" : String.valueOf(ForgeRegistries.ITEMS.getKey(items[0].getItem()));
+        return items.length == 0 ? "?" : String.valueOf(BuiltInRegistries.ITEM.getKey(items[0].getItem()));
     }
 
-    private static IdleAction toAction(IdleSkill skill, AbstractCookingRecipe recipe, RegistryAccess registries) {
+    private static IdleAction toAction(IdleSkill skill, ResourceLocation id, AbstractCookingRecipe recipe,
+                                       RegistryAccess registries) {
         if (recipe.getIngredients().isEmpty() || recipe.getIngredients().get(0).isEmpty()) {
             return null;
         }
@@ -120,7 +123,7 @@ public final class RecipeActions {
         if (output.isEmpty()) {
             return null;
         }
-        ResourceLocation outputId = ForgeRegistries.ITEMS.getKey(output.getItem());
+        ResourceLocation outputId = BuiltInRegistries.ITEM.getKey(output.getItem());
         if (outputId == null) {
             return null;
         }
@@ -128,11 +131,10 @@ public final class RecipeActions {
         int level = Math.min(12, (int) Math.floor(experience * 8));
         FoodProperties food = output.getFoodProperties(null);
         if (food != null && skill.id().equals("cooking")) {
-            level = Math.min(12, food.getNutrition() / 2);
+            level = Math.min(12, food.nutrition() / 2);
         }
         double seconds = Math.max(IdleMath.MIN_SECONDS, recipe.getCookingTime() / 20.0 * TIME_FACTOR);
         int xp = Math.max(1, Math.round(experience * 10));
-        ResourceLocation id = recipe.getId();
         String key = skill.id() + "/" + id.getNamespace() + "/" + id.getPath();
         return new IdleAction(key, skill.id(), id.toString(), level, 0, seconds, xp, outputId, List.of(), List.of(), 0,
                 new RecipeRef(id, recipe.getIngredients().get(0), output.copy()));

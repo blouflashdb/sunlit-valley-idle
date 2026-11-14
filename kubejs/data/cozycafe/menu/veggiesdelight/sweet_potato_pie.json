@@ -1,8 +1,7 @@
 {
-	"item": "veggiesdelight:sweet_potato_pie",
-	"category": "dessert",
-	"price": 1026,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "veggiesdelight:sweet_potato_pie",
+  "category": "dessert",
+  "price": 1026,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

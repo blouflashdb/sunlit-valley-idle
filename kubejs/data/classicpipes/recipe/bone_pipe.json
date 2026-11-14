@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "O": {
+      "item": "minecraft:bone_block"
+    },
+    "W": {
+      "item": "etcetera:iridescent_glass"
+    }
+  },
+  "pattern": [
+    "OWO"
+  ],
+  "result": {
+    "id": "classicpipes:bone_pipe",
+    "count": 8
+  }
+}

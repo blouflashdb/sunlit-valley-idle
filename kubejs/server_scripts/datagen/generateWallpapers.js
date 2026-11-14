@@ -1,3 +1,5 @@
+// Dev-only generator of the wallpaper and baseboard block models and blockstates (kubejs/assets/society).
+// Uncomment and reload once to regenerate.
 // const baseboardTypes = ["", "birch", "dark_oak", "jungle", "oak", "spruce"];
 
 // if (false) {

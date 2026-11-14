@@ -1,8 +1,7 @@
 {
-	"item": "society:tubasmoke_carton",
-	"category": "main",
-	"price": 3723,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "society:tubasmoke_carton",
+  "category": "main",
+  "price": 3723,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

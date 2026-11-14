@@ -1,8 +1,7 @@
 {
-	"item": "bakery:bun",
-	"category": "main",
-	"price": 23,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "bakery:bun",
+  "category": "main",
+  "price": 23,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

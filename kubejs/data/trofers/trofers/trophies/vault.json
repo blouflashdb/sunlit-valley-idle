@@ -1,0 +1,26 @@
+{
+  "colors": {
+    "accent": "#f6ba47",
+    "base": "#bc6131"
+  },
+  "display": {
+    "offset": [
+      0,
+      1,
+      0
+    ],
+    "scale": 2.0
+  },
+  "animation": {
+    "type": "spinning",
+    "speed": 0.1
+  },
+  "name": {
+    "color": "#f6ba47",
+    "translate": "society.trofers.vault"
+  },
+  "item": {
+    "id": "furniture:cash_register",
+    "count": 1
+  }
+}

@@ -1,3 +1,4 @@
+// Dev-only helper that logs the Longwing value table as wiki markup. Uncomment and reload once to print it.
 // const formatName = (id) => Text.translatable(`item.longwings.${id}`).getString().replace('[', '').replace(']', '');
 
 // const getAverageSize = (size) => {

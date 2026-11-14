@@ -1,8 +1,7 @@
 {
-	"item": "windswept:roasted_chestnuts",
-	"category": "main",
-	"price": 5,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "windswept:roasted_chestnuts",
+  "category": "main",
+  "price": 5,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

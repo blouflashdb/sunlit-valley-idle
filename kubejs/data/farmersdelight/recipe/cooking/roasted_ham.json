@@ -1,0 +1,29 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 2.0,
+  "result": {
+    "id": "meadow:roasted_buffalo_ham",
+    "count": 2
+  },
+  "ingredients": [
+    {
+      "item": "meadow:raw_buffalo_meat"
+    },
+    {
+      "item": "meadow:raw_buffalo_meat"
+    },
+    {
+      "item": "meadow:raw_buffalo_meat"
+    },
+    {
+      "tag": "c:salt"
+    },
+    {
+      "tag": "c:crops/potato"
+    },
+    {
+      "tag": "c:crops/carrot"
+    }
+  ]
+}

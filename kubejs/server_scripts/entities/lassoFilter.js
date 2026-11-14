@@ -1,8 +1,6 @@
 console.info("[SOCIETY] lassoFilter.js loaded");
 
-ItemEvents.entityInteracted((e) => {
-  const { item, target } = e;
-  if ('moblassos:diamond_lasso' == item.id && global.checkEntityTag(target, "society:cannot_lasso")) {
-    e.cancel()
-  }
+// The diamond lasso cannot catch entities tagged society:cannot_lasso (tags/husbandryTags.js).
+ItemEvents.entityInteracted("moblassos:diamond_lasso", (e) => {
+  if (global.checkEntityTag(e.target, "society:cannot_lasso")) e.cancel();
 });

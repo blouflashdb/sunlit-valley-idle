@@ -1,6 +1,8 @@
 {
   "axe_efficiency+1": {
-    "title": {"translate": "society_skills.farming.axe_efficiency"},
+    "title": {
+      "translate": "society_skills.farming.axe_efficiency"
+    },
     "icon": {
       "type": "item",
       "data": {
@@ -19,7 +21,9 @@
     ]
   },
   "shovel_efficiency+1": {
-    "title": {"translate": "society_skills.farming.shovel_efficiency"},
+    "title": {
+      "translate": "society_skills.farming.shovel_efficiency"
+    },
     "icon": {
       "type": "item",
       "data": {
@@ -38,7 +42,9 @@
     ]
   },
   "speed+5%": {
-    "title": {"translate": "society_skills.farming.speed"},
+    "title": {
+      "translate": "society_skills.farming.speed"
+    },
     "icon": {
       "type": "effect",
       "data": {
@@ -57,8 +63,12 @@
     ]
   },
   "tiller": {
-    "title": {"translate": "society_skills.farming.tiller"},
-    "description": {"translate": "society_skills.farming.tiller.description"},
+    "title": {
+      "translate": "society_skills.farming.tiller"
+    },
+    "description": {
+      "translate": "society_skills.farming.tiller.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -89,8 +99,12 @@
     ]
   },
   "soil_inspector": {
-    "title": {"translate": "society_skills.farming.soil_inspector"},
-    "description": {"translate": "society_skills.farming.soil_inspector.description"},
+    "title": {
+      "translate": "society_skills.farming.soil_inspector"
+    },
+    "description": {
+      "translate": "society_skills.farming.soil_inspector.description"
+    },
     "icon": {
       "type": "item",
       "data": {
@@ -108,8 +122,12 @@
     ]
   },
   "sticky_crops": {
-    "title": {"translate": "society_skills.farming.sticky_crops"},
-    "description": {"translate": "society_skills.farming.sticky_crops.description"},
+    "title": {
+      "translate": "society_skills.farming.sticky_crops"
+    },
+    "description": {
+      "translate": "society_skills.farming.sticky_crops.description"
+    },
     "icon": {
       "type": "item",
       "data": {
@@ -127,8 +145,12 @@
     ]
   },
   "artisan": {
-    "title": {"translate": "society_skills.farming.artisan"},
-    "description": {"translate": "society_skills.farming.artisan.description"},
+    "title": {
+      "translate": "society_skills.farming.artisan"
+    },
+    "description": {
+      "translate": "society_skills.farming.artisan.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -159,8 +181,12 @@
     ]
   },
   "aged_prize": {
-    "title": {"translate": "society_skills.farming.aged_prize"},
-    "description": {"translate": "society_skills.farming.aged_prize.description"},
+    "title": {
+      "translate": "society_skills.farming.aged_prize"
+    },
+    "description": {
+      "translate": "society_skills.farming.aged_prize.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -184,8 +210,12 @@
     ]
   },
   "ancient_aging": {
-    "title": {"translate": "society_skills.farming.ancient_aging"},
-    "description": {"translate": "society_skills.farming.ancient_aging.description"},
+    "title": {
+      "translate": "society_skills.farming.ancient_aging"
+    },
+    "description": {
+      "translate": "society_skills.farming.ancient_aging.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -209,8 +239,12 @@
     ]
   },
   "artful_tycoon": {
-    "title": {"translate": "society_skills.farming.artful_tycoon"},
-    "description": {"translate": "society_skills.farming.artful_tycoon.description"},
+    "title": {
+      "translate": "society_skills.farming.artful_tycoon"
+    },
+    "description": {
+      "translate": "society_skills.farming.artful_tycoon.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -241,8 +275,12 @@
     ]
   },
   "rancher": {
-    "title": {"translate": "society_skills.farming.rancher"},
-    "description": {"translate": "society_skills.farming.rancher.description"},
+    "title": {
+      "translate": "society_skills.farming.rancher"
+    },
+    "description": {
+      "translate": "society_skills.farming.rancher.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -266,8 +304,12 @@
     ]
   },
   "reaping_scythe": {
-    "title": {"translate": "society_skills.farming.reaping_scythe"},
-    "description": {"translate": "society_skills.farming.reaping_scythe.description"},
+    "title": {
+      "translate": "society_skills.farming.reaping_scythe"
+    },
+    "description": {
+      "translate": "society_skills.farming.reaping_scythe.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -291,8 +333,12 @@
     ]
   },
   "tree_whisperer": {
-    "title": {"translate": "society_skills.farming.tree_whisperer"},
-    "description": {"translate": "society_skills.farming.tree_whisperer.description"},
+    "title": {
+      "translate": "society_skills.farming.tree_whisperer"
+    },
+    "description": {
+      "translate": "society_skills.farming.tree_whisperer.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -316,8 +362,12 @@
     ]
   },
   "crop_collector": {
-    "title": {"translate": "society_skills.farming.crop_collector"},
-    "description": {"translate": "society_skills.farming.crop_collector.description"},
+    "title": {
+      "translate": "society_skills.farming.crop_collector"
+    },
+    "description": {
+      "translate": "society_skills.farming.crop_collector.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -341,8 +391,12 @@
     ]
   },
   "farmers_blessing": {
-    "title": {"translate": "society_skills.farming.farmers_blessing"},
-    "description": {"translate": "society_skills.farming.farmers_blessing.description"},
+    "title": {
+      "translate": "society_skills.farming.farmers_blessing"
+    },
+    "description": {
+      "translate": "society_skills.farming.farmers_blessing.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {

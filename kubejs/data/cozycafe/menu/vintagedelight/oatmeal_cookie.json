@@ -1,8 +1,7 @@
 {
-	"item": "vintagedelight:oatmeal_cookie",
-	"category": "dessert",
-	"price": 21,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "vintagedelight:oatmeal_cookie",
+  "category": "dessert",
+  "price": 21,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

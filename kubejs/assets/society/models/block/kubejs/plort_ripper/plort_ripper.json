@@ -1,0 +1,10 @@
+{
+  "parent": "society:block/kubejs/placeholder/machine",
+  "textures": {
+    "side": "minecraft:block/iron_block",
+    "front": "minecraft:block/piston_top",
+    "top": "minecraft:block/slime_block",
+    "bottom": "minecraft:block/slime_block",
+    "particle": "minecraft:block/iron_block"
+  }
+}

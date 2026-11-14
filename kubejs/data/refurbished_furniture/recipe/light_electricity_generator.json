@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": {
+      "item": "minecraft:blast_furnace"
+    },
+    "I": {
+      "item": "create:zinc_ingot"
+    },
+    "R": {
+      "item": "society:battery"
+    }
+  },
+  "pattern": [
+    "III",
+    "IFI",
+    "RRR"
+  ],
+  "result": {
+    "id": "refurbished_furniture:light_electricity_generator",
+    "count": 1
+  },
+  "show_notification": true
+}

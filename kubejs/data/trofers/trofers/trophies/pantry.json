@@ -1,0 +1,26 @@
+{
+  "colors": {
+    "accent": "#349c4c",
+    "base": "#bc6131"
+  },
+  "display": {
+    "offset": [
+      0,
+      1,
+      0
+    ],
+    "scale": 2.0
+  },
+  "animation": {
+    "type": "spinning",
+    "speed": 0.1
+  },
+  "name": {
+    "color": "#f6ba47",
+    "translate": "society.trofers.pantry"
+  },
+  "item": {
+    "id": "furniture:explorers_box",
+    "count": 1
+  }
+}

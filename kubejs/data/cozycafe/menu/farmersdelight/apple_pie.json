@@ -1,8 +1,7 @@
 {
-	"item": "farmersdelight:apple_pie",
-	"category": "dessert",
-	"price": 1253,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "farmersdelight:apple_pie",
+  "category": "dessert",
+  "price": 1253,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

@@ -1,6 +1,25 @@
 console.info("[SOCIETY] miningLoot.js loaded");
 
-const overworldOres = [
+// Extra drops of ores, geode nodes and stone, from the 1.20.1 miningLoot.js. Each rule is one customAction:
+// LootJS 3 dropped the pool conditions, so the silk touch, stage, biome, dimension and season checks are JS.
+const $MiningLootParams = Java.loadClass("net.minecraft.world.level.storage.loot.parameters.LootContextParams");
+const $MiningLootRegistries = Java.loadClass("net.minecraft.core.registries.BuiltInRegistries");
+const $MiningLootRL = Java.loadClass("net.minecraft.resources.ResourceLocation");
+const $MiningLootBlockPos = Java.loadClass("net.minecraft.core.BlockPos");
+const $MiningLootComponents = Java.loadClass("net.minecraft.core.component.DataComponents");
+const $MiningLootEnchantments = Java.loadClass("net.minecraft.world.item.enchantment.ItemEnchantments");
+
+const miningBlocks = (ids) => ids.filter((id) => $MiningLootRegistries.BLOCK.containsKey($MiningLootRL.parse(id)));
+// Rhino picks the wrong Holder.is overload for tag keys, so tags and ids are compared as strings.
+const holderHasTag = (holder, tag) => {
+  let found = false;
+  holder.tags().forEach((key) => {
+    if (String(key.location()) === tag) found = true;
+  });
+  return found;
+};
+
+const overworldOres = miningBlocks([
   "meadow:alpine_diamond_ore",
   "meadow:alpine_salt_ore",
   "meadow:alpine_redstone_ore",
@@ -27,13 +46,9 @@ const overworldOres = [
   "minecraft:deepslate_redstone_ore",
   "minecraft:deepslate_emerald_ore",
   "minecraft:emerald_ore",
-];
-const netherOres = [
-  "minecraft:nether_gold_ore",
-  "minecraft:nether_quartz_ore",
-  "etcetera:nether_bismuth_ore",
-];
-const skullCavernOres = [
+]);
+const netherOres = miningBlocks(["minecraft:nether_gold_ore", "minecraft:nether_quartz_ore", "etcetera:nether_bismuth_ore"]);
+const skullCavernOres = miningBlocks([
   "oreganized:lead_ore",
   "oreganized:deepslate_lead_ore",
   "oreganized:silver_ore",
@@ -42,513 +57,235 @@ const skullCavernOres = [
   "society:deepslate_iridium_ore",
   "society:sparkstone_ore",
   "society:deepslate_sparkstone_ore",
-];
-const addMiningLootToAllOres = (e, stage, chance, item, otherPool) => {
-  overworldOres.forEach((ore) => {
-    e.addBlockLootModifier(ore)
-      .hasAnyStage(stage)
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.randomChance(chance).addLoot(item);
-      });
-  });
-  netherOres.forEach((ore) => {
-    e.addBlockLootModifier(ore)
-      .hasAnyStage(stage)
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.randomChance(chance).addLoot(item);
-      });
-  });
+]);
+const allOres = overworldOres.concat(netherOres, skullCavernOres);
+const supplyCrates = miningBlocks([
+  "society:oak_supply_crate",
+  "society:spruce_supply_crate",
+  "society:palm_supply_crate",
+  "society:grimwood_supply_crate",
+]);
+const moonRemains = [
+  "betterarcheology:creeper_fossil_body",
+  "betterarcheology:creeper_fossil_head",
+  "betterarcheology:villager_fossil_body",
+  "betterarcheology:villager_fossil_head",
+  "betterarcheology:chicken_fossil_body",
+  "betterarcheology:chicken_fossil_head",
+  "betterarcheology:ocelot_fossil_body",
+  "betterarcheology:ocelot_fossil_head",
+  "betterarcheology:wolf_fossil_body",
+  "betterarcheology:wolf_fossil_head",
+  "betterarcheology:sheep_fossil_body",
+  "betterarcheology:sheep_fossil_head",
+  "betterarcheology:guardian_fossil_head",
+  "betterarcheology:guardian_fossil_body",
+  "crittersandcompanions:clam",
+  "species:petrified_egg",
+  "society:petrified_slime",
+  "twigs:petrified_lichen",
+  "atmospheric:petrified_armor_trim_smithing_template",
+  "betterarcheology:fossiliferous_dirt",
+  "minecraft:bone",
+  "aquaculture:fish_bones",
+  "netherdepthsupgrade:bonefish",
+  "society:fantasy_box_bone",
+  "betterarcheology:artifact_shards",
+  "society:artifact_trove",
+].filter((id) => global.itemExists(id));
 
-  skullCavernOres.forEach((ore) => {
-    e.addBlockLootModifier(ore)
-      .hasAnyStage(stage)
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.randomChance(chance).addLoot(item);
-      });
+const hasSilkTouchTool = (tool) => {
+  if (!tool || tool.isEmpty()) return false;
+  let found = false;
+  tool.getOrDefault($MiningLootComponents.ENCHANTMENTS, $MiningLootEnchantments.EMPTY).keySet().forEach((holder) => {
+    if (String(holder.unwrapKey().get().location()) === "minecraft:silk_touch") found = true;
   });
-  if (otherPool && otherPool.length > 0) {
-    otherPool.forEach((ore) => {
-      e.addBlockLootModifier(ore)
-        .hasAnyStage(stage)
-        .pool((p) => {
-          p.not((n) =>
-            n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-          );
-          p.randomChance(chance).addLoot(item);
-        });
-    });
-  }
+  return found;
 };
-const addWeightedMiningLootToAllOres = (e, stage, chance, item, otherPool) => {
-  overworldOres.forEach((ore) => {
-    e.addBlockLootModifier(ore)
-      .hasAnyStage(stage)
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.randomChance(chance).addWeightedLoot(item);
-      });
-  });
-  netherOres.forEach((ore) => {
-    e.addBlockLootModifier(ore)
-      .hasAnyStage(stage)
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.randomChance(chance).addWeightedLoot(item);
-      });
-  });
 
-  skullCavernOres.forEach((ore) => {
-    e.addBlockLootModifier(ore)
-      .hasAnyStage(stage)
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.randomChance(chance).addWeightedLoot(item);
-      });
-  });
-  if (otherPool && otherPool.length > 0) {
-    otherPool.forEach((ore) => {
-      e.addBlockLootModifier(ore)
-        .hasAnyStage(stage)
-        .pool((p) => {
-          p.not((n) =>
-            n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-          );
-          p.randomChance(chance).addWeightedLoot(item);
-        });
-    });
-  }
+// What a rule checks about one broken block.
+const miningLootState = (context) => {
+  let origin = context.getParamOrNull($MiningLootParams.ORIGIN);
+  if (!origin) return null;
+  let entity = context.getParamOrNull($MiningLootParams.THIS_ENTITY);
+  let level = context.getLevel();
+  return {
+    level: level,
+    pos: $MiningLootBlockPos.containing(origin),
+    player: entity && entity.isPlayer() ? entity : null,
+    silk: hasSilkTouchTool(context.getParamOrNull($MiningLootParams.TOOL)),
+    dimension: String(level.dimension),
+  };
 };
-const addAdditionalGeodeRoll = (e, geodeStage) => {
-  overworldOres.forEach((ore) => {
-    e.addBlockLootModifier(ore)
-      .hasAnyStage(geodeStage)
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.randomChance(0.1).addLoot("society:geode");
-      });
-    e.addBlockLootModifier(ore)
-      .biome("#forge:is_cold")
-      .hasAnyStage(geodeStage)
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.randomChance(0.1).addLoot("society:frozen_geode");
-      });
-    e.addBlockLootModifier(ore)
-      .playerPredicate((p) => global.getSeasonFromLevel(p.level) === "winter")
-      .hasAnyStage(geodeStage)
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.randomChance(0.1).addLoot("society:frozen_geode");
-      });
-    e.addBlockLootModifier(ore)
-      .biome("#society:is_skull_cavern")
-      .hasAnyStage(geodeStage)
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.randomChance(0.04).addLoot("society:omni_geode");
-      });
-  });
-  netherOres.forEach((ore) => {
-    e.addBlockLootModifier(ore)
-      .hasAnyStage(geodeStage)
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.randomChance(0.1).addLoot("society:magma_geode");
-      });
+
+// A rule drops its item when every given condition holds:
+//   stage: a stage of the breaking player; player: a player broke it (implied by stage);
+//   silk: false means not with a silk touch tool; biome: a biome tag; dimension; winter;
+//   chance: the drop chance (1 when left out).
+const miningRuleHolds = (rule, state) => {
+  if (rule.silk === false && state.silk) return false;
+  if ((rule.player || rule.stage) && !state.player) return false;
+  if (rule.stage && !state.player.stages.has(rule.stage)) return false;
+  if (rule.dimension && state.dimension !== rule.dimension) return false;
+  if (rule.biome && !holderHasTag(state.level.getBiome(state.pos), rule.biome)) return false;
+  if (rule.winter && global.getSeasonFromLevel(state.level) !== "winter") return false;
+  return rule.chance === undefined || Math.random() < rule.chance;
+};
+
+// The rules and the last checked break, for the CI test.
+const miningLootLast = { calls: 0, state: null };
+const miningLootRules = [];
+
+const addMiningRule = (e, blocks, rule) => {
+  if (blocks.length === 0) return;
+  if (rule.item && !global.itemExists(rule.item)) return;
+  rule.blocks = blocks;
+  miningLootRules.push(rule);
+  e.addBlockModifier(blocks).customAction((context, loot) => {
+    let state = miningLootState(context);
+    miningLootLast.calls++;
+    miningLootLast.state = state ? `player=${state.player} silk=${state.silk} dimension=${state.dimension}` : "no origin";
+    if (!state || !miningRuleHolds(rule, state)) return;
+    if (rule.item) loot.addItem(Item.of(rule.item, rule.count || 1));
+    if (rule.pick && rule.pick.length > 0) loot.addItem(Item.of(rule.pick[Math.floor(Math.random() * rule.pick.length)]));
+    if (rule.modify) loot.modifyItems(rule.modify);
   });
 };
+
+// One more geode roll, for the excavator and moon geode stages.
+const addGeodeRoll = (e, stage) => {
+  addMiningRule(e, overworldOres, { stage: stage, silk: false, chance: 0.1, item: "society:geode" });
+  addMiningRule(e, overworldOres, { stage: stage, silk: false, chance: 0.1, biome: "c:is_cold", item: "society:frozen_geode" });
+  addMiningRule(e, overworldOres, { stage: stage, silk: false, chance: 0.1, winter: true, item: "society:frozen_geode" });
+  addMiningRule(e, overworldOres, {
+    stage: stage,
+    silk: false,
+    chance: 0.04,
+    biome: "society:is_skull_cavern",
+    item: "society:omni_geode",
+  });
+  addMiningRule(e, netherOres, { stage: stage, silk: false, chance: 0.1, item: "society:magma_geode" });
+};
+
 LootJS.modifiers((e) => {
-  overworldOres.forEach((ore) => {
-    e.addBlockLootModifier(ore).pool((p) => {
-      p.not((n) =>
-        n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-      );
-      p.matchEntity((entity) => {
-        entity.anyType("minecraft:player");
-      });
-      p.randomChance(0.1).addLoot("society:geode");
+  miningLootRules.length = 0;
+  // Overworld and Skull Cavern ores share the frozen and omni geodes, jade and the crowns.
+  [overworldOres, skullCavernOres].forEach((ores) => {
+    addMiningRule(e, ores, { player: true, silk: false, chance: 0.1, biome: "c:is_cold", item: "society:frozen_geode" });
+    addMiningRule(e, ores, { player: true, silk: false, chance: 0.1, winter: true, item: "society:frozen_geode" });
+    addMiningRule(e, ores, { stage: "mineralogist", silk: false, chance: 0.1, biome: "c:is_cold", item: "society:frozen_tear" });
+    addMiningRule(e, ores, {
+      player: true,
+      silk: false,
+      chance: 0.04,
+      biome: "society:is_skull_cavern",
+      item: "society:omni_geode",
     });
-    e.addBlockLootModifier(ore)
-      .hasAnyStage("mineralogist")
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.randomChance(0.1).addLoot("society:earth_crystal");
-      });
-    e.addBlockLootModifier(ore)
-      .biome("#forge:is_cold")
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.matchEntity((entity) => {
-          entity.anyType("minecraft:player");
-        });
-        p.randomChance(0.1).addLoot("society:frozen_geode");
-      });
-    e.addBlockLootModifier(ore)
-      .playerPredicate((p) => global.getSeasonFromLevel(p.level) === "winter")
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.matchEntity((entity) => {
-          entity.anyType("minecraft:player");
-        });
-        p.randomChance(0.1).addLoot("society:frozen_geode");
-      });
-    e.addBlockLootModifier(ore)
-      .biome("#forge:is_cold")
-      .hasAnyStage("mineralogist")
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.randomChance(0.1).addLoot("society:frozen_tear");
-      });
-    e.addBlockLootModifier(ore)
-      .biome("#society:is_skull_cavern")
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.matchEntity((entity) => {
-          entity.anyType("minecraft:player");
-        });
-        p.randomChance(0.04).addLoot("society:omni_geode");
-      });
-    e.addBlockLootModifier(ore)
-      .biome("#society:is_skull_cavern")
-      .hasAnyStage("mineralogist")
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.randomChance(0.02).addLoot("society:jade");
-      });
-    e.addBlockLootModifier(ore)
-      .hasAnyStage("blockchain")
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.randomChance(0.03).addLoot("numismatics:crown");
-      });
-    e.addBlockLootModifier(ore)
-      .hasAnyStage("furniture_archaeologist")
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.randomChance(0.03).addLoot("society:furniture_box");
-      });
-    e.addBlockLootModifier(ore)
-      .hasAnyStage("star_blessing")
-      .anyDimension("minecraft:overworld")
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.randomChance(0.02).addLoot("society:pristine_star_shards");
-      });
-    e.addBlockLootModifier(ore)
-      .hasAnyStage("star_blessing")
-      .anyDimension("society:skull_cavern")
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.randomChance(0.06).addLoot("society:pristine_star_shards");
-      });
+    addMiningRule(e, ores, {
+      stage: "mineralogist",
+      silk: false,
+      chance: 0.02,
+      biome: "society:is_skull_cavern",
+      item: "society:jade",
+    });
+    addMiningRule(e, ores, { stage: "blockchain", silk: false, chance: 0.03, item: "numismatics:crown" });
+    addMiningRule(e, ores, { stage: "furniture_archaeologist", silk: false, chance: 0.03, item: "society:furniture_box" });
+    addMiningRule(e, ores, {
+      stage: "star_blessing",
+      silk: false,
+      chance: 0.06,
+      dimension: "society:skull_cavern",
+      item: "society:pristine_star_shards",
+    });
   });
-  e.addBlockLootModifier("society:geode_node")
-    .biome("#forge:is_cold")
-    .pool((p) => {
-      p.randomChance(0.1).addLoot("society:frozen_geode");
-    });
-  e.addBlockLootModifier("society:geode_node").pool((p) => {
-    p.randomChance(0.05).addLoot("society:mining_monthly");
+  addMiningRule(e, overworldOres, { player: true, silk: false, chance: 0.1, item: "society:geode" });
+  addMiningRule(e, overworldOres, { stage: "mineralogist", silk: false, chance: 0.1, item: "society:earth_crystal" });
+  addMiningRule(e, overworldOres, {
+    stage: "star_blessing",
+    silk: false,
+    chance: 0.02,
+    dimension: "minecraft:overworld",
+    item: "society:pristine_star_shards",
   });
-  e.addBlockLootModifier("society:geode_node")
-    .anyDimension("minecraft:overworld")
-    .hasAnyStage("prismatic_prospector")
-    .pool((p) => {
-      p.randomChance(0.05).addLoot("society:prismatic_shard");
-    });
-  e.addBlockLootModifier("society:magma_geode_node").pool((p) => {
-    p.randomChance(0.1).addLoot("society:mining_monthly");
-  });
-  e.addBlockLootModifier("society:magma_geode_node")
-    .anyDimension("minecraft:the_nether")
-    .hasAnyStage("prismatic_prospector")
-    .pool((p) => {
-      p.randomChance(0.2).addLoot("society:prismatic_shard");
-    });
-  e.addBlockLootModifier("society:omni_geode_node").pool((p) => {
-    p.randomChance(0.1).addLoot("society:mining_monthly");
-  });
-  e.addBlockLootModifier("society:omni_geode_node")
-    .hasAnyStage("prismatic_prospector")
-    .pool((p) => {
-      p.randomChance(0.3).addLoot("society:prismatic_shard");
-    });
-  e.addBlockLootModifier("minecraft:deepslate")
-    .hasAnyStage("filthy_excavator")
-    .pool((p) => {
-      p.randomChance(0.02).addLoot("society:geode");
-    });
-  e.addBlockLootModifier("minecraft:netherrack")
-    .hasAnyStage("filthy_excavator")
-    .pool((p) => {
-      p.randomChance(0.01).addLoot("society:magma_geode");
-    });
 
-  netherOres.forEach((ore) => {
-    e.addBlockLootModifier(ore).pool((p) => {
-      p.not((n) =>
-        n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-      );
-      p.matchEntity((entity) => {
-        entity.anyType("minecraft:player");
-      });
-      p.randomChance(0.1).addLoot("society:magma_geode");
-    });
-    e.addBlockLootModifier(ore)
-      .hasAnyStage("mineralogist")
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.randomChance(0.1).addLoot("society:fire_quartz");
-      });
-    e.addBlockLootModifier(ore)
-      .hasAnyStage("blockchain")
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.randomChance(0.06).addLoot("numismatics:crown");
-      });
-    e.addBlockLootModifier(ore)
-      .hasAnyStage("furniture_archaeologist")
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.randomChance(0.01).addLoot("society:furniture_box");
-      });
-    e.addBlockLootModifier(ore)
-      .hasAnyStage("star_blessing")
-      .anyDimension("minecraft:the_nether")
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.randomChance(0.04).addLoot("society:pristine_star_shards");
-      });
-    e.addBlockLootModifier(ore)
-      .hasAnyStage("star_blessing")
-      .anyDimension("society:skull_cavern")
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.randomChance(0.06).addLoot("society:pristine_star_shards");
-      });
+  addMiningRule(e, netherOres, { player: true, silk: false, chance: 0.1, item: "society:magma_geode" });
+  addMiningRule(e, netherOres, { stage: "mineralogist", silk: false, chance: 0.1, item: "society:fire_quartz" });
+  addMiningRule(e, netherOres, { stage: "blockchain", silk: false, chance: 0.06, item: "numismatics:crown" });
+  addMiningRule(e, netherOres, { stage: "furniture_archaeologist", silk: false, chance: 0.01, item: "society:furniture_box" });
+  addMiningRule(e, netherOres, {
+    stage: "star_blessing",
+    silk: false,
+    chance: 0.04,
+    dimension: "minecraft:the_nether",
+    item: "society:pristine_star_shards",
   });
-  skullCavernOres.forEach((ore) => {
-    e.addBlockLootModifier(ore)
-      .biome("#forge:is_cold")
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.matchEntity((entity) => {
-          entity.anyType("minecraft:player");
-        });
-        p.randomChance(0.1).addLoot("society:frozen_geode");
-      });
-    e.addBlockLootModifier(ore)
-      .playerPredicate((p) => global.getSeasonFromLevel(p.level) === "winter")
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.matchEntity((entity) => {
-          entity.anyType("minecraft:player");
-        });
-        p.randomChance(0.1).addLoot("society:frozen_geode");
-      });
-    e.addBlockLootModifier(ore)
-      .biome("#forge:is_cold")
-      .hasAnyStage("mineralogist")
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.randomChance(0.1).addLoot("society:frozen_tear");
-      });
-    e.addBlockLootModifier(ore)
-      .biome("#society:is_skull_cavern")
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.matchEntity((entity) => {
-          entity.anyType("minecraft:player");
-        });
-        p.randomChance(0.04).addLoot("society:omni_geode");
-      });
-    e.addBlockLootModifier(ore)
-      .biome("#society:is_skull_cavern")
-      .hasAnyStage("mineralogist")
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.randomChance(0.02).addLoot("society:jade");
-      });
-    e.addBlockLootModifier(ore)
-      .hasAnyStage("blockchain")
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.randomChance(0.03).addLoot("numismatics:crown");
-      });
-    e.addBlockLootModifier(ore)
-      .hasAnyStage("furniture_archaeologist")
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.randomChance(0.03).addLoot("society:furniture_box");
-      });
-    e.addBlockLootModifier(ore)
-      .hasAnyStage("star_blessing")
-      .anyDimension("society:skull_cavern")
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.randomChance(0.06).addLoot("society:pristine_star_shards");
-      });
+  addMiningRule(e, netherOres, {
+    stage: "star_blessing",
+    silk: false,
+    chance: 0.06,
+    dimension: "society:skull_cavern",
+    item: "society:pristine_star_shards",
   });
-  [
-    "minecraft:deepslate_gold_ore",
-    "meadow:alpine_gold_ore",
-    "minecraft:gold_ore",
-  ].forEach((ore) => {
-    e.addBlockLootModifier(ore)
-      .hasAnyStage("gold_rush")
-      .pool((p) => {
-        p.not((n) =>
-          n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-        );
-        p.addLoot(Item.of("4x minecraft:raw_gold_block"));
-      });
-  });
-  addMiningLootToAllOres(
-    e,
-    "the_spark_also_rises",
-    1,
-    Item.of("1x society:sparkstone")
-  );
 
-  addMiningLootToAllOres(
-    e,
-    "husbandry_mastery",
-    0.01,
-    Item.of("1x society:animal_cracker"),
-    [
-      "society:oak_supply_crate",
-      "society:spruce_supply_crate",
-      "society:palm_supply_crate",
-      "society:grimwood_supply_crate",
-    ]
-  );
-  ["society:sparkstone_ore", "society:deepslate_sparkstone_ore"].forEach(
-    (ore) => {
-      e.addBlockLootModifier(ore)
-        .hasAnyStage("mining_mastery")
-        .pool((p) => {
-          p.not((n) =>
-            n.matchMainHand(ItemFilter.hasEnchantment("minecraft:silk_touch"))
-          );
-          p.randomChance(0.001).addLoot("society:the_spark_also_rises");
-        });
-    }
-  );
+  // Geode nodes
+  let geodeNode = miningBlocks(["society:geode_node"]);
+  let magmaNode = miningBlocks(["society:magma_geode_node"]);
+  let omniNode = miningBlocks(["society:omni_geode_node"]);
+  addMiningRule(e, geodeNode, { chance: 0.1, biome: "c:is_cold", item: "society:frozen_geode" });
+  addMiningRule(e, geodeNode, { chance: 0.05, item: "society:mining_monthly" });
+  addMiningRule(e, geodeNode, {
+    stage: "prismatic_prospector",
+    chance: 0.05,
+    dimension: "minecraft:overworld",
+    item: "society:prismatic_shard",
+  });
+  addMiningRule(e, magmaNode, { chance: 0.1, item: "society:mining_monthly" });
+  addMiningRule(e, magmaNode, {
+    stage: "prismatic_prospector",
+    chance: 0.2,
+    dimension: "minecraft:the_nether",
+    item: "society:prismatic_shard",
+  });
+  addMiningRule(e, omniNode, { chance: 0.1, item: "society:mining_monthly" });
+  addMiningRule(e, omniNode, { stage: "prismatic_prospector", chance: 0.3, item: "society:prismatic_shard" });
 
-  addAdditionalGeodeRoll(e, "excavator");
+  addMiningRule(e, miningBlocks(["minecraft:deepslate"]), { stage: "filthy_excavator", chance: 0.02, item: "society:geode" });
+  addMiningRule(e, miningBlocks(["minecraft:netherrack"]), {
+    stage: "filthy_excavator",
+    chance: 0.01,
+    item: "society:magma_geode",
+  });
+
+  addMiningRule(e, miningBlocks(["minecraft:deepslate_gold_ore", "meadow:alpine_gold_ore", "minecraft:gold_ore"]), {
+    stage: "gold_rush",
+    silk: false,
+    item: "minecraft:raw_gold_block",
+    count: 4,
+  });
+  addMiningRule(e, allOres, { stage: "the_spark_also_rises", silk: false, item: "society:sparkstone" });
+  addMiningRule(e, allOres.concat(supplyCrates), {
+    stage: "husbandry_mastery",
+    silk: false,
+    chance: 0.01,
+    item: "society:animal_cracker",
+  });
+  addMiningRule(e, miningBlocks(["society:sparkstone_ore", "society:deepslate_sparkstone_ore"]), {
+    stage: "mining_mastery",
+    silk: false,
+    chance: 0.001,
+    item: "society:the_spark_also_rises",
+  });
+
+  addGeodeRoll(e, "excavator");
 
   // Mastery Moon Statue
-  const weightedRemains = [];
-  [
-    "betterarcheology:creeper_fossil_body",
-    "betterarcheology:creeper_fossil_head",
-    "betterarcheology:villager_fossil_body",
-    "betterarcheology:villager_fossil_head",
-    "betterarcheology:chicken_fossil_body",
-    "betterarcheology:chicken_fossil_head",
-    "betterarcheology:ocelot_fossil_body",
-    "betterarcheology:ocelot_fossil_head",
-    "betterarcheology:wolf_fossil_body",
-    "betterarcheology:wolf_fossil_head",
-    "betterarcheology:sheep_fossil_body",
-    "betterarcheology:sheep_fossil_head",
-    "betterarcheology:guardian_fossil_head",
-    "betterarcheology:guardian_fossil_body",
-    "crittersandcompanions:clam",
-    "species:petrified_egg",
-    "society:petrified_slime",
-    "twigs:petrified_lichen",
-    "atmospheric:petrified_armor_trim_smithing_template",
-    "betterarcheology:fossiliferous_dirt",
-    "minecraft:bone",
-    "aquaculture:fish_bones",
-    "netherdepthsupgrade:bonefish",
-    "society:fantasy_box_bone",
-    "betterarcheology:artifact_shards",
-    "society:artifact_trove"
-  ].forEach((remain) =>
-    weightedRemains.push(Item.of(remain).withChance(1))
-  );
-
-  addWeightedMiningLootToAllOres(e, "moon_remains", 0.05, weightedRemains);
-  addAdditionalGeodeRoll(e, "moon_geode_roll");
-
-  e.addBlockLootModifier(overworldOres)
-    .hasAnyStage("moon_extra_ore")
-    .modifyLoot(Ingredient.all, (itemStack) => {
-      if (itemStack.hasTag("forge:raw_materials"))
-        itemStack.setCount(itemStack.getCount() + 1);
-      return itemStack;
-    });
+  addMiningRule(e, allOres, { stage: "moon_remains", silk: false, chance: 0.05, pick: moonRemains });
+  addGeodeRoll(e, "moon_geode_roll");
+  addMiningRule(e, overworldOres, {
+    stage: "moon_extra_ore",
+    modify: (stack) => {
+      if (holderHasTag(stack.getItem().builtInRegistryHolder(), "c:raw_materials")) stack.setCount(stack.getCount() + 1);
+      return stack;
+    },
+  });
 });

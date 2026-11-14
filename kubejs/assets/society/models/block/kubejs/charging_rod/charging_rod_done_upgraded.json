@@ -1,0 +1,10 @@
+{
+  "parent": "society:block/kubejs/placeholder/machine",
+  "textures": {
+    "side": "minecraft:block/gold_block",
+    "front": "minecraft:block/gold_block",
+    "top": "minecraft:block/gold_block",
+    "bottom": "minecraft:block/lightning_rod",
+    "particle": "minecraft:block/cut_copper"
+  }
+}

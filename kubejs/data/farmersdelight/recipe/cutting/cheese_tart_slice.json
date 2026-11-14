@@ -1,0 +1,19 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "meadow:cheese_tart"
+    }
+  ],
+  "result": [
+    {
+      "item": {
+        "id": "meadow:cheese_tart_slice",
+        "count": 4
+      }
+    }
+  ],
+  "tool": {
+    "tag": "c:tools/knife"
+  }
+}

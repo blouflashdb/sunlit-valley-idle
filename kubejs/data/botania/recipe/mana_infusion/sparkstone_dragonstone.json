@@ -1,0 +1,17 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "society:sparkstone"
+    }
+  ],
+  "type": "botania:mana_infusion",
+  "input": {
+    "item": "botania:dragonstone"
+  },
+  "mana": 40000,
+  "output": {
+    "count": 24,
+    "id": "society:sparkstone"
+  }
+}

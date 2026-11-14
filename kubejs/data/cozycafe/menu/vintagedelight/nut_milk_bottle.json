@@ -1,8 +1,7 @@
 {
-	"item": "vintagedelight:nut_milk_bottle",
-	"category": "drink",
-	"price": 153,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "vintagedelight:nut_milk_bottle",
+  "category": "drink",
+  "price": 153,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

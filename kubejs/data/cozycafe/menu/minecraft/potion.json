@@ -1,8 +1,9 @@
 {
   "item": "minecraft:potion",
   "category": "drink",
-  "bottle_drink": true,
   "price": 1,
-  "flavors": ["neutral"],
-  "themes": ["casual", "fancy"]
+  "bottle_drink": true,
+  "flavors": [
+    "neutral"
+  ]
 }

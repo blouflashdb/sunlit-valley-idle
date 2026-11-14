@@ -1,18 +1,23 @@
 {
   "shop_id": "barkeeper",
-  "name": "shop.society_trading.barkeeper",
+  "name": {
+    "translate": "shop.society_trading.barkeeper"
+  },
   "texture": "beachparty:textures/item/honey_cocktail",
-  "jei_catalyst": { "item": "brewery:beer_hops" },
+  "jei_catalyst": {
+    "id": "brewery:beer_hops",
+    "count": 1
+  },
   "villager_profession": "beach_guy",
   "selector_weight": 1,
   "trades": [
     {
       "offer": {
-        "item": "farm_and_charm:pasta_with_onion_sauce",
+        "id": "farm_and_charm:pasta_with_onion_sauce",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 2
       },
       "numismatics_cost": 128,
@@ -21,11 +26,11 @@
     },
     {
       "offer": {
-        "item": "farm_and_charm:farmer_salad",
+        "id": "farm_and_charm:farmer_salad",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 4
       },
       "numismatics_cost": 256,
@@ -34,11 +39,11 @@
     },
     {
       "offer": {
-        "item": "farm_and_charm:barley_soup",
+        "id": "farm_and_charm:barley_soup",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 3
       },
       "numismatics_cost": 196,
@@ -47,11 +52,11 @@
     },
     {
       "offer": {
-        "item": "bakery:sandwich",
+        "id": "bakery:sandwich",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 4
       },
       "numismatics_cost": 256,
@@ -60,11 +65,11 @@
     },
     {
       "offer": {
-        "item": "herbalbrews:coffee",
+        "id": "herbalbrews:coffee",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 2
       },
       "numismatics_cost": 128,
@@ -73,11 +78,11 @@
     },
     {
       "offer": {
-        "item": "society:magic_rock_candy",
+        "id": "society:magic_rock_candy",
         "count": 1
       },
       "request": {
-        "item": "society:prismatic_shard",
+        "id": "society:prismatic_shard",
         "count": 3
       },
       "limit": 4,
@@ -85,11 +90,11 @@
     },
     {
       "offer": {
-        "item": "solonion:lunchbag",
+        "id": "solonion:lunchbag",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 4
       },
       "numismatics_cost": 256,
@@ -97,11 +102,11 @@
     },
     {
       "offer": {
-        "item": "solonion:lunchbox",
+        "id": "solonion:lunchbox",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 4
       },
       "numismatics_cost": 16384,
@@ -109,11 +114,11 @@
     },
     {
       "offer": {
-        "item": "solonion:golden_lunchbox",
+        "id": "solonion:golden_lunchbox",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 16
       },
       "numismatics_cost": 65536,
@@ -121,11 +126,11 @@
     },
     {
       "offer": {
-        "item": "sophisticatedstorage:feeding_upgrade",
+        "id": "sophisticatedstorage:feeding_upgrade",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 4
       },
       "numismatics_cost": 16384,
@@ -133,11 +138,11 @@
     },
     {
       "offer": {
-        "item": "sophisticatedbackpacks:feeding_upgrade",
+        "id": "sophisticatedbackpacks:feeding_upgrade",
         "count": 1
       },
       "request": {
-        "item": "numismatics:prismatic_coin",
+        "id": "numismatics:prismatic_coin",
         "count": 8
       },
       "numismatics_cost": 134217728,
@@ -145,11 +150,11 @@
     },
     {
       "offer": {
-        "item": "etched:blank_music_disc",
+        "id": "etched:blank_music_disc",
         "count": 1
       },
       "request": {
-        "item": "numismatics:crown",
+        "id": "numismatics:crown",
         "count": 1
       },
       "numismatics_cost": 512,
@@ -157,11 +162,11 @@
     },
     {
       "offer": {
-        "item": "etched:etching_table",
+        "id": "etched:etching_table",
         "count": 1
       },
       "request": {
-        "item": "numismatics:crown",
+        "id": "numismatics:crown",
         "count": 1
       },
       "numismatics_cost": 512,
@@ -169,11 +174,11 @@
     },
     {
       "offer": {
-        "item": "etched:album_jukebox",
+        "id": "etched:album_jukebox",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 1
       },
       "numismatics_cost": 4096,
@@ -181,11 +186,11 @@
     },
     {
       "offer": {
-        "item": "etched:radio",
+        "id": "etched:radio",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 4
       },
       "numismatics_cost": 256,
@@ -193,11 +198,11 @@
     },
     {
       "offer": {
-        "item": "etched:boombox",
+        "id": "etched:boombox",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 1
       },
       "numismatics_cost": 4096,
@@ -205,11 +210,11 @@
     },
     {
       "offer": {
-        "item": "exposure:camera",
+        "id": "exposure:camera",
         "count": 1
       },
       "request": {
-        "item": "numismatics:crown",
+        "id": "numismatics:crown",
         "count": 1
       },
       "numismatics_cost": 512,
@@ -217,11 +222,11 @@
     },
     {
       "offer": {
-        "item": "exposure:black_and_white_film",
+        "id": "exposure:black_and_white_film",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 2
       },
       "numismatics_cost": 128,
@@ -229,11 +234,11 @@
     },
     {
       "offer": {
-        "item": "exposure:color_film",
+        "id": "exposure:color_film",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 4
       },
       "numismatics_cost": 256,
@@ -241,11 +246,11 @@
     },
     {
       "offer": {
-        "item": "exposure:lightroom",
+        "id": "exposure:lightroom",
         "count": 1
       },
       "request": {
-        "item": "numismatics:crown",
+        "id": "numismatics:crown",
         "count": 1
       },
       "numismatics_cost": 512,
@@ -253,11 +258,11 @@
     },
     {
       "offer": {
-        "item": "immersive_paintings:painting",
+        "id": "immersive_paintings:painting",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 4
       },
       "numismatics_cost": 256,
@@ -265,11 +270,11 @@
     },
     {
       "offer": {
-        "item": "immersive_paintings:graffiti",
+        "id": "immersive_paintings:graffiti",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 4
       },
       "numismatics_cost": 256,
@@ -277,11 +282,11 @@
     },
     {
       "offer": {
-        "item": "zetter:easel",
+        "id": "zetter:easel",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 4
       },
       "numismatics_cost": 16384,
@@ -289,11 +294,11 @@
     },
     {
       "offer": {
-        "item": "zetter:paints",
+        "id": "zetter:paints",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 4
       },
       "numismatics_cost": 256,
@@ -301,11 +306,11 @@
     },
     {
       "offer": {
-        "item": "strawstatues:straw_statue",
+        "id": "strawstatues:straw_statue",
         "count": 1
       },
       "request": {
-        "item": "numismatics:crown",
+        "id": "numismatics:crown",
         "count": 1
       },
       "numismatics_cost": 512,
@@ -313,11 +318,11 @@
     },
     {
       "offer": {
-        "item": "gamediscs:game_disc_blocktris",
+        "id": "gamediscs:game_disc_blocktris",
         "count": 1
       },
       "request": {
-        "item": "numismatics:ancient_coin",
+        "id": "numismatics:ancient_coin",
         "count": 1
       },
       "numismatics_cost": 262144,
@@ -325,11 +330,11 @@
     },
     {
       "offer": {
-        "item": "beachparty:crocs",
+        "id": "beachparty:crocs",
         "count": 1
       },
       "request": {
-        "item": "numismatics:prismatic_coin",
+        "id": "numismatics:prismatic_coin",
         "count": 16
       },
       "numismatics_cost": 268435456,
@@ -337,11 +342,11 @@
     },
     {
       "offer": {
-        "item": "wildernature:stylin_purple_hat",
+        "id": "wildernature:stylin_purple_hat",
         "count": 1
       },
       "request": {
-        "item": "numismatics:prismatic_coin",
+        "id": "numismatics:prismatic_coin",
         "count": 64
       },
       "numismatics_cost": 1073741824,

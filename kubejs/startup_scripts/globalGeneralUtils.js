@@ -1,53 +1,34 @@
-// Priority: 1000
-const $CuriosApi = Java.loadClass("top.theillusivec4.curios.api.CuriosApi")
+// priority: 1000
+// General helpers, ported from kubejs/_unported/startup_scripts/globalGeneralUtils.js one by one.
+console.info("[SOCIETY] globalGeneralUtils.js loaded");
 
-global.getDay = (level) => Number((Math.floor(Number(level.dayTime() / 24000)) + 1).toFixed());
+global.getDay = (level) => Math.floor(Number(level.dayTime()) / 24000) + 1;
 
 /**
- * I hate this function.
- * 
- * Expected:
- *  day: 10 | checkedDay: 11 | amount: 1 = true. Day in the past (time commands used)
- *  day: 11 | checkedDay: 10 | amount: 1 = true. 
- *  day: 12 | checkedDay: 10 | amount: 1 = false. 
- * 
- * @param {*} day Current world day, usually gotten from global.getDay()
- * @param {*} checkedDay day to compare to current day
- * @param {*} amount Amount of days to get the difference of
- * @returns If the amount is greater than or equal to the amount of days have passed
+ * True when `amount` days have passed since checkedDay, or when checkedDay is in the future (time commands).
+ *  day: 11 | checkedDay: 10 | amount: 1 = true
+ *  day: 10 | checkedDay: 11 | amount: 1 = true
  */
-global.compareDay = (day, checkedDay, amount) => Number(day) < Number(checkedDay) || Number(day) - Number(checkedDay) >= amount;
+global.compareDay = (day, checkedDay, amount) =>
+  Number(day) < Number(checkedDay) || Number(day) - Number(checkedDay) >= amount;
 
-global.getFacingPlusOffset = (facing, pos, offset) => {
-  switch (facing) {
-    case "north":
-      return pos.offset(0, 0, -offset);
-    case "south":
-      return pos.offset(0, 0, offset);
-    case "west":
-      return pos.offset(-offset, 0, 0);
-    case "east":
-      return pos.offset(offset, 0, 0);
-  }
+/** The day a player last used something once-a-day (player.persistentData.days.<key>), or -1. */
+global.getPlayerDay = (player, key) => {
+  const days = player.persistentData.getCompound("days");
+  return days.contains(key) ? days.getInt(key) : -1;
 };
 
-global.formatPriceTruncated = (number) => {
-  let stringNumber = number.toString();
-  if (stringNumber.length < 4) return number;
-  if (stringNumber.length > 9) {
-    let output = stringNumber.slice(0, stringNumber.length - 9);
-    if (stringNumber.length === 10 && stringNumber.charAt(1) != "0") {
-      output += '.' + stringNumber.charAt(1);
-    }
-    return output + "B";
-  }
-  if (stringNumber.length > 6) {
-    let output = stringNumber.slice(0, stringNumber.length - 6);
-    if (stringNumber.length === 7 && stringNumber.charAt(1) != "0") {
-      output += '.' + stringNumber.charAt(1);
-    }
-    return output + "M";
-  }
+global.setPlayerDay = (player, key, day) => {
+  const days = player.persistentData.getCompound("days");
+  days.putInt(key, Number(day));
+  player.persistentData.put("days", days);
+};
 
-  return global.formatPrice(number);
+/** True (and the day is stored) when the player has not used `key` today. */
+global.claimPlayerDay = (player, level, key) => {
+  const day = global.getDay(level);
+  const last = global.getPlayerDay(player, key);
+  if (last !== -1 && !global.compareDay(day, last, 1)) return false;
+  global.setPlayerDay(player, key, day);
+  return true;
 };

@@ -9,14 +9,7 @@
 	hide_quest_until_deps_complete: true
 	icon: "farm_and_charm:supply_cart"
 	id: "7C65158A3343D7FA"
-	images: [{
-		height: 10.0d
-		image: "society:textures/gui/community_center_abandoned_farm.png"
-		rotation: 0.0d
-		width: 17.77777777777778d
-		x: 0.0d
-		y: 0.0d
-	}]
+	images: [ ]
 	order_index: 5
 	quest_links: [ ]
 	quests: [
@@ -28,11 +21,8 @@
 			rewards: [{
 				id: "23C19AD4A368AA0F"
 				item: {
-					Count: 1
+					count: 1
 					id: "minecraft:elytra"
-					tag: {
-						Damage: 0
-					}
 				}
 				type: "item"
 			}]
@@ -57,16 +47,16 @@
 					count: 5L
 					id: "7CB76A4E375BA71B"
 					item: {
-						Count: 1
-						id: "society:ancient_fruit"
-						tag: {
-							quality_food: {
-								effects: [ ]
-								quality: 2
+						components: {
+							"quality_food:quality": {
+								level: 2
+								type: "quality_food:gold"
 							}
 						}
+						count: 1
+						id: "society:ancient_fruit"
 					}
-					match_nbt: true
+					match_components: "fuzzy"
 					title: "{ftbquests.chapter.abandoned_farm.quest661A3A466ABF29BA.task.8986768465609860891.title}"
 					type: "item"
 				}
@@ -74,16 +64,16 @@
 					count: 5L
 					id: "167D06E351C49C00"
 					item: {
-						Count: 5
-						id: "society:neptuna"
-						tag: {
-							quality_food: {
-								effects: [ ]
-								quality: 2
+						components: {
+							"quality_food:quality": {
+								level: 2
+								type: "quality_food:gold"
 							}
 						}
+						count: 5
+						id: "society:neptuna"
 					}
-					match_nbt: true
+					match_components: "fuzzy"
 					title: "{ftbquests.chapter.abandoned_farm.quest661A3A466ABF29BA.task.1620459014322428928.title}"
 					type: "item"
 				}
@@ -93,20 +83,10 @@
 					type: "item"
 				}
 				{
-					id: "4DEA5D8B51349A5D"
-					item: "species:youth_potion"
-					type: "item"
-				}
-				{
 					id: "502219E3812CFF6C"
 					item: {
-						Count: 1
-						id: "splendid_slimes:plort"
-						tag: {
-							plort: {
-								id: "splendid_slimes:all_seeing"
-							}
-						}
+						count: 1
+						id: "splendid_slimes:plort_all_seeing"
 					}
 					type: "item"
 				}
@@ -132,13 +112,11 @@
 				{
 					id: "0102B9ADBB397CC1"
 					item: {
-						Count: 1
-						id: "trofers:large_pillar"
-						tag: {
-							BlockEntityTag: {
-								Trophy: "trofers:abandoned_farm"
-							}
+						components: {
+							"trofers:trophy": "trofers:abandoned_farm"
 						}
+						count: 1
+						id: "trofers:large_pillar"
 					}
 					type: "item"
 				}

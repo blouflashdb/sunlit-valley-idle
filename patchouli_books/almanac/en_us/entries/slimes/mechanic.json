@@ -1,17 +1,17 @@
 {
   "name": "Mechanic Slime",
   "category": "patchouli:slimes",
-  "icon": "splendid_slimes:plort{plort:{id:\"splendid_slimes:mechanic\"}}",
+  "icon": "splendid_slimes:plort_mechanic",
+  "sortnum": 7,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "$(l)Locations:$()$(li)Heart fusion$(br2)$(l)Risks:$()$(br)Will hold an item given to it until killed/split."
+      "text": "$(l)Slime Ranching level:$() 3$(br2)$(l)Food:$() Iron Ingot$(br)$(l)Favorite food (double plorts):$() Lead Ingot$(br2)Rip its plorts in a Plort Ripper, or press 16 into a Slime Heart."
     },
     {
-      "type": "patchouli:entity",
-      "name": "Mechanic Slime",
-      "entity": "splendid_slimes:splendid_slime{Breed:\"splendid_slimes:mechanic\"}",
-      "scale": 0.9
+      "type": "patchouli:spotlight",
+      "item": "splendid_slimes:plort_mechanic,splendid_slimes:slime_heart_mechanic",
+      "title": "Mechanic Plort"
     }
   ]
 }

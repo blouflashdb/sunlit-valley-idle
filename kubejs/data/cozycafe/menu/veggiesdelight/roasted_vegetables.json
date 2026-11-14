@@ -1,8 +1,7 @@
 {
-	"item": "veggiesdelight:roasted_vegetables",
-	"category": "main",
-	"price": 720,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "veggiesdelight:roasted_vegetables",
+  "category": "main",
+  "price": 720,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

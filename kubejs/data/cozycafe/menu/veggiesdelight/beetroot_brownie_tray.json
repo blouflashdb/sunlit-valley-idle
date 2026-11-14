@@ -1,8 +1,7 @@
 {
-	"item": "veggiesdelight:beetroot_brownie_tray",
-	"category": "main",
-	"price": 296,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "veggiesdelight:beetroot_brownie_tray",
+  "category": "main",
+  "price": 296,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

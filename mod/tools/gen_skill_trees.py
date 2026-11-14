@@ -88,7 +88,7 @@ tree("woodcutting", "minecraft:iron_axe", "textures/block/oak_planks.png",
      [("log", "#minecraft:logs", 2)])
 tree("foraging", "minecraft:sweet_berries", "textures/block/moss_block.png",
      [attr("puffish_skills:fortune", 1)], "minecraft:sweet_berries", "minecraft:poppy",
-     [("flower", "#minecraft:flowers", 3), ("grass", "minecraft:grass", 1), ("fern", "minecraft:fern", 1),
+     [("flower", "#minecraft:flowers", 3), ("grass", "minecraft:short_grass", 1), ("fern", "minecraft:fern", 1),
       ("brown_mushroom", "minecraft:brown_mushroom", 3), ("red_mushroom", "minecraft:red_mushroom", 3)])
 
 KILL = {"type": "puffish_skills:kill_entity",
@@ -121,8 +121,12 @@ tree("smelting", "minecraft:furnace", "textures/block/bricks.png",
 tree("cooking", "minecraft:smoker", "textures/block/smoker_top.png",
      [attr("sunlitidle:cooking_yield", 0.05)], "minecraft:campfire", "minecraft:cooked_beef", [])
 
+# Slime Ranching (#13) has no manual activity; like Smelting, its root perk raises the idle yield.
+tree("slime_ranching", "minecraft:slime_ball", "textures/block/slime_block.png",
+     [attr("sunlitidle:slime_ranching_yield", 0.05)], "minecraft:slime_block", "minecraft:slime_ball", [])
+
 with open(os.path.join(ROOT, "config.json"), "w") as f:
     json.dump({"version": 3, "categories": ["woodcutting", "foraging", "digging", "hunting", "archaeology",
-                                            "smelting", "cooking"]}, f, indent=2)
+                                            "smelting", "cooking", "slime_ranching"]}, f, indent=2)
     f.write("\n")
 print("ok")

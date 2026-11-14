@@ -1,5 +1,6 @@
 {
-	"tip": {
-		"translate": "society_tips.tip.mystical_ocean"
-	}
+  "type": "tipsmod:simple",
+  "text": {
+    "translate": "society_tips.tip.mystical_ocean"
+  }
 }

@@ -1,0 +1,39 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "farm_and_charm:strawberry"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "unusualfishmod:raw_drooping_gourami"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "vinery:cherry"
+    }
+  ],
+  "type": "botania:runic_altar",
+  "ingredients": [
+    {
+      "item": "botania:rune_water"
+    },
+    {
+      "item": "botania:rune_fire"
+    },
+    {
+      "item": "vinery:cherry"
+    },
+    {
+      "item": "unusualfishmod:raw_drooping_gourami"
+    },
+    {
+      "item": "farm_and_charm:strawberry"
+    }
+  ],
+  "mana": 8000,
+  "output": {
+    "count": 1,
+    "id": "botania:rune_spring"
+  }
+}

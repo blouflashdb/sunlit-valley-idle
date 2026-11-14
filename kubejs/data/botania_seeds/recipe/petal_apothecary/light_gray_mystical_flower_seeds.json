@@ -1,0 +1,34 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "botania_seeds:light_gray_mystical_flower_seeds"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "veggiesdelight:garlic"
+    }
+  ],
+  "type": "botania:petal_apothecary",
+  "ingredients": [
+    {
+      "item": "veggiesdelight:garlic"
+    },
+    {
+      "item": "veggiesdelight:garlic"
+    },
+    {
+      "item": "veggiesdelight:garlic"
+    },
+    {
+      "item": "veggiesdelight:garlic"
+    }
+  ],
+  "output": {
+    "count": 4,
+    "id": "botania_seeds:light_gray_mystical_flower_seeds"
+  },
+  "reagent": {
+    "tag": "botania:seed_apothecary_reagent"
+  }
+}

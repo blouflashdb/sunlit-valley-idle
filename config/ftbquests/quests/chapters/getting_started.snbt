@@ -52,62 +52,16 @@
 			]
 			tasks: [{
 				icon: {
-					Count: 1
+					count: 1
 					id: "minecraft:wooden_pickaxe"
-					tag: {
-						Damage: 0
-					}
 				}
 				id: "1802EEEEFC77234B"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "minecraft:wooden_pickaxe"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:wooden_shovel"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:wooden_axe"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:wooden_hoe"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "minecraft:wooden_sword"
-								tag: {
-									Damage: 0
-								}
-							}
-							{
-								Count: 1b
-								id: "aquaculture:wooden_fillet_knife"
-								tag: {
-									Damage: 0
-								}
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(minecraft:wooden_pickaxe)item(minecraft:wooden_shovel)item(minecraft:wooden_axe)item(minecraft:wooden_hoe)item(minecraft:wooden_sword)item(aquaculture:wooden_fillet_knife))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.getting_started.quest1E5531421815CDB3.task.1730207917068985163.title}"
 				type: "item"
@@ -200,27 +154,31 @@
 				{
 					id: "44E951A44F1CF7F0"
 					item: {
-						Count: 1
-						id: "society:invitation"
-						tag: {
-							type: {
-								id: "society:carpenter"
+						components: {
+							"minecraft:custom_data": {
+								type: {
+									id: "society:carpenter"
+								}
 							}
 						}
+						count: 1
+						id: "society:invitation"
 					}
-					match_nbt: true
+					match_components: "fuzzy"
 					type: "item"
 				}
 				{
 					disable_toast: true
 					icon: {
-						Count: 1
-						id: "society:villager"
-						tag: {
-							type: {
-								id: "society:carpenter"
+						components: {
+							"minecraft:custom_data": {
+								type: {
+									id: "society:carpenter"
+								}
 							}
 						}
+						count: 1
+						id: "society:villager"
 					}
 					id: "77941199A5AAA562"
 					stage: "invited_carpenter"
@@ -248,25 +206,27 @@
 			tasks: [{
 				id: "3F0D74D09682750A"
 				item: {
-					Count: 1
-					id: "sophisticatedbackpacks:backpack"
-					tag: {
-						contentsUuid: [I;
-							1447614021
-							-1361622470
-							-1334094781
-							-646669453
-						]
-						inventorySlots: 27
-						renderInfo: {
-							upgradeItems: [{
-								Count: 1b
-								id: "minecraft:air"
-								tag: { }
-							}]
+					components: {
+						"minecraft:custom_data": {
+							contentsUuid: [I;
+								1447614021
+								-1361622470
+								-1334094781
+								-646669453
+							]
+							inventorySlots: 27
+							renderInfo: {
+								upgradeItems: [{
+									Count: 1b
+									id: "minecraft:air"
+									tag: { }
+								}]
+							}
+							upgradeSlots: 1
 						}
-						upgradeSlots: 1
 					}
+					count: 1
+					id: "sophisticatedbackpacks:backpack"
 				}
 				type: "item"
 			}]
@@ -291,7 +251,10 @@
 			tasks: [{
 				count: 4L
 				id: "3583CD91DE513B1D"
-				item: { Count: 4, id: "numismatics:cog" }
+				item: {
+					count: 4
+					id: "numismatics:cog"
+				}
 				type: "item"
 			}]
 			title: "{ftbquests.chapter.getting_started.quest77E2AE3656E32182.title}"
@@ -313,22 +276,26 @@
 				{
 					id: "6DB78FE4AB9F93FA"
 					item: {
-						Count: 1
-						id: "bountiful:decree"
-						tag: {
-							"bountiful:decree_data": "{}"
+						components: {
+							"minecraft:custom_data": {
+								"bountiful:decree_data": "{}"
+							}
 						}
+						count: 1
+						id: "bountiful:decree"
 					}
 					type: "item"
 				}
 				{
 					id: "0479CC3534ABA5D5"
 					item: {
-						Count: 1
-						id: "bountiful:decree"
-						tag: {
-							"bountiful:decree_data": "{\"ids\":[\"spring\"]}"
+						components: {
+							"minecraft:custom_data": {
+								"bountiful:decree_data": "{\"ids\":[\"spring\"]}"
+							}
 						}
+						count: 1
+						id: "bountiful:decree"
 					}
 					type: "item"
 				}
@@ -437,9 +404,8 @@
 					count: 10L
 					id: "11214822A37DCD70"
 					item: {
-						Count: 1
-						id: "meadow:fire_log"
-						tag: { }
+						count: 1
+						id: "meadow:firewood"
 					}
 					type: "item"
 				}
@@ -467,11 +433,8 @@
 			tasks: [{
 				id: "38DEE59CFD937517"
 				item: {
-					Count: 1
+					count: 1
 					id: "minecraft:golden_pickaxe"
-					tag: {
-						Damage: 0
-					}
 				}
 				type: "item"
 			}]
@@ -493,11 +456,8 @@
 			rewards: [{
 				id: "5B6BE7A8ABFD9ED3"
 				item: {
-					Count: 1
+					count: 1
 					id: "gag:escape_rope"
-					tag: {
-						Damage: 0
-					}
 				}
 				type: "item"
 			}]
@@ -524,22 +484,16 @@
 			rewards: [{
 				id: "02B38977EEB3CEAE"
 				item: {
-					Count: 1
+					count: 1
 					id: "dew_drop_watering_cans:copper_watering_can"
-					tag: {
-						Damage: 0
-					}
 				}
 				type: "item"
 			}]
 			tasks: [{
 				id: "7F98B7910FAD32E9"
 				item: {
-					Count: 1
+					count: 1
 					id: "minecraft:wooden_hoe"
-					tag: {
-						Damage: 0
-					}
 				}
 				type: "item"
 			}]
@@ -594,32 +548,11 @@
 			tasks: [{
 				id: "3C3B7B201B44B8AD"
 				item: {
-					Count: 1
-					id: "itemfilters:or"
-					tag: {
-						items: [
-							{
-								Count: 1b
-								id: "society:crystal_of_regret_farming"
-							}
-							{
-								Count: 1b
-								id: "society:crystal_of_regret_husbandry"
-							}
-							{
-								Count: 1b
-								id: "society:crystal_of_regret_fishing"
-							}
-							{
-								Count: 1b
-								id: "society:crystal_of_regret_mining"
-							}
-							{
-								Count: 1b
-								id: "society:crystal_of_regret_adventuring"
-							}
-						]
+					components: {
+						"ftbfiltersystem:filter": "or(item(society:crystal_of_regret_farming)item(society:crystal_of_regret_husbandry)item(society:crystal_of_regret_fishing)item(society:crystal_of_regret_mining)item(society:crystal_of_regret_adventuring))"
 					}
+					count: 1
+					id: "ftbfiltersystem:smart_filter"
 				}
 				title: "{ftbquests.chapter.getting_started.quest681EECD8B1D07F34.task.4340198043728263341.title}"
 				type: "item"
@@ -702,27 +635,31 @@
 				{
 					id: "59E084CB052A33AC"
 					item: {
-						Count: 1
-						id: "society:invitation"
-						tag: {
-							type: {
-								id: "society:banker"
+						components: {
+							"minecraft:custom_data": {
+								type: {
+									id: "society:banker"
+								}
 							}
 						}
+						count: 1
+						id: "society:invitation"
 					}
-					match_nbt: true
+					match_components: "fuzzy"
 					type: "item"
 				}
 				{
 					disable_toast: true
 					icon: {
-						Count: 1
-						id: "society:villager"
-						tag: {
-							type: {
-								id: "society:banker"
+						components: {
+							"minecraft:custom_data": {
+								type: {
+									id: "society:banker"
+								}
 							}
 						}
+						count: 1
+						id: "society:villager"
 					}
 					id: "3289EF10C786A325"
 					stage: "invited_banker"
@@ -754,34 +691,34 @@
 			tasks: [{
 				id: "281897C014D14C4C"
 				item: {
-					Count: 1
-					id: "portable_blueprints:worn_blueprint"
-					tag: {
-						Damage: 1
-						allow_nbt: 1
-						altezza: 0
-						blueprint_name: "home_siberian"
-						buildAnyway: 0b
-						display: {
-							Name: "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.siberian_farmhouse\"}"
+					components: {
+						"minecraft:damage": 1
+						"minecraft:custom_name": "{\"italic\":false,\"color\":\"#FFFF00\",\"translate\":\"portable_blueprints.worn_blueprint.siberian_farmhouse\"}"
+						"minecraft:custom_data": {
+							allow_nbt: 1
+							altezza: 0
+							blueprint_name: "home_siberian"
+							buildAnyway: 0b
+							free_build: 1
+							inventari_blocco_selezionati: ""
+							lunghezzaX: 0
+							lunghezzaZ: 0
+							mirrowX: 0b
+							mirrowY: 0b
+							mirrowZ: 0b
+							nome: "home_siberian"
+							owner: "worn"
+							owner_name: "Chakyl"
+							remaining_uses: 1
+							rotateValue: 0s
+							skipObstructionBlock: 0b
+							visualizeBuild: 1b
+							wasHolding: 0b
+							worn_set: 1b
 						}
-						free_build: 1
-						inventari_blocco_selezionati: ""
-						lunghezzaX: 0
-						lunghezzaZ: 0
-						mirrowX: 0b
-						mirrowY: 0b
-						mirrowZ: 0b
-						nome: "home_siberian"
-						owner: "worn"
-						owner_name: "Chakyl"
-						remaining_uses: 1
-						rotateValue: 0s
-						skipObstructionBlock: 0b
-						visualizeBuild: 1b
-						wasHolding: 0b
-						worn_set: 1b
 					}
+					count: 1
+					id: "portable_blueprints:worn_blueprint"
 				}
 				title: "{ftbquests.chapter.getting_started.quest382DC5EBB8C7C19E.task.2889226012196949068.title}"
 				type: "item"
@@ -818,27 +755,31 @@
 				{
 					id: "425CE445701BE19E"
 					item: {
-						Count: 1
-						id: "society:invitation"
-						tag: {
-							type: {
-								id: "society:blacksmith"
+						components: {
+							"minecraft:custom_data": {
+								type: {
+									id: "society:blacksmith"
+								}
 							}
 						}
+						count: 1
+						id: "society:invitation"
 					}
-					match_nbt: true
+					match_components: "fuzzy"
 					type: "item"
 				}
 				{
 					disable_toast: true
 					icon: {
-						Count: 1
-						id: "society:villager"
-						tag: {
-							type: {
-								id: "society:blacksmith"
+						components: {
+							"minecraft:custom_data": {
+								type: {
+									id: "society:blacksmith"
+								}
 							}
 						}
+						count: 1
+						id: "society:villager"
 					}
 					id: "66EF68859A260B35"
 					stage: "invited_blacksmith"

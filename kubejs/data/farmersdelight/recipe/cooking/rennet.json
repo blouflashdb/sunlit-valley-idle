@@ -1,0 +1,22 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 2.0,
+  "ingredients": [
+    {
+      "tag": "bakery:eggs"
+    },
+    {
+      "tag": "c:salt"
+    }
+  ],
+  "container": {
+    "id": "minecraft:glass_bottle",
+    "count": 1
+  },
+  "recipe_book_tab": "meals",
+  "result": {
+    "id": "meadow:rennet",
+    "count": 2
+  }
+}

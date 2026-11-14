@@ -1,3 +1,5 @@
+// Dev-only generator of the Refurbished Furniture, Beautify and Quark furniture item tags (kubejs/data/<mod>/tags/
+// item). Uncomment and reload once to regenerate; 1.21.1 uses the singular tags/item folder.
 // if (true) {
 //     let fans = []
 //     let toilets = []
@@ -42,7 +44,7 @@
 //     Ingredient.of("@refurbished_furniture").getStacks().forEach((item) => addToTags(item.id));
 //     Ingredient.of("@everycomp").getStacks().forEach((item) => addToTags(item.id, true));
 
-//     let root = "kubejs/data/refurbished_furniture/tags/items/"
+//     let root = "kubejs/data/refurbished_furniture/tags/item/"
 //     JsonIO.write(root + `ceiling_fans.json`, { values: fans });
 //     JsonIO.write(root + `toilets.json`, { values: toilets });
 //     JsonIO.write(root + `basins.json`, { values: basins });
@@ -75,7 +77,7 @@
 //     Ingredient.of("@beautify").getStacks().forEach((item) => addToBeautTags(item.id));
 //     Ingredient.of("@everycomp").getStacks().forEach((item) => addToBeautTags(item.id));
 
-//     root = "kubejs/data/beautify/tags/items/"
+//     root = "kubejs/data/beautify/tags/item/"
 //     JsonIO.write(root + `blinds.json`, { values: blinds });
 //     JsonIO.write(root + `flower_lattice.json`, { values: lattice });
 
@@ -84,6 +86,6 @@
 //     Ingredient.of("@quark").getStacks().forEach((item) => { if (item.id.includes("leaf_carpet")) leafCarp.push(item.id) });
 //     Ingredient.of("@everycomp").getStacks().forEach((item) => { if (item.id.includes("leaf_carpet")) leafCarp.push(item.id) });
 
-//     root = "kubejs/data/quark/tags/items/"
+//     root = "kubejs/data/quark/tags/item/"
 //     JsonIO.write(root + `leaf_carpets.json`, { values: leafCarp });
 // }

@@ -1,30 +1,28 @@
-global.handleRibbit = (entity) => {
-    const nbt = entity.nbt.toString();
+console.info("[SOCIETY] modifyRibbits.js loaded");
 
-    if (nbt.includes("gardener")) {
-        let freshVillager = entity.level.createEntity("ribbits:ribbit");
-        let villagerNbt = freshVillager.getNbt();
-        villagerNbt.Brain.memories = entity.nbt.Brain.memories;
-        freshVillager.customName = entity.customName;
-        villagerNbt.Pos = [Number(entity.x), Number(entity.y), Number(entity.z)];
-        freshVillager.setNbt(villagerNbt);
-        villagerNbt.RibbitData = {
-            umbrella: "ribbits:umbrella_3",
-            instrument: "ribbits:none",
-            profession: "ribbits:fisherman",
-        };
-        freshVillager.setNbt(villagerNbt);
-        freshVillager.spawn();
-        entity.setRemoved("unloaded_to_chunk");
-    }
+// Gardener ribbits trample farms, so they are replaced with fishermen.
+
+global.handleRibbit = (entity) => {
+  if (!String(entity.nbt).includes("gardener")) return;
+  const fresh = entity.level.createEntity("ribbits:ribbit");
+  fresh.setPos(entity.x, entity.y, entity.z);
+  if (entity.customName) fresh.customName = entity.customName;
+  fresh.mergeNbt({
+    RibbitData: {
+      umbrella: "ribbits:umbrella_3",
+      instrument: "ribbits:none",
+      profession: "ribbits:fisherman",
+    },
+  });
+  fresh.spawn();
+  entity.discard();
 };
 
 EntityJSEvents.modifyEntity((event) => {
-    event.modify("ribbits:ribbit", (modifyBuilder) => {
-        modifyBuilder.tick((entity) => {
-            if (entity.level.time % 1200 === 0) {
-                global.handleRibbit(entity);
-            }
-        });
+  event.modify("ribbits:ribbit", (builder) => {
+    builder.tick((entity) => {
+      if (entity.level.isClientSide() || entity.level.time % 1200 !== 0) return;
+      global.handleRibbit(entity);
     });
+  });
 });

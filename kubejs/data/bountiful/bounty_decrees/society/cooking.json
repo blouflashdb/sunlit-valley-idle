@@ -1,8 +1,8 @@
 {
-	"objectives": [
-		"cooking_objs"
-	],
-	"rewards": [
-		"coin_rews"
-	]
+  "objectives": [
+    "cooking_objs"
+  ],
+  "rewards": [
+    "coin_rews"
+  ]
 }

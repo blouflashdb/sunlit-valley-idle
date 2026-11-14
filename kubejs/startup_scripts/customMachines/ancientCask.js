@@ -134,7 +134,7 @@ global.ancientCaskRecipes = new Map([]);
   { item: "society:sparkling_le_roy", name: "Sparkling Le Roy", time: 10 },
   { item: "society:mana_king", name: "Mana King", time: 20 },
 ].forEach((product) => {
-  const splitProduct = product.item.split(":");
+  let splitProduct = product.item.split(":");
   global.ancientCaskRecipes.set(`society:aged_${splitProduct[1]}`, {
     output: [`1x society:double_aged_${splitProduct[1]}`],
     time: product.time,
@@ -144,46 +144,46 @@ global.ancientCaskRecipes = new Map([]);
 StartupEvents.registry("block", (event) => {
   event
     .create("society:ancient_cask", "cardinal")
-    .property(booleanProperty.create("working"))
-    .property(booleanProperty.create("mature"))
-    .property(booleanProperty.create("upgraded"))
+    .property(workingProperty)
+    .property(matureProperty)
+    .property(upgradedProperty)
     .defaultCutout()
     .tagBlock("minecraft:mineable/pickaxe")
     .tagBlock("minecraft:mineable/axe")
     .tagBlock("minecraft:needs_stone_tool")
+    // Blockstate: client_scripts/machineBlockstates.js. Models: tools/port/assets/make_machine_placeholder.py.
+    .parentModel("society:block/kubejs/ancient_cask/ancient_cask")
     .item((item) => {
       item.tooltip(Text.translatable("block.society.ancient_cask.description").gray());
       item.tooltip(Text.translatable("block.society.ancient_cask.description.warn").red());
-      item.modelJson({
-        parent: "society:block/kubejs/ancient_cask/ancient_cask",
-      });
+      item.parentModel("society:block/kubejs/ancient_cask/ancient_cask");
     })
     .defaultState((state) => {
       state
-        .set(booleanProperty.create("working"), false)
-        .set(booleanProperty.create("mature"), false)
-        .set(booleanProperty.create("upgraded"), false);
+        .set(workingProperty, false)
+        .set(matureProperty, false)
+        .set(upgradedProperty, false);
     })
     .placementState((state) => {
       state
-        .set(booleanProperty.create("working"), false)
-        .set(booleanProperty.create("mature"), false)
-        .set(booleanProperty.create("upgraded"), false);
+        .set(workingProperty, false)
+        .set(matureProperty, false)
+        .set(upgradedProperty, false);
     })
     .rightClick((click) => {
-      const { player, item, block, hand, level } = click;
+      let { player, item, block, hand, level } = click;
       if (player.isFake()) return;
-      const upgraded = block.properties.get("upgraded").toLowerCase() == "true";
-      const facing = block.properties.get("facing").toLowerCase();
+      let upgraded = global.isBlockPropertyTrue(block, "upgraded");
+      let facing = global.getBlockProperty(block, "facing");
 
       if (player.stages.has("ancient_aging")) {
-        if (hand == "OFF_HAND") return;
-        if (hand == "MAIN_HAND") {
+        if (String(hand) === "OFF_HAND") return;
+        if (String(hand) === "MAIN_HAND") {
           if (
             !upgraded &&
-            block.properties.get("working").toLowerCase() == "false" &&
-            block.properties.get("mature").toLowerCase() == "false" &&
-            item == "society:inserter"
+            !global.isBlockPropertyTrue(block, "working") &&
+            !global.isBlockPropertyTrue(block, "mature") &&
+            String(item.id) === "society:inserter"
           ) {
             if (!player.isCreative()) item.count--;
             level.spawnParticles(
@@ -200,11 +200,11 @@ StartupEvents.registry("block", (event) => {
             );
             block.set(block.id, {
               facing: facing,
-              working: block.properties.get("working"),
-              mature: block.properties.get("mature"),
+              working: global.getBlockProperty(block, "working"),
+              mature: global.getBlockProperty(block, "mature"),
               upgraded: true,
             });
-          } else if (!upgraded && item == "society:inserter") {
+          } else if (!upgraded && String(item.id) === "society:inserter") {
             player.tell(Text.translatable("society.working_block_entity.cannot_upgrade").red());
           }
         }
@@ -230,10 +230,8 @@ StartupEvents.registry("block", (event) => {
     })
     .blockEntity((blockInfo) => {
       blockInfo.initialData({ stage: 0, recipe: "" });
-      blockInfo.serverTick(artMachineTickRate, 0, (entity) => {
-        global.handleBETick(entity, global.ancientCaskRecipes, 20);
-      });
-    }).blockstateJson = {
-    multipart: getCardinalMultipartJson("ancient_cask"),
-  };
+      blockInfo.serverTicking();
+      blockInfo.tickFrequency(artMachineTickRate);
+    });
 });
+// Morning tick: server_scripts/blockEvents/machineTicks.js

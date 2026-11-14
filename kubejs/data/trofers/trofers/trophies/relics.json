@@ -1,0 +1,26 @@
+{
+  "colors": {
+    "accent": "#b145a7",
+    "base": "#606060"
+  },
+  "display": {
+    "offset": [
+      0,
+      1,
+      0
+    ],
+    "scale": 2.0
+  },
+  "animation": {
+    "type": "spinning",
+    "speed": 0.1
+  },
+  "name": {
+    "color": "#f6ba47",
+    "translate": "society.trofers.relics"
+  },
+  "item": {
+    "id": "relics:shadow_glaive",
+    "count": 1
+  }
+}

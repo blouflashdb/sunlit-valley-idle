@@ -1,36 +1,22 @@
 console.info("[SOCIETY] qualityWasher.js loaded");
 
-global.handleQualityWasher = (e) => {
-  const { inventory, level, block } = e;
-  let slots = inventory.getSlots();
-  let slotItem;
-  let sentItem;
-  let belowItem;
-  const belowPos = block.getPos().below();
-  const belowBlock = level.getBlock(belowPos.x, belowPos.y, belowPos.z);
-  if (belowBlock.inventory && !inventory.isEmpty()) {
-    for (let i = 0; i < slots; i++) {
-      slotItem = inventory.getStackInSlot(i);
-      if (slotItem !== Item.of("minecraft:air")) {
-        for (let j = 0; j < belowBlock.inventory.slots; j++) {
-          belowItem = belowBlock.inventory.getStackInSlot(j);
-          if (
-            belowItem === Item.of("minecraft:air") ||
-            (belowItem === Item.of(slotItem.id) &&
-              belowItem.count < belowBlock.inventory.getSlotLimit(j))
-          ) {
-            sentItem = slotItem.copy();
-            if (slotItem.nbt && slotItem.nbt.quality_food && !slotItem.hasTag('society:plushies')) {
-              sentItem.nbt = null;
-            }
-            sentItem.count = 1;
-            belowBlock.inventory.insertItem(j, sentItem, false);
-            slotItem.count--;
-            return;
-          }
-        }
-      }
-    }
+/** Moves one item a second from its inventory to the inventory below, without its Quality Food quality. */
+global.handleQualityWasher = (entity) => {
+  const { level, block } = entity;
+  const inventory = block.getEntity().attachments.get("inventory");
+  const below = global.getInventoryBelow(level, block);
+  if (!below) return;
+  for (let i = 0; i < inventory.getSlots(); i++) {
+    let slotItem = inventory.getStackInSlot(i);
+    if (slotItem.isEmpty()) continue;
+    let washed =
+      global.getItemQuality(slotItem) > 0 && !slotItem.hasTag("society:plushies")
+        ? Item.of(String(slotItem.id), 1)
+        : slotItem.copyWithCount(1);
+    if (!global.insertIntoHandler(below, washed, true).isEmpty()) continue;
+    global.insertIntoHandler(below, washed, false);
+    inventory.extractItem(i, 1, false);
+    return;
   }
 };
 
@@ -39,31 +25,20 @@ StartupEvents.registry("block", (event) => {
     .create("society:quality_washer", "cardinal")
     .tagBlock("minecraft:mineable/pickaxe")
     .tagBlock("minecraft:needs_stone_tool")
-    .box(0, 0, 0, 16, 16, 16)
     .defaultCutout()
+    // Placeholder model: tools/port/assets/make_machine_placeholder.py --single.
+    .parentModel("society:block/kubejs/quality_washer/quality_washer")
     .item((item) => {
       item.tooltip(Text.translatable("block.society.quality_washer.description").gray());
       item.tooltip(Text.translatable("block.society.quality_washer.description.warn").red());
       item.tooltip(Text.translatable("society.working_block_entity.can_use_hopper").green());
-      item.modelJson({
-        parent: "society:block/kubejs/quality_washer",
-      });
+      item.parentModel("society:block/kubejs/quality_washer/quality_washer");
     })
-    .model("society:block/kubejs/quality_washer")
     .blockEntity((blockInfo) => {
-      blockInfo.inventory(9, 1);
-      blockInfo.serverTick(20, 0, (entity) => {
-        global.handleQualityWasher(entity);
-      }),
-        blockInfo.rightClickOpensInventory();
-      blockInfo.attachCapability(
-        CapabilityBuilder.ITEM.blockEntity()
-          .insertItem((blockEntity, slot, stack, simulate) =>
-            blockEntity.inventory.insertItem(slot, stack, simulate)
-          )
-          .getSlotLimit((blockEntity, slot) => blockEntity.inventory.getSlotLimit(slot))
-          .getSlots((blockEntity) => blockEntity.inventory.slots)
-          .getStackInSlot((blockEntity, slot) => blockEntity.inventory.getStackInSlot(slot))
-      );
+      blockInfo.inventory("inventory", [], 9, 1);
+      blockInfo.rightClickOpensInventory("inventory");
+      blockInfo.serverTicking();
+      blockInfo.tickFrequency(20);
     });
 });
+// Tick: server_scripts/blockEvents/machineTicks.js

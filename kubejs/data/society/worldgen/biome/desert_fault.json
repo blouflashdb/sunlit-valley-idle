@@ -30,22 +30,10 @@
         "maxCount": 1
       },
       {
-        "type": "species:wicked",
-        "maxCount": 3,
-        "minCount": 1,
-        "weight": 40
-      },
-      {
         "type": "minecraft:phantom",
         "maxCount": 2,
         "minCount": 1,
         "weight": 60
-      },
-      {
-        "type": "legendarycreatures:desert_mojo",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 20
       },
       {
         "type": "minecraft:evoker",
@@ -62,12 +50,6 @@
       {
         "type": "minecraft:blaze",
         "weight": 80,
-        "minCount": 1,
-        "maxCount": 4
-      },
-      {
-        "type": "splendid_slimes:splendid_slime",
-        "weight": 10,
         "minCount": 1,
         "maxCount": 4
       }
@@ -97,9 +79,17 @@
   "spawn_costs": {},
   "carvers": {},
   "features": [
-    ["society:desert_caves/sandstone_ladder", "society:desert_caves/sandstone_rock"],
-    ["minecraft:lake_lava_underground"],
-    ["minecraft:monster_room", "minecraft:monster_room_deep"],
+    [
+      "society:desert_caves/sandstone_ladder",
+      "society:desert_caves/sandstone_rock"
+    ],
+    [
+      "minecraft:lake_lava_underground"
+    ],
+    [
+      "minecraft:monster_room",
+      "minecraft:monster_room_deep"
+    ],
     [],
     [],
     [
@@ -111,7 +101,9 @@
       "minecraft:ore_andesite_lower"
     ],
     [],
-    ["minecraft:spring_water"],
+    [
+      "minecraft:spring_water"
+    ],
     [
       "minecraft:glow_lichen",
       "society:desert_fault/arid_sand_patch_floor",
@@ -119,6 +111,8 @@
       "society:desert_fault/red_glass_patch_ceiling",
       "society:desert_fault/arid_sandstone_patch_ceiling"
     ],
-    ["minecraft:freeze_top_layer"]
+    [
+      "minecraft:freeze_top_layer"
+    ]
   ]
 }

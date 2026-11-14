@@ -1,6 +1,6 @@
 {
     "name": "Society Sunlit Valley",
-    "version": "4.1.5A",
+    "version": "5.0.0",
     "overrides": [
         "config",
         "defaultconfigs",
@@ -23,9 +23,6 @@
             "side": "CLIENT"
         },
         "bad-wither-no-cookie-reloaded": {
-            "side": "CLIENT"
-        },
-        "bobby": {
             "side": "CLIENT"
         },
         "chat-heads": {
@@ -52,13 +49,7 @@
         "crash-assistant": {
             "side": "CLIENT"
         },
-        "default-options": {
-            "side": "CLIENT"
-        },
         "drippy-loading-screen": {
-            "side": "CLIENT"
-        },
-        "embeddium": {
             "side": "CLIENT"
         },
         "entity-model-features": {
@@ -68,9 +59,6 @@
             "side": "CLIENT"
         },
         "enchantment-descriptions": {
-            "side": "CLIENT"
-        },
-        "entityculling": {
             "side": "CLIENT"
         },
         "falling-leaves-forge": {
@@ -85,34 +73,16 @@
         "immediatelyfast": {
             "side": "CLIENT"
         },
-        "loot-journal": {
-            "side": "CLIENT"
-        },
         "more-overlays-updated": {
             "side": "CLIENT"
         },
         "mouse-tweaks": {
             "side": "CLIENT"
         },
-        "my-server-is-compatible": {
-            "side": "CLIENT"
-        },
         "particle-rain": {
             "side": "CLIENT"
         },
-        "iris-flywheel-compat": {
-            "side": "CLIENT"
-        },
-        "journeypac": {
-            "side": "CLIENT"
-        },
-        "oculus": {
-            "side": "CLIENT"
-        },
         "ok-zoomer": {
-            "side": "CLIENT"
-        },
-        "radiant-gear": {
             "side": "CLIENT"
         },
         "selectivebounds": {
@@ -124,9 +94,6 @@
         "tips": {
             "side": "CLIENT"
         },
-        "tmrv": {
-            "side": "CLIENT"
-        },
         "raws-visual-keybinder": {
             "side": "CLIENT"
         },
@@ -134,9 +101,6 @@
             "side": "CLIENT"
         },
         "tooltip-overhaul": {
-            "side": "CLIENT"
-        },
-        "ftb-quest-localizer": {
             "side": "CLIENT"
         },
         "flerovium": {
@@ -153,6 +117,15 @@
         },
         "skillexpnotifier": {
             "side": "BOTH"
+        },
+        "irisshaders": {
+            "side": "CLIENT"
+        },
+        "sodium": {
+            "side": "CLIENT"
+        },
+        "reeses-sodium-options": {
+            "side": "CLIENT"
         }
     },
     "export_server_side_projects_to_client": true

@@ -1,5 +1,6 @@
 {
-	"tip": {
-		"translate": "society_tips.tip.eternal_summer_jungle"
-	}
+  "type": "tipsmod:simple",
+  "text": {
+    "translate": "society_tips.tip.eternal_summer_jungle"
+  }
 }

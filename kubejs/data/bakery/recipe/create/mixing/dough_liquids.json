@@ -1,0 +1,25 @@
+{
+  "type": "create:mixing",
+  "results": [
+    {
+      "id": "farm_and_charm:dough",
+      "count": 1
+    }
+  ],
+  "ingredients": [
+    {
+      "tag": "bakery:wheat"
+    },
+    {
+      "item": "farm_and_charm:yeast"
+    },
+    {
+      "type": "fluid_tag",
+      "fluid_tag": "c:water",
+      "amount": 250
+    },
+    {
+      "tag": "c:sugar"
+    }
+  ]
+}

@@ -1,4 +1,6 @@
 {
   "replace": true,
-  "values": ["society:desert_caves"]
+  "values": [
+    "society:desert_caves"
+  ]
 }

@@ -1,8 +1,7 @@
 {
-	"item": "snowyspirit:candy_cane",
-	"category": "dessert",
-	"price": 8,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "snowyspirit:candy_cane",
+  "category": "dessert",
+  "price": 8,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

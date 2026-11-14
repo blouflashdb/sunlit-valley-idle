@@ -1,0 +1,37 @@
+// The machine recipe maps of the startup scripts list items of mods that are not (yet) in the 1.21.1 pack.
+// Drop those recipes once at server start, so a machine never takes an input it cannot turn into anything.
+console.info("[SOCIETY] pruneMachineRecipes.js loaded");
+
+ServerEvents.loaded(() => {
+  let prune = (name, recipes, outputsOf) => {
+    let removed = [];
+    Array.from(recipes.keys()).forEach((input) => {
+      let ok = (input.startsWith("#") || global.itemExists(input)) && outputsOf(recipes.get(input)).every(global.itemExists);
+      if (!ok) {
+        recipes.delete(input);
+        removed.push(input);
+      }
+    });
+    if (removed.length > 0) console.info(`[SOCIETY] ${name}: ${removed.length} recipes skipped, items missing`);
+  };
+  prune("Preserves Jar", global.preservesJarRecipes, (recipe) => recipe.output);
+  prune("Pickling Can", global.picklingRecipes, (recipe) => [recipe.pickle]);
+  prune("Crystalarium", global.crystalariumCrystals, (recipe) => recipe.output);
+  prune("Wine Keg", global.wineKegRecipes, (recipe) => recipe.output);
+  prune("Aging Cask", global.agingCaskRecipes, (recipe) => recipe.output);
+  prune("Ancient Cask", global.ancientCaskRecipes, (recipe) => recipe.output);
+  prune("Bait Maker", global.baitMakerRecipes, (recipe) => recipe.output);
+  prune("Cheese Press", global.cheesePressRecipes, (recipe) => recipe.output);
+  prune("Dehydrator", global.dehydratorRecipes, (recipe) => recipe.output);
+  prune("Fish Smoker", global.fishSmokerRecipes, (recipe) => recipe.output);
+  prune("Loom", global.loomRecipes, (recipe) => recipe.output);
+  prune("Mayonnaise Machine", global.mayonnaiseMachineRecipes, (recipe) => recipe.output);
+  prune("Oil Maker", global.oilMakerRecipes, (recipe) => recipe.output);
+  prune("Recycling Machine", global.recyclingMachineRecipes, (recipe) => recipe.output);
+  prune("Seed Maker", global.seedMakerRecipes, (recipe) => recipe.output);
+  prune("Tapper", global.tapperRecipes, (recipe) => recipe.output);
+  prune("Mushroom Log", global.mushroomLogRecipes, (recipe) => recipe.output);
+  prune("Mushroom Log dominant blocks", global.dominantMushroomLogBlocks, (recipe) => recipe.output);
+  prune("Espresso Machine", global.espressoMachineRecipes, (recipe) => recipe.output);
+  prune("Deluxe Worm Farm", global.deluxeWormFarmRecipes, (recipe) => recipe.output);
+});

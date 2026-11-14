@@ -1,76 +1,31 @@
 console.info("[SOCIETY] registerWeapons.js loaded");
 
-ItemEvents.toolTierRegistry((e) => {
-  e.add("prismatic", (tier) => {
-    tier.uses = 1000;
-    tier.speed = 8;
-    tier.attackDamageBonus = 2.0;
-    tier.level = 2;
-    tier.enchantmentValue = 14;
-    tier.repairIngredient = "society:prismatic_shard";
-  });
-});
+// Prismatic weapons (#18): the 1.20.1 "prismatic" tool tier (1000 uses, +2 attack damage, enchantability 14,
+// repaired with a Prismatic Shard), applied to a diamond tier per item. The repair ingredient is a tag
+// (kubejs/data/society/tags/item/prismatic_shards.json): the shard item does not exist yet while items register.
+// As on 1.20.1, speed() sets the tier's speed and the attack speed keeps the sword/axe baseline.
+const prismaticTier = (tier) => {
+  tier.setUses(1000);
+  tier.setAttackDamageBonus(2.0);
+  tier.setEnchantmentValue(14);
+  tier.setRepairIngredient(Ingredient.of("#society:prismatic_shards"));
+};
 
 StartupEvents.registry("item", (e) => {
-  e.create("society:galaxy_sword", "sword")
-    .texture("society:item/galaxy_sword")
-    .rarity("epic")
-    .tier("prismatic")
-    .displayName("<ltcolor>c=AA0000;c=FFAA00;c=FF55FF;c=FFFF55;c=00AA00;c=00AAAA;c=AA00AA;c=FF55FF;w=10;p=2;Galaxy Sword</ltcolor>")
-    .tag("minecraft:swords")
-    .attackDamageBaseline(10.0)
-    .speed(3.0)
-    .modifyTier((tier) => {
-      tier.setRepairIngredient(
-        Ingredient.custom((item) => {
-          if (item.id == "society:prismatic_shard") return true;
-          return false;
-        })
-      );
-    });
-  e.create("society:dragontooth_axe", "axe")
-    .texture("society:item/dragontooth_axe")
-    .rarity("epic")
-    .tier("prismatic")
-    .attackDamageBaseline(12.0)
-    .speed(5.0)
-    .modifyTier((tier) => {
-      tier.setRepairIngredient(
-        Ingredient.custom((item) => {
-          if (item.id == "society:prismatic_shard") return true;
-          return false;
-        })
-      );
-    });
-  e.create("society:princess_hairbrush", "sword")
-    .texture("society:item/artifacts/princess_hairbrush")
-    .rarity("epic")
-    .tier("prismatic")
-    .tag("minecraft:swords")
-    .attackDamageBaseline(6.0)
-    .speed(3.0)
-    .modifyTier((tier) => {
-      tier.setRepairIngredient(
-        Ingredient.custom((item) => {
-          if (item.id == "society:prismatic_shard") return true;
-          return false;
-        })
-      );
-    });
-  e.create("society:meowmageddon", "sword")
-    .texture("society:item/meowmageddon")
-    .rarity("epic")
-    .tier("prismatic")
-    .displayName("<ltcolor>c=55FFFF;c=77DDCC;c=FF55FF;c=FFFFFF;Meowmageddon</ltcolor>")
-    .tag("minecraft:swords")
-    .attackDamageBaseline(11.0)
-    .speed(4.0)
-    .modifyTier((tier) => {
-      tier.setRepairIngredient(
-        Ingredient.custom((item) => {
-          if (item.id == "society:prismatic_shard") return true;
-          return false;
-        })
-      );
-    });
+  [
+    { id: "galaxy_sword", type: "sword", damage: 10.0, speed: 3.0, texture: "society:item/galaxy_sword" },
+    { id: "dragontooth_axe", type: "axe", damage: 12.0, speed: 5.0, texture: "society:item/dragontooth_axe" },
+    { id: "princess_hairbrush", type: "sword", damage: 6.0, speed: 3.0, texture: "society:item/artifacts/princess_hairbrush" },
+    { id: "meowmageddon", type: "sword", damage: 11.0, speed: 4.0, texture: "society:item/meowmageddon" },
+  ].forEach((weapon) => {
+    let builder = e
+      .create(`society:${weapon.id}`, weapon.type)
+      .texture(weapon.texture)
+      .rarity("epic")
+      .tier("diamond")
+      .modifyTier(prismaticTier)
+      .attackDamageBaseline(weapon.damage)
+      .speed(weapon.speed);
+    if (weapon.type === "sword") builder.tag("minecraft:swords");
+  });
 });

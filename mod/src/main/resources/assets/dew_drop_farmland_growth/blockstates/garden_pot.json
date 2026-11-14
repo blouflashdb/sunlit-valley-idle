@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "deluxe=false,moisture=0": {
+      "model": "dew_drop_farmland_growth:block/garden_pot"
+    },
+    "deluxe=false,moisture=1": {
+      "model": "dew_drop_farmland_growth:block/garden_pot"
+    },
+    "deluxe=false,moisture=2": {
+      "model": "dew_drop_farmland_growth:block/garden_pot"
+    },
+    "deluxe=false,moisture=3": {
+      "model": "dew_drop_farmland_growth:block/garden_pot"
+    },
+    "deluxe=false,moisture=4": {
+      "model": "dew_drop_farmland_growth:block/garden_pot"
+    },
+    "deluxe=false,moisture=5": {
+      "model": "dew_drop_farmland_growth:block/garden_pot"
+    },
+    "deluxe=false,moisture=6": {
+      "model": "dew_drop_farmland_growth:block/garden_pot"
+    },
+    "deluxe=false,moisture=7": {
+      "model": "dew_drop_farmland_growth:block/garden_pot_moist"
+    },
+    "deluxe=true,moisture=0": {
+      "model": "dew_drop_farmland_growth:block/garden_pot_moist"
+    },
+    "deluxe=true,moisture=1": {
+      "model": "dew_drop_farmland_growth:block/garden_pot_moist"
+    },
+    "deluxe=true,moisture=2": {
+      "model": "dew_drop_farmland_growth:block/garden_pot_moist"
+    },
+    "deluxe=true,moisture=3": {
+      "model": "dew_drop_farmland_growth:block/garden_pot_moist"
+    },
+    "deluxe=true,moisture=4": {
+      "model": "dew_drop_farmland_growth:block/garden_pot_moist"
+    },
+    "deluxe=true,moisture=5": {
+      "model": "dew_drop_farmland_growth:block/garden_pot_moist"
+    },
+    "deluxe=true,moisture=6": {
+      "model": "dew_drop_farmland_growth:block/garden_pot_moist"
+    },
+    "deluxe=true,moisture=7": {
+      "model": "dew_drop_farmland_growth:block/garden_pot_moist"
+    }
+  }
+}

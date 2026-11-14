@@ -1,0 +1,31 @@
+{
+  "colors": {
+    "accent": "#805c49",
+    "base": "#9ea7b5"
+  },
+  "display": {
+    "offset": [
+      0,
+      1,
+      0
+    ],
+    "scale": 2.0
+  },
+  "animation": {
+    "type": "spinning",
+    "speed": 0.1
+  },
+  "effects": {
+    "sound": {
+      "id": "create:whistle_train_low"
+    }
+  },
+  "name": {
+    "color": "#805c49",
+    "translate": "society.trofers.train_station"
+  },
+  "item": {
+    "id": "railways:track_oak",
+    "count": 1
+  }
+}

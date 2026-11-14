@@ -6,7 +6,7 @@ global.dehydratorRecipes = new Map([
   ["nethervinery:warped_grape", { output: [`1x society:nether_raisins`] }],
 ]);
 
-const overworldGrapes = [
+let overworldGrapes = [
   "vinery:red_grape",
   "vinery:taiga_grapes_red",
   "vinery:savanna_grapes_red",
@@ -108,38 +108,38 @@ global.shimmeringMushrooms.forEach((item) => {
 StartupEvents.registry("block", (event) => {
   event
     .create("society:dehydrator", "cardinal")
-    .property(booleanProperty.create("working"))
-    .property(booleanProperty.create("mature"))
-    .property(booleanProperty.create("upgraded"))
+    .property(workingProperty)
+    .property(matureProperty)
+    .property(upgradedProperty)
     .box(1, 0, 4, 15, 16, 12)
     .defaultCutout()
     .tagBlock("minecraft:mineable/pickaxe")
     .tagBlock("minecraft:mineable/axe")
     .tagBlock("minecraft:needs_stone_tool")
+    // Blockstate: client_scripts/machineBlockstates.js. Models: tools/port/assets/make_machine_placeholder.py.
+    .parentModel("society:block/kubejs/dehydrator/dehydrator_off")
     .item((item) => {
       item.tooltip(Text.translatable("block.society.dehydrator.description").gray());
-      item.modelJson({
-        parent: "society:block/kubejs/dehydrator/dehydrator_off",
-      });
+      item.parentModel("society:block/kubejs/dehydrator/dehydrator_off");
     })
     .defaultState((state) => {
       state
-        .set(booleanProperty.create("working"), false)
-        .set(booleanProperty.create("mature"), false)
-        .set(booleanProperty.create("upgraded"), false);
+        .set(workingProperty, false)
+        .set(matureProperty, false)
+        .set(upgradedProperty, false);
     })
     .placementState((state) => {
       state
-        .set(booleanProperty.create("working"), false)
-        .set(booleanProperty.create("mature"), false)
-        .set(booleanProperty.create("upgraded"), false);
+        .set(workingProperty, false)
+        .set(matureProperty, false)
+        .set(upgradedProperty, false);
     })
     .rightClick((click) => {
-      const { player, item, block, hand, level } = click;
+      let { player, item, block, hand, level } = click;
       if (player.isFake()) return;
-      const upgraded = block.properties.get("upgraded").toLowerCase() == "true";
-      const facing = block.properties.get("facing");
-      const input = block.getEntityData().data.recipe;
+      let upgraded = global.isBlockPropertyTrue(block, "upgraded");
+      let facing = global.getBlockProperty(block, "facing");
+      let input = global.getMachineString(block, "recipe");
       let isMushroom;
       if (input) {
         isMushroom =
@@ -147,9 +147,9 @@ StartupEvents.registry("block", (event) => {
           global.shimmeringMushrooms.includes(input);
       }
 
-      if (hand == "OFF_HAND") return;
-      if (hand == "MAIN_HAND") {
-        if (!upgraded && item == "society:cordycep") {
+      if (String(hand) === "OFF_HAND") return;
+      if (String(hand) === "MAIN_HAND") {
+        if (!upgraded && String(item.id) === "society:cordycep") {
           if (!player.isCreative()) item.count--;
           level.spawnParticles(
             "farmersdelight:star",
@@ -165,8 +165,8 @@ StartupEvents.registry("block", (event) => {
           );
           block.set(block.id, {
             facing: facing,
-            working: block.properties.get("working"),
-            mature: block.properties.get("mature"),
+            working: global.getBlockProperty(block, "working"),
+            mature: global.getBlockProperty(block, "mature"),
             upgraded: true,
           });
         }
@@ -184,10 +184,8 @@ StartupEvents.registry("block", (event) => {
     })
     .blockEntity((blockInfo) => {
       blockInfo.initialData({ stage: 0, recipe: "" });
-      blockInfo.serverTick(artMachineTickRate, 0, (entity) => {
-        global.handleBETick(entity, global.dehydratorRecipes, 1);
-      });
-    }).blockstateJson = {
-    multipart: getCardinalMultipartJson("dehydrator"),
-  };
+      blockInfo.serverTicking();
+      blockInfo.tickFrequency(artMachineTickRate);
+    });
 });
+// Morning tick: server_scripts/blockEvents/machineTicks.js

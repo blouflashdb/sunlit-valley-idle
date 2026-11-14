@@ -1,8 +1,7 @@
 {
-	"item": "farmersdelight:hamburger",
-	"category": "main",
-	"price": 321,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "farmersdelight:hamburger",
+  "category": "main",
+  "price": 321,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

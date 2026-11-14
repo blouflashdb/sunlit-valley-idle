@@ -3,9 +3,15 @@
 	loot_size: 1
 	order_index: 1
 	rewards: [
-		{ item: "society:mayonnaise_machine" }
-		{ item: "society:loom" }
-		{ item: "society:cheese_press" }
+		{
+			item: "society:mayonnaise_machine"
+		}
+		{
+			item: "society:loom"
+		}
+		{
+			item: "society:cheese_press"
+		}
 	]
 	title: "{ftbquests.loot_table.9002246533416223198.title}"
 }

@@ -1,8 +1,7 @@
 {
-	"item": "farm_and_charm:stuffed_chicken",
-	"category": "main",
-	"price": 194,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "farm_and_charm:stuffed_chicken",
+  "category": "main",
+  "price": 194,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

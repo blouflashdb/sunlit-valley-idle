@@ -1,0 +1,25 @@
+{
+  "type": "vinery:wine_fermentation",
+  "juice": {
+    "type": "apple",
+    "amount": 5
+  },
+  "ingredients": [
+    {
+      "item": "society:ancient_juice"
+    },
+    {
+      "item": "society:ground_cinnamon"
+    },
+    {
+      "item": "society:truffle"
+    }
+  ],
+  "wine_bottle": {
+    "required": false
+  },
+  "result": {
+    "id": "society:ancient_cider",
+    "count": 1
+  }
+}

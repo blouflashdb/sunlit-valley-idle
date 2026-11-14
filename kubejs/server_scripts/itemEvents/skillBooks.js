@@ -1,48 +1,46 @@
 console.info("[SOCIETY] skillBooks.js loaded");
 
+// Skill books unlock their skill in the Pufferfish's Skills category society:books; the skill gives the stage
+// named like the book.
 [
-  { id: "society:alias_moss", skillId: "b2zbjhxyrcwlwb9e" },
-  { id: "society:animal_fancy", skillId: "dk83vl5zi9fw3ovi" },
-  { id: "society:banana_karenina", skillId: "76yv8nz8x47d80oe" },
-  { id: "society:brine_and_punishment", skillId: "p5dklukq9ggwgfa4" },
-  { id: "society:bluegill_meridian", skillId: "9ax835fydbyuvjkx" },
-  { id: "society:bullfish_jobs", skillId: "pirgo25ykt4bsbdo" },
-  { id: "society:canadian_and_famous", skillId: "x52wa6t39ywp17zu" },
-  { id: "society:first_aid_guide", skillId: "12wl5sjx8vy7q0xl" },
-  { id: "society:hitting_hard_and_soft", skillId: "t07mtr3euiz40jb0" },
-  { id: "society:no_name_for_the_sheep", skillId: "uzxujhppzlyg5d03" },
-  { id: "society:intro_to_algorithms", skillId: "gv808dy0r2fo6ire" },
-  { id: "society:paradise_crop", skillId: "3grtavzaxp3xbp67" },
-  { id: "society:slouching_towards_artistry", skillId: "pitrguemps2735n3" },
-  { id: "society:debt_caverns", skillId: "bh5306iiysq2692k" },
-  { id: "society:frogs_bounty_bazaar", skillId: "3fgcne477ni1rjxx" },
-  { id: "society:phenomenology_of_treasure", skillId: "z68vn1cf2lucfbos" },
-  { id: "society:slime_contain_protect", skillId: "uj8tnf4jgm0xyp13" },
-  { id: "society:the_spark_also_rises", skillId: "n3wgu1edjjl2t511" },
-  { id: "society:universal_methods_of_farming", skillId: "dm3efjm3y57v34ir" },
-  { id: "society:wuthering_logs", skillId: "y1xltbgkupmcoe0i" },
-  { id: "society:pond_house_five", skillId: "ajxn495vvckv1pow" },
-  { id: "society:the_quality_of_the_earth", skillId: "y99a5jkv7tmu7vmc" },
-  { id: "society:the_red_and_the_black", skillId: "ysthrzir822oedus" },
-  { id: "society:women_who_run_with_the_plushies", skillId: "2vo8noqvq4aj1egy" },
-  { id: "society:the_metamorphosize", skillId: "gjvl3ej2fhc4cwzb" },
-].forEach((book) => {
-  ItemEvents.rightClicked(book.id, (e) => {
+  ["alias_moss", "b2zbjhxyrcwlwb9e"],
+  ["animal_fancy", "dk83vl5zi9fw3ovi"],
+  ["banana_karenina", "76yv8nz8x47d80oe"],
+  ["brine_and_punishment", "p5dklukq9ggwgfa4"],
+  ["bluegill_meridian", "9ax835fydbyuvjkx"],
+  ["bullfish_jobs", "pirgo25ykt4bsbdo"],
+  ["canadian_and_famous", "x52wa6t39ywp17zu"],
+  ["first_aid_guide", "12wl5sjx8vy7q0xl"],
+  ["hitting_hard_and_soft", "t07mtr3euiz40jb0"],
+  ["no_name_for_the_sheep", "uzxujhppzlyg5d03"],
+  ["intro_to_algorithms", "gv808dy0r2fo6ire"],
+  ["paradise_crop", "3grtavzaxp3xbp67"],
+  ["slouching_towards_artistry", "pitrguemps2735n3"],
+  ["debt_caverns", "bh5306iiysq2692k"],
+  ["frogs_bounty_bazaar", "3fgcne477ni1rjxx"],
+  ["phenomenology_of_treasure", "z68vn1cf2lucfbos"],
+  ["slime_contain_protect", "uj8tnf4jgm0xyp13"],
+  ["the_spark_also_rises", "n3wgu1edjjl2t511"],
+  ["universal_methods_of_farming", "dm3efjm3y57v34ir"],
+  ["wuthering_logs", "y1xltbgkupmcoe0i"],
+  ["pond_house_five", "ajxn495vvckv1pow"],
+  ["the_quality_of_the_earth", "y99a5jkv7tmu7vmc"],
+  ["the_red_and_the_black", "ysthrzir822oedus"],
+  ["women_who_run_with_the_plushies", "2vo8noqvq4aj1egy"],
+  ["the_metamorphosize", "gjvl3ej2fhc4cwzb"],
+].forEach((entry) => {
+  const book = entry[0];
+  const skillId = entry[1];
+  ItemEvents.rightClicked(`society:${book}`, (e) => {
     const { player, item, server } = e;
-    const stageName = String(item.id).path;
-    if (!player.stages.has(stageName)) {
-      server.runCommandSilent(
-        `puffish_skills skills unlock ${player.username} society:books ${book.skillId}`
-      );
-      player.tell(Text.translatable("society.skill_book.learn").green());
-      server.runCommandSilent(
-        `playsound minecraft:block.enchantment_table.use block @a ${player.x} ${player.y} ${player.z}`
-      );
-      item.count--;
-      global.addItemCooldown(player, item, 20);
-    } else {
+    global.addItemCooldown(player, item, 20);
+    if (player.stages.has(book)) {
       player.tell(Text.translatable("society.skill_book.already_learn").red());
-      global.addItemCooldown(player, item, 20);
+      return;
     }
+    server.runCommandSilent(`puffish_skills skills unlock ${player.username} society:books ${skillId}`);
+    player.tell(Text.translatable("society.skill_book.learn").green());
+    societyPlaySound(server, "minecraft:block.enchantment_table.use", player);
+    item.shrink(1);
   });
 });

@@ -1,0 +1,32 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "society:botanical_tribute"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "society:mana_fruit"
+    }
+  ],
+  "type": "botania:terra_plate",
+  "ingredients": [
+    {
+      "item": "society:botanical_tribute"
+    },
+    {
+      "item": "botania:mana_pearl"
+    },
+    {
+      "item": "botania:mana_diamond"
+    },
+    {
+      "item": "society:mana_fruit"
+    }
+  ],
+  "mana": 500000,
+  "result": {
+    "count": 1,
+    "id": "botania:terrasteel_ingot"
+  }
+}

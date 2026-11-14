@@ -1,17 +1,9 @@
 console.info("[SOCIETY] eyeOfEnderMessage.js loaded");
 
-const eyeThrottle = ((temp) => (entity, tick, identifier) => {
-  const { age, uuid } = entity;
-  const key = `${uuid}${identifier}`;
-  const now = temp[key];
-  if (!now || age - now >= tick) {
-    temp[key] = age;
-    return false;
-  }
-  return true;
-})({});
+// The pack has no End; an eye of ender says so (at most every 20 seconds).
+const eyeOfEnderThrottle = societyThrottle();
 
 ItemEvents.rightClicked("minecraft:ender_eye", (e) => {
-  if (eyeThrottle(e.player, 400, "eye_throttle")) return;
+  if (eyeOfEnderThrottle(e.player, 400, "eye_of_ender")) return;
   e.player.tell(Text.translatable("society.ender_eye.no_end").red());
 });

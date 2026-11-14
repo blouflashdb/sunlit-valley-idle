@@ -1,8 +1,7 @@
 {
-	"item": "create:chocolate_glazed_berries",
-	"category": "dessert",
-	"price": 71,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "create:chocolate_glazed_berries",
+  "category": "dessert",
+  "price": 71,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

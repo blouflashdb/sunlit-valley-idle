@@ -1,20 +1,23 @@
 {
   "shop_id": "wanderer",
-  "name": "shop.society_trading.wanderer",
+  "name": {
+    "translate": "shop.society_trading.wanderer"
+  },
   "texture": "minecraft:textures/block/light_blue_glazed_terracotta",
   "entity": "minecraft:wandering_trader",
   "hidden_from_selector": true,
   "jei_catalyst": {
-    "item": "minecraft:wandering_trader_spawn_egg"
+    "id": "minecraft:wandering_trader_spawn_egg",
+    "count": 1
   },
   "trades": [
     {
       "offer": {
-        "item": "society:yard_work_yearly",
+        "id": "society:yard_work_yearly",
         "count": 1
       },
       "request": {
-        "item": "numismatics:crown",
+        "id": "numismatics:crown",
         "count": 4
       },
       "limit": 4,
@@ -23,11 +26,11 @@
     },
     {
       "offer": {
-        "item": "society:husbandry_hourly",
+        "id": "society:husbandry_hourly",
         "count": 1
       },
       "request": {
-        "item": "numismatics:crown",
+        "id": "numismatics:crown",
         "count": 4
       },
       "limit": 4,
@@ -36,11 +39,11 @@
     },
     {
       "offer": {
-        "item": "society:mining_monthly",
+        "id": "society:mining_monthly",
         "count": 1
       },
       "request": {
-        "item": "numismatics:crown",
+        "id": "numismatics:crown",
         "count": 4
       },
       "limit": 4,
@@ -49,11 +52,11 @@
     },
     {
       "offer": {
-        "item": "society:wet_weekly",
+        "id": "society:wet_weekly",
         "count": 1
       },
       "request": {
-        "item": "numismatics:crown",
+        "id": "numismatics:crown",
         "count": 4
       },
       "limit": 4,
@@ -62,11 +65,11 @@
     },
     {
       "offer": {
-        "item": "society:combat_quarterly",
+        "id": "society:combat_quarterly",
         "count": 1
       },
       "request": {
-        "item": "numismatics:crown",
+        "id": "numismatics:crown",
         "count": 4
       },
       "limit": 4,
@@ -81,11 +84,11 @@
       "trades": [
         {
           "offer": {
-            "item": "society:book_of_stars",
+            "id": "society:book_of_stars",
             "count": 1
           },
           "request": {
-            "item": "numismatics:crown",
+            "id": "numismatics:crown",
             "count": 6
           },
           "limit": 4,
@@ -94,11 +97,11 @@
         },
         {
           "offer": {
-            "item": "society:animal_fancy",
+            "id": "society:animal_fancy",
             "count": 1
           },
           "request": {
-            "item": "numismatics:sun",
+            "id": "numismatics:sun",
             "count": 4
           },
           "numismatics_cost": 16384,
@@ -106,11 +109,11 @@
         },
         {
           "offer": {
-            "item": "society:banana_karenina",
+            "id": "society:banana_karenina",
             "count": 1
           },
           "request": {
-            "item": "numismatics:sun",
+            "id": "numismatics:sun",
             "count": 16
           },
           "numismatics_cost": 65552,
@@ -118,11 +121,11 @@
         },
         {
           "offer": {
-            "item": "society:brine_and_punishment",
+            "id": "society:brine_and_punishment",
             "count": 1
           },
           "request": {
-            "item": "numismatics:sun",
+            "id": "numismatics:sun",
             "count": 10
           },
           "numismatics_cost": 40970,
@@ -130,11 +133,11 @@
         },
         {
           "offer": {
-            "item": "society:bluegill_meridian",
+            "id": "society:bluegill_meridian",
             "count": 1
           },
           "request": {
-            "item": "numismatics:sun",
+            "id": "numismatics:sun",
             "count": 20
           },
           "numismatics_cost": 81920,
@@ -142,11 +145,11 @@
         },
         {
           "offer": {
-            "item": "society:canadian_and_famous",
+            "id": "society:canadian_and_famous",
             "count": 1
           },
           "request": {
-            "item": "numismatics:sun",
+            "id": "numismatics:sun",
             "count": 16
           },
           "numismatics_cost": 65536,
@@ -154,11 +157,11 @@
         },
         {
           "offer": {
-            "item": "society:first_aid_guide",
+            "id": "society:first_aid_guide",
             "count": 1
           },
           "request": {
-            "item": "numismatics:sun",
+            "id": "numismatics:sun",
             "count": 4
           },
           "numismatics_cost": 16388,
@@ -166,11 +169,11 @@
         },
         {
           "offer": {
-            "item": "society:hitting_hard_and_soft",
+            "id": "society:hitting_hard_and_soft",
             "count": 1
           },
           "request": {
-            "item": "numismatics:sun",
+            "id": "numismatics:sun",
             "count": 8
           },
           "numismatics_cost": 32768,
@@ -178,11 +181,11 @@
         },
         {
           "offer": {
-            "item": "society:intro_to_algorithms",
+            "id": "society:intro_to_algorithms",
             "count": 1
           },
           "request": {
-            "item": "numismatics:sun",
+            "id": "numismatics:sun",
             "count": 17
           },
           "numismatics_cost": 69632,
@@ -190,11 +193,11 @@
         },
         {
           "offer": {
-            "item": "society:no_name_for_the_sheep",
+            "id": "society:no_name_for_the_sheep",
             "count": 1
           },
           "request": {
-            "item": "numismatics:sun",
+            "id": "numismatics:sun",
             "count": 13
           },
           "numismatics_cost": 53248,
@@ -202,11 +205,11 @@
         },
         {
           "offer": {
-            "item": "society:slouching_towards_artistry",
+            "id": "society:slouching_towards_artistry",
             "count": 1
           },
           "request": {
-            "item": "numismatics:prismatic_coin",
+            "id": "numismatics:prismatic_coin",
             "count": 4
           },
           "numismatics_cost": 67108864,
@@ -214,11 +217,11 @@
         },
         {
           "offer": {
-            "item": "society:debt_caverns",
+            "id": "society:debt_caverns",
             "count": 1
           },
           "request": {
-            "item": "numismatics:sun",
+            "id": "numismatics:sun",
             "count": 16
           },
           "numismatics_cost": 64536,
@@ -226,11 +229,11 @@
         },
         {
           "offer": {
-            "item": "society:paradise_crop",
+            "id": "society:paradise_crop",
             "count": 1
           },
           "request": {
-            "item": "numismatics:sun",
+            "id": "numismatics:sun",
             "count": 24
           },
           "numismatics_cost": 81920,
@@ -238,11 +241,11 @@
         },
         {
           "offer": {
-            "item": "society:slime_contain_protect",
+            "id": "society:slime_contain_protect",
             "count": 1
           },
           "request": {
-            "item": "numismatics:sun",
+            "id": "numismatics:sun",
             "count": 5
           },
           "numismatics_cost": 20480,
@@ -250,11 +253,11 @@
         },
         {
           "offer": {
-            "item": "society:phenomenology_of_treasure",
+            "id": "society:phenomenology_of_treasure",
             "count": 1
           },
           "request": {
-            "item": "numismatics:sun",
+            "id": "numismatics:sun",
             "count": 6
           },
           "numismatics_cost": 24576,
@@ -262,11 +265,11 @@
         },
         {
           "offer": {
-            "item": "society:frogs_bounty_bazaar",
+            "id": "society:frogs_bounty_bazaar",
             "count": 1
           },
           "request": {
-            "item": "numismatics:neptunium_coin",
+            "id": "numismatics:neptunium_coin",
             "count": 4
           },
           "numismatics_cost": 131072,
@@ -274,11 +277,11 @@
         },
         {
           "offer": {
-            "item": "society:bullfish_jobs",
+            "id": "society:bullfish_jobs",
             "count": 1
           },
           "request": {
-            "item": "numismatics:neptunium_coin",
+            "id": "numismatics:neptunium_coin",
             "count": 2
           },
           "numismatics_cost": 65536,
@@ -286,11 +289,11 @@
         },
         {
           "offer": {
-            "item": "society:wuthering_logs",
+            "id": "society:wuthering_logs",
             "count": 1
           },
           "request": {
-            "item": "numismatics:crown",
+            "id": "numismatics:crown",
             "count": 2
           },
           "numismatics_cost": 8192,
@@ -303,13 +306,12 @@
       "rolled_count": 4,
       "trades": [
         {
-          "isRare": false,
           "offer": {
-            "item": "supplementaries:globe",
+            "id": "supplementaries:globe",
             "count": 1
           },
           "request": {
-            "item": "numismatics:cog",
+            "id": "numismatics:cog",
             "count": 1
           },
           "limit": 4,
@@ -317,13 +319,12 @@
           "trade_id": "wanderer_globe"
         },
         {
-          "isRare": false,
           "offer": {
-            "item": "supplementaries:antique_ink",
+            "id": "supplementaries:antique_ink",
             "count": 1
           },
           "request": {
-            "item": "numismatics:crown",
+            "id": "numismatics:crown",
             "count": 1
           },
           "limit": 4,
@@ -331,13 +332,12 @@
           "trade_id": "wanderer_antique_ink"
         },
         {
-          "isRare": false,
           "offer": {
-            "item": "society:furniture_box",
+            "id": "society:furniture_box",
             "count": 1
           },
           "request": {
-            "item": "numismatics:cog",
+            "id": "numismatics:cog",
             "count": 4
           },
           "limit": 4,
@@ -345,13 +345,12 @@
           "trade_id": "wanderer_furniture_box"
         },
         {
-          "isRare": false,
           "offer": {
-            "item": "simplehats:hatbag_uncommon",
+            "id": "simplehats:hatbag_uncommon",
             "count": 1
           },
           "request": {
-            "item": "numismatics:cog",
+            "id": "numismatics:cog",
             "count": 2
           },
           "limit": 4,
@@ -360,11 +359,11 @@
         },
         {
           "offer": {
-            "item": "simplehats:hatbag_rare",
+            "id": "simplehats:hatbag_rare",
             "count": 1
           },
           "request": {
-            "item": "numismatics:crown",
+            "id": "numismatics:crown",
             "count": 4
           },
           "limit": 4,
@@ -373,11 +372,11 @@
         },
         {
           "offer": {
-            "item": "furniture:cash_register",
+            "id": "furniture:cash_register",
             "count": 1
           },
           "request": {
-            "item": "numismatics:cog",
+            "id": "numismatics:cog",
             "count": 2
           },
           "limit": 1,
@@ -386,11 +385,11 @@
         },
         {
           "offer": {
-            "item": "whimsy_deco:gatcha_machine",
+            "id": "whimsy_deco:gatcha_machine",
             "count": 1
           },
           "request": {
-            "item": "numismatics:sun",
+            "id": "numismatics:sun",
             "count": 4
           },
           "limit": 1,
@@ -399,17 +398,16 @@
         },
         {
           "offer": {
-            "item": "tanukidecor:slot_machine",
+            "id": "tanukidecor:slot_machine",
             "count": 1
           },
           "request": {
-            "item": "numismatics:sun",
+            "id": "numismatics:sun",
             "count": 4
           },
           "second_request": {
-            "item": "society:prismatic_shard",
-            "count": 1,
-            "priceModifier": 0
+            "id": "society:prismatic_shard",
+            "count": 1
           },
           "limit": 1,
           "numismatics_cost": 16384,
@@ -417,11 +415,11 @@
         },
         {
           "offer": {
-            "item": "furniture:terrarium",
+            "id": "furniture:terrarium",
             "count": 1
           },
           "request": {
-            "item": "numismatics:cog",
+            "id": "numismatics:cog",
             "count": 2
           },
           "limit": 1,
@@ -430,11 +428,11 @@
         },
         {
           "offer": {
-            "item": "furniture:copper_fish_tank",
+            "id": "furniture:copper_fish_tank",
             "count": 1
           },
           "request": {
-            "item": "numismatics:cog",
+            "id": "numismatics:cog",
             "count": 2
           },
           "limit": 1,
@@ -443,11 +441,11 @@
         },
         {
           "offer": {
-            "item": "furniture:iron_fish_tank",
+            "id": "furniture:iron_fish_tank",
             "count": 1
           },
           "request": {
-            "item": "numismatics:cog",
+            "id": "numismatics:cog",
             "count": 2
           },
           "limit": 1,
@@ -456,11 +454,11 @@
         },
         {
           "offer": {
-            "item": "furniture:telescope",
+            "id": "furniture:telescope",
             "count": 1
           },
           "request": {
-            "item": "numismatics:cog",
+            "id": "numismatics:cog",
             "count": 2
           },
           "limit": 1,
@@ -469,11 +467,11 @@
         },
         {
           "offer": {
-            "item": "furniture:gramophone",
+            "id": "furniture:gramophone",
             "count": 1
           },
           "request": {
-            "item": "numismatics:cog",
+            "id": "numismatics:cog",
             "count": 2
           },
           "limit": 1,
@@ -482,11 +480,11 @@
         },
         {
           "offer": {
-            "item": "furniture:tool_box",
+            "id": "furniture:tool_box",
             "count": 1
           },
           "request": {
-            "item": "numismatics:cog",
+            "id": "numismatics:cog",
             "count": 2
           },
           "limit": 1,
@@ -495,11 +493,11 @@
         },
         {
           "offer": {
-            "item": "furniture:sewing_kit",
+            "id": "furniture:sewing_kit",
             "count": 1
           },
           "request": {
-            "item": "numismatics:cog",
+            "id": "numismatics:cog",
             "count": 2
           },
           "limit": 1,
@@ -508,11 +506,11 @@
         },
         {
           "offer": {
-            "item": "furniture:explorers_box",
+            "id": "furniture:explorers_box",
             "count": 1
           },
           "request": {
-            "item": "numismatics:cog",
+            "id": "numismatics:cog",
             "count": 2
           },
           "limit": 1,
@@ -521,11 +519,11 @@
         },
         {
           "offer": {
-            "item": "furniture:pells",
+            "id": "furniture:pells",
             "count": 1
           },
           "request": {
-            "item": "numismatics:cog",
+            "id": "numismatics:cog",
             "count": 2
           },
           "limit": 1,
@@ -534,11 +532,11 @@
         },
         {
           "offer": {
-            "item": "furniture:boat_in_a_jar",
+            "id": "furniture:boat_in_a_jar",
             "count": 1
           },
           "request": {
-            "item": "numismatics:cog",
+            "id": "numismatics:cog",
             "count": 2
           },
           "limit": 1,
@@ -547,11 +545,11 @@
         },
         {
           "offer": {
-            "item": "furniture:display",
+            "id": "furniture:display",
             "count": 1
           },
           "request": {
-            "item": "numismatics:cog",
+            "id": "numismatics:cog",
             "count": 2
           },
           "limit": 1,
@@ -560,11 +558,11 @@
         },
         {
           "offer": {
-            "item": "furniture:canvas",
+            "id": "furniture:canvas",
             "count": 1
           },
           "request": {
-            "item": "numismatics:crown",
+            "id": "numismatics:crown",
             "count": 4
           },
           "limit": 1,
@@ -573,11 +571,11 @@
         },
         {
           "offer": {
-            "item": "supplementaries:clock_block",
+            "id": "supplementaries:clock_block",
             "count": 1
           },
           "request": {
-            "item": "numismatics:cog",
+            "id": "numismatics:cog",
             "count": 2
           },
           "limit": 1,
@@ -586,11 +584,11 @@
         },
         {
           "offer": {
-            "item": "chimes:iron_chimes",
+            "id": "chimes:iron_chimes",
             "count": 1
           },
           "request": {
-            "item": "numismatics:crown",
+            "id": "numismatics:crown",
             "count": 2
           },
           "limit": 1,
@@ -599,11 +597,11 @@
         },
         {
           "offer": {
-            "item": "chimes:bamboo_chimes",
+            "id": "chimes:bamboo_chimes",
             "count": 1
           },
           "request": {
-            "item": "numismatics:crown",
+            "id": "numismatics:crown",
             "count": 2
           },
           "numismatics_cost": 1024,
@@ -611,11 +609,11 @@
         },
         {
           "offer": {
-            "item": "chimes:copper_chimes",
+            "id": "chimes:copper_chimes",
             "count": 1
           },
           "request": {
-            "item": "numismatics:crown",
+            "id": "numismatics:crown",
             "count": 2
           },
           "limit": 1,
@@ -624,11 +622,11 @@
         },
         {
           "offer": {
-            "item": "chimes:carved_bamboo_chimes",
+            "id": "chimes:carved_bamboo_chimes",
             "count": 1
           },
           "request": {
-            "item": "numismatics:crown",
+            "id": "numismatics:crown",
             "count": 2
           },
           "limit": 1,
@@ -637,11 +635,11 @@
         },
         {
           "offer": {
-            "item": "chimes:amethyst_chimes",
+            "id": "chimes:amethyst_chimes",
             "count": 1
           },
           "request": {
-            "item": "numismatics:crown",
+            "id": "numismatics:crown",
             "count": 2
           },
           "limit": 1,
@@ -650,11 +648,11 @@
         },
         {
           "offer": {
-            "item": "chimes:glass_bells",
+            "id": "chimes:glass_bells",
             "count": 1
           },
           "request": {
-            "item": "numismatics:crown",
+            "id": "numismatics:crown",
             "count": 2
           },
           "limit": 1,

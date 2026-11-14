@@ -1,8 +1,8 @@
 {
-	"objectives": [
-		"winter_objs"
-	],
-	"rewards": [
-		"coin_rews"
-	]
+  "objectives": [
+    "winter_objs"
+  ],
+  "rewards": [
+    "coin_rews"
+  ]
 }

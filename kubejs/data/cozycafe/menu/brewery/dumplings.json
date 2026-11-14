@@ -1,8 +1,7 @@
 {
-	"item": "brewery:dumplings",
-	"category": "main",
-	"price": 180,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "brewery:dumplings",
+  "category": "main",
+  "price": 180,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

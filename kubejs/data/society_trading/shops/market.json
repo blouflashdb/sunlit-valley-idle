@@ -1,24 +1,33 @@
 {
   "shop_id": "market",
-  "name": "shop.society_trading.market",
-  "texture": "dialog:textures/portraits/market",
+  "name": {
+    "translate": "shop.society_trading.market"
+  },
+  "texture": "sunlitidle:textures/portraits/market",
   "entity": "farmingforblockheads:merchant",
   "villager_profession": "farmer",
   "stage_required": "invited_market",
   "block_tag": "society:opens_market",
   "selector_weight": -99,
   "jei_catalyst": {
-    "item": "society:villager",
-    "nbt": "{type:{id:\"society:market\"}}"
+    "id": "society:villager",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "type": {
+          "id": "society:market"
+        }
+      }
+    }
   },
   "trades": [
     {
       "offer": {
-        "item": "farmersdelight:tomato_seeds",
+        "id": "farmersdelight:tomato_seeds",
         "count": 1
       },
       "request": {
-        "item": "numismatics:spur",
+        "id": "numismatics:spur",
         "count": 4
       },
       "numismatics_cost": 4,
@@ -38,11 +47,11 @@
     },
     {
       "offer": {
-        "item": "veggiesdelight:turnip_seeds",
+        "id": "veggiesdelight:turnip_seeds",
         "count": 1
       },
       "request": {
-        "item": "numismatics:spur",
+        "id": "numismatics:spur",
         "count": 6
       },
       "numismatics_cost": 6,
@@ -56,29 +65,11 @@
     },
     {
       "offer": {
-        "item": "farm_and_charm:strawberry_seed",
+        "id": "society:onion_seeds",
         "count": 1
       },
       "request": {
-        "item": "numismatics:spur",
-        "count": 3
-      },
-      "numismatics_cost": 3,
-      "seasons_required": [
-        "early_spring",
-        "mid_spring",
-        "late_spring"
-      ],
-      "stage_override": "universal_methods_of_farming",
-      "trade_id": "market_strawberry_seed"
-    },
-    {
-      "offer": {
-        "item": "society:onion_seed",
-        "count": 1
-      },
-      "request": {
-        "item": "numismatics:spur",
+        "id": "numismatics:spur",
         "count": 4
       },
       "numismatics_cost": 4,
@@ -92,11 +83,11 @@
     },
     {
       "offer": {
-        "item": "veggiesdelight:cauliflower_seeds",
+        "id": "veggiesdelight:cauliflower_seeds",
         "count": 1
       },
       "request": {
-        "item": "numismatics:spur",
+        "id": "numismatics:spur",
         "count": 6
       },
       "numismatics_cost": 6,
@@ -110,11 +101,11 @@
     },
     {
       "offer": {
-        "item": "farm_and_charm:lettuce_seeds",
+        "id": "farm_and_charm:lettuce_seeds",
         "count": 1
       },
       "request": {
-        "item": "numismatics:spur",
+        "id": "numismatics:spur",
         "count": 4
       },
       "numismatics_cost": 4,
@@ -128,11 +119,11 @@
     },
     {
       "offer": {
-        "item": "society:carrot_seed",
+        "id": "society:carrot_seeds",
         "count": 1
       },
       "request": {
-        "item": "numismatics:spur",
+        "id": "numismatics:spur",
         "count": 2
       },
       "numismatics_cost": 2,
@@ -149,11 +140,11 @@
     },
     {
       "offer": {
-        "item": "society:potato_seed",
+        "id": "society:potato_seeds",
         "count": 1
       },
       "request": {
-        "item": "numismatics:spur",
+        "id": "numismatics:spur",
         "count": 2
       },
       "numismatics_cost": 2,
@@ -167,11 +158,11 @@
     },
     {
       "offer": {
-        "item": "supplementaries:flax_seeds",
+        "id": "supplementaries:flax_seeds",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sprocket",
+        "id": "numismatics:sprocket",
         "count": 3
       },
       "numismatics_cost": 48,
@@ -185,16 +176,18 @@
     },
     {
       "offer": {
-        "item": "vintagedelight:cucumber_seeds",
+        "id": "vintagedelight:cucumber_seeds",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 1
       },
       "numismatics_cost": 64,
       "stage_required": "master_cultivator_unlocked",
-      "unlock_description": "jei.society_trading.advanced_crops_unlocked",
+      "unlock_description": {
+        "translate": "jei.society_trading.advanced_crops_unlocked"
+      },
       "seasons_required": [
         "early_spring",
         "mid_spring",
@@ -205,16 +198,18 @@
     },
     {
       "offer": {
-        "item": "veggiesdelight:garlic_seed",
+        "id": "veggiesdelight:garlic_seed",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sprocket",
+        "id": "numismatics:sprocket",
         "count": 2
       },
       "numismatics_cost": 32,
       "stage_required": "master_cultivator_unlocked",
-      "unlock_description": "jei.society_trading.advanced_crops_unlocked",
+      "unlock_description": {
+        "translate": "jei.society_trading.advanced_crops_unlocked"
+      },
       "seasons_required": [
         "early_spring",
         "mid_spring",
@@ -225,11 +220,11 @@
     },
     {
       "offer": {
-        "item": "society:blueberry_seed",
+        "id": "society:blueberry_seeds",
         "count": 1
       },
       "request": {
-        "item": "numismatics:bevel",
+        "id": "numismatics:bevel",
         "count": 1
       },
       "numismatics_cost": 8,
@@ -243,11 +238,11 @@
     },
     {
       "offer": {
-        "item": "minecraft:wheat_seeds",
+        "id": "minecraft:wheat_seeds",
         "count": 1
       },
       "request": {
-        "item": "numismatics:bevel",
+        "id": "numismatics:bevel",
         "count": 1
       },
       "numismatics_cost": 8,
@@ -264,11 +259,11 @@
     },
     {
       "offer": {
-        "item": "veggiesdelight:bellpepper_seeds",
+        "id": "veggiesdelight:bellpepper_seeds",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 1
       },
       "numismatics_cost": 64,
@@ -282,11 +277,11 @@
     },
     {
       "offer": {
-        "item": "minecraft:melon_seeds",
+        "id": "minecraft:melon_seeds",
         "count": 1
       },
       "request": {
-        "item": "numismatics:spur",
+        "id": "numismatics:spur",
         "count": 4
       },
       "numismatics_cost": 4,
@@ -300,11 +295,11 @@
     },
     {
       "offer": {
-        "item": "farm_and_charm:oat_seeds",
+        "id": "farm_and_charm:oat_seeds",
         "count": 1
       },
       "request": {
-        "item": "numismatics:spur",
+        "id": "numismatics:spur",
         "count": 4
       },
       "numismatics_cost": 4,
@@ -318,11 +313,11 @@
     },
     {
       "offer": {
-        "item": "farm_and_charm:kernels",
+        "id": "farm_and_charm:kernels",
         "count": 1
       },
       "request": {
-        "item": "numismatics:spur",
+        "id": "numismatics:spur",
         "count": 4
       },
       "numismatics_cost": 4,
@@ -339,16 +334,18 @@
     },
     {
       "offer": {
-        "item": "vintagedelight:ghost_pepper_seeds",
+        "id": "vintagedelight:ghost_pepper_seeds",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 1
       },
       "numismatics_cost": 64,
       "stage_required": "master_cultivator_unlocked",
-      "unlock_description": "jei.society_trading.advanced_crops_unlocked",
+      "unlock_description": {
+        "translate": "jei.society_trading.advanced_crops_unlocked"
+      },
       "seasons_required": [
         "early_summer",
         "mid_summer",
@@ -359,11 +356,11 @@
     },
     {
       "offer": {
-        "item": "society:eggplant_seed",
+        "id": "society:eggplant_seeds",
         "count": 1
       },
       "request": {
-        "item": "numismatics:bevel",
+        "id": "numismatics:bevel",
         "count": 1
       },
       "numismatics_cost": 8,
@@ -377,15 +374,15 @@
     },
     {
       "offer": {
-        "item": "society:cranberry_seed",
+        "id": "society:cranberry_seeds",
         "count": 1
       },
       "request": {
-        "item": "numismatics:bevel",
+        "id": "numismatics:bevel",
         "count": 1
       },
       "second_request": {
-        "item": "numismatics:spur",
+        "id": "numismatics:spur",
         "count": 4
       },
       "numismatics_cost": 12,
@@ -399,11 +396,11 @@
     },
     {
       "offer": {
-        "item": "farm_and_charm:barley_seeds",
+        "id": "farm_and_charm:barley_seeds",
         "count": 1
       },
       "request": {
-        "item": "numismatics:spur",
+        "id": "numismatics:spur",
         "count": 2
       },
       "numismatics_cost": 2,
@@ -420,11 +417,11 @@
     },
     {
       "offer": {
-        "item": "minecraft:beetroot_seeds",
+        "id": "minecraft:beetroot_seeds",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 4
       },
       "numismatics_cost": 4,
@@ -438,11 +435,11 @@
     },
     {
       "offer": {
-        "item": "minecraft:pumpkin_seeds",
+        "id": "minecraft:pumpkin_seeds",
         "count": 1
       },
       "request": {
-        "item": "numismatics:bevel",
+        "id": "numismatics:bevel",
         "count": 1
       },
       "numismatics_cost": 8,
@@ -456,11 +453,11 @@
     },
     {
       "offer": {
-        "item": "farmersdelight:cabbage_seeds",
+        "id": "farmersdelight:cabbage_seeds",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 1
       },
       "numismatics_cost": 64,
@@ -474,21 +471,25 @@
       ],
       "stage_required": "master_cultivator_unlocked",
       "stage_override": "universal_methods_of_farming",
-      "unlock_description": "jei.society_trading.advanced_crops_unlocked",
+      "unlock_description": {
+        "translate": "jei.society_trading.advanced_crops_unlocked"
+      },
       "trade_id": "market_cabbage_seeds_for_cog"
     },
     {
       "offer": {
-        "item": "society:sweet_potato_seed",
+        "id": "society:sweet_potato_seeds",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 1
       },
       "numismatics_cost": 64,
       "stage_required": "master_cultivator_unlocked",
-      "unlock_description": "jei.society_trading.advanced_crops_unlocked",
+      "unlock_description": {
+        "translate": "jei.society_trading.advanced_crops_unlocked"
+      },
       "seasons_required": [
         "early_autumn",
         "mid_autumn",
@@ -499,16 +500,18 @@
     },
     {
       "offer": {
-        "item": "society:peanut_seed",
+        "id": "society:peanut_seeds",
         "count": 1
       },
       "request": {
-        "item": "numismatics:crown",
+        "id": "numismatics:crown",
         "count": 1
       },
       "numismatics_cost": 512,
       "stage_required": "master_cultivator_unlocked",
-      "unlock_description": "jei.society_trading.advanced_crops_unlocked",
+      "unlock_description": {
+        "translate": "jei.society_trading.advanced_crops_unlocked"
+      },
       "seasons_required": [
         "early_autumn",
         "mid_autumn",
@@ -519,11 +522,11 @@
     },
     {
       "offer": {
-        "item": "snowyspirit:ginger_flower",
+        "id": "snowyspirit:ginger_flower",
         "count": 1
       },
       "request": {
-        "item": "numismatics:spur",
+        "id": "numismatics:spur",
         "count": 4
       },
       "numismatics_cost": 4,
@@ -537,51 +540,57 @@
     },
     {
       "offer": {
-        "item": "society:sparkpod_seed",
+        "id": "society:sparkpod_seeds",
         "count": 4
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 4096
       },
       "second_request": {
-        "item": "society:prismatic_shard",
+        "id": "society:prismatic_shard",
         "count": 1
       },
       "numismatics_cost": 4096,
       "stage_required": "farming_mastery",
-      "unlock_description": "jei.society_trading.farming_mastery_unlocked",
+      "unlock_description": {
+        "translate": "jei.society_trading.farming_mastery_unlocked"
+      },
       "trade_id": "market_sparkpod_seed_for_crown"
     },
     {
       "offer": {
-        "item": "cluttered:willow_sapling",
+        "id": "cluttered:willow_sapling",
         "count": 1
       },
       "request": {
-        "item": "society:prismatic_shard",
+        "id": "society:prismatic_shard",
         "count": 1
       },
       "second_request": {
-        "item": "atmospheric:grimwood_sapling",
+        "id": "atmospheric:grimwood_sapling",
         "count": 1
       },
       "stage_required": "farming_mastery",
-      "unlock_description": "jei.society_trading.farming_mastery_unlocked",
+      "unlock_description": {
+        "translate": "jei.society_trading.farming_mastery_unlocked"
+      },
       "trade_id": "market_willow_sapling_for_crown"
     },
     {
       "offer": {
-        "item": "society:tubabacco_leaf_seed",
+        "id": "society:tubabacco_leaf_seeds",
         "count": 1
       },
       "request": {
-        "item": "numismatics:crown",
+        "id": "numismatics:crown",
         "count": 1
       },
       "numismatics_cost": 512,
       "stage_required": "master_cultivator_unlocked",
-      "unlock_description": "jei.society_trading.advanced_crops_unlocked",
+      "unlock_description": {
+        "translate": "jei.society_trading.advanced_crops_unlocked"
+      },
       "seasons_required": [
         "early_spring",
         "mid_spring",
@@ -595,11 +604,11 @@
     },
     {
       "offer": {
-        "item": "pamhc2trees:lychee_sapling",
+        "id": "pamhc2trees:lychee_sapling",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 4
       },
       "numismatics_cost": 256,
@@ -613,11 +622,11 @@
     },
     {
       "offer": {
-        "item": "pamhc2trees:banana_sapling",
+        "id": "pamhc2trees:banana_sapling",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 1
       },
       "numismatics_cost": 4096,
@@ -631,11 +640,11 @@
     },
     {
       "offer": {
-        "item": "pamhc2trees:peach_sapling",
+        "id": "pamhc2trees:peach_sapling",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 4
       },
       "numismatics_cost": 16384,
@@ -649,11 +658,11 @@
     },
     {
       "offer": {
-        "item": "pamhc2trees:cherry_sapling",
+        "id": "pamhc2trees:cherry_sapling",
         "count": 1
       },
       "request": {
-        "item": "numismatics:crown",
+        "id": "numismatics:crown",
         "count": 1
       },
       "numismatics_cost": 512,
@@ -664,21 +673,25 @@
       ],
       "stage_required": "master_cultivator_unlocked",
       "stage_override": "universal_methods_of_farming",
-      "unlock_description": "jei.society_trading.advanced_crops_unlocked",
+      "unlock_description": {
+        "translate": "jei.society_trading.advanced_crops_unlocked"
+      },
       "trade_id": "market_cherry_sapling_for_crown"
     },
     {
       "offer": {
-        "item": "pamhc2trees:apple_sapling",
+        "id": "pamhc2trees:apple_sapling",
         "count": 1
       },
       "request": {
-        "item": "numismatics:crown",
+        "id": "numismatics:crown",
         "count": 1
       },
       "numismatics_cost": 512,
       "stage_required": "master_cultivator_unlocked",
-      "unlock_description": "jei.society_trading.advanced_crops_unlocked",
+      "unlock_description": {
+        "translate": "jei.society_trading.advanced_crops_unlocked"
+      },
       "seasons_required": [
         "early_autumn",
         "mid_autumn",
@@ -689,16 +702,18 @@
     },
     {
       "offer": {
-        "item": "pamhc2trees:mango_sapling",
+        "id": "pamhc2trees:mango_sapling",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 4
       },
       "numismatics_cost": 16384,
       "stage_required": "master_cultivator_unlocked",
-      "unlock_description": "jei.society_trading.advanced_crops_unlocked",
+      "unlock_description": {
+        "translate": "jei.society_trading.advanced_crops_unlocked"
+      },
       "seasons_required": [
         "early_summer",
         "mid_summer",
@@ -709,20 +724,22 @@
     },
     {
       "offer": {
-        "item": "pamhc2trees:orange_sapling",
+        "id": "pamhc2trees:orange_sapling",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 4
       },
       "second_request": {
-        "item": "numismatics:crown",
+        "id": "numismatics:crown",
         "count": 4
       },
       "numismatics_cost": 18432,
       "stage_required": "master_cultivator_unlocked",
-      "unlock_description": "jei.society_trading.advanced_crops_unlocked",
+      "unlock_description": {
+        "translate": "jei.society_trading.advanced_crops_unlocked"
+      },
       "seasons_required": [
         "early_summer",
         "mid_summer",
@@ -733,20 +750,22 @@
     },
     {
       "offer": {
-        "item": "pamhc2trees:plum_sapling",
+        "id": "pamhc2trees:plum_sapling",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 6
       },
       "second_request": {
-        "item": "numismatics:crown",
+        "id": "numismatics:crown",
         "count": 6
       },
       "numismatics_cost": 27648,
       "stage_required": "master_cultivator_unlocked",
-      "unlock_description": "jei.society_trading.advanced_crops_unlocked",
+      "unlock_description": {
+        "translate": "jei.society_trading.advanced_crops_unlocked"
+      },
       "seasons_required": [
         "early_autumn",
         "mid_autumn",
@@ -757,20 +776,22 @@
     },
     {
       "offer": {
-        "item": "pamhc2trees:dragonfruit_sapling",
+        "id": "pamhc2trees:dragonfruit_sapling",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 10
       },
       "second_request": {
-        "item": "numismatics:crown",
+        "id": "numismatics:crown",
         "count": 4
       },
       "numismatics_cost": 43008,
       "stage_required": "master_cultivator_unlocked",
-      "unlock_description": "jei.society_trading.advanced_crops_unlocked",
+      "unlock_description": {
+        "translate": "jei.society_trading.advanced_crops_unlocked"
+      },
       "seasons_required": [
         "early_winter",
         "mid_winter",
@@ -781,29 +802,31 @@
     },
     {
       "offer": {
-        "item": "pamhc2trees:starfruit_sapling",
+        "id": "pamhc2trees:starfruit_sapling",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 20
       },
       "second_request": {
-        "item": "society:prismatic_shard",
+        "id": "society:prismatic_shard",
         "count": 4
       },
       "numismatics_cost": 81920,
       "stage_required": "master_cultivator_unlocked",
-      "unlock_description": "jei.society_trading.advanced_crops_unlocked",
+      "unlock_description": {
+        "translate": "jei.society_trading.advanced_crops_unlocked"
+      },
       "trade_id": "market_starfruit_sapling_for_sun_and_prismatic_shard"
     },
     {
       "offer": {
-        "item": "vinery:dark_cherry_sapling",
+        "id": "vinery:dark_cherry_sapling",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 4
       },
       "numismatics_cost": 256,
@@ -817,29 +840,11 @@
     },
     {
       "offer": {
-        "item": "beachparty:palm_sapling",
+        "id": "vinery:apple_tree_sapling",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
-        "count": 4
-      },
-      "numismatics_cost": 256,
-      "seasons_required": [
-        "early_summer",
-        "mid_summer",
-        "late_summer"
-      ],
-      "stage_override": "universal_methods_of_farming",
-      "trade_id": "market_palm_sapling"
-    },
-    {
-      "offer": {
-        "item": "vinery:apple_tree_sapling",
-        "count": 1
-      },
-      "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 4
       },
       "numismatics_cost": 256,
@@ -853,11 +858,11 @@
     },
     {
       "offer": {
-        "item": "farmersdelight:rice",
+        "id": "farmersdelight:rice",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 4
       },
       "numismatics_cost": 256,
@@ -874,11 +879,11 @@
     },
     {
       "offer": {
-        "item": "minecraft:cactus",
+        "id": "minecraft:cactus",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 6
       },
       "numismatics_cost": 384,
@@ -892,11 +897,11 @@
     },
     {
       "offer": {
-        "item": "minecraft:sugar_cane",
+        "id": "minecraft:sugar_cane",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 3
       },
       "numismatics_cost": 192,
@@ -910,29 +915,11 @@
     },
     {
       "offer": {
-        "item": "moreminecarts:glass_cactus",
+        "id": "minecraft:bamboo",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
-        "count": 4
-      },
-      "numismatics_cost": 2048,
-      "seasons_required": [
-        "early_summer",
-        "mid_summer",
-        "late_summer"
-      ],
-      "stage_override": "universal_methods_of_farming",
-      "trade_id": "market_glass_cactus"
-    },
-    {
-      "offer": {
-        "item": "minecraft:bamboo",
-        "count": 1
-      },
-      "request": {
-        "item": "numismatics:bevel",
+        "id": "numismatics:bevel",
         "count": 1
       },
       "numismatics_cost": 8,
@@ -949,11 +936,11 @@
     },
     {
       "offer": {
-        "item": "sophisticatedbackpacks:backpack",
+        "id": "sophisticatedbackpacks:backpack",
         "count": 1
       },
       "request": {
-        "item": "numismatics:crown",
+        "id": "numismatics:crown",
         "count": 2
       },
       "numismatics_cost": 1024,
@@ -961,12 +948,14 @@
     },
     {
       "offer": {
-        "item": "patchouli:guide_book",
+        "id": "patchouli:guide_book",
         "count": 1,
-        "nbt": "{\"patchouli:book\":\"patchouli:almanac\"}"
+        "components": {
+          "patchouli:book": "patchouli:almanac"
+        }
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 1
       },
       "numismatics_cost": 64,
@@ -974,11 +963,11 @@
     },
     {
       "offer": {
-        "item": "minecraft:bundle",
+        "id": "minecraft:bundle",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sprocket",
+        "id": "numismatics:sprocket",
         "count": 1
       },
       "numismatics_cost": 16,
@@ -986,11 +975,11 @@
     },
     {
       "offer": {
-        "item": "dew_drop_farmland_growth:hydrating_fertilizer",
+        "id": "dew_drop_farmland_growth:hydrating_fertilizer",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sprocket",
+        "id": "numismatics:sprocket",
         "count": 2
       },
       "numismatics_cost": 32,
@@ -998,11 +987,11 @@
     },
     {
       "offer": {
-        "item": "dew_drop_farmland_growth:low_quality_fertilizer",
+        "id": "dew_drop_farmland_growth:low_quality_fertilizer",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 1
       },
       "numismatics_cost": 64,
@@ -1010,11 +999,11 @@
     },
     {
       "offer": {
-        "item": "dew_drop_farmland_growth:weak_fertilizer",
+        "id": "dew_drop_farmland_growth:weak_fertilizer",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 1
       },
       "numismatics_cost": 64,
@@ -1022,11 +1011,11 @@
     },
     {
       "offer": {
-        "item": "meadow:alpine_salt",
+        "id": "meadow:alpine_salt",
         "count": 8
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 2
       },
       "numismatics_cost": 128,
@@ -1034,11 +1023,11 @@
     },
     {
       "offer": {
-        "item": "minecraft:sugar",
+        "id": "minecraft:sugar",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sprocket",
+        "id": "numismatics:sprocket",
         "count": 1
       },
       "numismatics_cost": 16,
@@ -1046,11 +1035,11 @@
     },
     {
       "offer": {
-        "item": "minecraft:glass_bottle",
+        "id": "minecraft:glass_bottle",
         "count": 8
       },
       "request": {
-        "item": "numismatics:spur",
+        "id": "numismatics:spur",
         "count": 4
       },
       "numismatics_cost": 4,
@@ -1058,11 +1047,11 @@
     },
     {
       "offer": {
-        "item": "bakery:jar",
+        "id": "bakery:jar",
         "count": 8
       },
       "request": {
-        "item": "numismatics:sprocket",
+        "id": "numismatics:sprocket",
         "count": 1
       },
       "numismatics_cost": 16,
@@ -1070,11 +1059,11 @@
     },
     {
       "offer": {
-        "item": "vinery:wine_bottle",
+        "id": "vinery:wine_bottle",
         "count": 8
       },
       "request": {
-        "item": "numismatics:spur",
+        "id": "numismatics:spur",
         "count": 2
       },
       "numismatics_cost": 2,
@@ -1082,11 +1071,11 @@
     },
     {
       "offer": {
-        "item": "brewery:beer_mug",
+        "id": "brewery:beer_mug",
         "count": 8
       },
       "request": {
-        "item": "numismatics:spur",
+        "id": "numismatics:spur",
         "count": 4
       },
       "numismatics_cost": 4,
@@ -1094,11 +1083,11 @@
     },
     {
       "offer": {
-        "item": "minecraft:bowl",
+        "id": "minecraft:bowl",
         "count": 8
       },
       "request": {
-        "item": "numismatics:spur",
+        "id": "numismatics:spur",
         "count": 4
       },
       "numismatics_cost": 4,
@@ -1106,11 +1095,11 @@
     },
     {
       "offer": {
-        "item": "farm_and_charm:pitchfork",
+        "id": "farm_and_charm:pitchfork",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 9
       },
       "numismatics_cost": 36864,
@@ -1118,11 +1107,11 @@
     },
     {
       "offer": {
-        "item": "society:dehydrator",
+        "id": "society:dehydrator",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
+        "id": "numismatics:sun",
         "count": 5
       },
       "numismatics_cost": 20480,
@@ -1130,27 +1119,11 @@
     },
     {
       "offer": {
-        "item": "create_central_kitchen:cooking_guide",
+        "id": "sewingkit:sewing_station",
         "count": 1
       },
       "request": {
-        "item": "numismatics:sun",
-        "count": 8
-      },
-      "second_request": {
-        "item": "society:prismatic_shard",
-        "count": 1
-      },
-      "numismatics_cost": 32768,
-      "trade_id": "farmer_cooking_guide_for_sun"
-    },
-    {
-      "offer": {
-        "item": "sewingkit:sewing_station",
-        "count": 1
-      },
-      "request": {
-        "item": "numismatics:crown",
+        "id": "numismatics:crown",
         "count": 4
       },
       "numismatics_cost": 2048,
@@ -1158,11 +1131,11 @@
     },
     {
       "offer": {
-        "item": "sewingkit:iron_sewing_needle",
+        "id": "sewingkit:iron_sewing_needle",
         "count": 1
       },
       "request": {
-        "item": "numismatics:cog",
+        "id": "numismatics:cog",
         "count": 4
       },
       "numismatics_cost": 256,

@@ -1,4 +1,9 @@
 {
-  "objectives": ["farming_objs", "farming_objs_shipping"],
-  "rewards": ["coin_rews"]
+  "objectives": [
+    "farming_objs",
+    "farming_objs_shipping"
+  ],
+  "rewards": [
+    "coin_rews"
+  ]
 }

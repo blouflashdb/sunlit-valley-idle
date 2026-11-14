@@ -1,8 +1,7 @@
 {
-	"item": "refurbished_furniture:vegetable_pizza_slice",
-	"category": "main",
-	"price": 932,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "refurbished_furniture:vegetable_pizza_slice",
+  "category": "main",
+  "price": 932,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

@@ -46,18 +46,6 @@
         "weight": 20,
         "minCount": 1,
         "maxCount": 1
-      },
-      {
-        "type": "species:bewereager",
-        "maxCount": 2,
-        "minCount": 1,
-        "weight": 30
-      },
-      {
-        "type": "splendid_slimes:splendid_slime",
-        "weight": 10,
-        "minCount": 1,
-        "maxCount": 4
       }
     ],
     "creature": [],
@@ -85,8 +73,14 @@
   "spawn_costs": {},
   "carvers": {},
   "features": [
-    ["society:frozen_caves/ice_ladder", "society:frozen_caves/ice_rock"],
-    ["minecraft:monster_room", "minecraft:monster_room_deep"],
+    [
+      "society:frozen_caves/ice_ladder",
+      "society:frozen_caves/ice_rock"
+    ],
+    [
+      "minecraft:monster_room",
+      "minecraft:monster_room_deep"
+    ],
     [],
     [],
     [
@@ -98,7 +92,9 @@
       "minecraft:ore_andesite_lower"
     ],
     [],
-    ["minecraft:spring_water"],
+    [
+      "minecraft:spring_water"
+    ],
     [
       "society:glow_lichen",
       "society:frozen_caves/ice_patch_floor",
@@ -107,6 +103,8 @@
       "society:frozen_caves/ice_patch_ceiling",
       "society:frozen_caves/slush_patch_ceiling"
     ],
-    ["minecraft:freeze_top_layer"]
+    [
+      "minecraft:freeze_top_layer"
+    ]
   ]
 }

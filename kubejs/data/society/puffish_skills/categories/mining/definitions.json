@@ -1,6 +1,8 @@
 {
   "fortune+1": {
-    "title": {"translate": "society_skills.mining.fortune"},
+    "title": {
+      "translate": "society_skills.mining.fortune"
+    },
     "icon": {
       "type": "item",
       "data": {
@@ -11,7 +13,7 @@
       {
         "type": "puffish_skills:attribute",
         "data": {
-          "attribute": "puffish_skills:fortune",
+          "attribute": "puffish_attributes:fortune",
           "value": 1,
           "operation": "addition"
         }
@@ -19,7 +21,9 @@
     ]
   },
   "pickaxe_efficiency+1": {
-    "title": {"translate": "society_skills.mining.pickaxe_efficiency"},
+    "title": {
+      "translate": "society_skills.mining.pickaxe_efficiency"
+    },
     "icon": {
       "type": "item",
       "data": {
@@ -38,7 +42,9 @@
     ]
   },
   "melee_damage+2": {
-    "title": {"translate": "society_skills.mining.melee_damage"},
+    "title": {
+      "translate": "society_skills.mining.melee_damage"
+    },
     "icon": {
       "type": "item",
       "data": {
@@ -57,8 +63,12 @@
     ]
   },
   "gem_seller": {
-    "title": {"translate": "society_skills.mining.gem_seller"},
-    "description": {"translate": "society_skills.mining.gem_seller.description"},
+    "title": {
+      "translate": "society_skills.mining.gem_seller"
+    },
+    "description": {
+      "translate": "society_skills.mining.gem_seller.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -89,8 +99,12 @@
     ]
   },
   "furniture_archaeologist": {
-    "title": {"translate": "society_skills.mining.furniture_archaeologist"},
-    "description": {"translate": "society_skills.mining.furniture_archaeologist.description"},
+    "title": {
+      "translate": "society_skills.mining.furniture_archaeologist"
+    },
+    "description": {
+      "translate": "society_skills.mining.furniture_archaeologist.description"
+    },
     "icon": {
       "type": "item",
       "data": {
@@ -108,8 +122,12 @@
     ]
   },
   "excavator": {
-    "title": {"translate": "society_skills.mining.excavator"},
-    "description": {"translate": "society_skills.mining.excavator.description"},
+    "title": {
+      "translate": "society_skills.mining.excavator"
+    },
+    "description": {
+      "translate": "society_skills.mining.excavator.description"
+    },
     "icon": {
       "type": "item",
       "data": {
@@ -133,8 +151,12 @@
     ]
   },
   "mineralogist": {
-    "title": {"translate": "society_skills.mining.mineralogist"},
-    "description": {"translate": "society_skills.mining.mineralogist.description"},
+    "title": {
+      "translate": "society_skills.mining.mineralogist"
+    },
+    "description": {
+      "translate": "society_skills.mining.mineralogist.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -158,8 +180,12 @@
     ]
   },
   "prismatic_prospector": {
-    "title": {"translate": "society_skills.mining.prismatic_prospector"},
-    "description": {"translate": "society_skills.mining.prismatic_prospector.description"},
+    "title": {
+      "translate": "society_skills.mining.prismatic_prospector"
+    },
+    "description": {
+      "translate": "society_skills.mining.prismatic_prospector.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -183,8 +209,12 @@
     ]
   },
   "high_roller": {
-    "title": {"translate": "society_skills.mining.high_roller"},
-    "description": {"translate": "society_skills.mining.high_roller.description"},
+    "title": {
+      "translate": "society_skills.mining.high_roller"
+    },
+    "description": {
+      "translate": "society_skills.mining.high_roller.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -201,7 +231,7 @@
       {
         "type": "puffish_skills:attribute",
         "data": {
-          "attribute": "puffish_skills:fortune",
+          "attribute": "puffish_attributes:fortune",
           "value": 4,
           "operation": "addition"
         }
@@ -216,8 +246,12 @@
     ]
   },
   "blockchain": {
-    "title": {"translate": "society_skills.mining.blockchain"},
-    "description": {"translate": "society_skills.mining.blockchain.description"},
+    "title": {
+      "translate": "society_skills.mining.blockchain"
+    },
+    "description": {
+      "translate": "society_skills.mining.blockchain.description"
+    },
     "icon": {
       "type": "item",
       "data": {
@@ -235,8 +269,12 @@
     ]
   },
   "gold_rush": {
-    "title": {"translate": "society_skills.mining.gold_rush"},
-    "description": {"translate": "society_skills.mining.gold_rush.description"},
+    "title": {
+      "translate": "society_skills.mining.gold_rush"
+    },
+    "description": {
+      "translate": "society_skills.mining.gold_rush.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -260,8 +298,12 @@
     ]
   },
   "filthy_excavator": {
-    "title": {"translate": "society_skills.mining.filthy_excavator"},
-    "description": {"translate": "society_skills.mining.filthy_excavator.description"},
+    "title": {
+      "translate": "society_skills.mining.filthy_excavator"
+    },
+    "description": {
+      "translate": "society_skills.mining.filthy_excavator.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -285,8 +327,12 @@
     ]
   },
   "gem_tycoon": {
-    "title": {"translate": "society_skills.mining.gem_tycoon"},
-    "description": {"translate": "society_skills.mining.gem_tycoon.description"},
+    "title": {
+      "translate": "society_skills.mining.gem_tycoon"
+    },
+    "description": {
+      "translate": "society_skills.mining.gem_tycoon.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -317,8 +363,12 @@
     ]
   },
   "star_blessing": {
-    "title": {"translate": "society_skills.mining.star_blessing"},
-    "description": {"translate": "society_skills.mining.star_blessing.description"},
+    "title": {
+      "translate": "society_skills.mining.star_blessing"
+    },
+    "description": {
+      "translate": "society_skills.mining.star_blessing.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {

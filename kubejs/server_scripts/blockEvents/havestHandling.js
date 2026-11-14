@@ -1,5 +1,7 @@
 console.info("[SOCIETY] harvestHandling.js loaded");
 // Yeah this filename has a typo. Fixing it would be more annoying than leaving it.
+// The mana fruit handlers are in manaFruitEvents.js (#14).
+const $ExperienceOrb = Java.loadClass("net.minecraft.world.entity.ExperienceOrb");
 
 const deniedCrops = [
   "farmersdelight:tomatoes",
@@ -24,15 +26,19 @@ const reseedableCrops = [
   "vintagedelight:peanut",
   "veggiesdelight:garlic_clove"
 ];
+// Crops of other mods (e.g. Farmer's Delight) are not always CropBlocks; they count as mature here.
+const isMatureCrop = (state) => (typeof state.block.isMaxAge === "function" ? state.block.isMaxAge(state) : false);
+const maxCropAge = (state) => (typeof state.block.getMaxAge === "function" ? Number(state.block.getMaxAge()) : 0);
+
 BlockEvents.rightClicked((e) => {
   const { block, player, server, hand, item, level } = e;
-  if (reseedableCrops.includes(e.item.getId())) {
+  if (reseedableCrops.includes(String(e.item.id))) {
     if (block.hasTag("dewdrop:waterable")) {
       e.player.inventoryMenu.broadcastFullState();
       e.cancel();
     }
   }
-  if (!allowedBonemealCrops.includes(block.id)) {
+  if (!allowedBonemealCrops.includes(String(block.id))) {
     if (player.isHoldingInAnyHand("farm_and_charm:fertilizer")) e.cancel();
     if (
       player.isHoldingInAnyHand("minecraft:bone_meal") ||
@@ -93,7 +99,7 @@ BlockEvents.rightClicked((e) => {
           "farmersdelight:brown_mushroom_colony",
           "species:alphacene_mushroom",
           "farmersdelight:red_mushroom_colony"
-        ].includes(block.id)
+        ].includes(String(block.id))
       ) {
         player.tell(Text.translatable("society.bone_meal.weak"));
         e.player.inventoryMenu.broadcastFullState();
@@ -101,25 +107,19 @@ BlockEvents.rightClicked((e) => {
       }
     }
   }
-  if (hand == "MAIN_HAND") {
+  if (String(hand) === "MAIN_HAND") {
     let initialBlock = level.getBlockState(block.pos);
     let checkBlocked;
     let blockState;
     if (
       block.hasTag("minecraft:crops") &&
-      !deniedCrops.includes(block.id) &&
-      initialBlock.block.isMaxAge(initialBlock)
+      !deniedCrops.includes(String(block.id)) &&
+      isMatureCrop(initialBlock)
     ) {
       let xpCount = 0;
       let radius = 0;
       if (item.hasTag("minecraft:hoes")) radius = 1;
-      if (
-        [
-          "minecraft:netherite_hoe",
-          "minecraft:diamond_hoe",
-          "botania:elementium_hoe",
-        ].includes(item.id)
-      )
+      if (["minecraft:netherite_hoe", "minecraft:diamond_hoe", "botania:elementium_hoe"].includes(String(item.id)))
         radius = 2;
       for (let pos of BlockPos.betweenClosed(
         new BlockPos(block.x - radius, block.y, block.z - radius),
@@ -129,23 +129,21 @@ BlockEvents.rightClicked((e) => {
         blockState = level.getBlockState(pos);
         if (
           checkBlocked.hasTag("minecraft:crops") &&
-          !deniedCrops.includes(checkBlocked.id)
+          !deniedCrops.includes(String(checkBlocked.id))
         ) {
-          if (blockState.block.isMaxAge(blockState)) {
+          if (isMatureCrop(blockState)) {
             if (player.isFake()) {
               e.cancel();
             } else {
-              xpCount += blockState.block.getMaxAge();
+              xpCount += maxCropAge(blockState);
             }
           }
         }
       }
       server.scheduleInTicks(2, () => {
         initialBlock = level.getBlockState(block.pos);
-        if (!initialBlock.block.isMaxAge(initialBlock) && xpCount > 0) {
-          const xp = block.createEntity("experience_orb");
-          xp.mergeNbt({ Value: xpCount });
-          xp.spawn();
+        if (!isMatureCrop(initialBlock) && xpCount > 0) {
+          level.addFreshEntity(new $ExperienceOrb(level, block.x + 0.5, block.y + 0.5, block.z + 0.5, xpCount));
           global.giveExperience(server, player, "farming", xpCount * 2);
         }
       });
@@ -156,46 +154,8 @@ BlockEvents.rightClicked((e) => {
 BlockEvents.rightClicked("vinery:grapevine_stem", (e) => {
   const { block } = e;
   let properties = block.getProperties();
-  properties.leaves_pending = false;
-  properties.leaves_done = true;
+  properties.leaves_pending = "false";
+  properties.leaves_done = "true";
   block.set(block.id, properties);
 });
 
-BlockEvents.rightClicked((e) => {
-  if (["society:mana_fruit_crop"].includes(e.item.getId())) {
-    if (!e.block.hasTag("dewdrop:waterable")) {
-      e.player.inventoryMenu.broadcastFullState();
-      e.cancel();
-    }
-  }
-});
-
-BlockEvents.rightClicked("society:mana_fruit_crop", (e) => {
-  const { level, server, block, player } = e;
-  let blockProperties = level.getBlock(block.pos).getProperties();
-  let age = Number(blockProperties.get("age"));
-
-  if (age == 7) {
-    blockProperties.age = "0";
-    block.set(block.id, blockProperties);
-    let quality = global.getCropQuality(block);
-    let count = 1;
-    if (player.stages.has("paradise_crop")) count += 1;
-    if (player.stages.has("crop_collector")) count *= 2;
-    if (quality) {
-      block.popItemFromFace(
-        Item.of(
-          `${count}x society:mana_fruit`,
-          `{quality_food:{effects:[],quality:${quality}}}`,
-        ),
-        "up",
-      );
-    } else {
-      block.popItemFromFace(Item.of(`${count}x society:mana_fruit`), "up");
-    }
-    player.swing();
-    server.runCommandSilent(
-      `playsound minecraft:block.grass.break block @a ${block.x} ${block.y} ${block.z} 0.5`,
-    );
-  }
-});

@@ -5,89 +5,18 @@
 	filename: "villagers"
 	group: "439B0423947443D3"
 	icon: {
-		Count: 1
-		id: "society:villager"
-		tag: {
-			type: {
-				id: "society:carpenter"
+		components: {
+			"minecraft:custom_data": {
+				type: {
+					id: "society:carpenter"
+				}
 			}
 		}
+		count: 1
+		id: "society:villager"
 	}
 	id: "20D348A9B6875391"
-	images: [
-		{
-			height: 2.0d
-			image: "dialog:textures/portraits/shepherd.png"
-			rotation: 0.0d
-			width: 2.0d
-			x: 4.5d
-			y: 1.5d
-		}
-		{
-			height: 2.0d
-			image: "dialog:textures/portraits/carpenter.png"
-			rotation: 0.0d
-			width: 2.0d
-			x: 4.5d
-			y: -1.5d
-		}
-		{
-			height: 2.0d
-			image: "dialog:textures/portraits/market.png"
-			rotation: 0.0d
-			width: 2.0d
-			x: 7.0d
-			y: -1.5d
-		}
-		{
-			height: 2.0d
-			image: "dialog:textures/portraits/fisher.png"
-			rotation: 0.0d
-			width: 2.0d
-			x: 9.5d
-			y: 1.5d
-		}
-		{
-			height: 2.0d
-			image: "dialog:textures/portraits/banker.png"
-			rotation: 0.0d
-			width: 2.0d
-			x: 7.0d
-			y: 1.5d
-		}
-		{
-			height: 2.0d
-			image: "dialog:textures/portraits/blacksmith.png"
-			rotation: 0.0d
-			width: 2.0d
-			x: 9.5d
-			y: -1.5d
-		}
-		{
-			height: 2.0d
-			image: "dialog:textures/portraits/librarian.png"
-			rotation: 0.0d
-			width: 2.0d
-			x: 4.5d
-			y: 4.5d
-		}
-		{
-			height: 2.0d
-			image: "dialog:textures/portraits/trader.png"
-			rotation: 0.0d
-			width: 2.0d
-			x: 7.0d
-			y: 4.5d
-		}
-		{
-			height: 2.0d
-			image: "dialog:textures/portraits/witch.png"
-			rotation: 0.0d
-			width: 2.0d
-			x: 9.5d
-			y: 4.5d
-		}
-	]
+	images: [ ]
 	order_index: 1
 	quest_links: [ ]
 	quests: [
@@ -95,13 +24,15 @@
 			dependencies: ["664E4A3806C40A78"]
 			description: ["{ftbquests.chapter.villagers.quest3CF0897E67574877.description1}"]
 			icon: {
-				Count: 1
-				id: "society:villager"
-				tag: {
-					type: {
-						id: "society:shepherd"
+				components: {
+					"minecraft:custom_data": {
+						type: {
+							id: "society:shepherd"
+						}
 					}
 				}
+				count: 1
+				id: "society:villager"
 			}
 			id: "3CF0897E67574877"
 			rewards: [{
@@ -113,15 +44,17 @@
 			tasks: [{
 				id: "587C3337DCD6144D"
 				item: {
-					Count: 1
-					id: "society:invitation"
-					tag: {
-						type: {
-							id: "society:shepherd"
+					components: {
+						"minecraft:custom_data": {
+							type: {
+								id: "society:shepherd"
+							}
 						}
 					}
+					count: 1
+					id: "society:invitation"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 			}]
 			x: 4.5d
@@ -137,13 +70,15 @@
 			hide_dependency_lines: true
 			hide_dependent_lines: true
 			icon: {
-				Count: 1
-				id: "society:villager"
-				tag: {
-					type: {
-						id: "society:carpenter"
+				components: {
+					"minecraft:custom_data": {
+						type: {
+							id: "society:carpenter"
+						}
 					}
 				}
+				count: 1
+				id: "society:villager"
 			}
 			id: "664E4A3806C40A78"
 			rewards: [{
@@ -155,15 +90,17 @@
 			tasks: [{
 				id: "0B63F83931AB06AE"
 				item: {
-					Count: 1
-					id: "society:invitation"
-					tag: {
-						type: {
-							id: "society:carpenter"
+					components: {
+						"minecraft:custom_data": {
+							type: {
+								id: "society:carpenter"
+							}
 						}
 					}
+					count: 1
+					id: "society:invitation"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 			}]
 			x: 4.5d
@@ -175,13 +112,15 @@
 			hide_dependency_lines: true
 			hide_dependent_lines: true
 			icon: {
-				Count: 1
-				id: "society:villager"
-				tag: {
-					type: {
-						id: "society:market"
+				components: {
+					"minecraft:custom_data": {
+						type: {
+							id: "society:market"
+						}
 					}
 				}
+				count: 1
+				id: "society:villager"
 			}
 			id: "048655663A5A82FC"
 			rewards: [{
@@ -193,15 +132,17 @@
 			tasks: [{
 				id: "233BA4DFB56C7C30"
 				item: {
-					Count: 1
-					id: "society:invitation"
-					tag: {
-						type: {
-							id: "society:market"
+					components: {
+						"minecraft:custom_data": {
+							type: {
+								id: "society:market"
+							}
 						}
 					}
+					count: 1
+					id: "society:invitation"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 			}]
 			x: 7.0d
@@ -211,13 +152,15 @@
 			dependencies: ["048655663A5A82FC"]
 			description: ["{ftbquests.chapter.villagers.quest2A64214504AAD5E5.description1}"]
 			icon: {
-				Count: 1
-				id: "society:villager"
-				tag: {
-					type: {
-						id: "society:fisher"
+				components: {
+					"minecraft:custom_data": {
+						type: {
+							id: "society:fisher"
+						}
 					}
 				}
+				count: 1
+				id: "society:villager"
 			}
 			id: "2A64214504AAD5E5"
 			rewards: [{
@@ -229,15 +172,17 @@
 			tasks: [{
 				id: "550ADDBC7FEA01A9"
 				item: {
-					Count: 1
-					id: "society:invitation"
-					tag: {
-						type: {
-							id: "society:fisher"
+					components: {
+						"minecraft:custom_data": {
+							type: {
+								id: "society:fisher"
+							}
 						}
 					}
+					count: 1
+					id: "society:invitation"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 			}]
 			x: 9.5d
@@ -247,13 +192,15 @@
 			dependencies: ["664E4A3806C40A78"]
 			description: ["{ftbquests.chapter.villagers.quest499871FDD2A65F2C.description1}"]
 			icon: {
-				Count: 1
-				id: "society:villager"
-				tag: {
-					type: {
-						id: "society:blacksmith"
+				components: {
+					"minecraft:custom_data": {
+						type: {
+							id: "society:blacksmith"
+						}
 					}
 				}
+				count: 1
+				id: "society:villager"
 			}
 			id: "499871FDD2A65F2C"
 			rewards: [{
@@ -265,15 +212,17 @@
 			tasks: [{
 				id: "432B8C3C9C058DD3"
 				item: {
-					Count: 1
-					id: "society:invitation"
-					tag: {
-						type: {
-							id: "society:blacksmith"
+					components: {
+						"minecraft:custom_data": {
+							type: {
+								id: "society:blacksmith"
+							}
 						}
 					}
+					count: 1
+					id: "society:invitation"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 			}]
 			x: 9.5d
@@ -285,13 +234,15 @@
 			hide_dependency_lines: true
 			hide_dependent_lines: true
 			icon: {
-				Count: 1
-				id: "society:villager"
-				tag: {
-					type: {
-						id: "society:banker"
+				components: {
+					"minecraft:custom_data": {
+						type: {
+							id: "society:banker"
+						}
 					}
 				}
+				count: 1
+				id: "society:villager"
 			}
 			id: "4633C0427ACA18D3"
 			rewards: [{
@@ -302,15 +253,17 @@
 			tasks: [{
 				id: "6A559CD37BBF1E5B"
 				item: {
-					Count: 1
-					id: "society:invitation"
-					tag: {
-						type: {
-							id: "society:banker"
+					components: {
+						"minecraft:custom_data": {
+							type: {
+								id: "society:banker"
+							}
 						}
 					}
+					count: 1
+					id: "society:invitation"
 				}
-				match_nbt: true
+				match_components: "fuzzy"
 				type: "item"
 			}]
 			x: 7.0d
@@ -335,13 +288,15 @@
 			description: ["{ftbquests.chapter.villagers.quest49477F09DF6EBA50.description1}"]
 			hide_dependency_lines: true
 			icon: {
-				Count: 1
-				id: "society:villager"
-				tag: {
-					type: {
-						id: "society:librarian"
+				components: {
+					"minecraft:custom_data": {
+						type: {
+							id: "society:librarian"
+						}
 					}
 				}
+				count: 1
+				id: "society:villager"
 			}
 			id: "49477F09DF6EBA50"
 			tasks: [{
@@ -357,11 +312,8 @@
 			dependencies: ["33338792EF0994BD"]
 			description: ["{ftbquests.chapter.villagers.quest55F17BB945CA5BB2.description1}"]
 			icon: {
-				Count: 1
+				count: 1
 				id: "quark:pickarang"
-				tag: {
-					Damage: 0
-				}
 			}
 			id: "55F17BB945CA5BB2"
 			tasks: [{
@@ -393,13 +345,15 @@
 				"{ftbquests.chapter.villagers.quest52F1DCA9462F825F.description2}"
 			]
 			icon: {
-				Count: 1
-				id: "society:villager"
-				tag: {
-					type: {
-						id: "society:witch"
+				components: {
+					"minecraft:custom_data": {
+						type: {
+							id: "society:witch"
+						}
 					}
 				}
+				count: 1
+				id: "society:villager"
 			}
 			id: "52F1DCA9462F825F"
 			tasks: [{
@@ -419,13 +373,15 @@
 				"{ftbquests.chapter.villagers.quest1348507AE17E187E.description2}"
 			]
 			icon: {
-				Count: 1
-				id: "society:villager"
-				tag: {
-					type: {
-						id: "society:trader"
+				components: {
+					"minecraft:custom_data": {
+						type: {
+							id: "society:trader"
+						}
 					}
 				}
+				count: 1
+				id: "society:villager"
 			}
 			id: "1348507AE17E187E"
 			tasks: [{

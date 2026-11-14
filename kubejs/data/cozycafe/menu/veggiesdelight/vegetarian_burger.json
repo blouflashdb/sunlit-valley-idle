@@ -1,8 +1,7 @@
 {
-	"item": "veggiesdelight:vegetarian_burger",
-	"category": "main",
-	"price": 395,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "veggiesdelight:vegetarian_burger",
+  "category": "main",
+  "price": 395,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

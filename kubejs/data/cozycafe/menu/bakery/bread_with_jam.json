@@ -1,8 +1,7 @@
 {
-	"item": "bakery:bread_with_jam",
-	"category": "dessert",
-	"price": 66,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "bakery:bread_with_jam",
+  "category": "dessert",
+  "price": 66,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

@@ -1,3 +1,6 @@
+// Dev-only generator of the building shops (kubejs/data/society_trading/shops/bs_*.json, selectors) and their lang
+// files. Uncomment and reload once to regenerate. It writes the 1.20.1 shop format (blueprint NBT): on 1.21.1 the
+// stacks need the changes of tools/port/port_trading_data.py ({"id"} stacks, NBT as data components).
 // const runBuildingShopDatagen = true;
 
 // const farmBuildingTypes = [
@@ -7,7 +10,7 @@
 //     { type: "coop", price: 2, name: "Coop", catalyst: "minecraft:egg" },
 //     { type: "barn", price: 4, name: "Barn", catalyst: "society:milk" },
 //     { type: "deluxe_barn", price: 12, name: "Deluxe Barn", catalyst: "society:large_milk" },
-//     { type: "greenhouse", price: 2, name: "Greenhouse", catalyst: "moreminecarts:chiseled_organic_glass" }
+//     { type: "greenhouse", price: 2, name: "Greenhouse", catalyst: "minecraft:glass" } // More Minecarts is not in the 1.21.1 pack
 // ];
 
 // const villagerfarmBuildingTypes = [
@@ -66,7 +69,7 @@
 //         shopJson = {
 //             shop_id: `bs_${type}`,
 //             name: `shop.society_trading.building_shop.${type}`,
-//             texture: "dialog:textures/portraits/carpenter",
+//             texture: "sunlitidle:textures/portraits/carpenter",
 //             hidden_from_selector: true,
 //             display_type: "image",
 //             jei_catalyst: {

@@ -1,8 +1,7 @@
 {
-	"item": "crabbersdelight:seafood_gumbo",
-	"category": "main",
-	"price": 360,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "crabbersdelight:seafood_gumbo",
+  "category": "main",
+  "price": 360,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

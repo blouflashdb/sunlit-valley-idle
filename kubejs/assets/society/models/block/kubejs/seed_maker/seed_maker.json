@@ -1,0 +1,10 @@
+{
+  "parent": "society:block/kubejs/placeholder/machine",
+  "textures": {
+    "side": "minecraft:block/moss_block",
+    "front": "minecraft:block/moss_block",
+    "top": "minecraft:block/composter_top",
+    "bottom": "minecraft:block/composter_top",
+    "particle": "minecraft:block/composter_side"
+  }
+}

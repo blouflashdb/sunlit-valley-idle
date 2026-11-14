@@ -1,3 +1,4 @@
+// Dev-only helper that logs the Longwing breeding table as wiki markup. Uncomment and reload once to print it.
 // const formatName = (id) => Text.translatable(`item.longwings.${id}`).getString().replace('[', '').replace(']', '')
 
 // const offspringMap = {};

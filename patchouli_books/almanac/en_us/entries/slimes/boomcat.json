@@ -1,17 +1,17 @@
 {
   "name": "Boomcat",
   "category": "patchouli:slimes",
-  "icon": "splendid_slimes:plort{plort:{id:\"splendid_slimes:boomcat\"}}",
+  "icon": "splendid_slimes:plort_boomcat",
+  "sortnum": 9,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "$(l)Locations:$()$(li)Biome: Skull Caves (Skull Cavern)$(li)Heart fusion$(li)Dig spots: Ice, Snow Block$(li)Killing Creepers (20% chance)$(br2)$(l)Risks:$()$(br)Causes explosions when hungry that don't break blocks."
+      "text": "$(l)Slime Ranching level:$() 4$(br2)$(l)Food:$() Porkchop$(br)$(l)Favorite food (double plorts):$() Cooked Duck$(br2)Rip its plorts in a Plort Ripper, or press 16 into a Slime Heart."
     },
     {
-      "type": "patchouli:entity",
-      "name": "Boomcat Slime",
-      "entity": "splendid_slimes:splendid_slime{Breed:\"splendid_slimes:boomcat\"}",
-      "scale": 0.9
+      "type": "patchouli:spotlight",
+      "item": "splendid_slimes:plort_boomcat,splendid_slimes:slime_heart_boomcat",
+      "title": "Boomcat Plort"
     }
   ]
 }

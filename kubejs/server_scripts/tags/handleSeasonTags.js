@@ -1,5 +1,21 @@
 console.info("[SOCIETY] handleSeasonTags.js loaded");
 
+// The lists mix items and blocks and name mods that are not in the 1.21.1 pack; each tag event only gets the
+// ids its registry has.
+const $SeasonRegistries = Java.loadClass("net.minecraft.core.registries.BuiltInRegistries");
+const $SeasonResourceLocation = Java.loadClass("net.minecraft.resources.ResourceLocation");
+const seasonTagTarget = (e, registry) => {
+  const has = (id) => registry.containsKey($SeasonResourceLocation.parse(id));
+  return {
+    add: (tag, id) => {
+      if (has(id)) e.add(tag, id);
+    },
+    remove: (tag, id) => {
+      if (has(id)) e.remove(tag, id);
+    },
+  };
+};
+
 // Remove tags
 const stripTags = [
   "veggiesdelight:garlic_clove",
@@ -75,13 +91,15 @@ const stripSeasons = (e, item) => {
   e.remove("sereneseasons:autumn_crops", item);
   e.remove("sereneseasons:winter_crops", item);
 };
-ServerEvents.tags("item", (e) => {
+ServerEvents.tags("item", (event) => {
+  const e = seasonTagTarget(event, $SeasonRegistries.ITEM);
   stripTags.forEach((item) => {
     stripSeasons(e, item);
   });
 });
 
-ServerEvents.tags("block", (e) => {
+ServerEvents.tags("block", (event) => {
+  const e = seasonTagTarget(event, $SeasonRegistries.BLOCK);
   stripTags.forEach((item) => {
     stripSeasons(e, item);
   });
@@ -117,11 +135,11 @@ const springCrops = [
   "pamhc2trees:lemon_sapling",
   "pamhc2trees:lemonitem",
   "society:ancient_fruit",
-  "society:ancient_fruit_seed",
+  "society:ancient_fruit_seeds",
   "society:sparkpod",
-  "society:sparkpod_seed",
+  "society:sparkpod_seeds",
   "society:tubabacco_leaf",
-  "society:tubabacco_leaf_seed",
+  "society:tubabacco_leaf_seeds",
   "vintagedelight:cucumber",
   "vintagedelight:cucumber_crop",
   "vintagedelight:cucumber_seeds",
@@ -137,11 +155,11 @@ const springCrops = [
   "veggiesdelight:garlic_seed",
   "veggiesdelight:garlic",
   "society:potato",
-  "society:potato_seed",
+  "society:potato_seeds",
   "society:carrot",
-  "society:carrot_seed",
+  "society:carrot_seeds",
   "society:onion",
-  "society:onion_seed",
+  "society:onion_seeds",
   "veggiesdelight:turnip_seeds",
   "veggiesdelight:turnip",
   "veggiesdelight:turnip_crop",
@@ -168,7 +186,7 @@ const summerCrops = [
   "farm_and_charm:kernels",
   "farm_and_charm:corn",
   "society:blueberry",
-  "society:blueberry_seed",
+  "society:blueberry_seeds",
   "farm_and_charm:oat_seeds",
   "herbalbrews:rooibos_leaf",
   "herbalbrews:rooibos_plant",
@@ -198,12 +216,12 @@ const summerCrops = [
   "vintagedelight:ghost_pepper",
   "vintagedelight:ghost_pepper_crop",
   "society:ancient_fruit",
-  "society:ancient_fruit_seed",
+  "society:ancient_fruit_seeds",
   "etcetera:cotton",
   "etcetera:cotton_flower",
   "etcetera:cotton_seeds",
   "brewery:hops",
-  "brewery:hop_trellis_seed",
+  "brewery:hop_trellis_seeds",
   "brewery:hop_trellis",
   "moreminecarts:glass_cactus",
   "atmospheric:aloe_vera",
@@ -234,7 +252,7 @@ const summerCrops = [
 ];
 const autumnCrops = [
   "society:cranberry",
-  "society:cranberry_seed",
+  "society:cranberry_seeds",
   "society:mossberry",
   "farm_and_charm:barley_crop",
   "farm_and_charm:corn_crop",
@@ -260,7 +278,7 @@ const autumnCrops = [
   "pamhc2trees:apple_sapling",
   "pamhc2trees:plum_sapling",
   "society:ancient_fruit",
-  "society:ancient_fruit_seed",
+  "society:ancient_fruit_seeds",
   "pamhc2trees:cinnamon_sapling",
   "pamhc2trees:cinnamonitem",
   "pamhc2trees:pamcinnamon",
@@ -272,7 +290,7 @@ const autumnCrops = [
   "veggiesdelight:sweet_potato_crop",
   "veggiesdelight:sweet_potato",
   "society:eggplant",
-  "society:eggplant_seed",
+  "society:eggplant_seeds",
   "pamhc2trees:pampawpaw",
   "pamhc2trees:pawpaw_sapling",
   "pamhc2trees:pawpawitem",
@@ -280,11 +298,11 @@ const autumnCrops = [
   "pamhc2trees:pamhazelnut",
   "pamhc2trees:hazelnutitem",
   "society:carrot",
-  "society:carrot_seed",
+  "society:carrot_seeds",
   "society:peanut",
-  "society:peanut_seed",
+  "society:peanut_seeds",
   "society:sweet_potato",
-  "society:sweet_potato_seed",
+  "society:sweet_potato_seeds",
   "veggiesdelight:broccoli_seeds",
   "veggiesdelight:broccoli",
   "veggiesdelight:broccoli_crop",
@@ -313,7 +331,7 @@ const winterCrops = [
   "pamhc2trees:cinnamonitem",
   "pamhc2trees:pamcinnamon",
   "society:tubabacco_leaf",
-  "society:tubabacco_leaf_seed",
+  "society:tubabacco_leaf_seeds",
   "atmospheric:kousa_sapling",
   "windswept:wild_berry_bush",
   "windswept:wild_berries",
@@ -332,38 +350,38 @@ const allSeasonCrops = [
   "society:mana_fruit_crop",
   "atmospheric:laurel_sapling",
   "atmospheric:dry_laurel_sapling",
-  "botania_seeds:white_mystical_flower_seed",
-  "botania_seeds:orange_mystical_flower_seed",
-  "botania_seeds:magenta_mystical_flower_seed",
-  "botania_seeds:light_blue_mystical_flower_seed",
-  "botania_seeds:yellow_mystical_flower_seed",
-  "botania_seeds:lime_mystical_flower_seed",
-  "botania_seeds:pink_mystical_flower_seed",
-  "botania_seeds:gray_mystical_flower_seed",
-  "botania_seeds:light_gray_mystical_flower_seed",
-  "botania_seeds:cyan_mystical_flower_seed",
-  "botania_seeds:purple_mystical_flower_seed",
-  "botania_seeds:blue_mystical_flower_seed",
-  "botania_seeds:brown_mystical_flower_seed",
-  "botania_seeds:green_mystical_flower_seed",
-  "botania_seeds:red_mystical_flower_seed",
-  "botania_seeds:black_mystical_flower_seed",
-  "botania_seeds:white_mystical_flower_crop",
-  "botania_seeds:orange_mystical_flower_crop",
-  "botania_seeds:magenta_mystical_flower_crop",
-  "botania_seeds:light_blue_mystical_flower_crop",
-  "botania_seeds:yellow_mystical_flower_crop",
-  "botania_seeds:lime_mystical_flower_crop",
-  "botania_seeds:pink_mystical_flower_crop",
-  "botania_seeds:gray_mystical_flower_crop",
-  "botania_seeds:light_gray_mystical_flower_crop",
-  "botania_seeds:cyan_mystical_flower_crop",
-  "botania_seeds:purple_mystical_flower_crop",
-  "botania_seeds:blue_mystical_flower_crop",
-  "botania_seeds:brown_mystical_flower_crop",
-  "botania_seeds:green_mystical_flower_crop",
-  "botania_seeds:red_mystical_flower_crop",
-  "botania_seeds:black_mystical_flower_crop",
+  "botania_seeds:white_mystical_flower_seeds",
+  "botania_seeds:orange_mystical_flower_seeds",
+  "botania_seeds:magenta_mystical_flower_seeds",
+  "botania_seeds:light_blue_mystical_flower_seeds",
+  "botania_seeds:yellow_mystical_flower_seeds",
+  "botania_seeds:lime_mystical_flower_seeds",
+  "botania_seeds:pink_mystical_flower_seeds",
+  "botania_seeds:gray_mystical_flower_seeds",
+  "botania_seeds:light_gray_mystical_flower_seeds",
+  "botania_seeds:cyan_mystical_flower_seeds",
+  "botania_seeds:purple_mystical_flower_seeds",
+  "botania_seeds:blue_mystical_flower_seeds",
+  "botania_seeds:brown_mystical_flower_seeds",
+  "botania_seeds:green_mystical_flower_seeds",
+  "botania_seeds:red_mystical_flower_seeds",
+  "botania_seeds:black_mystical_flower_seeds",
+  "botania_seeds:white_mystical_flower",
+  "botania_seeds:orange_mystical_flower",
+  "botania_seeds:magenta_mystical_flower",
+  "botania_seeds:light_blue_mystical_flower",
+  "botania_seeds:yellow_mystical_flower",
+  "botania_seeds:lime_mystical_flower",
+  "botania_seeds:pink_mystical_flower",
+  "botania_seeds:gray_mystical_flower",
+  "botania_seeds:light_gray_mystical_flower",
+  "botania_seeds:cyan_mystical_flower",
+  "botania_seeds:purple_mystical_flower",
+  "botania_seeds:blue_mystical_flower",
+  "botania_seeds:brown_mystical_flower",
+  "botania_seeds:green_mystical_flower",
+  "botania_seeds:red_mystical_flower",
+  "botania_seeds:black_mystical_flower",
   "atmospheric:grimwood_sapling",
   "atmospheric:aspen_sapling",
   "atmospheric:green_aspen_sapling",
@@ -395,7 +413,8 @@ const allSeasonCrops = [
   "minecraft:pale_oak_sapling",
 ];
 
-ServerEvents.tags("item", (e) => {
+ServerEvents.tags("item", (event) => {
+  const e = seasonTagTarget(event, $SeasonRegistries.ITEM);
   springCrops.forEach((crop) => {
     e.add("sereneseasons:spring_crops", crop);
   });
@@ -416,7 +435,8 @@ ServerEvents.tags("item", (e) => {
   });
 });
 
-ServerEvents.tags("block", (e) => {
+ServerEvents.tags("block", (event) => {
+  const e = seasonTagTarget(event, $SeasonRegistries.BLOCK);
   springCrops.forEach((crop) => {
     e.add("sereneseasons:spring_crops", crop);
   });

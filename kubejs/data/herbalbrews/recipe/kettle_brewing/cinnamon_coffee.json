@@ -1,0 +1,23 @@
+{
+  "type": "herbalbrews:kettle_brewing",
+  "experience": 0.8,
+  "crafting_duration": 20,
+  "ingredients": [
+    {
+      "item": "herbalbrews:ground_coffee"
+    },
+    {
+      "item": "society:ground_cinnamon"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "result": {
+    "id": "herbalbrews:cinnamon_coffee"
+  },
+  "fluid_amount": 20,
+  "heat_amount": 50,
+  "effect": "vinery:lava_walker",
+  "effect_duration": 1800
+}

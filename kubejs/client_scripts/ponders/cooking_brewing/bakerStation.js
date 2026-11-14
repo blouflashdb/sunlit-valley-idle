@@ -34,7 +34,7 @@ Ponder.registry((e) => {
 
         scene.idle(40);
 
-        scene.world.modifyBlock([2, 2, 2], () => Block.id("bakery:blank_cake").with("cake", false).with("cupcake", true), true);
+        scene.world.modifyBlock([2, 2, 2], () => Block.id("bakery:blank_cake").with("stage", "cupcake"), true);
 
         scene.idle(40);
 
@@ -48,7 +48,7 @@ Ponder.registry((e) => {
 
         scene.idle(40);
 
-        scene.world.modifyBlock([2, 2, 2], () => Block.id("bakery:blank_cake").with("cake", false).with("cupcake", false).with("cookie", true), true);
+        scene.world.modifyBlock([2, 2, 2], () => Block.id("bakery:blank_cake").with("stage", "cookie"), true);
 
         scene.idle(40);
         scene.world.hideSection([2, 1, 2], Facing.UP);
@@ -69,8 +69,8 @@ Ponder.registry((e) => {
         scene.world.showSection([0, 2, 2], Facing.DOWN);
         scene.world.setBlocks([4, 2, 2], "bakery:blank_cake");
         scene.world.showSection([4, 2, 2], Facing.DOWN);
-        scene.world.modifyBlock([0, 2, 2], () => Block.id("bakery:blank_cake").with("cake", false).with("cupcake", false).with("cookie", true), false);
-        scene.world.modifyBlock([2, 2, 2], () => Block.id("bakery:blank_cake").with("cake", false).with("cupcake", true), false);
+        scene.world.modifyBlock([0, 2, 2], () => Block.id("bakery:blank_cake").with("stage", "cookie"), false);
+        scene.world.modifyBlock([2, 2, 2], () => Block.id("bakery:blank_cake").with("stage", "cupcake"), false);
         scene.world.showSection([2, 1, 2], Facing.DOWN);
         scene.world.showSection([2, 2, 2], Facing.DOWN);
         

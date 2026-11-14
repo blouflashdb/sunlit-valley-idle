@@ -1,39 +1,33 @@
 console.info("[SOCIETY] nerfHero.js loaded");
 
-const apiEvent = Java.loadClass("net.minecraftforge.eventbus.api.Event");
+// Players cannot get the trading discount effects (the shops set the prices). Grandma's and Farmer's Blessing are
+// refused while the player is stunned, and the stun is renewed.
 
-global.runFixGrandma = (e) => {
-  if (
-    [
-      "effect.farm_and_charm.grandmas_blessing",
-      "effect.farm_and_charm.farmers_blessing",
-      "effect.brewery.pintcharisma",
-    ].includes(e.getEffectInstance().getEffect().getDescriptionId()) &&
-    e.getEntity().getType().toString() == "minecraft:player"
-  ) {
-    // e.setResult(apiEvent.Result.DENY);
-    if (e.getEntity().potionEffects.getActive().toString().includes("stunning")) {
-      console.log("removing")
-      e.getEntity().potionEffects.add("oreganized:stunning", 1, 1, true, false);
-      e.setResult(apiEvent.Result.DENY);
-    }
-  }
+const $MobEffectApplicable = Java.loadClass("net.neoforged.neoforge.event.entity.living.MobEffectEvent$Applicable");
+
+const blockedTradingEffects = ["minecraft:hero_of_the_village", "vinery:trading", "brewery:pintcharisma"];
+const stunBlockedEffects = ["farm_and_charm:grandmas_blessing", "farm_and_charm:farmers_blessing", "brewery:pintcharisma"];
+
+const hasActiveEffect = (entity, id) => {
+  let found = false;
+  entity.getActiveEffects().forEach((instance) => {
+    if (String(instance.getEffect().getRegisteredName()) === id) found = true;
+  });
+  return found;
 };
 
-ForgeEvents.onEvent("net.minecraftforge.event.entity.living.MobEffectEvent$Applicable", (event) => {
-  global.runFixGrandma(event);
+global.runFixGrandma = (event, effectId) => {
+  const entity = event.getEntity();
+  if (!stunBlockedEffects.includes(effectId) || !hasActiveEffect(entity, "oreganized:stunning")) return;
+  entity.potionEffects.add("oreganized:stunning", 1, 1, true, false);
+  event.setResult($MobEffectApplicable.Result.DO_NOT_APPLY);
+};
 
-  if (
-    [
-      "effect.minecraft.hero_of_the_village",
-      "effect.vinery.trading",
-      "effect.brewery.pintcharisma",
-      "effect.nethervinery.gravedigger",
-      "effect.nethervinery.improved_gravedigger",
-    ].includes(event.getEffectInstance().getEffect().getDescriptionId()) &&
-    event.getEntity().getType().toString() == "minecraft:player"
-  ) {
-    event.setResult(apiEvent.Result.DENY);
-    console.log("No cheese in industrial capitalism...");
+NativeEvents.onEvent($MobEffectApplicable, (event) => {
+  if (!event.getEntity().isPlayer()) return;
+  const effectId = String(event.getEffectInstance().getEffect().getRegisteredName());
+  global.runFixGrandma(event, effectId);
+  if (blockedTradingEffects.includes(effectId)) {
+    event.setResult($MobEffectApplicable.Result.DO_NOT_APPLY);
   }
 });

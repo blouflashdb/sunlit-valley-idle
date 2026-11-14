@@ -1,0 +1,24 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "pamhc2trees:cinnamonitem"
+    }
+  ],
+  "recipe_book_tab": "drinks",
+  "result": {
+    "id": "farmersdelight:apple_cider",
+    "count": 1
+  }
+}

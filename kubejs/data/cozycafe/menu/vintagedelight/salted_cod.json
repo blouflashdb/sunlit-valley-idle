@@ -1,8 +1,7 @@
 {
-	"item": "vintagedelight:salted_cod",
-	"category": "main",
-	"price": 38,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "vintagedelight:salted_cod",
+  "category": "main",
+  "price": 38,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

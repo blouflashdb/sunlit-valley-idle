@@ -1,8 +1,7 @@
 {
-	"item": "crabbersdelight:surf_and_turf",
-	"category": "main",
-	"price": 150,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "crabbersdelight:surf_and_turf",
+  "category": "main",
+  "price": 150,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

@@ -2,7 +2,6 @@
   "type": "minecraft:vegetation_patch",
   "config": {
     "surface": "floor",
-
     "depth": 1,
     "vertical_range": 5,
     "extra_bottom_block_chance": 0,
@@ -24,10 +23,8 @@
     },
     "xz_radius": {
       "type": "minecraft:uniform",
-      "value": {
-        "min_inclusive": 2,
-        "max_inclusive": 3
-      }
+      "min_inclusive": 2,
+      "max_inclusive": 3
     },
     "replaceable": "#society:skull_block",
     "ground_state": {

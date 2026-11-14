@@ -1,0 +1,35 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "pamhc2trees:cinnamonitem"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "snowyspirit:ginger"
+    }
+  ],
+  "type": "botania:runic_altar",
+  "ingredients": [
+    {
+      "item": "botania:rune_water"
+    },
+    {
+      "item": "botania:rune_earth"
+    },
+    {
+      "item": "pamhc2trees:cinnamonitem"
+    },
+    {
+      "item": "minecraft:snow_block"
+    },
+    {
+      "item": "snowyspirit:ginger"
+    }
+  ],
+  "mana": 8000,
+  "output": {
+    "count": 1,
+    "id": "botania:rune_winter"
+  }
+}

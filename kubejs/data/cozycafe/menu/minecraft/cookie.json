@@ -1,8 +1,7 @@
 {
-	"item": "minecraft:cookie",
-	"category": "dessert",
-	"price": 24,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "minecraft:cookie",
+  "category": "dessert",
+  "price": 24,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

@@ -34,18 +34,6 @@
         "maxCount": 4,
         "minCount": 4,
         "weight": 100
-      },
-      {
-        "type": "species:ghoul",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 25
-      },
-      {
-        "type": "splendid_slimes:splendid_slime",
-        "weight": 10,
-        "minCount": 1,
-        "maxCount": 4
       }
     ],
     "creature": [],
@@ -74,18 +62,27 @@
   "carvers": {},
   "features": [
     [],
-
     [
       "society:umbra_barrens/end_stone_ladder",
       "society:umbra_barrens/end_stone_rock"
     ],
     [],
     [],
-    ["society:umbra_barrens/end_room", "society:umbra_barrens/end_room_2"],
+    [
+      "society:umbra_barrens/end_room",
+      "society:umbra_barrens/end_room_2"
+    ],
     [],
-    ["society:umbra_barrens/uni_geode"],
+    [
+      "society:umbra_barrens/uni_geode"
+    ],
     [],
-    ["minecraft:chorus_plant", "society:umbra_barrens/endstone_patch_floor"],
-    ["minecraft:freeze_top_layer"]
+    [
+      "minecraft:chorus_plant",
+      "society:umbra_barrens/endstone_patch_floor"
+    ],
+    [
+      "minecraft:freeze_top_layer"
+    ]
   ]
 }

@@ -55,18 +55,8 @@ ServerEvents.recipes((e) => {
       );
     }
   };
-  e.smithing(
-    "society:galaxy_sword",
-    "minecraft:netherite_upgrade_smithing_template",
-    "minecraft:netherite_sword",
-    "society:prismatic_shard"
-  );
-  e.smithing(
-    "society:meowmageddon",
-    "simplehats:nekoears",
-    "society:galaxy_sword",
-    "society:prismatic_shard"
-  );
+  // society:galaxy_sword is ported: kubejs/server_scripts/recipes/societyItemRecipes.js
+  // society:meowmageddon is ported: kubejs/server_scripts/recipes/societyItemRecipes.js
 
   const manasteelUpgrades = (type) => {
     e.smithing(
@@ -93,14 +83,11 @@ ServerEvents.recipes((e) => {
   const runes = ["spring", "summer", "autumn", "winter"];
   const terrasteelUpgrades = (type, runeIndex) => {
     e.shaped(`botania:terrasteel_${type}`, ["crc", "mTm", "cmc"], {
-      T: Item.of(`botania:manasteel_${type}`),
+      T: `botania:manasteel_${type}`,
       m: "botania:terrasteel_ingot",
       c: "society:botanical_tribute",
       r: `botania:rune_${runes[runeIndex]}`,
-    }).modifyResult((grid, result) => {
-      let item = grid.find(Item.of(`botania:manasteel_${type}`));
-      return result.withNBT(item.nbt);
-    });
+    }).modifyResult("society:terrasteel_armor_upgrade");
   };
   const neptuniumUpgrades = (type) => {
     e.smithing(
@@ -160,24 +147,6 @@ ServerEvents.recipes((e) => {
       );
     }
   });
-  e.smithing(
-    "constructionwand:iron_wand",
-    "society:iron_upgrade_smithing_template",
-    "constructionwand:stone_wand",
-    "minecraft:iron_block"
-  );
-  e.smithing(
-    "constructionwand:diamond_wand",
-    "society:diamond_upgrade_smithing_template",
-    "constructionwand:iron_wand",
-    "minecraft:diamond_block"
-  );
-  e.smithing(
-    "constructionwand:infinity_wand",
-    "minecraft:netherite_upgrade_smithing_template",
-    "constructionwand:diamond_wand",
-    "minecraft:netherite_block"
-  );
   // Misc
   e.smithing(
     "create:netherite_backtank",
@@ -214,12 +183,7 @@ ServerEvents.recipes((e) => {
   ].forEach((entry) => {
     upgradeWool(entry.wool, entry.upgrade);
   });
-  e.smithing(
-    "society:dragontooth_axe",
-    "minecraft:netherite_upgrade_smithing_template",
-    "minecraft:diamond_axe",
-    "minecraft:bone_block"
-  );
+  // society:dragontooth_axe is ported: kubejs/server_scripts/recipes/societyItemRecipes.js
   // Watering Cans
   e.smithing(
     "dew_drop_watering_cans:iron_watering_can",
@@ -228,4 +192,16 @@ ServerEvents.recipes((e) => {
     "minecraft:iron_ingot"
   );
   upgradeTool("watering_can", "dew_drop_watering_cans");
+});
+
+// The terrasteel armor keeps the data components (enchantments, damage, name) of the manasteel piece it is made from.
+ServerEvents.modifyRecipeResult("society:terrasteel_armor_upgrade", (e) => {
+  for (let i = 0; i < e.grid.size(); i++) {
+    let stack = e.grid.getItem(i);
+    if (String(stack.id).startsWith("botania:manasteel_")) {
+      e.item.applyComponents(stack.getComponentsPatch());
+      break;
+    }
+  }
+  return e.item;
 });

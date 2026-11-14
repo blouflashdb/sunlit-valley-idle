@@ -51,15 +51,21 @@ global.getTranslatedTextWithColorCode = (colorCode, key) => {
     }
 }
 
+// Notes (hospital receipts, letters) are written books on 1.21.1: Candlelight's note paper stored its text in item
+// NBT. author and title are strings, text a text component (or a string).
+const $NoteDataComponents = Java.loadClass("net.minecraft.core.component.DataComponents");
+const $NoteWrittenBookContent = Java.loadClass("net.minecraft.world.item.component.WrittenBookContent");
+const $NoteFilterable = Java.loadClass("net.minecraft.server.network.Filterable");
+
 global.getNotePaperItem = (author, text, title) => {
-    // I want to check argument type and process it,
-    // but I'm not sure how does instanceof work in runtime.
-    // So, This method takes 3 strings.
-    return Item.of(
-            "candlelight:note_paper_written",
-            `{author:"${author}",text:['${text}'],title:"${title}"}`
-          )
-}
+  const page = typeof text === "string" ? Text.of(text) : text;
+  let stack = Item.of("minecraft:written_book");
+  stack.set(
+    $NoteDataComponents.WRITTEN_BOOK_CONTENT,
+    new $NoteWrittenBookContent($NoteFilterable.passThrough(String(title).substring(0, 32)), String(author), 0, [$NoteFilterable.passThrough(page)], true)
+  );
+  return stack;
+};
 
 global.getEmbersTextAPICommand = (target, design, duration, text) => {
     return `emberstextapi sendcustom ${target} ${design} ${duration} ${text}`

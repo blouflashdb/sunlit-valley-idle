@@ -1,8 +1,7 @@
 {
-	"item": "society:mexican_street_corn",
-	"category": "main",
-	"price": 486,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "society:mexican_street_corn",
+  "category": "main",
+  "price": 486,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

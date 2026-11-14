@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "l": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "c": {
+      "item": "minecraft:clay_ball"
+    },
+    "b": {
+      "item": "minecraft:bone_meal"
+    }
+  },
+  "pattern": [
+    "clc",
+    "lbl",
+    "clc"
+  ],
+  "result": {
+    "id": "dew_drop_farmland_growth:hydrating_fertilizer",
+    "count": 1
+  },
+  "show_notification": true
+}

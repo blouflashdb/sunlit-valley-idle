@@ -1,6 +1,8 @@
 {
   "ranged+2": {
-    "title": {"translate": "society_skills.adventuring.ranged"},
+    "title": {
+      "translate": "society_skills.adventuring.ranged"
+    },
     "icon": {
       "type": "item",
       "data": {
@@ -19,7 +21,9 @@
     ]
   },
   "protection+1": {
-    "title": {"translate": "society_skills.adventuring.protection"},
+    "title": {
+      "translate": "society_skills.adventuring.protection"
+    },
     "icon": {
       "type": "effect",
       "data": {
@@ -38,7 +42,9 @@
     ]
   },
   "looting+1": {
-    "title": {"translate": "society_skills.adventuring.looting"},
+    "title": {
+      "translate": "society_skills.adventuring.looting"
+    },
     "icon": {
       "type": "effect",
       "data": {
@@ -57,8 +63,12 @@
     ]
   },
   "fence_2": {
-    "title": {"translate": "society_skills.adventuring.fence"},
-    "description": {"translate": "society_skills.adventuring.fence.description"},
+    "title": {
+      "translate": "society_skills.adventuring.fence"
+    },
+    "description": {
+      "translate": "society_skills.adventuring.fence.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -89,8 +99,12 @@
     ]
   },
   "fence": {
-    "title": {"translate": "society_skills.adventuring.fence"},
-    "description": {"translate": "society_skills.adventuring.fence.description"},
+    "title": {
+      "translate": "society_skills.adventuring.fence"
+    },
+    "description": {
+      "translate": "society_skills.adventuring.fence.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -121,8 +135,12 @@
     ]
   },
   "quick_feet": {
-    "title": {"translate": "society_skills.adventuring.quick_feet"},
-    "description": {"translate": "society_skills.adventuring.quick_feet.description"},
+    "title": {
+      "translate": "society_skills.adventuring.quick_feet"
+    },
+    "description": {
+      "translate": "society_skills.adventuring.quick_feet.description"
+    },
     "icon": {
       "type": "effect",
       "data": {
@@ -141,8 +159,12 @@
     ]
   },
   "steadfast": {
-    "title": {"translate": "society_skills.adventuring.steadfast"},
-    "description": {"translate": "society_skills.adventuring.steadfast.description"},
+    "title": {
+      "translate": "society_skills.adventuring.steadfast"
+    },
+    "description": {
+      "translate": "society_skills.adventuring.steadfast.description"
+    },
     "icon": {
       "type": "effect",
       "data": {
@@ -160,8 +182,12 @@
     ]
   },
   "dragonslayer": {
-    "title": {"translate": "society_skills.adventuring.dragonslayer"},
-    "description": {"translate": "society_skills.adventuring.dragonslayer.description"},
+    "title": {
+      "translate": "society_skills.adventuring.dragonslayer"
+    },
+    "description": {
+      "translate": "society_skills.adventuring.dragonslayer.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -185,8 +211,12 @@
     ]
   },
   "looting_tycoon": {
-    "title": {"translate": "society_skills.adventuring.looting_tycoon"},
-    "description": {"translate": "society_skills.adventuring.looting_tycoon.description"},
+    "title": {
+      "translate": "society_skills.adventuring.looting_tycoon"
+    },
+    "description": {
+      "translate": "society_skills.adventuring.looting_tycoon.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -217,8 +247,12 @@
     ]
   },
   "galaxy_smash": {
-    "title": {"translate": "society_skills.adventuring.galaxy_smash"},
-    "description": {"translate": "society_skills.adventuring.galaxy_smash.description"},
+    "title": {
+      "translate": "society_skills.adventuring.galaxy_smash"
+    },
+    "description": {
+      "translate": "society_skills.adventuring.galaxy_smash.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -242,8 +276,12 @@
     ]
   },
   "handleshot": {
-    "title": {"translate": "society_skills.adventuring.handleshot"},
-    "description": {"translate": "society_skills.adventuring.handleshot.description"},
+    "title": {
+      "translate": "society_skills.adventuring.handleshot"
+    },
+    "description": {
+      "translate": "society_skills.adventuring.handleshot.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -267,8 +305,12 @@
     ]
   },
   "relic_hunter": {
-    "title": {"translate": "society_skills.adventuring.relic_hunter"},
-    "description": {"translate": "society_skills.adventuring.relic_hunter.description"},
+    "title": {
+      "translate": "society_skills.adventuring.relic_hunter"
+    },
+    "description": {
+      "translate": "society_skills.adventuring.relic_hunter.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -292,8 +334,12 @@
     ]
   },
   "artifact_hunter": {
-    "title": {"translate": "society_skills.adventuring.artifact_hunter"},
-    "description": {"translate": "society_skills.adventuring.artifact_hunter.description"},
+    "title": {
+      "translate": "society_skills.adventuring.artifact_hunter"
+    },
+    "description": {
+      "translate": "society_skills.adventuring.artifact_hunter.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -317,8 +363,12 @@
     ]
   },
   "prismatic_realm": {
-    "title": {"translate": "society_skills.adventuring.prismatic_realm"},
-    "description": {"translate": "society_skills.adventuring.prismatic_realm.description"},
+    "title": {
+      "translate": "society_skills.adventuring.prismatic_realm"
+    },
+    "description": {
+      "translate": "society_skills.adventuring.prismatic_realm.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {
@@ -342,8 +392,12 @@
     ]
   },
   "stuffed": {
-    "title": {"translate": "society_skills.adventuring.stuffed"},
-    "description": {"translate": "society_skills.adventuring.stuffed.description"},
+    "title": {
+      "translate": "society_skills.adventuring.stuffed"
+    },
+    "description": {
+      "translate": "society_skills.adventuring.stuffed.description"
+    },
     "frame": {
       "type": "advancement",
       "data": {

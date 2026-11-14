@@ -1,0 +1,26 @@
+{
+  "colors": {
+    "accent": "#c7dcd0",
+    "base": "#694f62"
+  },
+  "display": {
+    "offset": [
+      0,
+      1,
+      0
+    ],
+    "scale": 2.0
+  },
+  "animation": {
+    "type": "spinning",
+    "speed": 0.1
+  },
+  "name": {
+    "color": "#694f62",
+    "translate": "society.trofers.abandoned_farm"
+  },
+  "item": {
+    "id": "farm_and_charm:supply_cart",
+    "count": 1
+  }
+}

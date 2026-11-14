@@ -17,9 +17,9 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.common.util.FakePlayerFactory;
-import net.minecraftforge.gametest.GameTestHolder;
-import net.minecraftforge.gametest.PrefixGameTestTemplate;
+import net.neoforged.neoforge.common.util.FakePlayerFactory;
+import net.neoforged.neoforge.gametest.GameTestHolder;
+import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 
 /** In-game checks of the idle skills, run in CI with ./gradlew runGameTestServer. */
 @GameTestHolder(SunlitIdle.MOD_ID)
@@ -28,7 +28,7 @@ public final class IdleGameTests {
     private IdleGameTests() {
     }
 
-    /** A Forge fake player: a real ServerPlayer without a network connection, which the mock player lacks. */
+    /** A NeoForge fake player: a real ServerPlayer without a network connection, which the mock player lacks. */
     private static ServerPlayer player(GameTestHelper helper) {
         ServerPlayer player = FakePlayerFactory.getMinecraft(helper.getLevel());
         player.moveTo(helper.absoluteVec(new Vec3(1.5, 1.0, 1.5)));
@@ -37,7 +37,7 @@ public final class IdleGameTests {
 
     @GameTest(template = "empty")
     public static void catalogLoadsAllSkills(GameTestHelper helper) {
-        helper.assertTrue(IdleCatalog.skills().size() == 12, "expected 12 skills, got " + IdleCatalog.skills().size());
+        helper.assertTrue(IdleCatalog.skills().size() == 13, "expected 13 skills, got " + IdleCatalog.skills().size());
         for (IdleSkill skill : IdleCatalog.skills()) {
             // Smelting and Cooking are built from the server's recipes and checked in their own test.
             if (skill.usesRecipes()) {
@@ -56,7 +56,7 @@ public final class IdleGameTests {
         PlayerIdleState state = new PlayerIdleState();
         state.setSlotAction(0, "woodcutting/oak");
         IdleEngine.advance(player, state, 60.0);
-        helper.assertTrue(state.countOf(new ResourceLocation("minecraft", "oak_log")) >= 5, "too few oak logs");
+        helper.assertTrue(state.countOf(ResourceLocation.withDefaultNamespace("oak_log")) >= 5, "too few oak logs");
         helper.assertTrue(state.slotStatus(0) == SlotStatus.RUNNING, "slot not running: " + state.slotStatus(0));
         IdleSkill woodcutting = IdleCatalog.skill("woodcutting");
         helper.assertTrue(SkillLevels.progress(player, state, woodcutting).xp() > 0, "no woodcutting XP");
@@ -73,7 +73,7 @@ public final class IdleGameTests {
         int mining = IdleCatalog.skill("mining").index();
         state.tools().setStackInSlot(mining, new ItemStack(Items.WOODEN_PICKAXE));
         IdleEngine.advance(player, state, 40.0);
-        helper.assertTrue(state.countOf(new ResourceLocation("minecraft", "coal")) > 0, "no coal");
+        helper.assertTrue(state.countOf(ResourceLocation.withDefaultNamespace("coal")) > 0, "no coal");
         ItemStack pick = state.tools().getStackInSlot(mining);
         helper.assertTrue(pick.isEmpty() || pick.getDamageValue() > 0, "pickaxe did not wear down");
         helper.succeed();
@@ -88,7 +88,7 @@ public final class IdleGameTests {
         helper.assertTrue(state.slotStatus(0) == SlotStatus.NO_INPUT, "farmed without seeds");
         state.store(new ItemStack(Items.WHEAT_SEEDS, 4));
         IdleEngine.advance(player, state, 60.0);
-        helper.assertTrue(state.countOf(new ResourceLocation("minecraft", "wheat")) > 0, "no wheat");
+        helper.assertTrue(state.countOf(ResourceLocation.withDefaultNamespace("wheat")) > 0, "no wheat");
         helper.succeed();
     }
 
@@ -109,13 +109,13 @@ public final class IdleGameTests {
         state.setSlotAction(1, "foraging/meadow");
         state.store(new ItemStack(Items.OAK_LOG, 70));
         state.tools().setStackInSlot(0, new ItemStack(Items.IRON_AXE));
-        CompoundTag tag = state.save();
-        PlayerIdleState loaded = PlayerIdleState.load(tag);
+        CompoundTag tag = state.save(helper.getLevel().registryAccess());
+        PlayerIdleState loaded = PlayerIdleState.load(tag, helper.getLevel().registryAccess());
         helper.assertTrue("foraging/meadow".equals(loaded.slotAction(1)), "slot action lost");
-        helper.assertTrue(loaded.countOf(new ResourceLocation("minecraft", "oak_log")) == 70, "storage lost");
+        helper.assertTrue(loaded.countOf(ResourceLocation.withDefaultNamespace("oak_log")) == 70, "storage lost");
         helper.assertTrue(loaded.tools().getStackInSlot(0).is(Items.IRON_AXE), "tool lost");
         ItemStack taken = loaded.withdraw(0, 64);
-        helper.assertTrue(taken.getCount() == 64 && loaded.countOf(new ResourceLocation("minecraft", "oak_log")) == 6,
+        helper.assertTrue(taken.getCount() == 64 && loaded.countOf(ResourceLocation.withDefaultNamespace("oak_log")) == 6,
                 "withdraw wrong");
         helper.succeed();
     }
@@ -126,7 +126,24 @@ public final class IdleGameTests {
         PlayerIdleState state = new PlayerIdleState();
         state.setSlotAction(0, "digging/sand");
         IdleEngine.advance(player, state, 60.0);
-        helper.assertTrue(state.countOf(new ResourceLocation("minecraft", "sand")) >= 5, "too little sand");
+        helper.assertTrue(state.countOf(ResourceLocation.withDefaultNamespace("sand")) >= 5, "too little sand");
+        helper.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void slimeRanchingTurnsFoodIntoPlorts(GameTestHelper helper) {
+        ServerPlayer player = player(helper);
+        PlayerIdleState state = new PlayerIdleState();
+        state.setSlotAction(0, "slime_ranching/slimy");
+        IdleEngine.advance(player, state, 30.0);
+        helper.assertTrue(state.slotStatus(0) == SlotStatus.NO_INPUT, "slimes ate nothing: " + state.slotStatus(0));
+        state.store(new ItemStack(Items.SWEET_BERRIES, 3));
+        IdleEngine.advance(player, state, 60.0);
+        ResourceLocation plort = ResourceLocation.fromNamespaceAndPath("splendid_slimes", "plort_slimy");
+        helper.assertTrue(state.countOf(plort) >= 3, "too few slimy plorts: " + state.countOf(plort));
+        helper.assertTrue(state.countOf(ResourceLocation.withDefaultNamespace("sweet_berries")) == 0, "berries left");
+        IdleSkill slimes = IdleCatalog.skill("slime_ranching");
+        helper.assertTrue(SkillLevels.progress(player, state, slimes).xp() > 0, "no slime ranching XP");
         helper.succeed();
     }
 
@@ -137,7 +154,7 @@ public final class IdleGameTests {
         state.setSlotAction(0, "hunting/zombies");
         IdleEngine.advance(player, state, 120.0);
         helper.assertTrue(state.slotStatus(0) == SlotStatus.RUNNING, "hunting not running: " + state.slotStatus(0));
-        helper.assertTrue(state.countOf(new ResourceLocation("minecraft", "rotten_flesh")) > 0, "no rotten flesh");
+        helper.assertTrue(state.countOf(ResourceLocation.withDefaultNamespace("rotten_flesh")) > 0, "no rotten flesh");
         helper.succeed();
     }
 
@@ -162,8 +179,8 @@ public final class IdleGameTests {
         helper.assertTrue(state.slotStatus(0) == SlotStatus.NO_INPUT, "smelted without ore: " + state.slotStatus(0));
         state.store(new ItemStack(Items.RAW_IRON, 3));
         IdleEngine.advance(player, state, 120.0);
-        helper.assertTrue(state.countOf(new ResourceLocation("minecraft", "raw_iron")) == 0, "ore left over");
-        helper.assertTrue(state.countOf(new ResourceLocation("minecraft", "iron_ingot")) >= 3, "too few ingots");
+        helper.assertTrue(state.countOf(ResourceLocation.withDefaultNamespace("raw_iron")) == 0, "ore left over");
+        helper.assertTrue(state.countOf(ResourceLocation.withDefaultNamespace("iron_ingot")) >= 3, "too few ingots");
         helper.succeed();
     }
 
@@ -190,7 +207,8 @@ public final class IdleGameTests {
         int fishing = IdleCatalog.skill("fishing").index();
         // A pickaxe in the fishing slot, as after a skill was inserted before it.
         state.tools().setStackInSlot(fishing, new ItemStack(Items.IRON_PICKAXE));
-        PlayerIdleState loaded = PlayerIdleState.load(state.save());
+        PlayerIdleState loaded = PlayerIdleState.load(state.save(helper.getLevel().registryAccess()),
+                helper.getLevel().registryAccess());
         helper.assertTrue(loaded.tools().getStackInSlot(fishing).isEmpty(), "pickaxe stayed in the fishing slot");
         helper.assertTrue(loaded.tools().getStackInSlot(IdleCatalog.skill("mining").index()).is(Items.IRON_PICKAXE),
                 "pickaxe not moved to mining");

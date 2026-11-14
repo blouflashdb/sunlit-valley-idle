@@ -1,8 +1,7 @@
 {
-	"item": "veggiesdelight:vegetables_wrap",
-	"category": "main",
-	"price": 410,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "veggiesdelight:vegetables_wrap",
+  "category": "main",
+  "price": 410,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

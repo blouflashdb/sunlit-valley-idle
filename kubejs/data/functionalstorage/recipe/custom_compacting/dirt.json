@@ -1,0 +1,11 @@
+{
+  "type": "functionalstorage:custom_compacting",
+  "higher_input": {
+    "id": "quark:dirt_bricks",
+    "count": 1
+  },
+  "lower_input": {
+    "id": "minecraft:dirt",
+    "count": 9
+  }
+}

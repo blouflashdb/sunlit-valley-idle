@@ -1,0 +1,22 @@
+{
+  "neoforge:conditions": [
+    {
+      "modid": "create",
+      "type": "neoforge:mod_loaded"
+    }
+  ],
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "oreganized:glance"
+    }
+  ],
+  "results": [
+    {
+      "id": "oreganized:lead_nugget",
+      "count": 1,
+      "chance": 1
+    }
+  ],
+  "processing_time": 250
+}

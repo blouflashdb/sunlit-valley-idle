@@ -1,8 +1,7 @@
 {
-	"item": "society:deep_a_mochi",
-	"category": "main",
-	"price": 891,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "society:deep_a_mochi",
+  "category": "main",
+  "price": 891,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

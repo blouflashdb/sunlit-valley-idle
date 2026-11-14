@@ -1,68 +1,146 @@
 {
-	"id": "carpenter_chatter_friendship2_6",
-	"title": "[6] carpenter chatter at friendship level: friendship2",
-	"description": "dialog.npc.carpenter.chatter.description",
-	"allowClose": true,
-	"entries": [
-		{
-			"id": "start",
-			"speaker": {
-				"translate": "dialog.npc.carpenter.name",
-				"color": "white"
-			},
-			"text": [
-				{
-					"translate": "dialog.npc.carpenter.chatter_friendship2.6.line_0"
-				}
-			],
-			"portraits": [
-				{
-					"path": "carpenter.png",
-					"position": "INLINE",
-					"brightness": 1
-				}
-			],
-			"options": [
-				{
-					"text": {
-						"translate": "dialog.npc.carpenter.purchase_supplies"
-					},
-					"target": "end",
-					"command": [
-						"openshop @p carpenter"
-					]
-				},
-				{
-					"text": {
-						"translate": "dialog.npc.carpenter.invite_villagers"
-					},
-					"target": "end",
-					"command": [
-						"openshop @p invitations"
-					]
-				},
-				{
-					"text": {
-						"translate": "dialog.npc.carpenter.build_farm"
-					},
-					"target": "end",
-					"command": [
-						"openselector @p building_shop"
-					]
-				},
-				{
-					"text": {
-						"translate": "dialog.npc.carpenter.build_village"
-					},
-					"target": "end",
-					"command": [
-						"openselector @p building_shop"
-					]
-				}
-			]
-		},
-		{
-			"id": "end"
-		}
-	]
+  "id": "carpenter_chatter_friendship2_6",
+  "title": "[6] carpenter chatter at friendship level: friendship2",
+  "description": "dialog.npc.carpenter.chatter.description",
+  "allowClose": true,
+  "entries": [
+    {
+      "id": "start",
+      "speaker": {
+        "translate": "dialog.npc.carpenter.name",
+        "color": "white"
+      },
+      "text": [
+        {
+          "translate": "dialog.npc.carpenter.chatter_friendship2.6.line_0"
+        }
+      ],
+      "portraits": [
+        {
+          "path": "sunlitidle:carpenter.png",
+          "position": "INLINE",
+          "brightness": 1
+        }
+      ],
+      "options": [
+        {
+          "text": {
+            "translate": "dialog.npc.carpenter.purchase_supplies"
+          },
+          "target": "end",
+          "command": [
+            "openshop @p carpenter"
+          ]
+        },
+        {
+          "text": {
+            "translate": "dialog.npc.carpenter.invite_villagers"
+          },
+          "target": "end",
+          "command": [
+            "openshop @p invitations"
+          ]
+        },
+        {
+          "text": {
+            "translate": "dialog.npc.carpenter.build_farm"
+          },
+          "target": "building_shop_shops"
+        },
+        {
+          "text": {
+            "translate": "dialog.npc.carpenter.build_village"
+          },
+          "target": "building_shop_shops"
+        }
+      ]
+    },
+    {
+      "id": "building_shop_shops",
+      "speaker": {
+        "translate": "dialog.npc.carpenter.name",
+        "color": "white"
+      },
+      "text": [
+        {
+          "translate": "dialog.npc.carpenter.build_farm"
+        }
+      ],
+      "portraits": [
+        {
+          "path": "sunlitidle:carpenter.png",
+          "position": "INLINE",
+          "brightness": 1
+        }
+      ],
+      "options": [
+        {
+          "text": {
+            "translate": "shop.society_trading.building_shop.home"
+          },
+          "target": "end",
+          "command": [
+            "openshop @p bs_home"
+          ]
+        },
+        {
+          "text": {
+            "translate": "shop.society_trading.building_shop.shed"
+          },
+          "target": "end",
+          "command": [
+            "openshop @p bs_shed"
+          ]
+        },
+        {
+          "text": {
+            "translate": "shop.society_trading.building_shop.large_shed"
+          },
+          "target": "end",
+          "command": [
+            "openshop @p bs_large_shed"
+          ]
+        },
+        {
+          "text": {
+            "translate": "shop.society_trading.building_shop.coop"
+          },
+          "target": "end",
+          "command": [
+            "openshop @p bs_coop"
+          ]
+        },
+        {
+          "text": {
+            "translate": "shop.society_trading.building_shop.barn"
+          },
+          "target": "end",
+          "command": [
+            "openshop @p bs_barn"
+          ]
+        },
+        {
+          "text": {
+            "translate": "shop.society_trading.building_shop.deluxe_barn"
+          },
+          "target": "end",
+          "command": [
+            "openshop @p bs_deluxe_barn"
+          ]
+        },
+        {
+          "text": {
+            "translate": "shop.society_trading.building_shop.greenhouse"
+          },
+          "target": "end",
+          "command": [
+            "openshop @p bs_greenhouse"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "end"
+    }
+  ]
 }

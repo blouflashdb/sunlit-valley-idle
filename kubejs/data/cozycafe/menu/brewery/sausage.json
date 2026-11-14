@@ -1,8 +1,7 @@
 {
-	"item": "brewery:sausage",
-	"category": "main",
-	"price": 168,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "brewery:sausage",
+  "category": "main",
+  "price": 168,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

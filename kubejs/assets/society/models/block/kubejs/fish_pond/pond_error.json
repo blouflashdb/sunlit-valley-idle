@@ -1,0 +1,146 @@
+{
+  "textures": {
+    "mark": "minecraft:block/redstone_block",
+    "particle": "minecraft:block/redstone_block"
+  },
+  "elements": [
+    {
+      "from": [
+        7,
+        20,
+        7
+      ],
+      "to": [
+        9,
+        26,
+        9
+      ],
+      "shade": false,
+      "faces": {
+        "down": {
+          "uv": [
+            7,
+            7,
+            9,
+            9
+          ],
+          "texture": "#mark"
+        },
+        "up": {
+          "uv": [
+            7,
+            7,
+            9,
+            9
+          ],
+          "texture": "#mark"
+        },
+        "north": {
+          "uv": [
+            7,
+            0,
+            9,
+            6
+          ],
+          "texture": "#mark"
+        },
+        "south": {
+          "uv": [
+            7,
+            0,
+            9,
+            6
+          ],
+          "texture": "#mark"
+        },
+        "west": {
+          "uv": [
+            7,
+            0,
+            9,
+            6
+          ],
+          "texture": "#mark"
+        },
+        "east": {
+          "uv": [
+            7,
+            0,
+            9,
+            6
+          ],
+          "texture": "#mark"
+        }
+      }
+    },
+    {
+      "from": [
+        7,
+        17,
+        7
+      ],
+      "to": [
+        9,
+        19,
+        9
+      ],
+      "shade": false,
+      "faces": {
+        "down": {
+          "uv": [
+            7,
+            7,
+            9,
+            9
+          ],
+          "texture": "#mark"
+        },
+        "up": {
+          "uv": [
+            7,
+            7,
+            9,
+            9
+          ],
+          "texture": "#mark"
+        },
+        "north": {
+          "uv": [
+            7,
+            0,
+            9,
+            2
+          ],
+          "texture": "#mark"
+        },
+        "south": {
+          "uv": [
+            7,
+            0,
+            9,
+            2
+          ],
+          "texture": "#mark"
+        },
+        "west": {
+          "uv": [
+            7,
+            0,
+            9,
+            2
+          ],
+          "texture": "#mark"
+        },
+        "east": {
+          "uv": [
+            7,
+            0,
+            9,
+            2
+          ],
+          "texture": "#mark"
+        }
+      }
+    }
+  ]
+}

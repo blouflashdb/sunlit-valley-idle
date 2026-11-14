@@ -1,9 +1,8 @@
 {
-	"item": "candlelight:salad",
-	"category": "main",
-	"price": 113,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": [],
-	"bowl_food": true
+  "item": "candlelight:salad",
+  "category": "main",
+  "price": 113,
+  "bowl_food": true,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

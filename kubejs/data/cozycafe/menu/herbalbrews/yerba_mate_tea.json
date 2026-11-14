@@ -1,9 +1,8 @@
 {
-	"item": "herbalbrews:yerba_mate_tea",
-	"category": "drink",
-	"price": 18,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": [],
-	"bottle_drink": true
+  "item": "herbalbrews:yerba_mate_tea",
+  "category": "drink",
+  "price": 18,
+  "bottle_drink": true,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

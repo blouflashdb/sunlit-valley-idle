@@ -1,9 +1,8 @@
 {
-	"item": "herbalbrews:hibiscus_tea",
-	"category": "drink",
-	"price": 24,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": [],
-	"bottle_drink": true
+  "item": "herbalbrews:hibiscus_tea",
+  "category": "drink",
+  "price": 24,
+  "bottle_drink": true,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

@@ -1,8 +1,7 @@
 {
-	"item": "atmospheric:aloe_gel_block",
-	"category": "main",
-	"price": 1074,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "atmospheric:aloe_gel_block",
+  "category": "main",
+  "price": 1074,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

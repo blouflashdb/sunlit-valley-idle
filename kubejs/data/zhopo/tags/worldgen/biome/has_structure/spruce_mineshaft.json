@@ -1,4 +1,6 @@
 {
   "replace": true,
-  "values": ["society:frozen_caves"]
+  "values": [
+    "society:frozen_caves"
+  ]
 }

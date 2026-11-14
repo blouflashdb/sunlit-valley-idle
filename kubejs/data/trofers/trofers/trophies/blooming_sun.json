@@ -1,0 +1,31 @@
+{
+  "colors": {
+    "accent": "#F3CC4F",
+    "base": "#ECA063"
+  },
+  "display": {
+    "offset": [
+      0,
+      1,
+      0
+    ],
+    "scale": 2.0
+  },
+  "animation": {
+    "type": "spinning",
+    "speed": 0.1
+  },
+  "effects": {
+    "sound": {
+      "id": "botania:light_relay"
+    }
+  },
+  "name": {
+    "color": "#F3CC4F",
+    "translate": "Building Contest Trophy - Blooming Sun"
+  },
+  "item": {
+    "id": "minecraft:ochre_froglight",
+    "count": 1
+  }
+}

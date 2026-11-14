@@ -1,0 +1,19 @@
+{
+  "type": "create:splashing",
+  "ingredients": [
+    {
+      "item": "create:crushed_raw_bismuth"
+    }
+  ],
+  "results": [
+    {
+      "id": "etcetera:bismuth_nugget",
+      "count": 9
+    },
+    {
+      "id": "oreganized:silver_nugget",
+      "count": 1,
+      "chance": 0.2
+    }
+  ]
+}

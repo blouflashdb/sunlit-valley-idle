@@ -1,0 +1,37 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "numismatics:neptunium_coin"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "botania:pixie_dust"
+    },
+    "G": {
+      "tag": "botania:elementium_ingots"
+    },
+    "A": {
+      "item": "numismatics:neptunium_coin"
+    },
+    "P": {
+      "item": "botania:alchemy_catalyst"
+    },
+    "S": {
+      "item": "botania:livingrock"
+    }
+  },
+  "pattern": [
+    "SBS",
+    "GPG",
+    "SAS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "botania:conjuration_catalyst"
+  },
+  "show_notification": true
+}

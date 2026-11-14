@@ -1,0 +1,38 @@
+{
+  "colors": {
+    "accent": "#430051",
+    "base": "#430051"
+  },
+  "display": {
+    "offset": [
+      0,
+      1,
+      0
+    ],
+    "scale": 2.0
+  },
+  "effects": {
+    "rewards": {
+      "cooldown": 19200,
+      "loot_table": "trofers:trophies/perfection"
+    },
+    "sound": {
+      "id": "stardew_fishing:complete"
+    }
+  },
+  "animation": {
+    "type": "spinning",
+    "speed": 0.1
+  },
+  "name": {
+    "color": "#f650b0",
+    "translate": "society.trofers.perfection"
+  },
+  "tooltip": {
+    "translate": "society.trofers.perfection.description"
+  },
+  "item": {
+    "id": "society:prismatic_shard",
+    "count": 1
+  }
+}

@@ -1,8 +1,7 @@
 {
-	"item": "farmersdelight:pumpkin_soup",
-	"category": "main",
-	"price": 420,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "farmersdelight:pumpkin_soup",
+  "category": "main",
+  "price": 420,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "create:electron_tube"
+    },
+    "P": {
+      "item": "create:andesite_alloy"
+    },
+    "L": {
+      "item": "oreganized:lead_ingot"
+    }
+  },
+  "pattern": [
+    "LLL",
+    "PAP",
+    "LLL"
+  ],
+  "result": {
+    "id": "create:display_board",
+    "count": 4
+  },
+  "show_notification": true
+}

@@ -2,14 +2,14 @@ package dev.sunlitidle.idle;
 
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.eventbus.api.Event;
-import net.minecraftforge.items.ItemStackHandler;
+import net.neoforged.bus.api.Event;
+import net.neoforged.neoforge.items.ItemStackHandler;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Posted on the Forge event bus when the player sells from idle storage. The pack's KubeJS script prices the
+ * Posted on the NeoForge event bus when the player sells from idle storage. The pack's KubeJS script prices the
  * items with the shipping bin rules, empties the slots it sold and adds the coins to {@link #payout()}.
  * Slots left untouched stay in storage.
  */

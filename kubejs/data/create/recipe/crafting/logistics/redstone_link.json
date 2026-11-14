@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:redstone_torch"
+    },
+    "S": {
+      "item": "create:andesite_casing"
+    },
+    "s": {
+      "item": "oreganized:silver_ingot"
+    }
+  },
+  "pattern": [
+    "C",
+    "S",
+    "s"
+  ],
+  "result": {
+    "id": "create:redstone_link",
+    "count": 2
+  },
+  "show_notification": true
+}

@@ -1,10 +1,9 @@
 {
-	"item": "vinery:red_wine",
-	"category": "drink",
-	"price": 504,
-	"product_type": "shippingbin:wood_sell_multiplier",
-	"flavors": [],
-	"themes": [],
-	"bottle_drink": true,
-	"bottle": "vinery:wine_bottle"
+  "item": "vinery:red_wine",
+  "category": "drink",
+  "price": 504,
+  "bottle_drink": true,
+  "bottle": "vinery:wine_bottle",
+  "flavors": [],
+  "mult_attribute": "shippingbin:wood_sell_multiplier"
 }

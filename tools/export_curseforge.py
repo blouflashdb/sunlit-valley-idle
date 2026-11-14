@@ -2,10 +2,11 @@
 
 The upstream pack is managed with Pakku and targets CurseForge, so every project in the lock file
 has a CurseForge project and file id. This script writes the CurseForge manifest itself, copies the
-overrides listed in pakku.json and adds the sunlitidle mod jar under overrides/mods.
+overrides listed in pakku.json and adds the sunlitidle mod jar under overrides/mods when one is
+given. Paths listed in EXCLUDE (work-in-progress content that the game must not load) are skipped.
 
 Usage (from the repository root):
-    python3 tools/export_curseforge.py --mod-jar mod/build/libs/sunlitidle-0.1.0.jar --out build/pack.zip
+    python3 tools/export_curseforge.py --mod-jar mod/build/libs/sunlitidle-1.0.0.jar --version 5.0.0 --out build/pack.zip
 """
 import argparse
 import json
@@ -14,6 +15,12 @@ import zipfile
 
 PACK_NAME = "Sunlit Valley Idle"
 PACK_AUTHOR = "blouflashdb"
+EXCLUDE = ("kubejs/_unported", "config/_unported")
+
+
+def excluded(path):
+    p = pathlib.Path(path).as_posix()
+    return any(p == e or p.startswith(e + "/") for e in EXCLUDE)
 
 
 def add_tree(zf, src, arc_root):
@@ -22,13 +29,13 @@ def add_tree(zf, src, arc_root):
         zf.write(src, f"{arc_root}/{src.as_posix()}")
         return
     for path in sorted(src.rglob("*")):
-        if path.is_file():
+        if path.is_file() and not excluded(path):
             zf.write(path, f"{arc_root}/{path.as_posix()}")
 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--mod-jar", required=True)
+    parser.add_argument("--mod-jar", help="sunlitidle jar to bundle; omitted while the mod is not ported")
     parser.add_argument("--version", required=True)
     parser.add_argument("--out", required=True)
     args = parser.parse_args()
@@ -63,8 +70,9 @@ def main():
         for entry in pakku.get("overrides", []) + pakku.get("client_overrides", []):
             if pathlib.Path(entry).exists():
                 add_tree(zf, entry, "overrides")
-        jar = pathlib.Path(args.mod_jar)
-        zf.write(jar, f"overrides/mods/{jar.name}")
+        if args.mod_jar:
+            jar = pathlib.Path(args.mod_jar)
+            zf.write(jar, f"overrides/mods/{jar.name}")
     print(f"Wrote {out} with {len(files)} CurseForge files")
 
 

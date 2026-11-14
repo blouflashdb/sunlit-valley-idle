@@ -1,0 +1,29 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "sophisticatedcore:item_enabled",
+      "itemRegistryName": "sophisticatedstorage:advanced_magnet_upgrade"
+    }
+  ],
+  "type": "sophisticatedcore:upgrade_next_tier",
+  "key": {
+    "M": {
+      "item": "simplemagnets:basicmagnet"
+    },
+    "I": {
+      "tag": "c:ingots/iron"
+    },
+    "P": {
+      "item": "sophisticatedstorage:advanced_pickup_upgrade"
+    }
+  },
+  "pattern": [
+    "III",
+    "IPI",
+    "IMI"
+  ],
+  "result": {
+    "id": "sophisticatedstorage:advanced_magnet_upgrade",
+    "count": 1
+  }
+}

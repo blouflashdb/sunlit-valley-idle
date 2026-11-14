@@ -1,8 +1,7 @@
 {
-	"item": "society:suspicious_milk_tea",
-	"category": "drink",
-	"price": 4947,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "society:suspicious_milk_tea",
+  "category": "drink",
+  "price": 4947,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

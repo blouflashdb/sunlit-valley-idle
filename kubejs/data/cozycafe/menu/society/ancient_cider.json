@@ -1,10 +1,9 @@
 {
-	"item": "society:ancient_cider",
-	"category": "drink",
-	"price": 5136,
-	"product_type": "shippingbin:wood_sell_multiplier",
-	"flavors": [],
-	"themes": [],
-	"bottle_drink": true,
-	"bottle": "vinery:wine_bottle"
+  "item": "society:ancient_cider",
+  "category": "drink",
+  "price": 5136,
+  "bottle_drink": true,
+  "bottle": "vinery:wine_bottle",
+  "flavors": [],
+  "mult_attribute": "shippingbin:wood_sell_multiplier"
 }

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "aba",
+    "aba",
+    "aca"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:iron_block"
+    },
+    "b": {
+      "tag": "c:glass_panes"
+    },
+    "c": {
+      "item": "society:battery"
+    }
+  },
+  "result": {
+    "id": "portable_blueprints:tablet",
+    "count": 1
+  }
+}

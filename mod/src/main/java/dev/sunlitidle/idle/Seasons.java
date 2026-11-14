@@ -68,6 +68,6 @@ public final class Seasons {
     }
 
     private static TagKey<Block> tag(String season) {
-        return TagKey.create(Registries.BLOCK, new ResourceLocation("sereneseasons", season + "_crops"));
+        return TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("sereneseasons", season + "_crops"));
     }
 }

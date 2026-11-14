@@ -1,6 +1,5 @@
 console.info("[SOCIETY] farmingLoot.js loaded");
 
-// TODO: "vintagedelight:gearo_berry_bush"
 const cropCollectorDenied = [
   "pamhc2trees:pamapple",
   "pamhc2trees:pamcherry",
@@ -18,87 +17,89 @@ const cropCollectorDenied = [
   "pamhc2trees:pamlemon",
   "pamhc2trees:pampassionfruit",
 ];
-const checkMaxGrown = (destroyedBlock) => {
-  return destroyedBlock.blockState.block.isMaxAge(destroyedBlock.blockState);
+const $LootContextParams = Java.loadClass("net.minecraft.world.level.storage.loot.parameters.LootContextParams");
+const $BlockPos = Java.loadClass("net.minecraft.core.BlockPos");
+const $BuiltInRegistries = Java.loadClass("net.minecraft.core.registries.BuiltInRegistries");
+const $ResourceLocationLoot = Java.loadClass("net.minecraft.resources.ResourceLocation");
+
+// Crops of mods that are not in the 1.21.1 pack are skipped.
+const lootCrops = global.cropList.filter((id) => $BuiltInRegistries.BLOCK.containsKey($ResourceLocationLoot.parse(id)));
+
+// The broken crop of a block loot context: its state, level and position.
+const destroyedCrop = (context) => {
+  let state = context.getParamOrNull($LootContextParams.BLOCK_STATE);
+  let origin = context.getParamOrNull($LootContextParams.ORIGIN);
+  if (!state || !origin) return null;
+  return { state: state, level: context.getLevel(), pos: $BlockPos.containing(origin) };
 };
 
-const checkMaxGrownWithChance = (destroyedBlock, chance) => {
-  return chance > Math.random() && checkMaxGrown(destroyedBlock);
+const checkMaxGrown = (crop) => {
+  if (!crop) return false;
+  let block = crop.state.block;
+  return typeof block.isMaxAge === "function" ? block.isMaxAge(crop.state) : true;
+};
+
+const checkMaxGrownWithChance = (context, chance) => chance > Math.random() && checkMaxGrown(destroyedCrop(context));
+
+const addCropChanceLoot = (stage, chance, item) => {
+  return (e) =>
+    e
+      .addBlockModifier(lootCrops)
+      .hasAnyStage(stage)
+      .customAction((context, loot) => {
+        if (checkMaxGrownWithChance(context, chance)) loot.addItem(Item.of(item));
+      });
 };
 
 LootJS.modifiers((e) => {
-  e.addBlockLootModifier(global.cropList).apply((c) => {
-    c.forEachLoot((item) => {
-      const quality = global.getCropQuality(c.destroyedBlock);
-      if (quality > 0)
-        item.setNbt(`{quality_food:{effects:[],quality:${quality}}}`);
+  // Quality from the seed and the quality fertilizers.
+  e.addBlockModifier(lootCrops).customAction((context, loot) => {
+    let crop = destroyedCrop(context);
+    if (!crop) return;
+    let blockId = String(crop.state.block.id);
+    loot.modifyItems((item) => {
+      let quality = global.getCropQualityAt(crop.level, crop.pos, blockId);
+      return quality > 0 ? global.withItemQuality(item, quality) : item;
     });
   });
-  e.addBlockLootModifier(global.cropList)
-    .hasAnyStage("sticky_crops")
-    .apply((c) => {
-      if (checkMaxGrownWithChance(c.destroyedBlock, 0.02)) {
-        c.addLoot("society:pine_tar");
-      }
+  addCropChanceLoot("sticky_crops", 0.02, "society:pine_tar")(e);
+  addCropChanceLoot("soil_inspector", 0.05, "farm_and_charm:fertilizer")(e);
+  // Bountiful Fertilizer: 25% chance of one more crop.
+  e.addBlockModifier(lootCrops).customAction((context, loot) => {
+    let crop = destroyedCrop(context);
+    if (!crop || Math.random() >= 0.25) return;
+    if (!crop.level.getBlock(crop.pos.below()).hasTag("dew_drop_farmland_growth:bountiful_fertilized_farmland")) return;
+    loot.modifyItems((item) => {
+      item.setCount(item.getCount() + 1);
+      return item;
     });
-  e.addBlockLootModifier(global.cropList)
-    .hasAnyStage("soil_inspector")
-    .apply((c) => {
-      if (checkMaxGrownWithChance(c.destroyedBlock, 0.05)) {
-        c.addLoot("farm_and_charm:fertilizer");
-      }
-    });
-  e.addBlockLootModifier(global.cropList)
-    .randomChance(0.25)
-    .customCondition({
-      condition: "minecraft:location_check",
-      offsetY: -1,
-      predicate: {
-        block: {
-          blocks: ["dew_drop_farmland_growth:bountiful_fertilized_farmland"],
-        },
-      },
-    })
-    .modifyLoot(Ingredient.all, (itemStack) => {
-      itemStack.setCount(itemStack.getCount() + 1);
-      return itemStack;
-    });
-    
-  e.addBlockLootModifier(global.cropList)
+  });
+  e.addBlockModifier(lootCrops)
     .hasAnyStage("paradise_crop")
-    .modifyLoot(Ingredient.all, (itemStack) => {
-      if (!cropCollectorDenied.includes(itemStack.id))
-        itemStack.setCount(itemStack.getCount() + 1);
-      return itemStack;
+    .customAction((context, loot) => {
+      loot.modifyItems((item) => {
+        if (!cropCollectorDenied.includes(String(item.id))) item.setCount(item.getCount() + 1);
+        return item;
+      });
     });
-  e.addBlockLootModifier(global.cropList)
+  e.addBlockModifier(lootCrops)
     .hasAnyStage("crop_collector")
-    .modifyLoot(Ingredient.all, (itemStack) => {
-      if (!cropCollectorDenied.includes(itemStack.id))
-        itemStack.setCount(itemStack.getCount() * 2);
-      return itemStack;
+    .customAction((context, loot) => {
+      loot.modifyItems((item) => {
+        if (!cropCollectorDenied.includes(String(item.id))) item.setCount(item.getCount() * 2);
+        return item;
+      });
     });
 
+  // Brine and Punishment skill book: 1 in 500 from a grown cucumber, as the 1.20.1 Vintage Delight loot table had it.
+  if ($BuiltInRegistries.BLOCK.containsKey($ResourceLocationLoot.parse("vintagedelight:cucumber"))) {
+    e.addBlockModifier("vintagedelight:cucumber").customAction((context, loot) => {
+      if (checkMaxGrownWithChance(context, 0.002)) loot.addItem(Item.of("society:brine_and_punishment"));
+    });
+  }
+
   // Mastery
-  e.addBlockLootModifier(global.cropList)
-    .hasAnyStage("husbandry_mastery")
-    .apply((c) => {
-      if (checkMaxGrownWithChance(c.destroyedBlock, 0.005)) {
-        c.addLoot("society:plushie_capsule");
-      }
-    });
-  e.addBlockLootModifier(global.cropList)
-    .hasAnyStage("husbandry_mastery")
-    .apply((c) => {
-      if (checkMaxGrownWithChance(c.destroyedBlock, 0.003)) {
-        c.addLoot("society:animal_cracker");
-      }
-    });
-  e.addBlockLootModifier(global.cropList)
-    .hasAnyStage("farming_mastery")
-    .apply((c) => {
-      if (checkMaxGrownWithChance(c.destroyedBlock, 0.005)) {
-        c.addLoot("atmospheric:grimwood_sapling");
-      }
-    });
+  addCropChanceLoot("husbandry_mastery", 0.005, "society:plushie_capsule")(e);
+  addCropChanceLoot("husbandry_mastery", 0.003, "society:animal_cracker")(e);
+  addCropChanceLoot("farming_mastery", 0.005, "atmospheric:grimwood_sapling")(e);
 });

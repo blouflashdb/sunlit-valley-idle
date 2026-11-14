@@ -1,8 +1,7 @@
 {
-	"item": "windswept:cooked_goat",
-	"category": "main",
-	"price": 90,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "windswept:cooked_goat",
+  "category": "main",
+  "price": 90,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

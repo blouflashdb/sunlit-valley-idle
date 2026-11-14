@@ -1,8 +1,7 @@
 {
-	"item": "vintagedelight:fruity_granola_bar",
-	"category": "main",
-	"price": 50,
-	"product_type": "shippingbin:crop_sell_multiplier",
-	"flavors": [],
-	"themes": []
+  "item": "vintagedelight:fruity_granola_bar",
+  "category": "main",
+  "price": 50,
+  "flavors": [],
+  "mult_attribute": "shippingbin:crop_sell_multiplier"
 }

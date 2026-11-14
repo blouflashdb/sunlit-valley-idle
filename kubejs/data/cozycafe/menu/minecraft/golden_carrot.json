@@ -2,6 +2,9 @@
   "item": "minecraft:golden_carrot",
   "category": "main",
   "price": 16,
-  "flavors": ["vegan", "cold", "metallic"],
-  "themes": ["fancy"]
+  "flavors": [
+    "vegan",
+    "cold",
+    "metallic"
+  ]
 }

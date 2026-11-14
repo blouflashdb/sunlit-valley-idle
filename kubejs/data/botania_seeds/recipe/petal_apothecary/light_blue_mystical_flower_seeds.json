@@ -1,0 +1,34 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "botania_seeds:light_blue_mystical_flower_seeds"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "society:ancient_fruit"
+    }
+  ],
+  "type": "botania:petal_apothecary",
+  "ingredients": [
+    {
+      "item": "society:ancient_fruit"
+    },
+    {
+      "item": "society:ancient_fruit"
+    },
+    {
+      "item": "society:ancient_fruit"
+    },
+    {
+      "item": "society:ancient_fruit"
+    }
+  ],
+  "output": {
+    "count": 4,
+    "id": "botania_seeds:light_blue_mystical_flower_seeds"
+  },
+  "reagent": {
+    "tag": "botania:seed_apothecary_reagent"
+  }
+}

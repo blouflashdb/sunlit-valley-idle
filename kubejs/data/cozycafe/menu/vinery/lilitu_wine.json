@@ -1,10 +1,9 @@
 {
-	"item": "vinery:lilitu_wine",
-	"category": "drink",
-	"price": 2736,
-	"product_type": "shippingbin:wood_sell_multiplier",
-	"flavors": [],
-	"themes": [],
-	"bottle_drink": true,
-	"bottle": "vinery:wine_bottle"
+  "item": "vinery:lilitu_wine",
+  "category": "drink",
+  "price": 2736,
+  "bottle_drink": true,
+  "bottle": "vinery:wine_bottle",
+  "flavors": [],
+  "mult_attribute": "shippingbin:wood_sell_multiplier"
 }

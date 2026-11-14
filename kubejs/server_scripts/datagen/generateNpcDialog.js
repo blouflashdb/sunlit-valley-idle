@@ -1,5 +1,10 @@
+// Dev-only generator of the SVDialog NPC dialogs (kubejs/data/dialog/dialogs) and their English lang file; the
+// dialog texts are in datagen/npcs/*.js (priority -100, so they load after this file and see datagenDialog).
+// Set datagenDialog to true and reload once to regenerate. The output is the 1.20.1 format: on 1.21.1 the
+// openselector options have to be rewritten like tools/port/port_dialog_data.py does.
+// Server scripts share one scope: datagenDialog is read by datagen/npcs/*.js (no global, see repo rules).
+const datagenDialog = false;
 let translationKeys = {};
-global.datagenDialog = false;
 
 const generateDialogEntries = (npcId, dialogType, dialogIndex, dialogLines, portraitPath, isChatter, customOptions) => {
   let entries = [];
@@ -15,7 +20,8 @@ const generateDialogEntries = (npcId, dialogType, dialogIndex, dialogLines, port
       queuedEntry.text = [{ translate: lineTranslationKey }];
       queuedEntry.portraits = [
         {
-          path: `${portraitPath}.png`,
+          // Portraits ship in kubejs/assets/sunlitidle/textures/portraits (tools/port/port_dialog_portraits.py).
+          path: `sunlitidle:${portraitPath}.png`,
           position: "INLINE",
           brightness: 1.0
         },

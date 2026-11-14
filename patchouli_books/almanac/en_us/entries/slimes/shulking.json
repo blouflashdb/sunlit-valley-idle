@@ -1,17 +1,17 @@
 {
   "name": "Shulking",
   "category": "patchouli:slimes",
-  "icon": "splendid_slimes:plort{plort:{id:\"splendid_slimes:shulking\"}}",
+  "icon": "splendid_slimes:plort_shulking",
+  "sortnum": 21,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "$(l)Locations:$()$(li)Structure: Umbra Barrens Slime Spawners (Skull Cavern)$(br2)$(l)Risks:$()$(br)Causes Levitation effect when upset and teleports to nearby food."
+      "text": "$(l)Slime Ranching level:$() 10$(br2)$(l)Food:$() Chorus Fruit$(br)$(l)Favorite food (double plorts):$() Chorus Flower$(br2)Rip its plorts in a Plort Ripper, or press 16 into a Slime Heart."
     },
     {
-      "type": "patchouli:entity",
-      "name": "Shulking Slime",
-      "entity": "splendid_slimes:splendid_slime{Breed:\"splendid_slimes:shulking\"}",
-      "scale": 0.9
+      "type": "patchouli:spotlight",
+      "item": "splendid_slimes:plort_shulking,splendid_slimes:slime_heart_shulking",
+      "title": "Shulking Plort"
     }
   ]
 }

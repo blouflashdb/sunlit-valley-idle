@@ -1,30 +1,18 @@
 console.info("[SOCIETY] fishRadar.js loaded");
 
-const renderItem = (id) => Item.of(id).displayName;
-
+// The Fish Radar lists the season and the fish that bite here, in this weather and at this time of day.
+// The 1.20.1 radar also painted this list on the screen while worn as a curio; KubeJS 7 has no paint.
 ItemEvents.rightClicked("society:fish_radar", (e) => {
   const { level, player, item } = e;
-
-  function playerTell(x) {
-    player.tell(x);
-  }
-  player.tell(global.getSeasonFromBiome(level, player.pos))
-  let fish = [];
-  player.tell(
-    Text.of("=====[ ").gray()
-      .append(Text.translatable("item.society.fish_radar").green())
-      .append(" ]=====")
-  );
-
-  if (level.dimension !== "minecraft:the_nether") {
-    fish = global.overworldRadar(e, fish, playerTell, true);
-  } else {
-    fish = global.netherRadar(e, fish, playerTell);
-  }
+  const print = (text) => player.tell(text);
+  print(Text.translatable(`desc.sereneseasons.${global.getSeasonFromBiome(level, player.blockPosition())}`).gold());
+  print(Text.of("=====[ ").gray().append(Text.translatable("item.society.fish_radar").green()).append(" ]====="));
+  const fish =
+    String(level.dimension) === "minecraft:the_nether"
+      ? societyNetherRadar(level, player, print)
+      : societyOverworldRadar(level, player, print);
   if (player.stages.has("mystical_ocean")) fish.push("society:neptuna");
-  player.tell(Text.gray("======================"));
-  fish.forEach((fish) => {
-    player.tell(renderItem(fish));
-  });
+  print(Text.gray("======================"));
+  fish.filter((id) => Item.exists(id)).forEach((id) => print(Item.of(id).getHoverName()));
   global.addItemCooldown(player, item, 20);
 });

@@ -57,41 +57,41 @@ global.wineKegRecipes = new Map([
 StartupEvents.registry("block", (event) => {
   event
     .create("society:wine_keg", "cardinal")
-    .property(booleanProperty.create("working"))
-    .property(booleanProperty.create("mature"))
-    .property(booleanProperty.create("upgraded"))
+    .property(workingProperty)
+    .property(matureProperty)
+    .property(upgradedProperty)
     .box(2, 0, 2, 14, 15, 14)
     .defaultCutout()
     .tagBlock("minecraft:mineable/pickaxe")
     .tagBlock("minecraft:mineable/axe")
     .tagBlock("minecraft:needs_stone_tool")
+    // Blockstate: client_scripts/machineBlockstates.js. Models: tools/port/assets/make_machine_placeholder.py.
+    .parentModel("society:block/kubejs/wine_keg/wine_keg")
     .item((item) => {
       item.tooltip(
         Text.translatable("block.society.wine_keg.description").gray()
       );
-      item.modelJson({
-        parent: "society:block/kubejs/wine_keg/wine_keg",
-      });
+      item.parentModel("society:block/kubejs/wine_keg/wine_keg");
     })
     .defaultState((state) => {
       state
-        .set(booleanProperty.create("working"), false)
-        .set(booleanProperty.create("mature"), false)
-        .set(booleanProperty.create("upgraded"), false);
+        .set(workingProperty, false)
+        .set(matureProperty, false)
+        .set(upgradedProperty, false);
     })
     .placementState((state) => {
       state
-        .set(booleanProperty.create("working"), false)
-        .set(booleanProperty.create("mature"), false)
-        .set(booleanProperty.create("upgraded"), false);
+        .set(workingProperty, false)
+        .set(matureProperty, false)
+        .set(upgradedProperty, false);
     })
     .rightClick((click) => {
-      const { player, item, block, hand, level } = click;
+      let { player, item, block, hand, level } = click;
       if (player.isFake()) return;
-      const upgraded = block.properties.get("upgraded").toLowerCase() == "true";
+      let upgraded = global.isBlockPropertyTrue(block, "upgraded");
 
-      if (hand == "OFF_HAND") return;
-      if (hand == "MAIN_HAND" && !upgraded && item == "society:gray_anatomy") {
+      if (String(hand) === "OFF_HAND") return;
+      if (String(hand) === "MAIN_HAND" && !upgraded && String(item.id) === "society:gray_anatomy") {
         if (!player.isCreative()) item.count--;
         level.spawnParticles(
           "farmersdelight:star",
@@ -106,18 +106,18 @@ StartupEvents.registry("block", (event) => {
           0.01
         );
         block.set(block.id, {
-          facing: block.properties.get("facing"),
-          working: block.properties.get("working"),
-          mature: block.properties.get("mature"),
+          facing: global.getBlockProperty(block, "facing"),
+          working: global.getBlockProperty(block, "working"),
+          mature: global.getBlockProperty(block, "mature"),
           upgraded: true,
         });
       }
       if (
-        block.properties.get("upgraded") === "true" &&
-        block.properties.get("mature") === "true" &&
+        global.isBlockPropertyTrue(block, "upgraded") &&
+        global.isBlockPropertyTrue(block, "mature") &&
         rnd5()
       ) {
-        block.popItemFromFace("society:relic_trove", block.properties.get("facing"));
+        block.popItemFromFace("society:relic_trove", global.getBlockProperty(block, "facing"));
       }
       global.handleBERightClick(
         "minecraft:block.wood.place",
@@ -130,10 +130,8 @@ StartupEvents.registry("block", (event) => {
     })
     .blockEntity((blockInfo) => {
       blockInfo.initialData({ stage: 0, recipe: "" });
-      blockInfo.serverTick(artMachineTickRate, 0, (entity) => {
-        global.handleBETick(entity, global.wineKegRecipes, 6);
-      });
-    }).blockstateJson = {
-    multipart: getCardinalMultipartJson("wine_keg"),
-  };
+      blockInfo.serverTicking();
+      blockInfo.tickFrequency(artMachineTickRate);
+    });
 });
+// Morning tick: server_scripts/blockEvents/machineTicks.js

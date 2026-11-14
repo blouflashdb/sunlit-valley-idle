@@ -1,6 +1,8 @@
 {
   "alias_moss": {
-    "title": { "translate": "item.society.alias_moss" },
+    "title": {
+      "translate": "item.society.alias_moss"
+    },
     "description": {
       "translate": "society_skills.books.alias_moss.description"
     },
@@ -21,7 +23,9 @@
     ]
   },
   "animal_fancy": {
-    "title": { "translate": "item.society.animal_fancy" },
+    "title": {
+      "translate": "item.society.animal_fancy"
+    },
     "description": {
       "translate": "society_skills.books.animal_fancy.description"
     },
@@ -42,7 +46,9 @@
     ]
   },
   "banana_karenina": {
-    "title": { "translate": "item.society.banana_karenina" },
+    "title": {
+      "translate": "item.society.banana_karenina"
+    },
     "description": {
       "translate": "society_skills.books.banana_karenina.description"
     },
@@ -63,7 +69,9 @@
     ]
   },
   "brine_and_punishment": {
-    "title": { "translate": "item.society.brine_and_punishment" },
+    "title": {
+      "translate": "item.society.brine_and_punishment"
+    },
     "description": {
       "translate": "society_skills.books.brine_and_punishment.description"
     },
@@ -84,7 +92,9 @@
     ]
   },
   "bluegill_meridian": {
-    "title": { "translate": "item.society.bluegill_meridian" },
+    "title": {
+      "translate": "item.society.bluegill_meridian"
+    },
     "description": {
       "translate": "society_skills.books.bluegill_meridian.description"
     },
@@ -105,7 +115,9 @@
     ]
   },
   "bullfish_jobs": {
-    "title": { "translate": "item.society.bullfish_jobs" },
+    "title": {
+      "translate": "item.society.bullfish_jobs"
+    },
     "description": {
       "translate": "society_skills.books.bullfish_jobs.description"
     },
@@ -126,7 +138,9 @@
     ]
   },
   "canadian_and_famous": {
-    "title": { "translate": "item.society.canadian_and_famous" },
+    "title": {
+      "translate": "item.society.canadian_and_famous"
+    },
     "description": {
       "translate": "society_skills.books.canadian_and_famous.description"
     },
@@ -147,7 +161,9 @@
     ]
   },
   "debt_caverns": {
-    "title": { "translate": "item.society.debt_caverns" },
+    "title": {
+      "translate": "item.society.debt_caverns"
+    },
     "description": {
       "translate": "society_skills.books.debt_caverns.description"
     },
@@ -168,7 +184,9 @@
     ]
   },
   "first_aid_guide": {
-    "title": { "translate": "item.society.first_aid_guide" },
+    "title": {
+      "translate": "item.society.first_aid_guide"
+    },
     "description": {
       "translate": "society_skills.books.first_aid_guide.description"
     },
@@ -189,7 +207,9 @@
     ]
   },
   "frogs_bounty_bazaar": {
-    "title": { "translate": "item.society.frogs_bounty_bazaar" },
+    "title": {
+      "translate": "item.society.frogs_bounty_bazaar"
+    },
     "description": {
       "translate": "society_skills.books.frogs_bounty_bazaar.description"
     },
@@ -210,7 +230,9 @@
     ]
   },
   "hitting_hard_and_soft": {
-    "title": { "translate": "item.society.hitting_hard_and_soft" },
+    "title": {
+      "translate": "item.society.hitting_hard_and_soft"
+    },
     "description": {
       "translate": "society_skills.books.hitting_hard_and_soft.description"
     },
@@ -239,7 +261,9 @@
     ]
   },
   "intro_to_algorithms": {
-    "title": { "translate": "item.society.intro_to_algorithms" },
+    "title": {
+      "translate": "item.society.intro_to_algorithms"
+    },
     "description": {
       "translate": "society_skills.books.intro_to_algorithms.description"
     },
@@ -260,7 +284,9 @@
     ]
   },
   "no_name_for_the_sheep": {
-    "title": { "translate": "item.society.no_name_for_the_sheep" },
+    "title": {
+      "translate": "item.society.no_name_for_the_sheep"
+    },
     "description": {
       "translate": "society_skills.books.no_name_for_the_sheep.description"
     },
@@ -281,7 +307,9 @@
     ]
   },
   "paradise_crop": {
-    "title": { "translate": "item.society.paradise_crop" },
+    "title": {
+      "translate": "item.society.paradise_crop"
+    },
     "description": {
       "translate": "society_skills.books.paradise_crop.description"
     },
@@ -302,7 +330,9 @@
     ]
   },
   "pond_house_five": {
-    "title": { "translate": "item.society.pond_house_five" },
+    "title": {
+      "translate": "item.society.pond_house_five"
+    },
     "description": {
       "translate": "society_skills.books.pond_house_five.description"
     },
@@ -323,7 +353,9 @@
     ]
   },
   "the_quality_of_the_earth": {
-    "title": { "translate": "item.society.the_quality_of_the_earth" },
+    "title": {
+      "translate": "item.society.the_quality_of_the_earth"
+    },
     "description": {
       "translate": "society_skills.books.the_quality_of_the_earth.description"
     },
@@ -344,7 +376,9 @@
     ]
   },
   "the_red_and_the_black": {
-    "title": { "translate": "item.society.the_red_and_the_black" },
+    "title": {
+      "translate": "item.society.the_red_and_the_black"
+    },
     "description": {
       "translate": "society_skills.books.the_red_and_the_black.description"
     },
@@ -365,7 +399,9 @@
     ]
   },
   "phenomenology_of_treasure": {
-    "title": { "translate": "item.society.phenomenology_of_treasure" },
+    "title": {
+      "translate": "item.society.phenomenology_of_treasure"
+    },
     "description": {
       "translate": "society_skills.books.phenomenology_of_treasure.description"
     },
@@ -386,7 +422,9 @@
     ]
   },
   "slime_contain_protect": {
-    "title": { "translate": "item.society.slime_contain_protect" },
+    "title": {
+      "translate": "item.society.slime_contain_protect"
+    },
     "description": {
       "translate": "society_skills.books.slime_contain_protect.description"
     },
@@ -407,7 +445,9 @@
     ]
   },
   "slouching_towards_artistry": {
-    "title": { "translate": "item.society.slouching_towards_artistry" },
+    "title": {
+      "translate": "item.society.slouching_towards_artistry"
+    },
     "description": {
       "translate": "society_skills.books.slouching_towards_artistry.description"
     },
@@ -428,7 +468,9 @@
     ]
   },
   "the_spark_also_rises": {
-    "title": { "translate": "item.society.the_spark_also_rises" },
+    "title": {
+      "translate": "item.society.the_spark_also_rises"
+    },
     "description": {
       "translate": "society_skills.books.the_spark_also_rises.description"
     },
@@ -449,7 +491,9 @@
     ]
   },
   "universal_methods_of_farming": {
-    "title": { "translate": "item.society.universal_methods_of_farming" },
+    "title": {
+      "translate": "item.society.universal_methods_of_farming"
+    },
     "description": {
       "translate": "society_skills.books.universal_methods_of_farming.description"
     },
@@ -470,7 +514,9 @@
     ]
   },
   "wuthering_logs": {
-    "title": { "translate": "item.society.wuthering_logs" },
+    "title": {
+      "translate": "item.society.wuthering_logs"
+    },
     "description": {
       "translate": "society_skills.books.wuthering_logs.description"
     },
@@ -491,7 +537,9 @@
     ]
   },
   "women_who_run_with_the_plushies": {
-    "title": { "translate": "item.society.women_who_run_with_the_plushies" },
+    "title": {
+      "translate": "item.society.women_who_run_with_the_plushies"
+    },
     "description": {
       "translate": "society_skills.books.women_who_run_with_the_plushies.description"
     },
@@ -512,7 +560,9 @@
     ]
   },
   "the_metamorphosize": {
-    "title": { "translate": "item.society.the_metamorphosize" },
+    "title": {
+      "translate": "item.society.the_metamorphosize"
+    },
     "description": {
       "translate": "society_skills.books.the_metamorphosize.description"
     },

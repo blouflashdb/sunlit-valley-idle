@@ -1,0 +1,34 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:item_exists",
+      "item": "botania_seeds:white_mystical_flower_seeds"
+    },
+    {
+      "type": "neoforge:item_exists",
+      "item": "veggiesdelight:cauliflower"
+    }
+  ],
+  "type": "botania:petal_apothecary",
+  "ingredients": [
+    {
+      "item": "veggiesdelight:cauliflower"
+    },
+    {
+      "item": "veggiesdelight:cauliflower"
+    },
+    {
+      "item": "veggiesdelight:cauliflower"
+    },
+    {
+      "item": "veggiesdelight:cauliflower"
+    }
+  ],
+  "output": {
+    "count": 4,
+    "id": "botania_seeds:white_mystical_flower_seeds"
+  },
+  "reagent": {
+    "tag": "botania:seed_apothecary_reagent"
+  }
+}

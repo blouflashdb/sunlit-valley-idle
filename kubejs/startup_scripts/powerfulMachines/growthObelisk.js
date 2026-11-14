@@ -1,73 +1,58 @@
 console.info("[SOCIETY] growthObelisk.js loaded");
 
-const RandomSource = Java.loadClass("net.minecraft.util.RandomSource");
-
+const $ObeliskRandomSource = Java.loadClass("net.minecraft.util.RandomSource");
 const growthObeliskProgTime = 1000;
 
-global.runGrowthObelisk = (tickEvent) => {
-  const { level, block, inventory } = tickEvent;
+/** Each morning one Spark-Gro from its inventory grows the crops within 3 blocks (7x1x7) by one stage. */
+global.runGrowthObelisk = (entity, forced) => {
+  const { level, block } = entity;
   const { x, y, z } = block;
-  const server = level.server;
-  let dayTime = level.dayTime();
-  let morningModulo = dayTime % 24000;
-  level.spawnParticles("snowyspirit:glow_light", true, x + 0.5, y + 2.2, z + 0.5, 0, 0, 0, 2, 2);
-  if (
-    morningModulo >= growthObeliskProgTime &&
-    morningModulo < growthObeliskProgTime + artMachineTickRate
-  ) {
-    if (global.hasInventoryItems(inventory, "society:spark_gro", 1)) {
-      global.useInventoryItems(inventory, "society:spark_gro", 1);
-      level.spawnParticles("species:ghoul_searching", true, x + 0.5, y, z + 0.5, 0, 0, 0, 1, 2);
-      server.runCommandSilent(`playsound ribbits:entity.ribbit.magic block @a ${x} ${y} ${z} 1`);
-      server.scheduleInTicks(4, () => {
-        CropGrowthUtils.growCropsInRadius(level, block.getPos(), RandomSource.create(), 4);
-      });
-    }
+  level.spawnParticles("minecraft:glow", true, x + 0.5, y + 2.2, z + 0.5, 0, 0, 0, 2, 0.02);
+  const morningModulo = Number(level.dayTime()) % 24000;
+  if (!forced && (morningModulo < growthObeliskProgTime || morningModulo >= growthObeliskProgTime + artMachineTickRate)) return false;
+  const inventory = block.getEntity().attachments.get("inventory");
+  for (let i = 0; i < inventory.getSlots(); i++) {
+    if (String(inventory.getStackInSlot(i).id) !== "society:spark_gro") continue;
+    inventory.extractItem(i, 1, false);
+    level.spawnParticles("minecraft:happy_villager", true, x + 0.5, y + 0.5, z + 0.5, 1.5, 0.1, 1.5, 20, 0.02);
+    level.server.runCommandSilent(`playsound minecraft:block.amethyst_block.chime block @a ${x} ${y} ${z} 1`);
+    // The 1.20.1 obelisk passed a radius of 4 to Dew Drop Farmland; FarmApi uses the same radius.
+    $FarmApi.growCropsInRadius(level, block.getPos(), $ObeliskRandomSource.create(), 4);
+    return true;
   }
+  return false;
 };
 
 StartupEvents.registry("block", (e) => {
-  e
-    .create("society:growth_obelisk", "cardinal")
+  e.create("society:growth_obelisk", "cardinal")
     .tagBlock("minecraft:mineable/pickaxe")
     .tagBlock("minecraft:needs_stone_tool")
     .defaultCutout()
+    .soundType("stone")
+    // Placeholder models: tools/port/assets/make_machine_placeholder.py --single.
+    .parentModel("society:block/kubejs/growth_obelisk/growth_obelisk")
     .item((item) => {
       item.tooltip(Text.translatable("block.society.growth_obelisk.description").gray());
-      item.tooltip(Text.translatable("tooltip.society.area", `7x1x7`).green());
+      item.tooltip(Text.translatable("tooltip.society.area", "7x1x7").green());
       item.tooltip(Text.translatable("block.society.growth_obelisk.description.fuel").lightPurple());
-      item.modelJson({
-        parent: "society:block/kubejs/growth_obelisk/display",
-      });
+      item.parentModel("society:block/kubejs/growth_obelisk/growth_obelisk");
     })
-    .soundType("stone")
-    .model("society:block/kubejs/growth_obelisk/lower")
     .blockEntity((blockInfo) => {
-      blockInfo.inventory(9, 2);
+      blockInfo.inventory("inventory", [], 9, 2);
+      blockInfo.rightClickOpensInventory("inventory");
       blockInfo.initialData({ owner: "-1" });
-      blockInfo.serverTick(artMachineTickRate, 0, (entity) => {
-        global.runGrowthObelisk(entity, 4);
-      }),
-        blockInfo.rightClickOpensInventory();
-      blockInfo.attachCapability(
-        CapabilityBuilder.ITEM.blockEntity()
-          .insertItem((blockEntity, slot, stack, simulate) =>
-            blockEntity.inventory.insertItem(slot, stack, simulate)
-          )
-          .extractItem((blockEntity, slot, stack, simulate) =>
-            blockEntity.inventory.extractItem(slot, stack, simulate)
-          )
-          .getSlotLimit((blockEntity, slot) => blockEntity.inventory.getSlotLimit(slot))
-          .getSlots((blockEntity) => blockEntity.inventory.slots)
-          .getStackInSlot((blockEntity, slot) => blockEntity.inventory.getStackInSlot(slot))
-      );
+      blockInfo.serverTicking();
+      blockInfo.tickFrequency(artMachineTickRate);
     });
-  e
-    .create("society:growth_obelisk_upper", "cardinal")
+  // The top half, placed and broken together with the obelisk (server_scripts/blockEvents/multiBlockHandlers.js).
+  e.create("society:growth_obelisk_upper", "cardinal")
     .box(4, 0, 4, 12, 9, 12)
     .tagBlock("minecraft:mineable/pickaxe")
     .tagBlock("minecraft:needs_stone_tool")
     .defaultCutout()
     .soundType("stone")
-    .model("society:block/kubejs/growth_obelisk/upper");
+    .noDrops()
+    .modelGenerator((m) => m.parent("society:block/kubejs/growth_obelisk_upper/growth_obelisk_upper"))
+    .item((item) => item.parentModel("society:block/kubejs/growth_obelisk_upper/growth_obelisk_upper"));
 });
+// Tick: server_scripts/blockEvents/machineTicks.js

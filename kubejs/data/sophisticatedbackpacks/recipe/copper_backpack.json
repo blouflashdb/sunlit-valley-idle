@@ -1,0 +1,29 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "sophisticatedcore:item_enabled",
+      "itemRegistryName": "sophisticatedbackpacks:copper_backpack"
+    }
+  ],
+  "type": "sophisticatedbackpacks:backpack_upgrade",
+  "key": {
+    "B": {
+      "item": "sophisticatedbackpacks:backpack"
+    },
+    "C": {
+      "item": "minecraft:copper_block"
+    },
+    "c": {
+      "item": "numismatics:crown"
+    }
+  },
+  "pattern": [
+    "cCc",
+    "CBC",
+    "CCC"
+  ],
+  "result": {
+    "id": "sophisticatedbackpacks:copper_backpack",
+    "count": 1
+  }
+}

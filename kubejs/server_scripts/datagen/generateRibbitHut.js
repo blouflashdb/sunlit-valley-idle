@@ -1,3 +1,5 @@
+// Dev-only generator of the Ribbit Hut blockstate (kubejs/assets/society/blockstates/ribbit_hut_block.json).
+// Uncomment and set runRibbitHutDatagen to true, then reload once to regenerate.
 // const runRibbitHutDatagen = false;
 
 // const facing = ["north", "east", "south", "west"];

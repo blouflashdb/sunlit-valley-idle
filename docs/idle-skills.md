@@ -33,10 +33,18 @@ the same skills.
 | Adventuring | `society:adventuring` | Weapon, required; armor and food slots | Companion fights through dungeon tiers T1 to T5 and rolls the dungeon loot tables |
 | Smelting | `sunlitidle:smelting` | none | Every furnace and blast furnace recipe of the pack, using inputs from storage |
 | Cooking | `sunlitidle:cooking` | none | Every smoker and campfire recipe of the pack, using inputs from storage |
+| Slime Ranching | `sunlitidle:slime_ranching` | none | Plorts of the 24 slime breeds that replace Splendid Slimes; each breed eats one food from storage, its favorite food gives two plorts |
 
 Smelting and Cooking actions are built from the loaded recipes, so modded recipes work without data
 changes. Level: `floor(recipe xp * 8)`, for cooked food `nutrition / 2`, capped at 12. Time: 40% of the furnace
 time. Manual smelting gives XP to the same skills.
+
+Slime Ranching (added on 1.21.1, #13) unlocks two breeds per level in order of plort price, from Slimy and Dusty
+at level 0 to Gold at level 12 (`mod/tools/slime_breeds.py`). Each breed has two actions: its food (one plort)
+and its favorite food (two plorts, 1.5x XP). Time is `12 + 2 * level` seconds. The plorts and Slime Hearts are
+items of the mod (`splendid_slimes:plort_<breed>`, `splendid_slimes:slime_heart_<breed>`); the Plort Ripper and
+Plort Press are KubeJS machines (`kubejs/startup_scripts/slimes/plortMachines.js`). There are no slime
+entities, corrals, vacs or heart fusions.
 
 ## Adventuring
 

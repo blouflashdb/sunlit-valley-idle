@@ -1,118 +1,49 @@
 console.info("[SOCIETY] lootOpening.js loaded");
 
-ItemEvents.rightClicked("society:furniture_box", (e) => {
+// Loot bags: each opening drops one random item of an item tag (two with The Red and the Black).
+// Fantasy's Furniture is not in the 1.21.1 pack, so the fantasy boxes fall back to the Furniture Box loot
+// while their society:<theme>_fantasy_furniture tags are empty.
+const lootBagItems = (tag) => {
+  const ids = [];
+  Ingredient.of(`#${tag}`).itemIds.forEach((id) => ids.push(String(id)));
+  return ids;
+};
+
+const lootBagDrop = (player, stack) => {
+  const drop = player.level.createEntity("minecraft:item");
+  drop.x = player.x;
+  drop.y = player.y;
+  drop.z = player.z;
+  drop.item = stack;
+  drop.spawn();
+};
+
+const openLootBag = (e, candidates, baseCount, adjustCount) => {
   const { server, player, item } = e;
-  server.runCommandSilent(
-    `playsound minecraft:ui.stonecutter.take_result block @a ${player.x} ${player.y} ${player.z}`
-  );
+  if (candidates.length === 0) return;
+  societyPlaySound(server, "minecraft:ui.stonecutter.take_result", player);
+  const id = candidates[Math.floor(Math.random() * candidates.length)];
+  let count = baseCount + (player.stages.has("the_red_and_the_black") ? 1 : 0);
+  if (adjustCount) count = adjustCount(id, count);
+  global.addItemCooldown(player, item, 2);
+  if (!player.isCreative()) item.shrink(1);
+  lootBagDrop(player, Item.of(id, count));
+  societyPlaySound(server, "stardew_fishing:complete", player);
+};
 
-  const furniture = Ingredient.of("#society:loot_furniture").itemIds;
+ItemEvents.rightClicked("society:furniture_box", (e) => openLootBag(e, lootBagItems("society:loot_furniture"), 1));
+ItemEvents.rightClicked("society:bouquet_bag", (e) => openLootBag(e, lootBagItems("society:bouquet_bag_flowers"), 4));
+ItemEvents.rightClicked("society:scavenged_food_bag", (e) => openLootBag(e, lootBagItems("society:dish"), 1));
 
-  if (!player.isCreative()) item.count--;
-  let reward = player.level.createEntity("minecraft:item");
-  const rewardCount = player.stages.has("the_red_and_the_black") ? 2 : 1;
-  reward.x = player.x;
-  reward.y = player.y;
-  reward.z = player.z;
-  reward.item = Item.of(
-    `${rewardCount}x ${furniture[Math.floor(Math.random() * furniture.length)]}`
-  );
-  reward.spawn();
-  server.runCommandSilent(
-    `playsound stardew_fishing:complete block @a ${player.x} ${player.y} ${player.z}`
-  );
-  global.addItemCooldown(player, "society:furniture_box", 2);
-});
-
-const fantasyBoxes = [
-  "nordic",
-  "dunmer",
-  "venthyr",
-  "bone",
-  "royal",
-  "necrolord",
-];
-fantasyBoxes.forEach((theme) => {
+["nordic", "dunmer", "venthyr", "bone", "royal", "necrolord"].forEach((theme) => {
   ItemEvents.rightClicked(`society:fantasy_box_${theme}`, (e) => {
-    const { server, player, item } = e;
-    server.runCommandSilent(
-      `playsound minecraft:ui.stonecutter.take_result block @a ${player.x} ${player.y} ${player.z}`
-    );
-
-    let furniture = Ingredient.of(
-      `#society:${theme}_fantasy_furniture`
-    ).itemIds;
-    furniture = furniture.concat(
-      Ingredient.of(`#society:decorations_fantasy_furniture`).itemIds
-    );
-    if (!player.isCreative()) item.count--;
-    let reward = player.level.createEntity("minecraft:item");
-    const rewardCount = player.stages.has("the_red_and_the_black") ? 2 : 1;
-    reward.x = player.x;
-    reward.y = player.y;
-    reward.z = player.z;
-    reward.item = Item.of(
-      `${rewardCount}x ${
-        furniture[Math.floor(Math.random() * furniture.length)]
-      }`
-    );
-    const itemId = reward.item.id;
-    if (itemId.includes("wool") || itemId.includes("carpet"))
-      reward.item = Item.of(`16x ${itemId}`);
-    if (itemId.includes("double")) reward.item = Item.of(`2x ${itemId}`);
-    reward.spawn();
-    server.runCommandSilent(
-      `playsound stardew_fishing:complete block @a ${player.x} ${player.y} ${player.z}`
-    );
-    global.addItemCooldown(player, `society:fantasy_box_${theme}`, 2);
+    let candidates = lootBagItems(`society:${theme}_fantasy_furniture`);
+    if (candidates.length > 0) candidates = candidates.concat(lootBagItems("society:decorations_fantasy_furniture"));
+    else candidates = lootBagItems("society:loot_furniture");
+    openLootBag(e, candidates, 1, (id, count) => {
+      if (id.includes("wool") || id.includes("carpet")) return 16;
+      if (id.includes("double")) return 2;
+      return count;
+    });
   });
-});
-
-ItemEvents.rightClicked("society:bouquet_bag", (e) => {
-  const { server, player, item } = e;
-  server.runCommandSilent(
-    `playsound minecraft:ui.stonecutter.take_result block @a ${player.x} ${player.y} ${player.z}`
-  );
-
-  const furniture = Ingredient.of("#society:bouquet_bag_flowers").itemIds;
-
-  if (!player.isCreative()) item.count--;
-  let reward = player.level.createEntity("minecraft:item");
-  const rewardCount = player.stages.has("the_red_and_the_black") ? 5 : 4;
-  reward.x = player.x;
-  reward.y = player.y;
-  reward.z = player.z;
-  reward.item = Item.of(
-    `${rewardCount}x ${furniture[Math.floor(Math.random() * furniture.length)]}`
-  );
-  reward.spawn();
-  server.runCommandSilent(
-    `playsound stardew_fishing:complete block @a ${player.x} ${player.y} ${player.z}`
-  );
-  global.addItemCooldown(player, "society:bouquet_bag", 2);
-});
-
-ItemEvents.rightClicked("society:scavenged_food_bag", (e) => {
-  const { server, player, item } = e;
-  server.runCommandSilent(
-    `playsound minecraft:ui.stonecutter.take_result block @a ${player.x} ${player.y} ${player.z}`
-  );
-
-  const furniture = Ingredient.of("#society:dish").itemIds;
-
-  if (!player.isCreative()) item.count--;
-  let reward = player.level.createEntity("minecraft:item");
-  const rewardCount = player.stages.has("the_red_and_the_black") ? 2 : 1;
-  reward.x = player.x;
-  reward.y = player.y;
-  reward.z = player.z;
-
-  reward.item = Item.of(
-    `${rewardCount}x ${furniture[Math.floor(Math.random() * furniture.length)]}`
-  );
-  reward.spawn();
-  server.runCommandSilent(
-    `playsound stardew_fishing:complete block @a ${player.x} ${player.y} ${player.z}`
-  );
-  global.addItemCooldown(player, "society:scavenged_food_bag", 2);
 });

@@ -1,0 +1,21 @@
+{
+  "amplifier_modifier": 3,
+  "chance": 0.0,
+  "cooking_bonus": 2.0,
+  "crafting_bonus": 0.7,
+  "crop_multiplier": 0.75,
+  "duration_multiplier": 2.5,
+  "icon": "quality_food:quality_icon/diamond",
+  "level": 3,
+  "min_weight": 1.75,
+  "name": {
+    "color": "aqua",
+    "translate": "quality_type.quality_food.diamond"
+  },
+  "nutrition_multiplier": 2.0,
+  "potential_bonus": 0.0,
+  "probability_multiplier": 2.0,
+  "saturation_multiplier": 1.3,
+  "seed_multiplier": 0.75,
+  "weight": 3.0
+}

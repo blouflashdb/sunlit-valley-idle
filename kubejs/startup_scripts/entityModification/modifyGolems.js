@@ -1,137 +1,78 @@
-global.handleHayGolem = (entity) => {
+console.info("[SOCIETY] modifyGolems.js loaded");
+
+// Golem Overhaul golems help on the farm:
+// - Hay Golem: now and then upgrades farmland in a 4 block radius to low, then high quality fertilized farmland.
+// - Kelp Golem: waters the garden pots in a 4 block radius.
+// - Terracotta Golem: turns coarse dirt in a 4 block radius into clay.
+// The 1.20.1 Slime Golem raised the happiness of Splendid Slimes, which is not in the 1.21.1 pack.
+
+const $GolemBlockPos = Java.loadClass("net.minecraft.core.BlockPos");
+
+/** Calls fn with each loaded LevelBlock in the radius until it returns true. */
+const scanAroundGolem = (entity, radius, fn) => {
   const { level } = entity;
-  const entities = level
-    .getEntitiesWithin(entity.boundingBox.inflate(8))
-    .filter((e) => e.type == "golemoverhaul:hay_golem");
-  const radius = 4;
-  const { x, y, z } = entity;
-  let scanBlock;
-  if (entities.length <= 1) {
-    for (let pos of BlockPos.betweenClosed(
-      new BlockPos(x - radius, y - radius, z - radius),
-      [x + radius, y + radius, z + radius]
-    )) {
-      if (!level.isLoaded(pos)) continue;
-      scanBlock = level.getBlock(pos);
-      if (rnd10() && scanBlock.hasTag("society:hay_golem_improvable")) {
-        if (scanBlock.id.equals("minecraft:farmland")) {
-          scanBlock.set(
-            "dew_drop_farmland_growth:low_quality_fertilized_farmland",
-            scanBlock.getProperties()
-          );
-        } else if (
-          scanBlock.id.equals(
-            "dew_drop_farmland_growth:low_quality_fertilized_farmland"
-          )
-        ) {
-          scanBlock.set(
-            "dew_drop_farmland_growth:high_quality_fertilized_farmland",
-            scanBlock.getProperties()
-          );
-        } 
-        if (level.server) {
-          level.server.runCommandSilent(
-            `playsound ribbits:entity.ribbit.magic block @a ${scanBlock.x} ${scanBlock.y} ${scanBlock.z}`
-          );
-        }
-        return;
-      }
-    }
+  const x = Math.floor(entity.x);
+  const y = Math.floor(entity.y);
+  const z = Math.floor(entity.z);
+  for (let pos of $GolemBlockPos.betweenClosed(x - radius, y - radius, z - radius, x + radius, y + radius, z + radius)) {
+    if (!level.isLoaded(pos)) continue;
+    if (fn(level.getBlock(pos))) return;
   }
 };
+
+const playGolemSound = (entity, sound, x, y, z) => {
+  entity.level.getServer().runCommandSilent(
+    `execute in ${String(entity.level.dimension)} run playsound ${sound} block @a ${x} ${y} ${z}`
+  );
+};
+
+const hayGolemUpgrades = {
+  "minecraft:farmland": "dew_drop_farmland_growth:low_quality_fertilized_farmland",
+  "dew_drop_farmland_growth:low_quality_fertilized_farmland": "dew_drop_farmland_growth:high_quality_fertilized_farmland",
+};
+
+global.handleHayGolem = (entity) => {
+  const golems = entity.level
+    .getEntitiesWithin(entity.boundingBox.inflate(8))
+    .filter((other) => String(other.type) === "golemoverhaul:hay_golem");
+  if (golems.length > 1) return;
+  scanAroundGolem(entity, 4, (block) => {
+    if (!rnd10() || !block.hasTag("society:hay_golem_improvable")) return false;
+    const upgrade = hayGolemUpgrades[String(block.id)];
+    if (upgrade) block.set(upgrade, { moisture: String(block.getProperties().get("moisture")) });
+    playGolemSound(entity, "ribbits:entity.ribbit.magic", block.x, block.y, block.z);
+    return true;
+  });
+};
+
 global.handleKelpGolem = (entity) => {
-  const { level } = entity;
-  const { x, y, z } = entity;
-  const radius = 4;
-  let scanBlock;
-  let blockProperties;
-  for (let pos of BlockPos.betweenClosed(
-    new BlockPos(x - radius, y - radius, z - radius),
-    [x + radius, y + radius, z + radius]
-  )) {
-    if (!level.isLoaded(pos)) continue;
-    scanBlock = level.getBlock(pos);
-    if (scanBlock.id === "dew_drop_farmland_growth:garden_pot") {
-      blockProperties = scanBlock.getProperties();
-      blockProperties.moisture = "7";
-      scanBlock.set(scanBlock.id, blockProperties);
+  scanAroundGolem(entity, 4, (block) => {
+    if (String(block.id) === "dew_drop_farmland_growth:garden_pot") {
+      block.set(block.id, { moisture: "7", deluxe: String(block.getProperties().get("deluxe")) });
     }
-  }
-  if (level.server) {
-    level.server.runCommandSilent(
-      `playsound minecraft:block.water.ambient block @a ${x} ${y} ${z}`
-    );
-  }
+    return false;
+  });
+  playGolemSound(entity, "minecraft:block.water.ambient", entity.x, entity.y, entity.z);
 };
 
 global.handleTerracottaGolem = (entity) => {
-  const { level } = entity;
-  const { x, y, z } = entity;
-  const radius = 4;
-  let scanBlock;
-  for (let pos of BlockPos.betweenClosed(
-    new BlockPos(x - radius, y - radius, z - radius),
-    [x + radius, y + radius, z + radius]
-  )) {
-    if (!level.isLoaded(pos)) continue;
-    scanBlock = level.getBlock(pos);
-    if (scanBlock.id.equals("minecraft:coarse_dirt")) {
-      scanBlock.set("minecraft:clay");
-      if (level.server) {
-        level.server.runCommandSilent(
-          `playsound twigs:block.silt.break block @a ${scanBlock.x} ${scanBlock.y} ${scanBlock.z}`
-        );
-      }
-      return;
-    }
-  }
+  scanAroundGolem(entity, 4, (block) => {
+    if (String(block.id) !== "minecraft:coarse_dirt") return false;
+    block.set("minecraft:clay");
+    playGolemSound(entity, "twigs:block.silt.break", block.x, block.y, block.z);
+    return true;
+  });
 };
 
-global.handleSlimeGolem = (entity) => {
-  const { level } = entity;
-  const entities = level
-    .getEntitiesWithin(entity.boundingBox.inflate(8))
-    .filter((e) => e.type == "splendid_slimes:splendid_slime");
-
-  const golems = level
-    .getEntitiesWithin(entity.boundingBox.inflate(8))
-    .filter((e) => e.type == "golemoverhaul:slime_golem");
-  if (golems.length <= 1) {
-    entities.forEach((slime) => {
-      let nbt = slime.getNbt();
-      nbt.Happiness = nbt.Happiness + 5;
-      slime.setNbt(nbt);
-    });
-  }
+const golemTick = (interval, handler) => (entity) => {
+  if (entity.level.isClientSide() || entity.level.time % interval !== 0) return;
+  handler(entity);
 };
 
 EntityJSEvents.modifyEntity((event) => {
-  event.modify("golemoverhaul:hay_golem", (modifyBuilder) => {
-    modifyBuilder.tick((entity) => {
-      if (entity.level.time % 3600 === 0) {
-        global.handleHayGolem(entity);
-      }
-    });
-  });
-  event.modify("golemoverhaul:kelp_golem", (modifyBuilder) => {
-    modifyBuilder.tick((entity) => {
-      if (entity.level.time % 1200 === 0) {
-        global.handleKelpGolem(entity);
-      }
-    });
-  });
-  event.modify("golemoverhaul:terracotta_golem", (modifyBuilder) => {
-    modifyBuilder.tick((entity) => {
-      if (entity.level.time % 200 === 0) {
-        global.handleTerracottaGolem(entity);
-      }
-    });
-  });
-  event.modify("golemoverhaul:slime_golem", (modifyBuilder) => {
-    modifyBuilder.tick((entity) => {
-      if (entity.level.time % 1200 === 0) {
-        global.handleSlimeGolem(entity);
-      }
-    });
-  });
+  event.modify("golemoverhaul:hay_golem", (builder) => builder.tick(golemTick(3600, global.handleHayGolem)));
+  event.modify("golemoverhaul:kelp_golem", (builder) => builder.tick(golemTick(1200, global.handleKelpGolem)));
+  event.modify("golemoverhaul:terracotta_golem", (builder) =>
+    builder.tick(golemTick(200, global.handleTerracottaGolem))
+  );
 });

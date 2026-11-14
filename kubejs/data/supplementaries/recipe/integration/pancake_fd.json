@@ -1,0 +1,37 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "supplementaries:flag",
+      "flag": "pancake"
+    },
+    {
+      "modid": "farmersdelight",
+      "type": "neoforge:mod_loaded"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "tag": "society:large_milk"
+    },
+    {
+      "tag": "c:dough"
+    },
+    {
+      "tag": "c:eggs"
+    },
+    {
+      "item": "society:maple_syrup"
+    },
+    {
+      "item": "farm_and_charm:butter"
+    }
+  ],
+  "result": {
+    "id": "supplementaries:pancake",
+    "count": 3
+  }
+}
