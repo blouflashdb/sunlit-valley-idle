@@ -51,14 +51,14 @@ PARTS = (
     ("c", "tags/block"),
     ("quality_food", "tags"),
 )
-# Files of PARTS that earlier slices ported (#16); they stay as they are.
+# Files of PARTS that earlier slices ported (#16, #64); they stay as they are.
 ALREADY_PORTED = {
     "society/loot_table/blocks": (
         "blackstone_boulder deepslate_iridium_ore deepslate_sparkstone_ore end_stone_boulder geode_node "
         "grimwood_supply_crate ice_boulder iridium_ore magma_geode_node oak_supply_crate omni_geode_node "
         "palm_supply_crate sandstone_boulder sparkstone_ore spruce_supply_crate stone_boulder"
     ),
-    "society/tags/block": "skull_cavern_bomb_denied skull_cavern_regens skull_cavern_unplacable",
+    "society/tags/block": "hay_golem_improvable skull_cavern_bomb_denied skull_cavern_regens skull_cavern_unplacable",
     "society/tags/item": (
         "bouquet_bag_flowers frozen_geode_bonus frozen_geode_relic frozen_geode_treasure geode_bonus geode_junk "
         "geode_relic geode_treasure geodes magma_geode_bonus magma_geode_relic magma_geode_treasure omni_geode_bonus "
