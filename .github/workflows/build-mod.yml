@@ -41,9 +41,15 @@ jobs:
           grep -E "All [0-9]+ required tests passed" gametest.log
       - name: Check loading screen tips (#18)
         run: python3 tools/port/check_tips.py
+      - name: Check resource packs and shader pack (#19)
+        # Fails on stale pack names, a wrong pack format, Oculus/Embeddium configs or a shader that Colorwheel
+        # Patcher cannot patch; the per-pack coverage table in the job summary is only a report.
+        run: |
+          python3 tools/port/check_resourcepacks.py --download-client 1.21.1 --jars-from-lock \
+            --summary "$GITHUB_STEP_SUMMARY"
       - name: Check client defaults (#19)
-        # Known problems in configureddefaults/options.txt (a merged line, three resource packs with 1.20.1
-        # file names) are reported but do not fail the build yet; remove continue-on-error once #19 fixes them.
+        # A known problem in configureddefaults/options.txt (line 86 merges two options) is reported but does
+        # not fail the build yet; remove continue-on-error once #19 fixes it.
         continue-on-error: true
         run: python3 tools/port/check_client_defaults.py
       - name: Export CurseForge pack

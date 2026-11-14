@@ -7,6 +7,9 @@ Fails if the server never reaches "Done", crashes, NeoForge reports missing depe
 logs an error. With --kubejs-tests the scripts in that folder are added as server scripts and the server
 is booted twice; each test prints "[PORT-TEST] PHASE1 <name>" on the first boot and "[PORT-TEST] PASS <name>"
 on the second (or "[PORT-TEST] FAIL <name>: ..."), so tests can check that state survives a restart.
+The last test boot also measures performance (#19): time to "Done", the server's own load time, the TPS of the
+idle world after a warm-up and the memory of the server process. The numbers go to <dir>/perf.json and, in
+GitHub Actions, to the job summary.
 
 With --simulate-year (needs the sunlitidle jar as --extra-mod) a last boot runs one in-game year: the sunlitidle
 CI harness (-Dsunlitidle.ci=true, dev.sunlitidle.ci) logs in a player without a client, checks the idle skills,
@@ -47,6 +50,8 @@ FAIL_MARKERS = (
     "Failed to start the minecraft server",
 )
 SKIP_OVERRIDES = ("kubejs/_unported", "config/_unported")
+DONE_TIME = re.compile(r"Done \(([0-9.]+)s\)!")
+TPS_LINE = re.compile(r"(Overall|minecraft:overworld)\b.*?([0-9.]+) TPS.*?([0-9.]+) ?ms", re.I)
 TEST_MARKER = re.compile(r"\[PORT-TEST\] (PHASE1|PASS|FAIL) ([\w-]+)")
 CI_CHECK = re.compile(r"\[CI-CHECK\] (PASS|FAIL) ([\w-]+)(?:: (.*))?")
 DAYS_PER_SEASON = 30  # 3 sub-seasons of sub_season_duration = 10 days (config/sereneseasons/seasons.toml)
@@ -87,6 +92,7 @@ def main():
     ap.add_argument("--timeout", type=int, default=900, help="seconds to wait for the world")
     ap.add_argument("--extra-mod", action="append", default=[], help="local mod jar to add, such as sunlitidle")
     ap.add_argument("--kubejs-tests", help="folder of KubeJS server scripts that print [PORT-TEST] markers")
+    ap.add_argument("--warmup", type=int, default=60, help="seconds the idle world runs before TPS is measured")
     ap.add_argument("--simulate-year", action="store_true", help="boot once more and simulate one in-game year")
     ap.add_argument("--allowlist", default=str(kubejs_log_gate.DEFAULT_ALLOWLIST), help="known KubeJS errors")
     args = ap.parse_args()
@@ -109,8 +115,11 @@ def main():
     errors = []
     for boot in range(1, boots + 1):
         print(f"=== Boot {boot} of {boots}", flush=True)
-        markers = run_server(server, args.timeout, wait_for=set(tests))
+        perf = {} if boot == boots else None
+        markers = run_server(server, args.timeout, wait_for=set(tests), perf=perf, warmup=args.warmup)
         results.append(markers)
+        if perf is not None:
+            report_perf(server, perf)
         errors += kubejs_errors(server, boot)
 
     failed = kubejs_log_gate.gate(errors, allowlist, "KubeJS errors at startup (test boots)") > 0
@@ -199,7 +208,7 @@ class Server:
 
     def wait_for(self, pattern, seconds):
         """Returns the first console line that matches pattern, or None after seconds or when the server exits."""
-        regex = re.compile(pattern)
+        regex = pattern if isinstance(pattern, re.Pattern) else re.compile(pattern)
         end = time.monotonic() + seconds
         while time.monotonic() < end:
             try:
@@ -227,8 +236,11 @@ class Server:
         self.timer.cancel()
 
 
-def run_server(server, timeout, wait_for):
-    """Runs the server until it is up (and the KubeJS tests reported), stops it, returns test markers."""
+def run_server(server, timeout, wait_for, perf=None, warmup=60):
+    """Runs the server until it is up (and the KubeJS tests reported), stops it, returns test markers.
+
+    With a perf dict, it waits `warmup` seconds after "Done", asks for the TPS and fills in the numbers."""
+    start = time.monotonic()
     srv = Server(server, timeout)
     markers = {}
     up = False
@@ -241,15 +253,37 @@ def run_server(server, timeout, wait_for):
             m = TEST_MARKER.search(line)
             if m:
                 markers.setdefault(m.group(2), []).append(m.group(1))
+            done = DONE_TIME.search(line)
+            if perf is not None and done and "done_s" not in perf:
+                perf["done_s"] = float(done.group(1))
+                perf["wall_to_done_s"] = round(time.monotonic() - start, 1)
         if srv.done and not up:
             up = True
             # Tests run on ServerEvents.loaded, right after "Done"; give them a moment.
             grace_end = time.monotonic() + (60 if wait_for else 0)
         if up and (wait_for <= markers.keys() or time.monotonic() >= grace_end):
             break
+    if perf is not None and srv.proc.poll() is None:
+        measure_tps(srv, perf, warmup)
     srv.stop()
     check_boot(server, srv)
     return markers
+
+
+def measure_tps(srv, perf, warmup):
+    """Lets the idle world settle, then asks NeoForge for the tick times and the process memory."""
+    srv.wait_for(r"(?!)", max(0, warmup))
+    perf["rss_mb"] = server_rss_mb(srv.proc.pid)
+    srv.send("neoforge tps")
+    end = time.monotonic() + 15
+    while time.monotonic() < end:
+        line = srv.wait_for(TPS_LINE, end - time.monotonic())
+        if not line:
+            break
+        tps = TPS_LINE.search(line)
+        perf.setdefault("tps", {})[tps.group(1)] = {"tps": float(tps.group(2)), "mspt": float(tps.group(3))}
+        if "Overall" in perf["tps"]:
+            break
 
 
 def check_boot(server, srv):
@@ -321,6 +355,49 @@ def sprint(srv, ticks):
     srv.send(f"tick sprint {ticks}")
     if not srv.wait_for(r"Sprint completed", 1800):
         raise SystemExit(f"tick sprint {ticks} did not finish: {srv.fail or 'no report'}")
+
+
+def server_rss_mb(pid):
+    """Resident memory of the java process under run.sh (the shell's child), in MB."""
+    pids = [pid]
+    try:
+        pids += [int(c) for c in pathlib.Path(f"/proc/{pid}/task/{pid}/children").read_text().split()]
+    except OSError:
+        pass
+    best = 0
+    for p in pids:
+        try:
+            for line in pathlib.Path(f"/proc/{p}/status").read_text().splitlines():
+                if line.startswith("VmRSS:"):
+                    best = max(best, int(line.split()[1]) // 1024)
+        except OSError:
+            continue
+    return best or None
+
+
+def report_perf(server, perf):
+    mods = len(list((server / "mods").glob("*.jar")))
+    perf["server_mods"] = mods
+    log = server / "logs" / "latest.log"
+    if log.exists():
+        m = re.search(r"(?:Dedicated server|Game) took ([0-9.]+) seconds", log.read_text(errors="replace"))
+        if m:
+            perf["modernfix_load_s"] = float(m.group(1))
+    (server / "perf.json").write_text(json.dumps(perf, indent=2) + "\n")
+    overall = perf.get("tps", {}).get("Overall", {})
+    rows = [("Server mods", mods),
+            ("Wall time from start to \"Done\"", f"{perf.get('wall_to_done_s', '?')} s"),
+            ("Server \"Done (...)\" time", f"{perf.get('done_s', '?')} s"),
+            ("ModernFix load time", f"{perf.get('modernfix_load_s', '?')} s"),
+            ("Idle TPS / mean tick (overall)", f"{overall.get('tps', '?')} / {overall.get('mspt', '?')} ms"),
+            ("Server process RSS", f"{perf.get('rss_mb', '?')} MB (-Xmx6G)")]
+    text = "## Server performance (last boot)\n\n| Metric | Value |\n| --- | --- |\n"
+    text += "".join(f"| {k} | {v} |\n" for k, v in rows)
+    print(text, flush=True)
+    summary = os.environ.get("GITHUB_STEP_SUMMARY")
+    if summary:
+        with open(summary, "a") as f:
+            f.write(text + "\n")
 
 
 def kubejs_errors(server, boot):

@@ -9,6 +9,7 @@ All checks run in `.github/workflows/build-mod.yml` on every push and pull reque
 | Job / step | What it runs |
 | --- | --- |
 | `build` / *Run in-game tests* | GameTests of the `sunlitidle` mod (`mod/src/main/java/dev/sunlitidle/gametest/`), dev run without the pack |
+| `build` / *Check resource packs and shader pack* | `tools/port/check_resourcepacks.py` (from #66) |
 | `build` / *Check client defaults* | `tools/port/check_client_defaults.py` (not gating yet, see below) |
 | `server-boot` | `tools/port/server_boot_test.py --kubejs-tests tools/port/kubejs_tests --simulate-year`: boots a dedicated server with the whole pack twice (KubeJS tests), then a third time for one simulated in-game year with the pack checks of `dev.sunlitidle.ci` |
 | `client-boot` | `tools/port/client_boot_test.py`: boots the client with the whole pack on Xvfb with Mesa llvmpipe, joins a pack server, takes a screenshot (artifact `client-logs`) |
@@ -71,6 +72,6 @@ The job summary also shows the server start time and the average TPS of the spri
 - **Manual progression.** The checks give gear, levels and inputs directly; they do not prove that a player can
   earn them in a reasonable time (balance).
 - **`kubejs/_unported/`, version bump, README note.** Release steps, not behaviour.
-- **Client defaults.** `check_client_defaults.py` finds problems in `configureddefaults/options.txt` today
-  (line 86 merges `onboardAccessibility` with the next option; three resource packs have 1.20.1 file names), so
-  the step has `continue-on-error: true` until #19 fixes the file.
+- **Client defaults.** `check_client_defaults.py` finds a problem in `configureddefaults/options.txt` today
+  (line 86 merges `onboardAccessibility` with the next option, so the game drops both), so the step has
+  `continue-on-error: true` until #19 fixes the file.
