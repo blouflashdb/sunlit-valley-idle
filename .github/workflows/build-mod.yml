@@ -48,8 +48,9 @@ jobs:
       - name: Check mod dependencies of the client and server install (#19)
         # NeoForge refuses to load on a missing, out-of-range or incompatible dependency; the server boot only
         # sees the server mods, so this also covers client-only mods (FancyMenu, WaterMedia, Sodium addons).
+        # The mod ids of the client install go to the config id sweep of the server-boot job (client-only mods).
         run: |
-          python3 tools/port/check_mod_deps.py --side CLIENT
+          python3 tools/port/check_mod_deps.py --side CLIENT --mod-ids-out build/mod-ids/mod-ids-client.json
           python3 tools/port/check_mod_deps.py --side SERVER
       - name: Check resource packs and shader pack (#19)
         # Fails on stale pack names, a wrong pack format, Oculus/Embeddium configs or a shader that Colorwheel
@@ -63,6 +64,10 @@ jobs:
         run: |
           if [ -e kubejs/_unported ]; then echo "kubejs/_unported exists: port or delete what is left"; exit 1; fi
           if [ -e config/_unported ]; then echo "config/_unported exists: port or delete what is left"; exit 1; fi
+      - name: Check for config backups in the overrides
+        # A *.bak, *.old or config_old_* file in config/ or defaultconfigs/ is a leftover of a mod that rewrote a
+        # config; it ships to every player.
+        run: python3 tools/port/config_gate.py --repo
       - name: Check client defaults (#19)
         # configureddefaults/options.txt must parse line by line and enable only resource packs the pack ships.
         run: python3 tools/port/check_client_defaults.py
@@ -79,6 +84,10 @@ jobs:
         with:
           name: sunlitidle-mod
           path: mod/build/libs/*.jar
+      - uses: actions/upload-artifact@v7
+        with:
+          name: mod-ids
+          path: build/mod-ids/
       - uses: actions/upload-artifact@v7
         with:
           name: sunlit-valley-idle-${{ env.PACK_VERSION }}-curseforge
@@ -105,7 +114,9 @@ jobs:
           python3 tools/port/server_boot_test.py --dir build/server --extra-mod "$JAR" --kubejs-tests tools/port/kubejs_tests \
             --simulate-year 2>&1 | tee build/server-boot.log
           # KubeJS must load without errors (tools/port/kubejs_error_allowlist.txt lists known ones), the KubeJS tests
-          # and the pack checks of the year (dev.sunlitidle.ci) must pass; the script fails otherwise.
+          # and the pack checks of the year (dev.sunlitidle.ci) must pass; the script fails otherwise. It also fails
+          # on InControl rule errors and on configs that a mod archived or backed up during a boot
+          # (tools/port/config_gate.py, allowlist tools/port/config_gate_allowlist.txt).
           # The mod must have loaded, and Pufferfish's Skills must have accepted its skill categories.
           grep -q "sunlitidle" build/server/logs/latest.log
           if grep -q "Data pack \`sunlitidle\` could not be loaded" build/server/logs/latest.log; then
@@ -117,6 +128,17 @@ jobs:
         run: |
           MC=$(python3 -c "import json; print(json.load(open('pakku-lock.json'))['mc_versions'][0])")
           python3 tools/port/assets/check_placeholders.py --download-client "$MC" --jar-dir build/server/mods
+      - uses: actions/download-artifact@v7
+        with:
+          name: mod-ids
+          path: build/mod-ids
+      - name: Check the ids in the mod configs
+        # Namespaced ids in config/, defaultconfigs/ and configureddefaults/config/ must belong to a mod of the pack
+        # (server registry dump plus the client-only mods); InControl mobs, items and biomes must be registered.
+        # Known upstream default lists: tools/port/config_id_allowlist.txt.
+        run: |
+          python3 tools/port/check_config_ids.py --registry build/server/kubejs/registry_dump.json \
+            --mod-ids build/mod-ids/mod-ids-client.json
       - name: Check every id and image of the quest book (#18)
         # registryDump.js wrote the server's registries during the boot; images resolve against the jars.
         run: |
@@ -148,6 +170,7 @@ jobs:
           name: server-logs
           path: |
             build/server-boot.log
+            build/server/kubejs/registry_dump.json
             build/server/logs/
             build/server/crash-reports/
           if-no-files-found: ignore

@@ -15,6 +15,8 @@ HUD). Checks:
   (Colorwheel Patcher writes the patched Complementary copy there),
 - every resource pack that configureddefaults/options.txt enables must still be enabled after the first start
   (the game drops missing and incompatible packs from options.txt and logs it),
+- the server log must have no InControl rule errors (InControl repeats them in chat on the join), and no mod may
+  archive or back up a config of the client or the server during the run (config_gate.py, config_gate_allowlist.txt),
 - logs/kubejs/client.log must have no errors (error gate with kubejs_error_allowlist.txt),
 - logs/latest.log must have no errors from the renderer (Iris, Sodium), FancyMenu / Drippy Loading Screen or
   resource pack loading (same allowlist). Other client errors are listed but do not fail the test.
@@ -38,6 +40,7 @@ import time
 import urllib.parse
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
+import config_gate  # noqa: E402
 import kubejs_log_gate  # noqa: E402
 import server_boot_test as boot  # noqa: E402
 
@@ -249,6 +252,7 @@ def main():
     ap.add_argument("--join-timeout", type=int, default=1800, help="seconds for the client to join the server")
     ap.add_argument("--render-wait", type=int, default=120, help="seconds between the join and the screenshot")
     ap.add_argument("--allowlist", default=str(kubejs_log_gate.DEFAULT_ALLOWLIST))
+    ap.add_argument("--config-allowlist", default=str(config_gate.DEFAULT_ALLOWLIST))
     args = ap.parse_args()
 
     root = pathlib.Path(args.dir).resolve()
@@ -265,6 +269,7 @@ def main():
     subprocess.run(["portablemc", "--main-dir", str(main_dir), "--work-dir", str(game), "--output", "human",
                     "start", "--dry", "--jvm", shutil.which("java"), f"neoforge:{neoforge}"],
                    check=True, stdout=subprocess.DEVNULL)
+    configs_before = {"client": config_gate.snapshot(game), "server": config_gate.snapshot(server_dir)}
 
     server = boot.Server(server_dir, args.join_timeout + 1800)
     xvfb = None
@@ -317,6 +322,19 @@ def main():
         print("=== Client crash report " + crash_reports[-1].name)
         for line in failures or report.splitlines()[:60]:
             print("  " + line)
+
+    config_allowlist = kubejs_log_gate.load_allowlist(args.config_allowlist)
+    config_errors = config_gate.log_errors(server_dir / "logs" / "latest.log", "server latest.log")
+    config_errors += config_gate.log_errors(game / "logs" / "latest.log", "client latest.log")
+    if title_log:
+        config_errors += config_gate.log_errors(title_log, "client title-screen log")
+    config_errors += config_gate.backups(game, configs_before["client"], "client config")
+    config_errors += config_gate.backups(server_dir, configs_before["server"], "server config")
+    config_errors += config_gate.rewritten(game, "client config", client=True)
+    config_errors += config_gate.rewritten(server_dir, "server config")
+    if kubejs_log_gate.gate(config_errors, config_allowlist, "Mod config errors (InControl, archived configs)") > 0:
+        problems.append("mod config errors")
+    kubejs_log_gate.report_stale(config_allowlist)
 
     kubejs = kubejs_log_gate.error_lines(game / "logs" / "kubejs" / "client.log", "client.log")
     kubejs += kubejs_log_gate.error_lines(game / "logs" / "kubejs" / "startup.log", "client startup.log")

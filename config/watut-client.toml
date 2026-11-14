@@ -1,7 +1,6 @@
-
 #General mod settings
 [general]
-	#SETTING THESE CLIENT SIDE SETTINGS TO FALSE WILL OVERRIDE ANY OF THE SAME SERVER SETTINGS THAT ARE SET TO TRUE (for your client only)
+	#SETTING THESE CLIENT SIDE SETTINGS TO FALSE WILL OVERRIDE ANY OF THE SAME SERVER SETTINGS THAT ARE SET TO TRUE (for your client only).
 	dummySetting = true
 	#Sends relative mouse position and clicking
 	sendMouseInfo = false
@@ -32,13 +31,16 @@
 	#Show 'Player is typing...' on the chat screen
 	screenTypingVisible = true
 	#Adjust the X position where the 'Player is typing...' text shows in the chat Gui
-	#Range: > -2147483648
+	# Default: 0
+	# Range: > -2147483648
 	screenTypingRelativePosition_X = 0
 	#Adjust the Y position where the 'Player is typing...' text shows in the chat Gui
-	#Range: > -2147483648
+	# Default: 0
+	# Range: > -2147483648
 	screenTypingRelativePosition_Y = 0
 	#Max characters allowed before it switches to using string set in screenTypingMultiplePlayersText
-	#Range: > -2147483648
+	# Default: 50
+	# Range: > -2147483648
 	screenTypingCharacterLimit = 50
 	#String to use when too many people are typing determined by screenTypingCharacterLimit
 	screenTypingMultiplePlayersText = "Several people are typing"
@@ -49,13 +51,16 @@
 	#Plays a sutble sound when a player clicks their mouse in a Gui
 	playMouseClickSounds = true
 	#Adjusts the size of the gui visual that appears infront of a player, 2 = twice the size
-	#Range: 0.1 ~ 1.7976931348623157E308
+	# Default: 1.0
+	# Range: 0.1 ~ 1.7976931348623157E308
 	particleSizeScale = 1.0
 	#Delay between ticks your client will accept and update new image of another players gui, you can only increase the delay from what the server/other client is set to, 10 = twice a second
-	#Range: > -2147483648
+	# Default: 10
+	# Range: > -2147483648
 	tickReceiveAndRenderRateOfGUIUpdates = 200
 	#Privacy setting, if you dont want to send very detailed info of your screen for everyone to see and instead use the old basic gui visual, set this to true
 	dontSendDetailedGUIInfo = false
 	#Privacy setting, if you dont want to show the items you are transferring to and from yourself and containers, set this to true
 	dontSendItemInfo = false
-
+	#Set to false if you dont want watut to sho your own dynamic guis in 3rd person
+	showGuisForYourOwnPlayerIn3rdPerson = true

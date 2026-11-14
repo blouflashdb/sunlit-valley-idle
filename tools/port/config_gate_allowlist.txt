@@ -1,0 +1,3 @@
+# Known mod config errors of the boot tests (tools/port/config_gate.py): InControl rule errors in logs/latest.log
+# and configs that a mod archived or backed up during a boot. Only real upstream problems belong here.
+# Format: <owner> | <python regex searched in the message>

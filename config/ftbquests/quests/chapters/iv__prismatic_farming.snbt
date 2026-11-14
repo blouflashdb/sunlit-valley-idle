@@ -1317,7 +1317,7 @@
 					components: {
 						"minecraft:stored_enchantments": {
 							levels: {
-								"domesticationinnovation:chain_lightning": 1
+								"minecraft:unbreaking": 1
 							}
 						}
 					}
