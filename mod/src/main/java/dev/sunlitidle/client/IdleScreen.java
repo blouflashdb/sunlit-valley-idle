@@ -10,6 +10,8 @@ import dev.sunlitidle.idle.IdleInput;
 import dev.sunlitidle.idle.IdleMath;
 import dev.sunlitidle.idle.IdleMenu;
 import dev.sunlitidle.idle.IdleSkill;
+import dev.sunlitidle.idle.PlaceholderSlot;
+import dev.sunlitidle.idle.SlotPlaceholder;
 import dev.sunlitidle.idle.SlotStatus;
 import dev.sunlitidle.idle.ToolKind;
 import dev.sunlitidle.network.IdleActionPacket;
@@ -70,6 +72,11 @@ public class IdleScreen extends AbstractContainerScreen<IdleMenu> {
         super(menu, inventory, title);
         imageWidth = STORE_X + STORE_COLS * 18 + 6;
         imageHeight = IdleMenu.HOTBAR_Y + 24;
+        String tab = ClientSetup.consumeCiTab();
+        IdleSkill start = tab != null ? IdleCatalog.skill(tab) : null;
+        if (start != null) {
+            selectedSkill = start.index();
+        }
     }
 
     @Override
@@ -296,6 +303,13 @@ public class IdleScreen extends AbstractContainerScreen<IdleMenu> {
         IdleSyncPacket data = ClientIdleData.get();
         int mx = mouseX - leftPos;
         int my = mouseY - topPos;
+        if (hoveredSlot instanceof PlaceholderSlot slot && !slot.hasItem() && menu.getCarried().isEmpty()) {
+            List<Component> lines = placeholderTooltip(slot);
+            if (!lines.isEmpty()) {
+                g.renderComponentTooltip(font, lines, mouseX, mouseY);
+                return;
+            }
+        }
         for (IdleSkill s : IdleCatalog.skills()) {
             int ty = IdleMenu.TAB_Y + s.index() * IdleMenu.TAB_STEP;
             if (in(mx, my, IdleMenu.TAB_X, ty, TAB, TAB)) {
@@ -348,6 +362,26 @@ public class IdleScreen extends AbstractContainerScreen<IdleMenu> {
             lines.add(Component.translatable("sunlitidle.idle.sell_hint").withStyle(ChatFormatting.DARK_GRAY));
             g.renderComponentTooltip(font, lines, mouseX, mouseY);
         }
+    }
+
+    /** Tooltip of an empty tool, armor or food slot: what fits there, and whether the skill needs it. */
+    private List<Component> placeholderTooltip(PlaceholderSlot slot) {
+        SlotPlaceholder placeholder = slot.placeholder();
+        if (placeholder == null) {
+            return List.of();
+        }
+        List<Component> lines = new ArrayList<>();
+        lines.add(Component.translatable(placeholder.translationKey()));
+        // Menu index, not the handler index (SlotItemHandler shadows it): the tool slots come first, one per skill.
+        int menuIndex = ((net.minecraft.world.inventory.Slot) slot).index;
+        IdleSkill owner = menuIndex < IdleCatalog.skills().size() ? IdleCatalog.skill(menuIndex) : null;
+        if (owner != null && SlotPlaceholder.forTool(owner.tool()) == placeholder) {
+            lines.add(Component.translatable(owner.toolRequired() ? "sunlitidle.slot_hint.required" : "sunlitidle.slot_hint.optional",
+                    Component.translatable(owner.translationKey())).withStyle(ChatFormatting.GRAY));
+        } else {
+            lines.add(Component.translatable(placeholder.descriptionKey()).withStyle(ChatFormatting.GRAY));
+        }
+        return lines;
     }
 
     private List<Component> slotTooltip(IdleSyncPacket data, int i) {

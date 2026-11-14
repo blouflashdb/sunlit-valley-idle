@@ -10,7 +10,6 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.ItemStackHandler;
-import net.neoforged.neoforge.items.SlotItemHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -52,7 +51,8 @@ public class IdleMenu extends AbstractContainerMenu {
         toolCount = tools.getSlots();
         for (int i = 0; i < toolCount; i++) {
             final IdleSkill skill = IdleCatalog.skill(i);
-            addSlot(new SlotItemHandler(tools, i, TOOL_X, TAB_Y + 1 + i * TAB_STEP) {
+            addSlot(new PlaceholderSlot(tools, i, TOOL_X, TAB_Y + 1 + i * TAB_STEP,
+                    skill != null ? SlotPlaceholder.forTool(skill.tool()) : null) {
                 @Override
                 public boolean mayPlace(@NotNull ItemStack stack) {
                     return skill != null && skill.tool().matches(stack);
@@ -73,7 +73,7 @@ public class IdleMenu extends AbstractContainerMenu {
         IItemHandler food = state != null ? state.food() : new ItemStackHandler(PlayerIdleState.FOOD_SLOTS);
         for (int i = 0; i < armor.getSlots(); i++) {
             final int gearSlot = i + 1;
-            addSlot(new SlotItemHandler(armor, i, MID_X + 1 + i * 18, GEAR_Y) {
+            addSlot(new PlaceholderSlot(armor, i, MID_X + 1 + i * 18, GEAR_Y, SlotPlaceholder.forArmor(gearSlot)) {
                 @Override
                 public boolean mayPlace(@NotNull ItemStack stack) {
                     return dev.sunlitidle.combat.Gear.fitsGearSlot(gearSlot, stack);
@@ -92,7 +92,7 @@ public class IdleMenu extends AbstractContainerMenu {
         }
         armorEnd = slots.size();
         for (int i = 0; i < food.getSlots(); i++) {
-            addSlot(new SlotItemHandler(food, i, FOOD_X + i * 18, GEAR_Y) {
+            addSlot(new PlaceholderSlot(food, i, FOOD_X + i * 18, GEAR_Y, SlotPlaceholder.FOOD) {
                 @Override
                 public boolean mayPlace(@NotNull ItemStack stack) {
                     return dev.sunlitidle.combat.Gear.isFood(stack);
