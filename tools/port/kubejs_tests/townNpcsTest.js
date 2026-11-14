@@ -18,8 +18,9 @@ ServerEvents.loaded((event) => {
         check(global.itemExists(id), `${id} is not registered`)
       );
       let taste = (npc, id) => global.getVillagerGiftResult(npc, Item.of(id));
-      // Universal love; the rabbit foot is a farmer product now (society:farmer_product tag), which the banker dislikes.
-      check(taste("banker", "society:prismatic_shard") === "loved", `banker + prismatic shard: ${taste("banker", "society:prismatic_shard")}`);
+      // Universal love. The rabbit foot is a farmer product (society:farmer_product, which the banker dislikes) and the
+      // prismatic shard is in #c:gems (universally liked) since the tag script is ported.
+      check(taste("banker", "herbalbrews:oolong_tea") === "loved", `banker + oolong tea: ${taste("banker", "herbalbrews:oolong_tea")}`);
       check(taste("shepherd", "minecraft:rabbit_foot") === "hated", "the shepherd's own taste does not win");
       check(taste("banker", "minecraft:stick") === "neutral", "a stick is not neutral");
       check(taste("blacksmith", "minecraft:poppy") === "liked", "the blacksmith does not like flowers (tag)");
