@@ -1,0 +1,24 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "veggiesdelight:cauliflower"
+    },
+    {
+      "tag": "c:crops/onion"
+    },
+    {
+      "tag": "c:crops/garlic"
+    },
+    {
+      "tag": "society:small_milk"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "id": "veggiesdelight:cauliflower_kuku",
+    "count": 1
+  }
+}

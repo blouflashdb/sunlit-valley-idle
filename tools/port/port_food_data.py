@@ -52,11 +52,178 @@ DROPPED_NAMESPACES = {"nethervinery": "Nether Vinery is not in the 1.21.1 pack"}
 
 # --- Filled from the 1.20.1 and 1.21.1 mod jars -------------------------------------------------------------------
 # Overrides that are identical to the 1.20.1 mod's own file: nothing to port.
-UNCHANGED = set()
+UNCHANGED = {
+    "bakery/advancement/recipes/baking_station.json",
+    "bakery/advancement/recipes/bread_basket.json",
+    "bakery/advancement/recipes/bread_box.json",
+    "bakery/advancement/recipes/bread_crate.json",
+    "bakery/advancement/recipes/bread_knife.json",
+    "bakery/advancement/recipes/brick_counter.json",
+    "bakery/advancement/recipes/butter.json",
+    "bakery/advancement/recipes/cabinet.json",
+    "bakery/advancement/recipes/cake_display.json",
+    "bakery/advancement/recipes/cake_dough.json",
+    "bakery/advancement/recipes/cake_stand.json",
+    "bakery/advancement/recipes/chocolate_box.json",
+    "bakery/advancement/recipes/cobblestone_stove.json",
+    "bakery/advancement/recipes/cupcake_display.json",
+    "bakery/advancement/recipes/deepslate_stove.json",
+    "bakery/advancement/recipes/dough.json",
+    "bakery/advancement/recipes/drawer.json",
+    "bakery/advancement/recipes/end_bricks_stove.json",
+    "bakery/advancement/recipes/faucet.json",
+    "bakery/advancement/recipes/granite_stove.json",
+    "bakery/advancement/recipes/iron_chair.json",
+    "bakery/advancement/recipes/iron_table.json",
+    "bakery/advancement/recipes/jar.json",
+    "bakery/advancement/recipes/kitchen_sink.json",
+    "bakery/advancement/recipes/mud_bricks_stove.json",
+    "bakery/advancement/recipes/quartz_stove.json",
+    "bakery/advancement/recipes/red_nether_bricks_stove.json",
+    "bakery/advancement/recipes/rolling_pin.json",
+    "bakery/advancement/recipes/sandstone_stove.json",
+    "bakery/advancement/recipes/sandwich.json",
+    "bakery/advancement/recipes/small_cooking_pot.json",
+    "bakery/advancement/recipes/stone_bricks_stove.json",
+    "bakery/advancement/recipes/strawberry_chocolate.json",
+    "bakery/advancement/recipes/street_sign.json",
+    "bakery/advancement/recipes/sweet_dough.json",
+    "bakery/advancement/recipes/tray.json",
+    "bakery/advancement/recipes/vegetable_sandwich.json",
+    "bakery/advancement/recipes/wall_cabinet.json",
+    "brewery/recipe/brewing/dark_brew.json",
+    "farmersdelight/loot_table/chests/fd_bastion_hoglin_stable.json",
+    "farmersdelight/loot_table/chests/fd_bastion_treasure.json",
+    "farmersdelight/loot_table/chests/fd_ruined_portal.json",
+    "farmersdelight/loot_table/chests/fd_village_butcher.json",
+    "farmersdelight/loot_table/chests/fd_village_desert_house.json",
+    "herbalbrews/recipe/kettle_brewing/lavender_tea.json",
+    "herbalbrews/recipe/kettle_brewing/milk_coffee.json",
+    "herbalbrews/recipe/kettle_brewing/oolong_tea.json",
+    "veggiesdelight/loot_modifiers/add_loot_village_desert_house.json",
+    "veggiesdelight/loot_modifiers/add_loot_village_plains_house.json",
+    "veggiesdelight/loot_modifiers/add_loot_village_savanna_house.json",
+    "veggiesdelight/loot_modifiers/add_loot_village_snowy_house.json",
+    "veggiesdelight/loot_modifiers/add_loot_village_taiga_house.json",
+    "veggiesdelight/loot_table/chests/vd_wagon_desert.json",
+    "vinery/recipe/apple_mashing/honey_comb.json",
+}
 # Overrides whose recipe/loot table has another path in the 1.21.1 mod.
-MOVED = {}
+MOVED = {
+    # Crabber's Delight 1.21 names the crab trap loot tables after the bait item's path only.
+    **{
+        f"crabbersdelight/loot_table/gameplay/crab_trap_loot/{ns}/{name}.json":
+        f"crabbersdelight/loot_table/gameplay/crab_trap_loot/{name}.json"
+        for ns, name in (
+            ("crabbersdelight", "crab_trap_bait"), ("crabbersdelight", "deluxe_crab_trap_bait"),
+            ("crabbersdelight", "mana_crab_trap_bait"), ("minecraft", "air"), ("minecraft", "cod"),
+            ("minecraft", "pufferfish"), ("minecraft", "salmon"), ("minecraft", "tropical_fish"),
+        )
+    },
+    "crabbersdelight/recipe/frog_leg_kebob.json": "crabbersdelight/recipe/frog_leg_kebab.json",
+    "crabbersdelight/recipe/squid_kebob.json": "crabbersdelight/recipe/squid_kebab.json",
+    # Crabber's Delight cooking pot recipes moved from the farmersdelight namespace to its own.
+    **{
+        f"farmersdelight/recipe/cooking/{name}.json": f"crabbersdelight/recipe/cooking/{name}.json"
+        for name in ("bisque", "clam_bake", "clam_chowder", "crab_cakes", "seafood_gumbo", "shrimp_fried_rice")
+    },
+    # The salad is a cutting board assembly on 1.21 (TYPE_CHANGES).
+    "farm_and_charm/recipe/crafting_bowl/tomato_mozzarella_salad.json":
+        "farm_and_charm/recipe/cutting_board_assembly/tomato_mozzarella_salad.json",
+    # Meadow 1.21 names the cheese form recipes after the cheese wheels.
+    **{
+        f"meadow/recipe/cheese_form/{name}_cheese.json": f"meadow/recipe/cheese_form/{name}_cheese_wheel.json"
+        for name in ("amethyst", "buffalo", "goat", "grain", "sheep", "warped")
+    },
+    "meadow/recipe/cheese_form/cheese.json": "meadow/recipe/cheese_form/cheese_wheel.json",
+    "veggiesdelight/recipe/cauliflower_floret.json": "veggiesdelight/recipe/cauliflower_florets.json",
+    "veggiesdelight/recipe/sweet_potato_cupcake.json": "veggiesdelight/recipe/sweet_potato_cupcakes.json",
+    "veggiesdelight/recipe/cooking/roasted_vegetables.json": "veggiesdelight/recipe/cooking/roasted_veggies.json",
+    "veggiesdelight/recipe/garlic_clove.json": "veggiesdelight/recipe/cloves_from_garlic.json",
+    # The tiki bar became the palm bar; the two cocktails replace the palm bar recipes of the same name.
+    **{
+        f"beachparty/recipe/tiki_bar_mixing/{name}.json": f"beachparty/recipe/palm_bar_mixing/{name}.json"
+        for name in (
+            "chocolate_milkshake", "coconut_milkshake", "honey_cocktail", "refreshing_drink",
+            "sweetberries_cocktail", "sweetberry_milkshake",
+        )
+    },
+    "beachparty/recipe/mini_fridge_mixing/sweetberry_icecream.json":
+        "beachparty/recipe/mini_fridge_freezing/sweetberry_icecream.json",
+}
+# Recipes whose type changed on 1.21 (convert_recipe moves the fields).
+TYPE_CHANGES = {
+    "farm_and_charm/recipe/crafting_bowl/tomato_mozzarella_salad.json": "farm_and_charm:cutting_board_assembly",
+}
 # Files that are not ported, with the reason.
-DROPPED = {}
+NO_FILE = "the 1.21.1 mod has no file at this path or elsewhere to disable"
+DROPPED = {
+    **{
+        f"wildernature/loot_table/bountyboard/{name}.json":
+        "Wildernature 1.21 replaced bounty board contracts with guild commissions; the contract reward tables are gone"
+        for name in (
+            "tier1_contract_boar", "tier1_contract_cod", "tier1_contract_deer_with_bow",
+            "tier1_contract_deer_with_bow_small", "tier1_contract_hat", "tier1_contract_owl", "tier1_contract_red_wolf",
+            "tier1_contract_turkey", "tier2_contract_bison", "tier2_contract_cod_with_blunderbuss",
+            "tier2_contract_cod_with_blunderbuss_from_boat", "tier2_contract_deer_with_bow",
+            "tier2_contract_deer_with_bow_small", "tier2_contract_elder_guardian", "tier2_contract_pelican",
+            "tier2_contract_pelican_small", "tier2_contract_raccoon", "tier2_contract_red_wolf",
+            "tier2_contract_red_wolf_with_bow", "tier2_contract_red_wolf_with_bow_small", "tier2_contract_squirrel",
+            "tier2_contract_turkey", "tier2_contract_turkey_with_bow", "tier3_contract_bison", "tier3_contract_cod",
+            "tier3_contract_deer_with_bow", "tier3_contract_rabbit", "tier3_contract_red_wolf_with_blunderbuss",
+            "tier3_contract_red_wolf_with_blunderbuss_master", "tier3_contract_red_wolf_with_bow_masterclass",
+            "tier3_contract_turkey", "tier3_contract_turkey_with_blunderbuss",
+        )
+    },
+    # Vintage Delight is rebuilt in KubeJS: it has no loot modifiers, chest loot tables or advancements of its own.
+    **{
+        f"vintagedelight/loot_modifiers/{name}.json": "Vintage Delight (KubeJS rebuild) has no loot modifiers to override"
+        for name in (
+            "add_loot_bastion_hoglin_stable", "add_loot_ruined_portal", "add_loot_village_desert_house",
+            "add_loot_village_plains_house", "add_loot_village_savanna_house", "add_loot_village_snowy_house",
+            "add_loot_village_taiga_house", "straw_from_mature_oat",
+        )
+    },
+    **{
+        f"vintagedelight/loot_table/chests/{name}.json":
+        "only Vintage Delight's own loot modifiers used this table; the KubeJS rebuild has none"
+        for name in (
+            "mixed_seeds", "vd_bastion_hoglin_stable", "vd_ruined_portal", "vd_village_desert_house",
+            "vd_village_plains_house", "vd_village_savanna_house", "vd_village_snowy_house", "vd_village_taiga_house",
+        )
+    },
+    "vintagedelight/advancement/main/root.json": "Vintage Delight (KubeJS rebuild) has no advancements to disable",
+    **{
+        f"veggiesdelight/recipe/compat/vintagedelight/cooking/{name}.json":
+        "Veggie's Delight 1.21 has no Vintage Delight compat recipes to disable"
+        for name in (
+            "broccoli_soup", "cacciatore", "cauliflower_kuku", "cauliflower_soup", "garlic_chicken_stew",
+            "ghostly_chili", "mashed_potatoes", "pasta_with_broccoli", "pickle_soup", "potato_noodles",
+            "roasted_veggies", "shakshouka",
+        )
+    },
+    "farm_and_charm/recipe/mincer/raw_copper_from_copper_ingot.json":
+        "the override only defused the copper ingot -> raw copper mincer recipe, which Farm & Charm 1.21 no longer has",
+    **{
+        f"vinery/recipe/wine_fermentation/{name}.json": "makes a Nether Vinery wine; Nether Vinery is not in the pack"
+        for name in ("blazevine_pinot", "ghastly_grenache", "lava_fizz", "nether_fizz")
+    },
+    "crabbersdelight/loot_table/gameplay/fishing/fishing.json":
+        "Crabber's Delight 1.21 has no extra fishing loot table (fishing bait loot replaced it)",
+    "bakery/recipe/create/mixing/cake_dough.json": NO_FILE,
+    "bakery/recipe/create/mixing/sweet_dough.json": NO_FILE,
+    **{
+        f"meadow/recipe/create/compacting/{name}_block.json": NO_FILE
+        for name in (
+            "amethyst_cheese", "buffalo_cheese", "cheese", "goat_cheese", "grain_cheese", "sheep_cheese",
+            "warped_cheese",
+        )
+    },
+    **{
+        f"beachparty/loot_table/chests/village/{name}.json": NO_FILE
+        for name in ("village_cartographer", "village_plains_house", "village_savanna_house")
+    },
+}
 # Values for fields that 1.21.1 requires and the pack's 1.20.1 file does not have, per file.
 EXTRA_FIELDS = {}
 
@@ -203,7 +370,8 @@ def convert_recipe(data, rel):
     conditions = pop_conditions(data)
     kind = RECIPE_TYPES.get(data["type"], data["type"])
     data["type"] = kind
-    data.pop("category", None) if kind.split(":")[0] not in ("minecraft",) else None
+    if not kind.startswith("minecraft:"):
+        data.pop("category", None)
     # Results.
     if kind in ("farm_and_charm:stove", "veggiesdelight:stove") or ("item" in data and "result" not in data):
         if "item" in data:
@@ -249,6 +417,13 @@ def convert_recipe(data, rel):
     if kind in ("farm_and_charm:stove", "farm_and_charm:roaster"):
         data.setdefault("requiresLearning", False)
         data.setdefault("experience", 0.0)
+    if kind == "beachparty:mini_fridge_freezing":
+        data.setdefault("crafting_time", 1200)
+    if TYPE_CHANGES.get(rel) == "farm_and_charm:cutting_board_assembly":
+        # The bowl was the last crafting bowl ingredient; on the cutting board it is the finisher.
+        data["type"] = TYPE_CHANGES[rel]
+        data["finisher"] = data["ingredients"].pop()
+        data.pop("experience", None)
     if kind.startswith("create:"):
         data = {CREATE_KEYS.get(k, k): v for k, v in data.items()}
     data.update(EXTRA_FIELDS.get(rel, {}))

@@ -1,0 +1,19 @@
+{
+  "type": "meadow:cooking",
+  "result": {
+    "id": "atmospheric:orange_pudding",
+    "count": 1
+  },
+  "ingredients": [
+    {
+      "tag": "c:eggs"
+    },
+    {
+      "item": "atmospheric:orange"
+    },
+    {
+      "tag": "society:large_milk"
+    }
+  ],
+  "container": "minecraft:bowl"
+}

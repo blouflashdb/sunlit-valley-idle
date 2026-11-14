@@ -1,0 +1,25 @@
+{
+  "type": "vinery:wine_fermentation",
+  "juice": {
+    "type": "red_general",
+    "amount": 50
+  },
+  "ingredients": [
+    {
+      "item": "pamhc2trees:starfruititem"
+    },
+    {
+      "item": "pamhc2trees:starfruititem"
+    },
+    {
+      "item": "pamhc2trees:starfruititem"
+    }
+  ],
+  "wine_bottle": {
+    "required": true
+  },
+  "result": {
+    "id": "society:dewy_star",
+    "count": 1
+  }
+}

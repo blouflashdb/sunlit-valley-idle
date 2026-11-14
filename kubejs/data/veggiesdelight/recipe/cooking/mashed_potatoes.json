@@ -1,0 +1,24 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 2.0,
+  "container": {
+    "id": "minecraft:bowl",
+    "count": 1
+  },
+  "ingredients": [
+    {
+      "item": "veggiesdelight:sweet_potato"
+    },
+    {
+      "item": "veggiesdelight:sweet_potato"
+    },
+    {
+      "tag": "society:large_milk"
+    }
+  ],
+  "result": {
+    "id": "veggiesdelight:mashed_potatoes",
+    "count": 1
+  }
+}

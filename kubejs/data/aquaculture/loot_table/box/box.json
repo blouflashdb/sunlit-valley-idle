@@ -1,0 +1,202 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "meadow:fire_log",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "society:geode",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "atmospheric:yucca_sapling",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "atmospheric:morado_sapling",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "atmospheric:grimwood_sapling",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 4,
+                "max": 12
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "atmospheric:kousa_sapling",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "atmospheric:green_aspen_sapling",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "atmospheric:rosewood_sapling",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "atmospheric:aspen_sapling",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "atmospheric:dry_laurel_sapling",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "atmospheric:laurel_sapling",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:coal",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:charcoal",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:stick",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:leather_helmet",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:leather_chestplate",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:leather_leggings",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:leather_boots",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:flint",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:clay_ball",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bucket",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:leather",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:slime_ball",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bone",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:rotten_flesh",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:glass_bottle",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:gunpowder",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "simplehats:hatbag_common",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "furniture:trash_bag",
+          "weight": 3
+        },
+        {
+          "type": "stardew_fishing:optional",
+          "name": "crabbersdelight:crab_trap_bait",
+          "weight": 6,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 17
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "numismatics:sprocket",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "numismatics:cog",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:string",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:feather",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:apple",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

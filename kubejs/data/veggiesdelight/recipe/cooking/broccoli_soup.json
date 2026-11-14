@@ -1,0 +1,24 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "tag": "c:crops/broccoli"
+    },
+    {
+      "tag": "c:crops/broccoli"
+    },
+    {
+      "tag": "c:vegetables"
+    },
+    {
+      "tag": "society:small_milk"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "id": "veggiesdelight:broccoli_soup",
+    "count": 1
+  }
+}

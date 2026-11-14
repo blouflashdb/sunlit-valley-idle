@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:dandelion"
+    },
+    {
+      "item": "vintagedelight:ghost_pepper"
+    },
+    {
+      "tag": "c:cooked_eggs"
+    },
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "tag": "c:cooked_eggs"
+    },
+    {
+      "tag": "c:cooked_eggs"
+    }
+  ],
+  "result": {
+    "id": "veggiesdelight:dandelion_and_eggs",
+    "count": 1
+  }
+}

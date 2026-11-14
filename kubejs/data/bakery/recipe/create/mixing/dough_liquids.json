@@ -1,0 +1,25 @@
+{
+  "type": "create:mixing",
+  "results": [
+    {
+      "id": "bakery:dough",
+      "count": 1
+    }
+  ],
+  "ingredients": [
+    {
+      "tag": "bakery:wheat"
+    },
+    {
+      "item": "bakery:yeast"
+    },
+    {
+      "type": "fluid_tag",
+      "fluid_tag": "c:water",
+      "amount": 250
+    },
+    {
+      "tag": "c:sugar"
+    }
+  ]
+}

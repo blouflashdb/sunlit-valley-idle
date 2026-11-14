@@ -1,0 +1,39 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "sewingkit"
+    },
+    {
+      "type": "toolbelt:enable_sewing_crafting"
+    }
+  ],
+  "type": "sewingkit:sewing",
+  "materials": [
+    {
+      "count": 2,
+      "ingredient": {
+        "item": "farmersdelight:rope"
+      }
+    },
+    {
+      "count": 5,
+      "ingredient": {
+        "item": "society:canvas"
+      }
+    },
+    {
+      "count": 4,
+      "ingredient": {
+        "item": "minecraft:iron_ingot"
+      }
+    }
+  ],
+  "result": {
+    "id": "toolbelt:belt",
+    "count": 1
+  },
+  "tool": {
+    "tag": "sewingkit:needles/iron_or_higher"
+  }
+}

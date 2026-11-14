@@ -39,7 +39,7 @@ ServerEvents.recipes((e) => {
     ["purple", "society:amethyst_chunk"],
     ["magenta", "pamhc2trees:plumitem"],
     ["pink", "brewery:whiskey_lilitusinglemalt"],
-    ["white", "beachparty:coconut_milkshake"],
+    ["white", "beachparty:coconut_cocktail"],
     ["light_gray", "supplementaries:ash_brick"],
     ["gray", "society:truffle"],
     ["black", "society:smoked_wither_bonefish"],

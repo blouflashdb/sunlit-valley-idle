@@ -1,0 +1,15 @@
+{
+  "type": "beachparty:palm_bar_mixing",
+  "ingredients": [
+    {
+      "item": "beachparty:chocolate_icecream"
+    },
+    {
+      "item": "minecraft:ice"
+    }
+  ],
+  "result": {
+    "id": "beachparty:chocolate_milkshake",
+    "count": 1
+  }
+}

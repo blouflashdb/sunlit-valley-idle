@@ -4,18 +4,6 @@
     {
       "id": "farm_and_charm:butter",
       "required": false
-    },
-    {
-      "id": "candlelight:butter",
-      "required": false
-    },
-    {
-      "id": "youkaishomecoming:butter",
-      "required": false
-    },
-    {
-      "id": "croptopia:butter",
-      "required": false
     }
   ]
 }

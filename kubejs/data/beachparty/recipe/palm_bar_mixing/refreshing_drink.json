@@ -1,0 +1,15 @@
+{
+  "type": "beachparty:palm_bar_mixing",
+  "ingredients": [
+    {
+      "item": "pamhc2trees:dragonfruititem"
+    },
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "id": "beachparty:refreshing_drink",
+    "count": 1
+  }
+}

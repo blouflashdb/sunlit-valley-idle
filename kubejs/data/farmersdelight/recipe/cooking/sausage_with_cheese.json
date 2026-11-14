@@ -1,0 +1,24 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 2.0,
+  "result": {
+    "id": "meadow:sausage_with_cheese",
+    "count": 2
+  },
+  "ingredients": [
+    {
+      "item": "meadow:raw_buffalo_meat"
+    },
+    {
+      "tag": "c:salt"
+    },
+    {
+      "tag": "meadow:cheese"
+    }
+  ],
+  "container": {
+    "id": "minecraft:air",
+    "count": 1
+  }
+}

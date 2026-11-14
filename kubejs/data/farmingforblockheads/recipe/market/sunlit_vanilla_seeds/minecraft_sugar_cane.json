@@ -1,0 +1,14 @@
+{
+  "type": "farmingforblockheads:market",
+  "category": "farmingforblockheads:seeds",
+  "preset": "farmingforblockheads:sunlit_vanilla_seeds",
+  "result": {
+    "item": "minecraft:sugar_cane"
+  },
+  "payment": {
+    "ingredient": {
+      "item": "numismatics:cog"
+    },
+    "count": 3
+  }
+}

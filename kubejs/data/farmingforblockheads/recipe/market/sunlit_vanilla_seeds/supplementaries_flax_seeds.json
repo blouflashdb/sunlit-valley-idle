@@ -1,0 +1,14 @@
+{
+  "type": "farmingforblockheads:market",
+  "category": "farmingforblockheads:seeds",
+  "preset": "farmingforblockheads:sunlit_vanilla_seeds",
+  "result": {
+    "item": "supplementaries:flax_seeds"
+  },
+  "payment": {
+    "ingredient": {
+      "item": "numismatics:sprocket"
+    },
+    "count": 3
+  }
+}

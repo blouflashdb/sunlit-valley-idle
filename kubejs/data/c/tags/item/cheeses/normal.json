@@ -2,39 +2,27 @@
   "replace": false,
   "values": [
     {
-      "id": "meadow:piece_of_cheese",
+      "id": "meadow:cheese_slice",
       "required": false
     },
     {
-      "id": "meadow:piece_of_sheep_cheese",
+      "id": "meadow:sheep_cheese_slice",
       "required": false
     },
     {
-      "id": "meadow:piece_of_grain_cheese",
+      "id": "meadow:grain_cheese_slice",
       "required": false
     },
     {
-      "id": "meadow:piece_of_amethyst_cheese",
+      "id": "meadow:amethyst_cheese_slice",
       "required": false
     },
     {
-      "id": "meadow:piece_of_buffalo_cheese",
+      "id": "meadow:buffalo_cheese_slice",
       "required": false
     },
     {
-      "id": "meadow:piece_of_goat_cheese",
-      "required": false
-    },
-    {
-      "id": "expandeddelight:cheese_slice",
-      "required": false
-    },
-    {
-      "id": "croptopia:cheese",
-      "required": false
-    },
-    {
-      "id": "casualness_delight:cheese_wheel_slice",
+      "id": "meadow:goat_cheese_slice",
       "required": false
     }
   ]

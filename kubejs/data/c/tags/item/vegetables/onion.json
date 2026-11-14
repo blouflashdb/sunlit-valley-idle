@@ -6,10 +6,6 @@
       "required": false
     },
     {
-      "id": "croptopia:onion",
-      "required": false
-    },
-    {
       "id": "#c:onion",
       "required": false
     }

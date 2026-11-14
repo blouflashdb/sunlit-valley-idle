@@ -2,10 +2,6 @@
   "replace": false,
   "values": [
     {
-      "id": "croptopia:cabbage",
-      "required": false
-    },
-    {
       "id": "#c:cabbage",
       "required": false
     }

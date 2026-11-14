@@ -1,0 +1,22 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 2.0,
+  "ingredients": [
+    {
+      "item": "farm_and_charm:minced_beef"
+    },
+    {
+      "tag": "farm_and_charm:dough"
+    }
+  ],
+  "container": {
+    "id": "minecraft:bowl",
+    "count": 1
+  },
+  "recipe_book_tab": "meals",
+  "result": {
+    "id": "candlelight:khinkali",
+    "count": 4
+  }
+}

@@ -2,14 +2,6 @@
   "replace": false,
   "values": [
     {
-      "id": "pineapple_delight:pineapple_side",
-      "required": false
-    },
-    {
-      "id": "croptopia:pineapple",
-      "required": false
-    },
-    {
       "id": "#c:pineapple",
       "required": false
     }

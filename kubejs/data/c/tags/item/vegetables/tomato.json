@@ -14,10 +14,6 @@
       "required": false
     },
     {
-      "id": "croptopia:tomato",
-      "required": false
-    },
-    {
       "id": "#c:tomato",
       "required": false
     }

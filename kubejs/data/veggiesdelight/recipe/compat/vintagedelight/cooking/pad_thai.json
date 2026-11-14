@@ -1,0 +1,30 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 2.0,
+  "container": {
+    "id": "minecraft:bowl",
+    "count": 1
+  },
+  "ingredients": [
+    {
+      "item": "veggiesdelight:bellpepper"
+    },
+    {
+      "tag": "c:pasta"
+    },
+    {
+      "item": "farmersdelight:cooked_chicken_cuts"
+    },
+    {
+      "item": "vintagedelight:nut_mash_bottle"
+    },
+    {
+      "item": "vintagedelight:peanut"
+    }
+  ],
+  "result": {
+    "id": "vintagedelight:pad_thai",
+    "count": 1
+  }
+}

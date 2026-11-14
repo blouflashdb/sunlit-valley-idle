@@ -2,10 +2,6 @@
   "replace": false,
   "values": [
     {
-      "id": "croptopia:raspberry",
-      "required": false
-    },
-    {
       "id": "#c:raspberries",
       "required": false
     }

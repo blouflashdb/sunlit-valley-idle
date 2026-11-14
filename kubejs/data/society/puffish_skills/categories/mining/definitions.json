@@ -13,7 +13,7 @@
       {
         "type": "puffish_skills:attribute",
         "data": {
-          "attribute": "puffish_skills:fortune",
+          "attribute": "puffish_attributes:fortune",
           "value": 1,
           "operation": "addition"
         }
@@ -231,7 +231,7 @@
       {
         "type": "puffish_skills:attribute",
         "data": {
-          "attribute": "puffish_skills:fortune",
+          "attribute": "puffish_attributes:fortune",
           "value": 4,
           "operation": "addition"
         }

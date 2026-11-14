@@ -1,0 +1,20 @@
+{
+  "type": "farm_and_charm:stove",
+  "ingredients": [
+    {
+      "tag": "farm_and_charm:pasta"
+    },
+    {
+      "item": "farmersdelight:chicken_cuts"
+    },
+    {
+      "tag": "candlelight:all_effects"
+    }
+  ],
+  "experience": 0.25,
+  "result": {
+    "id": "candlelight:chicken_alfredo",
+    "count": 2
+  },
+  "requiresLearning": false
+}

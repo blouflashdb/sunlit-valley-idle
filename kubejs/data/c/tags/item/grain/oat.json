@@ -6,14 +6,6 @@
       "required": false
     },
     {
-      "id": "croptopia:oat",
-      "required": false
-    },
-    {
-      "id": "vintagedelight:raw_oats",
-      "required": false
-    },
-    {
       "id": "#c:oat",
       "required": false
     }

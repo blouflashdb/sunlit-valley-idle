@@ -1,0 +1,23 @@
+{
+  "type": "herbalbrews:kettle_brewing",
+  "experience": 0.5,
+  "crafting_duration": 50,
+  "ingredients": [
+    {
+      "item": "herbalbrews:hibiscus"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "result": {
+    "id": "herbalbrews:hibiscus_tea"
+  },
+  "fluid_amount": 15,
+  "heat_amount": 10,
+  "effect": "herbalbrews:lifeleech",
+  "effect_duration": 1800
+}

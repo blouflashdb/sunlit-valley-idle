@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xIx",
+    "sIs"
+  ],
+  "key": {
+    "I": {
+      "tag": "minecraft:logs"
+    },
+    "x": {
+      "item": "society:canvas"
+    },
+    "s": {
+      "item": "society:oak_resin"
+    }
+  },
+  "result": {
+    "id": "smallships:sail",
+    "count": 1
+  }
+}

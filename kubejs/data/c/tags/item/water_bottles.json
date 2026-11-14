@@ -8,10 +8,6 @@
     {
       "id": "#meadow:water_bottles",
       "required": false
-    },
-    {
-      "id": "minecraft:water_bottle",
-      "required": false
     }
   ]
 }

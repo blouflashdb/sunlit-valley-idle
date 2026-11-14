@@ -1,0 +1,28 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 2.0,
+  "ingredients": [
+    {
+      "tag": "farm_and_charm:pasta"
+    },
+    {
+      "tag": "c:eggs"
+    },
+    {
+      "tag": "candlelight:red_effect"
+    },
+    {
+      "item": "candlelight:mozzarella"
+    }
+  ],
+  "container": {
+    "id": "minecraft:bowl",
+    "count": 1
+  },
+  "recipe_book_tab": "meals",
+  "result": {
+    "id": "candlelight:pasta_with_mozzarella",
+    "count": 4
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "farm_and_charm:stove",
+  "ingredients": [
+    {
+      "item": "pamhc2trees:bananaitem"
+    },
+    {
+      "item": "bakery:chocolate_truffle"
+    },
+    {
+      "tag": "bakery:dough"
+    }
+  ],
+  "experience": 0.35,
+  "result": {
+    "id": "bakery:toast",
+    "count": 3
+  },
+  "requiresLearning": false
+}

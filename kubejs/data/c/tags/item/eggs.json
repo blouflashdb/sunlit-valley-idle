@@ -4,10 +4,6 @@
     {
       "id": "minecraft:egg",
       "required": false
-    },
-    {
-      "id": "duckling:duck_egg",
-      "required": false
     }
   ]
 }

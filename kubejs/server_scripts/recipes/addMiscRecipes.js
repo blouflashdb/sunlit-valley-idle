@@ -55,46 +55,12 @@ ServerEvents.recipes((e) => {
   e.smelting("society:rubber", "society:sap").xp(0.35);
   e.smelting("etcetera:bismuth_ingot", "create:crushed_raw_bismuth").xp(0.7);
   e.blasting("etcetera:bismuth_ingot", "create:crushed_raw_bismuth").xp(0.7);
-  e.smelting("quark:charcoal_block", "meadow:fire_log").xp(4.0);
   cutting("herbalbrews:lavender", "herbalbrews:lavender_blossom", 2, "c:tools/knife");
   cutting("twigs:silt", "twigs:silt_ball", 4, "minecraft:shovels");
-  cooking("society:chicken_tortilla_soup", ["#c:foods/raw_chicken", "farm_and_charm:onion", "farm_and_charm:corn", "meadow:piece_of_cheese", "farmersdelight:tomato_sauce"], "minecraft:bowl");
-  cooking("society:mexican_street_corn", ["farm_and_charm:corn", "meadow:piece_of_cheese", "society:mayonnaise"]);
+  cooking("society:chicken_tortilla_soup", ["#c:foods/raw_chicken", "farm_and_charm:onion", "farm_and_charm:corn", "meadow:cheese_slice", "farmersdelight:tomato_sauce"], "minecraft:bowl");
+  cooking("society:mexican_street_corn", ["farm_and_charm:corn", "meadow:cheese_slice", "society:mayonnaise"]);
   cooking("society:deep_a_mochi", ["farmersdelight:cooked_rice", "golemoverhaul:honey_blob", "pamhc2trees:lemonitem"]);
   cooking("society:lemon_beignets", ["society:oil", "bakery:sweet_dough", "pamhc2trees:lemonitem", "minecraft:sugar"]);
-  e.shapeless("quark:slime_in_a_bucket", [
-    "society:petrified_slime",
-    "species:youth_potion",
-    "minecraft:bucket",
-  ]);
-  e.shapeless("minecraft:magenta_dye", ["windswept:lavender"]);
-  e.shapeless("create:tree_fertilizer", [
-    "4x farmersdelight:straw",
-    "4x society:sap",
-    "twigs:pebble",
-  ]);
-  e.shapeless("3x society:prismatic_shard", [
-    "society:token_of_unity",
-    "society:prismatic_shard",
-  ]);
-  e.shapeless("3x quark:soul_bead", ["netherdepthsupgrade:soulsucker"]);
-  e.shapeless("society:book_of_stars", ["3x #society:skill_book"]);
-  e.shapeless("4x minecraft:quartz", ["minecraft:quartz_block"]);
-  e.shapeless("4x society:cracked_egg", ["#society:large_eggs"]);
-  e.shapeless("1x society:cracked_egg", ["#c:eggs"]);
-  e.shapeless("3x minecraft:glass_bottle", ["vintagedelight:mason_jar"]);
-  e.shapeless("society:magic_tunnel", ["society:magic_rope"]);
-  e.shapeless("society:magic_rope", ["society:magic_tunnel"]);
-  e.shapeless("refinedstorage:network_transmitter", [
-    "refinedstorage:network_receiver",
-  ]);
-  e.shapeless("refinedstorage:network_receiver", [
-    "refinedstorage:network_transmitter",
-  ]);
-  e.shaped("meadow:cobbled_limestone", ["cs ", "sc "], {
-    c: "minecraft:cobblestone",
-    s: "meadow:alpine_salt",
-  });
   e.shaped("16x society:enriched_bone_meal", ["bbb", "bfb", "bbb"], {
     f: "farm_and_charm:fertilizer",
     b: "minecraft:bone_block",
@@ -104,66 +70,34 @@ ServerEvents.recipes((e) => {
     c: "minecraft:copper_ingot",
   });
 
-  // Greenhouse glass
-  e.shaped("moreminecarts:chiseled_organic_glass", [" C ", "ege", " C "], {
-    C: "numismatics:crown",
-    e: "society:earth_crystal",
-    g: "moreminecarts:organic_glass",
-  });
-  e.shaped("2x moreminecarts:chiseled_organic_glass", [" C ", "fgf", " C "], {
-    C: "numismatics:crown",
-    f: "society:fire_quartz",
-    g: "moreminecarts:organic_glass",
-  });
-  e.shaped("3x moreminecarts:chiseled_organic_glass", [" C ", "fgf", " C "], {
-    C: "numismatics:crown",
-    f: "society:jade",
-    g: "moreminecarts:organic_glass",
-  });
-  e.stonecutting(
-    "moreminecarts:greenhouse_glass_stairs",
-    "moreminecarts:chiseled_organic_glass"
-  );
-  e.stonecutting(
-    "moreminecarts:chiseled_organic_glass",
-    "moreminecarts:greenhouse_glass_stairs"
-  );
-  e.stonecutting(
-    "moreminecarts:greenhouse_glass_slab",
-    "moreminecarts:chiseled_organic_glass"
-  );
-  e.stonecutting(
-    "moreminecarts:chiseled_organic_glass",
-    "moreminecarts:greenhouse_glass_slab"
-  );
   // Mastery
   e.shaped("society:treasure_totem", ["fmf", "fsf", "fdf"], {
     s: "society:mystic_syrup",
     m: "#society:mineral",
     d: "society:dried_mossberry",
-    f: "meadow:fire_log",
+    f: "meadow:pine_log",
   });
   e.shaped("society:bubble_totem", ["fjf", "fsf", "fSf"], {
     s: "society:mystic_syrup",
     j: "society:ocean_jelly",
     S: "unusualfishmod:raw_sneep_snorp",
-    f: "meadow:fire_log",
+    f: "meadow:pine_log",
   });
   e.shaped("society:dry_totem", ["ppp", "ptp", "fff"], {
     p: "society:fire_quartz",
     t: "society:truffle_oil",
-    f: "meadow:fire_log",
+    f: "meadow:pine_log",
   });
   e.shaped("society:rain_totem", ["ppp", "ptp", "fff"], {
     p: "society:pine_tar",
     t: "society:truffle_oil",
-    f: "meadow:fire_log",
+    f: "meadow:pine_log",
   });
   e.shaped("society:thunder_totem", ["ppp", "tat", "fff"], {
     p: "society:oak_resin",
     t: "society:truffle_oil",
     a: "society:amulet_of_light",
-    f: "meadow:fire_log",
+    f: "meadow:pine_log",
   });
   // Earth Crystal
   // society:tapper is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
@@ -210,7 +144,7 @@ ServerEvents.recipes((e) => {
   });
   e.shaped("4x farm_and_charm:silo_wood", ["lll", "rbr", "lel"], {
     b: "minecraft:barrel",
-    l: "meadow:fire_log",
+    l: "meadow:pine_log",
     r: "society:oak_resin",
     e: "society:earth_crystal",
   });
@@ -238,11 +172,6 @@ ServerEvents.recipes((e) => {
     b: "brewery:copper_brewingstation",
     n: "minecraft:netherite_scrap",
   });
-  e.shaped("beachparty:tiki_bar", [" f ", "lll", "plp"], {
-    p: "beachparty:palm_sapling",
-    l: "beachparty:palm_log",
-    f: "society:fire_quartz",
-  });
   e.shaped("torchmaster:dreadlamp", [" C ", "fgf", " C "], {
     g: "minecraft:glowstone",
     C: "numismatics:crown",
@@ -265,7 +194,7 @@ ServerEvents.recipes((e) => {
     I: "minecraft:gold_block",
     f: "society:battery",
     o: "minecraft:netherite_ingot",
-    F: "meadow:fire_log",
+    F: "meadow:pine_log",
   });
   e.shaped("herbalbrews:cauldron", [" C ", "fcf", " f "], {
     c: "minecraft:cauldron",
@@ -288,16 +217,6 @@ ServerEvents.recipes((e) => {
     z: "create:zinc_ingot",
   });
   // Prismatic
-  e.shapeless("society:car_key", [
-    "relics:horse_flute",
-    "society:prismatic_shard",
-  ]);
-  // society:prize_machine is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
-  e.shaped("torchmaster:megatorch", [" p ", "sts", " s "], {
-    t: "minecraft:torch",
-    s: "numismatics:sun",
-    p: "society:prismatic_shard",
-  });
   e.shaped("torchmaster:feral_flare_lantern", [" p ", "sls", " s "], {
     l: "minecraft:lantern",
     s: "numismatics:sun",
@@ -307,13 +226,6 @@ ServerEvents.recipes((e) => {
     w: "society:elytra_wing",
     e: "minecraft:dragon_egg",
     p: "society:prismatic_shard",
-  });
-  e.shaped("relics:blazing_flask", ["fhf", "pep", "fbf"], {
-    h: "rehooked:blaze_hook",
-    e: "society:production_science_pack",
-    f: "netherdepthsupgrade:blazefish",
-    p: "nethervinery:blazewine_pinot",
-    b: "create:blaze_burner",
   });
   e.shaped("relics:magic_mirror", ["ppp", "pmp", "ppp"], {
     m: "oreganized:silver_mirror",
@@ -425,10 +337,6 @@ ServerEvents.recipes((e) => {
     c: "society:modern_catalog",
     C: "numismatics:crown",
   });
-  e.shaped("2x society:fantasy_catalog", ["CCC", "CcC", "CCC"], {
-    c: "society:fantasy_catalog",
-    C: "numismatics:crown",
-  });
   e.shaped("2x tanukidecor:diy_workbench", ["CCC", "CcC", "CCC"], {
     c: "tanukidecor:diy_workbench",
     C: "numismatics:sun",
@@ -456,41 +364,8 @@ ServerEvents.recipes((e) => {
     "minecraft:quartz",
   ];
   vanillaPristine.forEach((gem) => pristine(gem));
-  e.custom({
-    type: "vintagedelight:fermenting",
-    processingTime: 10000,
-    container: {
-      item: "minecraft:glass_bottle",
-    },
-    ingredients: [
-      {
-        item: "minecraft:glow_berries",
-      },
-    ],
-    output: {
-      count: 1,
-      item: "supplementaries:lumisene_bottle",
-    },
-  });
-  e.custom({
-    type: "vintagedelight:fermenting",
-    processingTime: 36000,
-    container: {
-      item: "minecraft:bucket",
-    },
-    ingredients: [
-      { item: "minecraft:glow_berries" },
-      { item: "minecraft:glow_berries" },
-      { item: "minecraft:glow_berries" },
-      { item: "minecraft:glow_berries" },
-      { item: "minecraft:glow_berries" },
-      { item: "minecraft:glow_berries" },
-    ],
-    output: {
-      count: 1,
-      item: "supplementaries:lumisene_bucket",
-    },
-  });
+
+
   e.shaped("8x minecraft:gunpowder", ["ggg", "gcg", "ggg"], {
     g: "minecraft:glowstone_dust",
     c: "vintagedelight:ghost_charcoal",
@@ -680,9 +555,11 @@ ServerEvents.recipes((e) => {
     c: "society:charging_rod",
   });
 
+
+  // The 1.20.1 recipe used species:ichor_bottle (Species is not in the pack): a Bottle o' Enchanting instead.
   e.shaped("society:gnome", [" h ", "iti", " s "], {
     t: "society:tiny_gnome",
-    i: "species:ichor_bottle",
+    i: "minecraft:experience_bottle",
     h: "simplehats:gnome",
     s: "paraglider:spirit_orb",
   });
@@ -738,65 +615,11 @@ ServerEvents.recipes((e) => {
     b: "etcetera:light_bulb",
   });
   [
-    { input: "meadow:flecked_wool", output: "minecraft:brown_wool" },
-    { input: "meadow:highland_wool", output: "minecraft:brown_wool" },
-    { input: "meadow:patched_wool", output: "minecraft:blue_wool" },
-    { input: "meadow:rocky_wool", output: "minecraft:light_gray_wool" },
-    { input: "meadow:umbra_wool", output: "minecraft:light_blue_wool" },
-    { input: "meadow:inky_wool", output: "minecraft:black_wool" },
     { input: "meadow:warped_wool", output: "minecraft:cyan_wool" },
   ].forEach((recipe) => {
     e.shapeless(recipe.output, [recipe.input]);
   });
-  // Wallpapers
-  const wallpaperPattern = ["ppp", "pfp", "ppp"];
-  const baseboardPattern = ["ppp", "pfp", "bbb"];
-
-  e.shaped("8x society:pink_flower_wallpaper", wallpaperPattern, {
-    f: "minecraft:pink_tulip",
-    p: "minecraft:paper",
-  });
-  e.shaped("8x society:pink_flower_baseboard", baseboardPattern, {
-    f: "minecraft:pink_tulip",
-    p: "minecraft:paper",
-    b: "#minecraft:planks",
-  });
-
-  e.shaped("8x society:hive_wallpaper", wallpaperPattern, {
-    f: "minecraft:honeycomb",
-    p: "minecraft:paper",
-  });
-  e.shaped("8x society:bee_wallpaper", wallpaperPattern, {
-    f: "minecraft:honey_bottle",
-    p: "minecraft:paper",
-  });
-  e.shaped("8x society:hive_baseboard", baseboardPattern, {
-    f: "minecraft:honeycomb",
-    p: "minecraft:paper",
-    b: "#minecraft:planks",
-  });
-
-  e.shaped("8x society:cloud_wallpaper", wallpaperPattern, {
-    f: "etcetera:cotton_flower",
-    p: "minecraft:paper",
-  });
-  e.shaped("8x society:cloud_baseboard", baseboardPattern, {
-    f: "etcetera:cotton_flower",
-    p: "minecraft:paper",
-    b: "#minecraft:planks",
-  });
-
-  e.shaped("8x society:bunny_wallpaper", wallpaperPattern, {
-    f: "society:fine_wool",
-    p: "minecraft:paper",
-  });
-  e.shaped("8x society:bunny_baseboard", baseboardPattern, {
-    f: "society:fine_wool",
-    p: "minecraft:paper",
-    b: "#minecraft:planks",
-  });
-
-  e.shapeless("society:sun_candy", ['pamhc2trees:lemonitem', 'atmospheric:blood_orange', 'pamhc2trees:mangoitem', 'atmospheric:passion_fruit', "splendid_slimes:plort_sweet", 'pamhc2trees:dragonfruititem', 'pamhc2trees:starfruititem', 'pamhc2trees:plumitem', 'pamhc2trees:peachitem'])
+  e.shapeless("society:sun_candy", ['pamhc2trees:lemonitem', 'atmospheric:blood_orange', 'pamhc2trees:mangoitem', 'atmospheric:passion_fruit', 'pamhc2trees:dragonfruititem', 'pamhc2trees:starfruititem', 'pamhc2trees:plumitem', 'pamhc2trees:peachitem'])
   // Sophisticated
   e.shapeless("sophisticatedbackpacks:stack_upgrade_tier_1", ["2x sophisticatedbackpacks:stack_upgrade_starter_tier"]);
   e.shapeless("sophisticatedbackpacks:stack_upgrade_tier_2", ["2x sophisticatedbackpacks:stack_upgrade_tier_1"]);

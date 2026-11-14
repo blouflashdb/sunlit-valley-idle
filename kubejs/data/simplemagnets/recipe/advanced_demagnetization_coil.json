@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "BCB",
+    "CDC"
+  ],
+  "key": {
+    "A": {
+      "item": "society:fire_quartz"
+    },
+    "B": {
+      "tag": "c:dusts/redstone"
+    },
+    "C": {
+      "tag": "c:ingots/zinc"
+    },
+    "D": {
+      "item": "simplemagnets:basic_demagnetization_coil"
+    }
+  },
+  "result": {
+    "id": "simplemagnets:advanced_demagnetization_coil",
+    "count": 1
+  }
+}

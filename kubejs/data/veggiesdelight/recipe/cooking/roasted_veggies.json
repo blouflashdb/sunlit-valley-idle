@@ -1,0 +1,33 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 300,
+  "experience": 3.0,
+  "container": {
+    "id": "minecraft:bowl",
+    "count": 1
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:potato"
+    },
+    {
+      "item": "society:eggplant"
+    },
+    {
+      "tag": "c:crops/tomato"
+    },
+    {
+      "tag": "c:crops/cauliflower"
+    },
+    {
+      "tag": "c:crops/onion"
+    },
+    {
+      "item": "veggiesdelight:bellpepper"
+    }
+  ],
+  "result": {
+    "id": "veggiesdelight:roasted_vegetables",
+    "count": 1
+  }
+}
