@@ -1,11 +1,10 @@
 {
-  "configVersion": 5,
+  "configVersion": 8,
   "perf": {
-    "maxParticleAmount": 120,
-    "particleDensity": 20,
-    "particleStormDensity": 50,
-    "particleDistance": 8,
-    "surfaceRange": 40
+    "particleAmount": 1500,
+    "particleStormDensity": 1.5,
+    "particleDistance": 16,
+    "surfaceRange": 100
   },
   "sound": {
     "rainVolume": 0.2,
@@ -13,14 +12,14 @@
     "windVolume": 0.1
   },
   "wind": {
-    "strength": 0.4,
-    "strengthVariance": 0.3,
-    "gustFrequency": 0.2,
-    "modulationSpeed": 0.04,
+    "strength": 0.03,
+    "gustFrequency": 0.15,
+    "modulationSpeed": 0.1,
     "yLevelAdjustment": true
   },
   "compat": {
-    "renderDefaultWeather": false,
+    "renderDefaultRain": false,
+    "renderDefaultSnow": false,
     "doDefaultSplashing": false,
     "waterTint": true,
     "tintMix": 0.6,
@@ -37,30 +36,12 @@
       "isWhitelist": true
     },
     "doSpawnHeightLimit": false,
-    "spawnHeightLimit": 0
-  },
-  "shrub": {
-    "gravity": 0.2,
-    "windStrength": 0.2,
-    "stormWindStrength": 0.3,
-    "size": 0.5,
-    "rotationAmount": 0.6,
-    "bounciness": 0.2
-  },
-  "ripple": {
-    "opacity": 0.8,
-    "size": 0.25,
-    "resolution": 16,
-    "useResourcepackResolution": true
+    "spawnHeightLimit": 0,
+    "rippleRes": 16,
+    "rippleUsePackRes": true
   },
   "streak": {
     "opacity": 0.9,
     "size": 0.5
-  },
-  "mist": {
-    "lifetime": 250,
-    "opacity": 1.0,
-    "size": 3.0,
-    "renderStyle": "BLENDED"
   }
 }
