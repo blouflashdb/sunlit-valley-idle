@@ -447,12 +447,11 @@
 				type: "item"
 			}]
 			tasks: [{
-				block: "society:stone_boulder"
-				block_type: 0
-				checkItem: false
 				id: "41E4A7710122FD0C"
-				type: "questsadditions:break"
-				value: 1L
+				observe_type: 0
+				timer: 0L
+				to_observe: "society:stone_boulder"
+				type: "observation"
 			}]
 			title: "{ftbquests.chapter.iv__prismatic_farming.quest6A94BB4CB99D814E.title}"
 			x: -4.5d
@@ -476,12 +475,11 @@
 				type: "item"
 			}]
 			tasks: [{
-				block: "society:ice_boulder"
-				block_type: 0
-				checkItem: false
 				id: "6EF00A20A9462000"
-				type: "questsadditions:break"
-				value: 1L
+				observe_type: 0
+				timer: 0L
+				to_observe: "society:ice_boulder"
+				type: "observation"
 			}]
 			title: "{ftbquests.chapter.iv__prismatic_farming.questDC68C5CF6D82372.title}"
 			x: -4.5d
@@ -503,12 +501,11 @@
 				type: "item"
 			}]
 			tasks: [{
-				block: "society:sandstone_boulder"
-				block_type: 0
-				checkItem: false
 				id: "27B7C7049FF1F53D"
-				type: "questsadditions:break"
-				value: 1L
+				observe_type: 0
+				timer: 0L
+				to_observe: "society:sandstone_boulder"
+				type: "observation"
 			}]
 			title: "{ftbquests.chapter.iv__prismatic_farming.quest3FA607115DB107D9.title}"
 			x: -4.5d
@@ -534,20 +531,18 @@
 			}]
 			tasks: [
 				{
-					block: "society:blackstone_boulder"
-					block_type: 0
-					checkItem: false
 					id: "4239A35022824728"
-					type: "questsadditions:break"
-					value: 1L
+					observe_type: 0
+					timer: 0L
+					to_observe: "society:blackstone_boulder"
+					type: "observation"
 				}
 				{
-					block: "society:end_stone_boulder"
-					block_type: 0
-					checkItem: false
 					id: "3CA57068C39098E2"
-					type: "questsadditions:break"
-					value: 1L
+					observe_type: 0
+					timer: 0L
+					to_observe: "society:end_stone_boulder"
+					type: "observation"
 				}
 			]
 			title: "{ftbquests.chapter.iv__prismatic_farming.quest2F83B8F22344FAD7.title}"
