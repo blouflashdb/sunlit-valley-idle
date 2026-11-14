@@ -35,7 +35,7 @@ The third server boot runs with `-Dsunlitidle.ci=true`, which registers the `/su
    `/sunlitidle_ci nextday` sets the time to 23800 and `/tick sprint 1500` ticks across the morning, so every
    daily handler of the pack (shipping bins, artisan machines, fish ponds, the farm day, clocks ...) runs once
    per day for real. The machines that the KubeJS tests placed in boots 1 and 2 stay in the world and keep running;
-4. in the middle of each season runs `/sunlitidle_ci season`: plants every crop block of the pack (up to 64) on
+4. in the middle of each season runs `/sunlitidle_ci season`: plants every crop block of the pack (up to 256, seasonal ones first) at sea level (Serene Seasons treats high, cold places as winter) on
    wet farmland and runs one farm day, and notes which idle Farming actions are in season;
 5. runs `/sunlitidle_ci check year` and the KubeJS error gate on the logs of the year.
 

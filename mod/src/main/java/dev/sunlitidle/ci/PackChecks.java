@@ -220,17 +220,24 @@ final class PackChecks {
                         .thenComparing(block -> BuiltInRegistries.BLOCK.getKey(block).toString()))
                 .limit(MAX_CROPS)
                 .toList();
-        BlockPos origin = level.getSharedSpawnPos().offset(-64, 0, -64).atY(310);
+        // At sea level: Serene Seasons treats a biome as cold (winter crops only) where it is too cold to rain,
+        // and the temperature drops with height. The blocks there are put back afterwards.
+        BlockPos origin = level.getSharedSpawnPos().offset(-64, 0, -64).atY(level.getSeaLevel());
         List<BlockPos> soils = new ArrayList<>();
         Map<BlockPos, BlockState> planted = new LinkedHashMap<>();
+        Map<BlockPos, BlockState> previous = new LinkedHashMap<>();
         for (int i = 0; i < crops.size(); i++) {
             BlockPos soil = origin.offset((i % ROW) * 2, 0, (i / ROW) * 2);
-            level.setBlock(soil, Blocks.FARMLAND.defaultBlockState().setValue(FarmBlock.MOISTURE, 7), 3);
+            previous.put(soil, level.getBlockState(soil));
+            previous.put(soil.above(), level.getBlockState(soil.above()));
+            level.setBlock(soil, Blocks.FARMLAND.defaultBlockState().setValue(FarmBlock.MOISTURE, 7), 2);
             BlockState crop = crops.get(i).defaultBlockState();
-            level.setBlock(soil.above(), crop, 3);
+            level.setBlock(soil.above(), crop, 2);
             soils.add(soil);
             planted.put(soil.above(), crop);
         }
+        boolean warm = level.getBiome(origin.above()).value().warmEnoughToRain(origin.above());
+        String biome = level.getBiome(origin.above()).unwrapKey().map(k -> k.location().toString()).orElse("?");
         DailyFarm.runDay(level, soils, List.of());
         Set<String> grew = new TreeSet<>();
         planted.forEach((pos, before) -> {
@@ -240,9 +247,13 @@ final class PackChecks {
             if (after.is(before.getBlock()) && !after.equals(before)) {
                 grew.add(id);
             }
-            level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
-            level.setBlock(pos.below(), Blocks.AIR.defaultBlockState(), 3);
         });
+        // Crop first, then soil, so nothing pops off.
+        List<BlockPos> restore = new ArrayList<>(previous.keySet());
+        restore.sort(Comparator.comparingInt((BlockPos pos) -> pos.getY()).reversed());
+        for (BlockPos pos : restore) {
+            level.setBlock(pos, previous.get(pos), 2);
+        }
         GREW.computeIfAbsent(season, s -> new TreeSet<>()).addAll(grew);
 
         Set<String> inSeason = new TreeSet<>();
@@ -256,7 +267,8 @@ final class PackChecks {
             }
         }
         IDLE_FARMING.computeIfAbsent(season, s -> new TreeSet<>()).addAll(inSeason);
-        CiHarness.log("INFO", "season_" + season, grew.size() + " of " + planted.size() + " crops grew a stage: " + grew
+        CiHarness.log("INFO", "season_" + season, "biome " + biome + (warm ? "" : " (cold: winter crops only)") + ", "
+                + grew.size() + " of " + planted.size() + " crops grew a stage: " + grew
                 + "; idle Farming in season: " + inSeason);
     }
 
