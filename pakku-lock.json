@@ -4228,8 +4228,7 @@
             "pakku_id": "zS9FoUua9t12KtMr",
             "pakku_links": [
                 "BVLHhwP2l3jsOL1M",
-                "q96z296L8UdOobfp",
-                "u3QgniNz8WE6CUUh"
+                "q96z296L8UdOobfp"
             ],
             "type": "MOD",
             "side": "CLIENT",
@@ -4245,7 +4244,7 @@
             "files": [
                 {
                     "type": "curseforge",
-                    "file_name": "drippyloadingscreen_neoforge_3.1.5_MC_1.21.1.jar",
+                    "file_name": "drippyloadingscreen_neoforge_3.1.2_MC_1.21.1.jar",
                     "mc_versions": [
                         "1.21.1"
                     ],
@@ -4253,20 +4252,19 @@
                         "neoforge"
                     ],
                     "release_type": "release",
-                    "url": "https://edge.forgecdn.net/files/8552/907/drippyloadingscreen_neoforge_3.1.5_MC_1.21.1.jar",
-                    "id": "8552907",
+                    "url": "https://edge.forgecdn.net/files/8032/784/drippyloadingscreen_neoforge_3.1.2_MC_1.21.1.jar",
+                    "id": "8032784",
                     "parent_id": "511770",
                     "hashes": {
-                        "sha1": "9d27991a7f5a551265692abf8ed40ece10ea1958",
-                        "md5": "41953cf1db90494f98f97f915716a016"
+                        "sha1": "b47a59369a55f818cadd9e0eeb9352b4028a5e9b",
+                        "md5": "610536f1d20735e90b3f4c05ddfd2cb7"
                     },
                     "required_dependencies": [
                         "367706",
-                        "410295",
-                        "938643"
+                        "410295"
                     ],
-                    "size": 168632,
-                    "date_published": "2026-08-01T08:38:11.937Z"
+                    "size": 174055,
+                    "date_published": "2026-05-03T14:55:46.123Z"
                 }
             ]
         },
@@ -5025,7 +5023,7 @@
             "files": [
                 {
                     "type": "curseforge",
-                    "file_name": "fancymenu_neoforge_3.9.14_MC_1.21.1.jar",
+                    "file_name": "fancymenu_neoforge_3.9.1_MC_1.21.1.jar",
                     "mc_versions": [
                         "1.21.1"
                     ],
@@ -5033,19 +5031,19 @@
                         "neoforge"
                     ],
                     "release_type": "release",
-                    "url": "https://edge.forgecdn.net/files/9002/957/fancymenu_neoforge_3.9.14_MC_1.21.1.jar",
-                    "id": "9002957",
+                    "url": "https://edge.forgecdn.net/files/8089/432/fancymenu_neoforge_3.9.1_MC_1.21.1.jar",
+                    "id": "8089432",
                     "parent_id": "367706",
                     "hashes": {
-                        "sha1": "cafbef98afb4f60adea426b950c5452655040c40",
-                        "md5": "d3619a53a017661c51375f20abc13c20"
+                        "sha1": "7d5be91bdc108df3cce5c68a10af7dd31dfc9e34",
+                        "md5": "41e7769dc89dff4a2c123b6e5f3123de"
                     },
                     "required_dependencies": [
                         "410295",
                         "938643"
                     ],
-                    "size": 25922080,
-                    "date_published": "2026-09-28T19:48:11.87Z"
+                    "size": 25346355,
+                    "date_published": "2026-05-14T20:31:18.807Z"
                 }
             ]
         },
@@ -11293,7 +11291,6 @@
         {
             "pakku_id": "lL9TOUv9Ryu1s4iM",
             "pakku_links": [
-                "uWUTfAJJKo0YAkmR",
                 "UF11sn1HqLXFiEO0"
             ],
             "type": "MOD",
@@ -11330,48 +11327,6 @@
                     ],
                     "size": 299353,
                     "date_published": "2025-01-02T01:22:42.973Z"
-                }
-            ]
-        },
-        {
-            "pakku_id": "uWUTfAJJKo0YAkmR",
-            "pakku_links": [
-                "UF11sn1HqLXFiEO0"
-            ],
-            "type": "MOD",
-            "side": "CLIENT",
-            "slug": {
-                "curseforge": "sodium-options-api"
-            },
-            "name": {
-                "curseforge": "Sodium/Embeddium Options API"
-            },
-            "id": {
-                "curseforge": "1103431"
-            },
-            "files": [
-                {
-                    "type": "curseforge",
-                    "file_name": "sodiumoptionsapi-neoforge-1.0.10-1.21.1.jar",
-                    "mc_versions": [
-                        "1.21.1"
-                    ],
-                    "loaders": [
-                        "neoforge"
-                    ],
-                    "release_type": "release",
-                    "url": "https://edge.forgecdn.net/files/6100/815/sodiumoptionsapi-neoforge-1.0.10-1.21.1.jar",
-                    "id": "6100815",
-                    "parent_id": "1103431",
-                    "hashes": {
-                        "sha1": "5d014d031fa77ab600e07835b032ef4dcb79b442",
-                        "md5": "1411af8defb5136119d3cf706d3d9cd8"
-                    },
-                    "required_dependencies": [
-                        "394468"
-                    ],
-                    "size": 309122,
-                    "date_published": "2025-01-18T20:48:18.213Z"
                 }
             ]
         },
@@ -12893,59 +12848,7 @@
             ]
         },
         {
-            "pakku_id": "Y3v5aJ2dDjLF0Aw4",
-            "pakku_links": [
-                "zHRbMsZ6VkdEiqa7"
-            ],
-            "type": "MOD",
-            "slug": {
-                "curseforge": "watermedia-binaries"
-            },
-            "name": {
-                "curseforge": "WATERMeDIA: Binaries"
-            },
-            "id": {
-                "curseforge": "1029438"
-            },
-            "files": [
-                {
-                    "type": "curseforge",
-                    "file_name": "watermedia_binaries-3.0.0.6.jar",
-                    "mc_versions": [
-                        "1.20.1",
-                        "1.21.1",
-                        "1.18.2",
-                        "1.19.2",
-                        "1.21.11",
-                        "26.1.2",
-                        "26.2"
-                    ],
-                    "loaders": [
-                        "fabric",
-                        "forge",
-                        "neoforge"
-                    ],
-                    "release_type": "release",
-                    "url": "https://edge.forgecdn.net/files/8519/58/watermedia_binaries-3.0.0.6.jar",
-                    "id": "8519058",
-                    "parent_id": "1029438",
-                    "hashes": {
-                        "sha1": "341849b8dcc68424da842967c8a0c2212f21515b",
-                        "md5": "2194660cda6d3ac9fc9dbbc70620cd7a"
-                    },
-                    "required_dependencies": [
-                        "869524"
-                    ],
-                    "size": 143725808,
-                    "date_published": "2026-07-27T09:21:25.923Z"
-                }
-            ]
-        },
-        {
             "pakku_id": "zHRbMsZ6VkdEiqa7",
-            "pakku_links": [
-                "Y3v5aJ2dDjLF0Aw4"
-            ],
             "type": "MOD",
             "side": "CLIENT",
             "slug": {
@@ -12960,15 +12863,14 @@
             "files": [
                 {
                     "type": "curseforge",
-                    "file_name": "watermedia-3.0.0.jar",
+                    "file_name": "watermedia-2.1.37.jar",
                     "mc_versions": [
+                        "1.16.5",
+                        "1.21.5",
                         "1.20.1",
                         "1.21.1",
                         "1.18.2",
-                        "1.19.2",
-                        "1.21.11",
-                        "26.1.2",
-                        "26.2"
+                        "1.19.2"
                     ],
                     "loaders": [
                         "fabric",
@@ -12976,18 +12878,18 @@
                         "neoforge"
                     ],
                     "release_type": "release",
-                    "url": "https://edge.forgecdn.net/files/9403/473/watermedia-3.0.0.jar",
-                    "id": "9403473",
+                    "url": "https://edge.forgecdn.net/files/7281/929/watermedia-2.1.37.jar",
+                    "id": "7281929",
                     "parent_id": "869524",
                     "hashes": {
-                        "sha1": "9d0e7c242a99edb96467abc643d09f3055644162",
-                        "md5": "d6279f1a16b2456e6e69c98b1cb2175c"
+                        "sha1": "4a91d20d9a3aa8d66e01f7962d77c974ad538f4f",
+                        "md5": "4a09ad3ea22ad258802605b8aa929bbd"
                     },
                     "required_dependencies": [
-                        "1029438"
+                        "1395870"
                     ],
-                    "size": 3332542,
-                    "date_published": "2026-11-02T07:15:00.46Z"
+                    "size": 37046674,
+                    "date_published": "2025-12-01T12:46:11.617Z"
                 }
             ]
         },
