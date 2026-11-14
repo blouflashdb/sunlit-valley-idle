@@ -577,7 +577,6 @@
 				""
 				"{ftbquests.chapter.ii__building_up_the_farm.quest3D324E99DF28D224.description3}"
 			]
-			icon: "candlelight:hearth"
 			id: "3D324E99DF28D224"
 			rewards: [
 				{

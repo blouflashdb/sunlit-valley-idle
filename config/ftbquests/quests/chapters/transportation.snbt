@@ -57,7 +57,7 @@
 				""
 				"{ftbquests.chapter.transportation.quest42A10CEE57513522.description3}"
 			]
-			icon: "supplementaries:sign_post_oak"
+			icon: "supplementaries:way_sign_oak"
 			id: "42A10CEE57513522"
 			rewards: [{
 				count: 3

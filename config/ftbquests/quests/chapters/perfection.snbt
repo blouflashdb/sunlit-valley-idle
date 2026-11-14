@@ -586,7 +586,6 @@
 			size: 3.0d
 			subtitle: "{ftbquests.chapter.perfection.quest17064AEF4212B5FF.subtitle}"
 			tasks: [{
-				icon: "fantasyfurniture:decorations/bone_skeleton_skull_blossoms"
 				id: "09B79BA0E1E2F6AA"
 				stat: "minecraft:play_time"
 				title: "{ftbquests.chapter.perfection.quest17064AEF4212B5FF.task.700199382366221994.title}"
