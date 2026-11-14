@@ -1,6 +1,7 @@
 package dev.sunlitidle;
 
 import com.mojang.logging.LogUtils;
+import dev.sunlitidle.ci.CiHarness;
 import dev.sunlitidle.client.ClientSetup;
 import dev.sunlitidle.farm.DailyFarm;
 import dev.sunlitidle.farm.FarmEvents;
@@ -35,6 +36,9 @@ public final class SunlitIdle {
         container.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
         if (FMLEnvironment.dist == Dist.CLIENT) {
             ClientSetup.init(bus);
+        }
+        if (CiHarness.enabled()) {
+            CiHarness.init();
         }
     }
 
