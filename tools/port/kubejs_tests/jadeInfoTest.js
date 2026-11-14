@@ -17,9 +17,11 @@ ServerEvents.loaded((event) => {
   let at = (dx) => level.getBlock(bx + dx, y, bz);
   let lines = (dx) => {
     let block = at(dx);
-    return Array.from($BlockInfoEvent.collect(level, block.getPos(), block.getBlockState(), block.getEntity())).map((line) =>
-      String(line.getString()).replace(/§./g, "")
-    );
+    // A Java List: Rhino cannot pass it to Array.from, so copy it by index.
+    let collected = $BlockInfoEvent.collect(level, block.getPos(), block.getBlockState(), block.getEntity());
+    let result = [];
+    for (let i = 0; i < collected.size(); i++) result.push(String(collected.get(i).getString()).replace(/§./g, ""));
+    return result;
   };
   let plushieId = "perfectplushies:adv_red_fox_plushie";
 
