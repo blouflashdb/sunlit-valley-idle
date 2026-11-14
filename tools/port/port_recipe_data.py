@@ -59,6 +59,9 @@ SKIPPED = {
     "pipez:recipe/copy_upgrade_advanced.json",
     "refinedstorage:recipe/filter.json",  # Refined Storage 2 has no filter or fluid grid
     "refinedstorage:recipe/fluid_grid/fluid_grid.json",
+    # kubejs/server_scripts/recipes/removeRecipes.js removes these two (as on 1.20.1), so the overrides are dead.
+    "create:recipe/crafting/kinetics/fluid_pipe_vertical.json",
+    "create:recipe/milling/wheat.json",
 }
 # Recipes whose items a later slice registers.
 DEFERRED_ITEMS = {"society:sturdy_bamboo_block"}

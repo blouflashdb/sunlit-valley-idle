@@ -82,8 +82,24 @@ MOVED = {
     "supplementaries/loot_table/blocks/urn_loot/rare.json": "supplementaries/loot_table/loot/urn_loot/rare.json",
     "supplementaries/loot_table/blocks/urn_loot/epic.json": "supplementaries/loot_table/loot/urn_loot/epic.json",
 }
+# Per-file fixes after conversion.
+RECIPE_FIXES = {
+    # Sugar water bowls stack to 1 on 1.21 (a result count of 4 fails to parse): one syrup + one bowl -> one bowl.
+    "longwings/recipe/sugar_water_bowl.json": lambda d: dict(d, ingredients=d["ingredients"][:2],
+                                                             result=dict(d["result"], count=1)),
+}
+# Recipes that load but that kubejs/server_scripts/recipes/removeRecipes.js removes (e.remove({output}) also hits
+# data recipes): kept, but not listed in modsPortData.recipes. The FFB market entries need removeRecipes.js to skip
+# the farmingforblockheads:market type.
+REMOVED_BY_SCRIPT_OUTPUTS = {
+    "farm_and_charm:barley_seeds", "farm_and_charm:kernels", "farm_and_charm:lettuce_seeds",
+    "farm_and_charm:strawberry_seeds", "farmersdelight:tomato_seeds", "minecraft:melon_seeds",
+    "minecraft:pumpkin_seeds", "veggiesdelight:bellpepper_seeds", "veggiesdelight:cauliflower_seeds",
+}
 # Files that are not ported, with the reason (on top of files whose ids are missing).
 DROPPED = {
+    "aquaculture/recipe/iron_hook.json": "removeRecipes.js removes every aquaculture:iron_hook recipe by output",
+    "tanukidecor/loot_table/blocks/cabana_bed.json": "the 1.21 file already drops one bed (depth=1 condition)",
     "simplehats/loot_modifiers/hat_lootinject_entity.json": "Simple Hats 1.21 has no loot modifiers (hat drops are built in)",
     "simplehats/loot_table/inject/hatbag_entity.json": "Simple Hats 1.21 has no inject loot table",
     "sereneseasons/tags/block/greenhouse_glass.json": "only listed More Minecarts glass (mod removed); the default greenhouse glass stays",
@@ -257,9 +273,15 @@ def port_recipe(ns, rel, data):
     elif t == "sawmill:woodcutting":
         data = dict(data)
         data["result"] = {"id": data["result"], "count": data.pop("count", 1)}
+    elif t in ("minecraft:smelting", "minecraft:blasting", "minecraft:smoking", "minecraft:campfire_cooking",
+               "minecraft:stonecutting") and isinstance(data.get("result"), str):
+        data = dict(data)
+        data["result"] = {"id": data["result"], "count": data.pop("count", 1)}
     elif t == "crafting_shaped" or t == "crafting_shapeless":
         data = dict(data, type="minecraft:" + t)
     data = convert_recipe(data)
+    if rel in RECIPE_FIXES:
+        data = RECIPE_FIXES[rel](data)
     return data, None
 
 
@@ -307,6 +329,11 @@ def port_condition(c):
         if "biome" in p:
             p["biomes"] = p.pop("biome")
         c["predicate"] = p
+    elif name == "minecraft:entity_properties":
+        c["entity"] = {"killer": "attacker", "killer_player": "attacking_player"}.get(c["entity"], c["entity"])
+    elif name == "minecraft:block_state_property" and "properties" in c:
+        c["properties"] = {k: str(v) if isinstance(v, (int, bool)) and not isinstance(v, bool) else
+                           (str(v).lower() if isinstance(v, bool) else v) for k, v in c["properties"].items()}
     elif name == "aquaculture:biome_tag_check":
         p = dict(c["predicate"])
         for k in ("include", "exclude"):
@@ -342,6 +369,9 @@ def port_function(f):
         # Aquaculture's Neptune's Bounty is a loot container: give it its loot table instead of rolled contents.
         table = f["entries"][0]["name"]
         f = {"function": "minecraft:set_loot_table", "name": table, "type": f["type"]}
+    elif name == "supplementaries:curse_loot":
+        # Supplementaries 1.21 uses a vanilla curse enchant in its own urn loot.
+        f = {"function": "minecraft:enchant_randomly", "options": "#minecraft:curse"}
     if "conditions" in f:
         f["conditions"] = [port_condition(c) for c in f["conditions"]]
     return f
@@ -470,7 +500,8 @@ def port_ffb(rel, name, data, recipe_ids):
             recipe["payment"] = payment(p)
         rid = f"market/{preset_name}/{item.replace(':', '_')}"
         write(f"farmingforblockheads/recipe/{rid}.json", recipe)
-        recipe_ids.add(f"farmingforblockheads:{rid}")
+        if item not in REMOVED_BY_SCRIPT_OUTPUTS:
+            recipe_ids.add(f"farmingforblockheads:{rid}")
         used_items.add(item)
         count += 1
     return count

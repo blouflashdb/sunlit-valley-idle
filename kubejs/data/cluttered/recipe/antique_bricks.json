@@ -6,5 +6,8 @@
   "ingredient": {
     "item": "twigs:cracked_bricks"
   },
-  "result": "cluttered:antique_bricks"
+  "result": {
+    "id": "cluttered:antique_bricks",
+    "count": 1
+  }
 }
