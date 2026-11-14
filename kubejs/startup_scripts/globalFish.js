@@ -1,8 +1,8 @@
 // priority: 1000
 console.info("[SOCIETY] globalFish.js loaded");
 
-// The fish of each season and water (ocean, river, fresh water), with weights. The fish tooltips read them
-// (server_scripts/tooltips/fishTooltips.js); and the seasonal fishing loot (server_scripts/loot/seasonfish.js).
+// The fish of each season and water (ocean, river, fresh water), with weights. The fish tooltips
+// (server_scripts/tooltips/fishTooltips.js) and the seasonal fishing loot (server_scripts/loot/seasonfish.js) read them.
 // Spring Fish
 global.springOcean = [
   { fish: "aquaculture:atlantic_herring", weight: 16 },
