@@ -41,8 +41,8 @@ const pigRaceCoinValue = (stack) => {
 };
 
 const pigRaceGiveValue = (player, value) => {
-  global.calculateCoinsFromValue(value, global.coinMap).forEach(({ coin, count }) => {
-    for (let left = count; left > 0; left -= 64) player.give(Item.of(coin, Math.min(64, left)));
+  global.calculateCoinsFromValue(value, global.coinMap).forEach((entry) => {
+    for (let left = entry.count; left > 0; left -= 64) player.give(Item.of(entry.coin, Math.min(64, left)));
   });
 };
 
@@ -79,7 +79,9 @@ const simulatePigRace = (speeds) => {
   const ranking = [];
   for (let k = 0; k < pigRaceFrames; k++) {
     let positions = [];
-    speeds.forEach(([first, second], index) => {
+    speeds.forEach((speed, index) => {
+      let first = speed[0];
+      let second = speed[1];
       let halfWay = first * halfwayPoint;
       let secondWind = halfWay + second * (k - halfwayPoint) + 1;
       let finished = k >= halfwayPoint && secondWind >= pigRaceFinish;
@@ -130,7 +132,10 @@ const showPigRace = (player, server, race, betPig, onFinish) => {
       });
     });
   }
-  race.changes.forEach(({ frame, pig, boost }) => {
+  race.changes.forEach((change) => {
+    let frame = change.frame;
+    let pig = change.pig;
+    let boost = change.boost;
     server.scheduleInTicks(pigRaceStartDelay + frame, () => {
       server.runCommandSilent(
         `bossbar set ${pigRaceBar(player, pigColors[pig])} name ${pigRaceBarName(pigColors[pig], boost ? "▲" : "▼")}`

@@ -15,8 +15,8 @@ const experienceBookUse = (e, skills, xp) => {
   ["society:mining_monthly", "mining"],
   ["society:combat_quarterly", "adventuring"],
   ["society:wet_weekly", "fishing"],
-].forEach(([book, skill]) => {
-  ItemEvents.rightClicked(book, (e) => experienceBookUse(e, [skill], 1000));
+].forEach((entry) => {
+  ItemEvents.rightClicked(entry[0], (e) => experienceBookUse(e, [entry[1]], 1000));
 });
 
 ItemEvents.rightClicked("society:book_of_stars", (e) =>

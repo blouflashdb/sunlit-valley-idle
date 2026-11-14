@@ -28,7 +28,9 @@ console.info("[SOCIETY] skillBooks.js loaded");
   ["the_red_and_the_black", "ysthrzir822oedus"],
   ["women_who_run_with_the_plushies", "2vo8noqvq4aj1egy"],
   ["the_metamorphosize", "gjvl3ej2fhc4cwzb"],
-].forEach(([book, skillId]) => {
+].forEach((entry) => {
+  const book = entry[0];
+  const skillId = entry[1];
   ItemEvents.rightClicked(`society:${book}`, (e) => {
     const { player, item, server } = e;
     global.addItemCooldown(player, item, 20);

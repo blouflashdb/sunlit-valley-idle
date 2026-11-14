@@ -8,7 +8,10 @@ console.info("[SOCIETY] regretCrystals.js loaded");
   ["mining", ["furniture_archaeologist", "blockchain"], 8750],
   ["fishing", ["mystical_ocean"], 14500],
   ["adventuring", ["fence", "dragonslayer"], 8750],
-].forEach(([tree, stages, experience]) => {
+].forEach((entry) => {
+  const tree = entry[0];
+  const stages = entry[1];
+  const experience = entry[2];
   ItemEvents.rightClicked(`society:crystal_of_regret_${tree}`, (e) => {
     const { player, item, server } = e;
     if (!stages.some((stage) => player.stages.has(stage))) {

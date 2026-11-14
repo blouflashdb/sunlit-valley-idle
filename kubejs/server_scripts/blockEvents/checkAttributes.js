@@ -21,8 +21,9 @@ BlockEvents.leftClicked(global.shippingBins, (e) => {
     player.tell(Text.translatable("society.shipping_bin.owner", Text.of(`${cached.player.username}`).gold()));
   }
   player.tell(Text.translatable("society.shipping_bin.sell_multipliers").gray());
-  shippingBinMultipliers.forEach(([attribute, key]) => {
-    let value = cached.profile.attributes[attribute];
+  shippingBinMultipliers.forEach((entry) => {
+    let key = entry[1];
+    let value = cached.profile.attributes[entry[0]];
     player.tell(
       Text.translatable("society.shipping_bin.multiplier", Text.translatable(key), Text.green(`${value || 1}`))
     );

@@ -16,7 +16,7 @@ PlayerEvents.loggedIn((e) => {
   player.stages.add("starting_items_4_1");
   player.give("ftbquests:book");
   if (global.multiplayerSharestones) {
-    player.give("waystones:white_sharestone");
+    player.give("waystones:sharestone");
     player.give(
       global.getNotePaperItem(
         global.translatableWithFallback("society.starting_item_sharestone.author", "Society").getString(),

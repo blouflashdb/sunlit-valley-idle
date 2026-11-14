@@ -23,7 +23,7 @@ ServerEvents.loaded((event) => {
       "society:multiplayer_pig_race_ticket", "society:the_red_and_the_black", "society:prismatic_shard",
       "society:book_of_stars", "society:yard_work_yearly", "society:crystal_of_regret_farming",
       "society:the_metamorphosize", "meadow:firewood", "meadow:wooden_bucket", "furniture:blueprints",
-      "ftbquests:book", "waystones:white_sharestone", "moblassos:diamond_lasso", "pamhc2trees:pawpawitem",
+      "ftbquests:book", "waystones:sharestone", "moblassos:diamond_lasso", "pamhc2trees:pawpawitem",
       "pamhc2trees:appleitem", "vinery:cherry", "atmospheric:orange", "atmospheric:passion_fruit",
       "brewery:dark_brew", "farm_and_charm:fertilizer", "numismatics:prismatic_coin", "create:creative_blaze_cake",
       "autumnity:turkey_egg", "untitledduckmod:duck_egg", "refinedstorage:4k_storage_block",
@@ -40,7 +40,9 @@ ServerEvents.loaded((event) => {
       ["herbalbrews:lavender", []],
       ["farm_and_charm:wild_nettle", []],
       ["society:shipping_bin_monitor", []],
-    ].forEach(([id, properties]) => {
+    ].forEach((entry) => {
+      let id = entry[0];
+      let properties = entry[1];
       check(blockExists(id), `block ${id} is not registered`);
       let names = [];
       Block.getBlock(id).defaultBlockState().getProperties().forEach((p) => names.push(String(p.getName())));

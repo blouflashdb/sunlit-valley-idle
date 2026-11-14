@@ -30,7 +30,9 @@ const chatColorCodes = [
 const chatNearestCode = (rgb) => {
   let best = "f";
   let bestDistance = Infinity;
-  chatColorCodes.forEach(([code, value]) => {
+  chatColorCodes.forEach((entry) => {
+    let code = entry[0];
+    let value = entry[1];
     let dr = ((rgb >> 16) & 255) - ((value >> 16) & 255);
     let dg = ((rgb >> 8) & 255) - ((value >> 8) & 255);
     let db = (rgb & 255) - (value & 255);
@@ -52,8 +54,8 @@ PlayerEvents.chat((e) => {
   if (!global.enableChatColors) return;
   const { player, server } = e;
   let color = "&f";
-  chatColorDyes.forEach(({ dye, code }) => {
-    if (societyIsCurioEquipped(player, dye)) color = `&${code}`;
+  chatColorDyes.forEach((entry) => {
+    if (societyIsCurioEquipped(player, entry.dye)) color = `&${entry.code}`;
   });
   server.tell(Text.of(chatAddColor(` ${color}${player.username} &7»&r ${e.message}`)));
   e.cancel();

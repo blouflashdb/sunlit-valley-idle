@@ -55,7 +55,13 @@ BlockEvents.rightClicked(["minecraft:cave_vines", "minecraft:cave_vines_plant"],
 [
   ["vinery:apple_leaves", "can_grow_apples", "has_apples", "autumn", "desc.sereneseasons.autumn", "gold"],
   ["vinery:dark_cherry_leaves", "can_grow_cherries", "has_cherries", "spring", "desc.sereneseasons.spring", "green"],
-].forEach(([leaves, canGrow, hasFruit, season, seasonKey, seasonColor]) => {
+].forEach((entry) => {
+  const leaves = entry[0];
+  const canGrow = entry[1];
+  const hasFruit = entry[2];
+  const season = entry[3];
+  const seasonKey = entry[4];
+  const seasonColor = entry[5];
   BlockEvents.rightClicked(leaves, (e) => {
     const { block, player, item, server } = e;
     if (global.isItemOnCooldown(player, item)) return;

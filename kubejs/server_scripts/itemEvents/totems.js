@@ -43,7 +43,9 @@ ItemEvents.rightClicked("society:bubble_totem", (e) => runSpotTotem(e, "fishings
   ["society:dry_totem", "clear"],
   ["society:rain_totem", "rain"],
   ["society:thunder_totem", "thunder"],
-].forEach(([totem, weather]) => {
+].forEach((entry) => {
+  const totem = entry[0];
+  const weather = entry[1];
   ItemEvents.rightClicked(totem, (e) => {
     const { server, player, item } = e;
     server.runCommandSilent(`weather ${weather}`);
