@@ -5,8 +5,16 @@ Starts a dedicated server with the pack (as server_boot_test.py), installs NeoFo
 portablemc, downloads every client and common mod, resource pack and shader pack of pakku-lock.json, copies
 the overrides and client overrides, and runs the client on a virtual X display (Xvfb) with Mesa's software
 OpenGL (llvmpipe). The client joins the server with quick play; once the server reports the join, the script
-waits for the world to render, takes a screenshot of the display and checks the client logs:
-- the client must not crash and must join the server,
+waits for the world to render, takes a screenshot of the display and checks the client logs.
+
+The client starts twice: first without quick play, to take screenshots of the Drippy loading screen and the
+FancyMenu title screen; then with quick play into the server, for an in-game screenshot (JourneyMap minimap,
+HUD). Checks:
+- the client must not crash, must reach the title screen and must join the server,
+- the shader pack that config/iris.properties selects must exist in shaderpacks/ after the first start
+  (Colorwheel Patcher writes the patched Complementary copy there),
+- every resource pack that configureddefaults/options.txt enables must still be enabled after the first start
+  (the game drops missing and incompatible packs from options.txt and logs it),
 - logs/kubejs/client.log must have no errors (error gate with kubejs_error_allowlist.txt),
 - logs/latest.log must have no errors from the renderer (Iris, Sodium), FancyMenu / Drippy Loading Screen or
   resource pack loading (same allowlist). Other client errors are listed but do not fail the test.
@@ -35,8 +43,10 @@ import server_boot_test as boot  # noqa: E402
 
 USERNAME = "CiClient"
 DISPLAY = ":99"
-FOCUS = re.compile(r"iris|sodium|fancymenu|drippy|konkrete|melody|resource ?pack|PackRepository|ResourceManager|"
-                   r"shader|texture", re.IGNORECASE)
+FOCUS = re.compile(r"iris|sodium|fancymenu|drippy|konkrete|melody|journeymap|resource ?pack|PackRepository|"
+                   r"ResourceManager|shader|texture|colorwheel", re.IGNORECASE)
+LOADED = re.compile(r"Sound engine started|OpenAL initialized")
+PACK_DROPPED = re.compile(r"Removed resource pack .* from options because")
 LOG_ERROR = re.compile(r"^\[[^\]]+\] \[[^\]]+/(ERROR|FATAL)\] \[([^\]]+)\]: (.*)$")
 
 
@@ -81,12 +91,14 @@ def start_display():
     return xvfb
 
 
-def start_client(main_dir, game, neoforge, log_file):
+def start_client(main_dir, game, neoforge, log_file, join=True):
     env = dict(os.environ, DISPLAY=DISPLAY, LIBGL_ALWAYS_SOFTWARE="1", GALLIUM_DRIVER="llvmpipe",
                MESA_GL_VERSION_OVERRIDE="4.5", MESA_GLSL_VERSION_OVERRIDE="450")
     cmd = ["portablemc", "--main-dir", str(main_dir), "--work-dir", str(game), "--output", "human",
            "start", "--jvm", shutil.which("java"), "--jvm-args", "-Xmx5G -XX:+UseG1GC",
-           f"neoforge:{neoforge}", "-u", USERNAME, "-s", "localhost", "-p", "25565"]
+           f"neoforge:{neoforge}", "-u", USERNAME]
+    if join:
+        cmd += ["-s", "localhost", "-p", "25565"]
     print("Starting the client: " + " ".join(cmd), flush=True)
     return subprocess.Popen(cmd, env=env, stdout=log_file, stderr=subprocess.STDOUT, start_new_session=True)
 
@@ -118,6 +130,75 @@ def log_errors(log):
     return found
 
 
+def title_screen(root, main_dir, game, neoforge, timeout, problems):
+    """First start without quick play: loading screen frames, then the title screen. Returns the log copy."""
+    log = game / "logs" / "latest.log"
+    with open(root / "client-console-title.log", "w") as console:
+        client = start_client(main_dir, game, neoforge, console, join=False)
+        try:
+            started = time.monotonic()
+            frame = 0
+            loaded = None
+            while time.monotonic() - started < timeout and client.poll() is None:
+                time.sleep(20)
+                if frame < 6 and screenshot(root / f"loading-{frame}.png"):
+                    frame += 1
+                if log.exists() and LOADED.search(log.read_text(errors="replace")):
+                    loaded = time.monotonic() - started
+                    break
+            if loaded is None:
+                problems.append("the client did not finish loading" if client.poll() is None
+                                else f"the client exited (code {client.returncode}) while loading")
+                return None
+            print(f"Client loaded in {loaded:.0f} s", flush=True)
+            time.sleep(45)
+            if client.poll() is not None:
+                problems.append(f"the client exited (code {client.returncode}) on the title screen")
+            elif screenshot(root / "title-screen.png"):
+                print(f"Screenshot: {root / 'title-screen.png'}", flush=True)
+        finally:
+            stop_process_group(client)
+    copy = game / "logs" / "latest-title.log"
+    if log.exists():
+        shutil.copy2(log, copy)
+    return copy
+
+
+def check_shader_pack(game, problems):
+    props = game / "config" / "iris.properties"
+    if not props.exists():
+        problems.append("config/iris.properties is missing in the client")
+        return
+    selected = next((line.split("=", 1)[1].strip() for line in props.read_text().splitlines()
+                     if line.startswith("shaderPack=")), "")
+    present = sorted(p.name for p in (game / "shaderpacks").glob("*"))
+    print(f"Iris shaderPack: {selected!r}; shaderpacks/: {present}", flush=True)
+    if selected and selected not in present:
+        problems.append(f"iris.properties selects {selected!r}, which is not in shaderpacks/ {present}")
+
+
+def check_resource_packs(game, title_log, problems):
+    wanted = []
+    defaults = pathlib.Path("configureddefaults/options.txt")
+    for line in defaults.read_text().splitlines():
+        if line.startswith("resourcePacks:"):
+            wanted = json.loads(line.split(":", 1)[1])
+    enabled = []
+    options = game / "options.txt"
+    if options.exists():
+        for line in options.read_text().splitlines():
+            if line.startswith("resourcePacks:"):
+                enabled = json.loads(line.split(":", 1)[1])
+    dropped = [p for p in wanted if p not in enabled]
+    print(f"Resource packs enabled after the first start: {enabled}", flush=True)
+    if dropped:
+        problems.append(f"resource packs dropped by the game: {dropped}")
+    if title_log and title_log.exists():
+        for line in title_log.read_text(errors="replace").splitlines():
+            if PACK_DROPPED.search(line):
+                problems.append(line.split("]: ", 1)[-1])
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dir", default="build/client")
@@ -146,11 +227,15 @@ def main():
     xvfb = None
     client = None
     problems = []
-    shot = root / "screenshot.png"
+    title_log = None
+    shot = root / "in-game.png"
     try:
         if not server.wait_for(r'Done \(.*For help, type "help"', 900):
             raise SystemExit(f"Server boot failed: {server.fail or 'never reached Done'}")
         xvfb = start_display()
+        title_log = title_screen(root, main_dir, game, neoforge, args.join_timeout, problems)
+        check_shader_pack(game, problems)
+        check_resource_packs(game, title_log, problems)
         with open(root / "client-console.log", "w") as console:
             client = start_client(main_dir, game, neoforge, console)
             started = time.monotonic()
@@ -188,6 +273,8 @@ def main():
         problems.append("KubeJS client errors")
 
     errors = log_errors(game / "logs" / "latest.log")
+    if title_log:
+        errors += log_errors(title_log)
     focus = [(f"latest.log {logger}", message) for logger, message in errors if FOCUS.search(logger + " " + message)]
     if kubejs_log_gate.gate(focus, allowlist, "Renderer, menu and resource pack errors on the client") > 0:
         problems.append("renderer, menu or resource pack errors on the client")
