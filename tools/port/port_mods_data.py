@@ -88,14 +88,6 @@ RECIPE_FIXES = {
     "longwings/recipe/sugar_water_bowl.json": lambda d: dict(d, ingredients=d["ingredients"][:2],
                                                              result=dict(d["result"], count=1)),
 }
-# Recipes that load but that kubejs/server_scripts/recipes/removeRecipes.js removes (e.remove({output}) also hits
-# data recipes): kept, but not listed in modsPortData.recipes. The FFB market entries need removeRecipes.js to skip
-# the farmingforblockheads:market type.
-REMOVED_BY_SCRIPT_OUTPUTS = {
-    "farm_and_charm:barley_seeds", "farm_and_charm:kernels", "farm_and_charm:lettuce_seeds",
-    "farm_and_charm:strawberry_seeds", "farmersdelight:tomato_seeds", "minecraft:melon_seeds",
-    "minecraft:pumpkin_seeds", "veggiesdelight:bellpepper_seeds", "veggiesdelight:cauliflower_seeds",
-}
 # Files that are not ported, with the reason (on top of files whose ids are missing).
 DROPPED = {
     "aquaculture/recipe/iron_hook.json": "removeRecipes.js removes every aquaculture:iron_hook recipe by output",
@@ -500,8 +492,7 @@ def port_ffb(rel, name, data, recipe_ids):
             recipe["payment"] = payment(p)
         rid = f"market/{preset_name}/{item.replace(':', '_')}"
         write(f"farmingforblockheads/recipe/{rid}.json", recipe)
-        if item not in REMOVED_BY_SCRIPT_OUTPUTS:
-            recipe_ids.add(f"farmingforblockheads:{rid}")
+        recipe_ids.add(f"farmingforblockheads:{rid}")
         used_items.add(item)
         count += 1
     return count
