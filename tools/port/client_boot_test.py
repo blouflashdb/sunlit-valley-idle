@@ -300,16 +300,27 @@ def defaults_start(root, main_dir, game, neoforge, timeout):
         try:
             started = time.monotonic()
             loaded = False
+            failed = None
             while time.monotonic() - started < timeout and client.poll() is None:
                 time.sleep(10)
-                if log.exists() and LOADED.search(log.read_text(errors="replace")):
+                text = log.read_text(errors="replace") if log.exists() else ""
+                if LOADED.search(text):
                     loaded = True
                     time.sleep(20)
                     break
+                m = LOAD_FAILED.search(text)
+                if m or list((defaults / "crash-reports").glob("*.txt")):
+                    failed = m.group(0) if m else "crash report"
+                    break
+            if not loaded:
+                screenshot(root / "defaults-not-loaded.png")
         finally:
             stop_process_group(client)
     if not loaded:
-        return [("defaults start", "the client without the pack's configs did not reach the title screen")]
+        reason = failed or (f"exited with code {client.returncode}" if client.returncode not in (None, -15)
+                            else f"no title screen after {time.monotonic() - started:.0f} s")
+        return [("defaults start", f"the client without the pack's configs did not load ({reason}); see "
+                                   "game-defaults/logs and client-console-defaults.log")]
     allowlist = config_keys.load_allowlist(config_keys.DEFAULT_ALLOWLIST)
     errors = config_keys.stale_keys(defaults, "stale key, client", client=True, allowlist=allowlist)
     config_keys.report_stale(allowlist)
@@ -387,7 +398,7 @@ def main():
                     idle_screenshot(root, client)
         stop_process_group(client)
         client = None
-        key_errors = defaults_start(root, main_dir, game, neoforge, args.join_timeout)
+        key_errors = defaults_start(root, main_dir, game, neoforge, 900)
     except ClientFailed:
         print("The client did not load; the join is skipped", flush=True)
     finally:

@@ -231,5 +231,9 @@ jobs:
             build/client/game/crash-reports/
             build/client/server/logs/
             build/client/game/config/
+            build/client/game-defaults/config/
+            build/client/game-defaults/logs/
+            build/client/game-defaults/crash-reports/
+            build/client/client-console-defaults.log
             build/client/server/config/
           if-no-files-found: ignore
