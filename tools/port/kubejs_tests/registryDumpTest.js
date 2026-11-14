@@ -2,7 +2,6 @@
 const $DumpBuiltIn = Java.loadClass("net.minecraft.core.registries.BuiltInRegistries");
 const $DumpKeys = Java.loadClass("net.minecraft.core.registries.Registries");
 const $DumpNeo = Java.loadClass("net.neoforged.neoforge.registries.NeoForgeRegistries");
-const $DumpModList = Java.loadClass("net.neoforged.fml.ModList");
 
 ServerEvents.loaded((event) => {
   let server = event.server;
@@ -19,7 +18,7 @@ ServerEvents.loaded((event) => {
       console.warn(`[DUMP] failed ${name}: ${e}`);
     }
   };
-  safe("mods", () => $DumpModList.get().getMods().forEach((m) => out("mod", m.getModId())));
+  safe("mods", () => Platform.getList().forEach((m) => out("mod", m)));
   let builtin = {
     item: $DumpBuiltIn.ITEM,
     block: $DumpBuiltIn.BLOCK,
