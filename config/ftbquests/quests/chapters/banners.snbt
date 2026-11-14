@@ -106,7 +106,6 @@
 			}]
 			size: 2.0d
 			tasks: [{
-				icon: "candlelight:candlelight_standard"
 				id: "765B171872302421"
 				stat: "minecraft:play_time"
 				title: "{ftbquests.chapter.banners.quest1280C34AE9A4EE7B.task.8528435713118577697.title}"
@@ -162,7 +161,6 @@
 			}]
 			size: 2.0d
 			tasks: [{
-				icon: "bakery:bakery_standard"
 				id: "3AD3A245C817EDF9"
 				stat: "minecraft:play_time"
 				title: "{ftbquests.chapter.banners.quest7A159242A6B053C8.task.4238910094879223289.title}"

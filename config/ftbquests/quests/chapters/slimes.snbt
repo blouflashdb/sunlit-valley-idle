@@ -10,26 +10,8 @@
 	id: "3F567CE7F8E7B185"
 	images: [
 		{
-			height: 5.0d
-			image: "society:textures/gui/slime.png"
-			order: 4
-			rotation: 0.0d
-			width: 5.0d
-			x: -5.5238095238095255d
-			y: 5.5833333333333215d
-		}
-		{
-			height: 4.0d
-			image: "society:textures/gui/slime2.png"
-			order: 2
-			rotation: 0.0d
-			width: 4.0d
-			x: -7.553571428571402d
-			y: 4.083333333333329d
-		}
-		{
 			height: 10.0d
-			image: "society:textures/gui/background_slime.png"
+			image: "sunlitidle:textures/gui/quests/background_slime.png"
 			order: 3
 			rotation: 0.0d
 			width: 13.0d
@@ -38,7 +20,7 @@
 		}
 		{
 			height: 1.4d
-			image: "society:textures/gui/circle.png"
+			image: "sunlitidle:textures/gui/quests/circle.png"
 			order: 3
 			rotation: 0.0d
 			width: 1.4d
@@ -47,7 +29,7 @@
 		}
 		{
 			height: 1.4d
-			image: "society:textures/gui/circle.png"
+			image: "sunlitidle:textures/gui/quests/circle.png"
 			order: 3
 			rotation: 0.0d
 			width: 1.4d
@@ -56,7 +38,7 @@
 		}
 		{
 			height: 1.4d
-			image: "society:textures/gui/circle.png"
+			image: "sunlitidle:textures/gui/quests/circle.png"
 			order: 3
 			rotation: 0.0d
 			width: 1.4d
@@ -65,7 +47,7 @@
 		}
 		{
 			height: 1.4d
-			image: "society:textures/gui/circle.png"
+			image: "sunlitidle:textures/gui/quests/circle.png"
 			order: 3
 			rotation: 0.0d
 			width: 1.4d
@@ -74,7 +56,7 @@
 		}
 		{
 			height: 1.4d
-			image: "society:textures/gui/circle.png"
+			image: "sunlitidle:textures/gui/quests/circle.png"
 			order: 3
 			rotation: 0.0d
 			width: 1.4d
@@ -83,7 +65,7 @@
 		}
 		{
 			height: 1.4d
-			image: "society:textures/gui/circle.png"
+			image: "sunlitidle:textures/gui/quests/circle.png"
 			order: 3
 			rotation: 0.0d
 			width: 1.4d
@@ -92,7 +74,7 @@
 		}
 		{
 			height: 1.4d
-			image: "society:textures/gui/circle.png"
+			image: "sunlitidle:textures/gui/quests/circle.png"
 			order: 3
 			rotation: 0.0d
 			width: 1.4d
@@ -101,7 +83,7 @@
 		}
 		{
 			height: 1.4d
-			image: "society:textures/gui/circle.png"
+			image: "sunlitidle:textures/gui/quests/circle.png"
 			order: 3
 			rotation: 0.0d
 			width: 1.4d
@@ -110,7 +92,7 @@
 		}
 		{
 			height: 1.4d
-			image: "society:textures/gui/circle.png"
+			image: "sunlitidle:textures/gui/quests/circle.png"
 			order: 3
 			rotation: 0.0d
 			width: 1.4d
@@ -119,7 +101,7 @@
 		}
 		{
 			height: 1.4d
-			image: "society:textures/gui/circle.png"
+			image: "sunlitidle:textures/gui/quests/circle.png"
 			order: 3
 			rotation: 0.0d
 			width: 1.4d
@@ -128,7 +110,7 @@
 		}
 		{
 			height: 1.4d
-			image: "society:textures/gui/circle.png"
+			image: "sunlitidle:textures/gui/quests/circle.png"
 			order: 3
 			rotation: 0.0d
 			width: 1.4d
@@ -137,7 +119,7 @@
 		}
 		{
 			height: 1.4d
-			image: "society:textures/gui/circle.png"
+			image: "sunlitidle:textures/gui/quests/circle.png"
 			order: 3
 			rotation: 0.0d
 			width: 1.4d
@@ -146,7 +128,7 @@
 		}
 		{
 			height: 1.4d
-			image: "society:textures/gui/circle.png"
+			image: "sunlitidle:textures/gui/quests/circle.png"
 			order: 3
 			rotation: 0.0d
 			width: 1.4d
@@ -155,7 +137,7 @@
 		}
 		{
 			height: 1.4d
-			image: "society:textures/gui/circle.png"
+			image: "sunlitidle:textures/gui/quests/circle.png"
 			order: 3
 			rotation: 0.0d
 			width: 1.4d
@@ -164,7 +146,7 @@
 		}
 		{
 			height: 1.4d
-			image: "society:textures/gui/circle.png"
+			image: "sunlitidle:textures/gui/quests/circle.png"
 			order: 3
 			rotation: 0.0d
 			width: 1.4d
@@ -173,7 +155,7 @@
 		}
 		{
 			height: 1.4d
-			image: "society:textures/gui/circle.png"
+			image: "sunlitidle:textures/gui/quests/circle.png"
 			order: 3
 			rotation: 0.0d
 			width: 1.4d
@@ -182,7 +164,7 @@
 		}
 		{
 			height: 1.4d
-			image: "society:textures/gui/circle.png"
+			image: "sunlitidle:textures/gui/quests/circle.png"
 			order: 3
 			rotation: 0.0d
 			width: 1.4d
@@ -191,7 +173,7 @@
 		}
 		{
 			height: 1.4d
-			image: "society:textures/gui/circle.png"
+			image: "sunlitidle:textures/gui/quests/circle.png"
 			order: 3
 			rotation: 0.0d
 			width: 1.4d
@@ -200,7 +182,7 @@
 		}
 		{
 			height: 1.4d
-			image: "society:textures/gui/circle.png"
+			image: "sunlitidle:textures/gui/quests/circle.png"
 			order: 3
 			rotation: 0.0d
 			width: 1.4d
@@ -209,7 +191,7 @@
 		}
 		{
 			height: 1.4d
-			image: "society:textures/gui/circle.png"
+			image: "sunlitidle:textures/gui/quests/circle.png"
 			order: 3
 			rotation: 0.0d
 			width: 1.4d
@@ -218,7 +200,7 @@
 		}
 		{
 			height: 1.4d
-			image: "society:textures/gui/circle.png"
+			image: "sunlitidle:textures/gui/quests/circle.png"
 			order: 3
 			rotation: 0.0d
 			width: 1.4d
@@ -227,7 +209,7 @@
 		}
 		{
 			height: 1.4d
-			image: "society:textures/gui/circle.png"
+			image: "sunlitidle:textures/gui/quests/circle.png"
 			order: 3
 			rotation: 0.0d
 			width: 1.4d
@@ -236,7 +218,7 @@
 		}
 		{
 			height: 1.4d
-			image: "society:textures/gui/circle.png"
+			image: "sunlitidle:textures/gui/quests/circle.png"
 			order: 3
 			rotation: 0.0d
 			width: 1.4d
@@ -245,7 +227,7 @@
 		}
 		{
 			height: 3.0d
-			image: "society:textures/gui/seal_slime.png"
+			image: "sunlitidle:textures/gui/quests/seal_slime.png"
 			order: 7
 			rotation: 0.0d
 			width: 3.0d
@@ -253,93 +235,13 @@
 			y: 5.440476190476183d
 		}
 		{
-			height: 10.0d
-			image: "society:textures/gui/hills_slime1.png"
-			order: 1
-			rotation: 0.0d
-			width: 11.0d
-			x: -10.5d
-			y: 0.5d
-		}
-		{
-			height: 10.0d
-			image: "society:textures/gui/hills_slime2.png"
-			order: 1
-			rotation: 0.0d
-			width: 11.0d
-			x: 9.0d
-			y: 1.0d
-		}
-		{
-			height: 10.0d
-			image: "society:textures/gui/tree_slime1.png"
-			order: 2
-			rotation: 0.0d
-			width: 9.0d
-			x: -7.601190476190453d
-			y: -1.440476190476197d
-		}
-		{
-			height: 10.0d
-			image: "society:textures/gui/tree_slime2.png"
-			order: 2
-			rotation: 0.0d
-			width: 9.0d
-			x: 4.446428571428591d
-			y: -1.8690476190476275d
-		}
-		{
-			height: 4.0d
-			image: "society:textures/gui/slime3.png"
-			order: 2
-			rotation: 0.0d
-			width: 4.0d
-			x: 5.250000000000014d
-			y: 2.398809523809504d
-		}
-		{
 			height: 1.4d
-			image: "society:textures/gui/circle.png"
+			image: "sunlitidle:textures/gui/quests/circle.png"
 			order: 3
 			rotation: 0.0d
 			width: 1.4d
 			x: -4.5d
 			y: 3.5d
-		}
-		{
-			height: 13.0d
-			image: "society:textures/gui/slime_clouds.png"
-			order: 1
-			rotation: 0.0d
-			width: 34.0d
-			x: -1.2499999999999858d
-			y: -5.285714285714327d
-		}
-		{
-			height: 25.0d
-			image: "society:textures/gui/slime_sky.png"
-			rotation: 0.0d
-			width: 32.0d
-			x: 4.5d
-			y: -7.5d
-		}
-		{
-			height: 15.0d
-			image: "society:textures/gui/slime_sky.png"
-			rotation: -20.0d
-			width: 16.0d
-			x: -11.178571428571423d
-			y: -5.172619047619044d
-		}
-		{
-			alpha: 70
-			color: 3958648
-			height: 30.0d
-			image: "society:textures/gui/hills_reflection.png"
-			rotation: 0.0d
-			width: 45.0d
-			x: -0.5d
-			y: 4.5d
 		}
 	]
 	order_index: 9

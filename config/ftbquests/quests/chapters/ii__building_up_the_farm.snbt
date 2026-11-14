@@ -577,7 +577,6 @@
 				""
 				"{ftbquests.chapter.ii__building_up_the_farm.quest3D324E99DF28D224.description3}"
 			]
-			icon: "candlelight:hearth"
 			id: "3D324E99DF28D224"
 			rewards: [
 				{
@@ -1077,8 +1076,6 @@
 				"{ftbquests.chapter.ii__building_up_the_farm.quest6FE9F992ACD90629.description6}"
 				"{ftbquests.chapter.ii__building_up_the_farm.quest6FE9F992ACD90629.description7}"
 				"{ftbquests.chapter.ii__building_up_the_farm.quest6FE9F992ACD90629.description8}"
-				""
-				"{ftbquests.chapter.ii__building_up_the_farm.quest6FE9F992ACD90629.image0}"
 			]
 			hide_until_deps_complete: true
 			id: "6FE9F992ACD90629"
