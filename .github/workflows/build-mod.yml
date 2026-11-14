@@ -66,9 +66,7 @@ jobs:
             echo "::notice::config/_unported still holds $(find config/_unported -type f | wc -l) parked config files"
           fi
       - name: Check client defaults (#19)
-        # A known problem in configureddefaults/options.txt (line 86 merges two options) is reported but does
-        # not fail the build yet; remove continue-on-error once #19 fixes it.
-        continue-on-error: true
+        # configureddefaults/options.txt must parse line by line and enable only resource packs the pack ships.
         run: python3 tools/port/check_client_defaults.py
       - name: Export CurseForge pack
         run: |
