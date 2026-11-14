@@ -50,6 +50,7 @@ LOADED = re.compile(r"Game took [0-9.]+ seconds to start|Sound engine started")
 # NeoForge shows an error screen and keeps running when mods fail to load; a crash report is written.
 LOAD_FAILED = re.compile(r"Error during pre-loading phase|Mod loading has failed|Failed to load mod|"
                          r"This crash report has been saved to")
+DISCONNECTED = re.compile(r"Client disconnected with reason: .*")
 PACK_DROPPED = re.compile(r"Removed resource pack .* from options because")
 LOG_ERROR = re.compile(r"^\[[^\]]+\] \[[^\]]+/(ERROR|FATAL)\] \[([^\]]+)\]: (.*)$")
 
@@ -183,13 +184,19 @@ def copy_log(game):
     return copy
 
 
-def wait_for_join(server, client, timeout):
-    """The server's join (or lost connection) line for the client, or None if the client exits or time runs out."""
+def wait_for_join(server, client, game, timeout):
+    """The server's join line for the client, the client's disconnect reason, or None if the client exits or
+    time runs out."""
     end = time.monotonic() + timeout
+    log = game / "logs" / "latest.log"
     while time.monotonic() < end:
         line = server.wait_for(rf"{USERNAME} (joined the game|lost connection)", min(10, end - time.monotonic()))
         if line or client.poll() is not None:
             return line
+        if log.exists():
+            m = DISCONNECTED.search(log.read_text(errors="replace"))
+            if m:
+                return m.group(0)
     return None
 
 
@@ -277,11 +284,11 @@ def main():
         with open(root / "client-console.log", "w") as console:
             client = start_client(main_dir, game, neoforge, console)
             started = time.monotonic()
-            joined = wait_for_join(server, client, args.join_timeout)
+            joined = wait_for_join(server, client, game, args.join_timeout)
             print(f"Server saw: {joined.strip() if joined else 'nothing'} after {time.monotonic() - started:.0f} s",
                   flush=True)
             if not joined or "joined the game" not in joined:
-                problems.append("the client did not join the server")
+                problems.append("the client did not join the server" + (f" ({joined.strip()})" if joined else ""))
                 screenshot(root / "screenshot-no-join.png")
             else:
                 deadline = time.monotonic() + args.render_wait
