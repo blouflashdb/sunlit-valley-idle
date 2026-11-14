@@ -57,14 +57,12 @@ jobs:
         run: |
           python3 tools/port/check_resourcepacks.py --download-client 1.21.1 --jars-from-lock \
             --summary "$GITHUB_STEP_SUMMARY"
-      - name: Check that every script is ported (#19)
-        # kubejs/_unported held the 1.20.1 scripts that still needed a port; #19 requires it to stay gone.
-        # config/_unported (parked mod configs) is only reported.
+      - name: Check that every script and config is ported (#19)
+        # kubejs/_unported held the 1.20.1 scripts and config/_unported the 1.20.1 mod configs that still
+        # needed a port; #19 requires both to stay gone.
         run: |
           if [ -e kubejs/_unported ]; then echo "kubejs/_unported exists: port or delete what is left"; exit 1; fi
-          if [ -e config/_unported ]; then
-            echo "::notice::config/_unported still holds $(find config/_unported -type f | wc -l) parked config files"
-          fi
+          if [ -e config/_unported ]; then echo "config/_unported exists: port or delete what is left"; exit 1; fi
       - name: Check client defaults (#19)
         # configureddefaults/options.txt must parse line by line and enable only resource packs the pack ships.
         run: python3 tools/port/check_client_defaults.py
