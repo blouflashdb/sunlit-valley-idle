@@ -17,7 +17,7 @@
       ],
       "portraits": [
         {
-          "path": "banker.png",
+          "path": "sunlitidle:banker.png",
           "position": "INLINE",
           "brightness": 1
         }

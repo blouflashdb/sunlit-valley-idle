@@ -17,7 +17,7 @@
       ],
       "portraits": [
         {
-          "path": "carpenter.png",
+          "path": "sunlitidle:carpenter.png",
           "position": "INLINE",
           "brightness": 1
         }
@@ -68,7 +68,7 @@
       ],
       "portraits": [
         {
-          "path": "carpenter.png",
+          "path": "sunlitidle:carpenter.png",
           "position": "INLINE",
           "brightness": 1
         }

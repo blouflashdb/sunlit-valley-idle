@@ -4,10 +4,15 @@
 SVDialog 1.6 (1.21.1) reads the same JSON as 0.6 (1.20.1). One change: Society Trading 1.2.12 looks up the shops
 of a custom selector by the selector id instead of the shop ids, so `openselector @p building_shop` opens an empty
 list. An option with such a command leads to a new entry "<selector>_shops" instead, with one option per shop of
-the selector (kubejs/data/society_trading/selectors) that runs `openshop`. Run from the repository root: python3 tools/port/port_dialog_data.py
+the selector (kubejs/data/society_trading/selectors) that runs `openshop`. Portrait paths point at our own
+placeholders (tools/port/port_dialog_portraits.py draws them). Run from the repository root: python3 tools/port/port_dialog_data.py
 """
 import json
 import pathlib
+import sys
+
+sys.path.insert(0, str(pathlib.Path(__file__).parent))
+from port_dialog_portraits import port_portraits  # noqa: E402
 
 SRC = pathlib.Path("kubejs/_unported/data/dialog/dialogs")
 DST = pathlib.Path("kubejs/data/dialog/dialogs")
@@ -57,7 +62,7 @@ def port_dialog(dialog, selectors):
                 ],
             })
     dialog["entries"] = entries
-    return dialog
+    return port_portraits(dialog)
 
 
 def main():

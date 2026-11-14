@@ -39,6 +39,8 @@ jobs:
           grep -E "All [0-9]+ required tests passed" gametest.log
       - name: Check loading screen tips (#18)
         run: python3 tools/port/check_tips.py
+      - name: Check dialog and shop portraits
+        run: python3 tools/port/check_dialog_textures.py
       - name: Check the quest book references of the repository namespaces (#18)
         run: python3 tools/port/check_quest_refs.py
       - name: Check resource packs and shader pack (#19)

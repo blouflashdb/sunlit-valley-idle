@@ -3,7 +3,7 @@
   "name": {
     "translate": "shop.society_trading.book_fair"
   },
-  "texture": "dialog:textures/portraits/librarian",
+  "texture": "sunlitidle:textures/portraits/librarian",
   "jei_catalyst": {
     "id": "society:villager",
     "count": 1,

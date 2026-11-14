@@ -17,7 +17,7 @@
       ],
       "portraits": [
         {
-          "path": "mysticaloaktree:textures/block/wise_oak.png",
+          "path": "sunlitidle:wise_oak.png",
           "position": "INLINE",
           "brightness": 1
         }
@@ -36,7 +36,7 @@
       ],
       "portraits": [
         {
-          "path": "mysticaloaktree:textures/block/wise_oak.png",
+          "path": "sunlitidle:wise_oak.png",
           "position": "INLINE",
           "brightness": 1
         }
@@ -55,7 +55,7 @@
       ],
       "portraits": [
         {
-          "path": "mysticaloaktree:textures/block/wise_oak.png",
+          "path": "sunlitidle:wise_oak.png",
           "position": "INLINE",
           "brightness": 1
         }

@@ -3,7 +3,7 @@
   "name": {
     "translate": "shop.society_trading.invitations"
   },
-  "texture": "dialog:textures/portraits/carpenter",
+  "texture": "sunlitidle:textures/portraits/carpenter",
   "hidden_from_auto_trader": true,
   "jei_catalyst": {
     "id": "society:invitation",
