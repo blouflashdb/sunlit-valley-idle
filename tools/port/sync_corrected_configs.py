@@ -22,11 +22,15 @@ Usage (from the repository root, after a server boot, or with --client after a c
 import argparse
 import pathlib
 import re
+import shutil
 import sys
 import tomllib
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 import config_gate  # noqa: E402
+
+# "<name>-1.toml.bak" (NeoForge) or "<name>.bak" (mods such as Tooltip Overhaul) -> "<name>.toml" / "<name>"
+BACKUP = re.compile(r"(-\d+(?=\.toml\.bak$))|\.bak$")
 
 
 def flat(table, prefix=""):
@@ -79,8 +83,26 @@ def main():
     ap.add_argument("--client", action="store_true", help="the instance is a client game folder")
     args = ap.parse_args()
     instance = pathlib.Path(args.instance)
-    for shipped, corrected in config_gate.rewritten_configs(instance, client=args.client):
+    pairs = config_gate.rewritten_configs(instance, client=args.client)
+    seen = {shipped for shipped, _ in pairs}
+    # A backup without a value change: NeoForge also rewrites a file whose comments differ from the spec.
+    for backup in sorted((instance / "config").rglob("*.bak")):
+        live = backup.with_name(BACKUP.sub("", backup.name))
+        rel = live.relative_to(instance / "config")
+        shipped = pathlib.Path("config") / rel
+        client_default = pathlib.Path("configureddefaults/config") / rel
+        if args.client and client_default.exists():
+            shipped = client_default
+        if live.exists() and shipped.exists() and shipped not in seen:
+            pairs.append((shipped, live))
+            seen.add(shipped)
+    for shipped, corrected in pairs:
         rel = shipped.as_posix()
+        if shipped.suffix != ".toml":
+            print(f"== {rel}: rewritten by the mod (not TOML)")
+            if args.write:
+                shutil.copyfile(corrected, shipped)
+            continue
         old = flat(tomllib.loads(shipped.read_text()))
         new = flat(tomllib.loads(corrected.read_text()))
         added = [k for k in new if k not in old]

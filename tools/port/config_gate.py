@@ -77,6 +77,13 @@ def _flat(table, prefix=""):
     return out
 
 
+def _typed(value):
+    """A value with its types, so that 1 and 1.0 differ (NeoForge corrects an int where the spec wants a double)."""
+    if isinstance(value, list):
+        return ("list", tuple(_typed(v) for v in value))
+    return (type(value).__name__, value)
+
+
 def rewritten_configs(root, repo=".", client=False):
     """Shipped TOML configs whose values differ in the instance after a boot, as (shipped path, instance path).
 
@@ -94,7 +101,8 @@ def rewritten_configs(root, repo=".", client=False):
         if not live.exists():
             continue
         try:
-            old, new = _flat(tomllib.loads(shipped.read_text())), _flat(tomllib.loads(live.read_text()))
+            old = {k: _typed(v) for k, v in _flat(tomllib.loads(shipped.read_text())).items()}
+            new = {k: _typed(v) for k, v in _flat(tomllib.loads(live.read_text())).items()}
         except (tomllib.TOMLDecodeError, UnicodeDecodeError):
             continue  # not a TOML config that NeoForge manages
         rel = shipped.relative_to(repo).as_posix()
