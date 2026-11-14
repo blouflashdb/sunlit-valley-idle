@@ -28,6 +28,7 @@ Usage (from the repository root):
 """
 import argparse
 import concurrent.futures
+import difflib
 import json
 import os
 import pathlib
@@ -334,6 +335,14 @@ def main():
     config_errors += config_gate.rewritten(server_dir, "server config")
     if kubejs_log_gate.gate(config_errors, config_allowlist, "Mod config errors (InControl, archived configs)") > 0:
         problems.append("mod config errors")
+        # The corrected files exist only on the runner; print them as diffs so they can be ported from the log.
+        for instance, client in ((game, True), (server_dir, False)):
+            for shipped, live in config_gate.rewritten_configs(instance, client=client):
+                print(f"=== Corrected config {shipped.as_posix()} (diff shipped -> corrected)")
+                diff = difflib.unified_diff(shipped.read_text().splitlines(), live.read_text().splitlines(),
+                                            str(shipped), "corrected", lineterm="")
+                for line in diff:
+                    print("    " + line)
     kubejs_log_gate.report_stale(config_allowlist)
 
     kubejs = kubejs_log_gate.error_lines(game / "logs" / "kubejs" / "client.log", "client.log")
