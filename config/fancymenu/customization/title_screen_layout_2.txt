@@ -264,54 +264,6 @@ element {
 }
 
 vanilla_button {
-  button_element_executable_block_identifier = f7497fef-f924-4966-9e9a-e0a93e8a0237-1731790192756
-  [executable_block:f7497fef-f924-4966-9e9a-e0a93e8a0237-1731790192756][type:generic] = [executables:]
-  restartbackgroundanimations = true
-  loopbackgroundanimations = true
-  nine_slice_custom_background = false
-  nine_slice_border_x = 5
-  nine_slice_border_y = 5
-  navigatable = true
-  widget_active_state_requirement_container_identifier = 99b4f9e9-1641-49d9-aef7-df13803a5123-1731790192756
-  [loading_requirement_container_meta:99b4f9e9-1641-49d9-aef7-df13803a5123-1731790192756] = [groups:][instances:]
-  element_type = vanilla_button
-  instance_identifier = 376322
-  appearance_delay = no_delay
-  appearance_delay_seconds = 1.0
-  fade_in_v2 = no_fading
-  fade_in_speed = 1.0
-  fade_out = no_fading
-  fade_out_speed = 1.0
-  base_opacity = 1.0
-  auto_sizing = false
-  auto_sizing_base_screen_width = 3441
-  auto_sizing_base_screen_height = 1440
-  sticky_anchor = false
-  anchor_point = vanilla
-  x = 328
-  y = 162
-  width = 20
-  height = 20
-  stretch_x = false
-  stretch_y = false
-  stay_on_screen = true
-  element_loading_requirement_container_identifier = 0921848c-ca75-401c-b253-66a04218f371-1731790192756
-  [loading_requirement_container_meta:0921848c-ca75-401c-b253-66a04218f371-1731790192756] = [groups:][instances:]
-  enable_parallax = false
-  parallax_intensity = 0.5
-  invert_parallax = false
-  animated_offset_x = 0
-  animated_offset_y = 0
-  load_once_per_session = false
-  in_editor_color = #FFC800FF
-  is_hidden = true
-  automated_button_clicks = 0
-  nine_slice_slider_handle = false
-  nine_slice_slider_handle_border_x = 5
-  nine_slice_slider_handle_border_y = 5
-}
-
-vanilla_button {
   button_element_executable_block_identifier = a476e803-1ba4-4915-bd73-afb5b085a218-1731790192756
   [executable_block:a476e803-1ba4-4915-bd73-afb5b085a218-1731790192756][type:generic] = [executables:]
   backgroundnormal = [source:local]/config/fancymenu/assets/btn_a11y.png
@@ -905,73 +857,5 @@ deep_element {
   load_once_per_session = false
   in_editor_color = #FFC800FF
   is_hidden = true
-}
-
-deep_element {
-  element_type = title_screen_forge_copyright
-  instance_identifier = deep:title_screen_forge_copyright
-  appearance_delay = no_delay
-  appearance_delay_seconds = 1.0
-  fade_in_v2 = no_fading
-  fade_in_speed = 1.0
-  fade_out = no_fading
-  fade_out_speed = 1.0
-  base_opacity = 1.0
-  auto_sizing = false
-  auto_sizing_base_screen_width = 3441
-  auto_sizing_base_screen_height = 1371
-  sticky_anchor = false
-  anchor_point = vanilla
-  x = 675
-  y = 340
-  width = 228
-  height = 9
-  stretch_x = false
-  stretch_y = false
-  stay_on_screen = true
-  element_loading_requirement_container_identifier = 9d76c437-5c8e-4074-867e-4d9d519e99aa-1731790192756
-  [loading_requirement_container_meta:9d76c437-5c8e-4074-867e-4d9d519e99aa-1731790192756] = [groups:][instances:]
-  enable_parallax = false
-  parallax_intensity = 0.5
-  invert_parallax = false
-  animated_offset_x = 0
-  animated_offset_y = 0
-  load_once_per_session = false
-  in_editor_color = #FFC800FF
-  is_hidden = false
-}
-
-deep_element {
-  element_type = title_screen_forge_top
-  instance_identifier = deep:title_screen_forge_top
-  appearance_delay = no_delay
-  appearance_delay_seconds = 1.0
-  fade_in_v2 = no_fading
-  fade_in_speed = 1.0
-  fade_out = no_fading
-  fade_out_speed = 1.0
-  base_opacity = 1.0
-  auto_sizing = false
-  auto_sizing_base_screen_width = 3441
-  auto_sizing_base_screen_height = 1371
-  sticky_anchor = false
-  anchor_point = vanilla
-  x = 318
-  y = 4
-  width = 268
-  height = 19
-  stretch_x = false
-  stretch_y = false
-  stay_on_screen = true
-  element_loading_requirement_container_identifier = 8fb28e27-9a80-4bfa-944a-bf08e7f42838-1731790192756
-  [loading_requirement_container_meta:8fb28e27-9a80-4bfa-944a-bf08e7f42838-1731790192756] = [groups:][instances:]
-  enable_parallax = false
-  parallax_intensity = 0.5
-  invert_parallax = false
-  animated_offset_x = 0
-  animated_offset_y = 0
-  load_once_per_session = false
-  in_editor_color = #FFC800FF
-  is_hidden = false
 }
 

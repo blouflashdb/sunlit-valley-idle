@@ -55,6 +55,7 @@ public final class ClientSetup {
             }
         }
         NeoForge.EVENT_BUS.addListener(ClientSetup::onClientTick);
+        TitleScreenButtonIds.init();
     }
 
     private static void onClientSetup(FMLClientSetupEvent event) {

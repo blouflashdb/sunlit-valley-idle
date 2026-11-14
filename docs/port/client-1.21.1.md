@@ -76,9 +76,33 @@ needs the same pins.
 ## Loading screen and title screen (FancyMenu, Drippy)
 
 The layouts in `config/fancymenu` and `config/drippyloadingscreen` load on FancyMenu 3.9.1 and Drippy 3.1.2
-for 1.21.1 without changes. Two deep elements in the title screen layouts, `title_screen_forge_copyright` and
-`title_screen_forge_top`, exist only on Forge; FancyMenu skips them on NeoForge. The mods button identifier
-`forge_titlescreen_mods_button` is still the same on NeoForge.
+for 1.21.1. The mods button identifier `forge_titlescreen_mods_button` is still the same on NeoForge.
+
+**Language and accessibility buttons.** FancyMenu finds these two title screen buttons by the message keys
+they had on 1.20.1 (`narrator.button.language`, `narrator.button.accessibility`). On 1.21.1 they carry
+`options.language` and `options.accessibility`, so FancyMenu (3.9.1, and also 3.9.14) never matches
+`mc_titlescreen_language_button` and `mc_titlescreen_accessibility_button`. The layouts could not move them, and
+both icons stayed at their vanilla place on top of the moved Singleplayer and Options buttons.
+`TitleScreenButtonIds` in the sunlitidle mod gives the two buttons the old keys right after the title screen
+creates them, before FancyMenu reads the widgets. The keys translate to the same text, so only FancyMenu sees
+a difference, and the layouts place the buttons next to Quit and Mods again, as on 1.20.1.
+
+**Other title screen icons.** Two more 20x20 icon buttons sat on the menu buttons: the Supplementaries config
+button (a gear, over Singleplayer/Multiplayer) and the Create config button (goggles). Supplementaries renamed
+its option to `configs_button` on 1.21.1, so the old `config_button = false` no longer switched it off; the
+file now uses the new key. The 1.20.1 layout hid the Create button through a position-based identifier, which
+matches nothing on 1.21.1; `mainMenuConfigButtonRow = 0` in `config/create-client.toml` turns it off instead.
+With `-Dsunlitidle.ci=true` (client-boot job) the sunlitidle mod logs every title screen widget with its class,
+message key and bounds, which shows the mod behind such a button.
+
+**Removed layout entries.** The Forge-only deep elements `title_screen_forge_copyright` and
+`title_screen_forge_top` and the numeric (position-based) widget identifiers from 1.20.1 (`376322` on the
+title screens, `374300`, `398348` and `40` on the pause screen) matched nothing on 1.21.1 and are removed.
+
+`tools/port/check_fancymenu_layouts.py` (build job) fails when a layout targets a widget identifier or deep
+element that FancyMenu/Drippy do not have, a numeric identifier, or an identifier whose message key no 1.21.1
+widget carries. The client-boot job saves the title screen at two more window sizes (GUI scale 3 and 2) as
+`title-screen-1280x720.png` and `title-screen-854x480.png`.
 
 ## configureddefaults
 
