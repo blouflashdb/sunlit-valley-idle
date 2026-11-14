@@ -8,7 +8,7 @@ checked only by `tools/port/check_resourcepacks.py`.
 
 | 1.20.1 | 1.21.1 | Config |
 | --- | --- | --- |
-| Embeddium | Sodium 0.8 + Sodium Options API + Reese's Sodium Options | `config/sodium-options.json` (same values as the old `embeddium-options.json`) |
+| Embeddium | Sodium 0.8 + Reese's Sodium Options | `config/sodium-options.json` (same values as the old `embeddium-options.json`) |
 | Oculus | Iris 1.8 | `config/iris.properties` (shaders off by default, as before) |
 | Colorwheel + Colorwheel Patcher | same, 1.21.1 builds | `config/colorwheel-client.toml` unchanged |
 
@@ -51,10 +51,31 @@ textures (`glow_up`), Jade themes and Every Compat textures (`DerpWood`). Packs 
 mod (Lopy's Create Pipez, Mob Crates, Better Cats) match 100%. Create Style for Refined Storage matches about
 two thirds of the Refined Storage 2 textures; the rest are for RS 1.x and addons that are not in the pack.
 
+## Client mod versions (dependency fixes)
+
+The first headless client boot (#67) crashed in mod loading. `tools/port/check_mod_deps.py` now reads the
+`neoforge.mods.toml` of every mod in the lock (with jar-in-jar mods) and fails CI on what NeoForge would
+reject. It found these problems, which the lock now avoids:
+
+- WaterMedia: the resolver picked WaterMedia 3.0.0. FancyMenu 3.9.14 needs WaterMedia 3.0.0.22 or newer, but
+  WaterFrames 2.1.23 and WATERVision need WaterMedia 2.1.x. WaterFrames is in the shop catalog (TVs,
+  projectors), and WaterFrames 3 is only an alpha. So the pack uses the same line as on 1.20.1:
+  - WaterMedia 2.1.37 (it bundles its binaries, so `watermedia-binaries` is removed),
+  - FancyMenu 3.9.1 (the newest build without a WaterMedia 3 dependency; 1.20.1 had 3.7.0),
+  - Drippy Loading Screen 3.1.2 (3.1.5 needs FancyMenu 3.9.9 or newer).
+  The layouts only use elements that FancyMenu 3.9.1 and Drippy 3.1.2 have.
+- Sodium Options API 1.0.10 requires Reese's Sodium Options, and Reese's 2.2.4 (for Sodium 0.8) declares
+  itself incompatible with Sodium Options API. Sodium Options API was made for Sodium 0.6, and no mod requires it
+  in its `neoforge.mods.toml` (Sodium Dynamic Lights lists it on CurseForge only and has no code that uses
+  it), so it is removed. Reese's stays.
+
+`port_lock.py` would pick the newest files again; `check_mod_deps.py` then fails, so a re-resolved lock
+needs the same pins.
+
 ## Loading screen and title screen (FancyMenu, Drippy)
 
-The layouts in `config/fancymenu` and `config/drippyloadingscreen` load on FancyMenu 3.9 and Drippy 3.1 for
-1.21.1 without changes. Two deep elements in the title screen layouts, `title_screen_forge_copyright` and
+The layouts in `config/fancymenu` and `config/drippyloadingscreen` load on FancyMenu 3.9.1 and Drippy 3.1.2
+for 1.21.1 without changes. Two deep elements in the title screen layouts, `title_screen_forge_copyright` and
 `title_screen_forge_top`, exist only on Forge; FancyMenu skips them on NeoForge. The mods button identifier
 `forge_titlescreen_mods_button` is still the same on NeoForge.
 
@@ -86,6 +107,6 @@ numbers are in the job summary and in `build/server/perf.json` in the `server-lo
 2. Options -> Resource Packs: `sunlit_overrides.zip` is on top and required; no pack is red.
 3. Press `O`, pick the patched Complementary pack. Check `shaderpacks/` for the file name the patcher wrote;
    fix `config/iris.properties` if it differs. Look at a moving Create contraption with shaders on.
-4. Open Video Settings: the Sodium pages and the Sodium Options API pages open.
+4. Open Video Settings: the Sodium pages open (Reese's Sodium Options screen).
 5. JourneyMap minimap shows with the pack's settings (position, size).
 6. Note the client start time (ModernFix prints "Game took X seconds to start") and FPS at the farm.
