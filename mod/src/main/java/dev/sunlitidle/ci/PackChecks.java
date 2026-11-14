@@ -28,6 +28,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.FarmBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.Heightmap;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -222,21 +223,25 @@ final class PackChecks {
                         .thenComparing(block -> BuiltInRegistries.BLOCK.getKey(block).toString()))
                 .limit(MAX_CROPS)
                 .toList();
-        // At sea level: Serene Seasons treats a biome as cold (winter crops only) where it is too cold to rain,
-        // and the temperature drops with height. The blocks there are put back afterwards.
-        BlockPos origin = level.getSharedSpawnPos().offset(-64, 0, -64).atY(level.getSeaLevel());
+        // On the surface, under the open sky (crops need light), not in the air high above it: Serene Seasons
+        // treats a biome as cold (winter crops only) where it is too cold to rain, and the temperature drops
+        // with height. The blocks are put back afterwards.
+        BlockPos origin = level.getSharedSpawnPos().offset(-64, 0, -64);
         List<BlockPos> soils = new ArrayList<>();
         Map<BlockPos, BlockState> planted = new LinkedHashMap<>();
         Map<BlockPos, BlockState> previous = new LinkedHashMap<>();
         int slot = 0;
         for (Block block : crops) {
-            BlockPos soil = origin.offset((slot % ROW) * 2, 0, (slot / ROW) * 2);
+            BlockPos column = origin.offset((slot % ROW) * 2, 0, (slot / ROW) * 2);
+            BlockPos soil = level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, column).below();
             previous.putIfAbsent(soil, level.getBlockState(soil));
             previous.putIfAbsent(soil.above(), level.getBlockState(soil.above()));
             level.setBlock(soil, Blocks.FARMLAND.defaultBlockState().setValue(FarmBlock.MOISTURE, 7), 2);
             level.setBlock(soil.above(), Blocks.AIR.defaultBlockState(), 2);
             BlockState crop = block.defaultBlockState();
-            if (!crop.canSurvive(level, soil.above())) {
+            // Pam's HarvestCraft tree fruits are crop blocks that grow on their trees, not on farmland.
+            boolean treeFruit = BuiltInRegistries.BLOCK.getKey(block).getNamespace().equals("pamhc2trees");
+            if (treeFruit || !crop.canSurvive(level, soil.above())) {
                 NOT_ON_FARMLAND.add(BuiltInRegistries.BLOCK.getKey(block).toString());
                 continue;
             }
@@ -245,8 +250,9 @@ final class PackChecks {
             planted.put(soil.above(), crop);
             slot++;
         }
-        boolean warm = level.getBiome(origin.above()).value().warmEnoughToRain(origin.above());
-        String biome = level.getBiome(origin.above()).unwrapKey().map(k -> k.location().toString()).orElse("?");
+        BlockPos probe = soils.isEmpty() ? origin : soils.get(0).above();
+        boolean warm = level.getBiome(probe).value().warmEnoughToRain(probe);
+        String biome = level.getBiome(probe).unwrapKey().map(k -> k.location().toString()).orElse("?") + " y " + probe.getY();
         DailyFarm.runDay(level, soils, List.of());
         Set<String> grew = new TreeSet<>();
         planted.forEach((pos, before) -> {
