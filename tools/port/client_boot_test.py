@@ -22,7 +22,7 @@ HUD). Checks:
 Needs Java 21, Xvfb, ImageMagick (import), Mesa and portablemc (pip install portablemc==4.4.1).
 
 Usage (from the repository root):
-    python3 tools/port/client_boot_test.py --dir build/client --extra-mod mod/build/libs/sunlitidle-0.2.0.jar
+    python3 tools/port/client_boot_test.py --dir build/client --extra-mod mod/build/libs/sunlitidle-1.0.0.jar
 """
 import argparse
 import concurrent.futures

@@ -20,7 +20,7 @@ The KubeJS logs of every boot go through the error gate (kubejs_log_gate.py, all
 kubejs_error_allowlist.txt). Runs in GitHub Actions (needs Java 21).
 
 Usage (from the repository root):
-    python3 tools/port/server_boot_test.py --dir build/server [--extra-mod mod/build/libs/sunlitidle-0.2.0.jar]
+    python3 tools/port/server_boot_test.py --dir build/server [--extra-mod mod/build/libs/sunlitidle-1.0.0.jar]
         [--kubejs-tests tools/port/kubejs_tests] [--simulate-year]
 """
 import argparse
