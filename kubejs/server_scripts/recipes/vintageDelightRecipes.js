@@ -159,7 +159,7 @@ ServerEvents.recipes((e) => {
   // Machines (Preserves Jar and Pickling Can were Sunlit Valley recipes, the other two Vintage Delight ones)
   shaped("society:preserves_jar", ["LLL", "LbL", "CiC"], {
     b: "minecraft:barrel",
-    L: "meadow:fire_log",
+    L: "meadow:firewood",
     C: "#c:storage_blocks/coal",
     i: "minecraft:copper_block",
   });

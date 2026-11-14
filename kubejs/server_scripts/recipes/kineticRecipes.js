@@ -13,7 +13,7 @@ ServerEvents.recipes((e) => {
   let blueprint = "society:kinetic_blueprint";
   shaped("kinetics", `2x ${blueprint}`, ["ppp", "pBp", "ppp"], { B: blueprint, p: "minecraft:paper" });
   shaped("kinetics", "create:windmill_bearing", [" B ", "aCa", "asa"], { B: blueprint, C: "oreganized:lead_block", s: "create:shaft", a: "create:andesite_casing" }, blueprint);
-  shaped("kinetics", "create:water_wheel", ["LlL", "lBl", "LlL"], { B: blueprint, L: "oreganized:lead_ingot", l: "meadow:fire_log" }, blueprint);
+  shaped("kinetics", "create:water_wheel", ["LlL", "lBl", "LlL"], { B: blueprint, L: "oreganized:lead_ingot", l: "meadow:firewood" }, blueprint);
   shaped("kinetics", "create:steam_engine", [" B ", " L ", " c "], { B: blueprint, L: "oreganized:lead_block", c: "create:copper_casing" }, blueprint);
   shaped("kinetics", "create:mechanical_bearing", [" B ", "CbC", "asa"], { B: blueprint, C: "oreganized:lead_block", s: "create:shaft", b: "society:battery", a: "create:andesite_casing" }, blueprint);
   shaped("kinetics", "create:cart_assembler", [" B ", "bEb", "l l"], { B: blueprint, E: "oreganized:electrum_block", l: "oreganized:lead_ingot", b: "create:brass_casing" }, blueprint);
@@ -50,8 +50,8 @@ ServerEvents.recipes((e) => {
     shapeless("wide", `${track}_wide`, [`2x ${track}`]);
   });
   ["minecraft:iron_ingot", "create:zinc_ingot"].forEach((ingot) =>
-    addProcessingRecipe(e, "tracks", `oak_from_${processingPath(ingot)}`, ["railways:track_oak", ingot, "meadow:fire_log"], [], () =>
-      e.shaped("32x railways:track_oak", ["fif", "f f", "fif"], { i: ingot, f: "meadow:fire_log" })
+    addProcessingRecipe(e, "tracks", `oak_from_${processingPath(ingot)}`, ["railways:track_oak", ingot, "meadow:firewood"], [], () =>
+      e.shaped("32x railways:track_oak", ["fif", "f f", "fif"], { i: ingot, f: "meadow:firewood" })
     )
   );
 });

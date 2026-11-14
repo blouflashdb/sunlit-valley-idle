@@ -129,6 +129,9 @@ MOVED = {
     },
     "crabbersdelight/recipe/frog_leg_kebob.json": "crabbersdelight/recipe/frog_leg_kebab.json",
     "crabbersdelight/recipe/squid_kebob.json": "crabbersdelight/recipe/squid_kebab.json",
+    # Meadow 1.21.1 renamed the fire log to firewood; the pack's recipe replaces the mod's firewood recipe.
+    "meadow/recipe/fire_log.json": "meadow/recipe/firewood.json",
+    "meadow/recipe/fire_log_unpack.json": "meadow/recipe/firewood_unpack.json",
     # Crabber's Delight cooking pot recipes moved from the farmersdelight namespace to its own.
     **{
         f"farmersdelight/recipe/cooking/{name}.json": f"crabbersdelight/recipe/cooking/{name}.json"
@@ -283,6 +286,7 @@ ITEMS = {
     "bakery:dough": "farm_and_charm:dough",
     "bakery:yeast": "farm_and_charm:yeast",
     "species:wraptor_egg": "minecraft:sniffer_egg",  # Species is gone; another rare ancient egg
+    "meadow:fire_log": "meadow:firewood",  # renamed in Meadow 1.21.1
 }
 # Items, tags and fluids that are not registered on 1.21.1.
 NETHER_FISH = ("blazefish", "glowdine", "lava_pufferfish", "magmacubefish", "obsidianfish", "searing_cod", "soulsucker")
@@ -293,7 +297,7 @@ GONE_ITEMS = {
     "beachparty:chocolate_icecream", "beachparty:chocolate_milkshake", "beachparty:coconut_icecream",
     "beachparty:coconut_milkshake", "beachparty:sweetberry_icecream", "beachparty:sweetberry_milkshake",
     "beachparty:refreshing_drink", "beachparty:floaty", "beachparty:hammock", "beachparty:cabinet",
-    "candlelight:khinkali", "meadow:fire_log",
+    "candlelight:khinkali",
     "veggiesdelight:cauliflower_burger", "veggiesdelight:cooked_cauliflower_patty",
     *(f"netherdepthsupgrade:{fish}_slice" for fish in NETHER_FISH),
     *(f"netherdepthsupgrade:baked_{fish}_stew" for fish in NETHER_FISH),

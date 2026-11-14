@@ -53,6 +53,7 @@ ServerEvents.recipes((e) => {
     m: "farm_and_charm:minced_beef",
   });
   e.smelting("society:rubber", "society:sap").xp(0.35);
+  e.smelting("quark:charcoal_block", "meadow:firewood").xp(4.0);
   e.smelting("etcetera:bismuth_ingot", "create:crushed_raw_bismuth").xp(0.7);
   e.blasting("etcetera:bismuth_ingot", "create:crushed_raw_bismuth").xp(0.7);
   cutting("herbalbrews:lavender", "herbalbrews:lavender_blossom", 2, "c:tools/knife");
@@ -75,29 +76,29 @@ ServerEvents.recipes((e) => {
     s: "society:mystic_syrup",
     m: "#society:mineral",
     d: "society:dried_mossberry",
-    f: "meadow:pine_log",
+    f: "meadow:firewood",
   });
   e.shaped("society:bubble_totem", ["fjf", "fsf", "fSf"], {
     s: "society:mystic_syrup",
     j: "society:ocean_jelly",
     S: "unusualfishmod:raw_sneep_snorp",
-    f: "meadow:pine_log",
+    f: "meadow:firewood",
   });
   e.shaped("society:dry_totem", ["ppp", "ptp", "fff"], {
     p: "society:fire_quartz",
     t: "society:truffle_oil",
-    f: "meadow:pine_log",
+    f: "meadow:firewood",
   });
   e.shaped("society:rain_totem", ["ppp", "ptp", "fff"], {
     p: "society:pine_tar",
     t: "society:truffle_oil",
-    f: "meadow:pine_log",
+    f: "meadow:firewood",
   });
   e.shaped("society:thunder_totem", ["ppp", "tat", "fff"], {
     p: "society:oak_resin",
     t: "society:truffle_oil",
     a: "society:amulet_of_light",
-    f: "meadow:pine_log",
+    f: "meadow:firewood",
   });
   // Earth Crystal
   // society:tapper is ported: kubejs/server_scripts/recipes/artisanMachineRecipes.js
@@ -144,7 +145,7 @@ ServerEvents.recipes((e) => {
   });
   e.shaped("4x farm_and_charm:silo_wood", ["lll", "rbr", "lel"], {
     b: "minecraft:barrel",
-    l: "meadow:pine_log",
+    l: "meadow:firewood",
     r: "society:oak_resin",
     e: "society:earth_crystal",
   });
@@ -194,7 +195,7 @@ ServerEvents.recipes((e) => {
     I: "minecraft:gold_block",
     f: "society:battery",
     o: "minecraft:netherite_ingot",
-    F: "meadow:pine_log",
+    F: "meadow:firewood",
   });
   e.shaped("herbalbrews:cauldron", [" C ", "fcf", " f "], {
     c: "minecraft:cauldron",

@@ -57,6 +57,7 @@ EXTRA_OWNED = []
 
 # 1.20 ids -> the 1.21.1 id of the same thing (or an obvious equivalent).
 SUBSTITUTES = {
+    "meadow:fire_log": "meadow:firewood",  # renamed in Meadow 1.21.1
     "diagonalfences:minecraft/oak_fence": "minecraft:oak_fence",
     "minecraft:scute": "minecraft:turtle_scute",
     "minecraft:grass": "minecraft:short_grass",

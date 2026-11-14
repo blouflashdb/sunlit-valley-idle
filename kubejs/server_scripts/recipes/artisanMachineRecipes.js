@@ -26,7 +26,7 @@ ServerEvents.recipes((e) => {
     I: "minecraft:iron_block",
     f: "minecraft:quartz_block",
     o: "society:oak_resin",
-    F: "meadow:fire_log",
+    F: "meadow:firewood",
   });
   shaped("society:aging_cask", [" j ", "pbp", "SpS"], {
     b: "society:wine_keg",
@@ -46,13 +46,13 @@ ServerEvents.recipes((e) => {
     l: "create:zinc_ingot",
   });
   shaped("society:cheese_press", [" p ", "fef", "fff"], {
-    f: "meadow:fire_log",
+    f: "meadow:firewood",
     e: "society:earth_crystal",
     p: "society:pine_tar",
   });
   shaped("society:dehydrator", ["LGL", "pbp", "LfL"], {
     b: "minecraft:barrel",
-    L: "meadow:fire_log",
+    L: "meadow:firewood",
     G: "society:raisins",
     f: "society:battery",
     p: "society:pine_tar",
@@ -62,10 +62,10 @@ ServerEvents.recipes((e) => {
     N: "aquaculture:neptunium_ingot",
     a: "society:aquamarine",
     C: "society:sunlit_pearl",
-    l: "meadow:fire_log",
+    l: "meadow:firewood",
   });
   shaped("society:loom", ["l  ", "l  ", "ltl"], {
-    l: "meadow:fire_log",
+    l: "meadow:firewood",
     t: "society:treated_log",
   });
   shaped("society:mayonnaise_machine", [" p ", "fcf", "CeC"], {
@@ -73,18 +73,18 @@ ServerEvents.recipes((e) => {
     C: "minecraft:copper_block",
     e: "society:earth_crystal",
     p: "society:pine_tar",
-    f: "meadow:fire_log",
+    f: "meadow:firewood",
   });
   shaped("society:oil_maker", ["ccj", "ccs", "fgf"], {
     c: "minecraft:copper_block",
     g: "minecraft:gold_block",
     j: "society:jade",
     s: "supplementaries:jar",
-    f: "meadow:fire_log",
+    f: "meadow:firewood",
   });
   shaped("society:recycling_machine", ["LIL", "fbf", "LIL"], {
     b: "minecraft:barrel",
-    L: "meadow:fire_log",
+    L: "meadow:firewood",
     f: "society:fire_quartz",
     I: "minecraft:iron_block",
   });
@@ -93,17 +93,17 @@ ServerEvents.recipes((e) => {
     c: "minecraft:composter",
     f: "society:earth_crystal",
     p: "society:pine_tar",
-    F: "meadow:fire_log",
+    F: "meadow:firewood",
   });
 
   shaped("society:tapper", [" C ", "lwl", " e "], {
     w: "meadow:wooden_bucket",
-    l: "meadow:fire_log",
+    l: "meadow:firewood",
     e: "society:earth_crystal",
     C: "minecraft:copper_block",
   });
   shaped("society:mushroom_log", ["LLL", "LML", "mPm"], {
-    L: "meadow:fire_log",
+    L: "meadow:firewood",
     P: "society:mossberry_preserves",
     m: "society:mossberry",
     M: "farmersdelight:rich_soil",
@@ -168,7 +168,7 @@ ServerEvents.recipes((e) => {
     P: "create:precision_mechanism",
   });
   shaped("society:juice_inserter", ["fff", "rFb", "fff"], {
-    f: "meadow:fire_log",
+    f: "meadow:firewood",
     F: "create:fluid_tank",
     b: "minecraft:bamboo_block",
     r: "society:rubber",
@@ -195,7 +195,7 @@ ServerEvents.recipes((e) => {
     n: "minecraft:netherite_ingot",
     b: "society:battery",
     s: "society:sparkstone",
-    l: "meadow:fire_log",
+    l: "meadow:firewood",
   });
   shaped("society:cornucopia", [" p ", "php", " p "], {
     p: "botania:pixie_dust",
@@ -210,7 +210,7 @@ ServerEvents.recipes((e) => {
     L: "minecraft:leather",
     c: "society:cornucopia",
     b: "society:magic_bulb",
-    l: "meadow:fire_log",
+    l: "meadow:firewood",
   });
 
   // Fish ponds (#12)

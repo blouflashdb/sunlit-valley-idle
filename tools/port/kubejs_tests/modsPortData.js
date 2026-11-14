@@ -612,6 +612,7 @@ const modsPortData = {
   "longwings:netting",
   "longwings:sugar_water_bowl",
   "meadow:cheese_sandwich",
+  "meadow:firewood",
   "meadow:pine_sapling",
   "minecraft:acacia_button",
   "minecraft:acacia_fence",
