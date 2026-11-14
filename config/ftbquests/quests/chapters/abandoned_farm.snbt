@@ -9,14 +9,7 @@
 	hide_quest_until_deps_complete: true
 	icon: "farm_and_charm:supply_cart"
 	id: "7C65158A3343D7FA"
-	images: [{
-		height: 10.0d
-		image: "society:textures/gui/community_center_abandoned_farm.png"
-		rotation: 0.0d
-		width: 17.77777777777778d
-		x: 0.0d
-		y: 0.0d
-	}]
+	images: [ ]
 	order_index: 5
 	quest_links: [ ]
 	quests: [

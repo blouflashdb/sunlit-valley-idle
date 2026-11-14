@@ -7,7 +7,7 @@
 	id: "4AA29866E19A65A8"
 	images: [{
 		height: 3.0d
-		image: "society:textures/gui/seal_iridescent.png"
+		image: "sunlitidle:textures/gui/quests/seal_iridescent.png"
 		rotation: 0.0d
 		width: 3.0d
 		x: 13.5d
@@ -586,7 +586,6 @@
 			size: 3.0d
 			subtitle: "{ftbquests.chapter.perfection.quest17064AEF4212B5FF.subtitle}"
 			tasks: [{
-				icon: "fantasyfurniture:decorations/bone_skeleton_skull_blossoms"
 				id: "09B79BA0E1E2F6AA"
 				stat: "minecraft:play_time"
 				title: "{ftbquests.chapter.perfection.quest17064AEF4212B5FF.task.700199382366221994.title}"

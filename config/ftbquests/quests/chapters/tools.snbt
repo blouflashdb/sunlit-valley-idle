@@ -19,7 +19,7 @@
 				""
 				"{ftbquests.chapter.tools.quest31F6C5811A72396C.description2}"
 			]
-			icon: "meadow:fire_log"
+			icon: "meadow:firewood"
 			id: "31F6C5811A72396C"
 			size: 2.0d
 			tasks: [{
