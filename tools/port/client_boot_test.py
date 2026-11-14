@@ -53,7 +53,7 @@ PACK_DROPPED = re.compile(r"Removed resource pack .* from options because")
 LOG_ERROR = re.compile(r"^\[[^\]]+\] \[[^\]]+/(ERROR|FATAL)\] \[([^\]]+)\]: (.*)$")
 
 
-def install_client(game, extra_mods):
+def install_client(game, extra_mods, exclude=()):
     """Downloads the client mods, resource and shader packs and copies the overrides into the game folder."""
     lock = json.loads(pathlib.Path("pakku-lock.json").read_text())
     pakku = json.loads(pathlib.Path("pakku.json").read_text())
@@ -71,6 +71,10 @@ def install_client(game, extra_mods):
     with concurrent.futures.ThreadPoolExecutor(8) as pool:
         list(pool.map(lambda f: boot.download(urllib.parse.quote(f[0]["url"], safe=":/%+"), f[1],
                                               f[0]["hashes"].get("sha1")), files))
+    for pattern in exclude:
+        for jar in (game / "mods").glob(pattern):
+            print(f"Excluding {jar.name}", flush=True)
+            jar.unlink()
     for jar in extra_mods:
         shutil.copy2(jar, game / "mods" / pathlib.Path(jar).name)
     boot.copy_overrides(pakku, game)
@@ -231,6 +235,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dir", default="build/client")
     ap.add_argument("--extra-mod", action="append", default=[], help="local mod jar to add, such as sunlitidle")
+    ap.add_argument("--exclude-mod", action="append", default=[],
+                    help="glob of client mod files to leave out (to try a lock change locally)")
+    ap.add_argument("--client-mod", action="append", default=[], help="extra jar for the client only")
     ap.add_argument("--join-timeout", type=int, default=1800, help="seconds for the client to join the server")
     ap.add_argument("--render-wait", type=int, default=120, help="seconds between the join and the screenshot")
     ap.add_argument("--allowlist", default=str(kubejs_log_gate.DEFAULT_ALLOWLIST))
@@ -245,7 +252,7 @@ def main():
 
     server_dir = boot.install(root / "server", args.extra_mod)
     (server_dir / "user_jvm_args.txt").write_text("-Xmx4G\n")
-    install_client(game, args.extra_mod)
+    install_client(game, args.extra_mod + args.client_mod, args.exclude_mod)
     print("Installing NeoForge for the client", flush=True)
     subprocess.run(["portablemc", "--main-dir", str(main_dir), "--work-dir", str(game), "--output", "human",
                     "start", "--dry", "--jvm", shutil.which("java"), f"neoforge:{neoforge}"],
