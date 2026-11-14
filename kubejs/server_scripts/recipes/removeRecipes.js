@@ -1,8 +1,8 @@
 console.info("[SOCIETY] removeRecipes.js loaded");
 
 ServerEvents.recipes((e) => {
+  // Recipes added by the pack scripts are not touched by these removals (KubeJS only filters the mods' recipes).
   e.remove({ mod: "justhammers" });
-  e.remove({ mod: "itemfilters" });
   const removeByOutput = [
     'society_trading:auto_trader',
     'cozycafe:cafe_manager',
@@ -1067,12 +1067,17 @@ ServerEvents.recipes((e) => {
   removeByOutput.forEach((item) => {
     e.remove({ output: item });
   });
-  global.removedItems.forEach((item) => {
-    e.remove({ output: item });
-  });
-  global.lootFurniture.forEach((item) => {
-    e.remove({ output: item });
-  });
+  // A filter naming an unregistered item is an error in KubeJS 7, so the global lists are checked first.
+  global.removedItems
+    .filter((item) => global.itemExists(item))
+    .forEach((item) => {
+      e.remove({ output: item });
+    });
+  global.lootFurniture
+    .filter((item) => global.itemExists(item))
+    .forEach((item) => {
+      e.remove({ output: item });
+    });
   removeByInput.forEach((item) => {
     e.remove({ input: item });
   });

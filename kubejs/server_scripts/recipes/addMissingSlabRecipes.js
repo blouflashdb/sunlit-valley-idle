@@ -1,4 +1,4 @@
-console.info("[SOCIETY] addPlankRecipes.js loaded");
+console.info("[SOCIETY] addMissingSlabRecipes.js loaded");
 
 ServerEvents.recipes((e) => {
   [

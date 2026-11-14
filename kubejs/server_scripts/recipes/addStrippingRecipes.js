@@ -5,18 +5,9 @@ ServerEvents.recipes((e) => {
     const splitLog = log.split(":");
     e.custom({
       type: "create:cutting",
-      ingredients: [
-        {
-          item: log,
-        },
-      ],
-      processingTime: 50,
-      results: [
-        {
-          count: 1,
-          item: `${splitLog[0]}:stripped_${splitLog[1]}`,
-        },
-      ],
+      ingredients: [{ item: log }],
+      processing_time: 50,
+      results: [{ id: `${splitLog[0]}:stripped_${splitLog[1]}`, count: 1 }],
     });
   };
   [
