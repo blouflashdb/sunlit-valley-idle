@@ -45,7 +45,8 @@ USERNAME = "CiClient"
 DISPLAY = ":99"
 FOCUS = re.compile(r"iris|sodium|fancymenu|drippy|konkrete|melody|journeymap|resource ?pack|PackRepository|"
                    r"ResourceManager|shader|texture|colorwheel", re.IGNORECASE)
-LOADED = re.compile(r"Sound engine started|OpenAL initialized")
+# ModernFix logs the start time when the title screen is up; runners have no sound device.
+LOADED = re.compile(r"Game took [0-9.]+ seconds to start|Sound engine started")
 # NeoForge shows an error screen and keeps running when mods fail to load; a crash report is written.
 LOAD_FAILED = re.compile(r"Error during pre-loading phase|Mod loading has failed|Failed to load mod|"
                          r"This crash report has been saved to")
