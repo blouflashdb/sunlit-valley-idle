@@ -28,7 +28,8 @@
               "add": false
             },
             {
-              "function": "supplementaries:curse_loot"
+              "function": "minecraft:enchant_randomly",
+              "options": "#minecraft:curse"
             }
           ],
           "name": "minecraft:golden_helmet"
@@ -56,7 +57,8 @@
               "add": false
             },
             {
-              "function": "supplementaries:curse_loot"
+              "function": "minecraft:enchant_randomly",
+              "options": "#minecraft:curse"
             }
           ],
           "name": "minecraft:golden_boots"

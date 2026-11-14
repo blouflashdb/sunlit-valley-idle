@@ -3,6 +3,8 @@
   "ingredient": {
     "item": "create:copper_shingles"
   },
-  "result": "twigs:copper_pillar",
-  "count": 1
+  "result": {
+    "id": "twigs:copper_pillar",
+    "count": 1
+  }
 }

@@ -3,6 +3,8 @@
   "ingredient": {
     "item": "minecraft:waxed_oxidized_copper"
   },
-  "result": "twigs:waxed_oxidized_copper_pillar",
-  "count": 4
+  "result": {
+    "id": "twigs:waxed_oxidized_copper_pillar",
+    "count": 4
+  }
 }

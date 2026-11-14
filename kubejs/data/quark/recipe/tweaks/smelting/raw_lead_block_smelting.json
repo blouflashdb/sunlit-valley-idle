@@ -3,7 +3,10 @@
   "ingredient": {
     "item": "oreganized:raw_lead_block"
   },
-  "result": "oreganized:lead_block",
+  "result": {
+    "id": "oreganized:lead_block",
+    "count": 1
+  },
   "experience": 12,
   "cookingtime": 1800
 }

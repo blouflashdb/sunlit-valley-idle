@@ -3,6 +3,8 @@
   "ingredient": {
     "item": "minecraft:exposed_copper"
   },
-  "result": "twigs:exposed_copper_pillar",
-  "count": 4
+  "result": {
+    "id": "twigs:exposed_copper_pillar",
+    "count": 4
+  }
 }

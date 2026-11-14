@@ -7,19 +7,10 @@
     },
     {
       "item": "minecraft:bowl"
-    },
-    {
-      "item": "minecraft:bowl"
-    },
-    {
-      "item": "minecraft:bowl"
-    },
-    {
-      "item": "minecraft:bowl"
     }
   ],
   "result": {
     "id": "longwings:sugar_water_bowl",
-    "count": 4
+    "count": 1
   }
 }

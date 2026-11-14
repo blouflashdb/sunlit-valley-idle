@@ -228,7 +228,8 @@ ServerEvents.tags("item", (e) => {
     e.add("furniture:trash_bag_blacklist", item);
     e.add("c:hidden_from_recipe_viewers", item);
   });
-  global.hiddenItems.filter(global.itemExists).forEach((item) => {
+  // "@mod" entries name every item of a mod; global.itemExists only takes item ids.
+  global.hiddenItems.filter((item) => item.startsWith("@") || global.itemExists(item)).forEach((item) => {
     e.add("furniture:trash_bag_blacklist", item);
     e.add("c:hidden_from_recipe_viewers", item);
   });

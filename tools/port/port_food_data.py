@@ -25,6 +25,13 @@ touched here. Everything else (recipes, loot tables, loot modifiers, tags, advan
     GONE_TAGS): an ingredient loses that option, a loot table loses that entry, a tag loses that value; a recipe whose
     result or a whole ingredient is gone is not ported (printed as "skipped").
 
+  - Recipes that kubejs/server_scripts/recipes/removeRecipes.js removes anyway (by id, output, input, mod or type,
+    including global.removedItems) were dead data on 1.20.1 too and are not ported: removed by removeRecipes.js are
+    bakery:meadow/cooking/{chocolate_jam,chocolate_truffle,orange_pudding,pudding} and
+    crabbersdelight:meadow/cooking/{bisque,clam_bake,clam_chowder,crab_cakes,seafood_gumbo,shrimp_fried_rice} (type
+    meadow:cooking), farmersdelight:sweet_berry_cookie (id) and veggiesdelight:cooking/dandelion_juice (output). The
+    script reads the removal lists from the KubeJS scripts, so later changes there are picked up.
+
 Also writes tools/port/kubejs_tests/foodPortData.js for portedDataTest.js (recipes, loot tables, advancements, item
 tags and items that must load on the CI server).
 
@@ -638,6 +645,73 @@ def convert_tag(data):
     return data
 
 
+# --- Recipes the pack's server scripts remove ----------------------------------------------------------------------
+REMOVE_SCRIPT = pathlib.Path("kubejs/server_scripts/recipes/removeRecipes.js")
+REMOVED_ITEMS_SCRIPT = pathlib.Path("kubejs/startup_scripts/globalRemovedItems.js")
+FURNITURE_SCRIPT = pathlib.Path("kubejs/startup_scripts/globalFurniture.js")
+
+
+def js_strings(path, marker):
+    """The quoted strings of the JS array that starts at marker (comments skipped)."""
+    text = path.read_text()
+    start = text.index(marker)
+    chunk = re.sub(r"//[^\n]*", "", text[start:text.index("];", start)])
+    return set(re.findall(r"[\"']([^\"']+)[\"']", chunk[len(marker):]))
+
+
+def script_removals():
+    """removeRecipes.js filters: ids, outputs (with global.removedItems and global.lootFurniture), inputs, mods,
+    recipe types. KubeJS applies them to datapack recipes too, so a matching file would be dead data."""
+    text = REMOVE_SCRIPT.read_text()
+    return {
+        "id": js_strings(REMOVE_SCRIPT, "const removeById = ["),
+        "output": js_strings(REMOVE_SCRIPT, "const removeByOutput = [")
+        | js_strings(REMOVED_ITEMS_SCRIPT, "global.removedItems = [")
+        | js_strings(FURNITURE_SCRIPT, "global.lootFurniture = ["),
+        "input": js_strings(REMOVE_SCRIPT, "const removeByInput = ["),
+        "mod": set(re.findall(r'e\.remove\(\{ mod: "([^"]+)" \}\)', text)),
+        "type": set(re.findall(r'e\.remove\(\{ type: "([^"]+)" \}\)', text)),
+    }
+
+
+def recipe_outputs(recipe):
+    out = set()
+    for key in ("result", "results", "output"):
+        for v in recipe.get(key) if isinstance(recipe.get(key), list) else [recipe.get(key)]:
+            if isinstance(v, dict):
+                v = v["item"] if isinstance(v.get("item"), dict) else v
+                if isinstance(v.get("id"), str):
+                    out.add(v["id"])
+    return out
+
+
+def recipe_inputs(value, out):
+    if isinstance(value, dict):
+        if isinstance(value.get("item"), str):
+            out.add(value["item"])
+        for k, v in value.items():
+            if k not in ("result", "results", "output", "container"):
+                recipe_inputs(v, out)
+    elif isinstance(value, list):
+        for v in value:
+            recipe_inputs(v, out)
+    return out
+
+
+def removed_by_script(recipe, recipe_id, removals):
+    if recipe_id in removals["id"]:
+        return f"id {recipe_id}"
+    if recipe.get("type") in removals["type"]:
+        return f"type {recipe['type']}"
+    if recipe_id.split(":")[0] in removals["mod"]:
+        return f"mod {recipe_id.split(':')[0]}"
+    for item in recipe_outputs(recipe) & removals["output"]:
+        return f"output {item}"
+    for item in recipe_inputs(recipe, set()) & removals["input"]:
+        return f"input {item}"
+    return None
+
+
 # --- Main ----------------------------------------------------------------------------------------------------------
 def write(path, data):
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -669,6 +743,7 @@ def items_in(value, out):
 def main():
     data_out = {"recipes": set(), "lootTables": set(), "advancements": set(), "itemTags": set(), "items": set()}
     counts, dropped, skipped = {}, [], []
+    removals = script_removals()
     for namespace in NAMESPACES:
         for folder in OWN_FOLDERS:
             shutil.rmtree(DST / namespace / folder, ignore_errors=True)
@@ -692,6 +767,11 @@ def main():
                     out = {"neoforge:conditions": [{"type": "neoforge:false"}]}
                 elif kind == "recipe":
                     out = convert_recipe(data, rel)
+                    removed = removed_by_script(out, file_id(out_rel, "recipe"), removals)
+                    if removed:
+                        dropped.append(f"{rel}: removed by removeRecipes.js ({removed})")
+                        count[1] += 1
+                        continue
                 elif kind in ("loot_table", "loot_modifiers"):
                     out = convert_loot(data)
                 elif kind == "advancement":

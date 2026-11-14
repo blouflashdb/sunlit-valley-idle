@@ -18,7 +18,8 @@ ServerEvents.loaded((event) => {
         check(global.itemExists(id), `${id} is not registered`)
       );
       let taste = (npc, id) => global.getVillagerGiftResult(npc, Item.of(id));
-      check(taste("banker", "minecraft:rabbit_foot") === "loved", `banker + rabbit foot: ${taste("banker", "minecraft:rabbit_foot")}`);
+      // Universal love; the rabbit foot is a farmer product now (society:farmer_product tag), which the banker dislikes.
+      check(taste("banker", "society:prismatic_shard") === "loved", `banker + prismatic shard: ${taste("banker", "society:prismatic_shard")}`);
       check(taste("shepherd", "minecraft:rabbit_foot") === "hated", "the shepherd's own taste does not win");
       check(taste("banker", "minecraft:stick") === "neutral", "a stick is not neutral");
       check(taste("blacksmith", "minecraft:poppy") === "liked", "the blacksmith does not like flowers (tag)");

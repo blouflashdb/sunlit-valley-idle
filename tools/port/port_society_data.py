@@ -2,8 +2,9 @@
 """Ports the rest of the pack's own data and its vanilla and forge overrides from kubejs/_unported/data to kubejs/data
 for 1.21.1 (Slice 14, #19):
 
-  - society: advancements, block and gold rush loot tables, item and block tags, Curios slots, the Pufferfish's
-    Skills trees (farming, husbandry, mining, fishing, adventuring, mastery, books) and the blueberry ice cream;
+  - society: advancements, block and gold rush loot tables, item and block tags, Curios slots and the Pufferfish's
+    Skills trees (farming, husbandry, mining, fishing, adventuring, mastery, books); the blueberry ice cream recipe
+    is not ported (Beachparty 1.21 has no mini fridge recipes);
   - sunlitidle: the dungeon loot tables (they replace the sunlitidle mod's own tables);
   - minecraft: block, chest and mob loot tables, the recipe overrides and the item and block tags;
   - forge and c tags: forge tags become c tags; quality_food tags.
@@ -39,7 +40,6 @@ PARTS = (
     ("society", "loot_table/blocks"),
     ("society", "loot_table/util"),
     ("society", "puffish_skills"),
-    ("society", "recipe/mini_fridge_mixing"),
     ("society", "tags/block"),
     ("society", "tags/item"),
     ("sunlitidle", "loot_table"),
@@ -51,8 +51,20 @@ PARTS = (
     ("c", "tags/block"),
     ("quality_food", "tags"),
 )
-# Files of PARTS that were ported by an earlier slice; they stay as they are.
-ALREADY_PORTED = {"society/loot_table/blocks", "society/tags/block", "society/tags/item"}
+# Files of PARTS that earlier slices ported (#16); they stay as they are.
+ALREADY_PORTED = {
+    "society/loot_table/blocks": (
+        "blackstone_boulder deepslate_iridium_ore deepslate_sparkstone_ore end_stone_boulder geode_node "
+        "grimwood_supply_crate ice_boulder iridium_ore magma_geode_node oak_supply_crate omni_geode_node "
+        "palm_supply_crate sandstone_boulder sparkstone_ore spruce_supply_crate stone_boulder"
+    ),
+    "society/tags/block": "skull_cavern_bomb_denied skull_cavern_regens skull_cavern_unplacable",
+    "society/tags/item": (
+        "bouquet_bag_flowers frozen_geode_bonus frozen_geode_relic frozen_geode_treasure geode_bonus geode_junk "
+        "geode_relic geode_treasure geodes magma_geode_bonus magma_geode_relic magma_geode_treasure omni_geode_bonus "
+        "omni_geode_special omni_geode_treasure prismatic_shards"
+    ),
+}
 
 # forge tags whose c tag has another name; every other forge:x becomes c:x.
 TAGS = {
@@ -377,8 +389,7 @@ def main():
     for namespace, folder in PARTS:
         src_root = SRC / namespace / folder
         if f"{namespace}/{folder}" in ALREADY_PORTED:
-            # Only the files that the earlier slice did not port.
-            done = {p.relative_to(DST / namespace / folder) for p in (DST / namespace / folder).rglob("*.json")}
+            done = {pathlib.Path(name + ".json") for name in ALREADY_PORTED[f"{namespace}/{folder}"].split()}
         else:
             done = set()
             out_ns = "c" if namespace == "forge" else namespace
@@ -406,7 +417,8 @@ def main():
                 elif folder.startswith("tags"):
                     kind = path.parts[1]
                     data = port_tag(data, "block" if kind == "block" else "item")
-                    if kind == "item" and data["values"]:
+                    # Only tags with a registered item of their own must be non-empty; the rest may wait for others.
+                    if kind == "item" and any(isinstance(v, str) and not v.startswith("#") for v in data["values"]):
                         test["itemTags"].append(f"{out_ns}:{'/'.join(path.parts[2:])[:-5]}")
                 elif folder == "puffish_skills":
                     data = port_skills(data)
