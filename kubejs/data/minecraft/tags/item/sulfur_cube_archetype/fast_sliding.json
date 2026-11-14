@@ -1,4 +1,7 @@
 {
   "replace": false,
-  "values": []
+  "values": [
+    "society:prismatic_shard_block",
+    "society:sparkstone_block"
+  ]
 }
