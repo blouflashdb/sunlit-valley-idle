@@ -21,9 +21,10 @@ The lock resolver picked Complementary Reimagined r5.9.3. Colorwheel Patcher 1.0
 Flywheel visuals render wrong when shaders are on. So the lock keeps r5.6.1, the same file as on 1.20.1.
 
 On the first start, Colorwheel Patcher writes a patched copy named
-`ComplementaryReimagined_r5.6.1 + Clrwl_<Colorwheel version>.zip` into `shaderpacks/`.
-`config/iris.properties` selects `ComplementaryReimagined_r5.6.1 + Clrwl_1.3.2.zip`. If the name in a real
-client is different, change `shaderPack` to the name the patcher wrote.
+`ComplementaryReimagined_r5.6.1 + Clrwl_<Colorwheel Patcher version>.zip` into `shaderpacks/`. A local client
+run confirmed `ComplementaryReimagined_r5.6.1 + Clrwl_1.0.5.zip` for Colorwheel Patcher 1.0.5, and
+`config/iris.properties` selects that name. The check derives the expected name from the patcher file in the
+lock, so a patcher update without a matching `shaderPack` fails CI.
 
 `tools/port/port_lock.py` would pick the newest shader again. The check reads the patch list from the
 Colorwheel Patcher jar in the lock and fails if it cannot patch the locked shader, so a re-resolved lock
@@ -105,8 +106,8 @@ numbers are in the job summary and in `build/server/perf.json` in the `server-lo
 1. Import the CurseForge export and start the game. The Drippy loading screen and the FancyMenu title
    screen show; no missing textures in the title screen panoramas.
 2. Options -> Resource Packs: `sunlit_overrides.zip` is on top and required; no pack is red.
-3. Press `O`, pick the patched Complementary pack. Check `shaderpacks/` for the file name the patcher wrote;
-   fix `config/iris.properties` if it differs. Look at a moving Create contraption with shaders on.
+3. Press `O`: the patched Complementary pack is selected. Turn shaders on and look at a moving Create
+   contraption.
 4. Open Video Settings: the Sodium pages open (Reese's Sodium Options screen).
 5. JourneyMap minimap shows with the pack's settings (position, size).
 6. Note the client start time (ModernFix prints "Game took X seconds to start") and FPS at the farm.

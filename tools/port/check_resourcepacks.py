@@ -6,7 +6,7 @@ Checks that fail the run:
   2. Every pack that config/resourcepackoverrides.json or configureddefaults/options.txt enables is a resource
      pack in pakku-lock.json or a file in resourcepacks/ (the names change with each pack update).
   3. The shader pack in config/iris.properties is the shader pack in pakku-lock.json, or the copy that
-     Colorwheel Patcher makes of it ("<name> + Clrwl_<version>.zip"), and Colorwheel Patcher has a patch for
+     Colorwheel Patcher makes of it ("<name> + Clrwl_<patcher version>.zip"), and Colorwheel Patcher has a patch for
      that shader version (otherwise Create contraptions render wrong with shaders on). This downloads the
      Colorwheel Patcher jar from the lock to read its patch list.
   4. No Oculus or Embeddium config is left in config/ (Iris and Sodium replace them on 1.21.1).
@@ -121,9 +121,16 @@ def main():
 
     lines = IRIS.read_text().splitlines() if IRIS.exists() else []
     iris = dict(line.split("=", 1) for line in lines if "=" in line and line[0] != "#")
-    selected = re.sub(r" \+ Clrwl_[0-9.]+\.zip$", ".zip", iris.get("shaderPack", ""))
-    if selected not in shaders:
-        errors.append(f"{IRIS}: shaderPack={iris.get('shaderPack')}, the lock has {shaders}")
+    selected = iris.get("shaderPack", "")
+    patcher = next((p for p in lock["projects"] if p["slug"].get("curseforge") == "colorwheel-patcher"), None)
+    if patcher:
+        # The patcher names its copy after its own version: "<pack> + Clrwl_1.0.5.zip" for 1.0.5+mc1.21.1.
+        m = re.search(r"colorwheel_patcher-\w+-([0-9.]+)", patcher["files"][0]["file_name"])
+        expected = [s.removesuffix(".zip") + f" + Clrwl_{m.group(1)}.zip" for s in shaders] if m else []
+        if selected not in expected:
+            errors.append(f"{IRIS}: shaderPack={selected}, Colorwheel Patcher writes {expected}")
+    elif selected not in shaders:
+        errors.append(f"{IRIS}: shaderPack={selected}, the lock has {shaders}")
     errors += colorwheel_errors(lock, shaders)
     for name in OLD_CONFIGS:
         if (pathlib.Path("config") / name).exists():
