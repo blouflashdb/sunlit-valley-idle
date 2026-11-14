@@ -51,7 +51,7 @@ ServerEvents.loaded((event) => {
     // Every Pam's fruit block except the apple has a <fruit>item (pamsTreeLoot.js).
     pamFruitBlocks
       .filter((id) => id !== "pamhc2trees:pamapple")
-      .forEach((id) => check(Item.exists(`pamhc2trees:${id.substring(16)}item`), `no fruit item for ${id}`));
+      .forEach((id) => check(Item.exists(`pamhc2trees:${id.substring("pamhc2trees:pam".length)}item`), `no fruit item for ${id}`));
     Object.keys(global.goldenClockMachines).forEach((id) => check(blockExists(id), `fairy dust machine ${id} is missing`));
 
     let spawn = level.getSharedSpawnPos();
