@@ -1,6 +1,7 @@
 console.info("[SOCIETY] addQuestbook.js loaded");
 
 // Starting items: the quest book, and with global.multiplayerSharestones a sharestone and a welcome note.
+// Waystones 1.21.1 has no white sharestone, so the light gray one replaces it.
 // Players of the 4.0 starting kit got the Let's Do furniture blueprints once.
 PlayerEvents.loggedIn((e) => {
   const { player } = e;
@@ -16,7 +17,7 @@ PlayerEvents.loggedIn((e) => {
   player.stages.add("starting_items_4_1");
   player.give("ftbquests:book");
   if (global.multiplayerSharestones) {
-    player.give("waystones:sharestone");
+    player.give("waystones:light_gray_sharestone");
     player.give(
       global.getNotePaperItem(
         global.translatableWithFallback("society.starting_item_sharestone.author", "Society").getString(),

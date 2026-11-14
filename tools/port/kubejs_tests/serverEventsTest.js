@@ -23,7 +23,7 @@ ServerEvents.loaded((event) => {
       "society:multiplayer_pig_race_ticket", "society:the_red_and_the_black", "society:prismatic_shard",
       "society:book_of_stars", "society:yard_work_yearly", "society:crystal_of_regret_farming",
       "society:the_metamorphosize", "meadow:firewood", "meadow:wooden_bucket", "furniture:blueprints",
-      "ftbquests:book", "waystones:sharestone", "moblassos:diamond_lasso", "pamhc2trees:pawpawitem",
+      "ftbquests:book", "waystones:light_gray_sharestone", "moblassos:diamond_lasso", "pamhc2trees:pawpawitem",
       "pamhc2trees:appleitem", "vinery:cherry", "atmospheric:orange", "atmospheric:passion_fruit",
       "brewery:dark_brew", "farm_and_charm:fertilizer", "numismatics:prismatic_coin", "create:creative_blaze_cake",
       "autumnity:turkey_egg", "untitledduckmod:duck_egg", "refinedstorage:4k_storage_block",
