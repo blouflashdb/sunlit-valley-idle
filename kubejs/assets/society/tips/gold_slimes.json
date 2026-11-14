@@ -1,5 +1,6 @@
 {
-	"tip": {
-		"translate": "society_tips.tip.gold_slimes"
-	}
+  "type": "tipsmod:simple",
+  "text": {
+    "translate": "society_tips.tip.gold_slimes"
+  }
 }

@@ -1,5 +1,6 @@
 {
-	"tip": {
-		"translate": "society_tips.tip.fish_season"
-	}
+  "type": "tipsmod:simple",
+  "text": {
+    "translate": "society_tips.tip.fish_season"
+  }
 }

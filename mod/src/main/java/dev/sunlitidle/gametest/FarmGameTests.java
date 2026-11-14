@@ -1,6 +1,7 @@
 package dev.sunlitidle.gametest;
 
 import dev.sunlitidle.SunlitIdle;
+import dev.sunlitidle.farm.CropGrowth;
 import dev.sunlitidle.farm.DailyFarm;
 import dev.sunlitidle.farm.FarmRegistry;
 import dev.sunlitidle.farm.Fertilizer;
@@ -98,5 +99,36 @@ public final class FarmGameTests {
             helper.assertBlockPresent(Blocks.FARMLAND, soil);
             helper.succeed();
         });
+    }
+
+    @GameTest(template = "empty")
+    public static void cropGrowthCountsFarmDays(GameTestHelper helper) {
+        BlockPos plain = new BlockPos(1, 1, 1);
+        helper.setBlock(plain, farmland(7));
+        helper.setBlock(plain.above(), ((CropBlock) Blocks.WHEAT).getStateForAge(3));
+        CropGrowth growth = growth(helper, plain.above());
+        helper.assertTrue(growth.day() == 3 && growth.days() == 7 && !growth.boosted() && !growth.mature(),
+                "plain wheat at age 3 should be day 3/7, is " + growth);
+
+        BlockPos boosted = new BlockPos(3, 1, 1);
+        helper.setBlock(boosted, farmland(7));
+        FertilizerItem.apply(helper.getLevel(), helper.absolutePos(boosted), Fertilizer.WEAK);
+        helper.setBlock(boosted.above(), Blocks.WHEAT.defaultBlockState());
+        growth = growth(helper, boosted.above());
+        helper.assertTrue(growth.day() == 0 && growth.days() == 6 && growth.boosted(),
+                "fresh wheat on weak fertilizer should be day 0/6, is " + growth);
+        DailyFarm.runDay(helper.getLevel(), List.of(helper.absolutePos(boosted)), List.of());
+        growth = growth(helper, boosted.above());
+        helper.assertTrue(growth.day() == 1 && growth.days() == 6, "after one morning it should be day 1/6, is " + growth);
+
+        helper.setBlock(plain.above(), ((CropBlock) Blocks.WHEAT).getStateForAge(7));
+        helper.assertTrue(growth(helper, plain.above()).mature(), "full grown wheat is not mature");
+        helper.assertTrue(CropGrowth.of(helper.getLevel(), helper.absolutePos(plain), helper.getBlockState(plain)) == null,
+                "farmland has a crop growth");
+        helper.succeed();
+    }
+
+    private static CropGrowth growth(GameTestHelper helper, BlockPos pos) {
+        return CropGrowth.of(helper.getLevel(), helper.absolutePos(pos), helper.getBlockState(pos));
     }
 }

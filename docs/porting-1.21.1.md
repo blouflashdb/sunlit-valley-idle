@@ -91,6 +91,10 @@ BlockEvents.blockEntityTick("society:crystalarium", (event) => {
 - `ForgeEvents.onEvent("some.Event", fn)` is `NativeEvents.onEvent(Java.loadClass("some.Event"), fn)`.
 - Debts (hospital bills) are `server.persistentData.debts` = `{uuid: amount}`; use `global.getDebt`,
   `global.setDebt` and `global.addDebt` from `startup_scripts/globalShippingBinHandlers.js`.
+- Jade 15 has no `JadeEvents`. Lines under a block entity's name come from
+  `startup_scripts/jadeInfo.js`, which answers the sunlitidle mod's `dev.sunlitidle.compat.BlockInfoEvent`
+  (posted on the server while a player looks at the block). Return the lines from `global.getJadeInfoLines`.
+  The crop growth line (farm days, fertilizer, season) is computed in the mod.
 - Embers Text API popups built from `Text...toJson()` do not work (components have no `toJson()` in
   KubeJS 7). Use `player.setStatusMessage(text)` for short notices.
 

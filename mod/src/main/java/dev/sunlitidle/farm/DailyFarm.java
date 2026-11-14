@@ -238,7 +238,7 @@ public final class DailyFarm {
         return 0;
     }
 
-    private static IntegerProperty ageProperty(BlockState state) {
+    static IntegerProperty ageProperty(BlockState state) {
         for (Property<?> property : state.getProperties()) {
             if (property instanceof IntegerProperty integer && "age".equals(property.getName())) {
                 return integer;
@@ -247,7 +247,7 @@ public final class DailyFarm {
         return null;
     }
 
-    private static int maxOf(IntegerProperty property) {
+    static int maxOf(IntegerProperty property) {
         int max = 0;
         for (int value : property.getPossibleValues()) {
             max = Math.max(max, value);

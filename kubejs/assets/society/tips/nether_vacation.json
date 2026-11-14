@@ -1,5 +1,6 @@
 {
-	"tip": {
-		"translate": "society_tips.tip.nether_vacation"
-	}
+  "type": "tipsmod:simple",
+  "text": {
+    "translate": "society_tips.tip.nether_vacation"
+  }
 }

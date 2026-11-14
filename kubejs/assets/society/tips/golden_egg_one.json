@@ -1,5 +1,6 @@
 {
-	"tip": {
-		"translate": "society_tips.tip.golden_egg_one"
-	}
+  "type": "tipsmod:simple",
+  "text": {
+    "translate": "society_tips.tip.golden_egg_one"
+  }
 }
