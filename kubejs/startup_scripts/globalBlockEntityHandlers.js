@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
 // priority: 1000
-// Shared machine core, ported to KubeJS 7 (1.21.1). The rest of the 1.20.1 file (inventories, fluids, crops, Skull Cavern) is still in kubejs/_unported/startup_scripts/globalBlockEntityHandlers.js
-// and moves here with the slice that needs it. See docs/porting-1.21.1.md.
+// Shared machine core, ported to KubeJS 7 (1.21.1). See docs/porting-1.21.1.md.
+// The 1.20.1 inventory, fluid and NBT helpers (insertBelow, onFill, setBlockEntityData, ...) were not ported:
+// no ported script uses them. Use the machine data helpers below and the KubeJS 7 inventory attachments.
 console.info("[SOCIETY] globalBlockEntityHandlers.js loaded");
 
 const artMachineTickRate = 200;
@@ -735,3 +736,12 @@ global.getCropQualityAt = (level, pos, blockId) => {
 };
 
 global.getCropQuality = (crop) => global.getCropQualityAt(crop.getLevel(), crop.getPos(), crop.id);
+
+/** Removes the text displays a machine spawned with the tag `<id>-<x>-<y>-<z>` (for example when it is broken). */
+global.clearOldTextDisplay = (block, level, id) => {
+  level
+    .getServer()
+    .runCommandSilent(
+      `execute in ${String(level.dimension)} run kill @e[type=minecraft:text_display,tag=${id}-${block.x}-${block.y}-${block.z}]`
+    );
+};
