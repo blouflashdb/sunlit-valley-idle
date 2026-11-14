@@ -1,4 +1,13 @@
 ^^^
+## Sunlit Valley Idle
+### v5.0.0
+^^^
+---
+- Ported to Minecraft 1.21.1 and NeoForge, with Iris and Sodium instead of Oculus and Embeddium
+- Worlds from 4.x (Minecraft 1.20.1) are not compatible. Start a new world
+- Some mods were dropped or replaced, and some art is a simple placeholder for now. See CHANGELOG.md in the repository
+
+^^^
 ## Cozy Cafe
 ### v4.1.5A
 ^^^

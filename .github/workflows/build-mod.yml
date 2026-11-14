@@ -58,7 +58,7 @@ jobs:
       - name: Export CurseForge pack
         run: |
           JAR=$(ls mod/build/libs/sunlitidle-*.jar | grep -v -- '-sources' | head -n1)
-          VERSION="0.2.0-dev.${GITHUB_RUN_NUMBER}"
+          VERSION="5.0.0-dev.${GITHUB_RUN_NUMBER}"
           python3 tools/export_curseforge.py --mod-jar "$JAR" --version "$VERSION" --out "build/sunlit-valley-idle-${VERSION}.zip"
           # GitHub zips every artifact, so upload the unpacked pack: the downloaded
           # artifact zip then has manifest.json at its root and imports directly.
