@@ -1,0 +1,6 @@
+# Known KubeJS errors that CI tolerates for now (tools/port/kubejs_log_gate.py).
+# One entry per line: <owner> | <python regex searched in the error line, without the time stamp>
+# The owner is the slice issue or pull request that will fix the error, for example:
+#   #18 | townEconomyEvents\.js#\d+: .*coinLeaderboard
+# Keep this file short: every entry hides a real error from the gate. The orchestrator removes entries
+# when their slice lands; CI prints entries that matched nothing as "stale".
