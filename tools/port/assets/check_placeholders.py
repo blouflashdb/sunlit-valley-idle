@@ -192,7 +192,9 @@ def main():
             if block and block["parentModel"]:
                 check_model(block["parentModel"], where)
             elif block:
-                layers = [block["texture"] or f"{ns}:block/{path}"] + list(block["textures"].values())
+                # KubeJS uses the default block/<path> texture only when no side texture is set.
+                default = [] if block["textures"] else [f"{ns}:block/{path}"]
+                layers = ([block["texture"]] if block["texture"] else default) + list(block["textures"].values())
                 for tex in layers:
                     if not texture_ok(tex):
                         errors.append(f"{where}: block texture {rl(tex)} does not exist{res.similar(tex)}")

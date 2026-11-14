@@ -2866,6 +2866,161 @@
       "sprite": "society:item/artifacts/princess_hairbrush"
     },
     {
+      "type": "single",
+      "resource": "minecraft:block/glowstone",
+      "sprite": "society:block/sparkstone_block"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/amethyst_block",
+      "sprite": "society:block/prismatic_shard_block"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/stripped_bamboo_block",
+      "sprite": "society:block/sturdy_bamboo_block"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/stripped_bamboo_block_top",
+      "sprite": "society:block/sturdy_bamboo_block_top"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/blue_concrete_powder",
+      "sprite": "society:block/blueberry_crate_top"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/barrel_side",
+      "sprite": "society:block/blueberry_crate_side"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/purple_concrete_powder",
+      "sprite": "society:block/eggplant_crate_top"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/barrel_side",
+      "sprite": "society:block/eggplant_crate_side"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/cyan_concrete_powder",
+      "sprite": "society:block/ancient_fruit_crate_top"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/barrel_side",
+      "sprite": "society:block/ancient_fruit_crate_side"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/pink_concrete_powder",
+      "sprite": "society:block/salmonberry_crate_top"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/barrel_side",
+      "sprite": "society:block/salmonberry_crate_side"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/magenta_concrete_powder",
+      "sprite": "society:block/boysenberry_crate_top"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/barrel_side",
+      "sprite": "society:block/boysenberry_crate_side"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/red_concrete_powder",
+      "sprite": "society:block/cranberry_crate_top"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/barrel_side",
+      "sprite": "society:block/cranberry_crate_side"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/light_blue_concrete_powder",
+      "sprite": "society:block/crystalberry_crate_top"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/barrel_side",
+      "sprite": "society:block/crystalberry_crate_side"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/lime_concrete_powder",
+      "sprite": "society:block/mana_fruit_crate_top"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/barrel_side",
+      "sprite": "society:block/mana_fruit_crate_side"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/glowstone",
+      "sprite": "society:block/sparkpod_crate_top"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/barrel_side",
+      "sprite": "society:block/sparkpod_crate_side"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/honeycomb_block",
+      "sprite": "society:block/wallpaper/bee_wallpaper"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/bee_nest_side",
+      "sprite": "society:block/wallpaper/hive_wallpaper"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/bee_nest_side",
+      "sprite": "society:block/wallpaper/hive_baseboard"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/brown_wool",
+      "sprite": "society:block/wallpaper/bunny_wallpaper"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/brown_wool",
+      "sprite": "society:block/wallpaper/bunny_baseboard"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/light_blue_wool",
+      "sprite": "society:block/wallpaper/cloud_wallpaper"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/light_blue_wool",
+      "sprite": "society:block/wallpaper/cloud_baseboard"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/pink_wool",
+      "sprite": "society:block/wallpaper/pink_flower_wallpaper"
+    },
+    {
+      "type": "single",
+      "resource": "minecraft:block/pink_wool",
+      "sprite": "society:block/wallpaper/pink_flower_baseboard"
+    },
+    {
       "type": "directory",
       "source": "item",
       "prefix": "item/"
