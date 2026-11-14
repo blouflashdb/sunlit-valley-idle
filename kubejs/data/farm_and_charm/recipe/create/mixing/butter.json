@@ -1,0 +1,24 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "farm_and_charm"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:mixing",
+  "results": [
+    {
+      "id": "farm_and_charm:butter",
+      "count": 4
+    }
+  ],
+  "ingredients": [
+    {
+      "tag": "society:large_milk"
+    }
+  ]
+}

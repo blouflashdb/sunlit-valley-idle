@@ -1,0 +1,14 @@
+{
+  "type": "farmingforblockheads:market",
+  "category": "farmingforblockheads:seeds",
+  "preset": "farmingforblockheads:sunlit_vanilla_seeds",
+  "result": {
+    "item": "minecraft:kelp"
+  },
+  "payment": {
+    "ingredient": {
+      "item": "numismatics:bevel"
+    },
+    "count": 1
+  }
+}

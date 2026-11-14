@@ -1,0 +1,20 @@
+{
+  "type": "farm_and_charm:stove",
+  "ingredients": [
+    {
+      "item": "society:dragonfruit_preserves"
+    },
+    {
+      "item": "bakery:sweet_dough"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "experience": 0.35,
+  "result": {
+    "id": "bakery:jam_roll",
+    "count": 4
+  },
+  "requiresLearning": false
+}

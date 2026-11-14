@@ -1,0 +1,34 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 2.0,
+  "ingredients": [
+    {
+      "tag": "c:eggs"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "windswept:holly_berries"
+    },
+    {
+      "item": "snowyspirit:ginger"
+    },
+    {
+      "item": "windswept:roasted_chestnuts"
+    },
+    {
+      "tag": "society:large_milk"
+    }
+  ],
+  "container": {
+    "id": "minecraft:bowl",
+    "count": 1
+  },
+  "recipe_book_tab": "meals",
+  "result": {
+    "id": "windswept:christmas_pudding",
+    "count": 1
+  }
+}

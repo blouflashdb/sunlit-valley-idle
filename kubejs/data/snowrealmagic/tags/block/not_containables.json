@@ -1,0 +1,11 @@
+{
+  "values": [
+    "#minecraft:leaves",
+    "#c:fences",
+    {
+      "id": "mynethersdelight:powdery_chubby_sapling",
+      "required": false
+    },
+    "minecraft:sweet_berry_bush"
+  ]
+}

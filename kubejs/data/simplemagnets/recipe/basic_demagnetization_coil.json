@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "BCB",
+    "CCC"
+  ],
+  "key": {
+    "A": {
+      "tag": "c:ingots/gold"
+    },
+    "B": {
+      "tag": "c:dusts/redstone"
+    },
+    "C": {
+      "tag": "c:ingots/zinc"
+    }
+  },
+  "result": {
+    "id": "simplemagnets:basic_demagnetization_coil",
+    "count": 1
+  }
+}

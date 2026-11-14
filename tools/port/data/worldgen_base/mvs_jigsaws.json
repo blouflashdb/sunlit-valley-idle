@@ -1,0 +1,114 @@
+{
+ "beach_bar.nbt": [
+  {
+   "pos": [
+    4,
+    1,
+    7
+   ],
+   "state": "{Properties: {orientation: \"up_west\"}, Name: \"minecraft:jigsaw\"}",
+   "nbt": "{components: {}, joint: \"rollable\", name: \"mvs:connect/mob_receiver\", pool: \"mvs:mobs/wandering_trader\", final_state: \"minecraft:air\", placement_priority: 0, selection_priority: 0, id: \"minecraft:jigsaw\", target: \"mvs:connect/mob\"}"
+  }
+ ],
+ "cartographer_tower/base.nbt": [
+  {
+   "pos": [
+    11,
+    23,
+    10
+   ],
+   "state": "{Properties: {orientation: \"up_west\"}, Name: \"minecraft:jigsaw\"}",
+   "nbt": "{components: {}, joint: \"rollable\", name: \"mvs:connect/mob_receiver\", pool: \"mvs:mobs/villager\", final_state: \"minecraft:air\", placement_priority: 0, selection_priority: 0, id: \"minecraft:jigsaw\", target: \"mvs:connect/mob\"}"
+  },
+  {
+   "pos": [
+    10,
+    47,
+    10
+   ],
+   "state": "{Properties: {orientation: \"up_west\"}, Name: \"minecraft:jigsaw\"}",
+   "nbt": "{components: {}, joint: \"aligned\", name: \"mvs:cartographer_tower/base\", pool: \"mvs:cartographer_tower/top\", final_state: \"minecraft:glowstone\", placement_priority: 0, selection_priority: 0, id: \"minecraft:jigsaw\", target: \"mvs:cartographer_tower/top\"}"
+  }
+ ],
+ "carts/cart.nbt": [
+  {
+   "pos": [
+    2,
+    0,
+    0
+   ],
+   "state": "{Properties: {orientation: \"up_east\"}, Name: \"minecraft:jigsaw\"}",
+   "nbt": "{components: {}, joint: \"rollable\", name: \"mvs:connect/mob_receiver\", pool: \"mvs:mobs/wandering_trader\", final_state: \"minecraft:structure_void\", placement_priority: 0, selection_priority: 0, id: \"minecraft:jigsaw\", target: \"mvs:connect/mob\"}"
+  }
+ ],
+ "gallows.nbt": [],
+ "houses/barn.nbt": [
+  {
+   "pos": [
+    8,
+    1,
+    7
+   ],
+   "state": "{Properties: {orientation: \"up_north\"}, Name: \"minecraft:jigsaw\"}",
+   "nbt": "{components: {}, joint: \"rollable\", name: \"mvs:connect/mob_receiver\", pool: \"mvs:mobs/villager\", final_state: \"minecraft:spruce_planks\", placement_priority: 0, selection_priority: 0, id: \"minecraft:jigsaw\", target: \"mvs:connect/mob\"}"
+  }
+ ],
+ "houses/large_warped_tower.nbt": [
+  {
+   "pos": [
+    14,
+    43,
+    10
+   ],
+   "state": "{Properties: {orientation: \"up_west\"}, Name: \"minecraft:jigsaw\"}",
+   "nbt": "{components: {}, joint: \"aligned\", name: \"mvs:large_warped_tower_top\", pool: \"mvs:houses/large_warped_tower/side_pool\", final_state: \"minecraft:warped_trapdoor[half=top]\", placement_priority: 0, selection_priority: 0, id: \"minecraft:jigsaw\", target: \"mvs:large_warped_tower_top\"}"
+  }
+ ],
+ "jungle_tower/base.nbt": [
+  {
+   "pos": [
+    0,
+    0,
+    1
+   ],
+   "state": "{Properties: {orientation: \"down_west\"}, Name: \"minecraft:jigsaw\"}",
+   "nbt": "{components: {}, joint: \"aligned\", name: \"mvs:jungle_tower/base\", pool: \"mvs:jungle_tower/bottom\", final_state: \"minecraft:structure_void\", placement_priority: 0, selection_priority: 0, id: \"minecraft:jigsaw\", target: \"mvs:jungle_tower/bottom\"}"
+  },
+  {
+   "pos": [
+    0,
+    46,
+    1
+   ],
+   "state": "{Properties: {orientation: \"up_west\"}, Name: \"minecraft:jigsaw\"}",
+   "nbt": "{components: {}, joint: \"aligned\", name: \"mvs:jungle_tower/bottom_2\", pool: \"mvs:jungle_tower/top\", final_state: \"minecraft:structure_void\", placement_priority: 0, selection_priority: 0, id: \"minecraft:jigsaw\", target: \"mvs:jungle_tower/top\"}"
+  }
+ ],
+ "nature/big_oak_tree.nbt": [],
+ "other_decoration/crimson_enchanting_table.nbt": [],
+ "other_decoration/haystack.nbt": [],
+ "other_decoration/mixed_pile.nbt": [],
+ "other_decoration/small_haystack.nbt": [],
+ "other_decoration/wheat_grain_bin.nbt": [],
+ "other_decoration/wooden_wheat_farm.nbt": [
+  {
+   "pos": [
+    6,
+    1,
+    2
+   ],
+   "state": "{Properties: {orientation: \"up_east\"}, Name: \"minecraft:jigsaw\"}",
+   "nbt": "{components: {}, joint: \"rollable\", name: \"mvs:connect/mob_receiver\", pool: \"mvs:mobs/villager\", final_state: \"minecraft:air\", placement_priority: 0, selection_priority: 0, id: \"minecraft:jigsaw\", target: \"mvs:connect/mob\"}"
+  },
+  {
+   "pos": [
+    7,
+    1,
+    2
+   ],
+   "state": "{Properties: {orientation: \"up_east\"}, Name: \"minecraft:jigsaw\"}",
+   "nbt": "{components: {}, joint: \"rollable\", name: \"mvs:connect/mob_receiver\", pool: \"mvs:mobs/villager\", final_state: \"minecraft:air\", placement_priority: 0, selection_priority: 0, id: \"minecraft:jigsaw\", target: \"mvs:connect/mob\"}"
+  }
+ ],
+ "stone_fountain.nbt": []
+}

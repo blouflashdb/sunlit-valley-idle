@@ -1,0 +1,14 @@
+{
+  "type": "create_mechanical_extruder:extruding",
+  "blockIngredients": {
+    "first": {
+      "blocks": "vinery:apple_juice"
+    },
+    "second": {
+      "blocks": "minecraft:lava"
+    }
+  },
+  "result": {
+    "id": "meadow:cobbled_limestone"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "crabbersdelight"
+    },
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "meadow"
+    }
+  ],
+  "type": "meadow:cooking",
+  "result": {
+    "id": "crabbersdelight:shrimp_fried_rice",
+    "count": 1
+  },
+  "ingredients": [
+    {
+      "item": "farmersdelight:cooked_rice"
+    },
+    {
+      "item": "farm_and_charm:onion"
+    },
+    {
+      "item": "crabbersdelight:shrimp"
+    },
+    {
+      "item": "minecraft:carrot"
+    }
+  ],
+  "container": "minecraft:bowl"
+}

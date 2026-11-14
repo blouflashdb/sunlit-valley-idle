@@ -1,0 +1,20 @@
+{
+  "type": "farm_and_charm:stove",
+  "ingredients": [
+    {
+      "item": "bakery:sweet_dough"
+    },
+    {
+      "item": "pamhc2trees:starfruititem"
+    },
+    {
+      "tag": "bakery:eggs"
+    }
+  ],
+  "experience": 0.3,
+  "result": {
+    "id": "farmersdelight:honey_cookie",
+    "count": 4
+  },
+  "requiresLearning": false
+}

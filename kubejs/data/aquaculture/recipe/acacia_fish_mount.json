@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "fish_mount",
+  "pattern": [
+    "BHB",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:acacia_button"
+    },
+    "H": {
+      "item": "aquaculture:note_hook"
+    }
+  },
+  "result": {
+    "id": "aquaculture:acacia_fish_mount",
+    "count": 1
+  }
+}

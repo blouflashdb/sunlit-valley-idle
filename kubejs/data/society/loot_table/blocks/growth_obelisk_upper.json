@@ -1,0 +1,8 @@
+{
+  "forge:conditions": [
+    {
+      "type": "forge:false"
+    }
+  ],
+  "pools": []
+}

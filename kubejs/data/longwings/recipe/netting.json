@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "society:merino_wool"
+    },
+    {
+      "item": "society:merino_wool"
+    }
+  ],
+  "result": {
+    "id": "longwings:netting",
+    "count": 64
+  }
+}

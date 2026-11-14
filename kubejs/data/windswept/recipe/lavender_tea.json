@@ -1,0 +1,23 @@
+{
+  "type": "herbalbrews:kettle_brewing",
+  "experience": 0.8,
+  "crafting_duration": 60,
+  "fluid_amount": 20,
+  "heat_amount": 0,
+  "ingredients": [
+    {
+      "item": "windswept:lavender"
+    },
+    {
+      "item": "buzzier_bees:crystallized_honey_block"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "result": {
+    "id": "windswept:lavender_tea"
+  },
+  "effect": "minecraft:haste",
+  "effect_duration": 1800
+}

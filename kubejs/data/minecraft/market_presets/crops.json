@@ -1,0 +1,9 @@
+{
+  "enabled": false,
+  "payment": {
+    "ingredient": {
+      "item": "numismatics:sprocket"
+    },
+    "count": 1
+  }
+}
