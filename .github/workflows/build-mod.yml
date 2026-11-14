@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-java@v6
@@ -86,7 +86,7 @@ jobs:
 
   server-boot:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 150
     steps:
       - uses: actions/checkout@v7
@@ -156,7 +156,7 @@ jobs:
     # Boots the client with the whole pack on a virtual display with software OpenGL (Mesa llvmpipe) and joins a
     # pack server: screenshot, KubeJS client errors, renderer (Iris/Sodium), FancyMenu and resource pack errors.
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 90
     steps:
       - uses: actions/checkout@v7
