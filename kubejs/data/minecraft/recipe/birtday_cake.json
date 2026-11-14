@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "society:large_milk"
+    },
+    "p": {
+      "item": "society:blueberry_preserves"
+    },
+    "C": {
+      "item": "minecraft:wheat"
+    },
+    "E": {
+      "item": "species:birt_egg"
+    },
+    "c": {
+      "tag": "minecraft:candles"
+    }
+  },
+  "pattern": [
+    " c ",
+    "pEp",
+    "CAC"
+  ],
+  "result": {
+    "id": "species:birtday_cake",
+    "count": 1
+  },
+  "show_notification": true
+}

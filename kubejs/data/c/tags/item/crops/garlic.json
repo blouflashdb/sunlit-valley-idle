@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "croptopia:garlic",
+      "required": false
+    },
+    {
+      "id": "#c:garlic",
+      "required": false
+    },
+    {
+      "id": "#c:vegetables/garlic",
+      "required": false
+    }
+  ]
+}
