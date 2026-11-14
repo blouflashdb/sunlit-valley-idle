@@ -57,7 +57,9 @@ ServerEvents.loaded((event) => {
     let spawn = level.getSharedSpawnPos();
     let machineBlock = level.getBlock(spawn.x - 50, 300, spawn.z + 50);
     if (!server.persistentData.contains("serverEventsTest")) {
+      // The block entity lives in one half (Tanuki Decor's delegate position), so place both halves.
       machineBlock.set("tanukidecor:slot_machine", { half: "lower", facing: "north" });
+      machineBlock.up.set("tanukidecor:slot_machine", { half: "upper", facing: "north" });
       let machine = slotMachineEntity(machineBlock);
       check(machine, "the slot machine has no block entity");
       check(machine.isActive() === false && typeof machine.isJackpot() === "boolean", "slot machine methods");
