@@ -104,6 +104,18 @@ element that FancyMenu/Drippy do not have, a numeric identifier, or an identifie
 widget carries. The client-boot job saves the title screen at two more window sizes (GUI scale 3 and 2) as
 `title-screen-1280x720.png` and `title-screen-854x480.png`.
 
+**UI themes.** FancyMenu 3.9.1 registers its nine built-in UI themes (dark, light, cherry_blossom, ...) on every
+start and writes each one to `config/fancymenu/ui_themes/<id>.json`, replacing the file; a file with a built-in
+id is never read. The shipped `dark.json` and `light.json` still had the 1.20.1 theme keys and are removed; the
+game writes them in the 3.9.1 format. The other theme files already have the 3.9.1 keys.
+
+## Controllable
+
+Controllable 0.25 moved its options from `[client.options]` to `[options]` and renamed some, so the 1.20.1
+values were lost. The pack's values are set again in `config/controllable-client.toml` and
+`configureddefaults/config/controllable-client.toml`: `consoleHotbar = false`, `rotationSpeed = 25.0` and
+`paperDoll = false` (was `renderMiniPlayer = false`). All other 1.20.1 values equal the 1.21.1 defaults.
+
 ## configureddefaults
 
 - JourneyMap 6 reads its config from `journeymap/config/6.0`; the folder was `5.10`.
