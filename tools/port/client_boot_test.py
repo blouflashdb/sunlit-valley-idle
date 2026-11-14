@@ -149,19 +149,36 @@ def title_screen(root, main_dir, game, neoforge, timeout, problems):
             if loaded is None:
                 problems.append("the client did not finish loading" if client.poll() is None
                                 else f"the client exited (code {client.returncode}) while loading")
-                return None
+                screenshot(root / "not-loaded.png")
+                return copy_log(game), False
             print(f"Client loaded in {loaded:.0f} s", flush=True)
             time.sleep(45)
             if client.poll() is not None:
                 problems.append(f"the client exited (code {client.returncode}) on the title screen")
-            elif screenshot(root / "title-screen.png"):
+                return copy_log(game), False
+            if screenshot(root / "title-screen.png"):
                 print(f"Screenshot: {root / 'title-screen.png'}", flush=True)
         finally:
             stop_process_group(client)
+    return copy_log(game), True
+
+
+def copy_log(game):
+    log = game / "logs" / "latest.log"
     copy = game / "logs" / "latest-title.log"
     if log.exists():
         shutil.copy2(log, copy)
     return copy
+
+
+def wait_for_join(server, client, timeout):
+    """The server's join (or lost connection) line for the client, or None if the client exits or time runs out."""
+    end = time.monotonic() + timeout
+    while time.monotonic() < end:
+        line = server.wait_for(rf"{USERNAME} (joined the game|lost connection)", min(10, end - time.monotonic()))
+        if line or client.poll() is not None:
+            return line
+    return None
 
 
 def check_shader_pack(game, problems):
@@ -199,6 +216,10 @@ def check_resource_packs(game, title_log, problems):
                 problems.append(line.split("]: ", 1)[-1])
 
 
+class ClientFailed(Exception):
+    pass
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dir", default="build/client")
@@ -233,13 +254,15 @@ def main():
         if not server.wait_for(r'Done \(.*For help, type "help"', 900):
             raise SystemExit(f"Server boot failed: {server.fail or 'never reached Done'}")
         xvfb = start_display()
-        title_log = title_screen(root, main_dir, game, neoforge, args.join_timeout, problems)
+        title_log, loaded = title_screen(root, main_dir, game, neoforge, args.join_timeout, problems)
         check_shader_pack(game, problems)
         check_resource_packs(game, title_log, problems)
+        if not loaded:
+            raise ClientFailed()
         with open(root / "client-console.log", "w") as console:
             client = start_client(main_dir, game, neoforge, console)
             started = time.monotonic()
-            joined = server.wait_for(rf"{USERNAME} (joined the game|lost connection)", args.join_timeout)
+            joined = wait_for_join(server, client, args.join_timeout)
             print(f"Server saw: {joined.strip() if joined else 'nothing'} after {time.monotonic() - started:.0f} s",
                   flush=True)
             if not joined or "joined the game" not in joined:
@@ -255,6 +278,8 @@ def main():
                     problems.append("no screenshot")
                 else:
                     print(f"Screenshot: {shot}", flush=True)
+    except ClientFailed:
+        print("The client did not load; the join is skipped", flush=True)
     finally:
         if client:
             stop_process_group(client)
