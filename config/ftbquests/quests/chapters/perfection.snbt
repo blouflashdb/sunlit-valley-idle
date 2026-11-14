@@ -7,7 +7,7 @@
 	id: "4AA29866E19A65A8"
 	images: [{
 		height: 3.0d
-		image: "society:textures/gui/seal_iridescent.png"
+		image: "sunlitidle:textures/gui/quests/seal_iridescent.png"
 		rotation: 0.0d
 		width: 3.0d
 		x: 13.5d
