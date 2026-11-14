@@ -81,8 +81,13 @@
           "weight": 4,
           "functions": [
             {
-              "function": "minecraft:set_custom_data",
-              "tag": "{quality_food:{effects:[],quality:1}}"
+              "function": "minecraft:set_components",
+              "components": {
+                "quality_food:quality": {
+                  "type": "quality_food:iron",
+                  "level": 1
+                }
+              }
             }
           ]
         },
@@ -92,8 +97,13 @@
           "weight": 3,
           "functions": [
             {
-              "function": "minecraft:set_custom_data",
-              "tag": "{quality_food:{effects:[],quality:2}}"
+              "function": "minecraft:set_components",
+              "components": {
+                "quality_food:quality": {
+                  "type": "quality_food:gold",
+                  "level": 2
+                }
+              }
             }
           ]
         },
@@ -103,8 +113,13 @@
           "weight": 2,
           "functions": [
             {
-              "function": "minecraft:set_custom_data",
-              "tag": "{quality_food:{effects:[],quality:3}}"
+              "function": "minecraft:set_components",
+              "components": {
+                "quality_food:quality": {
+                  "type": "quality_food:diamond",
+                  "level": 3
+                }
+              }
             }
           ]
         },

@@ -4,7 +4,8 @@ console.info("[SOCIETY] seasonFish.js loaded");
 // action on minecraft:gameplay/fishing: the vanilla fish are removed and one fish is picked from the season lists of
 // startup_scripts/globalFish.js by water (ocean/beach, river, other), weather (clear or rain), time of day and the
 // Mystical Ocean stage (adds Neptuna). Then the fishing skills and the Needle Bobber add to the fish count.
-// fishingLootPlayer is defined in fishingLoot.js, holderHasTag in miningLoot.js (server scripts share one scope).
+// fishingLootPlayer is defined in fishingLoot.js, holderHasTag in miningLoot.js (server scripts share one scope);
+// global.hasBobber comes from startup_scripts/globalFish.js.
 const $SeasonFishParams = Java.loadClass("net.minecraft.world.level.storage.loot.parameters.LootContextParams");
 const $SeasonFishBlockPos = Java.loadClass("net.minecraft.core.BlockPos");
 
@@ -57,14 +58,6 @@ const seasonFishBonus = (loot, bonus) => {
   });
 };
 
-/** Whether the rod has the bobber. global.hasBobber comes from the startup globalFish.js once its 1.21.1 port
- * defines it; until then the rod components are searched for the bobber id. */
-const seasonFishHasBobber = (rod, bobberId) => {
-  if (!rod || rod.isEmpty()) return false;
-  if (typeof global.hasBobber === "function") return global.hasBobber(rod, bobberId);
-  return String(rod.getComponentsPatch()).includes(bobberId);
-};
-
 LootJS.modifiers((e) => {
   const lists = seasonFishLists();
   e.addTableModifier("minecraft:gameplay/fishing").customAction((context, loot) => {
@@ -92,7 +85,8 @@ LootJS.modifiers((e) => {
       seasonFishBonus(loot, 1);
       if (player.stages.has("school_fisher")) seasonFishBonus(loot, 3);
     }
-    if (seasonFishHasBobber(context.getParamOrNull($SeasonFishParams.TOOL), "society:needle_bobber")) {
+    let rod = context.getParamOrNull($SeasonFishParams.TOOL);
+    if (rod && !rod.isEmpty() && global.hasBobber(rod, "society:needle_bobber")) {
       seasonFishBonus(loot, 5);
     }
   });

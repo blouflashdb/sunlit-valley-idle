@@ -9,16 +9,16 @@
       "item": "vintagedelight:ghost_pepper"
     },
     {
-      "tag": "c:cooked_eggs"
+      "tag": "c:foods/cooked_egg"
     },
     {
       "item": "minecraft:bowl"
     },
     {
-      "tag": "c:cooked_eggs"
+      "tag": "c:foods/cooked_egg"
     },
     {
-      "tag": "c:cooked_eggs"
+      "tag": "c:foods/cooked_egg"
     }
   ],
   "result": {

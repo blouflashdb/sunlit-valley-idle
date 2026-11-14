@@ -2,7 +2,7 @@
   "type": "farm_and_charm:crafting_bowl",
   "ingredients": [
     {
-      "tag": "meadow:water_bottles"
+      "tag": "c:water_bottles"
     },
     {
       "item": "veggiesdelight:sweet_potato"

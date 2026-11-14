@@ -106,7 +106,7 @@
       "required": false
     },
     {
-      "id": "#meadow:water_bottles",
+      "id": "#c:water_bottles",
       "required": false
     }
   ]

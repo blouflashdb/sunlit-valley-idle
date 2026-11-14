@@ -55,11 +55,6 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 4,
-          "name": "nethervinery:crimson_grape_seeds"
-        },
-        {
-          "type": "minecraft:item",
           "name": "splendid_slimes:slime_heart_blazing",
           "weight": 2
         },

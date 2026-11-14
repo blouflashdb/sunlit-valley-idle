@@ -18,7 +18,7 @@ touched here. Everything else (recipes, loot tables, loot modifiers, tags, advan
     {"type": "fluid_stack" | "fluid_tag", ...} and Create keys are snake_case; "forge:conditional" becomes the first
     recipe with its conditions.
   - forge tags become c tags (TAGS for renamed ones); "conditions"/"forge:conditions" become "neoforge:conditions".
-  - Loot tables: forge:loot_table_id -> neoforge:loot_table_id, set_nbt -> set_custom_data, looting_enchant ->
+  - Loot tables: forge:loot_table_id -> neoforge:loot_table_id, set_nbt -> set_custom_data (Quality Food NBT -> its quality_food:quality component), looting_enchant ->
     enchanted_count_increase, match_tool/location_check predicates in the 1.21 shape.
   - Advancements: icon {"item"} -> {"id"}, item predicates with tags -> "#tag".
   - Items, tags and fluids that are not registered on 1.21.1 are replaced (ITEMS) or removed (GONE_ITEMS,
@@ -193,6 +193,15 @@ DROPPED = {
         )
     },
     "vintagedelight/advancement/main/root.json": "Vintage Delight (KubeJS rebuild) has no advancements to disable",
+    "vintagedelight/loot_table/blocks/cucumber_crop.json":
+        "the KubeJS rebuild's crop block is vintagedelight:cucumber (age 0-5) with its own drops",
+    "vintagedelight/loot_table/blocks/ghost_pepper_crop.json":
+        "the KubeJS rebuild's crop block is vintagedelight:ghost_pepper (age 0-5) with its own drops",
+    "vintagedelight/loot_table/blocks/peanut_crop.json": "the KubeJS rebuild has no peanut crop block to disable",
+    "vintagedelight/loot_table/blocks/golden_egg.json": "the KubeJS rebuild's golden egg is an item, not a block",
+    "vintagedelight/loot_table/blocks/lush_grass_block.json": "the pack removed the lush grass block",
+    "vintagedelight/loot_table/blocks/salt.json":
+        "the KubeJS rebuild's salt crust has no layers property (the table's conditions would not load)",
     **{
         f"veggiesdelight/recipe/compat/vintagedelight/cooking/{name}.json":
         "Veggie's Delight 1.21 has no Vintage Delight compat recipes to disable"
@@ -225,7 +234,10 @@ DROPPED = {
     },
 }
 # Values for fields that 1.21.1 requires and the pack's 1.20.1 file does not have, per file.
-EXTRA_FIELDS = {}
+EXTRA_FIELDS = {
+    # The pack's chai tea had no effect; 1.21 requires one.
+    "herbalbrews/recipe/kettle_brewing/chai_tea.json": {"effect": "herbalbrews:balanced", "effect_duration": 1800},
+}
 
 # --- Ids -----------------------------------------------------------------------------------------------------------
 # forge tags whose c tag has another name; every other forge:x becomes c:x.
@@ -281,10 +293,14 @@ GONE_ITEMS = {
 }
 GONE_TAGS = set()
 
+QUALITIES = {1: "quality_food:iron", 2: "quality_food:gold", 3: "quality_food:diamond"}
 # Recipe types renamed on 1.21.1, with keys the new type needs.
 RECIPE_TYPES = {
     "beachparty:tiki_bar_mixing": "beachparty:palm_bar_mixing",
     "beachparty:mini_fridge_mixing": "beachparty:mini_fridge_freezing",
+    # The Vintage Delight fermenting jar recipe type is gone (the KubeJS jar has its own list): plain crafting with
+    # the same ingredients.
+    "vintagedelight:fermenting": "minecraft:crafting_shapeless",
 }
 CREATE_KEYS = {
     "acceptMirrored": "accept_mirrored",
@@ -407,6 +423,12 @@ def convert_recipe(data, rel):
     data["type"] = kind
     if not kind.startswith("minecraft:"):
         data.pop("category", None)
+    if kind == "minecraft:crafting_shapeless" and "output" in data:
+        data["result"] = data.pop("output")
+        data.pop("processingTime", None)
+        data["category"] = "misc"
+    if isinstance(data.get("container"), dict) and data["container"].get("item") == "minecraft:air":
+        del data["container"]
     # Results.
     if kind in ("farm_and_charm:stove", "veggiesdelight:stove") or ("item" in data and "result" not in data):
         if "item" in data:
@@ -499,7 +521,14 @@ def loot(value):
     if value.get("type") == "minecraft:loot_table" and "name" in value:
         value["value"] = value.pop("name")
     function = value.get("function")
-    if function == "minecraft:set_nbt":
+    quality = re.search(r"quality_food:\{.*quality:(\d)", value.get("tag", "")) if function == "minecraft:set_nbt" else None
+    if quality:
+        # Quality Food 1.21 keeps the quality in its quality_food:quality component (see addMiscRecipes.js).
+        level = int(quality.group(1))
+        del value["tag"]
+        value["function"] = "minecraft:set_components"
+        value["components"] = {"quality_food:quality": {"type": QUALITIES[level], "level": level}}
+    elif function == "minecraft:set_nbt":
         value["function"] = "minecraft:set_custom_data"
     elif function == "minecraft:looting_enchant":
         value["function"] = "minecraft:enchanted_count_increase"

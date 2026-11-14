@@ -722,7 +722,7 @@ ServerEvents.recipes((e) => {
     "untitledduckmod:crafting_shaped/goose_cake",
     "untitledduckmod:crafting_shaped/duck_cake",
     "create:crafting/curiosities/cake",
-    // Multiplying with salt",
+    // Multiplying with salt
     "meadow:cooking_pot/cooked_buffalo_meat",
     "meadow:cooking_pot/cooked_rabbit",
     "meadow:cooking_pot/cooked_chicken",

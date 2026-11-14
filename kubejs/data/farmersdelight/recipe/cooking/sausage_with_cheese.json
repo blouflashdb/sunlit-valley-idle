@@ -16,9 +16,5 @@
     {
       "tag": "meadow:cheese"
     }
-  ],
-  "container": {
-    "id": "minecraft:air",
-    "count": 1
-  }
+  ]
 }

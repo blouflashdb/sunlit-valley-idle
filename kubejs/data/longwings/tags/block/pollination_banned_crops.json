@@ -12,7 +12,6 @@
     "veggiesdelight:wild_cauliflowers",
     "atmospheric:dragon_roots",
     "atmospheric:aloe_vera",
-    "atmospheric:aloe_kernels",
     "atmospheric:yucca_branch",
     "minecraft:kelp",
     "farmersdelight:tomatoes",
@@ -22,8 +21,6 @@
     "minecraft:cave_vines",
     "minecraft:cave_vines_plant",
     "minecraft:bamboo",
-    "nethervinery:crimson_grape_bush",
-    "nethervinery:warped_grape_bush",
     "vinery:savanna_grape_bush_white",
     "vinery:jungle_grape_bush_red",
     "vinery:savanna_grape_bush_red",
@@ -33,7 +30,6 @@
     "vinery:taiga_grape_bush_white",
     "vinery:jungle_grape_bush_white",
     "vinery:grapevine_stem",
-    "nethervinery:obsidian_stem",
     "farmersdelight:budding_tomatoes",
     "farmersdelight:rice",
     "farmersdelight:rice_panicles",
@@ -41,7 +37,6 @@
     "herbalbrews:hibiscus",
     "minecraft:torchflower",
     "atmospheric:passion_vine",
-    "verdantvibes:bracket_mushroom",
     "vinery:apple_leaves",
     "vinery:dark_cherry_leaves"
   ]

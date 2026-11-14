@@ -283,16 +283,6 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 1,
-          "name": "nethervinery:crimson_grape_seeds"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 1,
-          "name": "nethervinery:warped_grape_seeds"
-        },
-        {
-          "type": "minecraft:item",
           "weight": 3,
           "name": "minecraft:blaze_rod"
         },

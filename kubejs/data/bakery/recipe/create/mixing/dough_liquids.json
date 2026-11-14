@@ -2,7 +2,7 @@
   "type": "create:mixing",
   "results": [
     {
-      "id": "bakery:dough",
+      "id": "farm_and_charm:dough",
       "count": 1
     }
   ],
@@ -11,7 +11,7 @@
       "tag": "bakery:wheat"
     },
     {
-      "item": "bakery:yeast"
+      "item": "farm_and_charm:yeast"
     },
     {
       "type": "fluid_tag",

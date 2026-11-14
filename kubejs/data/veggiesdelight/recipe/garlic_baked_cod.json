@@ -2,7 +2,7 @@
   "type": "farm_and_charm:stove",
   "ingredients": [
     {
-      "tag": "c:cooked_fishes/cod"
+      "tag": "c:foods/cooked_cod"
     },
     {
       "item": "veggiesdelight:roasted_garlic_clove"

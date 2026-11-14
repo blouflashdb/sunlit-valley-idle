@@ -63,6 +63,7 @@ SUBSTITUTES = {
     "farm_and_charm:strawberry_seed": "farm_and_charm:strawberry_seeds",
     "beachparty:palm_sapling": "crabbersdelight:palm_sapling",  # Beachparty 1.21 has no palm sapling
     "#c:shears": "#c:tools/shear",
+    "meadow:chiseled_limestone_bricks": "meadow:chiseled_limestone",
     "#meadow:cheeses": "#c:cheeses",
     "#c:stained_glass": "#c:glass_blocks",  # no stained glass tag on 1.21; any glass block
     "#c:stained_glass_panes": "#c:glass_panes",
@@ -273,7 +274,7 @@ def port_predicate_tool(pred):
     if "items" in pred:
         out["items"] = pred["items"]
     if "tag" in pred:
-        out["items"] = "#" + tag(pred["tag"])
+        out["items"] = remap("#" + tag(pred["tag"]))
     if "enchantments" in pred:
         out["predicates"] = {"minecraft:enchantments": [
             {"enchantments": e["enchantment"], **({"levels": e["levels"]} if "levels" in e else {})}

@@ -368,11 +368,6 @@
           "type": "minecraft:item",
           "weight": 1,
           "name": "furniture:trash_bag"
-        },
-        {
-          "type": "minecraft:item",
-          "weight": 1,
-          "name": "species:springling_egg"
         }
       ],
       "rolls": 1.0

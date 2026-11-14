@@ -3,7 +3,7 @@
   "cookingtime": 200,
   "experience": 2.0,
   "result": {
-    "id": "meadow:roasted_ham",
+    "id": "meadow:roasted_buffalo_ham",
     "count": 2
   },
   "ingredients": [
@@ -25,9 +25,5 @@
     {
       "tag": "c:crops/carrot"
     }
-  ],
-  "container": {
-    "id": "minecraft:air",
-    "count": 1
-  }
+  ]
 }

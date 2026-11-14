@@ -511,7 +511,6 @@ ServerEvents.tags("block", (e) => {
     "minecraft:lava_pool_stone_cannot_replace",
     "c:relocation_not_supported",
     "create:non_movable",
-    "create:non_breakable",
     "quark:iron_rod_immune",
   ];
   [

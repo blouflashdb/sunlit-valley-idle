@@ -2,13 +2,13 @@
   "type": "farmersdelight:cutting",
   "ingredients": [
     {
-      "item": "meadow:cheese_block"
+      "item": "meadow:cheese_wheel"
     }
   ],
   "result": [
     {
       "item": {
-        "id": "meadow:piece_of_cheese",
+        "id": "meadow:cheese_slice",
         "count": 4
       }
     }

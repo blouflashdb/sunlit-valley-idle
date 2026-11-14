@@ -268,11 +268,6 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 4,
-          "name": "nethervinery:warped_grape_seeds"
-        },
-        {
-          "type": "minecraft:item",
           "weight": 3,
           "name": "society:fire_quartz"
         },

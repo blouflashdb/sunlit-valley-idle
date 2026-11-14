@@ -9,13 +9,13 @@
       "tag": "meadow:cheese"
     },
     "E": {
-      "tag": "meadow:egg"
+      "tag": "c:eggs"
     },
     "M": {
       "tag": "society:large_milk"
     },
     "W": {
-      "tag": "meadow:wheat"
+      "tag": "c:crops/wheat"
     }
   },
   "result": {

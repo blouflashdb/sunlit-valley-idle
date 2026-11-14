@@ -1,6 +1,5 @@
 {
-  "type": "vintagedelight:fermenting",
-  "processingTime": 10000,
+  "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
       "item": "veggiesdelight:garlic_clove"
@@ -18,7 +17,9 @@
       "item": "vintagedelight:honey_mason_jar"
     }
   ],
-  "output": {
-    "item": "veggiesdelight:fermented_garlic_honey"
-  }
+  "result": {
+    "id": "veggiesdelight:fermented_garlic_honey",
+    "count": 1
+  },
+  "category": "misc"
 }

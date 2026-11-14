@@ -6,8 +6,6 @@
       "id": "mynethersdelight:powdery_chubby_sapling",
       "required": false
     },
-    "moreminecarts:greenhouse_glass_slab",
-    "moreminecarts:greenhouse_glass_stairs",
     "minecraft:sweet_berry_bush"
   ]
 }

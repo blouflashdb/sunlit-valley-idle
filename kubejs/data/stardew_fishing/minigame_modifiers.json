@@ -12,11 +12,6 @@
     "stardew_fishing:quality_bobber": {
       "quality_boost": "+1"
     },
-    "tide:apple_fishing_bobber": {
-      "top_speed": "x0.9",
-      "up_acceleration": "x0.9",
-      "down_acceleration": "x1.1"
-    },
     "aquaculture:iron_fishing_rod": {
       "bar_size": "+7"
     },
