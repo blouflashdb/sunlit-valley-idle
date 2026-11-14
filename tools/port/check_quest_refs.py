@@ -4,7 +4,9 @@
 It reads the quest files and the quest texts (kubejs/assets/ftbquestlocalizer/lang/en_us.json) and checks:
   - items: task, reward and icon items and the item(...) ids of FTB Filter System smart filters;
   - item tags: item_tag(...) of smart filters;
-  - blocks (break tasks), entities (observation tasks), biomes and dimensions;
+  - blocks and entities (observation tasks), biomes and dimensions;
+  - task and reward types: FTB Quests' own, or with --registry the types the pack registers (a task of a mod
+    that is not in the pack, such as Quests Additions, cannot load);
   - images: chapter images and {image:...} in quest descriptions.
 An id resolves when one of these has it:
   - the registry dump of a server boot (--registry; tools/port/kubejs_tests/registryDump.js writes it): items,
@@ -45,6 +47,9 @@ SCRIPTS = [pathlib.Path("kubejs/startup_scripts"), pathlib.Path("kubejs/server_s
 # Namespaces whose content only the repository provides: the KubeJS scripts (society and the rebuilt mods without
 # a 1.21.1 build) and the sunlitidle mod.
 LOCAL_NAMESPACES = ("society", "sunlitidle", "botania_seeds", "croptania", "vintagedelight")
+# Namespaces of task and reward types that need no registry dump: FTB Quests itself. Types of addon mods (such as
+# Quests Additions, which is not in the 1.21.1 pack) only pass with --registry when the pack registers them.
+QUEST_TYPE_NAMESPACES = ("ftbquests",)
 FILTER_ITEM = re.compile(r"item\(([a-z0-9_.\-]+:[a-z0-9_./\-]+)\)")
 FILTER_TAG = re.compile(r"item_tag\(([a-z0-9_.\-]+:[a-z0-9_./\-]+)\)")
 TEXT_IMAGE = re.compile(r"\{image:([a-z0-9_.\-]+:[a-z0-9_./\-]+)")
@@ -96,6 +101,8 @@ class Known:
 
     def checkable(self, kind, rl):
         """Without the registry dump and the jars, only ids of namespaces the repository has are checked."""
+        if kind in ("task_type", "reward_type"):
+            return True
         if kind == "image":
             return self.checks_jars or self.image(rl) or rl.split(":")[0] in self.local_namespaces
         return self.registry is not None or self.checks_jars or rl.lstrip("#").split(":")[0] in self.local_namespaces
@@ -145,6 +152,18 @@ class Known:
         ns, path = rl.split(":", 1)
         return ns == "minecraft" or f"data/{ns}/dimension/{path}.json" in self.files
 
+    def task_type(self, rl):
+        return self.quest_type("task", rl)
+
+    def reward_type(self, rl):
+        return self.quest_type("reward", rl)
+
+    def quest_type(self, role, rl):
+        """A task or reward type: FTB Quests' own, or one the registry dump lists (an addon mod in the pack)."""
+        if self.registry is not None and f"quest_{role}_types" in self.registry:
+            return rl in self.registry[f"quest_{role}_types"]
+        return rl.split(":")[0] in QUEST_TYPE_NAMESPACES
+
     def image(self, rl):
         ns, path = rl.split(":", 1)
         return f"assets/{ns}/{path}" in self.files
@@ -178,28 +197,32 @@ def stack_ids(value):
     return ids
 
 
-def references(value, where, out):
-    """Collects (kind, id, where) from a quest file."""
+def references(value, where, out, role=None):
+    """Collects (kind, id, where) from a quest file. role is "task" or "reward" for the entries of those lists."""
     if isinstance(value, list):
         for v in value:
-            references(v, where, out)
+            references(v, where, out, role)
         return
     if not isinstance(value, dict):
         return
     task_type = value.get("type").text if isinstance(value.get("type"), Raw) else None
+    if role and task_type is not None:
+        # FTB Quests writes its own types without a namespace
+        out.append((f"{role}_type", task_type if ":" in task_type else f"ftbquests:{task_type}", where))
     for key, v in value.items():
         if key in ("item", "icon"):
             out += [(kind, rl, where) for kind, rl in stack_ids(v)]
         elif key == "image" and isinstance(v, Raw):
             out.append(("image", v.text, where))
-        elif key == "block" and isinstance(v, Raw) and task_type == "questsadditions:break":
-            out.append(("block", v.text, where))
         elif key == "to_observe" and isinstance(v, Raw) and task_type == "observation":
             observe = value.get("observe_type")
-            kind = "entity" if observe is not None and observe.text in ("5", "entity_type") else "block_or_entity"
+            observe = observe.text if observe is not None else None
+            kind = {"0": "block", "block": "block", "5": "entity", "entity_type": "entity"}.get(observe, "block_or_entity")
             out.append((kind, v.text, where))
         elif key in ("biome", "dimension") and isinstance(v, Raw) and task_type == key:
             out.append((key, v.text, where))
+        elif key in ("tasks", "rewards") and isinstance(v, list):
+            references(v, where, out, key[:-1])
         else:
             references(v, where, out)
 

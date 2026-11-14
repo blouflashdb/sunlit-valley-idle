@@ -9,7 +9,9 @@ FTB Quests 1.21.1 still reads 1.20.1 item stacks, but only their id and count: i
   - replaces items of mods that are gone (SUBSTITUTES) and removes tasks and rewards whose item has no
     replacement (REMOVED), along with icons of them; a quest that loses every task is removed with its texts
     (kubejs/assets/ftbquestlocalizer/lang), and the quests after it depend on its dependencies instead;
-  - renames forge tags to c tags.
+  - renames forge tags to c tags;
+  - turns Quests Additions break tasks (the mod is dropped) into FTB Quests observation tasks of the same block:
+    the player finds the Skull Cavern boulder of each layer instead of breaking it.
 The tasks and rewards it removes are printed. questsTest.js checks in CI that no item of the book is missing.
 
 Run from the repository root: python3 tools/port/port_quests.py
@@ -212,8 +214,20 @@ def stack(value, removed):
     return out
 
 
+def observation_task(task):
+    """A questsadditions:break task -> an observation task of the same block (observe_type 0 is a block id)."""
+    out = {key: v for key, v in task.items() if key not in ("block", "block_type", "checkItem", "type", "value")}
+    out["observe_type"] = Raw("0")
+    out["timer"] = Raw("0L")
+    out["to_observe"] = task["block"]
+    out["type"] = quote("observation")
+    return dict(sorted(out.items()))
+
+
 def port(value, where, removed):
     """Walks a quest file; returns the ported value or None when the object it is should be removed."""
+    if isinstance(value, dict) and value.get("type") == quote("questsadditions:break"):
+        value = observation_task(value)
     if isinstance(value, list):
         out = [port(v, where, removed) for v in value]
         return type(value)(value.prefix, [v for v in out if v is not None]) if isinstance(value, ftb_snbt.TypedList) \
@@ -241,7 +255,7 @@ def port(value, where, removed):
         elif key == "description" and isinstance(v, list):
             lines = [line for line in v if line.text.strip("{}") not in DROPPED_TEXTS]
             # no empty line left at the end or twice in a row
-            lines = [line for i, line in enumerate(lines) if line.text or (0 < i < len(lines) - 1 and lines[i + 1].text)]
+            lines = [line for i, line in enumerate(lines) if line.text or (i < len(lines) - 1 and lines[i + 1].text)]
             out[key] = lines
         elif key == "match_nbt":
             if v == "true":

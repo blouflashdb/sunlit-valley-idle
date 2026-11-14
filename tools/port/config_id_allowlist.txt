@@ -19,5 +19,3 @@ WATUT default arm adjustments | config/watut-item-arm-adjustments.json | .*
 Small Ships default list (upstream typo alexmobs) | config/smallships-common.toml | alexmobs:.*
 ModernFix default JEI plugin blacklist | config/modernfix-common.toml | jepb:.*
 Quality Food default compat recipes and crates | defaultconfigs/quality_food-server.toml | .*
-# Not upstream: owned by another issue.
-Quest book (#18): Quests Additions break tasks (no 1.21.1 build), kept by the quest port | config/ftbquests/quests/chapters/*.snbt | questsadditions:break

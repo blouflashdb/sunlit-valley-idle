@@ -162,6 +162,8 @@ mod that also runs on the server.
   the quest book that does not resolve. Locally it only checks the repository namespaces (`society`,
   `sunlitidle` and the rebuilt mods). In CI (server-boot job) it reads the registry dump that
   `tools/port/kubejs_tests/registryDump.js` writes during the boot, plus the jars, and must list 0 ids.
+- Task and reward types must come from FTB Quests or a mod in the pack; `check_quest_refs.py` fails on others.
+  Quests Additions is dropped, so its break tasks of the Skull Cavern boulders are observation tasks now.
 
 ## Items
 
