@@ -29,6 +29,7 @@ Reads kubejs/_unported/data, writes kubejs/data/<ns>/... and tools/port/kubejs_t
 Needs nbtlib (pip install nbtlib). Run from the repository root: python3 tools/port/port_worldgen_data.py
 """
 import copy
+import gzip
 import json
 import pathlib
 import shutil
@@ -268,7 +269,9 @@ def port_template(src, dst, reference=None, known_pools=()):
     if reference is not None:
         align_jigsaws(template, reference, known_pools)
     dst.parent.mkdir(parents=True, exist_ok=True)
-    template.save(dst)
+    # A fixed gzip time keeps reruns byte-identical.
+    with gzip.GzipFile(dst, "wb", mtime=0) as out:
+        template.write(out)
     return changed
 
 
