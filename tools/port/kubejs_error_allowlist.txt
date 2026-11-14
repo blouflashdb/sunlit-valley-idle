@@ -8,3 +8,6 @@
 # Client latest.log (client_boot_test.py uses the same list):
 # Longwings 0.9.5 ships a texture with a space in its file name; the game rejects it. Upstream bug, harmless.
 upstream Longwings 0.9.5 | Invalid path in pack: longwings:textures/entity/moth/hummingbird _clearwing\.png
+# FancyMenu is a client-only mod in the lock (side CLIENT), so the pack server has no FancyMenu channel and the
+# client logs that it could not send its handshake packet. Expected; remove if FancyMenu goes on the server.
+FancyMenu client-only | \[FANCYMENU\] Failed to send packet to server!

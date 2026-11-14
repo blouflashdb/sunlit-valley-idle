@@ -329,7 +329,7 @@ def main():
     focus = [(f"latest.log {logger}", message) for logger, message in errors if FOCUS.search(logger + " " + message)]
     if kubejs_log_gate.gate(focus, allowlist, "Renderer, menu and resource pack errors on the client") > 0:
         problems.append("renderer, menu or resource pack errors on the client")
-    other = sorted({f"[{logger}] {message}" for logger, message in errors} -
+    other = sorted({f"[{logger}] {message}" for logger, message in errors if not message.lstrip().startswith("at ")} -
                    {f"[{label.removeprefix('latest.log ')}] {message}" for label, message in focus})
     print(f"=== Other client errors (not gated): {len(other)}")
     for line in other[:200]:

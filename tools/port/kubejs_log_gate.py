@@ -20,6 +20,8 @@ import sys
 DEFAULT_ALLOWLIST = pathlib.Path(__file__).with_name("kubejs_error_allowlist.txt")
 ERROR = "] [ERROR] "
 TIME_PREFIX = re.compile(r"^\[\d\d:\d\d:\d\d\] ")
+# KubeJS writes a stack trace as more [ERROR] lines ("! " prefix); only the lines with a message count.
+CONTINUATION = re.compile(r"^\[ERROR\] !?\s*(at |\.\.\. \d+ more|Mixins:|\* |:\d+\)|Caused by: |Suppressed: |$)")
 
 
 def load_allowlist(path):
@@ -44,8 +46,14 @@ def error_lines(log, label=None):
     if not log.exists():
         return []
     label = label or log.name
-    return [(label, TIME_PREFIX.sub("", line)) for line in log.read_text(errors="replace").splitlines()
-            if ERROR in line]
+    found = []
+    for line in log.read_text(errors="replace").splitlines():
+        if ERROR not in line:
+            continue
+        message = TIME_PREFIX.sub("", line)
+        if not CONTINUATION.match(message):
+            found.append((label, message))
+    return found
 
 
 def gate(errors, allowlist, title="KubeJS errors"):
