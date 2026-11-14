@@ -52,7 +52,7 @@ EXCLUDED = ("structure/", "worldgen/", "tags/worldgen/", "forge/biome_modifier/"
 # Folders of kubejs/data/<ns> this script owns (cleared before writing).
 OWNED = ("recipe", "loot_table", "loot_modifiers", "tags/item", "tags/block", "tags/entity_type", "advancement",
          "process", "moonlight", "farmingforblockheads_compat", "market_presets", "curios")
-# Files outside NAMESPACES that this script writes (FFB market presets of other mods).
+# Files outside NAMESPACES that this script writes (FFB market presets of other mods, cleared in main).
 EXTRA_OWNED = []
 
 # 1.20 ids -> the 1.21.1 id of the same thing (or an obvious equivalent).
@@ -70,9 +70,18 @@ SUBSTITUTES = {
 }
 # Condition types that were renamed.
 CONDITIONS = {"quark:flag": "zeta:flag"}
-FILE_SUBSTITUTES = {}  # filled per file where an id needs a file-specific replacement
 # 1.20 forge biome tags (aquaculture biome_tag_check) -> c biome tags.
 BIOME_TAGS = {"forge:is_water": "c:is_aquatic"}
+# Overrides whose file the 1.21 mod moved: written at the new path so they still replace the mod file.
+MOVED = {
+    "buzzier_bees/recipe/honey/honey_apple.json": "buzzier_bees/recipe/honey_apple.json",
+    "supplementaries/recipe/pancake_fd.json": "supplementaries/recipe/integration/pancake_fd.json",
+    "snuffles/loot_table/entities/snuffle.json": "snuffles/loot_table/entity/snuffle.json",
+    "supplementaries/loot_table/blocks/urn_loot/common.json": "supplementaries/loot_table/loot/urn_loot/common.json",
+    "supplementaries/loot_table/blocks/urn_loot/uncommon.json": "supplementaries/loot_table/loot/urn_loot/uncommon.json",
+    "supplementaries/loot_table/blocks/urn_loot/rare.json": "supplementaries/loot_table/loot/urn_loot/rare.json",
+    "supplementaries/loot_table/blocks/urn_loot/epic.json": "supplementaries/loot_table/loot/urn_loot/epic.json",
+}
 # Files that are not ported, with the reason (on top of files whose ids are missing).
 DROPPED = {
     "simplehats/loot_modifiers/hat_lootinject_entity.json": "Simple Hats 1.21 has no loot modifiers (hat drops are built in)",
@@ -109,7 +118,6 @@ def remap(value):
     if raw.startswith("trials:"):
         m = TRIALS_SUFFIX.match(raw)
         raw = f"minecraft:{m.group(1) or ''}{m.group(3)}_{m.group(2)}" if m else "minecraft:" + raw[7:]
-        raw = raw.replace("minecraft:waxed_oxidized_chiseled_copper", "minecraft:waxed_oxidized_chiseled_copper")
     return prefix + SUBSTITUTES.get(raw, raw)
 
 
@@ -252,8 +260,6 @@ def port_recipe(ns, rel, data):
     elif t == "crafting_shaped" or t == "crafting_shapeless":
         data = dict(data, type="minecraft:" + t)
     data = convert_recipe(data)
-    if t == "create:crushing" or t == "create:sequenced_assembly":
-        pass
     return data, None
 
 
@@ -537,7 +543,8 @@ def main():
                 continue
             data = json.loads(src.read_text())
             kind = inner.split("/")[0]
-            out_rel, out = rel, None
+            out_rel, out = MOVED.get(rel, rel), None
+            inner = out_rel.split("/", 1)[1]
 
             if is_disabled(data):
                 if ns == "gamediscs":
@@ -592,7 +599,7 @@ def main():
                 out_rel = rel.replace("/villager_trades/", "/villager_trade/")
                 out = port_trade(rel, data)
             elif kind == "farmingforblockheads_compat":
-                n = port_ffb(rel, src.name, data, recipe_ids)
+                port_ffb(rel, src.name, data, recipe_ids)
                 ported[ns] += 1
                 continue
             elif kind == "modifiers":  # atmospheric Blueprint loot modifier

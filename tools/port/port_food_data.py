@@ -311,6 +311,9 @@ CREATE_KEYS = {
 }
 
 
+REMOVED = []  # (file, id) of ingredient options, loot entries and tag values left out
+
+
 class Gone(Exception):
     """The file cannot work on 1.21.1 (a result or a whole ingredient is not registered)."""
 
@@ -355,8 +358,8 @@ def ingredient(value):
         for v in value:
             try:
                 out.append(ingredient(v))
-            except Gone:
-                pass
+            except Gone as missing:
+                REMOVED.append(str(missing))
         if not out:
             raise Gone(json.dumps(value))
         return out[0] if len(out) == 1 else out
@@ -504,8 +507,8 @@ def loot(value):
         for v in value:
             try:
                 out.append(loot(v))
-            except Gone:
-                pass
+            except Gone as missing:
+                REMOVED.append(str(missing))
         return out
     if not isinstance(value, dict):
         return value
@@ -584,6 +587,12 @@ def convert_loot(data):
     data = copy.deepcopy(data)
     conditions = pop_conditions(data) if "forge:conditions" in data else None
     out = loot(data)
+    # A pool whose entries are all gone is removed; a table left without pools is gone too.
+    pools = [p for p, src in zip(out.get("pools", []), data.get("pools", [])) if p.get("entries") or not src.get("entries")]
+    if data.get("pools") and not pools:
+        raise Gone("every loot entry")
+    if "pools" in out:
+        out["pools"] = pools
     if conditions:
         out = {"neoforge:conditions": conditions, **out}
     return out
@@ -620,6 +629,8 @@ def convert_tag(data):
             value = item_id(value)
             gone = value in GONE_ITEMS or value == "minecraft:air"
         if gone:
+            if value != "minecraft:air":
+                REMOVED.append(value)
             continue
         out.append(value if required else {"id": value, "required": False})
     data = dict(data)
@@ -690,11 +701,15 @@ def main():
                 else:
                     raise ValueError(rel)
             except Gone as missing:
+                REMOVED.clear()
                 skipped.append(f"{rel}: {missing} is not registered on 1.21.1")
                 count[1] += 1
                 continue
             write(DST / out_rel, out)
             count[0] += 1
+            for missing in REMOVED:
+                print(f"  left out of {rel}: {missing}")
+            REMOVED.clear()
             if "neoforge:false" in json.dumps(out.get("neoforge:conditions", [])):
                 continue
             if kind == "recipe":
