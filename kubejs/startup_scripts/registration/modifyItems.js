@@ -46,7 +46,8 @@ const setArmorProtection = (item, armor) => {
     console.warn(`[SOCIETY] modifyItems.js: ${item.item()} has no armor modifier`);
     return;
   }
-  item.attributeModifiers = new $ModifyItemAttributeModifiers(list, modifiers.showInTooltip());
+  // setAttributeModifiers is overloaded (a list or ItemAttributeModifiers), so it has no property setter.
+  item.setAttributeModifiers(new $ModifyItemAttributeModifiers(list, modifiers.showInTooltip()));
 };
 
 const setRarity = (item, rarity) => item.set($ModifyDataComponents.RARITY, rarity);
