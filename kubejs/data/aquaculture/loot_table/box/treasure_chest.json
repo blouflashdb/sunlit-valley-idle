@@ -1,0 +1,103 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:diamond",
+          "weight": 15
+        },
+        {
+          "type": "minecraft:item",
+          "name": "society:pristine_diamond",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "society:pristine_emerald",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "numismatics:crown",
+          "weight": 12
+        },
+        {
+          "type": "stardew_fishing:optional",
+          "name": "quark:diamond_heart",
+          "weight": 3
+        },
+        {
+          "type": "stardew_fishing:optional",
+          "name": "aquaculture:neptunium_nugget",
+          "weight": 4,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 9
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "numismatics:sun",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "unusualfishmod:ripper_tooth",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "simplehats:hatbag_epic",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:sniffer_egg",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "gamediscs:game_disc_froggie",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "society:relic_trove",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "society:sunlit_pearl",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "society:artifact_trove",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "society:wet_weekly",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "society:pristine_aquamarine",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "crabbersdelight:pearl_block",
+          "weight": 5
+        }
+      ]
+    }
+  ]
+}

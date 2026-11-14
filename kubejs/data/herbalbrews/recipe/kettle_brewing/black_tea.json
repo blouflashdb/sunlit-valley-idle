@@ -1,0 +1,23 @@
+{
+  "type": "herbalbrews:kettle_brewing",
+  "experience": 0.8,
+  "ingredients": [
+    {
+      "item": "herbalbrews:dried_black_tea"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "result": {
+    "id": "herbalbrews:black_tea"
+  },
+  "crafting_duration": 20,
+  "fluid_amount": 10,
+  "heat_amount": 20,
+  "effect": "herbalbrews:tough",
+  "effect_duration": 1800
+}

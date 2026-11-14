@@ -51,6 +51,7 @@ SUBSTITUTES = {
     "createutilities:graviton_tube": "minecraft:ender_eye",  # Create Utilities is gone
     "createutilities:void_casing": "create:railway_casing",
     "moreminecarts:hard_light_lens": "create:electron_tube",  # not in More Minecarts 1.21.1
+    "meadow:fire_log": "meadow:firewood",  # renamed in Meadow 1.21.1
     "translocators:item_translocator": "create:brass_funnel",  # Translocators is gone
 }
 # Overrides that are not ported: the item or the recipe type is gone on 1.21.1.
@@ -59,6 +60,9 @@ SKIPPED = {
     "pipez:recipe/copy_upgrade_advanced.json",
     "refinedstorage:recipe/filter.json",  # Refined Storage 2 has no filter or fluid grid
     "refinedstorage:recipe/fluid_grid/fluid_grid.json",
+    # kubejs/server_scripts/recipes/removeRecipes.js removes these two (as on 1.20.1), so the overrides are dead.
+    "create:recipe/crafting/kinetics/fluid_pipe_vertical.json",
+    "create:recipe/milling/wheat.json",
 }
 # Recipes whose items a later slice registers.
 DEFERRED_ITEMS = {"society:sturdy_bamboo_block"}

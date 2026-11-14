@@ -1,0 +1,20 @@
+{
+  "type": "herbalbrews:kettle_brewing",
+  "experience": 0.8,
+  "crafting_duration": 25,
+  "ingredients": [
+    {
+      "item": "herbalbrews:dried_green_tea"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "result": {
+    "id": "herbalbrews:green_tea"
+  },
+  "fluid_amount": 10,
+  "heat_amount": 10,
+  "effect": "herbalbrews:balanced",
+  "effect_duration": 1800
+}

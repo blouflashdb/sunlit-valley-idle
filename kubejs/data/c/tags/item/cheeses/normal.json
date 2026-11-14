@@ -1,0 +1,29 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "meadow:cheese_slice",
+      "required": false
+    },
+    {
+      "id": "meadow:sheep_cheese_slice",
+      "required": false
+    },
+    {
+      "id": "meadow:grain_cheese_slice",
+      "required": false
+    },
+    {
+      "id": "meadow:amethyst_cheese_slice",
+      "required": false
+    },
+    {
+      "id": "meadow:buffalo_cheese_slice",
+      "required": false
+    },
+    {
+      "id": "meadow:goat_cheese_slice",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "#candlelight:cheese",
+      "required": false
+    },
+    {
+      "id": "#meadow:cheese",
+      "required": false
+    },
+    {
+      "id": "#c:cheese",
+      "required": false
+    },
+    {
+      "id": "#c:cheeses",
+      "required": false
+    },
+    {
+      "id": "#c:cheeses/nether",
+      "required": false
+    },
+    {
+      "id": "#c:cheeses/normal",
+      "required": false
+    }
+  ]
+}

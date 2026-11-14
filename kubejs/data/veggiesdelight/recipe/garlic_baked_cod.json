@@ -1,0 +1,20 @@
+{
+  "type": "farm_and_charm:stove",
+  "ingredients": [
+    {
+      "tag": "c:foods/cooked_cod"
+    },
+    {
+      "item": "veggiesdelight:roasted_garlic_clove"
+    },
+    {
+      "tag": "c:crops/onion"
+    }
+  ],
+  "experience": 0.35,
+  "result": {
+    "id": "veggiesdelight:garlic_baked_cod",
+    "count": 1
+  },
+  "requiresLearning": false
+}

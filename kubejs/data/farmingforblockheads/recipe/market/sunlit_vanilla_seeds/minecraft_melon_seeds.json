@@ -1,0 +1,8 @@
+{
+  "type": "farmingforblockheads:market",
+  "category": "farmingforblockheads:seeds",
+  "preset": "farmingforblockheads:sunlit_vanilla_seeds",
+  "result": {
+    "item": "minecraft:melon_seeds"
+  }
+}

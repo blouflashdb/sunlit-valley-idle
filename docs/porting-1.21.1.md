@@ -3,6 +3,10 @@
 Notes for the slices of epic #5. The pack runs KubeJS `2101.7.x` with Rhino `2101.2.x` on NeoForge 21.1.
 Slice 3 (#8) set up the pattern with the Crystalarium; copy it for the other machines.
 
+Every script and data file of `kubejs/_unported/` is ported or deleted since Slice 14 (#19), and the folder is
+gone. The `tools/port/port_*.py` scripts read their 1.20.1 sources from it; to run one again, restore the folder
+from the commit before its removal first: `git checkout 6556652 -- kubejs/_unported/data`.
+
 ## Workflow
 
 1. Move the script (or the part of it you port) from `kubejs/_unported/` to the same path under

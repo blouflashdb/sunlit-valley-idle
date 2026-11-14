@@ -1,0 +1,14 @@
+{
+  "type": "create_mechanical_extruder:extruding",
+  "blockIngredients": {
+    "first": {
+      "blocks": "society:milk"
+    },
+    "second": {
+      "blocks": "minecraft:lava"
+    }
+  },
+  "result": {
+    "id": "minecraft:calcite"
+  }
+}

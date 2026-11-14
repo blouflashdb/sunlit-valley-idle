@@ -1,0 +1,105 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "create:copper_sheet"
+  },
+  "loops": 3,
+  "results": [
+    {
+      "id": "create_factory_logistics:fluid_mechanism",
+      "count": 1,
+      "chance": 250.0
+    },
+    {
+      "id": "create:copper_sheet",
+      "count": 1,
+      "chance": 8.0
+    },
+    {
+      "id": "create:andesite_alloy",
+      "count": 1,
+      "chance": 8.0
+    },
+    {
+      "id": "society:rubber",
+      "count": 1,
+      "chance": 5.0
+    },
+    {
+      "id": "numismatics:crown",
+      "count": 1,
+      "chance": 2.0
+    },
+    {
+      "id": "create:shaft",
+      "count": 1,
+      "chance": 2.0
+    },
+    {
+      "id": "create:crushed_raw_copper",
+      "count": 1,
+      "chance": 2.0
+    },
+    {
+      "id": "create:mechanical_pump",
+      "count": 1
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create_factory_logistics:incomplete_fluid_mechanism"
+        },
+        {
+          "item": "society:rubber"
+        }
+      ],
+      "results": [
+        {
+          "id": "create_factory_logistics:incomplete_fluid_mechanism",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create_factory_logistics:incomplete_fluid_mechanism"
+        },
+        {
+          "item": "aquaculture:neptunium_nugget"
+        }
+      ],
+      "results": [
+        {
+          "id": "create_factory_logistics:incomplete_fluid_mechanism",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create_factory_logistics:incomplete_fluid_mechanism"
+        },
+        {
+          "item": "numismatics:crown"
+        }
+      ],
+      "results": [
+        {
+          "id": "create_factory_logistics:incomplete_fluid_mechanism",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "transitional_item": {
+    "id": "create_factory_logistics:incomplete_fluid_mechanism",
+    "count": 1
+  }
+}

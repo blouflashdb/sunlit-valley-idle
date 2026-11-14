@@ -1,0 +1,14 @@
+{
+  "type": "farmingforblockheads:market",
+  "category": "farmingforblockheads:saplings",
+  "preset": "farmingforblockheads:sunlit_pamhc2trees_saplings",
+  "result": {
+    "item": "pamhc2trees:lychee_sapling"
+  },
+  "payment": {
+    "ingredient": {
+      "item": "numismatics:cog"
+    },
+    "count": 4
+  }
+}

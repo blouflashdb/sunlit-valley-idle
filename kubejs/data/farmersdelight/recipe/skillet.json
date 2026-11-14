@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "c:ingots/iron"
+    },
+    "/": {
+      "item": "minecraft:brick"
+    },
+    "c": {
+      "item": "society:earth_crystal"
+    }
+  },
+  "pattern": [
+    " ##",
+    " c#",
+    "/  "
+  ],
+  "result": {
+    "id": "farmersdelight:skillet",
+    "count": 1
+  },
+  "show_notification": true
+}

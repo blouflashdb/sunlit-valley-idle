@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "oreganized:raw_silver_block"
+  },
+  "result": {
+    "id": "oreganized:silver_block",
+    "count": 1
+  },
+  "experience": 12,
+  "cookingtime": 1800
+}

@@ -1,0 +1,22 @@
+{
+  "type": "create:mixing",
+  "results": [
+    {
+      "id": "farm_and_charm:dough",
+      "count": 5
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "farm_and_charm:flour"
+    },
+    {
+      "item": "farm_and_charm:yeast"
+    },
+    {
+      "type": "fluid_stack",
+      "fluid": "minecraft:water",
+      "amount": 250
+    }
+  ]
+}

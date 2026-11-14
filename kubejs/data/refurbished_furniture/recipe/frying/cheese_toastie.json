@@ -1,0 +1,12 @@
+{
+  "type": "refurbished_furniture:frying_pan_cooking",
+  "category": "food",
+  "ingredient": {
+    "item": "meadow:cheese_sandwich"
+  },
+  "result": {
+    "id": "refurbished_furniture:cheese_toastie",
+    "count": 1
+  },
+  "time": 400
+}

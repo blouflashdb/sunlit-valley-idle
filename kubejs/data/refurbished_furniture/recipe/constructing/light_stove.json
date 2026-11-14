@@ -1,0 +1,27 @@
+{
+  "type": "refurbished_furniture:workbench_constructing",
+  "materials": [
+    {
+      "count": 12,
+      "ingredient": {
+        "item": "minecraft:iron_ingot"
+      }
+    },
+    {
+      "count": 1,
+      "ingredient": {
+        "item": "minecraft:glass"
+      }
+    },
+    {
+      "count": 2,
+      "ingredient": {
+        "item": "society:battery"
+      }
+    }
+  ],
+  "result": {
+    "id": "refurbished_furniture:light_stove",
+    "count": 1
+  }
+}

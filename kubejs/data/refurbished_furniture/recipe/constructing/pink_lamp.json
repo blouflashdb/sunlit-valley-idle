@@ -1,0 +1,39 @@
+{
+  "type": "refurbished_furniture:workbench_constructing",
+  "materials": [
+    {
+      "count": 2,
+      "ingredient": {
+        "tag": "minecraft:planks"
+      }
+    },
+    {
+      "count": 1,
+      "ingredient": {
+        "item": "society:battery"
+      }
+    },
+    {
+      "count": 4,
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      }
+    },
+    {
+      "count": 1,
+      "ingredient": {
+        "item": "minecraft:white_wool"
+      }
+    },
+    {
+      "count": 1,
+      "ingredient": {
+        "item": "minecraft:pink_dye"
+      }
+    }
+  ],
+  "result": {
+    "id": "refurbished_furniture:pink_lamp",
+    "count": 1
+  }
+}

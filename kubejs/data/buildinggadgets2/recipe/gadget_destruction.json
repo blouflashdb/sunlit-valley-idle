@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "buildinggadgets2",
+  "key": {
+    "h": {
+      "item": "justhammers:impact_core"
+    },
+    "i": {
+      "tag": "c:ingots/zinc"
+    },
+    "p": {
+      "item": "society:prismatic_shard"
+    },
+    "c": {
+      "item": "buildinggadgets2:gadget_core"
+    },
+    "b": {
+      "item": "society:battery"
+    }
+  },
+  "pattern": [
+    "ipi",
+    "bcb",
+    "ihi"
+  ],
+  "result": {
+    "id": "buildinggadgets2:gadget_destruction",
+    "count": 1
+  },
+  "show_notification": true
+}

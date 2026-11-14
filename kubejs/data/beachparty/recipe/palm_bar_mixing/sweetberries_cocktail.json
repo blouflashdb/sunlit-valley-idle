@@ -1,0 +1,15 @@
+{
+  "type": "beachparty:palm_bar_mixing",
+  "ingredients": [
+    {
+      "item": "pamhc2trees:lycheeitem"
+    },
+    {
+      "item": "minecraft:ice"
+    }
+  ],
+  "result": {
+    "id": "beachparty:sweetberries_cocktail",
+    "count": 1
+  }
+}

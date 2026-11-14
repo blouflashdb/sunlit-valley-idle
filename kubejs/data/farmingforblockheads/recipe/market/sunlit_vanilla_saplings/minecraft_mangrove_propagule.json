@@ -1,0 +1,14 @@
+{
+  "type": "farmingforblockheads:market",
+  "category": "farmingforblockheads:saplings",
+  "preset": "farmingforblockheads:sunlit_vanilla_saplings",
+  "result": {
+    "item": "minecraft:mangrove_propagule"
+  },
+  "payment": {
+    "ingredient": {
+      "item": "numismatics:bevel"
+    },
+    "count": 2
+  }
+}

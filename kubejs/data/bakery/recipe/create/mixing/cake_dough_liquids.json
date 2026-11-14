@@ -1,0 +1,25 @@
+{
+  "type": "create:mixing",
+  "results": [
+    {
+      "id": "bakery:cake_dough",
+      "count": 12
+    }
+  ],
+  "ingredients": [
+    {
+      "tag": "bakery:wheat"
+    },
+    {
+      "tag": "c:sugar"
+    },
+    {
+      "tag": "c:eggs"
+    },
+    {
+      "type": "fluid_stack",
+      "fluid": "society:milk",
+      "amount": 250
+    }
+  ]
+}
