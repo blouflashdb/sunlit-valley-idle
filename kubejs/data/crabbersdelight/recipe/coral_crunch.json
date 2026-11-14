@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "minecraft:bowl"
+    },
+    "c": {
+      "item": "crabbersdelight:coral_fragments"
+    },
+    "m": {
+      "tag": "society:small_milk"
+    }
+  },
+  "pattern": [
+    " m ",
+    "ccc",
+    " b "
+  ],
+  "result": {
+    "id": "crabbersdelight:coral_crunch",
+    "count": 1
+  },
+  "show_notification": true
+}

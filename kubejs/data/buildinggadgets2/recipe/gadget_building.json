@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "buildinggadgets2",
+  "key": {
+    "i": {
+      "tag": "c:ingots/zinc"
+    },
+    "e": {
+      "tag": "c:storage_blocks/emerald"
+    },
+    "c": {
+      "item": "buildinggadgets2:gadget_core"
+    },
+    "b": {
+      "item": "society:battery"
+    }
+  },
+  "pattern": [
+    "iei",
+    "bcb",
+    "iei"
+  ],
+  "result": {
+    "id": "buildinggadgets2:gadget_building",
+    "count": 1
+  },
+  "show_notification": true
+}

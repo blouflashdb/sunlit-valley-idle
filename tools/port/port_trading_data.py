@@ -10,7 +10,9 @@ Society Trading 1.21.1 reads shops with codecs, so:
   - item names and lore stay JSON strings (the item components use the flat text codec);
   - a shop opened by an entity that is gone (MISSING_ENTITIES) is left out;
   - the Cartographer's Quill trade (a map to a Trials chamber) is left out: Trials is gone and Supplementaries
-    stores the quill target as a data component now.
+    stores the quill target as a data component now;
+  - NPC portraits (dialog:textures/portraits/*, from the ARR Society Tweaks jar) point at our placeholders
+    (tools/port/port_dialog_portraits.py).
 
 Run from the repository root: python3 tools/port/port_trading_data.py
 """
@@ -20,6 +22,7 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 import snbt  # noqa: E402
+from port_dialog_portraits import shop_texture  # noqa: E402
 
 SRC = pathlib.Path("kubejs/_unported/data/society_trading")
 DST = pathlib.Path("kubejs/data/society_trading")
@@ -124,6 +127,8 @@ def port_shop(shop, missing, dropped):
                 out[key] = stack(value)
         elif key in TEXT_FIELDS:
             out[key] = text(value)
+        elif key == "texture":
+            out[key] = shop_texture(value)
         else:
             out[key] = value
     return out, trade_count

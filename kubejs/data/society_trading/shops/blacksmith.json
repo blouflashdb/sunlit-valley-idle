@@ -3,7 +3,7 @@
   "name": {
     "translate": "shop.society_trading.blacksmith"
   },
-  "texture": "dialog:textures/portraits/blacksmith",
+  "texture": "sunlitidle:textures/portraits/blacksmith",
   "jei_catalyst": {
     "id": "society:villager",
     "count": 1,

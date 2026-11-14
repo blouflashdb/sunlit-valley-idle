@@ -1,0 +1,99 @@
+{
+  "replace": true,
+  "values": [
+    "minecraft:sugar",
+    "minecraft:sugar_cane",
+    "minecraft:cocoa_beans",
+    "minecraft:ink_sac",
+    "minecraft:hay_block",
+    "minecraft:honey_block",
+    "autumnity:turkey",
+    "#c:eggs",
+    "#society:large_eggs",
+    "#c:seeds",
+    "#c:crops",
+    "#c:mushrooms",
+    "aquaculture:box_turtle",
+    "aquaculture:arrau_turtle",
+    "aquaculture:starshell_turtle",
+    "netherdepthsupgrade:soulsucker",
+    "aquaculture:jellyfish",
+    "herbalbrews:dried_green_tea_leaf_block",
+    "herbalbrews:black_tea_leaf_block",
+    "herbalbrews:oolong_tea_leaf_block",
+    "herbalbrews:mixed_tea_leaf_block",
+    "vintagedelight:golden_egg",
+    "minecraft:sniffer_egg",
+    "meadow:warped_cheese_wheel",
+    "meadow:cheese_wheel",
+    "meadow:sheep_cheese_wheel",
+    "meadow:grain_cheese_wheel",
+    "meadow:amethyst_cheese_wheel",
+    "meadow:buffalo_cheese_wheel",
+    "veggiesdelight:garlic_seed",
+    {
+      "id": "society:truffle",
+      "required": false
+    },
+    {
+      "id": "#c:dough",
+      "required": false
+    },
+    {
+      "id": "#c:flour",
+      "required": false
+    },
+    {
+      "id": "#farmersdelight:wild_crops",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:rice_panicle",
+      "required": false
+    },
+    {
+      "id": "farm_and_charm:barley",
+      "required": false
+    },
+    {
+      "id": "farm_and_charm:oat",
+      "required": false
+    },
+    {
+      "id": "farm_and_charm:oat",
+      "required": false
+    },
+    {
+      "id": "herbalbrews:green_tea_leaf",
+      "required": false
+    },
+    {
+      "id": "society:tubabacco_leaf",
+      "required": false
+    },
+    {
+      "id": "snowyspirit:ginger",
+      "required": false
+    },
+    {
+      "id": "aquaculture:goldfish",
+      "required": false
+    },
+    {
+      "id": "aquaculture:minnow",
+      "required": false
+    },
+    {
+      "id": "aquaculture:leech",
+      "required": false
+    },
+    {
+      "id": "society:fine_wool",
+      "required": false
+    },
+    {
+      "id": "minecraft:rabbit_foot",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "type": "farmingforblockheads:market",
+  "category": "farmingforblockheads:saplings",
+  "preset": "farmingforblockheads:sunlit_vanilla_saplings",
+  "result": {
+    "item": "minecraft:acacia_sapling"
+  }
+}

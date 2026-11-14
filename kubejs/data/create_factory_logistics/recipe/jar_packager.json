@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "create:copper_casing"
+    },
+    "c": {
+      "item": "minecraft:copper_ingot"
+    },
+    "i": {
+      "item": "oreganized:silver_ingot"
+    },
+    "r": {
+      "item": "society:oak_resin"
+    }
+  },
+  "pattern": [
+    " c ",
+    "cCc",
+    "rir"
+  ],
+  "result": {
+    "id": "create_factory_logistics:jar_packager",
+    "count": 1
+  },
+  "show_notification": true
+}

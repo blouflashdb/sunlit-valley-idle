@@ -1,0 +1,11 @@
+{
+  "type": "farm_and_charm:drying",
+  "ingredient": {
+    "item": "society:tubabacco_leaf"
+  },
+  "recipe_type": "MEAT",
+  "result": {
+    "id": "society:dried_tubabacco_leaf",
+    "count": 1
+  }
+}

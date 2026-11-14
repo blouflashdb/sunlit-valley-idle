@@ -3,7 +3,7 @@
   "name": {
     "translate": "shop.society_trading.carpenter"
   },
-  "texture": "dialog:textures/portraits/carpenter",
+  "texture": "sunlitidle:textures/portraits/carpenter",
   "jei_catalyst": {
     "id": "society:villager",
     "count": 1,
@@ -23,7 +23,7 @@
         "count": 1
       },
       "request": {
-        "id": "meadow:fire_log",
+        "id": "meadow:firewood",
         "count": 10
       },
       "second_request": {

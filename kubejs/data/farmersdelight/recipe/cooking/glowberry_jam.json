@@ -1,0 +1,22 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 2.0,
+  "ingredients": [
+    {
+      "item": "minecraft:glow_berries"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "container": {
+    "id": "bakery:jar",
+    "count": 1
+  },
+  "recipe_book_tab": "meals",
+  "result": {
+    "id": "bakery:glowberry_jam",
+    "count": 1
+  }
+}

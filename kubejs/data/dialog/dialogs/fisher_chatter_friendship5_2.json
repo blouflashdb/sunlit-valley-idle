@@ -17,7 +17,7 @@
       ],
       "portraits": [
         {
-          "path": "fisher.png",
+          "path": "sunlitidle:fisher.png",
           "position": "INLINE",
           "brightness": 1
         }
@@ -36,7 +36,7 @@
       ],
       "portraits": [
         {
-          "path": "fisher.png",
+          "path": "sunlitidle:fisher.png",
           "position": "INLINE",
           "brightness": 1
         }

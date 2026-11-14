@@ -1,0 +1,33 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "crittersandcompanions:clam"
+    }
+  ],
+  "result": [
+    {
+      "item": {
+        "id": "crabbersdelight:raw_clam_meat",
+        "count": 1
+      }
+    },
+    {
+      "item": {
+        "id": "society:river_jelly",
+        "count": 1
+      },
+      "chance": 0.5
+    },
+    {
+      "item": {
+        "id": "society:sunlit_pearl",
+        "count": 1
+      },
+      "chance": 0.05
+    }
+  ],
+  "tool": {
+    "tag": "c:tools/knives"
+  }
+}

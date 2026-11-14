@@ -1,8 +1,8 @@
 // priority: 1000
 console.info("[SOCIETY] globalFish.js loaded");
 
-// The fish of each season and water (ocean, river, fresh water), with weights. The fish tooltips read them
-// (server_scripts/tooltips/fishTooltips.js); the seasonal fishing loot (loot/seasonfish.js) is not ported yet.
+// The fish of each season and water (ocean, river, fresh water), with weights. The fish tooltips
+// (server_scripts/tooltips/fishTooltips.js) and the seasonal fishing loot (server_scripts/loot/seasonfish.js) read them.
 // Spring Fish
 global.springOcean = [
   { fish: "aquaculture:atlantic_herring", weight: 16 },
@@ -199,3 +199,12 @@ global.winterFresh = [
   { fish: "unusualfishmod:raw_aero_mono", weight: 4 },
   { fish: "unusualfishmod:raw_hatchetfish", night: true, weight: 2 },
 ];
+
+/**
+ * True when the rod holds the bobber. On 1.21.1 the bobber of a Stardew Fishing rod and the bobber slot of an
+ * Aquaculture rod are data components that hold an item stack, so the bobber id shows up in the component string.
+ */
+global.hasBobber = (rod, bobberId) => {
+  if (!rod || rod.isEmpty()) return false;
+  return String(rod.componentString).includes(`"${bobberId}"`);
+};

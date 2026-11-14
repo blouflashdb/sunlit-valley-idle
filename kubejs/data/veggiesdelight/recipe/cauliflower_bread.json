@@ -1,0 +1,20 @@
+{
+  "type": "farm_and_charm:stove",
+  "ingredients": [
+    {
+      "tag": "c:crops/cauliflower"
+    },
+    {
+      "tag": "c:crops/cauliflower"
+    },
+    {
+      "tag": "c:grain/wheat"
+    }
+  ],
+  "experience": 0.35,
+  "result": {
+    "id": "veggiesdelight:cauliflower_bread",
+    "count": 1
+  },
+  "requiresLearning": false
+}

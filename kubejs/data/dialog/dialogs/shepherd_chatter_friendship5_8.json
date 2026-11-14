@@ -17,7 +17,7 @@
       ],
       "portraits": [
         {
-          "path": "shepherd.png",
+          "path": "sunlitidle:shepherd.png",
           "position": "INLINE",
           "brightness": 1
         }
@@ -36,7 +36,7 @@
       ],
       "portraits": [
         {
-          "path": "shepherd.png",
+          "path": "sunlitidle:shepherd.png",
           "position": "INLINE",
           "brightness": 1
         }

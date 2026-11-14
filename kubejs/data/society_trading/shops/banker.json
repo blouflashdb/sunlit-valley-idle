@@ -3,7 +3,7 @@
   "name": {
     "translate": "shop.society_trading.banker"
   },
-  "texture": "dialog:textures/portraits/banker",
+  "texture": "sunlitidle:textures/portraits/banker",
   "jei_catalyst": {
     "id": "society:villager",
     "count": 1,

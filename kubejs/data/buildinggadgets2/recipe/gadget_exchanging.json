@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "buildinggadgets2",
+  "key": {
+    "d": {
+      "tag": "c:storage_blocks/diamond"
+    },
+    "i": {
+      "tag": "c:ingots/zinc"
+    },
+    "c": {
+      "item": "buildinggadgets2:gadget_core"
+    },
+    "b": {
+      "item": "society:battery"
+    }
+  },
+  "pattern": [
+    "idi",
+    "bcb",
+    "idi"
+  ],
+  "result": {
+    "id": "buildinggadgets2:gadget_exchanging",
+    "count": 1
+  },
+  "show_notification": true
+}

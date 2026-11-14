@@ -3,7 +3,7 @@
   "name": {
     "translate": "shop.society_trading.shepherd"
   },
-  "texture": "dialog:textures/portraits/shepherd",
+  "texture": "sunlitidle:textures/portraits/shepherd",
   "villager_profession": "shepherd",
   "stage_required": "invited_shepherd",
   "selector_weight": -97,

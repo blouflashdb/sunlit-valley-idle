@@ -1,0 +1,19 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "veggiesdelight:garlic"
+    }
+  ],
+  "result": [
+    {
+      "item": {
+        "id": "veggiesdelight:garlic_clove",
+        "count": 4
+      }
+    }
+  ],
+  "tool": {
+    "tag": "c:tools/knives"
+  }
+}

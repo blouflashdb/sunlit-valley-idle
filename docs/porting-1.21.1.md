@@ -3,6 +3,10 @@
 Notes for the slices of epic #5. The pack runs KubeJS `2101.7.x` with Rhino `2101.2.x` on NeoForge 21.1.
 Slice 3 (#8) set up the pattern with the Crystalarium; copy it for the other machines.
 
+Every script and data file of `kubejs/_unported/` is ported or deleted since Slice 14 (#19), and the folder is
+gone. The `tools/port/port_*.py` scripts read their 1.20.1 sources from it; to run one again, restore the folder
+from the commit before its removal first: `git checkout 6556652 -- kubejs/_unported/data`.
+
 ## Workflow
 
 1. Move the script (or the part of it you port) from `kubejs/_unported/` to the same path under
@@ -147,6 +151,17 @@ ported script uses a KubeJS global it does not know, add the name to the list in
 checks `society:` assets; in CI (server-boot job) it also checks every texture against the vanilla client jar
 and the server's mod jars. Client-only mods are not in that set, so pick placeholders from vanilla or from a
 mod that also runs on the server.
+
+## Quest book
+
+- The chapter images came from Society Tweaks too. `tools/port/port_quest_images.py` draws our own circles,
+  seals and background panels into `kubejs/assets/sunlitidle/textures/gui/quests` and removed the picture
+  images (butterflies, slimes, Community Center pictures, NPC portraits). Put new quest art there, never under
+  `society:` or `dialog:`.
+- `python3 tools/port/check_quest_refs.py` lists every item, tag, block, entity, biome, dimension and image of
+  the quest book that does not resolve. Locally it only checks the repository namespaces (`society`,
+  `sunlitidle` and the rebuilt mods). In CI (server-boot job) it reads the registry dump that
+  `tools/port/kubejs_tests/registryDump.js` writes during the boot, plus the jars, and must list 0 ids.
 
 ## Items
 

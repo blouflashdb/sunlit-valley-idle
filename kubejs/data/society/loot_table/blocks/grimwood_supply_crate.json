@@ -62,7 +62,7 @@
         {
           "type": "minecraft:item",
           "weight": 80,
-          "name": "meadow:fire_log"
+          "name": "meadow:firewood"
         }
       ]
     },
@@ -125,7 +125,7 @@
         {
           "type": "minecraft:item",
           "weight": 18,
-          "name": "meadow:fire_log"
+          "name": "meadow:firewood"
         }
       ]
     },
@@ -139,7 +139,7 @@
         {
           "type": "minecraft:item",
           "weight": 60,
-          "name": "meadow:fire_log"
+          "name": "meadow:firewood"
         },
         {
           "type": "minecraft:item",

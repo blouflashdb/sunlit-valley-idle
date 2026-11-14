@@ -1,0 +1,14 @@
+{
+  "type": "farmingforblockheads:market",
+  "category": "farmingforblockheads:saplings",
+  "preset": "farmingforblockheads:sunlit_pamhc2trees_saplings",
+  "result": {
+    "item": "pamhc2trees:peach_sapling"
+  },
+  "payment": {
+    "ingredient": {
+      "item": "numismatics:sun"
+    },
+    "count": 4
+  }
+}

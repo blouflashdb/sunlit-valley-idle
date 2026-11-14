@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "#c:lettuce",
+      "required": false
+    },
+    {
+      "id": "#c:vegetables/lettuce",
+      "required": false
+    }
+  ]
+}

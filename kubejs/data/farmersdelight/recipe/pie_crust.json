@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "M": {
+      "tag": "society:small_milk"
+    },
+    "w": {
+      "item": "minecraft:wheat"
+    }
+  },
+  "pattern": [
+    "wMw",
+    " w "
+  ],
+  "result": {
+    "id": "farmersdelight:pie_crust",
+    "count": 1
+  },
+  "show_notification": true
+}

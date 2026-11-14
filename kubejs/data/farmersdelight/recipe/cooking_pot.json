@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "minecraft:brick"
+    },
+    "E": {
+      "item": "society:earth_crystal"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "b b",
+    "iEi",
+    "iii"
+  ],
+  "result": {
+    "id": "farmersdelight:cooking_pot",
+    "count": 1
+  },
+  "show_notification": true
+}

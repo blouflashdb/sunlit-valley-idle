@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:baked_potato"
+    },
+    {
+      "tag": "c:cooked_beef"
+    },
+    {
+      "item": "farm_and_charm:butter"
+    }
+  ],
+  "result": {
+    "id": "farmersdelight:stuffed_potato",
+    "count": 1
+  }
+}

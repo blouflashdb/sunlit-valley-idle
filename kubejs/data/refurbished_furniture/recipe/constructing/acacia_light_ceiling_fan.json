@@ -1,0 +1,33 @@
+{
+  "type": "refurbished_furniture:workbench_constructing",
+  "materials": [
+    {
+      "count": 3,
+      "ingredient": {
+        "item": "minecraft:iron_ingot"
+      }
+    },
+    {
+      "count": 4,
+      "ingredient": {
+        "item": "minecraft:acacia_planks"
+      }
+    },
+    {
+      "count": 1,
+      "ingredient": {
+        "item": "society:battery"
+      }
+    },
+    {
+      "count": 4,
+      "ingredient": {
+        "item": "minecraft:glowstone_dust"
+      }
+    }
+  ],
+  "result": {
+    "id": "refurbished_furniture:acacia_light_ceiling_fan",
+    "count": 1
+  }
+}

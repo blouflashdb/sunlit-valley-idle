@@ -41,6 +41,10 @@ jobs:
           grep -E "All [0-9]+ required tests passed" gametest.log
       - name: Check loading screen tips (#18)
         run: python3 tools/port/check_tips.py
+      - name: Check dialog and shop portraits
+        run: python3 tools/port/check_dialog_textures.py
+      - name: Check the quest book references of the repository namespaces (#18)
+        run: python3 tools/port/check_quest_refs.py
       - name: Check resource packs and shader pack (#19)
         # Fails on stale pack names, a wrong pack format, Oculus/Embeddium configs or a shader that Colorwheel
         # Patcher cannot patch; the per-pack coverage table in the job summary is only a report.
@@ -103,6 +107,12 @@ jobs:
         run: |
           MC=$(python3 -c "import json; print(json.load(open('pakku-lock.json'))['mc_versions'][0])")
           python3 tools/port/assets/check_placeholders.py --download-client "$MC" --jar-dir build/server/mods
+      - name: Check every id and image of the quest book (#18)
+        # registryDump.js wrote the server's registries during the boot; images resolve against the jars.
+        run: |
+          MC=$(python3 -c "import json; print(json.load(open('pakku-lock.json'))['mc_versions'][0])")
+          python3 tools/port/check_quest_refs.py --registry build/server/kubejs/registry_dump.json \
+            --jar-dir build/server/mods --download-client "$MC"
       - name: Report Pufferfish's Skills config problems
         if: always()
         run: grep -n -i -E "puffish|skills.*(error|invalid)" build/server/logs/latest.log | head -50 || true

@@ -3,7 +3,7 @@
   "name": {
     "translate": "shop.society_trading.witch"
   },
-  "texture": "dialog:textures/portraits/witch",
+  "texture": "sunlitidle:textures/portraits/witch",
   "stage_required": "invited_witch",
   "villager_profession": "weaponsmith",
   "jei_catalyst": {

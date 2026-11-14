@@ -7,9 +7,9 @@
 const $TooltipsTestServerData = Java.loadClass("dev.latvian.mods.kubejs.net.KubeServerData");
 const $TooltipsTestRegistries = Java.loadClass("net.minecraft.core.registries.BuiltInRegistries");
 
-// Ids that are known to be missing on 1.21.1 and are handled in #19: the Animal Feed Sack block is not ported yet,
-// and Unusual Fish Mod 1.21.1 has no Frosty Fin (raw_snowflake), which the fish data still lists.
-const $TooltipsTestKnownMissing = ["society:animal_feed_sack", "unusualfishmod:raw_snowflake"];
+// Ids that are known to be missing on 1.21.1 and are handled in #19: Unusual Fish Mod 1.21.1 has no Frosty Fin
+// (raw_snowflake), which the fish data still lists.
+const $TooltipsTestKnownMissing = ["unusualfishmod:raw_snowflake"];
 
 ServerEvents.loaded((event) => {
   let server = event.server;
