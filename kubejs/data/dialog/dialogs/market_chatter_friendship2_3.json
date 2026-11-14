@@ -17,7 +17,7 @@
       ],
       "portraits": [
         {
-          "path": "market.png",
+          "path": "sunlitidle:market.png",
           "position": "INLINE",
           "brightness": 1
         }

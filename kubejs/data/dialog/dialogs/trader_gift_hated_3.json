@@ -16,7 +16,7 @@
       ],
       "portraits": [
         {
-          "path": "hated/trader.png",
+          "path": "sunlitidle:hated/trader.png",
           "position": "INLINE",
           "brightness": 1
         }
@@ -35,7 +35,7 @@
       ],
       "portraits": [
         {
-          "path": "hated/trader.png",
+          "path": "sunlitidle:hated/trader.png",
           "position": "INLINE",
           "brightness": 1
         }

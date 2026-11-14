@@ -16,7 +16,7 @@
       ],
       "portraits": [
         {
-          "path": "disliked/witch.png",
+          "path": "sunlitidle:disliked/witch.png",
           "position": "INLINE",
           "brightness": 1
         }
@@ -35,7 +35,7 @@
       ],
       "portraits": [
         {
-          "path": "disliked/witch.png",
+          "path": "sunlitidle:disliked/witch.png",
           "position": "INLINE",
           "brightness": 1
         }

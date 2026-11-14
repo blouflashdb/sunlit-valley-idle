@@ -16,7 +16,7 @@
       ],
       "portraits": [
         {
-          "path": "blacksmith.png",
+          "path": "sunlitidle:blacksmith.png",
           "position": "INLINE",
           "brightness": 1
         }

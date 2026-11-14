@@ -3,7 +3,7 @@
   "name": {
     "translate": "shop.society_trading.fisher"
   },
-  "texture": "dialog:textures/portraits/fisher",
+  "texture": "sunlitidle:textures/portraits/fisher",
   "villager_profession": "fisherman",
   "stage_required": "invited_fisher",
   "jei_catalyst": {
