@@ -10,6 +10,7 @@ All checks run in `.github/workflows/build-mod.yml` on every push and pull reque
 | --- | --- |
 | `build` / *Run in-game tests* | GameTests of the `sunlitidle` mod (`mod/src/main/java/dev/sunlitidle/gametest/`), dev run without the pack |
 | `build` / *Check resource packs and shader pack* | `tools/port/check_resourcepacks.py` (from #66) |
+| `build` / *Check that every script is ported* | fails while `kubejs/_unported` or `config/_unported` exists |
 | `build` / *Check client defaults* | `tools/port/check_client_defaults.py` (not gating yet, see below) |
 | `server-boot` | `tools/port/server_boot_test.py --kubejs-tests tools/port/kubejs_tests --simulate-year`: boots a dedicated server with the whole pack twice (KubeJS tests), then a third time for one simulated in-game year with the pack checks of `dev.sunlitidle.ci` |
 | `client-boot` | `tools/port/client_boot_test.py`: boots the client with the whole pack on Xvfb with Mesa llvmpipe twice: first to the title screen (screenshots `loading-*.png` of the Drippy loading screen, `title-screen.png`), then with quick play into a pack server (`in-game.png`); all in the artifact `client-logs` |
@@ -56,7 +57,7 @@ The job summary also shows the server start time and the average TPS of the spri
 | Crops grow across seasons | GameTests `FarmGameTests.*` (watering, fertilizer, sprinklers); pack checks `season_<season>`, `year_all_seasons`, `crops_grow_in_<season>`, `seasonal_crops_grow` (every crop tagged for a season grows in one), `winter_is_harsher`, `idle_farming_seasons`, `year_wraps_to_spring` | |
 | Quest book loads with 0 unresolved item ids | KubeJS test `questsTest.js` | |
 | Client: Iris + Sodium, resource packs, FancyMenu / Drippy, JourneyMap, `configureddefaults` | `client-boot`: the client must reach the title screen, join the server and render (screenshots); errors of Iris, Sodium, FancyMenu, Drippy, JourneyMap, Colorwheel, resource and shader packs in `latest.log` fail the job; the shader pack that `config/iris.properties` selects must exist in `shaderpacks/` after the first start (Colorwheel Patcher output); every resource pack of `configureddefaults/options.txt` must still be enabled after the first start; `check_resourcepacks.py` and `check_client_defaults.py` check the files statically | Software rendering only, see below |
-| Remaining scripts ported, `kubejs/_unported/` removed | Not automated | Orchestrator checks the folder before the release |
+| Remaining scripts ported, `kubejs/_unported/` removed | `build` / *Check that every script is ported* fails if `kubejs/_unported` or `config/_unported` exists; the ported scripts load under the error gate | |
 | Performance (ModernFix, FerriteCore, startup time, TPS on a farm) | `server-boot` job summary: server start time, average TPS of the year sprints (with the test machines loaded) | Reported, not gated; GitHub runners are not player hardware |
 | Full playthrough: spring year 1 to endgame | The rows above together; the year simulation is the playthrough | See "Not automated" |
 | `main` builds the 1.21.1 export | `build` job (runs on every push, including `main`) | |
@@ -71,7 +72,7 @@ The job summary also shows the server start time and the average TPS of the spri
   server-side logic behind them is covered by the GameTests, KubeJS tests and pack checks.
 - **Manual progression.** The checks give gear, levels and inputs directly; they do not prove that a player can
   earn them in a reasonable time (balance).
-- **`kubejs/_unported/`, version bump, README note.** Release steps, not behaviour.
+- **Version bump, README note.** Release steps, not behaviour.
 - **Client defaults.** `check_client_defaults.py` finds a problem in `configureddefaults/options.txt` today
   (line 86 merges `onboardAccessibility` with the next option, so the game drops both), so the step has
   `continue-on-error: true` until #19 fixes the file.

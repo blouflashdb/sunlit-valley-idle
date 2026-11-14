@@ -57,6 +57,12 @@ jobs:
         run: |
           python3 tools/port/check_resourcepacks.py --download-client 1.21.1 --jars-from-lock \
             --summary "$GITHUB_STEP_SUMMARY"
+      - name: Check that every script is ported (#19)
+        # kubejs/_unported and config/_unported held the 1.20.1 files that still needed a port; they must stay gone.
+        run: |
+          for dir in kubejs/_unported config/_unported; do
+            if [ -e "$dir" ]; then echo "$dir exists: port or delete what is left"; exit 1; fi
+          done
       - name: Check client defaults (#19)
         # A known problem in configureddefaults/options.txt (line 86 merges two options) is reported but does
         # not fail the build yet; remove continue-on-error once #19 fixes it.
