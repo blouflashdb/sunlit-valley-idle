@@ -7,11 +7,18 @@ Fails if the server never reaches "Done", crashes, NeoForge reports missing depe
 logs an error. With --kubejs-tests the scripts in that folder are added as server scripts and the server
 is booted twice; each test prints "[PORT-TEST] PHASE1 <name>" on the first boot and "[PORT-TEST] PASS <name>"
 on the second (or "[PORT-TEST] FAIL <name>: ..."), so tests can check that state survives a restart.
-Runs in GitHub Actions (needs Java 21); the cloud dev container cannot reach the mod CDN.
+
+With --simulate-year (needs the sunlitidle jar as --extra-mod) a last boot runs one in-game year: the sunlitidle
+CI harness (-Dsunlitidle.ci=true, dev.sunlitidle.ci) logs in a player without a client, checks the idle skills,
+offline catch-up and the Adventuring companion in the full pack, then every day jumps to just before the
+morning and runs "tick sprint" across it, so all daily handlers run 120 times (4 seasons of 30 days). In the
+middle of each season it plants every crop and runs a farm day; at the end it checks the seasons.
+The KubeJS logs of every boot go through the error gate (kubejs_log_gate.py, allowlist
+kubejs_error_allowlist.txt). Runs in GitHub Actions (needs Java 21).
 
 Usage (from the repository root):
     python3 tools/port/server_boot_test.py --dir build/server [--extra-mod mod/build/libs/sunlitidle-0.2.0.jar]
-        [--kubejs-tests tools/port/kubejs_tests]
+        [--kubejs-tests tools/port/kubejs_tests] [--simulate-year]
 """
 import argparse
 import re
@@ -26,6 +33,10 @@ import sys
 import threading
 import time
 import urllib.request
+import queue
+
+sys.path.insert(0, str(pathlib.Path(__file__).parent))
+import kubejs_log_gate  # noqa: E402
 
 MAVEN = "https://maven.neoforged.net/releases/net/neoforged/neoforge"
 UA = {"User-Agent": "sunlit-valley-idle/server-boot-test (github.com/blouflashdb/sunlit-valley-idle)"}
@@ -37,7 +48,9 @@ FAIL_MARKERS = (
 )
 SKIP_OVERRIDES = ("kubejs/_unported", "config/_unported")
 TEST_MARKER = re.compile(r"\[PORT-TEST\] (PHASE1|PASS|FAIL) ([\w-]+)")
-KUBEJS_ERROR = "] [ERROR] "
+CI_CHECK = re.compile(r"\[CI-CHECK\] (PASS|FAIL) ([\w-]+)(?:: (.*))?")
+DAYS_PER_SEASON = 30  # 3 sub-seasons of sub_season_duration = 10 days (config/sereneseasons/seasons.toml)
+MORNING_SPRINT = 1500  # ticks from 23800 to 1300: covers every morning window of the pack scripts
 
 
 def download(url, dest, sha1=None):
@@ -74,33 +87,12 @@ def main():
     ap.add_argument("--timeout", type=int, default=900, help="seconds to wait for the world")
     ap.add_argument("--extra-mod", action="append", default=[], help="local mod jar to add, such as sunlitidle")
     ap.add_argument("--kubejs-tests", help="folder of KubeJS server scripts that print [PORT-TEST] markers")
+    ap.add_argument("--simulate-year", action="store_true", help="boot once more and simulate one in-game year")
+    ap.add_argument("--allowlist", default=str(kubejs_log_gate.DEFAULT_ALLOWLIST), help="known KubeJS errors")
     args = ap.parse_args()
 
-    lock = json.loads(pathlib.Path("pakku-lock.json").read_text())
-    pakku = json.loads(pathlib.Path("pakku.json").read_text())
-    neoforge = lock["loaders"]["neoforge"]
-    server = pathlib.Path(args.dir).resolve()
-    (server / "mods").mkdir(parents=True, exist_ok=True)
-
-    installer = server / "installer.jar"
-    download(f"{MAVEN}/{neoforge}/neoforge-{neoforge}-installer.jar", installer)
-    subprocess.run(["java", "-jar", str(installer), "--installServer", str(server)], cwd=server, check=True,
-                   stdout=subprocess.DEVNULL)
-
-    mods = [p for p in lock["projects"] if p["type"] == "MOD" and p.get("side") != "CLIENT"]
-    print(f"Downloading {len(mods)} mods", flush=True)
-    with concurrent.futures.ThreadPoolExecutor(8) as pool:
-        list(pool.map(lambda p: download(p["files"][0]["url"], server / "mods" / p["files"][0]["file_name"],
-                                         p["files"][0]["hashes"].get("sha1")), mods))
-
-    for jar in args.extra_mod:
-        shutil.copy2(jar, server / "mods" / pathlib.Path(jar).name)
-
-    copy_overrides(pakku, server)
-    (server / "eula.txt").write_text("eula=true\n")
-    (server / "server.properties").write_text("online-mode=false\nlevel-seed=sunlit\n")
-    (server / "user_jvm_args.txt").write_text("-Xmx6G\n")
-    os.chmod(server / "run.sh", 0o755)
+    server = install(args.dir, args.extra_mod)
+    allowlist = kubejs_log_gate.load_allowlist(args.allowlist)
 
     tests = []
     if args.kubejs_tests:
@@ -121,11 +113,7 @@ def main():
         results.append(markers)
         errors += kubejs_errors(server, boot)
 
-    if errors:
-        print("KubeJS errors:")
-        for line in errors:
-            print("  " + line)
-    failed = bool(errors)
+    failed = kubejs_log_gate.gate(errors, allowlist, "KubeJS errors at startup (test boots)") > 0
     for name in tests:
         first = results[0].get(name, [])
         second = results[1].get(name, [])
@@ -134,71 +122,215 @@ def main():
             failed = True
         else:
             print(f"KubeJS test {name} passed")
+
+    if args.simulate_year:
+        print("=== Boot 3: one in-game year", flush=True)
+        checks = simulate_year(server, args.timeout)
+        year_errors = kubejs_errors(server, "year")
+        failed |= kubejs_log_gate.gate(year_errors, allowlist, "KubeJS errors during the simulated year") > 0
+        print("=== Pack checks (dev.sunlitidle.ci)")
+        for name, (status, message) in checks.items():
+            print(f"  {status} {name}{': ' + message if message else ''}")
+        failed |= not checks or any(status != "PASS" for status, _ in checks.values())
+
+    kubejs_log_gate.report_stale(allowlist)
     if failed:
-        raise SystemExit("KubeJS errors or failed KubeJS tests")
+        raise SystemExit("KubeJS errors, failed KubeJS tests or failed pack checks (see the lists above)")
     print("Server booted into a world and stopped cleanly.")
+
+
+def install(directory, extra_mods):
+    """Installs NeoForge, the server mods of the lock, the extra mods and the overrides. Returns the folder."""
+    lock = json.loads(pathlib.Path("pakku-lock.json").read_text())
+    pakku = json.loads(pathlib.Path("pakku.json").read_text())
+    neoforge = lock["loaders"]["neoforge"]
+    server = pathlib.Path(directory).resolve()
+    (server / "mods").mkdir(parents=True, exist_ok=True)
+
+    installer = server / "installer.jar"
+    download(f"{MAVEN}/{neoforge}/neoforge-{neoforge}-installer.jar", installer)
+    subprocess.run(["java", "-jar", str(installer), "--installServer", str(server)], cwd=server, check=True,
+                   stdout=subprocess.DEVNULL)
+
+    mods = [p for p in lock["projects"] if p["type"] == "MOD" and p.get("side") != "CLIENT"]
+    print(f"Downloading {len(mods)} mods", flush=True)
+    with concurrent.futures.ThreadPoolExecutor(8) as pool:
+        list(pool.map(lambda p: download(p["files"][0]["url"], server / "mods" / p["files"][0]["file_name"],
+                                         p["files"][0]["hashes"].get("sha1")), mods))
+
+    for jar in extra_mods:
+        shutil.copy2(jar, server / "mods" / pathlib.Path(jar).name)
+
+    copy_overrides(pakku, server)
+    (server / "eula.txt").write_text("eula=true\n")
+    (server / "server.properties").write_text("online-mode=false\nlevel-seed=sunlit\n")
+    (server / "user_jvm_args.txt").write_text("-Xmx6G\n")
+    os.chmod(server / "run.sh", 0o755)
+    return server
+
+
+class Server:
+    """A running server: console lines go to stdout and to a queue that wait_for reads."""
+
+    def __init__(self, server, timeout):
+        self.proc = subprocess.Popen(["./run.sh", "nogui"], cwd=server, stdin=subprocess.PIPE,
+                                     stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1)
+        self.lines = queue.Queue()
+        self.fail = None
+        self.done = False
+        self.timer = threading.Timer(timeout, self.proc.kill)
+        self.timer.start()
+        threading.Thread(target=self._read, daemon=True).start()
+
+    def _read(self):
+        for line in self.proc.stdout:
+            sys.stdout.write(line)
+            if any(m in line for m in FAIL_MARKERS) and not self.fail:
+                self.fail = line.strip()
+            if "Done (" in line and 'For help, type "help"' in line:
+                self.done = True
+            self.lines.put(line)
+        self.lines.put(None)
+
+    def send(self, command):
+        print(f">>> {command}", flush=True)
+        self.proc.stdin.write(command + "\n")
+        self.proc.stdin.flush()
+
+    def wait_for(self, pattern, seconds):
+        """Returns the first console line that matches pattern, or None after seconds or when the server exits."""
+        regex = re.compile(pattern)
+        end = time.monotonic() + seconds
+        while time.monotonic() < end:
+            try:
+                line = self.lines.get(timeout=max(0.1, end - time.monotonic()))
+            except queue.Empty:
+                return None
+            if line is None:
+                self.lines.put(None)
+                return None
+            if regex.search(line):
+                return line
+        return None
+
+    def stop(self):
+        if self.proc.poll() is None:
+            try:
+                self.send("stop")
+            except (BrokenPipeError, ValueError):
+                pass
+        try:
+            self.proc.wait(timeout=300)
+        except subprocess.TimeoutExpired:
+            self.proc.kill()
+            self.proc.wait()
+        self.timer.cancel()
 
 
 def run_server(server, timeout, wait_for):
     """Runs the server until it is up (and the KubeJS tests reported), stops it, returns test markers."""
-    proc = subprocess.Popen(["./run.sh", "nogui"], cwd=server, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
-                            stderr=subprocess.STDOUT, text=True, bufsize=1)
-    state = {"done": False, "fail": None, "stopped": False}
+    srv = Server(server, timeout)
     markers = {}
-    timer = threading.Timer(timeout, proc.kill)
-    timer.start()
+    up = False
+    grace_end = None
+    while True:
+        line = srv.wait_for(r".", 5)
+        if line is None and srv.proc.poll() is not None:
+            break
+        if line:
+            m = TEST_MARKER.search(line)
+            if m:
+                markers.setdefault(m.group(2), []).append(m.group(1))
+        if srv.done and not up:
+            up = True
+            # Tests run on ServerEvents.loaded, right after "Done"; give them a moment.
+            grace_end = time.monotonic() + (60 if wait_for else 0)
+        if up and (wait_for <= markers.keys() or time.monotonic() >= grace_end):
+            break
+    srv.stop()
+    check_boot(server, srv)
+    return markers
 
-    def stop():
-        if not state["stopped"]:
-            state["stopped"] = True
-            proc.stdin.write("stop\n")
-            proc.stdin.flush()
 
-    grace = None
-    for line in proc.stdout:
-        sys.stdout.write(line)
-        if any(m in line for m in FAIL_MARKERS) and not state["fail"]:
-            state["fail"] = line.strip()
-        m = TEST_MARKER.search(line)
-        if m:
-            markers.setdefault(m.group(2), []).append(m.group(1))
-        if "Done (" in line and 'For help, type "help"' in line and not state["done"]:
-            state["done"] = True
-            if wait_for:
-                # Tests run on ServerEvents.loaded, right after "Done"; give them a moment.
-                grace = threading.Timer(60, stop)
-                grace.start()
-            else:
-                stop()
-        if state["done"] and wait_for and wait_for <= markers.keys() and not state["stopped"]:
-            stop()
-    proc.wait()
-    timer.cancel()
-    if grace:
-        grace.cancel()
-
+def check_boot(server, srv):
     log = server / "logs" / "latest.log"
     if log.exists():
         text = log.read_text(errors="replace")
         for m in FAIL_MARKERS:
-            if m in text and not state["fail"]:
-                state["fail"] = m
-    if state["fail"] or not state["done"]:
+            if m in text and not srv.fail:
+                srv.fail = m
+    if srv.fail or not srv.done:
         # The crash report only says "See logs/kubejs/startup.log"; print the script errors here.
-        for line in kubejs_errors(server, "failed"):
-            print(line)
-        raise SystemExit(f"Server boot failed: {state['fail'] or 'never reached Done'}")
-    return markers
+        for label, line in kubejs_errors(server, "failed"):
+            print(f"[{label}] {line}")
+        raise SystemExit(f"Server boot failed: {srv.fail or 'never reached Done'}")
+
+
+def simulate_year(server, timeout):
+    """Boot 3: the CI harness checks, then one in-game year. Returns {check name: (PASS|FAIL, message)}."""
+    ci_scripts = server / "kubejs" / "server_scripts" / "_ci"
+    if ci_scripts.exists():
+        # The KubeJS tests expect two boots; their blocks stay in the world and keep ticking.
+        shutil.rmtree(ci_scripts)
+    jvm_args = server / "user_jvm_args.txt"
+    jvm_args.write_text(jvm_args.read_text() + "-Dsunlitidle.ci=true\n")
+    year_timeout = timeout + 7200
+    srv = Server(server, year_timeout)
+    checks = {}
+
+    def command(cmd, seconds=300):
+        srv.send(cmd)
+        if cmd.startswith("sunlitidle_ci "):
+            name = cmd.removeprefix("sunlitidle_ci ")
+            if not srv.wait_for(r"\[CI-CHECK\] END " + re.escape(name), seconds):
+                raise SystemExit(f"No answer to /{cmd}")
+
+    def collect():
+        log = server / "logs" / "latest.log"
+        for line in log.read_text(errors="replace").splitlines():
+            m = CI_CHECK.search(line)
+            if m:
+                checks[m.group(2)] = (m.group(1), m.group(3) or "")
+
+    try:
+        if not srv.wait_for(r'Done \(.*For help, type "help"', timeout):
+            raise SystemExit(f"Server boot failed: {srv.fail or 'never reached Done'}")
+        command("sunlitidle_ci join")
+        # Ten seconds online catch up the two hours of seeded offline time (900 s per second).
+        sprint(srv, 400)
+        command("sunlitidle_ci check idle", 600)
+        started = time.monotonic()
+        for day in range(1, 4 * DAYS_PER_SEASON + 1):
+            command("sunlitidle_ci nextday")
+            sprint(srv, MORNING_SPRINT)
+            if day % DAYS_PER_SEASON == DAYS_PER_SEASON // 2:
+                command("sunlitidle_ci season", 600)
+            if day % 10 == 0:
+                print(f"=== Day {day} of {4 * DAYS_PER_SEASON} after {time.monotonic() - started:.0f} s", flush=True)
+        command("sunlitidle_ci check year")
+        command("save-all flush", 0)
+        srv.wait_for(r"Saved the game", 300)
+    finally:
+        srv.stop()
+    check_boot(server, srv)
+    collect()
+    return checks
+
+
+def sprint(srv, ticks):
+    srv.send(f"tick sprint {ticks}")
+    if not srv.wait_for(r"Sprint completed", 1800):
+        raise SystemExit(f"tick sprint {ticks} did not finish: {srv.fail or 'no report'}")
 
 
 def kubejs_errors(server, boot):
+    """The KubeJS error lines of the last boot, as (log label, line); keeps a copy of each log per boot."""
     lines = []
     for name in ("startup", "server"):
         log = server / "logs" / "kubejs" / f"{name}.log"
         if log.exists():
-            text = log.read_text(errors="replace")
             shutil.copy2(log, log.with_name(f"{name}-boot{boot}.log"))
-            lines += [f"[{name}.log, boot {boot}] {l}" for l in text.splitlines() if KUBEJS_ERROR in l]
+            lines += kubejs_log_gate.error_lines(log, f"{name}.log, boot {boot}")
     return lines
 
 

@@ -2,6 +2,8 @@ name: Build mod and pack
 
 # Port branch (epic #5): builds the sunlitidle mod on 1.21.1 NeoForge, runs its unit and game tests,
 # exports the pack with it and boots a NeoForge server with the whole pack plus the mod as a smoke test.
+# The server job also simulates one in-game year and gates on KubeJS errors; the client job boots the
+# client headless into the server. docs/port/playthrough-checklist.md maps the #19 checklist to these checks.
 on:
   push:
   pull_request:
@@ -39,6 +41,11 @@ jobs:
           grep -E "All [0-9]+ required tests passed" gametest.log
       - name: Check loading screen tips (#18)
         run: python3 tools/port/check_tips.py
+      - name: Check client defaults (#19)
+        # Known problems in configureddefaults/options.txt (a merged line, three resource packs with 1.20.1
+        # file names) are reported but do not fail the build yet; remove continue-on-error once #19 fixes them.
+        continue-on-error: true
+        run: python3 tools/port/check_client_defaults.py
       - name: Export CurseForge pack
         run: |
           JAR=$(ls mod/build/libs/sunlitidle-*.jar | grep -v -- '-sources' | head -n1)
@@ -60,6 +67,7 @@ jobs:
   server-boot:
     needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 150
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-java@v6
@@ -70,11 +78,14 @@ jobs:
         with:
           name: sunlitidle-mod
           path: build/mod
-      - name: Boot a NeoForge server with the pack and the mod
+      - name: Boot a NeoForge server with the pack and the mod, then simulate one in-game year
         run: |
+          set -o pipefail
           JAR=$(ls build/mod/sunlitidle-*.jar | grep -v -- '-sources' | head -n1)
-          python3 tools/port/server_boot_test.py --dir build/server --extra-mod "$JAR" --kubejs-tests tools/port/kubejs_tests
-          # KubeJS must load without errors and the KubeJS tests must pass (the script fails otherwise).
+          python3 tools/port/server_boot_test.py --dir build/server --extra-mod "$JAR" --kubejs-tests tools/port/kubejs_tests \
+            --simulate-year 2>&1 | tee build/server-boot.log
+          # KubeJS must load without errors (tools/port/kubejs_error_allowlist.txt lists known ones), the KubeJS tests
+          # and the pack checks of the year (dev.sunlitidle.ci) must pass; the script fails otherwise.
           # The mod must have loaded, and Pufferfish's Skills must have accepted its skill categories.
           grep -q "sunlitidle" build/server/logs/latest.log
           if grep -q "Data pack \`sunlitidle\` could not be loaded" build/server/logs/latest.log; then
@@ -89,12 +100,81 @@ jobs:
       - name: Report Pufferfish's Skills config problems
         if: always()
         run: grep -n -i -E "puffish|skills.*(error|invalid)" build/server/logs/latest.log | head -50 || true
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "## Server boot and simulated year"
+            echo '```'
+            grep -E "^=== |^  (ERROR|allowed|stale|PASS|FAIL)|^KubeJS test .* failed" build/server-boot.log | head -300 || true
+            echo '```'
+            echo "### Performance (not gated)"
+            echo '```'
+            grep -oE "Done \([0-9.]+s\)" build/server-boot.log || true
+            grep -oE "Sprint completed with [0-9.]+ ticks per second" build/server-boot.log \
+              | awk '{s+=$4; n++} END {if (n) printf "simulated year: %d sprints, average %.0f ticks per second\n", n, s/n}' || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
       - name: Upload server logs
         if: always()
         uses: actions/upload-artifact@v7
         with:
           name: server-logs
           path: |
+            build/server-boot.log
             build/server/logs/
             build/server/crash-reports/
+          if-no-files-found: ignore
+
+  client-boot:
+    # Boots the client with the whole pack on a virtual display with software OpenGL (Mesa llvmpipe) and joins a
+    # pack server: screenshot, KubeJS client errors, renderer (Iris/Sodium), FancyMenu and resource pack errors.
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v7
+        with:
+          name: sunlitidle-mod
+          path: build/mod
+      - name: Install Xvfb, Mesa, ImageMagick and portablemc
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q --no-install-recommends xvfb imagemagick libgl1-mesa-dri libglx-mesa0 libegl1 \
+            libgl1 libxrandr2 libxxf86vm1 libxcursor1 libxi6 libxtst6
+          pip install portablemc==4.4.1
+      - name: Boot the client into a pack server
+        run: |
+          set -o pipefail
+          JAR=$(ls build/mod/sunlitidle-*.jar | grep -v -- '-sources' | head -n1)
+          python3 tools/port/client_boot_test.py --dir build/client --extra-mod "$JAR" 2>&1 | tee build/client-boot.log
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "## Client boot"
+            echo '```'
+            grep -E "^=== |^  (ERROR|allowed|stale)|^Server saw|^Screenshot|^Client|failed" build/client-boot.log | head -200 || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload client screenshot and logs
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: client-logs
+          path: |
+            build/client-boot.log
+            build/client/*.png
+            build/client/client-console.log
+            build/client/game/logs/
+            build/client/game/crash-reports/
+            build/client/server/logs/
           if-no-files-found: ignore
