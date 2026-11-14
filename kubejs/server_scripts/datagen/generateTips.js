@@ -1,6 +1,5 @@
-
-
-
+// Writes the loading screen tips (Tips 21.1 format: {"type": "tipsmod:simple", "text": ...}) and their English
+// lang file. Uncomment the block and reload once to regenerate them; the output is committed under kubejs/assets.
 // if (true) {
 //     let translationKeys = {};
 //     [
@@ -27,7 +26,6 @@
 //         { title: "prize_machine_one", content: "Certain fruit trees can only be obtained through the Prize Machine." },
 //         { title: "wise_oak", content: "If you find an oak tree that claims to be wise, take a moment to listen." },
 //         { title: "roe_value", content: "The more valuable a fish is, the more valuable their roe will be." },
-//         { title: "balloons", content: "Make sure to look at the sky every once in a while. There might be a balloon you can pop!" },
 //         { title: "enriched_bonemeal", content: "Enriched Bonemeal can grow Glow Berries and duplicate tea flowers." },
 //         { title: "skill_books", content: "Wandering Traders have a chance to sell special skill books." },
 //         { title: "pet_gifts", content: "Pets will give you special items at 10 hearts of affection." },
@@ -40,7 +38,6 @@
 //         { title: "husbandry_deployer", content: "Farm animals dislike the cold, unfeeling hand of a Deployer." },
 //         { title: "eternal_summer_jungle", content: "Jungle and Savanna biomes are permanently in Summer." },
 //         { title: "husbandry_magic_shears", content: "Magic Shears feel strange and a little unpleasant." },
-//         { title: "hamsters", content: "Do not feed Hamsters." },
 //         { title: "husbandry_hand_feed", content: "Feeding Troughs are convenient ways to feed animals, but they absolutely love being fed by hand." },
 //         { title: "golden_egg_two", content: "Golden Eggs may contain something prismatic..." },
 //         { title: "lunchboxes", content: "Lunchbags & Lunchboxes can be directly eaten out of to avoid inventory food clutter." },
@@ -69,7 +66,6 @@
 //         { title: "tubasmoke_stick", content: "Tubasmoke kills..." },
 //         { title: "lets_go_gambling", content: "Let's go gambling! ...Aw dangit." },
 //         { title: "husbandry_naming", content: "Please name your farm animals." },
-//         { title: "balloon_seeds_two", content: "Tea Blossoms can be found in Green Balloons." },
 //         { title: "copycats", content: "Zinc can be used to create Copycat blocks. They're a builder's best friend." },
 //         { title: "quality_seeds", content: "High quality seeds have a higher chance of growing high quality crops." },
 //         { title: "passable_leaves", content: "Any leaf block is able to be walked through, and can even cushion your fall." },
@@ -79,7 +75,6 @@
 //         { title: "sol_onion", content: "Maintaining a diet of diverse foods will provide you with constant buffs." },
 //         { title: "fire_quartz_two", content: "Fire Quartz gives off low levels of light." },
 //         { title: "husbandry_babies", content: "Raising a farm animal as a baby will make them like you more." },
-//         { title: "balloon_seeds_one", content: "Cotton Seeds can be found in Green Balloons." },
 //         { title: "boomcat_slimes", content: "Boomcat Slimes gently explode when hungry." },
 //         { title: "earth_crystals_two", content: "Earth Crystals give off tiny amounts of light." },
 //         { title: "husbandry_sheep_milk", content: "Sheep can be milked, but it takes twice as long to produce it as Cows." },
@@ -118,7 +113,8 @@
 //     ].forEach((tip) => {
 //         translationKeys[`society_tips.tip.${tip.title}`] = tip.content;
 //         JsonIO.write(`kubejs/assets/society/tips/${tip.title}.json`, {
-//             "tip": {
+//             "type": "tipsmod:simple",
+//             "text": {
 //                 "translate": `society_tips.tip.${tip.title}`
 //             }
 //         });

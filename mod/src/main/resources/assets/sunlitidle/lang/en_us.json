@@ -343,5 +343,10 @@
   "sunlitidle.action.slime_ranching.sparkcat": "Sparkcat Slimes",
   "sunlitidle.action.slime_ranching.sparkcat_treat": "Sparkcat Slimes (favorite food)",
   "sunlitidle.action.slime_ranching.gold": "Gold Slimes",
-  "sunlitidle.action.slime_ranching.gold_treat": "Gold Slimes (favorite food)"
+  "sunlitidle.action.slime_ranching.gold_treat": "Gold Slimes (favorite food)",
+  "config.jade.plugin_sunlitidle.block_info": "Sunlit Valley machine info",
+  "config.jade.plugin_sunlitidle.crop_growth": "Crop growth days",
+  "jade.sunlitidle.crop_growth": "Growth: %s/%s Days",
+  "jade.sunlitidle.crop_growth.mature": "Mature",
+  "jade.sunlitidle.crop_growth.stop": "Cannot grow"
 }

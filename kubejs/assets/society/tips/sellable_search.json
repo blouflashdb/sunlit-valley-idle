@@ -1,5 +1,6 @@
 {
-	"tip": {
-		"translate": "society_tips.tip.sellable_search"
-	}
+  "type": "tipsmod:simple",
+  "text": {
+    "translate": "society_tips.tip.sellable_search"
+  }
 }

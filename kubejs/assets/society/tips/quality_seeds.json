@@ -1,5 +1,6 @@
 {
-	"tip": {
-		"translate": "society_tips.tip.quality_seeds"
-	}
+  "type": "tipsmod:simple",
+  "text": {
+    "translate": "society_tips.tip.quality_seeds"
+  }
 }

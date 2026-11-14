@@ -343,5 +343,10 @@
   "sunlitidle.action.slime_ranching.sparkcat": "Sparkcat-Schleime",
   "sunlitidle.action.slime_ranching.sparkcat_treat": "Sparkcat-Schleime (Lieblingsfutter)",
   "sunlitidle.action.slime_ranching.gold": "Gold-Schleime",
-  "sunlitidle.action.slime_ranching.gold_treat": "Gold-Schleime (Lieblingsfutter)"
+  "sunlitidle.action.slime_ranching.gold_treat": "Gold-Schleime (Lieblingsfutter)",
+  "config.jade.plugin_sunlitidle.block_info": "Sunlit-Valley-Maschineninfo",
+  "config.jade.plugin_sunlitidle.crop_growth": "Wachstumstage von Pflanzen",
+  "jade.sunlitidle.crop_growth": "Wachstum: %s/%s Tage",
+  "jade.sunlitidle.crop_growth.mature": "Reif",
+  "jade.sunlitidle.crop_growth.stop": "Kann nicht wachsen"
 }

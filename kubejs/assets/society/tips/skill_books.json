@@ -1,5 +1,6 @@
 {
-	"tip": {
-		"translate": "society_tips.tip.skill_books"
-	}
+  "type": "tipsmod:simple",
+  "text": {
+    "translate": "society_tips.tip.skill_books"
+  }
 }

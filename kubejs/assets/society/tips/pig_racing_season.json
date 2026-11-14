@@ -1,5 +1,6 @@
 {
-	"tip": {
-		"translate": "society_tips.tip.pig_racing_season"
-	}
+  "type": "tipsmod:simple",
+  "text": {
+    "translate": "society_tips.tip.pig_racing_season"
+  }
 }

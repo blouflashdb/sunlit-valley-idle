@@ -1,5 +1,6 @@
 {
-	"tip": {
-		"translate": "society_tips.tip.lunchboxes"
-	}
+  "type": "tipsmod:simple",
+  "text": {
+    "translate": "society_tips.tip.lunchboxes"
+  }
 }
