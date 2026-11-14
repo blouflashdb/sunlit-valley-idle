@@ -3,7 +3,7 @@
   "name": {
     "translate": "shop.society_trading.market"
   },
-  "texture": "dialog:textures/portraits/market",
+  "texture": "sunlitidle:textures/portraits/market",
   "entity": "farmingforblockheads:merchant",
   "villager_profession": "farmer",
   "stage_required": "invited_market",

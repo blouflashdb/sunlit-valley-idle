@@ -16,7 +16,7 @@
       ],
       "portraits": [
         {
-          "path": "liked/trader.png",
+          "path": "sunlitidle:liked/trader.png",
           "position": "INLINE",
           "brightness": 1
         }

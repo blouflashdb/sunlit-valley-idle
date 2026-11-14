@@ -3,7 +3,7 @@
   "name": {
     "translate": "shop.society_trading.librarian"
   },
-  "texture": "dialog:textures/portraits/librarian",
+  "texture": "sunlitidle:textures/portraits/librarian",
   "villager_profession": "weaponsmith",
   "stage_required": "invited_librarian",
   "jei_catalyst": {

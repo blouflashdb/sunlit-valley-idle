@@ -16,7 +16,7 @@
       ],
       "portraits": [
         {
-          "path": "loved/blacksmith.png",
+          "path": "sunlitidle:loved/blacksmith.png",
           "position": "INLINE",
           "brightness": 1
         }
@@ -35,7 +35,7 @@
       ],
       "portraits": [
         {
-          "path": "loved/blacksmith.png",
+          "path": "sunlitidle:loved/blacksmith.png",
           "position": "INLINE",
           "brightness": 1
         }
