@@ -263,36 +263,6 @@
       "blacklisted_biomes": []
     },
     {
-      "name": "farmlife:greenhouse",
-      "is_disabled": true,
-      "enable_flatness_check": false,
-      "flatness_check_distance": 1,
-      "flatness_check_threshold": 10,
-      "enable_biome_check": false,
-      "biome_check_distance": 1,
-      "biome_check_mode": "BLACKLIST",
-      "biome_check_blacklisted_biomes": [
-        "#is_river"
-      ],
-      "whitelisted_biomes": [],
-      "blacklisted_biomes": []
-    },
-    {
-      "name": "farmlife:tribull_ranch",
-      "is_disabled": true,
-      "enable_flatness_check": false,
-      "flatness_check_distance": 1,
-      "flatness_check_threshold": 10,
-      "enable_biome_check": false,
-      "biome_check_distance": 1,
-      "biome_check_mode": "BLACKLIST",
-      "biome_check_blacklisted_biomes": [
-        "#is_river"
-      ],
-      "whitelisted_biomes": [],
-      "blacklisted_biomes": []
-    },
-    {
       "name": "mvs:acacia_tree",
       "is_disabled": true,
       "enable_flatness_check": false,
@@ -441,51 +411,6 @@
         "#is_river",
         "#is_ocean",
         "#is_beach"
-      ],
-      "whitelisted_biomes": [],
-      "blacklisted_biomes": []
-    },
-    {
-      "name": "species:spectralibur_chamber",
-      "is_disabled": true,
-      "enable_flatness_check": false,
-      "flatness_check_distance": 0,
-      "flatness_check_threshold": 10,
-      "enable_biome_check": false,
-      "biome_check_distance": 0,
-      "biome_check_mode": "BLACKLIST",
-      "biome_check_blacklisted_biomes": [
-        "#is_river"
-      ],
-      "whitelisted_biomes": [],
-      "blacklisted_biomes": []
-    },
-    {
-      "name": "verdantvibes:oak_overgrown_hut",
-      "is_disabled": true,
-      "enable_flatness_check": false,
-      "flatness_check_distance": 80,
-      "flatness_check_threshold": 10,
-      "enable_biome_check": false,
-      "biome_check_distance": 80,
-      "biome_check_mode": "BLACKLIST",
-      "biome_check_blacklisted_biomes": [
-        "#is_river"
-      ],
-      "whitelisted_biomes": [],
-      "blacklisted_biomes": []
-    },
-    {
-      "name": "verdantvibes:spruce_overgrown_hut",
-      "is_disabled": true,
-      "enable_flatness_check": false,
-      "flatness_check_distance": 80,
-      "flatness_check_threshold": 10,
-      "enable_biome_check": false,
-      "biome_check_distance": 80,
-      "biome_check_mode": "BLACKLIST",
-      "biome_check_blacklisted_biomes": [
-        "#is_river"
       ],
       "whitelisted_biomes": [],
       "blacklisted_biomes": []

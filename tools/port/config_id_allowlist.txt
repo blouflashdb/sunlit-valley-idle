@@ -1,0 +1,23 @@
+# Known ids of mods that are not in the pack, in the shipped configs (tools/port/check_config_ids.py).
+# Only default lists that name other mods on purpose belong here.
+# Format: <reason> | <glob of the config file> | <python regex for the id> (a line that starts with "#" is a comment)
+# Upstream default lists that name other mods on purpose (compat entries are no-ops when the mod is missing).
+AttributeFix default attribute list | config/attributefix.json | .*
+Carry On default blacklist of other mods | config/carryon-common.toml | .*
+Jade plugin order of every known addon | config/jade/sort-order.json | .*
+CSC default ban list of other Create addons | config/CSC/config.toml | .*
+CSC example rule shipped by the mod | config/CSC/online/*.json | start:test
+No Chat Reports command list (name:argument, not ids) | config/NoChatReports/NCR-Encryption.json | .*
+Tooltip Overhaul default frames of other mods | config/tooltipoverhaul/custom_frames.json | .*
+HT's TreeChop default compat lists | config/treechop-common.toml | .*
+Supplementaries default compat lists | config/supplementaries-*.toml | .*
+Quark default compat lists | config/quark-common.toml | .*
+ServerCore activation types (typeof: is its own syntax) | config/servercore/config.yml | typeof:.*
+Every Compat hazardous-wood defaults | config/everycomp-hazardous.toml | .*
+Shoulder Surfing default item lists | config/shouldersurfing-client.toml | .*
+WATUT default arm adjustments | config/watut-item-arm-adjustments.json | .*
+Small Ships default list (upstream typo alexmobs) | config/smallships-common.toml | alexmobs:.*
+ModernFix default JEI plugin blacklist | config/modernfix-common.toml | jepb:.*
+Quality Food default compat recipes and crates | defaultconfigs/quality_food-server.toml | .*
+# Not upstream: owned by another issue.
+Quest book (#18): Quests Additions break tasks (no 1.21.1 build), kept by the quest port | config/ftbquests/quests/chapters/*.snbt | questsadditions:break

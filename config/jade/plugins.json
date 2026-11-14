@@ -5,11 +5,13 @@
     "harvest_tool.show_unbreakable": false,
     "animal_owner": true,
     "harvest_tool.effective_tool": true,
-    "item_storage.normal_amount": 9,
+    "energy_storage.style": "PROGRESS_BAR",
     "item_storage": true,
+    "item_storage.normal_amount": 9,
     "harvest_tool": true,
     "armor_stand": true,
     "fluid_storage.detailed": false,
+    "next_entity_drop": true,
     "energy_storage": true,
     "entity_armor.max_for_render": 40,
     "breaking_progress": true,
@@ -26,15 +28,14 @@
     "mob_spawner": true,
     "redstone": true,
     "fluid_storage": true,
-    "chicken_egg": true,
     "jukebox": true,
     "brewing_stand": true,
     "energy_storage.detailed": false,
     "note_block": true,
+    "fluid_storage.style": "PROGRESS_BAR",
     "beehive": true,
     "item_storage.detailed_amount": 54,
     "player_head": true,
-    "block_states": false,
     "lectern": true,
     "entity_armor": true,
     "harvest_tool.creative": false,
@@ -56,9 +57,6 @@
     "show_tree_block_counts": true,
     "show_num_chops_remaining": true
   },
-  "kubejs": {
-    "shipping_bin_jade": true
-  },
   "jadeaddons.create": {
     "filter": true,
     "backtank_capacity": true,
@@ -69,29 +67,60 @@
     "goggles.detailed": false,
     "placard": true
   },
+  "jade_access": {
+    "held_item": true,
+    "sign": true,
+    "block": true,
+    "entity": true,
+    "entity_variant": true
+  },
+  "ftbquests": {
+    "barrier": true
+  },
   "jade": {
     "coordinates.rel": false,
+    "registry_name.special": false,
+    "block_states": false,
     "distance": false,
     "block_face": false,
     "coordinates": false,
     "registry_name": "OFF",
+    "block_properties": false,
     "mod_name": true
   },
   "quality_food": {
     "quality_block": true,
     "quality_mob": true
   },
-  "functionalstorage": {
-    "armory": true
-  },
   "balm": {
     "jade": true
   },
-  "society": {
-    "plushie_jade": true,
-    "crop_growth_jade": true,
-    "artisan_machine_jade": true,
-    "fish_pond_jade": true
+  "functionalstorage": {
+    "armory": true,
+    "drawer": true
+  },
+  "botania": {
+    "alfheim_portal": true,
+    "mana_storage": true,
+    "mana_spreader": true,
+    "show_numbers": true,
+    "compact_numbers": false,
+    "progress_bar_color": "#2ECC71",
+    "terra_plate": true,
+    "mana_pool": true,
+    "petal_apothecary": true,
+    "enabled": true,
+    "mana_enchanter": true,
+    "mana_spark": true,
+    "generating_flower": true,
+    "native_colors": false,
+    "brewery": true,
+    "show_binding": true,
+    "runic_altar": true,
+    "mana_pool.recipe": true,
+    "generating_flower.timers": true,
+    "functional_flower": true,
+    "mana_bar_color": "#0095FF"
   },
   "jadeaddons": {
     "equipment_requirement": ""
@@ -106,12 +135,19 @@
   "pipez": {
     "pipe": true
   },
-  "supplementaries": {
-    "hat_stand": true
+  "sunlitidle": {
+    "crop_growth": true,
+    "block_info": true
   },
   "untitledduckmod": {
     "lay_egg": true,
     "next_eat": true
+  },
+  "quark": {
+    "oretoise_eating_cooldown": true
+  },
+  "supplementaries": {
+    "hat_stand": true
   },
   "waystones": {
     "waystone": true

@@ -1,10 +1,10 @@
-
 #Options for customizing the display of tools on the player
 [display]
 	#If set to FALSE, the belts and tools will NOT draw on players.
 	showBeltOnPlayers = true
 	#Changes the scale of items on the belt.
-	#Range: 0.1 ~ 2.0
+	# Default: 0.5
+	# Range: 0.1 ~ 2.0
 	beltItemScale = 0.5
 
 #Options for customizing the radial menu
@@ -17,4 +17,3 @@
 	allowClickOutsideBounds = false
 	#If set to TRUE, the radial menu will always display all the slots, even when empty, and will allow choosing which empty slot to insert into.
 	displayEmptySlots = false
-

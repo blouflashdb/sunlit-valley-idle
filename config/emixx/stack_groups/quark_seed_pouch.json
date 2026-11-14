@@ -1,8 +1,0 @@
-{
-  "type": "emixx:group",
-  "id": "quark:seed_pouch",
-  "contents": [
-    "quark:seed_pouch"
-  ],
-  "enabled": true
-}
