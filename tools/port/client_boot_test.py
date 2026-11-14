@@ -18,6 +18,8 @@ SUNLITIDLE_CI_IDLE_SCREEN; not gated). Checks:
   (the game drops missing and incompatible packs from options.txt and logs it),
 - the server log must have no InControl rule errors (InControl repeats them in chat on the join), and no mod may
   archive or back up a config of the client or the server during the run (config_gate.py, config_gate_allowlist.txt),
+- a last start without the pack's configs lets every client mod write its 1.21.1 default config; shipped keys that
+  these defaults do not have fail the test (config_keys.py, allowlist config_keys_allowlist.txt),
 - logs/kubejs/client.log must have no errors (error gate with kubejs_error_allowlist.txt),
 - logs/latest.log must have no errors from the renderer (Iris, Sodium), FancyMenu / Drippy Loading Screen or
   resource pack loading (same allowlist). Other client errors are listed but do not fail the test.
@@ -47,6 +49,7 @@ import urllib.parse
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 import config_gate  # noqa: E402
+import config_keys  # noqa: E402
 import kubejs_log_gate  # noqa: E402
 import server_boot_test as boot  # noqa: E402
 
@@ -287,6 +290,32 @@ def check_resource_packs(game, title_log, problems):
                 problems.append(line.split("]: ", 1)[-1])
 
 
+def defaults_start(root, main_dir, game, neoforge, timeout):
+    """Starts the client once without the pack's configs, to the title screen. Returns stale key gate errors."""
+    print("=== Defaults start: the client mods write their default configs", flush=True)
+    defaults = config_keys.defaults_instance(game, root / "game-defaults")
+    log = defaults / "logs" / "latest.log"
+    with open(root / "client-console-defaults.log", "w") as console:
+        client = start_client(main_dir, defaults, neoforge, console, join=False)
+        try:
+            started = time.monotonic()
+            loaded = False
+            while time.monotonic() - started < timeout and client.poll() is None:
+                time.sleep(10)
+                if log.exists() and LOADED.search(log.read_text(errors="replace")):
+                    loaded = True
+                    time.sleep(20)
+                    break
+        finally:
+            stop_process_group(client)
+    if not loaded:
+        return [("defaults start", "the client without the pack's configs did not reach the title screen")]
+    allowlist = config_keys.load_allowlist(config_keys.DEFAULT_ALLOWLIST)
+    errors = config_keys.stale_keys(defaults, "stale key, client", client=True, allowlist=allowlist)
+    config_keys.report_stale(allowlist)
+    return errors
+
+
 class ClientFailed(Exception):
     pass
 
@@ -325,6 +354,7 @@ def main():
     client = None
     problems = []
     title_log = None
+    key_errors = []
     shot = root / "in-game.png"
     try:
         if not server.wait_for(r'Done \(.*For help, type "help"', 900):
@@ -355,6 +385,9 @@ def main():
                 else:
                     print(f"Screenshot: {shot}", flush=True)
                     idle_screenshot(root, client)
+        stop_process_group(client)
+        client = None
+        key_errors = defaults_start(root, main_dir, game, neoforge, args.join_timeout)
     except ClientFailed:
         print("The client did not load; the join is skipped", flush=True)
     finally:
@@ -374,7 +407,7 @@ def main():
             print("  " + line)
 
     config_allowlist = kubejs_log_gate.load_allowlist(args.config_allowlist)
-    config_errors = config_gate.log_errors(server_dir / "logs" / "latest.log", "server latest.log")
+    config_errors = key_errors + config_gate.log_errors(server_dir / "logs" / "latest.log", "server latest.log")
     config_errors += config_gate.log_errors(game / "logs" / "latest.log", "client latest.log")
     if title_log:
         config_errors += config_gate.log_errors(title_log, "client title-screen log")

@@ -1,0 +1,7 @@
+# Shipped config keys that the mod's 1.21.1 default config does not have, on purpose (tools/port/config_keys.py).
+# Only maps whose keys are data, and upstream quirks, belong here.
+# Format: <reason> | <glob of the shipped file> | <python regex for the dotted key>
+Jade plugin order: keys are plugin ids, the default only lists the loaded ones | config/jade/sort-order.json | .*
+Supplementaries soap map: keys are block ids or tags | config/supplementaries-common.toml | functional\.soap\.special_blocks\..*
+Structurify 2.x writes only non-default general options; the keys still exist in the mod | config/structurify.json | general\..*
+upstream Quark: hotbar_changer is a client-only module, the server default has no keys for it | config/quark-common.toml | management\.hotbar_changer\..*

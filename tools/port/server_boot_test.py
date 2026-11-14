@@ -19,7 +19,9 @@ middle of each season it plants every crop and runs a farm day; at the end it ch
 The KubeJS logs of every boot go through the error gate (kubejs_log_gate.py, allowlist
 kubejs_error_allowlist.txt). The mod config gate (config_gate.py, allowlist config_gate_allowlist.txt) fails on
 InControl rule errors in logs/latest.log and on configs that a mod archived or backed up during a boot (such as CSC's
-config_old_<date>.toml). Runs in GitHub Actions (needs Java 21).
+config_old_<date>.toml). A defaults boot starts the same mods once without the pack's configs, so every mod writes
+its 1.21.1 default config; shipped keys that these defaults do not have fail the run (config_keys.py, allowlist
+config_keys_allowlist.txt). Runs in GitHub Actions (needs Java 21).
 
 Usage (from the repository root):
     python3 tools/port/server_boot_test.py --dir build/server [--extra-mod mod/build/libs/sunlitidle-1.0.0.jar]
@@ -42,6 +44,7 @@ import queue
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 import config_gate  # noqa: E402
+import config_keys  # noqa: E402
 import kubejs_log_gate  # noqa: E402
 
 MAVEN = "https://maven.neoforged.net/releases/net/neoforged/neoforge"
@@ -105,7 +108,7 @@ def main():
     allowlist = kubejs_log_gate.load_allowlist(args.allowlist)
     config_allowlist = kubejs_log_gate.load_allowlist(args.config_allowlist)
     configs_before = config_gate.snapshot(server)
-    config_errors = []
+    config_errors = defaults_boot(server, args.timeout)
 
     tests = []
     if args.kubejs_tests:
@@ -161,6 +164,23 @@ def main():
         raise SystemExit("KubeJS errors, mod config errors, failed KubeJS tests or failed pack checks "
                          "(see the lists above)")
     print("Server booted into a world and stopped cleanly.")
+
+
+def defaults_boot(server, timeout):
+    """Starts the server mods once without the pack's configs and compares the keys. Returns gate errors."""
+    print("=== Defaults boot: the mods write their default configs", flush=True)
+    defaults = config_keys.defaults_instance(server, server.parent / f"{server.name}-defaults")
+    srv = Server(defaults, timeout)
+    try:
+        up = srv.wait_for(r'Done \(.*For help, type "help"', timeout)
+    finally:
+        srv.stop()
+    if not up:
+        return [("defaults boot", f"the server without the pack's configs did not start: {srv.fail or 'no Done'}")]
+    allowlist = config_keys.load_allowlist(config_keys.DEFAULT_ALLOWLIST)
+    errors = config_keys.stale_keys(defaults, "stale key, server", allowlist=allowlist)
+    config_keys.report_stale(allowlist)
+    return errors
 
 
 def install(directory, extra_mods):

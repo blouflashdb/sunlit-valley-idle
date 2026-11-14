@@ -27,16 +27,11 @@ UUID = "0c0fdd5e-380f-4d8f-9eb2-c057811e0481"
     # The time if checker is timeout!
     DelayTime = 10
     # #----------------------------------------------------------------------
-    # Whether to show the startup security notice for mod id whitelist mode
-    ShowWhitelistModeNotice = false
-    # #----------------------------------------------------------------------
-    # Whether to remove entities. When set to true, entities inside the schematic will be cleared, except those listed in the whitelist.
-    # Enabling this feature can prevent all potential entity NBT duplication exploits, and also block armor stands from obtaining creative items.
-    # It is recommended to enable this feature!
-    KillEntity = true
-    # #----------------------------------------------------------------------
     # Whether to enable mod id whitelist mode. Recommended to enable, as it can directly eliminate blueprint vulnerabilities caused by unfamiliar mods
     WhiteListModEnable = true
+    # #----------------------------------------------------------------------
+    # Whether to show the startup security notice for mod id whitelist mode
+    ShowWhitelistModeNotice = false
     # #----------------------------------------------------------------------
     # Only mods listed here will be allowed to retain NBT. Enter the modid (e.g., for minecraft:dirt, enter minecraft)
     WhiteListModList = [
@@ -107,6 +102,11 @@ UUID = "0c0fdd5e-380f-4d8f-9eb2-c057811e0481"
         "minecraft:container",
         "minecraft:attribute_modifiers" ]
     # #----------------------------------------------------------------------
+    # Whether to remove entities. When set to true, entities inside the schematic will be cleared, except those listed in the whitelist.
+    # Enabling this feature can prevent all potential entity NBT duplication exploits, and also block armor stands from obtaining creative items.
+    # It is recommended to enable this feature!
+    KillEntity = true
+    # #----------------------------------------------------------------------
     # When the KillEntity feature is set to false, this feature will be enabled. Any entity listed here will be removed from the schematic.
     # However, entities in the whitelist cannot be removed, so do not use the same ID in both lists.
     # Block/entity ID lists support * in the path only. The namespace must match exactly. Example: create:*_valve_handle matches create:brass_valve_handle; * does not match across the colon.
@@ -151,6 +151,18 @@ UUID = "0c0fdd5e-380f-4d8f-9eb2-c057811e0481"
     # If disabled, fluid tank mismatch keeps the original behavior: mark as cheat and block upload.
     TryRemoveFluidTankNotKill = true
     # #----------------------------------------------------------------------
+    # Fix Create pipe duplication of lava from Quark lava-logged blocks. Disabled by default; enable it to apply the fix.
+    fixQuarkLavaFluidloggedDuplication = false
+    # #----------------------------------------------------------------------
+    # Validate player chain-conveyor riding packets to prevent forged movement time or position. Enabled by default; disabling restores Create's original behavior.
+    validateChainConveyorRidingPacket = true
+    # #----------------------------------------------------------------------
+    # Validate Create filter item packets so only an identical item truly present in the player's inventory may be stored as a filter sample. Enabled by default; disabling restores Create's original behavior.
+    validateFilterScreenPacket = true
+    # #----------------------------------------------------------------------
+    # Block Create's radial wrench menu packet that lets a client submit a block rotation or state change. Disabled by default; enable only when this protection is required.
+    blockRadialWrenchMenuPacket = false
+    # #----------------------------------------------------------------------
     # Maximum allowed number of mismatched conveyor belts. If the number of conveyor belts with mismatched checksums in the schematic exceeds this threshold, the schematic will be deemed a cheat schematic
     # If the number of mismatches in the schematic is less than this value, the problematic conveyor belts will be removed
     maxBeltCheatLimit = 10
@@ -165,12 +177,6 @@ UUID = "0c0fdd5e-380f-4d8f-9eb2-c057811e0481"
     # #----------------------------------------------------------------------
     # Conveyor's max degree, Can't get more than 45degree in Create. Only change nbt can.
     maxConveyorAllowDegree = 45
-    # #----------------------------------------------------------------------
-    # Fix Create pipe duplication of lava from Quark lava-logged blocks. Disabled by default; enable it to apply the fix.
-    fixQuarkLavaFluidloggedDuplication = false
-    # #----------------------------------------------------------------------
-    # Block Create's radial wrench menu packet that lets a client submit a block rotation or state change. Disabled by default; enable only when this protection is required.
-    blockRadialWrenchMenuPacket = false
 
 [online]
     # #----------------------------------------------------------------------
@@ -196,12 +202,6 @@ UUID = "0c0fdd5e-380f-4d8f-9eb2-c057811e0481"
     # #----------------------------------------------------------------------
     # Upload samples classified as CannotCheck, Problem, Cheat, or modified by mod whitelist filtering. Default is true; samples are used only to improve CSC detection rules.
     report = true
-    # #----------------------------------------------------------------------
-    # Validate player chain-conveyor riding packets to prevent forged movement time or position. Enabled by default; disabling restores Create's original behavior.
-    validateChainConveyorRidingPacket = true
-    # #----------------------------------------------------------------------
-    # Validate Create filter item packets so only an identical item truly present in the player's inventory may be stored as a filter sample. Enabled by default; disabling restores Create's original behavior.
-    validateFilterScreenPacket = true
     # #----------------------------------------------------------------------
     # CSC v2 report endpoint. Keep the default HTTPS address unless you operate a compatible private ingress.
     reportEndpoint = "https://api.torqueflux.com/v2/uploadfile/"
