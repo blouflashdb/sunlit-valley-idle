@@ -136,10 +136,10 @@
 	#Disables Amendments suggestion screen
 	no_amendments_screen = false
 	#Enable Quark style config button on main menu. Needs Configured installed to work
-	config_button = false
+	configs_button = false
 	#Config button Y offset
 	#Range: -10000 ~ 10000
-	config_button_y_offset = 0
+	configs_button_y_offset = 0
 	#Show some tooltip hints to guide players through the mod
 	tooltip_hints = true
 	#Show tooltips items that have been made placeable

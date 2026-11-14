@@ -87,6 +87,14 @@ both icons stayed at their vanilla place on top of the moved Singleplayer and Op
 creates them, before FancyMenu reads the widgets. The keys translate to the same text, so only FancyMenu sees
 a difference, and the layouts place the buttons next to Quit and Mods again, as on 1.20.1.
 
+**Other title screen icons.** Two more 20x20 icon buttons sat on the menu buttons: the Supplementaries config
+button (a gear, over Singleplayer/Multiplayer) and the Create config button (goggles). Supplementaries renamed
+its option to `configs_button` on 1.21.1, so the old `config_button = false` no longer switched it off; the
+file now uses the new key. The 1.20.1 layout hid the Create button through a position-based identifier, which
+matches nothing on 1.21.1; `mainMenuConfigButtonRow = 0` in `config/create-client.toml` turns it off instead.
+With `-Dsunlitidle.ci=true` (client-boot job) the sunlitidle mod logs every title screen widget with its class,
+message key and bounds, which shows the mod behind such a button.
+
 **Removed layout entries.** The Forge-only deep elements `title_screen_forge_copyright` and
 `title_screen_forge_top` and the numeric (position-based) widget identifiers from 1.20.1 (`376322` on the
 title screens, `374300`, `398348` and `40` on the pause screen) matched nothing on 1.21.1 and are removed.
