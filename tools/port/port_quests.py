@@ -39,6 +39,8 @@ SUBSTITUTES = {
     "crabbersdelight:squid_kebob": "crabbersdelight:squid_kebab",
     "smallships:sail": "smallships:cotton_sails",
     "refinedstorageaddons:wireless_crafting_grid": "refinedstorage:wireless_grid",
+    "meadow:fire_log": "meadow:firewood",
+    "supplementaries:sign_post_oak": "supplementaries:way_sign_oak",
 }
 # Items that are gone without a replacement: tasks and rewards with them are removed.
 REMOVED = {
@@ -65,6 +67,10 @@ REMOVED = {
     "beachparty:sweetberry_milkshake", "society:fantasy_catalog",
     "society:car_key",  # parks an Automobility car
     "candlelight:khinkali", "netherdepthsupgrade:baked_lava_pufferfish_stew",
+    # Icons only: Let's Do moved the bakery and candlelight standards and the hearth out of 1.21.1, Fantasy's
+    # Furniture is gone.
+    "bakery:bakery_standard", "candlelight:candlelight_standard", "candlelight:hearth",
+    "fantasyfurniture:decorations/bone_skeleton_skull_blossoms",
     "relics:arrow_quiver", "relics:horse_flute", "relics:spatial_sign", "unusualfishmod:raw_snowflake",
 }
 # Quest texts (en_us of kubejs/assets/ftbquestlocalizer/lang) that describe replaced content. The other languages

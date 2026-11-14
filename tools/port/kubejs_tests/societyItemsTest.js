@@ -24,7 +24,8 @@ ServerEvents.loaded((event) => {
     ["society:galaxy_sword", "society:dragontooth_axe", "society:princess_hairbrush", "society:meowmageddon"].forEach((id) => {
       check(Item.exists(id), `${id} is not registered`);
       let stack = Item.of(id);
-      check(Number(stack.getMaxDamage()) === 1000, `${id} has ${stack.getMaxDamage()} uses`);
+      // The prismatic tier has 1000 uses; registration/modifyItems.js triples the durability of every item.
+      check(Number(stack.getMaxDamage()) === 3000, `${id} has ${stack.getMaxDamage()} uses`);
       check(stack.getItem().isValidRepairItem(stack, Item.of("society:prismatic_shard")), `${id} is not repaired with a prismatic shard`);
     });
 

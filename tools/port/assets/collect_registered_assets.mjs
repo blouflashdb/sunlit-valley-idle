@@ -102,7 +102,7 @@ const context = {
 context.global.global = context.global;
 // Other KubeJS globals the startup scripts use; extend the list when a script fails with a ReferenceError.
 for (const name of ["Text", "NBT", "Platform", "Utils", "JsonIO", "Ingredient", "Component", "Client", "Blocks",
-  "Items", "BlockProperties", "SoundType", "Direction", "MapColor", "NativeEvents"]) {
+  "Items", "BlockProperties", "SoundType", "Direction", "MapColor", "NativeEvents", "EntityJSEvents", "ItemEvents"]) {
   if (!(name in context)) context[name] = anything;
 }
 const sandbox = vm.createContext(context);
