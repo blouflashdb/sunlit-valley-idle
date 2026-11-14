@@ -204,7 +204,8 @@ DROPPED = {
     },
     "vintagedelight/advancement/main/root.json": "Vintage Delight (KubeJS rebuild) has no advancements to disable",
     "vintagedelight/loot_table/blocks/cucumber_crop.json":
-        "the KubeJS rebuild's crop block is vintagedelight:cucumber (age 0-5) with its own drops",
+        "the KubeJS rebuild's crop block is vintagedelight:cucumber (age 0-5) with its own drops; the rare "
+        "brine_and_punishment drop is a LootJS modifier in server_scripts/loot/farmingLoot.js",
     "vintagedelight/loot_table/blocks/ghost_pepper_crop.json":
         "the KubeJS rebuild's crop block is vintagedelight:ghost_pepper (age 0-5) with its own drops",
     "vintagedelight/loot_table/blocks/peanut_crop.json": "the KubeJS rebuild has no peanut crop block to disable",
