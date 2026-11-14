@@ -31,6 +31,7 @@ public final class ClientSetup {
         bus.addListener(ClientSetup::onScreens);
         bus.addListener(ClientSetup::onItemColors);
         NeoForge.EVENT_BUS.addListener(ClientSetup::onClientTick);
+        TitleScreenButtonIds.init();
     }
 
     private static void onClientSetup(FMLClientSetupEvent event) {

@@ -19,7 +19,11 @@ HUD). Checks:
 - logs/latest.log must have no errors from the renderer (Iris, Sodium), FancyMenu / Drippy Loading Screen or
   resource pack loading (same allowlist). Other client errors are listed but do not fail the test.
 
-Needs Java 21, Xvfb, ImageMagick (import), Mesa and portablemc (pip install portablemc==4.4.1).
+After the title screen screenshot, the game window is resized with xdotool and the title screen is captured
+again at each size in TITLE_SIZES (each size gives another automatic GUI scale), so layout problems that only
+show at one scale are visible in the artifact.
+
+Needs Java 21, Xvfb, ImageMagick (import), xdotool, Mesa and portablemc (pip install portablemc==4.4.1).
 
 Usage (from the repository root):
     python3 tools/port/client_boot_test.py --dir build/client --extra-mod mod/build/libs/sunlitidle-1.0.0.jar
@@ -122,6 +126,33 @@ def stop_process_group(proc):
             proc.wait()
 
 
+# Window sizes for the extra title screen screenshots; the automatic GUI scale is 3 and 2.
+TITLE_SIZES = ((1280, 720), (854, 480))
+
+
+def game_window():
+    """The X window id of the game (the only visible top-level window without a window manager)."""
+    out = subprocess.run(["xdotool", "search", "--onlyvisible", "--name", "."], env=dict(os.environ, DISPLAY=DISPLAY),
+                         capture_output=True, text=True, check=False).stdout.split()
+    return out[-1] if out else None
+
+
+def title_screen_sizes(root):
+    """Resizes the game window to each of TITLE_SIZES and captures the window."""
+    window = game_window()
+    if not window:
+        print("No game window found for the resized title screen screenshots", flush=True)
+        return
+    for width, height in TITLE_SIZES:
+        subprocess.run(["xdotool", "windowmove", window, "0", "0", "windowsize", window, str(width), str(height)],
+                       env=dict(os.environ, DISPLAY=DISPLAY), check=False)
+        time.sleep(15)
+        path = root / f"title-screen-{width}x{height}.png"
+        subprocess.run(["import", "-display", DISPLAY, "-window", window, str(path)], check=False)
+        if path.exists() and path.stat().st_size > 0:
+            print(f"Screenshot: {path}", flush=True)
+
+
 def screenshot(path):
     subprocess.run(["import", "-display", DISPLAY, "-window", "root", str(path)], check=False)
     return path.exists() and path.stat().st_size > 0
@@ -171,6 +202,7 @@ def title_screen(root, main_dir, game, neoforge, timeout, problems):
                 return copy_log(game), False
             if screenshot(root / "title-screen.png"):
                 print(f"Screenshot: {root / 'title-screen.png'}", flush=True)
+            title_screen_sizes(root)
         finally:
             stop_process_group(client)
     return copy_log(game), True
