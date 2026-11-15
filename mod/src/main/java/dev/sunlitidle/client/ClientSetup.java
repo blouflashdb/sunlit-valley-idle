@@ -3,6 +3,7 @@ package dev.sunlitidle.client;
 import com.mojang.blaze3d.platform.InputConstants;
 import dev.sunlitidle.ModRegistry;
 import dev.sunlitidle.SunlitIdle;
+import dev.sunlitidle.compat.selectivebounds.OutlineSettings;
 import dev.sunlitidle.idle.RecipeActions;
 import dev.sunlitidle.network.IdleActionPacket;
 import dev.sunlitidle.network.IdleNetwork;
@@ -56,10 +57,12 @@ public final class ClientSetup {
         }
         NeoForge.EVENT_BUS.addListener(ClientSetup::onClientTick);
         TitleScreenButtonIds.init();
+        PauseMenuButton.init();
     }
 
     private static void onClientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
+            OutlineSettings.registerConfigScreen(OutlineSettingsScreen::new);
             RecipeActions.clientRecipes = () -> {
                 Minecraft mc = Minecraft.getInstance();
                 return mc.level != null ? mc.level.getRecipeManager() : null;

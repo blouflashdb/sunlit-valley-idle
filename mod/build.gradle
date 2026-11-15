@@ -59,6 +59,9 @@ dependencies {
     compileOnly "curse.maven:puffish-skills-835091:9101377"
     // Jade 15.10.6 for 1.21.1 NeoForge, the version the pack ships; optional at runtime (block tooltips).
     compileOnly "curse.maven:jade-324717:8591319"
+    // Selective Bounds 0.0.5 for 1.21.1 NeoForge, the version the pack ships; optional at runtime (block outline
+    // settings screen).
+    compileOnly "curse.maven:selectivebounds-1179699:9292278"
 
     testImplementation platform('org.junit:junit-bom:5.10.2')
     testImplementation 'org.junit.jupiter:junit-jupiter'
