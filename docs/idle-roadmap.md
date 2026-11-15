@@ -1,6 +1,6 @@
 # Idle mod roadmap: from add-on to main mod of the pack
 
-Status: proposal, nothing here is implemented. Based on the code of `mod/` and the pack at commit `2f48a0d5`.
+Status: plan with the owner's decisions, nothing here is implemented. Based on the code of `mod/` and the pack at commit `2f48a0d5`.
 Tracked in epic #87; every item below has its own issue.
 [idle-skills.md](idle-skills.md) describes what exists today.
 
@@ -57,7 +57,7 @@ tested by CI and not by a playthrough.
 | Item | What | Check | Size |
 |---|---|---|---|
 | B1 (#89) | **Tool reserve** (F1): when a tool breaks, the slot takes the best matching tool from storage. Same for the companion's weapon and armor. New status "last tool". | GameTest: two pickaxes, the action continues after the first breaks. | S |
-| B2 (#90) | **Wear targets** (F1): wear by seconds worked instead of per completion, with an interval per tool kind in the config, so the lifetime does not depend on the action speed. Targets: iron about 2 h, diamond about 8 h, netherite with Unbreaking III at least 24 h, a plain rod or brush about 2 h. A tree perk "tool care" lowers wear further. | Unit test on the lifetime of each reference tool; balance table (E1) lists durability per hour. | S |
+| B2 (#90) | **Wear targets** (F1): wear by seconds worked instead of per completion, with an interval per tool kind in the config, so the lifetime does not depend on the action speed. Targets for one tool: wood and stone at least 1 h, iron about 2 h, diamond about 8 h, netherite with Unbreaking III at least 24 h, a plain rod, brush or shears about 2 h. A tree perk "tool care" lowers wear further. | Pack check `idle_tool_wear` in the full pack (wear is only tested without the pack today); unit test on the lifetime of each reference tool; balance table (E1) lists durability per hour. | S |
 | B3 (#91) | **Sell rules** (F3): per storage entry "keep N, sell the rest" and a lock (never sell). The rules run once per morning through the same `IdleSellEvent`, so the shipping bin rules stay the only price logic. | GameTest with a test price handler; pack check in the simulated year: coins arrive every morning. | M |
 | B4 (#92) | **Fallback actions**: each slot holds up to three actions in order. A blocked action (no input, out of season, no tool) gives way to the next. | GameTest: Farming out of season falls back to Foraging and returns in season. | M |
 | B5 (#97) | **Offline report**: a screen on login with one row per slot: completions, items, XP, coins from sell rules, and why the slot stopped. Replaces the chat line. | GameTest on the report data; client-boot screenshot. | M |
@@ -106,14 +106,16 @@ tested by CI and not by a playthrough.
 7. C3, C4, then E2 to E6 for goal 4.
 8. C7 last. Nothing above depends on it; C1 follows the `RecipeActions` pattern.
 
-## Decisions for the owner
+## Decisions
 
-| # | Question | Recommendation |
+Decided by the owner on 2026-11-15.
+
+| # | Question | Decision |
 |---|---|---|
-| Q1 | May artisan machines run idle? The README says "Crafting stays hands-on". | Yes, with station slots (C1): the machine is still crafted by hand. Without this the idle mod cannot be the main way to earn. |
-| Q2 | Is tool wear a wanted crafting sink? | Keep the wear, add the reserve (B1) and tune to the targets of B2. |
-| Q3 | Should sell rules pay at once or in the morning? | In the morning, like the shipping bin (B3). The manual "Sell all" can stay instant. |
-| Q4 | Should the mod be split into an idle mod and a pack glue mod (farm, slimes, Jade, CI harness)? | Not now. Keep one jar and keep the packages apart. Split only if the idle mod is to be released on its own; C7 is the precondition. |
+| Q1 | May artisan machines run idle? The README says "Crafting stays hands-on". | Yes. With station slots (C1), so the machine is still crafted by hand. |
+| Q2 | Is tool wear a wanted crafting sink? | Yes, wear stays. But a running loop must not need a manual action every 20 to 30 minutes: the tool reserve (B1) plus longer, predictable lifetimes (B2). |
+| Q3 | Should sell rules pay at once or in the morning? | In the morning, like the shipping bin (B3). The manual "Sell all" stays instant. |
+| Q4 | Should the mod be split into an idle mod and a pack glue mod (farm, slimes, Jade, CI harness)? | Not now. One jar, with the packages kept apart. |
 
 ## Not in this plan
 
