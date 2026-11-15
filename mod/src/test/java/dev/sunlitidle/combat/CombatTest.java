@@ -40,8 +40,6 @@ class CombatTest {
         assertTrue(kills > 30 && kills < 37, "kills: " + kills);
         double minutes = kills * killSeconds / 60.0;
         assertTrue(minutes > 2.5 && minutes < 3.0, "minutes: " + minutes);
-        // A wooden sword (59 durability, 1 per kill) lasts about five minutes.
-        assertEquals(4.8, 59 * killSeconds / 60.0, 0.1);
     }
 
     @Test

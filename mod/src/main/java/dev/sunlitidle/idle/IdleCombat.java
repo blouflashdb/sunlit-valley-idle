@@ -6,7 +6,6 @@ import dev.sunlitidle.combat.DungeonTier;
 import dev.sunlitidle.combat.Gear;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -18,7 +17,6 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.ItemStackHandler;
 
 /**
  * The Adventuring companion: combat math from {@link Combat}, with stats from the gear and the Adventuring
@@ -111,10 +109,6 @@ public final class IdleCombat {
             double foodCost = Combat.foodCost(loadout, enemy, Math.min(damage, loadout.maxHealth()));
             ensureFood(state, foodCost);
             state.setFoodBuffer(Math.max(0.0, state.foodBuffer() - foodCost));
-            damage(player.serverLevel(), state.tools(), skill.index());
-            for (int i = 0; i < hits; i++) {
-                damage(player.serverLevel(), state.armor(), random.nextInt(state.armor().getSlots()));
-            }
             if (lost) {
                 state.setSlotProgress(slot, -Config.RETREAT_SECONDS.get());
                 state.setSlotStatus(slot, SlotStatus.RESTING);
@@ -137,10 +131,6 @@ public final class IdleCombat {
             }
             xpBySkill[skill.index()] += xpPerKill(enemy);
         }
-    }
-
-    private static void damage(ServerLevel level, ItemStackHandler handler, int slot) {
-        handler.setStackInSlot(slot, IdleEngine.wear(level, handler.getStackInSlot(slot)));
     }
 
     /** Eats from the food slots until the buffer holds {@code needed}; slots refill from storage. */

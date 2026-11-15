@@ -111,9 +111,6 @@ public final class IdleEngine {
             completions++;
             items += complete(player, state, skill, action, hasTool ? tool : ItemStack.EMPTY, level);
             xpBySkill[skill.index()] += action.xp();
-            if (hasTool) {
-                damageTool(player, state, skill, tool);
-            }
         }
     }
 
@@ -160,24 +157,6 @@ public final class IdleEngine {
             state.take(input.item(), input.count());
         }
         return true;
-    }
-
-    private static void damageTool(ServerPlayer player, PlayerIdleState state, IdleSkill skill, ItemStack tool) {
-        if (tool.isDamageableItem()) {
-            state.tools().setStackInSlot(skill.index(), wear(player.serverLevel(), tool));
-        }
-    }
-
-    /** A copy of the stack with one point of wear (Unbreaking applies), or EMPTY when it broke. */
-    static ItemStack wear(ServerLevel level, ItemStack stack) {
-        if (stack.isEmpty() || !stack.isDamageableItem()) {
-            return stack;
-        }
-        ItemStack copy = stack.copy();
-        // No player, so creative mode does not stop the wear, like the idle tools on 1.20.1.
-        copy.hurtAndBreak(1, level, null, item -> {
-        });
-        return copy.isEmpty() ? ItemStack.EMPTY : copy;
     }
 
     private static long complete(ServerPlayer player, PlayerIdleState state, IdleSkill skill, IdleAction action,

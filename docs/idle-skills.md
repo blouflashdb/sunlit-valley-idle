@@ -14,7 +14,7 @@ the same skills.
   player's tool, so Fortune, Silk Touch, pack loot changes (geodes from ores, seasonal fish, quality food)
   and progression stages all apply.
 - **Crafting is the only non-idle part.** Better tools are crafted by hand and placed into the skill's tool
-  slot. Tools gate tiers (an iron pickaxe for diamonds), make actions faster and wear out.
+  slot. Tools gate tiers (an iron pickaxe for diamonds) and make actions faster. They never wear out.
 - **Available from second one.** No block to craft, no unlock. A new world can start foraging right away.
 
 ## Skills
@@ -70,7 +70,7 @@ artifact.
 The Adventuring tab shows four armor slots and four food slots; the weapon is the tab's tool slot. The fight
 math lives in `dev.sunlitidle.combat`: the companion's damage, speed, armor and health come from the gear plus the
 Adventuring level (+0.5 damage, +3% speed, +0.5 armor and +2 health per level). Each kill eats food (food
-slots refill from storage with the same item), wears the weapon and armor and rolls the tier's loot table.
+slots refill from storage with the same item) and rolls the tier's loot table. Weapon and armor never wear out.
 A lost fight sends the companion to rest. The tooltip of a tier shows power, kill time, food per kill and
 whether the companion wins.
 
@@ -100,7 +100,10 @@ toolSpeed = 1 + 0.25 * toolTier + 0.05 * efficiency     (0.5 without a tool, for
 extraRollChance = 0.03 * level + skillYieldAttribute     (above 100% means one guaranteed extra roll)
 ```
 
-Each completion uses 1 tool durability (Unbreaking applies). A broken tool stops the action.
+Tools and the companion's gear never lose durability in the idle window, so a tool is a one-time upgrade. The
+pack has no wear from use either: Iron's RPG Tweaks turns it off for everything outside a short whitelist
+(`defaultconfigs/irons_rpg_tweaks-server.toml`, section `Durability-Module`), and gear only loses durability when
+the player dies.
 
 `skillSpeedAttribute` and `skillYieldAttribute` are player attributes (`sunlitidle:<skill>_speed`,
 `sunlitidle:<skill>_yield`) that skill tree perks raise. The two new trees use them; the society trees can
@@ -136,4 +139,5 @@ Out of season the slot waits. Crops without a season tag grow all year.
 
 ## Open points for later
 
-- Idle perks for the society skill trees.
+The roadmap is the epic https://github.com/blouflashdb/sunlit-valley-idle/issues/87; its sub-issues hold the
+planned work, for example the idle perks for the society skill trees.

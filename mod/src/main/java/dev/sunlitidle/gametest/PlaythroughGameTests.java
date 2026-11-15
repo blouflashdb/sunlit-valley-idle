@@ -21,7 +21,7 @@ import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 
 /**
  * Checks for the playthrough checklist of #19 (docs/port/playthrough-checklist.md): the companion clears every
- * dungeon tier with good gear and food, and idle skills catch up on offline time.
+ * dungeon tier with good gear and food without wearing the gear, and idle skills catch up on offline time.
  */
 @GameTestHolder(SunlitIdle.MOD_ID)
 @PrefixGameTestTemplate(false)
@@ -66,6 +66,12 @@ public final class PlaythroughGameTests {
             }
             helper.assertTrue(loot > 0, tier.id() + ": no loot in 10 min");
             helper.assertTrue(state.food().getStackInSlot(0).getCount() < 64, tier.id() + ": companion did not eat");
+            helper.assertTrue(state.tools().getStackInSlot(adventuring.index()).getDamageValue() == 0,
+                    tier.id() + ": weapon lost durability");
+            for (int slot = 0; slot < PlayerIdleState.ARMOR_SLOTS; slot++) {
+                helper.assertTrue(state.armor().getStackInSlot(slot).getDamageValue() == 0,
+                        tier.id() + ": armor lost durability");
+            }
         }
         helper.succeed();
     }
