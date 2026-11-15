@@ -139,4 +139,5 @@ Out of season the slot waits. Crops without a season tag grow all year.
 
 ## Open points for later
 
-- Idle perks for the society skill trees.
+The roadmap is the epic https://github.com/blouflashdb/sunlit-valley-idle/issues/87; its sub-issues hold the
+planned work, for example the idle perks for the society skill trees.
