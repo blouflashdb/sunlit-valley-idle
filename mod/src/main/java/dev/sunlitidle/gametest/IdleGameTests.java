@@ -67,7 +67,7 @@ public final class IdleGameTests {
     }
 
     @GameTest(template = "empty")
-    public static void miningNeedsAPickaxeAndWearsItDown(GameTestHelper helper) {
+    public static void miningNeedsAPickaxeAndDoesNotWearIt(GameTestHelper helper) {
         ServerPlayer player = player(helper);
         PlayerIdleState state = new PlayerIdleState();
         state.setSlotAction(0, "mining/coal");
@@ -78,7 +78,7 @@ public final class IdleGameTests {
         IdleEngine.advance(player, state, 40.0);
         helper.assertTrue(state.countOf(ResourceLocation.withDefaultNamespace("coal")) > 0, "no coal");
         ItemStack pick = state.tools().getStackInSlot(mining);
-        helper.assertTrue(pick.isEmpty() || pick.getDamageValue() > 0, "pickaxe did not wear down");
+        helper.assertTrue(!pick.isEmpty() && pick.getDamageValue() == 0, "pickaxe lost durability");
         helper.succeed();
     }
 

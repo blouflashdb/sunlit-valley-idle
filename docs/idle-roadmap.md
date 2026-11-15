@@ -18,12 +18,12 @@ Today the mod passes none of the four completely. The findings below say why.
 
 ## Findings
 
-Found by reading the code and the pack data. The durability numbers are calculated from the formulas, not measured
-in game. The index race (F2) is not reproduced in game.
+Found by reading the code and the pack data. The index race (F2) is not reproduced in game. F1 was first
+calculated from the code and was wrong for the pack; the owner's report from the game corrected it.
 
 | # | Finding | Evidence | Effect |
 |---|---|---|---|
-| F1 | Tools break long before the offline window ends. Each completion uses 1 durability and nothing replaces a broken tool. | `IdleEngine.damageTool`, `toolProblem`. With the pack's 3x durability: fishing rod and brush 192 uses = about 32 min at level 0 (14 min for a rod at level 12); iron pickaxe 750 uses = 20 to 30 min; diamond pickaxe 80 min on stone, 8 h on ancient debris. | Mining, Fishing, Archaeology and Adventuring stop with `NO_TOOL`; the other tool skills drop to half speed. Only netherite with Unbreaking III reaches 24 h, and only on the slowest actions (about 6 h on stone). |
+| F1 | Tool wear never ran in the pack. The mod wore tools with `ItemStack.hurtAndBreak`; Iron's RPG Tweaks cancels that call for everything outside a short whitelist, so tools in the idle window never lost durability. Without the pack the same code broke an iron pickaxe in 20 to 30 minutes. | `ItemStackMixin` in `irons_rpg_tweaks-2.2.3.jar`, `defaultconfigs/irons_rpg_tweaks-server.toml` (section `Durability-Module`); seen by the owner in game. | Resolved: the owner decided against wear (Q2) and the wear code is removed. Tools are one-time upgrades. |
 | F2 | Withdraw and sell address storage by list index. | `IdleActionPacket` (`WITHDRAW`, `SELL`), `IdleService.withdraw` / `sell`. Entries are removed at count 0, which shifts the indices; the client list is up to 1 s old. | A ctrl-click can sell a different entry than the one shown. |
 | F3 | Selling is manual. | `IdleScreen` "Sell all" button; no rule runs on its own. | The README goal "trading becomes automatable" is not met; an AFK player earns nothing. |
 | F4 | The pack's main money loop has no idle form. | 19 artisan machines in `kubejs/startup_scripts/globalArtisanMachineDefinitions.js` (kegs, casks, preserves jar, dehydrator, cheese press, ...); the mod only processes furnace recipes (`RecipeActions`). | Idle play sells raw goods. Manual play with machines stays the better way to earn, so the idle mod is not the main way to play. |
@@ -56,8 +56,6 @@ tested by CI and not by a playthrough.
 
 | Item | What | Check | Size |
 |---|---|---|---|
-| B1 (#89) | **Tool reserve** (F1): when a tool breaks, the slot takes the best matching tool from storage. Same for the companion's weapon and armor. New status "last tool". | GameTest: two pickaxes, the action continues after the first breaks. | S |
-| B2 (#90) | **Wear targets** (F1): wear by seconds worked instead of per completion, with an interval per tool kind in the config, so the lifetime does not depend on the action speed. Targets for one tool: wood and stone at least 1 h, iron about 2 h, diamond about 8 h, netherite with Unbreaking III at least 24 h, a plain rod, brush or shears about 2 h. A tree perk "tool care" lowers wear further. | Pack check `idle_tool_wear` in the full pack (wear is only tested without the pack today); unit test on the lifetime of each reference tool; balance table (E1) lists durability per hour. | S |
 | B3 (#91) | **Sell rules** (F3): per storage entry "keep N, sell the rest" and a lock (never sell). The rules run once per morning through the same `IdleSellEvent`, so the shipping bin rules stay the only price logic. | GameTest with a test price handler; pack check in the simulated year: coins arrive every morning. | M |
 | B4 (#92) | **Fallback actions**: each slot holds up to three actions in order. A blocked action (no input, out of season, no tool) gives way to the next. | GameTest: Farming out of season falls back to Foraging and returns in season. | M |
 | B5 (#97) | **Offline report**: a screen on login with one row per slot: completions, items, XP, coins from sell rules, and why the slot stopped. Replaces the chat line. | GameTest on the report data; client-boot screenshot. | M |
@@ -88,8 +86,8 @@ tested by CI and not by a playthrough.
 
 | Item | What | Check | Size |
 |---|---|---|---|
-| E1 (#99) | **Balance table** (F12): a command of the CI harness (`dev.sunlitidle.ci`) runs every action for one simulated hour in the full pack and prices the result through `IdleSellEvent`, so loot tables and prices are the real ones. It writes XP, items and coins per hour, durability and food per hour. CI prints the table in the job summary and gates on bounds (for example: no action earns far more than the best one of the level below). | The `server-boot` job itself. | M |
-| E2 (#110) | **Action mastery** (F6): every action counts its completions; mastery levels give yield, less input use and less wear for that action. | Unit test on the curve; GameTest on save and load. | M |
+| E1 (#99) | **Balance table** (F12): a command of the CI harness (`dev.sunlitidle.ci`) runs every action for one simulated hour in the full pack and prices the result through `IdleSellEvent`, so loot tables and prices are the real ones. It writes XP, items and coins per hour, and food per hour for the companion. CI prints the table in the job summary and gates on bounds (for example: no action earns far more than the best one of the level below). | The `server-boot` job itself. | M |
+| E2 (#110) | **Action mastery** (F6): every action counts its completions; mastery levels give more yield and less input use for that action. | Unit test on the curve; GameTest on save and load. | M |
 | E3 (#111) | **Upgrades for coins** (F6): the pack's shops sell idle upgrades: a sixth slot, a longer offline window, more station slots, more food slots. This is the coin sink that closes the loop idle, coins, upgrade, idle. | KubeJS test: buying the item raises the cap. | M |
 | E4 (#112) | **Endless depths** (F6, F8): after T5 a depth counter with scaling enemies and loot, so gear always has a next target. The companion moves down and up on its own. Tiers move from the enum to data as far as this needs it. | `CombatTest` on the scaling; GameTest on depth progress. | M |
 | E5 (#113) | **Mastery link**: levels of `society:mastery` give a small global idle bonus. | Pack check. | S |
@@ -98,7 +96,7 @@ tested by CI and not by a playthrough.
 ## Order
 
 1. A1 now, as a bug fix on its own.
-2. Phase B with A2, A4, A5 and D4. After this the mod keeps its own promise (goal 2).
+2. Phase B (B3 to B6) with A2, A4, A5 and D4. After this the mod keeps its own promise (goal 2).
 3. C5 and D1. Cheap, and they make the mod visible (goal 1).
 4. E1, before any tuning of numbers.
 5. C1 and C2. The largest step towards goal 3.
@@ -113,7 +111,7 @@ Decided by the owner on 2026-11-15.
 | # | Question | Decision |
 |---|---|---|
 | Q1 | May artisan machines run idle? The README says "Crafting stays hands-on". | Yes. With station slots (C1), so the machine is still crafted by hand. |
-| Q2 | Is tool wear a wanted crafting sink? | Yes, wear stays. But a running loop must not need a manual action every 20 to 30 minutes: the tool reserve (B1) plus longer, predictable lifetimes (B2). |
+| Q2 | Is tool wear a wanted crafting sink? | No. Tools and the companion's gear never lose durability in the idle window, like tools used by hand in the pack. The wear code is removed; the tool reserve (B1, #89) and the wear targets (B2, #90) are dropped. |
 | Q3 | Should sell rules pay at once or in the morning? | In the morning, like the shipping bin (B3). The manual "Sell all" stays instant. |
 | Q4 | Should the mod be split into an idle mod and a pack glue mod (farm, slimes, Jade, CI harness)? | Not now. One jar, with the packages kept apart. |
 
