@@ -1,6 +1,7 @@
 # Idle mod roadmap: from add-on to main mod of the pack
 
 Status: proposal, nothing here is implemented. Based on the code of `mod/` and the pack at commit `2f48a0d5`.
+Tracked in epic #87; every item below has its own issue.
 [idle-skills.md](idle-skills.md) describes what exists today.
 
 ## Goal
@@ -45,65 +46,64 @@ tested by CI and not by a playthrough.
 
 | Item | What | Check | Size |
 |---|---|---|---|
-| A1 | Address storage by item, not by index (F2): the packet carries the item with its components; the server looks the entry up. | GameTest: remove an entry, then sell with a stale request; the right entry is sold or nothing. | S |
-| A2 | Storage as an insertion-ordered map keyed by item and components; `countOf` by item id from a second index (F10). | Unit test with 10 000 stores; save format test (`stateSurvivesSaving`) still passes with old saves. | S |
-| A3 | Sync only what changed: slots every second, storage as deltas (F10). | GameTest counts the bytes of a sync with a 500-entry storage. | M |
-| A4 | Catch-up with a time budget per tick instead of a fixed count, spread over all 20 ticks (F10). | Pack check `offline_progress` plus a new gate on the longest tick during catch-up. | S |
-| A5 | Clear the static caches on server stop and on recipe reload (F13). | GameTest: reload, changed recipe is visible. | S |
-| A6 | Split the engine from `ServerPlayer`: a small interface for loot rolls, skill levels and attributes. The engine then runs in unit tests and in the balance simulator (E1). | Existing GameTests pass unchanged; one engine unit test without a game. | M |
+| A1 (#88) | Address storage by item, not by index (F2): the packet carries the item with its components; the server looks the entry up. | GameTest: remove an entry, then sell with a stale request; the right entry is sold or nothing. | S |
+| A2 (#93) | Storage as an insertion-ordered map keyed by item and components; `countOf` by item id from a second index (F10). | Unit test with 10 000 stores; save format test (`stateSurvivesSaving`) still passes with old saves. | S |
+| A3 (#102) | Sync only what changed: slots every second, storage as deltas (F10). | GameTest counts the bytes of a sync with a 500-entry storage. | M |
+| A4 (#94) | Catch-up with a time budget per tick instead of a fixed count, spread over all 20 ticks (F10). | Pack check `offline_progress` plus a new gate on the longest tick during catch-up. | S |
+| A5 (#95) | Clear the static caches on server stop and on recipe reload (F13). | GameTest: reload, changed recipe is visible. | S |
 
 ### Phase B: Close the AFK loop
 
 | Item | What | Check | Size |
 |---|---|---|---|
-| B1 | **Tool reserve** (F1): when a tool breaks, the slot takes the best matching tool from storage. Same for the companion's weapon and armor. New status "last tool". | GameTest: two pickaxes, the action continues after the first breaks. | S |
-| B2 | **Wear targets** (F1): a config factor for wear per completion, tuned so that iron lasts about 2 h, diamond about 8 h and netherite with Unbreaking III the full 24 h. A tree perk "tool care" lowers wear further. | Unit test on the formula; simulator table (E1) lists hours per tool and action. | S |
-| B3 | **Sell rules** (F3): per storage entry "keep N, sell the rest" and a lock (never sell). The rules run once per morning through the same `IdleSellEvent`, so the shipping bin rules stay the only price logic. | GameTest with a test price handler; pack check in the simulated year: coins arrive every morning. | M |
-| B4 | **Fallback actions**: each slot holds up to three actions in order. A blocked action (no input, out of season, no tool) gives way to the next. | GameTest: Farming out of season falls back to Foraging and returns in season. | M |
-| B5 | **Offline report**: a screen on login with one row per slot: completions, items, XP, coins from sell rules, and why the slot stopped. Replaces the chat line. | GameTest on the report data; client-boot screenshot. | M |
-| B6 | **Alerts**: a toast when a slot stops, and an optional small HUD row with the slot states. | client-boot screenshot with a stopped slot. | S |
+| B1 (#89) | **Tool reserve** (F1): when a tool breaks, the slot takes the best matching tool from storage. Same for the companion's weapon and armor. New status "last tool". | GameTest: two pickaxes, the action continues after the first breaks. | S |
+| B2 (#90) | **Wear targets** (F1): wear by seconds worked instead of per completion, with an interval per tool kind in the config, so the lifetime does not depend on the action speed. Targets: iron about 2 h, diamond about 8 h, netherite with Unbreaking III at least 24 h, a plain rod or brush about 2 h. A tree perk "tool care" lowers wear further. | Unit test on the lifetime of each reference tool; balance table (E1) lists durability per hour. | S |
+| B3 (#91) | **Sell rules** (F3): per storage entry "keep N, sell the rest" and a lock (never sell). The rules run once per morning through the same `IdleSellEvent`, so the shipping bin rules stay the only price logic. | GameTest with a test price handler; pack check in the simulated year: coins arrive every morning. | M |
+| B4 (#92) | **Fallback actions**: each slot holds up to three actions in order. A blocked action (no input, out of season, no tool) gives way to the next. | GameTest: Farming out of season falls back to Foraging and returns in season. | M |
+| B5 (#97) | **Offline report**: a screen on login with one row per slot: completions, items, XP, coins from sell rules, and why the slot stopped. Replaces the chat line. | GameTest on the report data; client-boot screenshot. | M |
+| B6 (#96) | **Alerts**: a toast when a slot stops, and an optional small HUD row with the slot states. | client-boot screenshot with a stopped slot. | S |
 
 ### Phase C: Cover the pack
 
 | Item | What | Check | Size |
 |---|---|---|---|
-| C1 | **Artisan skill** (F4): idle processing with the pack's artisan recipes. KubeJS hands the recipes of `global.artisanMachineDefinitions` to the mod through a register event; the mod builds actions like `RecipeActions` does. The tab has station slots: placing a crafted machine (keg, cask, ...) into a slot unlocks its recipes, so crafting stays the hands-on part. Category `sunlitidle:artisan`. | GameTest per recipe shape; pack check `idle_artisan` for one recipe of every machine. | L |
-| C2 | **Idle Depot block**: exposes the owner's idle storage as an item handler. Hoppers, Create and pipes can insert inputs and extract with a filter. This connects idle play to the pack's automation in both directions. | GameTest with a hopper in and a hopper out; KubeJS test with a Create funnel. | M |
-| C3 | **Idle perks for the society trees** (F7): speed and yield nodes for Mining, Farming, Fishing, Husbandry and Adventuring. The attributes exist already. | Pack check: unlocking the node changes `IdleAttributes.speed`. | S |
-| C4 | **Adventuring uses pack loot** (F8): the dungeon loot tables move to the pack (KubeJS data) and roll Skull Cavern loot, geodes, relics and artifacts. Tiers come from data, not from an enum. | Pack checks `adventuring_t1` to `t5` assert at least one pack item per tier. | M |
-| C5 | **Stats for quests**: vanilla custom stats (`sunlitidle:actions_completed`, per skill, kills per tier, coins sold). FTB Quests already has a stat task (45 quests of the pack use it), so no custom task type is needed. | KubeJS test: a quest with a stat task completes. | S |
-| C6 | **Recipe viewer page**: "Idle source" for every action output: skill, level, tool tier, inputs. | client-boot: the category is registered without errors. | M |
-| C7 | **Actions as data** (F11): actions load from datapacks (`data/<namespace>/sunlitidle/actions/`) and sync to the client; the skill list stays in the jar because attributes register at start. `mod/tools/gen_idle_skills.py` then writes datapack files. | GameTest loads an action from a test datapack; pack check `catalogLoadsAllSkills` on the full pack. | L |
+| C1 (#100) | **Artisan skill** (F4): idle processing with the pack's artisan recipes. KubeJS hands the recipes of `global.artisanMachineDefinitions` to the mod through a register event; the mod builds actions like `RecipeActions` does. The tab has station slots: placing a crafted machine (keg, cask, ...) into a slot unlocks its recipes, so crafting stays the hands-on part. Category `sunlitidle:artisan`. | GameTest per recipe shape; pack check `idle_artisan` for one recipe of every machine. | L |
+| C2 (#101) | **Idle Depot block**: exposes the owner's idle storage as an item handler. Hoppers, Create and pipes can insert inputs and extract with a filter. This connects idle play to the pack's automation in both directions. | GameTest with a hopper in and a hopper out; KubeJS test with a Create funnel. | M |
+| C3 (#103) | **Idle perks for the society trees** (F7): speed and yield nodes for Mining, Farming, Fishing, Husbandry and Adventuring. The attributes exist already. | Pack check: unlocking the node changes `IdleAttributes.speed`. | S |
+| C4 (#104) | **Adventuring uses pack loot** (F8): the pack overrides the dungeon loot tables (KubeJS data) and rolls Skull Cavern loot, geodes, relics and artifacts. The mod keeps its vanilla tables as the default. | Pack checks `adventuring_t1` to `t5` assert at least one pack item per tier. | M |
+| C5 (#98) | **Stats for quests**: vanilla custom stats (`sunlitidle:actions_completed`, per skill, kills per tier, coins sold). FTB Quests already has a stat task (45 quests of the pack use it), so no custom task type is needed. | KubeJS test: a quest with a stat task completes. | S |
+| C6 (#109) | **Recipe viewer page**: "Idle source" for every action output: skill, level, tool tier, inputs. | client-boot: the category is registered without errors. | M |
+| C7 (#115) | **Actions as data** (F11): actions load from datapacks (`data/<namespace>/sunlitidle/actions/`) and sync to the client; the skill list stays in the jar because attributes register at start. `mod/tools/gen_idle_skills.py` then writes datapack files. | GameTest loads an action from a test datapack; pack check `catalogLoadsAllSkills` on the full pack. | L |
 
 ### Phase D: Front door
 
 | Item | What | Check | Size |
 |---|---|---|---|
-| D1 | **Quest chapter "Idle skills"** right after `welcome` (F5): open the window, run the first action, craft a tool, unlock slot 2, set a sell rule, send the companion to T1. Uses the stats of C5. Plus an almanac category and loading tips. | `check_quest_refs.py`, `check_tips.py`, `questsTest.js`. | M |
-| D2 | **Window redesign** (F9): textures in the pack's style; an overview tab with all slots, rates per hour and alerts; a longer action list with locked actions as preview; storage search, sort and filter. | client-boot screenshots of each tab; a scripted click run (assign, withdraw, sell) closes the "no check clicks through screens" gap of the playthrough checklist. | L |
-| D3 | **Entry points**: a button in the inventory screen next to the key, and controller support (the pack ships Controllable). | client-boot screenshot of the inventory. | S |
-| D4 | Complete `de_de.json` and the action names that fall back to item names today. | `SlotPlaceholderTest`-style test: every key of `en_us` exists in `de_de`. | S |
+| D1 (#105) | **Quest chapter "Idle skills"** right after `welcome` (F5): open the window, run the first action, craft a tool, unlock slot 2, set a sell rule, send the companion to T1. Uses the stats of C5. Plus an almanac category and loading tips. | `check_quest_refs.py`, `check_tips.py`, `questsTest.js`. | M |
+| D2 (#106) | **Window redesign** (F9): textures in the pack's style; an overview tab with all slots, rates per hour and alerts; a longer action list with locked actions as preview; storage search, sort and filter. | client-boot screenshots of each tab; a scripted click run (assign, withdraw, sell) closes the "no check clicks through screens" gap of the playthrough checklist. | L |
+| D3 (#107) | **Entry points**: a button in the inventory screen next to the key, and controller support (the pack ships Controllable). | client-boot screenshot of the inventory. | S |
+| D4 (#108) | A test that keeps `de_de.json` in step with `en_us.json`. The German file is complete today (370 keys in both); most items of this plan add keys. | The unit test itself: same keys and same placeholders in both files. | S |
 
 ### Phase E: Depth and balance
 
 | Item | What | Check | Size |
 |---|---|---|---|
-| E1 | **Balance simulator** (F12): runs the engine (A6) for N hours per action and writes a table: XP, items and coins per hour, tool hours, food per hour. KubeJS exports the price table once. CI prints the table in the job summary and gates on bounds (for example: no action earns more than twice the next one of the same level). | The CI job itself. | M |
-| E2 | **Action mastery** (F6): every action counts its completions; mastery levels give yield, less input use and less wear for that action. | Unit test on the curve; GameTest on save and load. | M |
-| E3 | **Upgrades for coins** (F6): the pack's shops sell idle upgrades: a sixth slot, a longer offline window, more station slots, more food slots. This is the coin sink that closes the loop idle, coins, upgrade, idle. | KubeJS test: buying the item raises the cap. | M |
-| E4 | **Endless tier** (F6, F8): after T5 a depth counter with scaling enemies and loot, so gear always has a next target. | `CombatTest` on the scaling; GameTest on depth progress. | M |
-| E5 | **Mastery link**: levels of `society:mastery` give a small global idle bonus. | Pack check. | S |
-| E6 | **Collection log**: first-time items per skill, shown in the window and used by the `perfection` chapter. | GameTest. | M |
+| E1 (#99) | **Balance table** (F12): a command of the CI harness (`dev.sunlitidle.ci`) runs every action for one simulated hour in the full pack and prices the result through `IdleSellEvent`, so loot tables and prices are the real ones. It writes XP, items and coins per hour, durability and food per hour. CI prints the table in the job summary and gates on bounds (for example: no action earns far more than the best one of the level below). | The `server-boot` job itself. | M |
+| E2 (#110) | **Action mastery** (F6): every action counts its completions; mastery levels give yield, less input use and less wear for that action. | Unit test on the curve; GameTest on save and load. | M |
+| E3 (#111) | **Upgrades for coins** (F6): the pack's shops sell idle upgrades: a sixth slot, a longer offline window, more station slots, more food slots. This is the coin sink that closes the loop idle, coins, upgrade, idle. | KubeJS test: buying the item raises the cap. | M |
+| E4 (#112) | **Endless depths** (F6, F8): after T5 a depth counter with scaling enemies and loot, so gear always has a next target. The companion moves down and up on its own. Tiers move from the enum to data as far as this needs it. | `CombatTest` on the scaling; GameTest on depth progress. | M |
+| E5 (#113) | **Mastery link**: levels of `society:mastery` give a small global idle bonus. | Pack check. | S |
+| E6 (#114) | **Collection log**: first-time items per skill, shown in the window and used by the `perfection` chapter. | GameTest. | M |
 
 ## Order
 
 1. A1 now, as a bug fix on its own.
-2. Phase B with A2 and A4. After this the mod keeps its own promise (goal 2).
-3. D1 and C5. Cheap, and they make the mod visible (goal 1).
-4. A6, then E1, before any tuning of numbers.
+2. Phase B with A2, A4, A5 and D4. After this the mod keeps its own promise (goal 2).
+3. C5 and D1. Cheap, and they make the mod visible (goal 1).
+4. E1, before any tuning of numbers.
 5. C1 and C2. The largest step towards goal 3.
-6. D2, with A3 because the new window needs the delta sync.
-7. C3, C4, then Phase E for goal 4.
+6. A3, then D2, D3 and C6. The new window needs the delta sync.
+7. C3, C4, then E2 to E6 for goal 4.
 8. C7 last. Nothing above depends on it; C1 follows the `RecipeActions` pattern.
 
 ## Decisions for the owner
